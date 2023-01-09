@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+import "webcast/data/Image.proto";
+
+message PublicAreaCommon {
+  Image userLabel = 1;
+  int64 userConsumeInRoom = 2;
+  int64 userSendGiftCntInRoom = 3;
+}

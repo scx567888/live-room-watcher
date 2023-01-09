@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+import "webcast/data/Image.proto";
+import "webcast/data/Text.proto";
+import "webcast/im/PublicAreaCommon.proto";
+import "webcast/data/TextPiece.proto";
+
+//更新时间 : 2023-01-09
+message MemberMessage{
+  Common common = 1;
+  User user = 2;
+  int64 memberCount = 3;
+  User operator = 4;
+  bool isSetToAdmin = 5;
+  bool isTopUser = 6;
+  int64 rankScore = 7;
+  int64 topUserNo = 8;
+  int64 enterType = 9;
+  int64 action = 10;
+  string actionDescription = 11;
+  int64 userId = 12;
+  EffectConfig effectConfig = 13;
+  string popStr = 14;
+  EffectConfig enterEffectConfig = 15;
+  Image backgroundImage = 16;
+  Image backgroundImageV2 = 17;
+  Text anchorDisplayText = 18;
+  PublicAreaCommon publicAreaCommon = 19;
+  int64 userEnterTipType = 20;
+  int64 anchorEnterTipType = 21;
+  map<string, string> buriedPointMap = 22;
+
+  message EffectConfig{
+    int64 type = 1;
+    Image icon = 2;
+    int64 avatarPos = 3;
+    Text text = 4;
+    Image textIcon = 5;
+    int32 stayTime = 6;
+    int64 animAssetId = 7;
+    Image badge = 8;
+    repeated int64 flexSettingArrayList = 9;
+    Image textIconOverlay = 10;
+    Image animatedBadge = 11;
+    bool hasSweepLight = 12;
+    repeated int64 textFlexSettingArrayList = 13;
+    int64 centerAnimAssetId = 14;
+    Image dynamicImage = 15;
+    map<string, string> extraMap = 16;
+    int64 mp4AnimAssetId = 17;
+    int64 priority = 18;
+    int64 maxWaitTime = 19;
+    string dressId = 20;
+    int64 alignment = 21;
+    int64 alignmentOffset = 22;
+    string effectScene = 23;
+    map<string, TextPiece> pieceValuesMap = 24;
+  }
+
+}

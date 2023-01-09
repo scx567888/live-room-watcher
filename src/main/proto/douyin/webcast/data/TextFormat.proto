@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.data";
+
+//根据抖音前台 js 编写
+//更新时间 : 2023-01-05 17:14:42
+message TextFormat{
+  string color = 1;
+  bool bold = 2;
+  bool italic = 3;
+  int32 weight = 4;
+  int32 italicAngle = 5;
+  int32 fontSize = 6;
+  bool useHeighLightColor = 7;
+  bool useRemoteClor = 8;
+}

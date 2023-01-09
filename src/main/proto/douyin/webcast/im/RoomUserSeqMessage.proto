@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+
+message RoomUserSeqMessage {
+  Common common = 1;
+  repeated Contributor ranks = 2;
+  int64 total = 3;
+  string popStr = 4;
+  repeated Contributor seats = 5;
+  int64 popularity = 6;
+  int64 totalUser = 7;
+  string totalUserStr = 8;
+  string totalStr = 9;
+  string onlineUserForAnchor = 10;
+  string totalPvForAnchor = 11;
+
+  message Contributor {
+    int64 score = 1;
+    User user = 2;
+    int64 rank = 3;
+    int64 delta = 4;
+    bool isHidden = 5;
+    string scoreDescription = 6;
+    string exactlyScore = 7;
+  }
+
+}
