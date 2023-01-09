@@ -1,9 +1,11 @@
 package cool.scx.live_room_watcher;
 
+import cool.scx.core.ScxConstant;
 import cool.scx.functional.ScxHandlerA;
 import cool.scx.util.ansi.Ansi;
 import io.vertx.core.Vertx;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -29,24 +31,28 @@ public abstract class LiveRoomWatcher {
     protected ScxHandlerA<Follow> onFollowHandler;
     protected ScxHandlerA<Gift> onGiftHandler;
 
+    public static String nowTimeStr() {
+        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now())+" : ";
+    }
+
     /**
      * <p>Constructor for LiveRoomWatcher.</p>
      */
     public LiveRoomWatcher() {
         this.onChatHandler = chat -> {
-            Ansi.out().brightGreen("[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
+            Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
         };
         this.onUserHandler = user -> {
-            Ansi.out().brightMagenta("[来了] ").defaultColor(user.nickName()).println();
+            Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
         };
         this.onLikeHandler = like -> {
-            Ansi.out().brightYellow("[点赞] ").defaultColor(like.user().nickName()).println();
+            Ansi.out().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName()).println();
         };
         this.onFollowHandler = follow -> {
-            Ansi.out().brightCyan("[关注] ").defaultColor(follow.user().nickName()).println();
+            Ansi.out().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickName()).println();
         };
         this.onGiftHandler = gift -> {
-            Ansi.out().brightBlue("[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name()).println();
+            Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name()).println();
         };
     }
 
