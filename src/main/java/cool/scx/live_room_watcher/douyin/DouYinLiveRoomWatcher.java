@@ -336,19 +336,19 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 var fansclubMessage = FansclubMessage.parseFrom(payload);
             }
             case "WebcastInRoomBannerMessage" -> {
-                System.out.println("WebcastInRoomBannerMessage");
+                //todo
             }
             case "WebcastRoomRankMessage" -> {
-                System.out.println("WebcastRoomRankMessage");
+                //todo
             }
             case "WebcastUpdateFanTicketMessage" -> {
-                System.out.println("WebcastUpdateFanTicketMessage");
+                //todo
             }
             case "WebcastRoomStatsMessage" -> {
                 var roomStats = RoomStats.parseFrom(payload);
             }
             case "WebcastCommerceMessage" -> {
-                System.out.println("WebcastCommerceMessage");
+                //todo
             }
             default -> {
                 System.out.println("DouYin -> 未处理 Message :" + message);
