@@ -481,7 +481,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastScreenChatMessage" -> {//为什么这么多种消息类型 🥺
                 var screenChatMessage = ScreenChatMessage.parseFrom(payload);
-                System.out.println(screenChatMessage);
+                System.out.println("全屏消息? : " + screenChatMessage.getUser().getNickname() + " : " + screenChatMessage.getContent());
             }
             case "WebcastHotChatMessage" -> {
                 var hotChatMessage = HotChatMessage.parseFrom(payload);
