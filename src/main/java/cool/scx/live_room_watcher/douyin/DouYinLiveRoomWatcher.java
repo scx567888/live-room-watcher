@@ -477,6 +477,14 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastHotRoomMessage" -> {//热门直播间 ???
                 var hotRoomMessage = HotRoomMessage.parseFrom(payload);
             }
+            case "WebcastScreenChatMessage" -> {//为什么这么多种消息类型 🥺
+                var screenChatMessage = ScreenChatMessage.parseFrom(payload);
+                System.out.println(screenChatMessage);
+            }
+            case "WebcastHotChatMessage" -> {
+                var hotChatMessage = HotChatMessage.parseFrom(payload);
+                System.out.println(hotChatMessage);
+            }
             default -> {
                 System.err.println("DouYin -> 未处理 Message :" + message);
             }
