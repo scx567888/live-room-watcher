@@ -4,6 +4,10 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
+ * <pre>
+ *更新时间 : 2023-01-11
+ * </pre>
+ *
  * Protobuf enum {@code GameCPUserDownloadMessageEnum}
  */
 public enum GameCPUserDownloadMessageEnum
