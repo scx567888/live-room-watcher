@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public interface LinkerSysKickOutContentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:LinkerSysKickOutContent)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:LinkerSysKickOutContent)
+        com.google.protobuf.MessageOrBuilder {
 }

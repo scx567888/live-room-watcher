@@ -4,46 +4,49 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class LinkerCreateContentOuterClass {
-  private LinkerCreateContentOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LinkerCreateContent_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_LinkerCreateContent_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LinkerCreateContent_fieldAccessorTable;
+            internal_static_LinkerCreateContent_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n$webcast/im/LinkerCreateContent.proto\"\025" +
-      "\n\023LinkerCreateContentB=\n9cool.scx.live_r" +
-      "oom_watcher.douyin.proto_entity.webcast." +
-      "imP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_LinkerCreateContent_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_LinkerCreateContent_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LinkerCreateContent_descriptor,
-        new java.lang.String[] { });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n$webcast/im/LinkerCreateContent.proto\"\025" +
+                        "\n\023LinkerCreateContentB=\n9cool.scx.live_r" +
+                        "oom_watcher.douyin.proto_entity.webcast." +
+                        "imP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_LinkerCreateContent_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_LinkerCreateContent_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_LinkerCreateContent_descriptor,
+                new java.lang.String[]{});
+    }
+    private LinkerCreateContentOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

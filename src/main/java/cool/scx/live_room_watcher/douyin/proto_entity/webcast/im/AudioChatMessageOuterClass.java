@@ -4,58 +4,61 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class AudioChatMessageOuterClass {
-  private AudioChatMessageOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AudioChatMessage_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_AudioChatMessage_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AudioChatMessage_fieldAccessorTable;
+            internal_static_AudioChatMessage_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n!webcast/im/AudioChatMessage.proto\032\027web" +
-      "cast/im/Common.proto\032\027webcast/data/User." +
-      "proto\032!webcast/im/PublicAreaCommon.proto" +
-      "\"\247\001\n\020AudioChatMessage\022\027\n\006common\030\001 \001(\0132\007." +
-      "Common\022\023\n\004user\030\002 \001(\0132\005.User\022\017\n\007content\030\003" +
-      " \001(\t\022\020\n\010audioUrl\030\004 \001(\t\022\025\n\raudioDuration\030" +
-      "\005 \001(\003\022+\n\020publicAreaCommon\030\006 \001(\0132\021.Public" +
-      "AreaCommonB=\n9cool.scx.live_room_watcher" +
-      ".douyin.proto_entity.webcast.imP\001b\006proto" +
-      "3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor(),
-        });
-    internal_static_AudioChatMessage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_AudioChatMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AudioChatMessage_descriptor,
-        new java.lang.String[] { "Common", "User", "Content", "AudioUrl", "AudioDuration", "PublicAreaCommon", });
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor();
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n!webcast/im/AudioChatMessage.proto\032\027web" +
+                        "cast/im/Common.proto\032\027webcast/data/User." +
+                        "proto\032!webcast/im/PublicAreaCommon.proto" +
+                        "\"\247\001\n\020AudioChatMessage\022\027\n\006common\030\001 \001(\0132\007." +
+                        "Common\022\023\n\004user\030\002 \001(\0132\005.User\022\017\n\007content\030\003" +
+                        " \001(\t\022\020\n\010audioUrl\030\004 \001(\t\022\025\n\raudioDuration\030" +
+                        "\005 \001(\003\022+\n\020publicAreaCommon\030\006 \001(\0132\021.Public" +
+                        "AreaCommonB=\n9cool.scx.live_room_watcher" +
+                        ".douyin.proto_entity.webcast.imP\001b\006proto" +
+                        "3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor(),
+                        });
+        internal_static_AudioChatMessage_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_AudioChatMessage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_AudioChatMessage_descriptor,
+                new java.lang.String[]{"Common", "User", "Content", "AudioUrl", "AudioDuration", "PublicAreaCommon",});
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor();
+    }
+    private AudioChatMessageOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

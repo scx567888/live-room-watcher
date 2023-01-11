@@ -4,108 +4,129 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public interface RoomMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:RoomMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:RoomMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-  /**
-   * <code>string content = 2;</code>
-   * @return The content.
-   */
-  java.lang.String getContent();
-  /**
-   * <code>string content = 2;</code>
-   * @return The bytes for content.
-   */
-  com.google.protobuf.ByteString
-      getContentBytes();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
 
-  /**
-   * <code>bool supprotLandscape = 3;</code>
-   * @return The supprotLandscape.
-   */
-  boolean getSupprotLandscape();
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-  /**
-   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-   * @return The enum numeric value on the wire for roommessagetype.
-   */
-  int getRoommessagetypeValue();
-  /**
-   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-   * @return The roommessagetype.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype();
+    /**
+     * <code>string content = 2;</code>
+     *
+     * @return The content.
+     */
+    java.lang.String getContent();
 
-  /**
-   * <code>bool systemTopMsg = 5;</code>
-   * @return The systemTopMsg.
-   */
-  boolean getSystemTopMsg();
+    /**
+     * <code>string content = 2;</code>
+     *
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+    getContentBytes();
 
-  /**
-   * <code>bool forcedGuarantee = 6;</code>
-   * @return The forcedGuarantee.
-   */
-  boolean getForcedGuarantee();
+    /**
+     * <code>bool supprotLandscape = 3;</code>
+     *
+     * @return The supprotLandscape.
+     */
+    boolean getSupprotLandscape();
 
-  /**
-   * <code>string bizScene = 20;</code>
-   * @return The bizScene.
-   */
-  java.lang.String getBizScene();
-  /**
-   * <code>string bizScene = 20;</code>
-   * @return The bytes for bizScene.
-   */
-  com.google.protobuf.ByteString
-      getBizSceneBytes();
+    /**
+     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+     *
+     * @return The enum numeric value on the wire for roommessagetype.
+     */
+    int getRoommessagetypeValue();
 
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  int getBuriedPointMapCount();
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  boolean containsBuriedPointMap(
-      java.lang.String key);
-  /**
-   * Use {@link #getBuriedPointMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
-  getBuriedPointMap();
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  java.util.Map<java.lang.String, java.lang.String>
-  getBuriedPointMapMap();
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
+    /**
+     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+     *
+     * @return The roommessagetype.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype();
 
-  java.lang.String getBuriedPointMapOrDefault(
-      java.lang.String key,
-      java.lang.String defaultValue);
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
+    /**
+     * <code>bool systemTopMsg = 5;</code>
+     *
+     * @return The systemTopMsg.
+     */
+    boolean getSystemTopMsg();
 
-  java.lang.String getBuriedPointMapOrThrow(
-      java.lang.String key);
+    /**
+     * <code>bool forcedGuarantee = 6;</code>
+     *
+     * @return The forcedGuarantee.
+     */
+    boolean getForcedGuarantee();
+
+    /**
+     * <code>string bizScene = 20;</code>
+     *
+     * @return The bizScene.
+     */
+    java.lang.String getBizScene();
+
+    /**
+     * <code>string bizScene = 20;</code>
+     *
+     * @return The bytes for bizScene.
+     */
+    com.google.protobuf.ByteString
+    getBizSceneBytes();
+
+    /**
+     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+     */
+    int getBuriedPointMapCount();
+
+    /**
+     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+     */
+    boolean containsBuriedPointMap(
+            java.lang.String key);
+
+    /**
+     * Use {@link #getBuriedPointMapMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getBuriedPointMap();
+
+    /**
+     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getBuriedPointMapMap();
+
+    /**
+     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+     */
+
+    java.lang.String getBuriedPointMapOrDefault(
+            java.lang.String key,
+            java.lang.String defaultValue);
+
+    /**
+     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+     */
+
+    java.lang.String getBuriedPointMapOrThrow(
+            java.lang.String key);
 }

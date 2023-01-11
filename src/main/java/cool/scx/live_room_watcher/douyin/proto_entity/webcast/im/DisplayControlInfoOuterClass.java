@@ -4,46 +4,49 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class DisplayControlInfoOuterClass {
-  private DisplayControlInfoOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DisplayControlInfo_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_DisplayControlInfo_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_DisplayControlInfo_fieldAccessorTable;
+            internal_static_DisplayControlInfo_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n#webcast/im/DisplayControlInfo.proto\"\024\n" +
-      "\022DisplayControlInfoB=\n9cool.scx.live_roo" +
-      "m_watcher.douyin.proto_entity.webcast.im" +
-      "P\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_DisplayControlInfo_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_DisplayControlInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_DisplayControlInfo_descriptor,
-        new java.lang.String[] { });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n#webcast/im/DisplayControlInfo.proto\"\024\n" +
+                        "\022DisplayControlInfoB=\n9cool.scx.live_roo" +
+                        "m_watcher.douyin.proto_entity.webcast.im" +
+                        "P\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_DisplayControlInfo_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_DisplayControlInfo_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_DisplayControlInfo_descriptor,
+                new java.lang.String[]{});
+    }
+    private DisplayControlInfoOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

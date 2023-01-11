@@ -4,35 +4,39 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class ActionTypeOuterClass {
-  private ActionTypeOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\033webcast/im/ActionType.proto*-\n\nActionT" +
+                        "ype\022\013\n\007DEFAULT\020\000\022\022\n\016REFRESH_BANNER\020\001B=\n9" +
+                        "cool.scx.live_room_watcher.douyin.proto_" +
+                        "entity.webcast.imP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+    }
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\033webcast/im/ActionType.proto*-\n\nActionT" +
-      "ype\022\013\n\007DEFAULT\020\000\022\022\n\016REFRESH_BANNER\020\001B=\n9" +
-      "cool.scx.live_room_watcher.douyin.proto_" +
-      "entity.webcast.imP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-  }
+    private ActionTypeOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

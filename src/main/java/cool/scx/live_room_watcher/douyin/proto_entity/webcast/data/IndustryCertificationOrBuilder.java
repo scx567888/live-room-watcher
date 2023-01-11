@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 public interface IndustryCertificationOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:IndustryCertification)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:IndustryCertification)
+        com.google.protobuf.MessageOrBuilder {
 }

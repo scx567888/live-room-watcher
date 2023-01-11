@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 public interface EffectMixImageInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:EffectMixImageInfo)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:EffectMixImageInfo)
+        com.google.protobuf.MessageOrBuilder {
 }

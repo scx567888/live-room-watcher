@@ -4,39 +4,43 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class PositionTypeOuterClass {
-  private PositionTypeOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\035webcast/im/PositionType.proto*\312\001\n\014Posi" +
+                        "tionType\022\r\n\tUNDEFINED\020\000\022\020\n\014BOTTOM_RIGHT\020" +
+                        "\001\022\r\n\tTOP_RIGHT\020\002\022\014\n\010TOP_LEFT\020\003\022\017\n\013BOTTOM" +
+                        "_LEFT\020\004\022\026\n\022ACTIVITY_TOP_RIGHT\020\005\022\033\n\027ACTIV" +
+                        "ITY_VS_INTERACTIVE\020\006\022\030\n\024ACTIVITY_INTERAC" +
+                        "TIVE\020\007\022\034\n\030ACTIVITY_VS_BOTTOM_RIGHT\020\010B=\n9" +
+                        "cool.scx.live_room_watcher.douyin.proto_" +
+                        "entity.webcast.imP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+    }
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\035webcast/im/PositionType.proto*\312\001\n\014Posi" +
-      "tionType\022\r\n\tUNDEFINED\020\000\022\020\n\014BOTTOM_RIGHT\020" +
-      "\001\022\r\n\tTOP_RIGHT\020\002\022\014\n\010TOP_LEFT\020\003\022\017\n\013BOTTOM" +
-      "_LEFT\020\004\022\026\n\022ACTIVITY_TOP_RIGHT\020\005\022\033\n\027ACTIV" +
-      "ITY_VS_INTERACTIVE\020\006\022\030\n\024ACTIVITY_INTERAC" +
-      "TIVE\020\007\022\034\n\030ACTIVITY_VS_BOTTOM_RIGHT\020\010B=\n9" +
-      "cool.scx.live_room_watcher.douyin.proto_" +
-      "entity.webcast.imP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-  }
+    private PositionTypeOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

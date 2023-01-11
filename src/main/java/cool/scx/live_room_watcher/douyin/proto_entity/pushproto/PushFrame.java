@@ -5,1378 +5,1485 @@ package cool.scx.live_room_watcher.douyin.proto_entity.pushproto;
 
 /**
  * <pre>
- *更新时间 : 2023-01-09
+ * 更新时间 : 2023-01-09
  * </pre>
- *
+ * <p>
  * Protobuf type {@code PushFrame}
  */
 public final class PushFrame extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:PushFrame)
-    PushFrameOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use PushFrame.newBuilder() to construct.
-  private PushFrame(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private PushFrame() {
-    headersList_ = java.util.Collections.emptyList();
-    payloadEncoding_ = "";
-    payloadType_ = "";
-    payload_ = com.google.protobuf.ByteString.EMPTY;
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new PushFrame();
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private PushFrame(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            seqid_ = input.readUInt64();
-            break;
-          }
-          case 16: {
-
-            logid_ = input.readUInt64();
-            break;
-          }
-          case 24: {
-
-            service_ = input.readUInt64();
-            break;
-          }
-          case 32: {
-
-            method_ = input.readUInt64();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              headersList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            headersList_.add(
-                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payloadEncoding_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payloadType_ = s;
-            break;
-          }
-          case 66: {
-
-            payload_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:PushFrame)
+        PushFrameOrBuilder {
+    public static final int SEQID_FIELD_NUMBER = 1;
+    public static final int LOGID_FIELD_NUMBER = 2;
+    public static final int SERVICE_FIELD_NUMBER = 3;
+    public static final int METHOD_FIELD_NUMBER = 4;
+    public static final int HEADERSLIST_FIELD_NUMBER = 5;
+    public static final int PAYLOADENCODING_FIELD_NUMBER = 6;
+    public static final int PAYLOADTYPE_FIELD_NUMBER = 7;
+    public static final int PAYLOAD_FIELD_NUMBER = 8;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:PushFrame)
+    private static final cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<PushFrame>
+            PARSER = new com.google.protobuf.AbstractParser<PushFrame>() {
+        @java.lang.Override
+        public PushFrame parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new PushFrame(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        headersList_ = java.util.Collections.unmodifiableList(headersList_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
-  }
+    };
 
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.class, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder.class);
-  }
+    static {
+        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame();
+    }
 
-  public static final int SEQID_FIELD_NUMBER = 1;
-  private long seqid_;
-  /**
-   * <code>uint64 seqid = 1;</code>
-   * @return The seqid.
-   */
-  @java.lang.Override
-  public long getSeqid() {
-    return seqid_;
-  }
+    private long seqid_;
+    private long logid_;
+    private long service_;
+    private long method_;
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> headersList_;
+    private volatile java.lang.Object payloadEncoding_;
+    private volatile java.lang.Object payloadType_;
+    private com.google.protobuf.ByteString payload_;
+    private byte memoizedIsInitialized = -1;
+    // Use PushFrame.newBuilder() to construct.
+    private PushFrame(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+    }
 
-  public static final int LOGID_FIELD_NUMBER = 2;
-  private long logid_;
-  /**
-   * <code>uint64 logid = 2;</code>
-   * @return The logid.
-   */
-  @java.lang.Override
-  public long getLogid() {
-    return logid_;
-  }
+    private PushFrame() {
+        headersList_ = java.util.Collections.emptyList();
+        payloadEncoding_ = "";
+        payloadType_ = "";
+        payload_ = com.google.protobuf.ByteString.EMPTY;
+    }
 
-  public static final int SERVICE_FIELD_NUMBER = 3;
-  private long service_;
-  /**
-   * <code>uint64 service = 3;</code>
-   * @return The service.
-   */
-  @java.lang.Override
-  public long getService() {
-    return service_;
-  }
+    private PushFrame(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    case 8: {
 
-  public static final int METHOD_FIELD_NUMBER = 4;
-  private long method_;
-  /**
-   * <code>uint64 method = 4;</code>
-   * @return The method.
-   */
-  @java.lang.Override
-  public long getMethod() {
-    return method_;
-  }
+                        seqid_ = input.readUInt64();
+                        break;
+                    }
+                    case 16: {
 
-  public static final int HEADERSLIST_FIELD_NUMBER = 5;
-  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> headersList_;
-  /**
-   * <code>repeated .PushHeader headersList = 5;</code>
-   */
-  @java.lang.Override
-  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> getHeadersListList() {
-    return headersList_;
-  }
-  /**
-   * <code>repeated .PushHeader headersList = 5;</code>
-   */
-  @java.lang.Override
-  public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder> 
-      getHeadersListOrBuilderList() {
-    return headersList_;
-  }
-  /**
-   * <code>repeated .PushHeader headersList = 5;</code>
-   */
-  @java.lang.Override
-  public int getHeadersListCount() {
-    return headersList_.size();
-  }
-  /**
-   * <code>repeated .PushHeader headersList = 5;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader getHeadersList(int index) {
-    return headersList_.get(index);
-  }
-  /**
-   * <code>repeated .PushHeader headersList = 5;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder getHeadersListOrBuilder(
-      int index) {
-    return headersList_.get(index);
-  }
+                        logid_ = input.readUInt64();
+                        break;
+                    }
+                    case 24: {
 
-  public static final int PAYLOADENCODING_FIELD_NUMBER = 6;
-  private volatile java.lang.Object payloadEncoding_;
-  /**
-   * <code>string payloadEncoding = 6;</code>
-   * @return The payloadEncoding.
-   */
-  @java.lang.Override
-  public java.lang.String getPayloadEncoding() {
-    java.lang.Object ref = payloadEncoding_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      payloadEncoding_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string payloadEncoding = 6;</code>
-   * @return The bytes for payloadEncoding.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPayloadEncodingBytes() {
-    java.lang.Object ref = payloadEncoding_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      payloadEncoding_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
+                        service_ = input.readUInt64();
+                        break;
+                    }
+                    case 32: {
 
-  public static final int PAYLOADTYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object payloadType_;
-  /**
-   * <code>string payloadType = 7;</code>
-   * @return The payloadType.
-   */
-  @java.lang.Override
-  public java.lang.String getPayloadType() {
-    java.lang.Object ref = payloadType_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      payloadType_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string payloadType = 7;</code>
-   * @return The bytes for payloadType.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPayloadTypeBytes() {
-    java.lang.Object ref = payloadType_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      payloadType_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
+                        method_ = input.readUInt64();
+                        break;
+                    }
+                    case 42: {
+                        if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                            headersList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader>();
+                            mutable_bitField0_ |= 0x00000001;
+                        }
+                        headersList_.add(
+                                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.parser(), extensionRegistry));
+                        break;
+                    }
+                    case 50: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-  public static final int PAYLOAD_FIELD_NUMBER = 8;
-  private com.google.protobuf.ByteString payload_;
-  /**
-   * <code>bytes payload = 8;</code>
-   * @return The payload.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString getPayload() {
-    return payload_;
-  }
+                        payloadEncoding_ = s;
+                        break;
+                    }
+                    case 58: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-  private byte memoizedIsInitialized = -1;
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
+                        payloadType_ = s;
+                        break;
+                    }
+                    case 66: {
 
-    memoizedIsInitialized = 1;
-    return true;
-  }
+                        payload_ = input.readBytes();
+                        break;
+                    }
+                    default: {
+                        if (!parseUnknownField(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            if (((mutable_bitField0_ & 0x00000001) != 0)) {
+                headersList_ = java.util.Collections.unmodifiableList(headersList_);
+            }
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
+    }
 
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (seqid_ != 0L) {
-      output.writeUInt64(1, seqid_);
-    }
-    if (logid_ != 0L) {
-      output.writeUInt64(2, logid_);
-    }
-    if (service_ != 0L) {
-      output.writeUInt64(3, service_);
-    }
-    if (method_ != 0L) {
-      output.writeUInt64(4, method_);
-    }
-    for (int i = 0; i < headersList_.size(); i++) {
-      output.writeMessage(5, headersList_.get(i));
-    }
-    if (!getPayloadEncodingBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, payloadEncoding_);
-    }
-    if (!getPayloadTypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, payloadType_);
-    }
-    if (!payload_.isEmpty()) {
-      output.writeBytes(8, payload_);
-    }
-    unknownFields.writeTo(output);
-  }
-
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (seqid_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, seqid_);
-    }
-    if (logid_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(2, logid_);
-    }
-    if (service_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(3, service_);
-    }
-    if (method_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(4, method_);
-    }
-    for (int i = 0; i < headersList_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, headersList_.get(i));
-    }
-    if (!getPayloadEncodingBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, payloadEncoding_);
-    }
-    if (!getPayloadTypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, payloadType_);
-    }
-    if (!payload_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(8, payload_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame)) {
-      return super.equals(obj);
-    }
-    cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame other = (cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) obj;
-
-    if (getSeqid()
-        != other.getSeqid()) return false;
-    if (getLogid()
-        != other.getLogid()) return false;
-    if (getService()
-        != other.getService()) return false;
-    if (getMethod()
-        != other.getMethod()) return false;
-    if (!getHeadersListList()
-        .equals(other.getHeadersListList())) return false;
-    if (!getPayloadEncoding()
-        .equals(other.getPayloadEncoding())) return false;
-    if (!getPayloadType()
-        .equals(other.getPayloadType())) return false;
-    if (!getPayload()
-        .equals(other.getPayload())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
-    return true;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SEQID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSeqid());
-    hash = (37 * hash) + LOGID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLogid());
-    hash = (37 * hash) + SERVICE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getService());
-    hash = (37 * hash) + METHOD_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getMethod());
-    if (getHeadersListCount() > 0) {
-      hash = (37 * hash) + HEADERSLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getHeadersListList().hashCode();
-    }
-    hash = (37 * hash) + PAYLOADENCODING_FIELD_NUMBER;
-    hash = (53 * hash) + getPayloadEncoding().hashCode();
-    hash = (37 * hash) + PAYLOADTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getPayloadType().hashCode();
-    hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-    hash = (53 * hash) + getPayload().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * <pre>
-   *更新时间 : 2023-01-09
-   * </pre>
-   *
-   * Protobuf type {@code PushFrame}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:PushFrame)
-      cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
+    getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<PushFrame> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+        return new PushFrame();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.class, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder.class);
+    internalGetFieldAccessorTable() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.class, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder.class);
     }
 
-    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHeadersListFieldBuilder();
-      }
-    }
-    @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      seqid_ = 0L;
-
-      logid_ = 0L;
-
-      service_ = 0L;
-
-      method_ = 0L;
-
-      if (headersListBuilder_ == null) {
-        headersList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      } else {
-        headersListBuilder_.clear();
-      }
-      payloadEncoding_ = "";
-
-      payloadType_ = "";
-
-      payload_ = com.google.protobuf.ByteString.EMPTY;
-
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstanceForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame build() {
-      cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame buildPartial() {
-      cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame result = new cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame(this);
-      int from_bitField0_ = bitField0_;
-      result.seqid_ = seqid_;
-      result.logid_ = logid_;
-      result.service_ = service_;
-      result.method_ = method_;
-      if (headersListBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          headersList_ = java.util.Collections.unmodifiableList(headersList_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.headersList_ = headersList_;
-      } else {
-        result.headersList_ = headersListBuilder_.build();
-      }
-      result.payloadEncoding_ = payloadEncoding_;
-      result.payloadType_ = payloadType_;
-      result.payload_ = payload_;
-      onBuilt();
-      return result;
-    }
-
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
-    }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) {
-        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame other) {
-      if (other == cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.getDefaultInstance()) return this;
-      if (other.getSeqid() != 0L) {
-        setSeqid(other.getSeqid());
-      }
-      if (other.getLogid() != 0L) {
-        setLogid(other.getLogid());
-      }
-      if (other.getService() != 0L) {
-        setService(other.getService());
-      }
-      if (other.getMethod() != 0L) {
-        setMethod(other.getMethod());
-      }
-      if (headersListBuilder_ == null) {
-        if (!other.headersList_.isEmpty()) {
-          if (headersList_.isEmpty()) {
-            headersList_ = other.headersList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureHeadersListIsMutable();
-            headersList_.addAll(other.headersList_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.headersList_.isEmpty()) {
-          if (headersListBuilder_.isEmpty()) {
-            headersListBuilder_.dispose();
-            headersListBuilder_ = null;
-            headersList_ = other.headersList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            headersListBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getHeadersListFieldBuilder() : null;
-          } else {
-            headersListBuilder_.addAllMessages(other.headersList_);
-          }
-        }
-      }
-      if (!other.getPayloadEncoding().isEmpty()) {
-        payloadEncoding_ = other.payloadEncoding_;
-        onChanged();
-      }
-      if (!other.getPayloadType().isEmpty()) {
-        payloadType_ = other.payloadType_;
-        onChanged();
-      }
-      if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
-        setPayload(other.getPayload());
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
-    }
-    private int bitField0_;
-
-    private long seqid_ ;
     /**
      * <code>uint64 seqid = 1;</code>
+     *
      * @return The seqid.
      */
     @java.lang.Override
     public long getSeqid() {
-      return seqid_;
-    }
-    /**
-     * <code>uint64 seqid = 1;</code>
-     * @param value The seqid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSeqid(long value) {
-      
-      seqid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 seqid = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSeqid() {
-      
-      seqid_ = 0L;
-      onChanged();
-      return this;
+        return seqid_;
     }
 
-    private long logid_ ;
     /**
      * <code>uint64 logid = 2;</code>
+     *
      * @return The logid.
      */
     @java.lang.Override
     public long getLogid() {
-      return logid_;
-    }
-    /**
-     * <code>uint64 logid = 2;</code>
-     * @param value The logid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLogid(long value) {
-      
-      logid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 logid = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLogid() {
-      
-      logid_ = 0L;
-      onChanged();
-      return this;
+        return logid_;
     }
 
-    private long service_ ;
     /**
      * <code>uint64 service = 3;</code>
+     *
      * @return The service.
      */
     @java.lang.Override
     public long getService() {
-      return service_;
-    }
-    /**
-     * <code>uint64 service = 3;</code>
-     * @param value The service to set.
-     * @return This builder for chaining.
-     */
-    public Builder setService(long value) {
-      
-      service_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 service = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearService() {
-      
-      service_ = 0L;
-      onChanged();
-      return this;
+        return service_;
     }
 
-    private long method_ ;
     /**
      * <code>uint64 method = 4;</code>
+     *
      * @return The method.
      */
     @java.lang.Override
     public long getMethod() {
-      return method_;
+        return method_;
     }
-    /**
-     * <code>uint64 method = 4;</code>
-     * @param value The method to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMethod(long value) {
-      
-      method_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>uint64 method = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMethod() {
-      
-      method_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> headersList_ =
-      java.util.Collections.emptyList();
-    private void ensureHeadersListIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        headersList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader>(headersList_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder> headersListBuilder_;
 
     /**
      * <code>repeated .PushHeader headersList = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> getHeadersListList() {
-      if (headersListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(headersList_);
-      } else {
-        return headersListBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public int getHeadersListCount() {
-      if (headersListBuilder_ == null) {
-        return headersList_.size();
-      } else {
-        return headersListBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader getHeadersList(int index) {
-      if (headersListBuilder_ == null) {
-        return headersList_.get(index);
-      } else {
-        return headersListBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder setHeadersList(
-        int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
-      if (headersListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureHeadersListIsMutable();
-        headersList_.set(index, value);
-        onChanged();
-      } else {
-        headersListBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder setHeadersList(
-        int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
-      if (headersListBuilder_ == null) {
-        ensureHeadersListIsMutable();
-        headersList_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        headersListBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder addHeadersList(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
-      if (headersListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureHeadersListIsMutable();
-        headersList_.add(value);
-        onChanged();
-      } else {
-        headersListBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder addHeadersList(
-        int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
-      if (headersListBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureHeadersListIsMutable();
-        headersList_.add(index, value);
-        onChanged();
-      } else {
-        headersListBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder addHeadersList(
-        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
-      if (headersListBuilder_ == null) {
-        ensureHeadersListIsMutable();
-        headersList_.add(builderForValue.build());
-        onChanged();
-      } else {
-        headersListBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder addHeadersList(
-        int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
-      if (headersListBuilder_ == null) {
-        ensureHeadersListIsMutable();
-        headersList_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        headersListBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder addAllHeadersList(
-        java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> values) {
-      if (headersListBuilder_ == null) {
-        ensureHeadersListIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, headersList_);
-        onChanged();
-      } else {
-        headersListBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder clearHeadersList() {
-      if (headersListBuilder_ == null) {
-        headersList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        headersListBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public Builder removeHeadersList(int index) {
-      if (headersListBuilder_ == null) {
-        ensureHeadersListIsMutable();
-        headersList_.remove(index);
-        onChanged();
-      } else {
-        headersListBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder getHeadersListBuilder(
-        int index) {
-      return getHeadersListFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder getHeadersListOrBuilder(
-        int index) {
-      if (headersListBuilder_ == null) {
-        return headersList_.get(index);  } else {
-        return headersListBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder> 
-         getHeadersListOrBuilderList() {
-      if (headersListBuilder_ != null) {
-        return headersListBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(headersList_);
-      }
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder addHeadersListBuilder() {
-      return getHeadersListFieldBuilder().addBuilder(
-          cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder addHeadersListBuilder(
-        int index) {
-      return getHeadersListFieldBuilder().addBuilder(
-          index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .PushHeader headersList = 5;</code>
-     */
-    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder> 
-         getHeadersListBuilderList() {
-      return getHeadersListFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder> 
-        getHeadersListFieldBuilder() {
-      if (headersListBuilder_ == null) {
-        headersListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder>(
-                headersList_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        headersList_ = null;
-      }
-      return headersListBuilder_;
+        return headersList_;
     }
 
-    private java.lang.Object payloadEncoding_ = "";
+    /**
+     * <code>repeated .PushHeader headersList = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder>
+    getHeadersListOrBuilderList() {
+        return headersList_;
+    }
+
+    /**
+     * <code>repeated .PushHeader headersList = 5;</code>
+     */
+    @java.lang.Override
+    public int getHeadersListCount() {
+        return headersList_.size();
+    }
+
+    /**
+     * <code>repeated .PushHeader headersList = 5;</code>
+     */
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader getHeadersList(int index) {
+        return headersList_.get(index);
+    }
+
+    /**
+     * <code>repeated .PushHeader headersList = 5;</code>
+     */
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder getHeadersListOrBuilder(
+            int index) {
+        return headersList_.get(index);
+    }
+
     /**
      * <code>string payloadEncoding = 6;</code>
+     *
      * @return The payloadEncoding.
      */
+    @java.lang.Override
     public java.lang.String getPayloadEncoding() {
-      java.lang.Object ref = payloadEncoding_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        payloadEncoding_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+        java.lang.Object ref = payloadEncoding_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            payloadEncoding_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string payloadEncoding = 6;</code>
+     *
      * @return The bytes for payloadEncoding.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getPayloadEncodingBytes() {
-      java.lang.Object ref = payloadEncoding_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        payloadEncoding_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string payloadEncoding = 6;</code>
-     * @param value The payloadEncoding to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPayloadEncoding(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      payloadEncoding_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string payloadEncoding = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPayloadEncoding() {
-      
-      payloadEncoding_ = getDefaultInstance().getPayloadEncoding();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string payloadEncoding = 6;</code>
-     * @param value The bytes for payloadEncoding to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPayloadEncodingBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      payloadEncoding_ = value;
-      onChanged();
-      return this;
+    getPayloadEncodingBytes() {
+        java.lang.Object ref = payloadEncoding_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            payloadEncoding_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
-    private java.lang.Object payloadType_ = "";
     /**
      * <code>string payloadType = 7;</code>
+     *
      * @return The payloadType.
      */
+    @java.lang.Override
     public java.lang.String getPayloadType() {
-      java.lang.Object ref = payloadType_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        payloadType_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string payloadType = 7;</code>
-     * @return The bytes for payloadType.
-     */
-    public com.google.protobuf.ByteString
-        getPayloadTypeBytes() {
-      java.lang.Object ref = payloadType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        payloadType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string payloadType = 7;</code>
-     * @param value The payloadType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPayloadType(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      payloadType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string payloadType = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPayloadType() {
-      
-      payloadType_ = getDefaultInstance().getPayloadType();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string payloadType = 7;</code>
-     * @param value The bytes for payloadType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPayloadTypeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      payloadType_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = payloadType_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            payloadType_ = s;
+            return s;
+        }
     }
 
-    private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>string payloadType = 7;</code>
+     *
+     * @return The bytes for payloadType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getPayloadTypeBytes() {
+        java.lang.Object ref = payloadType_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            payloadType_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
     /**
      * <code>bytes payload = 8;</code>
+     *
      * @return The payload.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString getPayload() {
-      return payload_;
+        return payload_;
     }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (seqid_ != 0L) {
+            output.writeUInt64(1, seqid_);
+        }
+        if (logid_ != 0L) {
+            output.writeUInt64(2, logid_);
+        }
+        if (service_ != 0L) {
+            output.writeUInt64(3, service_);
+        }
+        if (method_ != 0L) {
+            output.writeUInt64(4, method_);
+        }
+        for (int i = 0; i < headersList_.size(); i++) {
+            output.writeMessage(5, headersList_.get(i));
+        }
+        if (!getPayloadEncodingBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 6, payloadEncoding_);
+        }
+        if (!getPayloadTypeBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 7, payloadType_);
+        }
+        if (!payload_.isEmpty()) {
+            output.writeBytes(8, payload_);
+        }
+        unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (seqid_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeUInt64Size(1, seqid_);
+        }
+        if (logid_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeUInt64Size(2, logid_);
+        }
+        if (service_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeUInt64Size(3, service_);
+        }
+        if (method_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeUInt64Size(4, method_);
+        }
+        for (int i = 0; i < headersList_.size(); i++) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(5, headersList_.get(i));
+        }
+        if (!getPayloadEncodingBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, payloadEncoding_);
+        }
+        if (!getPayloadTypeBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, payloadType_);
+        }
+        if (!payload_.isEmpty()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBytesSize(8, payload_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame)) {
+            return super.equals(obj);
+        }
+        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame other = (cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) obj;
+
+        if (getSeqid()
+                != other.getSeqid()) return false;
+        if (getLogid()
+                != other.getLogid()) return false;
+        if (getService()
+                != other.getService()) return false;
+        if (getMethod()
+                != other.getMethod()) return false;
+        if (!getHeadersListList()
+                .equals(other.getHeadersListList())) return false;
+        if (!getPayloadEncoding()
+                .equals(other.getPayloadEncoding())) return false;
+        if (!getPayloadType()
+                .equals(other.getPayloadType())) return false;
+        if (!getPayload()
+                .equals(other.getPayload())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + SEQID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                getSeqid());
+        hash = (37 * hash) + LOGID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                getLogid());
+        hash = (37 * hash) + SERVICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                getService());
+        hash = (37 * hash) + METHOD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                getMethod());
+        if (getHeadersListCount() > 0) {
+            hash = (37 * hash) + HEADERSLIST_FIELD_NUMBER;
+            hash = (53 * hash) + getHeadersListList().hashCode();
+        }
+        hash = (37 * hash) + PAYLOADENCODING_FIELD_NUMBER;
+        hash = (53 * hash) + getPayloadEncoding().hashCode();
+        hash = (37 * hash) + PAYLOADTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getPayloadType().hashCode();
+        hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+        hash = (53 * hash) + getPayload().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PushFrame> getParserForType() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
     /**
-     * <code>bytes payload = 8;</code>
-     * @param value The payload to set.
-     * @return This builder for chaining.
+     * <pre>
+     * 更新时间 : 2023-01-09
+     * </pre>
+     * <p>
+     * Protobuf type {@code PushFrame}
      */
-    public Builder setPayload(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      payload_ = value;
-      onChanged();
-      return this;
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:PushFrame)
+            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOrBuilder {
+        private int bitField0_;
+        private long seqid_;
+        private long logid_;
+        private long service_;
+        private long method_;
+        private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> headersList_ =
+                java.util.Collections.emptyList();
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder> headersListBuilder_;
+        private java.lang.Object payloadEncoding_ = "";
+        private java.lang.Object payloadType_ = "";
+        private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+
+        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.class, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+                getHeadersListFieldBuilder();
+            }
+        }
+
+        @java.lang.Override
+        public Builder clear() {
+            super.clear();
+            seqid_ = 0L;
+
+            logid_ = 0L;
+
+            service_ = 0L;
+
+            method_ = 0L;
+
+            if (headersListBuilder_ == null) {
+                headersList_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+                headersListBuilder_.clear();
+            }
+            payloadEncoding_ = "";
+
+            payloadType_ = "";
+
+            payload_ = com.google.protobuf.ByteString.EMPTY;
+
+            return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstanceForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame build() {
+            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame buildPartial() {
+            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame result = new cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame(this);
+            int from_bitField0_ = bitField0_;
+            result.seqid_ = seqid_;
+            result.logid_ = logid_;
+            result.service_ = service_;
+            result.method_ = method_;
+            if (headersListBuilder_ == null) {
+                if (((bitField0_ & 0x00000001) != 0)) {
+                    headersList_ = java.util.Collections.unmodifiableList(headersList_);
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                }
+                result.headersList_ = headersList_;
+            } else {
+                result.headersList_ = headersListBuilder_.build();
+            }
+            result.payloadEncoding_ = payloadEncoding_;
+            result.payloadType_ = payloadType_;
+            result.payload_ = payload_;
+            onBuilt();
+            return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+            return super.clone();
+        }
+
+        @java.lang.Override
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.setField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+        }
+
+        @java.lang.Override
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+        }
+
+        @java.lang.Override
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+        }
+
+        @java.lang.Override
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) {
+                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame other) {
+            if (other == cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.getDefaultInstance())
+                return this;
+            if (other.getSeqid() != 0L) {
+                setSeqid(other.getSeqid());
+            }
+            if (other.getLogid() != 0L) {
+                setLogid(other.getLogid());
+            }
+            if (other.getService() != 0L) {
+                setService(other.getService());
+            }
+            if (other.getMethod() != 0L) {
+                setMethod(other.getMethod());
+            }
+            if (headersListBuilder_ == null) {
+                if (!other.headersList_.isEmpty()) {
+                    if (headersList_.isEmpty()) {
+                        headersList_ = other.headersList_;
+                        bitField0_ = (bitField0_ & ~0x00000001);
+                    } else {
+                        ensureHeadersListIsMutable();
+                        headersList_.addAll(other.headersList_);
+                    }
+                    onChanged();
+                }
+            } else {
+                if (!other.headersList_.isEmpty()) {
+                    if (headersListBuilder_.isEmpty()) {
+                        headersListBuilder_.dispose();
+                        headersListBuilder_ = null;
+                        headersList_ = other.headersList_;
+                        bitField0_ = (bitField0_ & ~0x00000001);
+                        headersListBuilder_ =
+                                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                        getHeadersListFieldBuilder() : null;
+                    } else {
+                        headersListBuilder_.addAllMessages(other.headersList_);
+                    }
+                }
+            }
+            if (!other.getPayloadEncoding().isEmpty()) {
+                payloadEncoding_ = other.payloadEncoding_;
+                onChanged();
+            }
+            if (!other.getPayloadType().isEmpty()) {
+                payloadType_ = other.payloadType_;
+                onChanged();
+            }
+            if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+                setPayload(other.getPayload());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>uint64 seqid = 1;</code>
+         *
+         * @return The seqid.
+         */
+        @java.lang.Override
+        public long getSeqid() {
+            return seqid_;
+        }
+
+        /**
+         * <code>uint64 seqid = 1;</code>
+         *
+         * @param value The seqid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSeqid(long value) {
+
+            seqid_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 seqid = 1;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearSeqid() {
+
+            seqid_ = 0L;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 logid = 2;</code>
+         *
+         * @return The logid.
+         */
+        @java.lang.Override
+        public long getLogid() {
+            return logid_;
+        }
+
+        /**
+         * <code>uint64 logid = 2;</code>
+         *
+         * @param value The logid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLogid(long value) {
+
+            logid_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 logid = 2;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearLogid() {
+
+            logid_ = 0L;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 service = 3;</code>
+         *
+         * @return The service.
+         */
+        @java.lang.Override
+        public long getService() {
+            return service_;
+        }
+
+        /**
+         * <code>uint64 service = 3;</code>
+         *
+         * @param value The service to set.
+         * @return This builder for chaining.
+         */
+        public Builder setService(long value) {
+
+            service_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 service = 3;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearService() {
+
+            service_ = 0L;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 method = 4;</code>
+         *
+         * @return The method.
+         */
+        @java.lang.Override
+        public long getMethod() {
+            return method_;
+        }
+
+        /**
+         * <code>uint64 method = 4;</code>
+         *
+         * @param value The method to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMethod(long value) {
+
+            method_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>uint64 method = 4;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearMethod() {
+
+            method_ = 0L;
+            onChanged();
+            return this;
+        }
+
+        private void ensureHeadersListIsMutable() {
+            if (!((bitField0_ & 0x00000001) != 0)) {
+                headersList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader>(headersList_);
+                bitField0_ |= 0x00000001;
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> getHeadersListList() {
+            if (headersListBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(headersList_);
+            } else {
+                return headersListBuilder_.getMessageList();
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public int getHeadersListCount() {
+            if (headersListBuilder_ == null) {
+                return headersList_.size();
+            } else {
+                return headersListBuilder_.getCount();
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader getHeadersList(int index) {
+            if (headersListBuilder_ == null) {
+                return headersList_.get(index);
+            } else {
+                return headersListBuilder_.getMessage(index);
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder setHeadersList(
+                int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
+            if (headersListBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                ensureHeadersListIsMutable();
+                headersList_.set(index, value);
+                onChanged();
+            } else {
+                headersListBuilder_.setMessage(index, value);
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder setHeadersList(
+                int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
+            if (headersListBuilder_ == null) {
+                ensureHeadersListIsMutable();
+                headersList_.set(index, builderForValue.build());
+                onChanged();
+            } else {
+                headersListBuilder_.setMessage(index, builderForValue.build());
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder addHeadersList(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
+            if (headersListBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                ensureHeadersListIsMutable();
+                headersList_.add(value);
+                onChanged();
+            } else {
+                headersListBuilder_.addMessage(value);
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder addHeadersList(
+                int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader value) {
+            if (headersListBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                ensureHeadersListIsMutable();
+                headersList_.add(index, value);
+                onChanged();
+            } else {
+                headersListBuilder_.addMessage(index, value);
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder addHeadersList(
+                cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
+            if (headersListBuilder_ == null) {
+                ensureHeadersListIsMutable();
+                headersList_.add(builderForValue.build());
+                onChanged();
+            } else {
+                headersListBuilder_.addMessage(builderForValue.build());
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder addHeadersList(
+                int index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder builderForValue) {
+            if (headersListBuilder_ == null) {
+                ensureHeadersListIsMutable();
+                headersList_.add(index, builderForValue.build());
+                onChanged();
+            } else {
+                headersListBuilder_.addMessage(index, builderForValue.build());
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder addAllHeadersList(
+                java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> values) {
+            if (headersListBuilder_ == null) {
+                ensureHeadersListIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                        values, headersList_);
+                onChanged();
+            } else {
+                headersListBuilder_.addAllMessages(values);
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder clearHeadersList() {
+            if (headersListBuilder_ == null) {
+                headersList_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000001);
+                onChanged();
+            } else {
+                headersListBuilder_.clear();
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public Builder removeHeadersList(int index) {
+            if (headersListBuilder_ == null) {
+                ensureHeadersListIsMutable();
+                headersList_.remove(index);
+                onChanged();
+            } else {
+                headersListBuilder_.remove(index);
+            }
+            return this;
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder getHeadersListBuilder(
+                int index) {
+            return getHeadersListFieldBuilder().getBuilder(index);
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder getHeadersListOrBuilder(
+                int index) {
+            if (headersListBuilder_ == null) {
+                return headersList_.get(index);
+            } else {
+                return headersListBuilder_.getMessageOrBuilder(index);
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder>
+        getHeadersListOrBuilderList() {
+            if (headersListBuilder_ != null) {
+                return headersListBuilder_.getMessageOrBuilderList();
+            } else {
+                return java.util.Collections.unmodifiableList(headersList_);
+            }
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder addHeadersListBuilder() {
+            return getHeadersListFieldBuilder().addBuilder(
+                    cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.getDefaultInstance());
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder addHeadersListBuilder(
+                int index) {
+            return getHeadersListFieldBuilder().addBuilder(
+                    index, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.getDefaultInstance());
+        }
+
+        /**
+         * <code>repeated .PushHeader headersList = 5;</code>
+         */
+        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder>
+        getHeadersListBuilderList() {
+            return getHeadersListFieldBuilder().getBuilderList();
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder>
+        getHeadersListFieldBuilder() {
+            if (headersListBuilder_ == null) {
+                headersListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                        cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader.Builder, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeaderOrBuilder>(
+                        headersList_,
+                        ((bitField0_ & 0x00000001) != 0),
+                        getParentForChildren(),
+                        isClean());
+                headersList_ = null;
+            }
+            return headersListBuilder_;
+        }
+
+        /**
+         * <code>string payloadEncoding = 6;</code>
+         *
+         * @return The payloadEncoding.
+         */
+        public java.lang.String getPayloadEncoding() {
+            java.lang.Object ref = payloadEncoding_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                payloadEncoding_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string payloadEncoding = 6;</code>
+         *
+         * @param value The payloadEncoding to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPayloadEncoding(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            payloadEncoding_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string payloadEncoding = 6;</code>
+         *
+         * @return The bytes for payloadEncoding.
+         */
+        public com.google.protobuf.ByteString
+        getPayloadEncodingBytes() {
+            java.lang.Object ref = payloadEncoding_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                payloadEncoding_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string payloadEncoding = 6;</code>
+         *
+         * @param value The bytes for payloadEncoding to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPayloadEncodingBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            payloadEncoding_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string payloadEncoding = 6;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearPayloadEncoding() {
+
+            payloadEncoding_ = getDefaultInstance().getPayloadEncoding();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string payloadType = 7;</code>
+         *
+         * @return The payloadType.
+         */
+        public java.lang.String getPayloadType() {
+            java.lang.Object ref = payloadType_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                payloadType_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string payloadType = 7;</code>
+         *
+         * @param value The payloadType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPayloadType(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            payloadType_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string payloadType = 7;</code>
+         *
+         * @return The bytes for payloadType.
+         */
+        public com.google.protobuf.ByteString
+        getPayloadTypeBytes() {
+            java.lang.Object ref = payloadType_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                payloadType_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string payloadType = 7;</code>
+         *
+         * @param value The bytes for payloadType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPayloadTypeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            payloadType_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string payloadType = 7;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearPayloadType() {
+
+            payloadType_ = getDefaultInstance().getPayloadType();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bytes payload = 8;</code>
+         *
+         * @return The payload.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString getPayload() {
+            return payload_;
+        }
+
+        /**
+         * <code>bytes payload = 8;</code>
+         *
+         * @param value The payload to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPayload(com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            payload_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bytes payload = 8;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearPayload() {
+
+            payload_ = getDefaultInstance().getPayload();
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:PushFrame)
     }
-    /**
-     * <code>bytes payload = 8;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPayload() {
-      
-      payload_ = getDefaultInstance().getPayload();
-      onChanged();
-      return this;
-    }
-    @java.lang.Override
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
-    }
-
-    @java.lang.Override
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
-    }
-
-
-    // @@protoc_insertion_point(builder_scope:PushFrame)
-  }
-
-  // @@protoc_insertion_point(class_scope:PushFrame)
-  private static final cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame();
-  }
-
-  public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<PushFrame>
-      PARSER = new com.google.protobuf.AbstractParser<PushFrame>() {
-    @java.lang.Override
-    public PushFrame parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PushFrame(input, extensionRegistry);
-    }
-  };
-
-  public static com.google.protobuf.Parser<PushFrame> parser() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public com.google.protobuf.Parser<PushFrame> getParserForType() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
 
 }
 

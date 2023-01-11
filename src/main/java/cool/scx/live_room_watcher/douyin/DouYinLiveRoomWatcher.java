@@ -202,7 +202,9 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
     @Override
     public void startWatch() {
         try {
+            System.out.println("解析中...");
             parseByLiveRoomURI();
+            System.out.println("解析完成 -> " + liveRoomTitle + " (ID : " + liveRoomID + ")");
         } catch (JsonProcessingException e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
@@ -210,7 +212,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             webSocket.close();
             webSocket = null;
         }
-
+        System.out.println("连接中...");
         var webSocketFuture = httpClient.webSocket(getWebSocketOptions());
         webSocketFuture.onSuccess(c -> {
             webSocket = c;
@@ -226,20 +228,30 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                     switch (pushFrame.getPayloadType()) {
                         case "msg" -> {
                             for (var message : response.getMessagesListList()) {
-                                callHandler(message);
+                                vertx.nettyEventLoopGroup().execute(() -> {
+                                    try {
+                                        //防止线程阻塞
+                                        callHandler(message);
+                                    } catch (JsonProcessingException | InvalidProtocolBufferException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
                             }
                         }
                         case "close" -> System.out.println("关闭");
                     }
-                } catch (InvalidProtocolBufferException | JsonProcessingException e) {
+                } catch (InvalidProtocolBufferException e) {
                     throw new RuntimeException(e);
                 }
             });
             c.textMessageHandler(System.out::println);
             c.exceptionHandler(e -> {
+                e.printStackTrace();
                 startWatch();
             });
+            System.out.println("连接成功 !!!");
         }).onFailure(e -> {
+            e.printStackTrace();
             startWatch();
         });
     }

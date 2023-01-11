@@ -18,17 +18,13 @@ public enum MemberMessageAction {
     BLOCK(11),
     FOLLOW(20);
 
+    private static final Map<Long, MemberMessageAction> MAP = initMap();
+
     final long code;
 
     MemberMessageAction(long i) {
         this.code = i;
     }
-
-    public long code() {
-        return code;
-    }
-
-    private static final Map<Long, MemberMessageAction> MAP = initMap();
 
     private static Map<Long, MemberMessageAction> initMap() {
         var map = new HashMap<Long, MemberMessageAction>();
@@ -40,6 +36,10 @@ public enum MemberMessageAction {
 
     public static MemberMessageAction of(long i) {
         return MAP.get(i);
+    }
+
+    public long code() {
+        return code;
     }
 
 }

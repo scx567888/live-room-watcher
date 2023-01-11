@@ -4,45 +4,48 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 public final class GiftTipOuterClass {
-  private GiftTipOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GiftTip_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_GiftTip_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GiftTip_fieldAccessorTable;
+            internal_static_GiftTip_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\032webcast/data/GiftTip.proto\"\t\n\007GiftTipB" +
-      "?\n;cool.scx.live_room_watcher.douyin.pro" +
-      "to_entity.webcast.dataP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_GiftTip_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_GiftTip_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GiftTip_descriptor,
-        new java.lang.String[] { });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\032webcast/data/GiftTip.proto\"\t\n\007GiftTipB" +
+                        "?\n;cool.scx.live_room_watcher.douyin.pro" +
+                        "to_entity.webcast.dataP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_GiftTip_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_GiftTip_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_GiftTip_descriptor,
+                new java.lang.String[]{});
+    }
+    private GiftTipOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

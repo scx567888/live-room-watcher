@@ -13,17 +13,13 @@ public enum ControlMessageAction {
     ROOM_FINISH_BY_SWITCH(6),
     PING_TIMEOUT(7);
 
+    private static final Map<Long, ControlMessageAction> MAP = initMap();
+
     final long code;
 
     ControlMessageAction(long i) {
         this.code = i;
     }
-
-    public long code() {
-        return code;
-    }
-
-    private static final Map<Long, ControlMessageAction> MAP = initMap();
 
     private static Map<Long, ControlMessageAction> initMap() {
         var map = new HashMap<Long, ControlMessageAction>();
@@ -35,6 +31,10 @@ public enum ControlMessageAction {
 
     public static ControlMessageAction of(long i) {
         return MAP.get(i);
+    }
+
+    public long code() {
+        return code;
     }
 
 }

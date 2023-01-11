@@ -4,77 +4,80 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 public final class ImageOuterClass {
-  private ImageOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Image_descriptor;
-  static final 
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_Image_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Image_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Image_Content_descriptor;
-  static final 
+            internal_static_Image_fieldAccessorTable;
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_Image_Content_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Image_Content_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Image_NinePatchSetting_descriptor;
-  static final 
+            internal_static_Image_Content_fieldAccessorTable;
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_Image_NinePatchSetting_descriptor;
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Image_NinePatchSetting_fieldAccessorTable;
+            internal_static_Image_NinePatchSetting_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\030webcast/data/Image.proto\"\212\003\n\005Image\022\023\n\013" +
-      "urlListList\030\001 \003(\t\022\013\n\003uri\030\002 \001(\t\022\016\n\006height" +
-      "\030\003 \001(\003\022\r\n\005width\030\004 \001(\003\022\020\n\010avgColor\030\005 \001(\t\022" +
-      "\021\n\timageType\030\006 \001(\005\022\022\n\nopenWebUrl\030\007 \001(\t\022\037" +
-      "\n\007content\030\010 \001(\0132\016.Image.Content\022\022\n\nisAni" +
-      "mated\030\t \001(\010\0224\n\023flexSettingListList\030\n \003(\013" +
-      "2\027.Image.NinePatchSetting\0224\n\023textSetting" +
-      "ListList\030\013 \003(\0132\027.Image.NinePatchSetting\032" +
-      "R\n\007Content\022\014\n\004name\030\001 \001(\t\022\021\n\tfontColor\030\002 " +
-      "\001(\t\022\r\n\005level\030\003 \001(\003\022\027\n\017alternativeText\030\004 " +
-      "\001(\t\032\022\n\020NinePatchSettingB?\n;cool.scx.live" +
-      "_room_watcher.douyin.proto_entity.webcas" +
-      "t.dataP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_Image_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_Image_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Image_descriptor,
-        new java.lang.String[] { "UrlListList", "Uri", "Height", "Width", "AvgColor", "ImageType", "OpenWebUrl", "Content", "IsAnimated", "FlexSettingListList", "TextSettingListList", });
-    internal_static_Image_Content_descriptor =
-      internal_static_Image_descriptor.getNestedTypes().get(0);
-    internal_static_Image_Content_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Image_Content_descriptor,
-        new java.lang.String[] { "Name", "FontColor", "Level", "AlternativeText", });
-    internal_static_Image_NinePatchSetting_descriptor =
-      internal_static_Image_descriptor.getNestedTypes().get(1);
-    internal_static_Image_NinePatchSetting_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Image_NinePatchSetting_descriptor,
-        new java.lang.String[] { });
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\030webcast/data/Image.proto\"\212\003\n\005Image\022\023\n\013" +
+                        "urlListList\030\001 \003(\t\022\013\n\003uri\030\002 \001(\t\022\016\n\006height" +
+                        "\030\003 \001(\003\022\r\n\005width\030\004 \001(\003\022\020\n\010avgColor\030\005 \001(\t\022" +
+                        "\021\n\timageType\030\006 \001(\005\022\022\n\nopenWebUrl\030\007 \001(\t\022\037" +
+                        "\n\007content\030\010 \001(\0132\016.Image.Content\022\022\n\nisAni" +
+                        "mated\030\t \001(\010\0224\n\023flexSettingListList\030\n \003(\013" +
+                        "2\027.Image.NinePatchSetting\0224\n\023textSetting" +
+                        "ListList\030\013 \003(\0132\027.Image.NinePatchSetting\032" +
+                        "R\n\007Content\022\014\n\004name\030\001 \001(\t\022\021\n\tfontColor\030\002 " +
+                        "\001(\t\022\r\n\005level\030\003 \001(\003\022\027\n\017alternativeText\030\004 " +
+                        "\001(\t\032\022\n\020NinePatchSettingB?\n;cool.scx.live" +
+                        "_room_watcher.douyin.proto_entity.webcas" +
+                        "t.dataP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_Image_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_Image_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_Image_descriptor,
+                new java.lang.String[]{"UrlListList", "Uri", "Height", "Width", "AvgColor", "ImageType", "OpenWebUrl", "Content", "IsAnimated", "FlexSettingListList", "TextSettingListList",});
+        internal_static_Image_Content_descriptor =
+                internal_static_Image_descriptor.getNestedTypes().get(0);
+        internal_static_Image_Content_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_Image_Content_descriptor,
+                new java.lang.String[]{"Name", "FontColor", "Level", "AlternativeText",});
+        internal_static_Image_NinePatchSetting_descriptor =
+                internal_static_Image_descriptor.getNestedTypes().get(1);
+        internal_static_Image_NinePatchSetting_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_Image_NinePatchSetting_descriptor,
+                new java.lang.String[]{});
+    }
+    private ImageOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

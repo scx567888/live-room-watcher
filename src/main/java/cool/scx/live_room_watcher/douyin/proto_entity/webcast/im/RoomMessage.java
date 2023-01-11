@@ -5,1464 +5,1604 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- *更新时间 : 2023-01-11
+ * 更新时间 : 2023-01-11
  * </pre>
- *
+ * <p>
  * Protobuf type {@code RoomMessage}
  */
 public final class RoomMessage extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:RoomMessage)
-    RoomMessageOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use RoomMessage.newBuilder() to construct.
-  private RoomMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private RoomMessage() {
-    content_ = "";
-    roommessagetype_ = 0;
-    bizScene_ = "";
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new RoomMessage();
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private RoomMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
-            if (common_ != null) {
-              subBuilder = common_.toBuilder();
-            }
-            common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(common_);
-              common_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            content_ = s;
-            break;
-          }
-          case 24: {
-
-            supprotLandscape_ = input.readBool();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            roommessagetype_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            systemTopMsg_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            forcedGuarantee_ = input.readBool();
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bizScene_ = s;
-            break;
-          }
-          case 242: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              buriedPointMap_ = com.google.protobuf.MapField.newMapField(
-                  BuriedPointMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            buriedPointMap__ = input.readMessage(
-                BuriedPointMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            buriedPointMap_.getMutableMap().put(
-                buriedPointMap__.getKey(), buriedPointMap__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:RoomMessage)
+        RoomMessageOrBuilder {
+    public static final int COMMON_FIELD_NUMBER = 1;
+    public static final int CONTENT_FIELD_NUMBER = 2;
+    public static final int SUPPROTLANDSCAPE_FIELD_NUMBER = 3;
+    public static final int ROOMMESSAGETYPE_FIELD_NUMBER = 4;
+    public static final int SYSTEMTOPMSG_FIELD_NUMBER = 5;
+    public static final int FORCEDGUARANTEE_FIELD_NUMBER = 6;
+    public static final int BIZSCENE_FIELD_NUMBER = 20;
+    public static final int BURIEDPOINTMAP_FIELD_NUMBER = 30;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:RoomMessage)
+    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<RoomMessage>
+            PARSER = new com.google.protobuf.AbstractParser<RoomMessage>() {
+        @java.lang.Override
+        public RoomMessage parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RoomMessage(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
-  }
+    };
 
-  @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
-  protected com.google.protobuf.MapField internalGetMapField(
-      int number) {
-    switch (number) {
-      case 30:
-        return internalGetBuriedPointMap();
-      default:
-        throw new RuntimeException(
-            "Invalid map field number: " + number);
+    static {
+        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage();
     }
-  }
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.Builder.class);
-  }
-
-  public static final int COMMON_FIELD_NUMBER = 1;
-  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-  /**
-   * <code>.Common common = 1;</code>
-   * @return Whether the common field is set.
-   */
-  @java.lang.Override
-  public boolean hasCommon() {
-    return common_ != null;
-  }
-  /**
-   * <code>.Common common = 1;</code>
-   * @return The common.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-    return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-  }
-  /**
-   * <code>.Common common = 1;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-    return getCommon();
-  }
-
-  public static final int CONTENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object content_;
-  /**
-   * <code>string content = 2;</code>
-   * @return The content.
-   */
-  @java.lang.Override
-  public java.lang.String getContent() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      content_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string content = 2;</code>
-   * @return The bytes for content.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getContentBytes() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      content_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int SUPPROTLANDSCAPE_FIELD_NUMBER = 3;
-  private boolean supprotLandscape_;
-  /**
-   * <code>bool supprotLandscape = 3;</code>
-   * @return The supprotLandscape.
-   */
-  @java.lang.Override
-  public boolean getSupprotLandscape() {
-    return supprotLandscape_;
-  }
-
-  public static final int ROOMMESSAGETYPE_FIELD_NUMBER = 4;
-  private int roommessagetype_;
-  /**
-   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-   * @return The enum numeric value on the wire for roommessagetype.
-   */
-  @java.lang.Override public int getRoommessagetypeValue() {
-    return roommessagetype_;
-  }
-  /**
-   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-   * @return The roommessagetype.
-   */
-  @java.lang.Override public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype() {
-    @SuppressWarnings("deprecation")
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.valueOf(roommessagetype_);
-    return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.UNRECOGNIZED : result;
-  }
-
-  public static final int SYSTEMTOPMSG_FIELD_NUMBER = 5;
-  private boolean systemTopMsg_;
-  /**
-   * <code>bool systemTopMsg = 5;</code>
-   * @return The systemTopMsg.
-   */
-  @java.lang.Override
-  public boolean getSystemTopMsg() {
-    return systemTopMsg_;
-  }
-
-  public static final int FORCEDGUARANTEE_FIELD_NUMBER = 6;
-  private boolean forcedGuarantee_;
-  /**
-   * <code>bool forcedGuarantee = 6;</code>
-   * @return The forcedGuarantee.
-   */
-  @java.lang.Override
-  public boolean getForcedGuarantee() {
-    return forcedGuarantee_;
-  }
-
-  public static final int BIZSCENE_FIELD_NUMBER = 20;
-  private volatile java.lang.Object bizScene_;
-  /**
-   * <code>string bizScene = 20;</code>
-   * @return The bizScene.
-   */
-  @java.lang.Override
-  public java.lang.String getBizScene() {
-    java.lang.Object ref = bizScene_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      bizScene_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string bizScene = 20;</code>
-   * @return The bytes for bizScene.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBizSceneBytes() {
-    java.lang.Object ref = bizScene_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      bizScene_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int BURIEDPOINTMAP_FIELD_NUMBER = 30;
-  private static final class BuriedPointMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.String> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.String>newDefaultInstance(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_BuriedPointMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "");
-  }
-  private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> buriedPointMap_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-  internalGetBuriedPointMap() {
-    if (buriedPointMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          BuriedPointMapDefaultEntryHolder.defaultEntry);
-    }
-    return buriedPointMap_;
-  }
-
-  public int getBuriedPointMapCount() {
-    return internalGetBuriedPointMap().getMap().size();
-  }
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-
-  @java.lang.Override
-  public boolean containsBuriedPointMap(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    return internalGetBuriedPointMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getBuriedPointMapMap()} instead.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMap() {
-    return getBuriedPointMapMap();
-  }
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  @java.lang.Override
-
-  public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMapMap() {
-    return internalGetBuriedPointMap().getMap();
-  }
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  @java.lang.Override
-
-  public java.lang.String getBuriedPointMapOrDefault(
-      java.lang.String key,
-      java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetBuriedPointMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-   */
-  @java.lang.Override
-
-  public java.lang.String getBuriedPointMapOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
-    java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetBuriedPointMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  private byte memoizedIsInitialized = -1;
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
-
-    memoizedIsInitialized = 1;
-    return true;
-  }
-
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (common_ != null) {
-      output.writeMessage(1, getCommon());
-    }
-    if (!getContentBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
-    }
-    if (supprotLandscape_ != false) {
-      output.writeBool(3, supprotLandscape_);
-    }
-    if (roommessagetype_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.DEFAULTROOMMSG.getNumber()) {
-      output.writeEnum(4, roommessagetype_);
-    }
-    if (systemTopMsg_ != false) {
-      output.writeBool(5, systemTopMsg_);
-    }
-    if (forcedGuarantee_ != false) {
-      output.writeBool(6, forcedGuarantee_);
-    }
-    if (!getBizSceneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 20, bizScene_);
-    }
-    com.google.protobuf.GeneratedMessageV3
-      .serializeStringMapTo(
-        output,
-        internalGetBuriedPointMap(),
-        BuriedPointMapDefaultEntryHolder.defaultEntry,
-        30);
-    unknownFields.writeTo(output);
-  }
-
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (common_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getCommon());
-    }
-    if (!getContentBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
-    }
-    if (supprotLandscape_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, supprotLandscape_);
-    }
-    if (roommessagetype_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.DEFAULTROOMMSG.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(4, roommessagetype_);
-    }
-    if (systemTopMsg_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, systemTopMsg_);
-    }
-    if (forcedGuarantee_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, forcedGuarantee_);
-    }
-    if (!getBizSceneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, bizScene_);
-    }
-    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-         : internalGetBuriedPointMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-      buriedPointMap__ = BuriedPointMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(30, buriedPointMap__);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage)) {
-      return super.equals(obj);
-    }
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) obj;
-
-    if (hasCommon() != other.hasCommon()) return false;
-    if (hasCommon()) {
-      if (!getCommon()
-          .equals(other.getCommon())) return false;
-    }
-    if (!getContent()
-        .equals(other.getContent())) return false;
-    if (getSupprotLandscape()
-        != other.getSupprotLandscape()) return false;
-    if (roommessagetype_ != other.roommessagetype_) return false;
-    if (getSystemTopMsg()
-        != other.getSystemTopMsg()) return false;
-    if (getForcedGuarantee()
-        != other.getForcedGuarantee()) return false;
-    if (!getBizScene()
-        .equals(other.getBizScene())) return false;
-    if (!internalGetBuriedPointMap().equals(
-        other.internalGetBuriedPointMap())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
-    return true;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasCommon()) {
-      hash = (37 * hash) + COMMON_FIELD_NUMBER;
-      hash = (53 * hash) + getCommon().hashCode();
-    }
-    hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-    hash = (53 * hash) + getContent().hashCode();
-    hash = (37 * hash) + SUPPROTLANDSCAPE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSupprotLandscape());
-    hash = (37 * hash) + ROOMMESSAGETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + roommessagetype_;
-    hash = (37 * hash) + SYSTEMTOPMSG_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSystemTopMsg());
-    hash = (37 * hash) + FORCEDGUARANTEE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getForcedGuarantee());
-    hash = (37 * hash) + BIZSCENE_FIELD_NUMBER;
-    hash = (53 * hash) + getBizScene().hashCode();
-    if (!internalGetBuriedPointMap().getMap().isEmpty()) {
-      hash = (37 * hash) + BURIEDPOINTMAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetBuriedPointMap().hashCode();
-    }
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * <pre>
-   *更新时间 : 2023-01-11
-   * </pre>
-   *
-   * Protobuf type {@code RoomMessage}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:RoomMessage)
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOrBuilder {
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 30:
-          return internalGetBuriedPointMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMutableMapField(
-        int number) {
-      switch (number) {
-        case 30:
-          return internalGetMutableBuriedPointMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.Builder.class);
-    }
-
-    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
-    @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      if (commonBuilder_ == null) {
-        common_ = null;
-      } else {
-        common_ = null;
-        commonBuilder_ = null;
-      }
-      content_ = "";
-
-      supprotLandscape_ = false;
-
-      roommessagetype_ = 0;
-
-      systemTopMsg_ = false;
-
-      forcedGuarantee_ = false;
-
-      bizScene_ = "";
-
-      internalGetMutableBuriedPointMap().clear();
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstanceForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage build() {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage buildPartial() {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage(this);
-      int from_bitField0_ = bitField0_;
-      if (commonBuilder_ == null) {
-        result.common_ = common_;
-      } else {
-        result.common_ = commonBuilder_.build();
-      }
-      result.content_ = content_;
-      result.supprotLandscape_ = supprotLandscape_;
-      result.roommessagetype_ = roommessagetype_;
-      result.systemTopMsg_ = systemTopMsg_;
-      result.forcedGuarantee_ = forcedGuarantee_;
-      result.bizScene_ = bizScene_;
-      result.buriedPointMap_ = internalGetBuriedPointMap();
-      result.buriedPointMap_.makeImmutable();
-      onBuilt();
-      return result;
-    }
-
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
-    }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) {
-        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage other) {
-      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.getDefaultInstance()) return this;
-      if (other.hasCommon()) {
-        mergeCommon(other.getCommon());
-      }
-      if (!other.getContent().isEmpty()) {
-        content_ = other.content_;
-        onChanged();
-      }
-      if (other.getSupprotLandscape() != false) {
-        setSupprotLandscape(other.getSupprotLandscape());
-      }
-      if (other.roommessagetype_ != 0) {
-        setRoommessagetypeValue(other.getRoommessagetypeValue());
-      }
-      if (other.getSystemTopMsg() != false) {
-        setSystemTopMsg(other.getSystemTopMsg());
-      }
-      if (other.getForcedGuarantee() != false) {
-        setForcedGuarantee(other.getForcedGuarantee());
-      }
-      if (!other.getBizScene().isEmpty()) {
-        bizScene_ = other.bizScene_;
-        onChanged();
-      }
-      internalGetMutableBuriedPointMap().mergeFrom(
-          other.internalGetBuriedPointMap());
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
-    }
-    private int bitField0_;
 
     private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
+    private volatile java.lang.Object content_;
+    private boolean supprotLandscape_;
+    private int roommessagetype_;
+    private boolean systemTopMsg_;
+    private boolean forcedGuarantee_;
+    private volatile java.lang.Object bizScene_;
+    private com.google.protobuf.MapField<
+            java.lang.String, java.lang.String> buriedPointMap_;
+    private byte memoizedIsInitialized = -1;
+
+    // Use RoomMessage.newBuilder() to construct.
+    private RoomMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+    }
+    private RoomMessage() {
+        content_ = "";
+        roommessagetype_ = 0;
+        bizScene_ = "";
+    }
+
+    private RoomMessage(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    case 10: {
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
+                        if (common_ != null) {
+                            subBuilder = common_.toBuilder();
+                        }
+                        common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
+                        if (subBuilder != null) {
+                            subBuilder.mergeFrom(common_);
+                            common_ = subBuilder.buildPartial();
+                        }
+
+                        break;
+                    }
+                    case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        content_ = s;
+                        break;
+                    }
+                    case 24: {
+
+                        supprotLandscape_ = input.readBool();
+                        break;
+                    }
+                    case 32: {
+                        int rawValue = input.readEnum();
+
+                        roommessagetype_ = rawValue;
+                        break;
+                    }
+                    case 40: {
+
+                        systemTopMsg_ = input.readBool();
+                        break;
+                    }
+                    case 48: {
+
+                        forcedGuarantee_ = input.readBool();
+                        break;
+                    }
+                    case 162: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        bizScene_ = s;
+                        break;
+                    }
+                    case 242: {
+                        if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                            buriedPointMap_ = com.google.protobuf.MapField.newMapField(
+                                    BuriedPointMapDefaultEntryHolder.defaultEntry);
+                            mutable_bitField0_ |= 0x00000001;
+                        }
+                        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                                buriedPointMap__ = input.readMessage(
+                                BuriedPointMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                        buriedPointMap_.getMutableMap().put(
+                                buriedPointMap__.getKey(), buriedPointMap__.getValue());
+                        break;
+                    }
+                    default: {
+                        if (!parseUnknownField(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<RoomMessage> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+        return new RoomMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+            int number) {
+        switch (number) {
+            case 30:
+                return internalGetBuriedPointMap();
+            default:
+                throw new RuntimeException(
+                        "Invalid map field number: " + number);
+        }
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internalGetFieldAccessorTable() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.Builder.class);
+    }
+
     /**
      * <code>.Common common = 1;</code>
+     *
      * @return Whether the common field is set.
      */
+    @java.lang.Override
     public boolean hasCommon() {
-      return commonBuilder_ != null || common_ != null;
+        return common_ != null;
     }
+
     /**
      * <code>.Common common = 1;</code>
+     *
      * @return The common.
      */
+    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-      if (commonBuilder_ == null) {
         return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      } else {
-        return commonBuilder_.getMessage();
-      }
     }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        common_ = value;
-        onChanged();
-      } else {
-        commonBuilder_.setMessage(value);
-      }
 
-      return this;
-    }
     /**
      * <code>.Common common = 1;</code>
      */
-    public Builder setCommon(
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
-      if (commonBuilder_ == null) {
-        common_ = builderForValue.build();
-        onChanged();
-      } else {
-        commonBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (common_ != null) {
-          common_ =
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
-        } else {
-          common_ = value;
-        }
-        onChanged();
-      } else {
-        commonBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder clearCommon() {
-      if (commonBuilder_ == null) {
-        common_ = null;
-        onChanged();
-      } else {
-        common_ = null;
-        commonBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
-      
-      onChanged();
-      return getCommonFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
+    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-      if (commonBuilder_ != null) {
-        return commonBuilder_.getMessageOrBuilder();
-      } else {
-        return common_ == null ?
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      }
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> 
-        getCommonFieldBuilder() {
-      if (commonBuilder_ == null) {
-        commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
-                getCommon(),
-                getParentForChildren(),
-                isClean());
-        common_ = null;
-      }
-      return commonBuilder_;
+        return getCommon();
     }
 
-    private java.lang.Object content_ = "";
     /**
      * <code>string content = 2;</code>
+     *
      * @return The content.
      */
+    @java.lang.Override
     public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        content_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string content = 2;</code>
-     * @return The bytes for content.
-     */
-    public com.google.protobuf.ByteString
-        getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        content_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string content = 2;</code>
-     * @param value The content to set.
-     * @return This builder for chaining.
-     */
-    public Builder setContent(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      content_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string content = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearContent() {
-      
-      content_ = getDefaultInstance().getContent();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string content = 2;</code>
-     * @param value The bytes for content to set.
-     * @return This builder for chaining.
-     */
-    public Builder setContentBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      content_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = content_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            content_ = s;
+            return s;
+        }
     }
 
-    private boolean supprotLandscape_ ;
+    /**
+     * <code>string content = 2;</code>
+     *
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            content_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
     /**
      * <code>bool supprotLandscape = 3;</code>
+     *
      * @return The supprotLandscape.
      */
     @java.lang.Override
     public boolean getSupprotLandscape() {
-      return supprotLandscape_;
-    }
-    /**
-     * <code>bool supprotLandscape = 3;</code>
-     * @param value The supprotLandscape to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSupprotLandscape(boolean value) {
-      
-      supprotLandscape_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool supprotLandscape = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSupprotLandscape() {
-      
-      supprotLandscape_ = false;
-      onChanged();
-      return this;
+        return supprotLandscape_;
     }
 
-    private int roommessagetype_ = 0;
     /**
      * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+     *
      * @return The enum numeric value on the wire for roommessagetype.
      */
-    @java.lang.Override public int getRoommessagetypeValue() {
-      return roommessagetype_;
+    @java.lang.Override
+    public int getRoommessagetypeValue() {
+        return roommessagetype_;
     }
+
     /**
      * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-     * @param value The enum numeric value on the wire for roommessagetype to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoommessagetypeValue(int value) {
-      
-      roommessagetype_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+     *
      * @return The roommessagetype.
      */
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype() {
-      @SuppressWarnings("deprecation")
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.valueOf(roommessagetype_);
-      return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-     * @param value The roommessagetype to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoommessagetype(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      roommessagetype_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRoommessagetype() {
-      
-      roommessagetype_ = 0;
-      onChanged();
-      return this;
+        @SuppressWarnings("deprecation")
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.valueOf(roommessagetype_);
+        return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.UNRECOGNIZED : result;
     }
 
-    private boolean systemTopMsg_ ;
     /**
      * <code>bool systemTopMsg = 5;</code>
+     *
      * @return The systemTopMsg.
      */
     @java.lang.Override
     public boolean getSystemTopMsg() {
-      return systemTopMsg_;
-    }
-    /**
-     * <code>bool systemTopMsg = 5;</code>
-     * @param value The systemTopMsg to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSystemTopMsg(boolean value) {
-      
-      systemTopMsg_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool systemTopMsg = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSystemTopMsg() {
-      
-      systemTopMsg_ = false;
-      onChanged();
-      return this;
+        return systemTopMsg_;
     }
 
-    private boolean forcedGuarantee_ ;
     /**
      * <code>bool forcedGuarantee = 6;</code>
+     *
      * @return The forcedGuarantee.
      */
     @java.lang.Override
     public boolean getForcedGuarantee() {
-      return forcedGuarantee_;
-    }
-    /**
-     * <code>bool forcedGuarantee = 6;</code>
-     * @param value The forcedGuarantee to set.
-     * @return This builder for chaining.
-     */
-    public Builder setForcedGuarantee(boolean value) {
-      
-      forcedGuarantee_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool forcedGuarantee = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearForcedGuarantee() {
-      
-      forcedGuarantee_ = false;
-      onChanged();
-      return this;
+        return forcedGuarantee_;
     }
 
-    private java.lang.Object bizScene_ = "";
     /**
      * <code>string bizScene = 20;</code>
+     *
      * @return The bizScene.
      */
+    @java.lang.Override
     public java.lang.String getBizScene() {
-      java.lang.Object ref = bizScene_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        bizScene_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string bizScene = 20;</code>
-     * @return The bytes for bizScene.
-     */
-    public com.google.protobuf.ByteString
-        getBizSceneBytes() {
-      java.lang.Object ref = bizScene_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bizScene_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string bizScene = 20;</code>
-     * @param value The bizScene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizScene(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      bizScene_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string bizScene = 20;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBizScene() {
-      
-      bizScene_ = getDefaultInstance().getBizScene();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string bizScene = 20;</code>
-     * @param value The bytes for bizScene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBizSceneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      bizScene_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = bizScene_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            bizScene_ = s;
+            return s;
+        }
     }
 
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> buriedPointMap_;
+    /**
+     * <code>string bizScene = 20;</code>
+     *
+     * @return The bytes for bizScene.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getBizSceneBytes() {
+        java.lang.Object ref = bizScene_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            bizScene_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetBuriedPointMap() {
-      if (buriedPointMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            BuriedPointMapDefaultEntryHolder.defaultEntry);
-      }
-      return buriedPointMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableBuriedPointMap() {
-      onChanged();;
-      if (buriedPointMap_ == null) {
-        buriedPointMap_ = com.google.protobuf.MapField.newMapField(
-            BuriedPointMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!buriedPointMap_.isMutable()) {
-        buriedPointMap_ = buriedPointMap_.copy();
-      }
-      return buriedPointMap_;
+        if (buriedPointMap_ == null) {
+            return com.google.protobuf.MapField.emptyMapField(
+                    BuriedPointMapDefaultEntryHolder.defaultEntry);
+        }
+        return buriedPointMap_;
     }
 
     public int getBuriedPointMapCount() {
-      return internalGetBuriedPointMap().getMap().size();
+        return internalGetBuriedPointMap().getMap().size();
     }
+
     /**
      * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
      */
 
     @java.lang.Override
     public boolean containsBuriedPointMap(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetBuriedPointMap().getMap().containsKey(key);
+            java.lang.String key) {
+        if (key == null) {
+            throw new java.lang.NullPointerException();
+        }
+        return internalGetBuriedPointMap().getMap().containsKey(key);
     }
+
     /**
      * Use {@link #getBuriedPointMapMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMap() {
-      return getBuriedPointMapMap();
+        return getBuriedPointMapMap();
     }
+
     /**
      * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
      */
     @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMapMap() {
-      return internalGetBuriedPointMap().getMap();
+        return internalGetBuriedPointMap().getMap();
     }
+
     /**
      * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
      */
     @java.lang.Override
 
     public java.lang.String getBuriedPointMapOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetBuriedPointMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
+            java.lang.String key,
+            java.lang.String defaultValue) {
+        if (key == null) {
+            throw new java.lang.NullPointerException();
+        }
+        java.util.Map<java.lang.String, java.lang.String> map =
+                internalGetBuriedPointMap().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
     }
+
     /**
      * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
      */
     @java.lang.Override
 
     public java.lang.String getBuriedPointMapOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetBuriedPointMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearBuriedPointMap() {
-      internalGetMutableBuriedPointMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-
-    public Builder removeBuriedPointMap(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableBuriedPointMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String>
-    getMutableBuriedPointMap() {
-      return internalGetMutableBuriedPointMap().getMutableMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-    public Builder putBuriedPointMap(
-        java.lang.String key,
-        java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableBuriedPointMap().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-
-    public Builder putAllBuriedPointMap(
-        java.util.Map<java.lang.String, java.lang.String> values) {
-      internalGetMutableBuriedPointMap().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-    @java.lang.Override
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+            java.lang.String key) {
+        if (key == null) {
+            throw new java.lang.NullPointerException();
+        }
+        java.util.Map<java.lang.String, java.lang.String> map =
+                internalGetBuriedPointMap().getMap();
+        if (!map.containsKey(key)) {
+            throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
     }
 
     @java.lang.Override
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
     }
 
-
-    // @@protoc_insertion_point(builder_scope:RoomMessage)
-  }
-
-  // @@protoc_insertion_point(class_scope:RoomMessage)
-  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage();
-  }
-
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<RoomMessage>
-      PARSER = new com.google.protobuf.AbstractParser<RoomMessage>() {
     @java.lang.Override
-    public RoomMessage parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RoomMessage(input, extensionRegistry);
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (common_ != null) {
+            output.writeMessage(1, getCommon());
+        }
+        if (!getContentBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
+        }
+        if (supprotLandscape_ != false) {
+            output.writeBool(3, supprotLandscape_);
+        }
+        if (roommessagetype_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.DEFAULTROOMMSG.getNumber()) {
+            output.writeEnum(4, roommessagetype_);
+        }
+        if (systemTopMsg_ != false) {
+            output.writeBool(5, systemTopMsg_);
+        }
+        if (forcedGuarantee_ != false) {
+            output.writeBool(6, forcedGuarantee_);
+        }
+        if (!getBizSceneBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 20, bizScene_);
+        }
+        com.google.protobuf.GeneratedMessageV3
+                .serializeStringMapTo(
+                        output,
+                        internalGetBuriedPointMap(),
+                        BuriedPointMapDefaultEntryHolder.defaultEntry,
+                        30);
+        unknownFields.writeTo(output);
     }
-  };
 
-  public static com.google.protobuf.Parser<RoomMessage> parser() {
-    return PARSER;
-  }
+    @java.lang.Override
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
 
-  @java.lang.Override
-  public com.google.protobuf.Parser<RoomMessage> getParserForType() {
-    return PARSER;
-  }
+        size = 0;
+        if (common_ != null) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(1, getCommon());
+        }
+        if (!getContentBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+        }
+        if (supprotLandscape_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(3, supprotLandscape_);
+        }
+        if (roommessagetype_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.DEFAULTROOMMSG.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(4, roommessagetype_);
+        }
+        if (systemTopMsg_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(5, systemTopMsg_);
+        }
+        if (forcedGuarantee_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(6, forcedGuarantee_);
+        }
+        if (!getBizSceneBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, bizScene_);
+        }
+        for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+                : internalGetBuriedPointMap().getMap().entrySet()) {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                    buriedPointMap__ = BuriedPointMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+                    .setKey(entry.getKey())
+                    .setValue(entry.getValue())
+                    .build();
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(30, buriedPointMap__);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
 
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage)) {
+            return super.equals(obj);
+        }
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) obj;
+
+        if (hasCommon() != other.hasCommon()) return false;
+        if (hasCommon()) {
+            if (!getCommon()
+                    .equals(other.getCommon())) return false;
+        }
+        if (!getContent()
+                .equals(other.getContent())) return false;
+        if (getSupprotLandscape()
+                != other.getSupprotLandscape()) return false;
+        if (roommessagetype_ != other.roommessagetype_) return false;
+        if (getSystemTopMsg()
+                != other.getSystemTopMsg()) return false;
+        if (getForcedGuarantee()
+                != other.getForcedGuarantee()) return false;
+        if (!getBizScene()
+                .equals(other.getBizScene())) return false;
+        if (!internalGetBuriedPointMap().equals(
+                other.internalGetBuriedPointMap())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasCommon()) {
+            hash = (37 * hash) + COMMON_FIELD_NUMBER;
+            hash = (53 * hash) + getCommon().hashCode();
+        }
+        hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+        hash = (53 * hash) + getContent().hashCode();
+        hash = (37 * hash) + SUPPROTLANDSCAPE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getSupprotLandscape());
+        hash = (37 * hash) + ROOMMESSAGETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + roommessagetype_;
+        hash = (37 * hash) + SYSTEMTOPMSG_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getSystemTopMsg());
+        hash = (37 * hash) + FORCEDGUARANTEE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getForcedGuarantee());
+        hash = (37 * hash) + BIZSCENE_FIELD_NUMBER;
+        hash = (53 * hash) + getBizScene().hashCode();
+        if (!internalGetBuriedPointMap().getMap().isEmpty()) {
+            hash = (37 * hash) + BURIEDPOINTMAP_FIELD_NUMBER;
+            hash = (53 * hash) + internalGetBuriedPointMap().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RoomMessage> getParserForType() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
+    private static final class BuriedPointMapDefaultEntryHolder {
+        static final com.google.protobuf.MapEntry<
+                java.lang.String, java.lang.String> defaultEntry =
+                com.google.protobuf.MapEntry
+                        .<java.lang.String, java.lang.String>newDefaultInstance(
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_BuriedPointMapEntry_descriptor,
+                                com.google.protobuf.WireFormat.FieldType.STRING,
+                                "",
+                                com.google.protobuf.WireFormat.FieldType.STRING,
+                                "");
+    }
+
+    /**
+     * <pre>
+     * 更新时间 : 2023-01-11
+     * </pre>
+     * <p>
+     * Protobuf type {@code RoomMessage}
+     */
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:RoomMessage)
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOrBuilder {
+        private int bitField0_;
+        private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
+        private java.lang.Object content_ = "";
+        private boolean supprotLandscape_;
+        private int roommessagetype_ = 0;
+        private boolean systemTopMsg_;
+        private boolean forcedGuarantee_;
+        private java.lang.Object bizScene_ = "";
+        private com.google.protobuf.MapField<
+                java.lang.String, java.lang.String> buriedPointMap_;
+
+        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
+        }
+
+        @SuppressWarnings({"rawtypes"})
+        protected com.google.protobuf.MapField internalGetMapField(
+                int number) {
+            switch (number) {
+                case 30:
+                    return internalGetBuriedPointMap();
+                default:
+                    throw new RuntimeException(
+                            "Invalid map field number: " + number);
+            }
+        }
+
+        @SuppressWarnings({"rawtypes"})
+        protected com.google.protobuf.MapField internalGetMutableMapField(
+                int number) {
+            switch (number) {
+                case 30:
+                    return internalGetMutableBuriedPointMap();
+                default:
+                    throw new RuntimeException(
+                            "Invalid map field number: " + number);
+            }
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        @java.lang.Override
+        public Builder clear() {
+            super.clear();
+            if (commonBuilder_ == null) {
+                common_ = null;
+            } else {
+                common_ = null;
+                commonBuilder_ = null;
+            }
+            content_ = "";
+
+            supprotLandscape_ = false;
+
+            roommessagetype_ = 0;
+
+            systemTopMsg_ = false;
+
+            forcedGuarantee_ = false;
+
+            bizScene_ = "";
+
+            internalGetMutableBuriedPointMap().clear();
+            return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessageOuterClass.internal_static_RoomMessage_descriptor;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage getDefaultInstanceForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage build() {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage buildPartial() {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage(this);
+            int from_bitField0_ = bitField0_;
+            if (commonBuilder_ == null) {
+                result.common_ = common_;
+            } else {
+                result.common_ = commonBuilder_.build();
+            }
+            result.content_ = content_;
+            result.supprotLandscape_ = supprotLandscape_;
+            result.roommessagetype_ = roommessagetype_;
+            result.systemTopMsg_ = systemTopMsg_;
+            result.forcedGuarantee_ = forcedGuarantee_;
+            result.bizScene_ = bizScene_;
+            result.buriedPointMap_ = internalGetBuriedPointMap();
+            result.buriedPointMap_.makeImmutable();
+            onBuilt();
+            return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+            return super.clone();
+        }
+
+        @java.lang.Override
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.setField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+        }
+
+        @java.lang.Override
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+        }
+
+        @java.lang.Override
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+        }
+
+        @java.lang.Override
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) {
+                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage other) {
+            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage.getDefaultInstance())
+                return this;
+            if (other.hasCommon()) {
+                mergeCommon(other.getCommon());
+            }
+            if (!other.getContent().isEmpty()) {
+                content_ = other.content_;
+                onChanged();
+            }
+            if (other.getSupprotLandscape() != false) {
+                setSupprotLandscape(other.getSupprotLandscape());
+            }
+            if (other.roommessagetype_ != 0) {
+                setRoommessagetypeValue(other.getRoommessagetypeValue());
+            }
+            if (other.getSystemTopMsg() != false) {
+                setSystemTopMsg(other.getSystemTopMsg());
+            }
+            if (other.getForcedGuarantee() != false) {
+                setForcedGuarantee(other.getForcedGuarantee());
+            }
+            if (!other.getBizScene().isEmpty()) {
+                bizScene_ = other.bizScene_;
+                onChanged();
+            }
+            internalGetMutableBuriedPointMap().mergeFrom(
+                    other.internalGetBuriedPointMap());
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMessage) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         *
+         * @return Whether the common field is set.
+         */
+        public boolean hasCommon() {
+            return commonBuilder_ != null || common_ != null;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         *
+         * @return The common.
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+            if (commonBuilder_ == null) {
+                return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+            } else {
+                return commonBuilder_.getMessage();
+            }
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+            if (commonBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                common_ = value;
+                onChanged();
+            } else {
+                commonBuilder_.setMessage(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder setCommon(
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
+            if (commonBuilder_ == null) {
+                common_ = builderForValue.build();
+                onChanged();
+            } else {
+                commonBuilder_.setMessage(builderForValue.build());
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+            if (commonBuilder_ == null) {
+                if (common_ != null) {
+                    common_ =
+                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
+                } else {
+                    common_ = value;
+                }
+                onChanged();
+            } else {
+                commonBuilder_.mergeFrom(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder clearCommon() {
+            if (commonBuilder_ == null) {
+                common_ = null;
+                onChanged();
+            } else {
+                common_ = null;
+                commonBuilder_ = null;
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
+
+            onChanged();
+            return getCommonFieldBuilder().getBuilder();
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+            if (commonBuilder_ != null) {
+                return commonBuilder_.getMessageOrBuilder();
+            } else {
+                return common_ == null ?
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+            }
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>
+        getCommonFieldBuilder() {
+            if (commonBuilder_ == null) {
+                commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
+                        getCommon(),
+                        getParentForChildren(),
+                        isClean());
+                common_ = null;
+            }
+            return commonBuilder_;
+        }
+
+        /**
+         * <code>string content = 2;</code>
+         *
+         * @return The content.
+         */
+        public java.lang.String getContent() {
+            java.lang.Object ref = content_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                content_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string content = 2;</code>
+         *
+         * @param value The content to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContent(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            content_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string content = 2;</code>
+         *
+         * @return The bytes for content.
+         */
+        public com.google.protobuf.ByteString
+        getContentBytes() {
+            java.lang.Object ref = content_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                content_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string content = 2;</code>
+         *
+         * @param value The bytes for content to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContentBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            content_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string content = 2;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearContent() {
+
+            content_ = getDefaultInstance().getContent();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool supprotLandscape = 3;</code>
+         *
+         * @return The supprotLandscape.
+         */
+        @java.lang.Override
+        public boolean getSupprotLandscape() {
+            return supprotLandscape_;
+        }
+
+        /**
+         * <code>bool supprotLandscape = 3;</code>
+         *
+         * @param value The supprotLandscape to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSupprotLandscape(boolean value) {
+
+            supprotLandscape_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool supprotLandscape = 3;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearSupprotLandscape() {
+
+            supprotLandscape_ = false;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+         *
+         * @return The enum numeric value on the wire for roommessagetype.
+         */
+        @java.lang.Override
+        public int getRoommessagetypeValue() {
+            return roommessagetype_;
+        }
+
+        /**
+         * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+         *
+         * @param value The enum numeric value on the wire for roommessagetype to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRoommessagetypeValue(int value) {
+
+            roommessagetype_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+         *
+         * @return The roommessagetype.
+         */
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype() {
+            @SuppressWarnings("deprecation")
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.valueOf(roommessagetype_);
+            return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+         *
+         * @param value The roommessagetype to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRoommessagetype(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            roommessagetype_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearRoommessagetype() {
+
+            roommessagetype_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool systemTopMsg = 5;</code>
+         *
+         * @return The systemTopMsg.
+         */
+        @java.lang.Override
+        public boolean getSystemTopMsg() {
+            return systemTopMsg_;
+        }
+
+        /**
+         * <code>bool systemTopMsg = 5;</code>
+         *
+         * @param value The systemTopMsg to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSystemTopMsg(boolean value) {
+
+            systemTopMsg_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool systemTopMsg = 5;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearSystemTopMsg() {
+
+            systemTopMsg_ = false;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool forcedGuarantee = 6;</code>
+         *
+         * @return The forcedGuarantee.
+         */
+        @java.lang.Override
+        public boolean getForcedGuarantee() {
+            return forcedGuarantee_;
+        }
+
+        /**
+         * <code>bool forcedGuarantee = 6;</code>
+         *
+         * @param value The forcedGuarantee to set.
+         * @return This builder for chaining.
+         */
+        public Builder setForcedGuarantee(boolean value) {
+
+            forcedGuarantee_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool forcedGuarantee = 6;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearForcedGuarantee() {
+
+            forcedGuarantee_ = false;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string bizScene = 20;</code>
+         *
+         * @return The bizScene.
+         */
+        public java.lang.String getBizScene() {
+            java.lang.Object ref = bizScene_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                bizScene_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string bizScene = 20;</code>
+         *
+         * @param value The bizScene to set.
+         * @return This builder for chaining.
+         */
+        public Builder setBizScene(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bizScene_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string bizScene = 20;</code>
+         *
+         * @return The bytes for bizScene.
+         */
+        public com.google.protobuf.ByteString
+        getBizSceneBytes() {
+            java.lang.Object ref = bizScene_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                bizScene_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string bizScene = 20;</code>
+         *
+         * @param value The bytes for bizScene to set.
+         * @return This builder for chaining.
+         */
+        public Builder setBizSceneBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bizScene_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string bizScene = 20;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearBizScene() {
+
+            bizScene_ = getDefaultInstance().getBizScene();
+            onChanged();
+            return this;
+        }
+
+        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetBuriedPointMap() {
+            if (buriedPointMap_ == null) {
+                return com.google.protobuf.MapField.emptyMapField(
+                        BuriedPointMapDefaultEntryHolder.defaultEntry);
+            }
+            return buriedPointMap_;
+        }
+
+        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableBuriedPointMap() {
+            onChanged();
+            ;
+            if (buriedPointMap_ == null) {
+                buriedPointMap_ = com.google.protobuf.MapField.newMapField(
+                        BuriedPointMapDefaultEntryHolder.defaultEntry);
+            }
+            if (!buriedPointMap_.isMutable()) {
+                buriedPointMap_ = buriedPointMap_.copy();
+            }
+            return buriedPointMap_;
+        }
+
+        public int getBuriedPointMapCount() {
+            return internalGetBuriedPointMap().getMap().size();
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+
+        @java.lang.Override
+        public boolean containsBuriedPointMap(
+                java.lang.String key) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            return internalGetBuriedPointMap().getMap().containsKey(key);
+        }
+
+        /**
+         * Use {@link #getBuriedPointMapMap()} instead.
+         */
+        @java.lang.Override
+        @java.lang.Deprecated
+        public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMap() {
+            return getBuriedPointMapMap();
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+        @java.lang.Override
+
+        public java.util.Map<java.lang.String, java.lang.String> getBuriedPointMapMap() {
+            return internalGetBuriedPointMap().getMap();
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+        @java.lang.Override
+
+        public java.lang.String getBuriedPointMapOrDefault(
+                java.lang.String key,
+                java.lang.String defaultValue) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            java.util.Map<java.lang.String, java.lang.String> map =
+                    internalGetBuriedPointMap().getMap();
+            return map.containsKey(key) ? map.get(key) : defaultValue;
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+        @java.lang.Override
+
+        public java.lang.String getBuriedPointMapOrThrow(
+                java.lang.String key) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            java.util.Map<java.lang.String, java.lang.String> map =
+                    internalGetBuriedPointMap().getMap();
+            if (!map.containsKey(key)) {
+                throw new java.lang.IllegalArgumentException();
+            }
+            return map.get(key);
+        }
+
+        public Builder clearBuriedPointMap() {
+            internalGetMutableBuriedPointMap().getMutableMap()
+                    .clear();
+            return this;
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+
+        public Builder removeBuriedPointMap(
+                java.lang.String key) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            internalGetMutableBuriedPointMap().getMutableMap()
+                    .remove(key);
+            return this;
+        }
+
+        /**
+         * Use alternate mutation accessors instead.
+         */
+        @java.lang.Deprecated
+        public java.util.Map<java.lang.String, java.lang.String>
+        getMutableBuriedPointMap() {
+            return internalGetMutableBuriedPointMap().getMutableMap();
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+        public Builder putBuriedPointMap(
+                java.lang.String key,
+                java.lang.String value) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            if (value == null) {
+                throw new java.lang.NullPointerException();
+            }
+            internalGetMutableBuriedPointMap().getMutableMap()
+                    .put(key, value);
+            return this;
+        }
+
+        /**
+         * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+         */
+
+        public Builder putAllBuriedPointMap(
+                java.util.Map<java.lang.String, java.lang.String> values) {
+            internalGetMutableBuriedPointMap().getMutableMap()
+                    .putAll(values);
+            return this;
+        }
+
+        @java.lang.Override
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:RoomMessage)
+    }
 
 }
 

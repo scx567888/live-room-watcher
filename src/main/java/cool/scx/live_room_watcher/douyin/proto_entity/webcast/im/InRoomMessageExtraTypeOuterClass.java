@@ -4,36 +4,40 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public final class InRoomMessageExtraTypeOuterClass {
-  private InRoomMessageExtraTypeOuterClass() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\'webcast/im/InRoomMessageExtraType.prot" +
+                        "o*C\n\026InRoomMessageExtraType\022\014\n\010ITEMDATA\020" +
+                        "\000\022\013\n\007ITEMADD\020\001\022\016\n\nITEMDELETE\020\002B=\n9cool.s" +
+                        "cx.live_room_watcher.douyin.proto_entity" +
+                        ".webcast.imP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+    }
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\'webcast/im/InRoomMessageExtraType.prot" +
-      "o*C\n\026InRoomMessageExtraType\022\014\n\010ITEMDATA\020" +
-      "\000\022\013\n\007ITEMADD\020\001\022\016\n\nITEMDELETE\020\002B=\n9cool.s" +
-      "cx.live_room_watcher.douyin.proto_entity" +
-      ".webcast.imP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-  }
+    private InRoomMessageExtraTypeOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

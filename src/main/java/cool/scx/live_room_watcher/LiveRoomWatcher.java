@@ -31,10 +31,6 @@ public abstract class LiveRoomWatcher {
     protected ScxHandlerA<Follow> onFollowHandler;
     protected ScxHandlerA<Gift> onGiftHandler;
 
-    public static String nowTimeStr() {
-        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
-    }
-
     /**
      * <p>Constructor for LiveRoomWatcher.</p>
      */
@@ -54,6 +50,10 @@ public abstract class LiveRoomWatcher {
         this.onGiftHandler = gift -> {
             Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
         };
+    }
+
+    public static String nowTimeStr() {
+        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
     /**

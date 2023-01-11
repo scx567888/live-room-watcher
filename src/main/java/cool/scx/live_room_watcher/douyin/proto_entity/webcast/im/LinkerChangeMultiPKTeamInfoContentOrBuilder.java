@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public interface LinkerChangeMultiPKTeamInfoContentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:LinkerChangeMultiPKTeamInfoContent)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:LinkerChangeMultiPKTeamInfoContent)
+        com.google.protobuf.MessageOrBuilder {
 }

@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public interface LinkerFollowStrongGuideContentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:LinkerFollowStrongGuideContent)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:LinkerFollowStrongGuideContent)
+        com.google.protobuf.MessageOrBuilder {
 }

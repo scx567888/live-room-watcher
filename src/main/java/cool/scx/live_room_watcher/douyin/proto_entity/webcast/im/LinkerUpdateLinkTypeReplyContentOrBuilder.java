@@ -4,6 +4,6 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 public interface LinkerUpdateLinkTypeReplyContentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:LinkerUpdateLinkTypeReplyContent)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:LinkerUpdateLinkTypeReplyContent)
+        com.google.protobuf.MessageOrBuilder {
 }
