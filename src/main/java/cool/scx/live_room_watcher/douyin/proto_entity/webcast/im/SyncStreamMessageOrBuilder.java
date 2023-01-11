@@ -10,56 +10,61 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface SyncStreamMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:SyncStreamMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:SyncStreamMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string common = 1;</code>
-   *
-   * @return The common.
-   */
-  java.lang.String getCommon();
-      /**
-       * <code>string common = 1;</code>
-       *
-       * @return The bytes for common.
-       */
-  com.google.protobuf.ByteString
-      getCommonBytes();
+    /**
+     * <code>string common = 1;</code>
+     *
+     * @return The common.
+     */
+    java.lang.String getCommon();
 
-      /**
-       * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
-       *
-       * @return a {@link java.util.List} object
-       */
-  java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage>
-      getInfoListListList();
-  /**
-   * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
-   *
-   * @param index a int
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage getInfoListList(int index);
-  /**
-   * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
-   *
-   * @return a int
-   */
-  int getInfoListListCount();
-      /**
-       * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
-       *
-       * @return a {@link java.util.List} object
-       */
-  java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder>
-      getInfoListListOrBuilderList();
-  /**
-   * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
-   *
-   * @param index a int
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder getInfoListListOrBuilder(
-      int index);
+    /**
+     * <code>string common = 1;</code>
+     *
+     * @return The bytes for common.
+     */
+    com.google.protobuf.ByteString
+    getCommonBytes();
+
+    /**
+     * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
+     *
+     * @return a {@link java.util.List} object
+     */
+    java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage>
+    getInfoListListList();
+
+    /**
+     * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
+     *
+     * @param index a int
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessage getInfoListList(int index);
+
+    /**
+     * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
+     *
+     * @return a int
+     */
+    int getInfoListListCount();
+
+    /**
+     * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
+     *
+     * @return a {@link java.util.List} object
+     */
+    java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder>
+    getInfoListListOrBuilderList();
+
+    /**
+     * <code>repeated .SyncStreamInfoMessage infoListList = 2;</code>
+     *
+     * @param index a int
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SyncStreamInfoMessageOrBuilder getInfoListListOrBuilder(
+            int index);
 }

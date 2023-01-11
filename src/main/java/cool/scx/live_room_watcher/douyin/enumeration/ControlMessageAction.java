@@ -19,7 +19,9 @@ public enum ControlMessageAction {
     ROOM_FINISH_BY_SWITCH(6),
     PING_TIMEOUT(7);
 
-    /** Constant <code>MAP</code> */
+    /**
+     * Constant <code>MAP</code>
+     */
     private static final Map<Long, ControlMessageAction> MAP = initMap();
 
     /**

@@ -5,1972 +5,2159 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- *更新时间 : 2023-01-11
+ * 更新时间 : 2023-01-11
  * </pre>
- *
+ * <p>
  * Protobuf type {@code InRoomBannerMessage}
  *
  * @author scx567888
  * @version $Id: $Id
  */
 public final class InRoomBannerMessage extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:InRoomBannerMessage)
-    InRoomBannerMessageOrBuilder {
-/** Constant <code>serialVersionUID=0L</code> */
-private static final long serialVersionUID = 0L;
-  // Use InRoomBannerMessage.newBuilder() to construct.
-  /**
-   * <p>Constructor for InRoomBannerMessage.</p>
-   *
-   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-   */
-  private InRoomBannerMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  /**
-   * <p>Constructor for InRoomBannerMessage.</p>
-   */
-  private InRoomBannerMessage() {
-    extra_ = "";
-    position_ = 0;
-    actionType_ = 0;
-    containerUrl_ = "";
-    lynxContainerUrl_ = "";
-    containerType_ = 0;
-    opType_ = 0;
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new InRoomBannerMessage();
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  /**
-   * <p>Constructor for InRoomBannerMessage.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  private InRoomBannerMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
-            if (common_ != null) {
-              subBuilder = common_.toBuilder();
-            }
-            common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(common_);
-              common_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            extra_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            position_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            actionType_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            containerUrl_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lynxContainerUrl_ = s;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            containerType_ = rawValue;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            opType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:InRoomBannerMessage)
+        InRoomBannerMessageOrBuilder {
+    /**
+     * Constant <code>COMMON_FIELD_NUMBER=1</code>
+     */
+    public static final int COMMON_FIELD_NUMBER = 1;
+    // Use InRoomBannerMessage.newBuilder() to construct.
+    /**
+     * Constant <code>EXTRA_FIELD_NUMBER=2</code>
+     */
+    public static final int EXTRA_FIELD_NUMBER = 2;
+    /**
+     * Constant <code>POSITION_FIELD_NUMBER=3</code>
+     */
+    public static final int POSITION_FIELD_NUMBER = 3;
+    /**
+     * Constant <code>ACTIONTYPE_FIELD_NUMBER=4</code>
+     */
+    public static final int ACTIONTYPE_FIELD_NUMBER = 4;
+    /**
+     * Constant <code>CONTAINERURL_FIELD_NUMBER=5</code>
+     */
+    public static final int CONTAINERURL_FIELD_NUMBER = 5;
+    /**
+     * Constant <code>LYNXCONTAINERURL_FIELD_NUMBER=6</code>
+     */
+    public static final int LYNXCONTAINERURL_FIELD_NUMBER = 6;
+    /**
+     * Constant <code>CONTAINERTYPE_FIELD_NUMBER=7</code>
+     */
+    public static final int CONTAINERTYPE_FIELD_NUMBER = 7;
+    /**
+     * Constant <code>OPTYPE_FIELD_NUMBER=8</code>
+     */
+    public static final int OPTYPE_FIELD_NUMBER = 8;
+    /**
+     * Constant <code>serialVersionUID=0L</code>
+     */
+    private static final long serialVersionUID = 0L;
+    /**
+     * Constant <code>DEFAULT_INSTANCE</code>
+     */
+    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage DEFAULT_INSTANCE;
+    /**
+     * Constant <code>PARSER</code>
+     */
+    private static final com.google.protobuf.Parser<InRoomBannerMessage>
+            PARSER = new com.google.protobuf.AbstractParser<InRoomBannerMessage>() {
+        @java.lang.Override
+        public InRoomBannerMessage parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new InRoomBannerMessage(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
-  /**
-   * <p>getDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-   */
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
-  }
+    };
 
-  /** {@inheritDoc} */
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder.class);
-  }
-
-  /**
-   * Protobuf enum {@code InRoomBannerMessage.PositionType}
-   */
-  public enum PositionType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>UNDEFINED = 0;</code>
-     */
-    UNDEFINED(0),
-    /**
-     * <code>BOTTOM_RIGHT = 1;</code>
-     */
-    BOTTOM_RIGHT(1),
-    /**
-     * <code>TOP_RIGHT = 2;</code>
-     */
-    TOP_RIGHT(2),
-    /**
-     * <code>TOP_LEFT = 3;</code>
-     */
-    TOP_LEFT(3),
-    /**
-     * <code>BOTTOM_LEFT = 4;</code>
-     */
-    BOTTOM_LEFT(4),
-    /**
-     * <code>ACTIVITY_TOP_RIGHT = 5;</code>
-     */
-    ACTIVITY_TOP_RIGHT(5),
-    /**
-     * <code>ACTIVITY_VS_INTERACTIVE = 6;</code>
-     */
-    ACTIVITY_VS_INTERACTIVE(6),
-    /**
-     * <code>ACTIVITY_INTERACTIVE = 7;</code>
-     */
-    ACTIVITY_INTERACTIVE(7),
-    /**
-     * <code>ACTIVITY_VS_BOTTOM_RIGHT = 8;</code>
-     */
-    ACTIVITY_VS_BOTTOM_RIGHT(8),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>UNDEFINED = 0;</code>
-     */
-    public static final int UNDEFINED_VALUE = 0;
-    /**
-     * <code>BOTTOM_RIGHT = 1;</code>
-     */
-    public static final int BOTTOM_RIGHT_VALUE = 1;
-    /**
-     * <code>TOP_RIGHT = 2;</code>
-     */
-    public static final int TOP_RIGHT_VALUE = 2;
-    /**
-     * <code>TOP_LEFT = 3;</code>
-     */
-    public static final int TOP_LEFT_VALUE = 3;
-    /**
-     * <code>BOTTOM_LEFT = 4;</code>
-     */
-    public static final int BOTTOM_LEFT_VALUE = 4;
-    /**
-     * <code>ACTIVITY_TOP_RIGHT = 5;</code>
-     */
-    public static final int ACTIVITY_TOP_RIGHT_VALUE = 5;
-    /**
-     * <code>ACTIVITY_VS_INTERACTIVE = 6;</code>
-     */
-    public static final int ACTIVITY_VS_INTERACTIVE_VALUE = 6;
-    /**
-     * <code>ACTIVITY_INTERACTIVE = 7;</code>
-     */
-    public static final int ACTIVITY_INTERACTIVE_VALUE = 7;
-    /**
-     * <code>ACTIVITY_VS_BOTTOM_RIGHT = 8;</code>
-     */
-    public static final int ACTIVITY_VS_BOTTOM_RIGHT_VALUE = 8;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static PositionType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static PositionType forNumber(int value) {
-      switch (value) {
-        case 0: return UNDEFINED;
-        case 1: return BOTTOM_RIGHT;
-        case 2: return TOP_RIGHT;
-        case 3: return TOP_LEFT;
-        case 4: return BOTTOM_LEFT;
-        case 5: return ACTIVITY_TOP_RIGHT;
-        case 6: return ACTIVITY_VS_INTERACTIVE;
-        case 7: return ACTIVITY_INTERACTIVE;
-        case 8: return ACTIVITY_VS_BOTTOM_RIGHT;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<PositionType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        PositionType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<PositionType>() {
-            public PositionType findValueByNumber(int number) {
-              return PositionType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final PositionType[] VALUES = values();
-
-    public static PositionType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private PositionType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.PositionType)
-  }
-
-  /**
-   * Protobuf enum {@code InRoomBannerMessage.ContainerType}
-   */
-  public enum ContainerType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>WEBVIEW = 0;</code>
-     */
-    WEBVIEW(0),
-    /**
-     * <code>LYNX = 1;</code>
-     */
-    LYNX(1),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>WEBVIEW = 0;</code>
-     */
-    public static final int WEBVIEW_VALUE = 0;
-    /**
-     * <code>LYNX = 1;</code>
-     */
-    public static final int LYNX_VALUE = 1;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ContainerType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static ContainerType forNumber(int value) {
-      switch (value) {
-        case 0: return WEBVIEW;
-        case 1: return LYNX;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<ContainerType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        ContainerType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ContainerType>() {
-            public ContainerType findValueByNumber(int number) {
-              return ContainerType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(1);
-    }
-
-    private static final ContainerType[] VALUES = values();
-
-    public static ContainerType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private ContainerType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.ContainerType)
-  }
-
-  /**
-   * Protobuf enum {@code InRoomBannerMessage.OpType}
-   */
-  public enum OpType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>DELETE = 0;</code>
-     */
-    DELETE(0),
-    /**
-     * <code>ADD = 1;</code>
-     */
-    ADD(1),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>DELETE = 0;</code>
-     */
-    public static final int DELETE_VALUE = 0;
-    /**
-     * <code>ADD = 1;</code>
-     */
-    public static final int ADD_VALUE = 1;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static OpType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static OpType forNumber(int value) {
-      switch (value) {
-        case 0: return DELETE;
-        case 1: return ADD;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<OpType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        OpType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<OpType>() {
-            public OpType findValueByNumber(int number) {
-              return OpType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(2);
-    }
-
-    private static final OpType[] VALUES = values();
-
-    public static OpType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private OpType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.OpType)
-  }
-
-  /** Constant <code>COMMON_FIELD_NUMBER=1</code> */
-  public static final int COMMON_FIELD_NUMBER = 1;
-  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.Common common = 1;</code>
-   */
-  @java.lang.Override
-  public boolean hasCommon() {
-    return common_ != null;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.Common common = 1;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-    return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.Common common = 1;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-    return getCommon();
-  }
-
-  /** Constant <code>EXTRA_FIELD_NUMBER=2</code> */
-  public static final int EXTRA_FIELD_NUMBER = 2;
-  private volatile java.lang.Object extra_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string extra = 2;</code>
-   */
-  @java.lang.Override
-  public java.lang.String getExtra() {
-    java.lang.Object ref = extra_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      extra_ = s;
-      return s;
-    }
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string extra = 2;</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getExtraBytes() {
-    java.lang.Object ref = extra_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      extra_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  /** Constant <code>POSITION_FIELD_NUMBER=3</code> */
-  public static final int POSITION_FIELD_NUMBER = 3;
-  private int position_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-   */
-  @java.lang.Override public int getPositionValue() {
-    return position_;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-   */
-  @java.lang.Override public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType getPosition() {
-    @SuppressWarnings("deprecation")
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.valueOf(position_);
-    return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNRECOGNIZED : result;
-  }
-
-  /** Constant <code>ACTIONTYPE_FIELD_NUMBER=4</code> */
-  public static final int ACTIONTYPE_FIELD_NUMBER = 4;
-  private int actionType_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.ActionType actionType = 4;</code>
-   */
-  @java.lang.Override public int getActionTypeValue() {
-    return actionType_;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.ActionType actionType = 4;</code>
-   */
-  @java.lang.Override public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType getActionType() {
-    @SuppressWarnings("deprecation")
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.valueOf(actionType_);
-    return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.UNRECOGNIZED : result;
-  }
-
-  /** Constant <code>CONTAINERURL_FIELD_NUMBER=5</code> */
-  public static final int CONTAINERURL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object containerUrl_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string containerUrl = 5;</code>
-   */
-  @java.lang.Override
-  public java.lang.String getContainerUrl() {
-    java.lang.Object ref = containerUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      containerUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string containerUrl = 5;</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getContainerUrlBytes() {
-    java.lang.Object ref = containerUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      containerUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  /** Constant <code>LYNXCONTAINERURL_FIELD_NUMBER=6</code> */
-  public static final int LYNXCONTAINERURL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object lynxContainerUrl_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string lynxContainerUrl = 6;</code>
-   */
-  @java.lang.Override
-  public java.lang.String getLynxContainerUrl() {
-    java.lang.Object ref = lynxContainerUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      lynxContainerUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>string lynxContainerUrl = 6;</code>
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLynxContainerUrlBytes() {
-    java.lang.Object ref = lynxContainerUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      lynxContainerUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  /** Constant <code>CONTAINERTYPE_FIELD_NUMBER=7</code> */
-  public static final int CONTAINERTYPE_FIELD_NUMBER = 7;
-  private int containerType_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-   */
-  @java.lang.Override public int getContainerTypeValue() {
-    return containerType_;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-   */
-  @java.lang.Override public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType getContainerType() {
-    @SuppressWarnings("deprecation")
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.valueOf(containerType_);
-    return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.UNRECOGNIZED : result;
-  }
-
-  /** Constant <code>OPTYPE_FIELD_NUMBER=8</code> */
-  public static final int OPTYPE_FIELD_NUMBER = 8;
-  private int opType_;
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-   */
-  @java.lang.Override public int getOpTypeValue() {
-    return opType_;
-  }
-  /**
-   * {@inheritDoc}
-   *
-   * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-   */
-  @java.lang.Override public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType getOpType() {
-    @SuppressWarnings("deprecation")
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.valueOf(opType_);
-    return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.UNRECOGNIZED : result;
-  }
-
-  private byte memoizedIsInitialized = -1;
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
-
-    memoizedIsInitialized = 1;
-    return true;
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (common_ != null) {
-      output.writeMessage(1, getCommon());
-    }
-    if (!getExtraBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, extra_);
-    }
-    if (position_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNDEFINED.getNumber()) {
-      output.writeEnum(3, position_);
-    }
-    if (actionType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.DEFAULT.getNumber()) {
-      output.writeEnum(4, actionType_);
-    }
-    if (!getContainerUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, containerUrl_);
-    }
-    if (!getLynxContainerUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lynxContainerUrl_);
-    }
-    if (containerType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.WEBVIEW.getNumber()) {
-      output.writeEnum(7, containerType_);
-    }
-    if (opType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.DELETE.getNumber()) {
-      output.writeEnum(8, opType_);
-    }
-    unknownFields.writeTo(output);
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (common_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getCommon());
-    }
-    if (!getExtraBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, extra_);
-    }
-    if (position_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNDEFINED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, position_);
-    }
-    if (actionType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.DEFAULT.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(4, actionType_);
-    }
-    if (!getContainerUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, containerUrl_);
-    }
-    if (!getLynxContainerUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lynxContainerUrl_);
-    }
-    if (containerType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.WEBVIEW.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(7, containerType_);
-    }
-    if (opType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.DELETE.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(8, opType_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage)) {
-      return super.equals(obj);
-    }
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) obj;
-
-    if (hasCommon() != other.hasCommon()) return false;
-    if (hasCommon()) {
-      if (!getCommon()
-          .equals(other.getCommon())) return false;
-    }
-    if (!getExtra()
-        .equals(other.getExtra())) return false;
-    if (position_ != other.position_) return false;
-    if (actionType_ != other.actionType_) return false;
-    if (!getContainerUrl()
-        .equals(other.getContainerUrl())) return false;
-    if (!getLynxContainerUrl()
-        .equals(other.getLynxContainerUrl())) return false;
-    if (containerType_ != other.containerType_) return false;
-    if (opType_ != other.opType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
-    return true;
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasCommon()) {
-      hash = (37 * hash) + COMMON_FIELD_NUMBER;
-      hash = (53 * hash) + getCommon().hashCode();
-    }
-    hash = (37 * hash) + EXTRA_FIELD_NUMBER;
-    hash = (53 * hash) + getExtra().hashCode();
-    hash = (37 * hash) + POSITION_FIELD_NUMBER;
-    hash = (53 * hash) + position_;
-    hash = (37 * hash) + ACTIONTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + actionType_;
-    hash = (37 * hash) + CONTAINERURL_FIELD_NUMBER;
-    hash = (53 * hash) + getContainerUrl().hashCode();
-    hash = (37 * hash) + LYNXCONTAINERURL_FIELD_NUMBER;
-    hash = (53 * hash) + getLynxContainerUrl().hashCode();
-    hash = (37 * hash) + CONTAINERTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + containerType_;
-    hash = (37 * hash) + OPTYPE_FIELD_NUMBER;
-    hash = (53 * hash) + opType_;
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @throws java.io.IOException if any.
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder} object
-   */
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder} object
-   */
-  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  /** {@inheritDoc} */
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * <pre>
-   *更新时间 : 2023-01-11
-   * </pre>
-   *
-   * Protobuf type {@code InRoomBannerMessage}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:InRoomBannerMessage)
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOrBuilder {
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder.class);
-    }
-
-    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
-    @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      if (commonBuilder_ == null) {
-        common_ = null;
-      } else {
-        common_ = null;
-        commonBuilder_ = null;
-      }
-      extra_ = "";
-
-      position_ = 0;
-
-      actionType_ = 0;
-
-      containerUrl_ = "";
-
-      lynxContainerUrl_ = "";
-
-      containerType_ = 0;
-
-      opType_ = 0;
-
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstanceForType() {
-      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage build() {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage buildPartial() {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage(this);
-      if (commonBuilder_ == null) {
-        result.common_ = common_;
-      } else {
-        result.common_ = commonBuilder_.build();
-      }
-      result.extra_ = extra_;
-      result.position_ = position_;
-      result.actionType_ = actionType_;
-      result.containerUrl_ = containerUrl_;
-      result.lynxContainerUrl_ = lynxContainerUrl_;
-      result.containerType_ = containerType_;
-      result.opType_ = opType_;
-      onBuilt();
-      return result;
-    }
-
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
-    }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) {
-        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage other) {
-      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDefaultInstance()) return this;
-      if (other.hasCommon()) {
-        mergeCommon(other.getCommon());
-      }
-      if (!other.getExtra().isEmpty()) {
-        extra_ = other.extra_;
-        onChanged();
-      }
-      if (other.position_ != 0) {
-        setPositionValue(other.getPositionValue());
-      }
-      if (other.actionType_ != 0) {
-        setActionTypeValue(other.getActionTypeValue());
-      }
-      if (!other.getContainerUrl().isEmpty()) {
-        containerUrl_ = other.containerUrl_;
-        onChanged();
-      }
-      if (!other.getLynxContainerUrl().isEmpty()) {
-        lynxContainerUrl_ = other.lynxContainerUrl_;
-        onChanged();
-      }
-      if (other.containerType_ != 0) {
-        setContainerTypeValue(other.getContainerTypeValue());
-      }
-      if (other.opType_ != 0) {
-        setOpTypeValue(other.getOpTypeValue());
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
+    static {
+        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage();
     }
 
     private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
+    private volatile java.lang.Object extra_;
+    private int position_;
+    private int actionType_;
+    private volatile java.lang.Object containerUrl_;
+    private volatile java.lang.Object lynxContainerUrl_;
+    private int containerType_;
+    private int opType_;
+    private byte memoizedIsInitialized = -1;
     /**
-     * <code>.Common common = 1;</code>
-     * @return Whether the common field is set.
+     * <p>Constructor for InRoomBannerMessage.</p>
+     *
+     * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
      */
+    private InRoomBannerMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+    }
+
+    /**
+     * <p>Constructor for InRoomBannerMessage.</p>
+     */
+    private InRoomBannerMessage() {
+        extra_ = "";
+        position_ = 0;
+        actionType_ = 0;
+        containerUrl_ = "";
+        lynxContainerUrl_ = "";
+        containerType_ = 0;
+        opType_ = 0;
+    }
+
+    /**
+     * <p>Constructor for InRoomBannerMessage.</p>
+     *
+     * @param input             a {@link com.google.protobuf.CodedInputStream} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    private InRoomBannerMessage(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    case 10: {
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
+                        if (common_ != null) {
+                            subBuilder = common_.toBuilder();
+                        }
+                        common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
+                        if (subBuilder != null) {
+                            subBuilder.mergeFrom(common_);
+                            common_ = subBuilder.buildPartial();
+                        }
+
+                        break;
+                    }
+                    case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        extra_ = s;
+                        break;
+                    }
+                    case 24: {
+                        int rawValue = input.readEnum();
+
+                        position_ = rawValue;
+                        break;
+                    }
+                    case 32: {
+                        int rawValue = input.readEnum();
+
+                        actionType_ = rawValue;
+                        break;
+                    }
+                    case 42: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        containerUrl_ = s;
+                        break;
+                    }
+                    case 50: {
+                        java.lang.String s = input.readStringRequireUtf8();
+
+                        lynxContainerUrl_ = s;
+                        break;
+                    }
+                    case 56: {
+                        int rawValue = input.readEnum();
+
+                        containerType_ = rawValue;
+                        break;
+                    }
+                    case 64: {
+                        int rawValue = input.readEnum();
+
+                        opType_ = rawValue;
+                        break;
+                    }
+                    default: {
+                        if (!parseUnknownField(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
+    }
+
+    /**
+     * <p>getDescriptor.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
+     */
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data a {@link java.nio.ByteBuffer} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data              a {@link java.nio.ByteBuffer} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data a {@link com.google.protobuf.ByteString} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data              a {@link com.google.protobuf.ByteString} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data an array of {@link byte} objects
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param data              an array of {@link byte} objects
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param input a {@link java.io.InputStream} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param input             a {@link java.io.InputStream} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    /**
+     * <p>parseDelimitedFrom.</p>
+     *
+     * @param input a {@link java.io.InputStream} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    /**
+     * <p>parseDelimitedFrom.</p>
+     *
+     * @param input             a {@link java.io.InputStream} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param input a {@link com.google.protobuf.CodedInputStream} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    /**
+     * <p>parseFrom.</p>
+     *
+     * @param input             a {@link com.google.protobuf.CodedInputStream} object
+     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @throws java.io.IOException if any.
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    /**
+     * <p>newBuilder.</p>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder} object
+     */
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    /**
+     * <p>newBuilder.</p>
+     *
+     * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder} object
+     */
+    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    /**
+     * <p>getDefaultInstance.</p>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
+     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    /**
+     * <p>parser.</p>
+     *
+     * @return a {@link com.google.protobuf.Parser} object
+     */
+    public static com.google.protobuf.Parser<InRoomBannerMessage> parser() {
+        return PARSER;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+            UnusedPrivateParameter unused) {
+        return new InRoomBannerMessage();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internalGetFieldAccessorTable() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <code>.Common common = 1;</code>
+     */
+    @java.lang.Override
     public boolean hasCommon() {
-      return commonBuilder_ != null || common_ != null;
+        return common_ != null;
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.Common common = 1;</code>
-     * @return The common.
      */
+    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-      if (commonBuilder_ == null) {
         return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      } else {
-        return commonBuilder_.getMessage();
-      }
     }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        common_ = value;
-        onChanged();
-      } else {
-        commonBuilder_.setMessage(value);
-      }
 
-      return this;
-    }
     /**
+     * {@inheritDoc}
+     *
      * <code>.Common common = 1;</code>
      */
-    public Builder setCommon(
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
-      if (commonBuilder_ == null) {
-        common_ = builderForValue.build();
-        onChanged();
-      } else {
-        commonBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (common_ != null) {
-          common_ =
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
-        } else {
-          common_ = value;
-        }
-        onChanged();
-      } else {
-        commonBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder clearCommon() {
-      if (commonBuilder_ == null) {
-        common_ = null;
-        onChanged();
-      } else {
-        common_ = null;
-        commonBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
-      
-      onChanged();
-      return getCommonFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
+    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-      if (commonBuilder_ != null) {
-        return commonBuilder_.getMessageOrBuilder();
-      } else {
-        return common_ == null ?
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      }
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> 
-        getCommonFieldBuilder() {
-      if (commonBuilder_ == null) {
-        commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
-                getCommon(),
-                getParentForChildren(),
-                isClean());
-        common_ = null;
-      }
-      return commonBuilder_;
+        return getCommon();
     }
 
-    private java.lang.Object extra_ = "";
     /**
+     * {@inheritDoc}
+     *
      * <code>string extra = 2;</code>
-     * @return The extra.
      */
+    @java.lang.Override
     public java.lang.String getExtra() {
-      java.lang.Object ref = extra_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        extra_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string extra = 2;</code>
-     * @return The bytes for extra.
-     */
-    public com.google.protobuf.ByteString
-        getExtraBytes() {
-      java.lang.Object ref = extra_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        extra_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string extra = 2;</code>
-     * @param value The extra to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExtra(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      extra_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string extra = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearExtra() {
-      
-      extra_ = getDefaultInstance().getExtra();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string extra = 2;</code>
-     * @param value The bytes for extra to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExtraBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      extra_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = extra_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            extra_ = s;
+            return s;
+        }
     }
 
-    private int position_ = 0;
     /**
-     * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-     * @return The enum numeric value on the wire for position.
+     * {@inheritDoc}
+     *
+     * <code>string extra = 2;</code>
      */
-    @java.lang.Override public int getPositionValue() {
-      return position_;
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getExtraBytes() {
+        java.lang.Object ref = extra_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            extra_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-     * @param value The enum numeric value on the wire for position to set.
-     * @return This builder for chaining.
      */
-    public Builder setPositionValue(int value) {
-      
-      position_ = value;
-      onChanged();
-      return this;
+    @java.lang.Override
+    public int getPositionValue() {
+        return position_;
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-     * @return The position.
      */
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType getPosition() {
-      @SuppressWarnings("deprecation")
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.valueOf(position_);
-      return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-     * @param value The position to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPosition(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      position_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPosition() {
-      
-      position_ = 0;
-      onChanged();
-      return this;
+        @SuppressWarnings("deprecation")
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.valueOf(position_);
+        return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNRECOGNIZED : result;
     }
 
-    private int actionType_ = 0;
     /**
+     * {@inheritDoc}
+     *
      * <code>.ActionType actionType = 4;</code>
-     * @return The enum numeric value on the wire for actionType.
      */
-    @java.lang.Override public int getActionTypeValue() {
-      return actionType_;
+    @java.lang.Override
+    public int getActionTypeValue() {
+        return actionType_;
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.ActionType actionType = 4;</code>
-     * @param value The enum numeric value on the wire for actionType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setActionTypeValue(int value) {
-      
-      actionType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.ActionType actionType = 4;</code>
-     * @return The actionType.
      */
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType getActionType() {
-      @SuppressWarnings("deprecation")
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.valueOf(actionType_);
-      return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.ActionType actionType = 4;</code>
-     * @param value The actionType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setActionType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      actionType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.ActionType actionType = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearActionType() {
-      
-      actionType_ = 0;
-      onChanged();
-      return this;
+        @SuppressWarnings("deprecation")
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.valueOf(actionType_);
+        return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.UNRECOGNIZED : result;
     }
 
-    private java.lang.Object containerUrl_ = "";
     /**
+     * {@inheritDoc}
+     *
      * <code>string containerUrl = 5;</code>
-     * @return The containerUrl.
      */
+    @java.lang.Override
     public java.lang.String getContainerUrl() {
-      java.lang.Object ref = containerUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        containerUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string containerUrl = 5;</code>
-     * @return The bytes for containerUrl.
-     */
-    public com.google.protobuf.ByteString
-        getContainerUrlBytes() {
-      java.lang.Object ref = containerUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        containerUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string containerUrl = 5;</code>
-     * @param value The containerUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setContainerUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      containerUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string containerUrl = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearContainerUrl() {
-      
-      containerUrl_ = getDefaultInstance().getContainerUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string containerUrl = 5;</code>
-     * @param value The bytes for containerUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setContainerUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      containerUrl_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = containerUrl_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            containerUrl_ = s;
+            return s;
+        }
     }
 
-    private java.lang.Object lynxContainerUrl_ = "";
     /**
-     * <code>string lynxContainerUrl = 6;</code>
-     * @return The lynxContainerUrl.
+     * {@inheritDoc}
+     *
+     * <code>string containerUrl = 5;</code>
      */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getContainerUrlBytes() {
+        java.lang.Object ref = containerUrl_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            containerUrl_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <code>string lynxContainerUrl = 6;</code>
+     */
+    @java.lang.Override
     public java.lang.String getLynxContainerUrl() {
-      java.lang.Object ref = lynxContainerUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lynxContainerUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string lynxContainerUrl = 6;</code>
-     * @return The bytes for lynxContainerUrl.
-     */
-    public com.google.protobuf.ByteString
-        getLynxContainerUrlBytes() {
-      java.lang.Object ref = lynxContainerUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lynxContainerUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string lynxContainerUrl = 6;</code>
-     * @param value The lynxContainerUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLynxContainerUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      lynxContainerUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string lynxContainerUrl = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLynxContainerUrl() {
-      
-      lynxContainerUrl_ = getDefaultInstance().getLynxContainerUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string lynxContainerUrl = 6;</code>
-     * @param value The bytes for lynxContainerUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLynxContainerUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      lynxContainerUrl_ = value;
-      onChanged();
-      return this;
+        java.lang.Object ref = lynxContainerUrl_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            lynxContainerUrl_ = s;
+            return s;
+        }
     }
 
-    private int containerType_ = 0;
     /**
-     * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-     * @return The enum numeric value on the wire for containerType.
+     * {@inheritDoc}
+     *
+     * <code>string lynxContainerUrl = 6;</code>
      */
-    @java.lang.Override public int getContainerTypeValue() {
-      return containerType_;
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+    getLynxContainerUrlBytes() {
+        java.lang.Object ref = lynxContainerUrl_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            lynxContainerUrl_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-     * @param value The enum numeric value on the wire for containerType to set.
-     * @return This builder for chaining.
      */
-    public Builder setContainerTypeValue(int value) {
-      
-      containerType_ = value;
-      onChanged();
-      return this;
+    @java.lang.Override
+    public int getContainerTypeValue() {
+        return containerType_;
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-     * @return The containerType.
      */
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType getContainerType() {
-      @SuppressWarnings("deprecation")
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.valueOf(containerType_);
-      return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-     * @param value The containerType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setContainerType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      containerType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearContainerType() {
-      
-      containerType_ = 0;
-      onChanged();
-      return this;
+        @SuppressWarnings("deprecation")
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.valueOf(containerType_);
+        return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.UNRECOGNIZED : result;
     }
 
-    private int opType_ = 0;
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-     * @return The enum numeric value on the wire for opType.
      */
-    @java.lang.Override public int getOpTypeValue() {
-      return opType_;
+    @java.lang.Override
+    public int getOpTypeValue() {
+        return opType_;
     }
+
     /**
+     * {@inheritDoc}
+     *
      * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-     * @param value The enum numeric value on the wire for opType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOpTypeValue(int value) {
-      
-      opType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-     * @return The opType.
      */
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType getOpType() {
-      @SuppressWarnings("deprecation")
-      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.valueOf(opType_);
-      return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.UNRECOGNIZED : result;
+        @SuppressWarnings("deprecation")
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.valueOf(opType_);
+        return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.UNRECOGNIZED : result;
     }
+
     /**
-     * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-     * @param value The opType to set.
-     * @return This builder for chaining.
+     * {@inheritDoc}
      */
-    public Builder setOpType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      opType_ = value.getNumber();
-      onChanged();
-      return this;
+    @java.lang.Override
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
     }
+
     /**
-     * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-     * @return This builder for chaining.
+     * {@inheritDoc}
      */
-    public Builder clearOpType() {
-      
-      opType_ = 0;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (common_ != null) {
+            output.writeMessage(1, getCommon());
+        }
+        if (!getExtraBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, extra_);
+        }
+        if (position_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNDEFINED.getNumber()) {
+            output.writeEnum(3, position_);
+        }
+        if (actionType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.DEFAULT.getNumber()) {
+            output.writeEnum(4, actionType_);
+        }
+        if (!getContainerUrlBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 5, containerUrl_);
+        }
+        if (!getLynxContainerUrlBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lynxContainerUrl_);
+        }
+        if (containerType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.WEBVIEW.getNumber()) {
+            output.writeEnum(7, containerType_);
+        }
+        if (opType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.DELETE.getNumber()) {
+            output.writeEnum(8, opType_);
+        }
+        unknownFields.writeTo(output);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @java.lang.Override
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (common_ != null) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(1, getCommon());
+        }
+        if (!getExtraBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, extra_);
+        }
+        if (position_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNDEFINED.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(3, position_);
+        }
+        if (actionType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.DEFAULT.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(4, actionType_);
+        }
+        if (!getContainerUrlBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, containerUrl_);
+        }
+        if (!getLynxContainerUrlBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lynxContainerUrl_);
+        }
+        if (containerType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.WEBVIEW.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(7, containerType_);
+        }
+        if (opType_ != cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.DELETE.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(8, opType_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
     }
 
-
-    // @@protoc_insertion_point(builder_scope:InRoomBannerMessage)
-  }
-
-  // @@protoc_insertion_point(class_scope:InRoomBannerMessage)
-  /** Constant <code>DEFAULT_INSTANCE</code> */
-  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage();
-  }
-
-  /**
-   * <p>getDefaultInstance.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage} object
-   */
-  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  /** Constant <code>PARSER</code> */
-  private static final com.google.protobuf.Parser<InRoomBannerMessage>
-      PARSER = new com.google.protobuf.AbstractParser<InRoomBannerMessage>() {
+    /**
+     * {@inheritDoc}
+     */
     @java.lang.Override
-    public InRoomBannerMessage parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InRoomBannerMessage(input, extensionRegistry);
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage)) {
+            return super.equals(obj);
+        }
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) obj;
+
+        if (hasCommon() != other.hasCommon()) return false;
+        if (hasCommon()) {
+            if (!getCommon()
+                    .equals(other.getCommon())) return false;
+        }
+        if (!getExtra()
+                .equals(other.getExtra())) return false;
+        if (position_ != other.position_) return false;
+        if (actionType_ != other.actionType_) return false;
+        if (!getContainerUrl()
+                .equals(other.getContainerUrl())) return false;
+        if (!getLynxContainerUrl()
+                .equals(other.getLynxContainerUrl())) return false;
+        if (containerType_ != other.containerType_) return false;
+        if (opType_ != other.opType_) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
     }
-  };
 
-  /**
-   * <p>parser.</p>
-   *
-   * @return a {@link com.google.protobuf.Parser} object
-   */
-  public static com.google.protobuf.Parser<InRoomBannerMessage> parser() {
-    return PARSER;
-  }
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasCommon()) {
+            hash = (37 * hash) + COMMON_FIELD_NUMBER;
+            hash = (53 * hash) + getCommon().hashCode();
+        }
+        hash = (37 * hash) + EXTRA_FIELD_NUMBER;
+        hash = (53 * hash) + getExtra().hashCode();
+        hash = (37 * hash) + POSITION_FIELD_NUMBER;
+        hash = (53 * hash) + position_;
+        hash = (37 * hash) + ACTIONTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + actionType_;
+        hash = (37 * hash) + CONTAINERURL_FIELD_NUMBER;
+        hash = (53 * hash) + getContainerUrl().hashCode();
+        hash = (37 * hash) + LYNXCONTAINERURL_FIELD_NUMBER;
+        hash = (53 * hash) + getLynxContainerUrl().hashCode();
+        hash = (37 * hash) + CONTAINERTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + containerType_;
+        hash = (37 * hash) + OPTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + opType_;
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
 
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public com.google.protobuf.Parser<InRoomBannerMessage> getParserForType() {
-    return PARSER;
-  }
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
 
-  /** {@inheritDoc} */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    // @@protoc_insertion_point(class_scope:InRoomBannerMessage)
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public com.google.protobuf.Parser<InRoomBannerMessage> getParserForType() {
+        return PARSER;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
+    /**
+     * Protobuf enum {@code InRoomBannerMessage.PositionType}
+     */
+    public enum PositionType
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>UNDEFINED = 0;</code>
+         */
+        UNDEFINED(0),
+        /**
+         * <code>BOTTOM_RIGHT = 1;</code>
+         */
+        BOTTOM_RIGHT(1),
+        /**
+         * <code>TOP_RIGHT = 2;</code>
+         */
+        TOP_RIGHT(2),
+        /**
+         * <code>TOP_LEFT = 3;</code>
+         */
+        TOP_LEFT(3),
+        /**
+         * <code>BOTTOM_LEFT = 4;</code>
+         */
+        BOTTOM_LEFT(4),
+        /**
+         * <code>ACTIVITY_TOP_RIGHT = 5;</code>
+         */
+        ACTIVITY_TOP_RIGHT(5),
+        /**
+         * <code>ACTIVITY_VS_INTERACTIVE = 6;</code>
+         */
+        ACTIVITY_VS_INTERACTIVE(6),
+        /**
+         * <code>ACTIVITY_INTERACTIVE = 7;</code>
+         */
+        ACTIVITY_INTERACTIVE(7),
+        /**
+         * <code>ACTIVITY_VS_BOTTOM_RIGHT = 8;</code>
+         */
+        ACTIVITY_VS_BOTTOM_RIGHT(8),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>UNDEFINED = 0;</code>
+         */
+        public static final int UNDEFINED_VALUE = 0;
+        /**
+         * <code>BOTTOM_RIGHT = 1;</code>
+         */
+        public static final int BOTTOM_RIGHT_VALUE = 1;
+        /**
+         * <code>TOP_RIGHT = 2;</code>
+         */
+        public static final int TOP_RIGHT_VALUE = 2;
+        /**
+         * <code>TOP_LEFT = 3;</code>
+         */
+        public static final int TOP_LEFT_VALUE = 3;
+        /**
+         * <code>BOTTOM_LEFT = 4;</code>
+         */
+        public static final int BOTTOM_LEFT_VALUE = 4;
+        /**
+         * <code>ACTIVITY_TOP_RIGHT = 5;</code>
+         */
+        public static final int ACTIVITY_TOP_RIGHT_VALUE = 5;
+        /**
+         * <code>ACTIVITY_VS_INTERACTIVE = 6;</code>
+         */
+        public static final int ACTIVITY_VS_INTERACTIVE_VALUE = 6;
+        /**
+         * <code>ACTIVITY_INTERACTIVE = 7;</code>
+         */
+        public static final int ACTIVITY_INTERACTIVE_VALUE = 7;
+        /**
+         * <code>ACTIVITY_VS_BOTTOM_RIGHT = 8;</code>
+         */
+        public static final int ACTIVITY_VS_BOTTOM_RIGHT_VALUE = 8;
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                PositionType> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<PositionType>() {
+                    public PositionType findValueByNumber(int number) {
+                        return PositionType.forNumber(number);
+                    }
+                };
+        private static final PositionType[] VALUES = values();
+        private final int value;
+
+        private PositionType(int value) {
+            this.value = value;
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static PositionType valueOf(int value) {
+            return forNumber(value);
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         */
+        public static PositionType forNumber(int value) {
+            switch (value) {
+                case 0:
+                    return UNDEFINED;
+                case 1:
+                    return BOTTOM_RIGHT;
+                case 2:
+                    return TOP_RIGHT;
+                case 3:
+                    return TOP_LEFT;
+                case 4:
+                    return BOTTOM_LEFT;
+                case 5:
+                    return ACTIVITY_TOP_RIGHT;
+                case 6:
+                    return ACTIVITY_VS_INTERACTIVE;
+                case 7:
+                    return ACTIVITY_INTERACTIVE;
+                case 8:
+                    return ACTIVITY_VS_BOTTOM_RIGHT;
+                default:
+                    return null;
+            }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<PositionType>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(0);
+        }
+
+        public static PositionType valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new java.lang.IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalStateException(
+                        "Can't get the descriptor of an unrecognized enum value.");
+            }
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+            return getDescriptor();
+        }
+
+        // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.PositionType)
+    }
+
+    /**
+     * Protobuf enum {@code InRoomBannerMessage.ContainerType}
+     */
+    public enum ContainerType
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>WEBVIEW = 0;</code>
+         */
+        WEBVIEW(0),
+        /**
+         * <code>LYNX = 1;</code>
+         */
+        LYNX(1),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>WEBVIEW = 0;</code>
+         */
+        public static final int WEBVIEW_VALUE = 0;
+        /**
+         * <code>LYNX = 1;</code>
+         */
+        public static final int LYNX_VALUE = 1;
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                ContainerType> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<ContainerType>() {
+                    public ContainerType findValueByNumber(int number) {
+                        return ContainerType.forNumber(number);
+                    }
+                };
+        private static final ContainerType[] VALUES = values();
+        private final int value;
+
+        private ContainerType(int value) {
+            this.value = value;
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static ContainerType valueOf(int value) {
+            return forNumber(value);
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         */
+        public static ContainerType forNumber(int value) {
+            switch (value) {
+                case 0:
+                    return WEBVIEW;
+                case 1:
+                    return LYNX;
+                default:
+                    return null;
+            }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<ContainerType>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(1);
+        }
+
+        public static ContainerType valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new java.lang.IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalStateException(
+                        "Can't get the descriptor of an unrecognized enum value.");
+            }
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+            return getDescriptor();
+        }
+
+        // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.ContainerType)
+    }
+
+    /**
+     * Protobuf enum {@code InRoomBannerMessage.OpType}
+     */
+    public enum OpType
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>DELETE = 0;</code>
+         */
+        DELETE(0),
+        /**
+         * <code>ADD = 1;</code>
+         */
+        ADD(1),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>DELETE = 0;</code>
+         */
+        public static final int DELETE_VALUE = 0;
+        /**
+         * <code>ADD = 1;</code>
+         */
+        public static final int ADD_VALUE = 1;
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                OpType> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<OpType>() {
+                    public OpType findValueByNumber(int number) {
+                        return OpType.forNumber(number);
+                    }
+                };
+        private static final OpType[] VALUES = values();
+        private final int value;
+
+        private OpType(int value) {
+            this.value = value;
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static OpType valueOf(int value) {
+            return forNumber(value);
+        }
+
+        /**
+         * @param value The numeric wire value of the corresponding enum entry.
+         * @return The enum associated with the given numeric wire value.
+         */
+        public static OpType forNumber(int value) {
+            switch (value) {
+                case 0:
+                    return DELETE;
+                case 1:
+                    return ADD;
+                default:
+                    return null;
+            }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<OpType>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDescriptor().getEnumTypes().get(2);
+        }
+
+        public static OpType valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new java.lang.IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalStateException(
+                        "Can't get the descriptor of an unrecognized enum value.");
+            }
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+            return getDescriptor();
+        }
+
+        // @@protoc_insertion_point(enum_scope:InRoomBannerMessage.OpType)
+    }
+
+    /**
+     * <pre>
+     * 更新时间 : 2023-01-11
+     * </pre>
+     * <p>
+     * Protobuf type {@code InRoomBannerMessage}
+     */
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:InRoomBannerMessage)
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOrBuilder {
+        private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
+        private java.lang.Object extra_ = "";
+        private int position_ = 0;
+        private int actionType_ = 0;
+        private java.lang.Object containerUrl_ = "";
+        private java.lang.Object lynxContainerUrl_ = "";
+        private int containerType_ = 0;
+        private int opType_ = 0;
+
+        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        @java.lang.Override
+        public Builder clear() {
+            super.clear();
+            if (commonBuilder_ == null) {
+                common_ = null;
+            } else {
+                common_ = null;
+                commonBuilder_ = null;
+            }
+            extra_ = "";
+
+            position_ = 0;
+
+            actionType_ = 0;
+
+            containerUrl_ = "";
+
+            lynxContainerUrl_ = "";
+
+            containerType_ = 0;
+
+            opType_ = 0;
+
+            return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessageOuterClass.internal_static_InRoomBannerMessage_descriptor;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage getDefaultInstanceForType() {
+            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage build() {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage buildPartial() {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage(this);
+            if (commonBuilder_ == null) {
+                result.common_ = common_;
+            } else {
+                result.common_ = commonBuilder_.build();
+            }
+            result.extra_ = extra_;
+            result.position_ = position_;
+            result.actionType_ = actionType_;
+            result.containerUrl_ = containerUrl_;
+            result.lynxContainerUrl_ = lynxContainerUrl_;
+            result.containerType_ = containerType_;
+            result.opType_ = opType_;
+            onBuilt();
+            return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+            return super.clone();
+        }
+
+        @java.lang.Override
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.setField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return super.clearField(field);
+        }
+
+        @java.lang.Override
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return super.clearOneof(oneof);
+        }
+
+        @java.lang.Override
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return super.setRepeatedField(field, index, value);
+        }
+
+        @java.lang.Override
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return super.addRepeatedField(field, value);
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) {
+                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage other) {
+            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.getDefaultInstance())
+                return this;
+            if (other.hasCommon()) {
+                mergeCommon(other.getCommon());
+            }
+            if (!other.getExtra().isEmpty()) {
+                extra_ = other.extra_;
+                onChanged();
+            }
+            if (other.position_ != 0) {
+                setPositionValue(other.getPositionValue());
+            }
+            if (other.actionType_ != 0) {
+                setActionTypeValue(other.getActionTypeValue());
+            }
+            if (!other.getContainerUrl().isEmpty()) {
+                containerUrl_ = other.containerUrl_;
+                onChanged();
+            }
+            if (!other.getLynxContainerUrl().isEmpty()) {
+                lynxContainerUrl_ = other.lynxContainerUrl_;
+                onChanged();
+            }
+            if (other.containerType_ != 0) {
+                setContainerTypeValue(other.getContainerTypeValue());
+            }
+            if (other.opType_ != 0) {
+                setOpTypeValue(other.getOpTypeValue());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         *
+         * @return Whether the common field is set.
+         */
+        public boolean hasCommon() {
+            return commonBuilder_ != null || common_ != null;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         *
+         * @return The common.
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+            if (commonBuilder_ == null) {
+                return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+            } else {
+                return commonBuilder_.getMessage();
+            }
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+            if (commonBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                common_ = value;
+                onChanged();
+            } else {
+                commonBuilder_.setMessage(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder setCommon(
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
+            if (commonBuilder_ == null) {
+                common_ = builderForValue.build();
+                onChanged();
+            } else {
+                commonBuilder_.setMessage(builderForValue.build());
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+            if (commonBuilder_ == null) {
+                if (common_ != null) {
+                    common_ =
+                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
+                } else {
+                    common_ = value;
+                }
+                onChanged();
+            } else {
+                commonBuilder_.mergeFrom(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public Builder clearCommon() {
+            if (commonBuilder_ == null) {
+                common_ = null;
+                onChanged();
+            } else {
+                common_ = null;
+                commonBuilder_ = null;
+            }
+
+            return this;
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
+
+            onChanged();
+            return getCommonFieldBuilder().getBuilder();
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+            if (commonBuilder_ != null) {
+                return commonBuilder_.getMessageOrBuilder();
+            } else {
+                return common_ == null ?
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+            }
+        }
+
+        /**
+         * <code>.Common common = 1;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>
+        getCommonFieldBuilder() {
+            if (commonBuilder_ == null) {
+                commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
+                        getCommon(),
+                        getParentForChildren(),
+                        isClean());
+                common_ = null;
+            }
+            return commonBuilder_;
+        }
+
+        /**
+         * <code>string extra = 2;</code>
+         *
+         * @return The extra.
+         */
+        public java.lang.String getExtra() {
+            java.lang.Object ref = extra_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                extra_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string extra = 2;</code>
+         *
+         * @param value The extra to set.
+         * @return This builder for chaining.
+         */
+        public Builder setExtra(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            extra_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string extra = 2;</code>
+         *
+         * @return The bytes for extra.
+         */
+        public com.google.protobuf.ByteString
+        getExtraBytes() {
+            java.lang.Object ref = extra_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                extra_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string extra = 2;</code>
+         *
+         * @param value The bytes for extra to set.
+         * @return This builder for chaining.
+         */
+        public Builder setExtraBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            extra_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string extra = 2;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearExtra() {
+
+            extra_ = getDefaultInstance().getExtra();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+         *
+         * @return The enum numeric value on the wire for position.
+         */
+        @java.lang.Override
+        public int getPositionValue() {
+            return position_;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+         *
+         * @param value The enum numeric value on the wire for position to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPositionValue(int value) {
+
+            position_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+         *
+         * @return The position.
+         */
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType getPosition() {
+            @SuppressWarnings("deprecation")
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.valueOf(position_);
+            return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+         *
+         * @param value The position to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPosition(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            position_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearPosition() {
+
+            position_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ActionType actionType = 4;</code>
+         *
+         * @return The enum numeric value on the wire for actionType.
+         */
+        @java.lang.Override
+        public int getActionTypeValue() {
+            return actionType_;
+        }
+
+        /**
+         * <code>.ActionType actionType = 4;</code>
+         *
+         * @param value The enum numeric value on the wire for actionType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setActionTypeValue(int value) {
+
+            actionType_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ActionType actionType = 4;</code>
+         *
+         * @return The actionType.
+         */
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType getActionType() {
+            @SuppressWarnings("deprecation")
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.valueOf(actionType_);
+            return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.ActionType actionType = 4;</code>
+         *
+         * @param value The actionType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setActionType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            actionType_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.ActionType actionType = 4;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearActionType() {
+
+            actionType_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string containerUrl = 5;</code>
+         *
+         * @return The containerUrl.
+         */
+        public java.lang.String getContainerUrl() {
+            java.lang.Object ref = containerUrl_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                containerUrl_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string containerUrl = 5;</code>
+         *
+         * @param value The containerUrl to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContainerUrl(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            containerUrl_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string containerUrl = 5;</code>
+         *
+         * @return The bytes for containerUrl.
+         */
+        public com.google.protobuf.ByteString
+        getContainerUrlBytes() {
+            java.lang.Object ref = containerUrl_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                containerUrl_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string containerUrl = 5;</code>
+         *
+         * @param value The bytes for containerUrl to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContainerUrlBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            containerUrl_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string containerUrl = 5;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearContainerUrl() {
+
+            containerUrl_ = getDefaultInstance().getContainerUrl();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string lynxContainerUrl = 6;</code>
+         *
+         * @return The lynxContainerUrl.
+         */
+        public java.lang.String getLynxContainerUrl() {
+            java.lang.Object ref = lynxContainerUrl_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                lynxContainerUrl_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string lynxContainerUrl = 6;</code>
+         *
+         * @param value The lynxContainerUrl to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLynxContainerUrl(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            lynxContainerUrl_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string lynxContainerUrl = 6;</code>
+         *
+         * @return The bytes for lynxContainerUrl.
+         */
+        public com.google.protobuf.ByteString
+        getLynxContainerUrlBytes() {
+            java.lang.Object ref = lynxContainerUrl_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                lynxContainerUrl_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string lynxContainerUrl = 6;</code>
+         *
+         * @param value The bytes for lynxContainerUrl to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLynxContainerUrlBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            lynxContainerUrl_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string lynxContainerUrl = 6;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearLynxContainerUrl() {
+
+            lynxContainerUrl_ = getDefaultInstance().getLynxContainerUrl();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+         *
+         * @return The enum numeric value on the wire for containerType.
+         */
+        @java.lang.Override
+        public int getContainerTypeValue() {
+            return containerType_;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+         *
+         * @param value The enum numeric value on the wire for containerType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContainerTypeValue(int value) {
+
+            containerType_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+         *
+         * @return The containerType.
+         */
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType getContainerType() {
+            @SuppressWarnings("deprecation")
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.valueOf(containerType_);
+            return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+         *
+         * @param value The containerType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setContainerType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            containerType_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearContainerType() {
+
+            containerType_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+         *
+         * @return The enum numeric value on the wire for opType.
+         */
+        @java.lang.Override
+        public int getOpTypeValue() {
+            return opType_;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+         *
+         * @param value The enum numeric value on the wire for opType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setOpTypeValue(int value) {
+
+            opType_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+         *
+         * @return The opType.
+         */
+        @java.lang.Override
+        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType getOpType() {
+            @SuppressWarnings("deprecation")
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType result = cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.valueOf(opType_);
+            return result == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+         *
+         * @param value The opType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setOpType(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            opType_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearOpType() {
+
+            opType_ = 0;
+            onChanged();
+            return this;
+        }
+
+        @java.lang.Override
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:InRoomBannerMessage)
+    }
 
 }
 

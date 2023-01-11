@@ -10,119 +10,128 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface InRoomBannerMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:InRoomBannerMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:InRoomBannerMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-  /**
-   * <code>string extra = 2;</code>
-   *
-   * @return The extra.
-   */
-  java.lang.String getExtra();
-      /**
-       * <code>string extra = 2;</code>
-       *
-       * @return The bytes for extra.
-       */
-  com.google.protobuf.ByteString
-      getExtraBytes();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
 
-  /**
-   * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-   *
-   * @return The enum numeric value on the wire for position.
-   */
-  int getPositionValue();
-  /**
-   * <code>.InRoomBannerMessage.PositionType position = 3;</code>
-   *
-   * @return The position.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType getPosition();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-  /**
-   * <code>.ActionType actionType = 4;</code>
-   *
-   * @return The enum numeric value on the wire for actionType.
-   */
-  int getActionTypeValue();
-  /**
-   * <code>.ActionType actionType = 4;</code>
-   *
-   * @return The actionType.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType getActionType();
+    /**
+     * <code>string extra = 2;</code>
+     *
+     * @return The extra.
+     */
+    java.lang.String getExtra();
 
-  /**
-   * <code>string containerUrl = 5;</code>
-   *
-   * @return The containerUrl.
-   */
-  java.lang.String getContainerUrl();
-      /**
-       * <code>string containerUrl = 5;</code>
-       *
-       * @return The bytes for containerUrl.
-       */
-  com.google.protobuf.ByteString
-      getContainerUrlBytes();
+    /**
+     * <code>string extra = 2;</code>
+     *
+     * @return The bytes for extra.
+     */
+    com.google.protobuf.ByteString
+    getExtraBytes();
 
-  /**
-   * <code>string lynxContainerUrl = 6;</code>
-   *
-   * @return The lynxContainerUrl.
-   */
-  java.lang.String getLynxContainerUrl();
-      /**
-       * <code>string lynxContainerUrl = 6;</code>
-       *
-       * @return The bytes for lynxContainerUrl.
-       */
-  com.google.protobuf.ByteString
-      getLynxContainerUrlBytes();
+    /**
+     * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+     *
+     * @return The enum numeric value on the wire for position.
+     */
+    int getPositionValue();
 
-  /**
-   * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-   *
-   * @return The enum numeric value on the wire for containerType.
-   */
-  int getContainerTypeValue();
-  /**
-   * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
-   *
-   * @return The containerType.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType getContainerType();
+    /**
+     * <code>.InRoomBannerMessage.PositionType position = 3;</code>
+     *
+     * @return The position.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.PositionType getPosition();
 
-  /**
-   * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-   *
-   * @return The enum numeric value on the wire for opType.
-   */
-  int getOpTypeValue();
-  /**
-   * <code>.InRoomBannerMessage.OpType opType = 8;</code>
-   *
-   * @return The opType.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType getOpType();
+    /**
+     * <code>.ActionType actionType = 4;</code>
+     *
+     * @return The enum numeric value on the wire for actionType.
+     */
+    int getActionTypeValue();
+
+    /**
+     * <code>.ActionType actionType = 4;</code>
+     *
+     * @return The actionType.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ActionType getActionType();
+
+    /**
+     * <code>string containerUrl = 5;</code>
+     *
+     * @return The containerUrl.
+     */
+    java.lang.String getContainerUrl();
+
+    /**
+     * <code>string containerUrl = 5;</code>
+     *
+     * @return The bytes for containerUrl.
+     */
+    com.google.protobuf.ByteString
+    getContainerUrlBytes();
+
+    /**
+     * <code>string lynxContainerUrl = 6;</code>
+     *
+     * @return The lynxContainerUrl.
+     */
+    java.lang.String getLynxContainerUrl();
+
+    /**
+     * <code>string lynxContainerUrl = 6;</code>
+     *
+     * @return The bytes for lynxContainerUrl.
+     */
+    com.google.protobuf.ByteString
+    getLynxContainerUrlBytes();
+
+    /**
+     * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+     *
+     * @return The enum numeric value on the wire for containerType.
+     */
+    int getContainerTypeValue();
+
+    /**
+     * <code>.InRoomBannerMessage.ContainerType containerType = 7;</code>
+     *
+     * @return The containerType.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.ContainerType getContainerType();
+
+    /**
+     * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+     *
+     * @return The enum numeric value on the wire for opType.
+     */
+    int getOpTypeValue();
+
+    /**
+     * <code>.InRoomBannerMessage.OpType opType = 8;</code>
+     *
+     * @return The opType.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomBannerMessage.OpType getOpType();
 }

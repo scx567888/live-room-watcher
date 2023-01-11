@@ -196,7 +196,9 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
         this.liveRoomTitle = this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startWatch() {
         try {

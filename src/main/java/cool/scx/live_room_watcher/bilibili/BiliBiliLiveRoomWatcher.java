@@ -19,7 +19,9 @@ public class BiliBiliLiveRoomWatcher extends LiveRoomWatcher {
 
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startWatch() {
 

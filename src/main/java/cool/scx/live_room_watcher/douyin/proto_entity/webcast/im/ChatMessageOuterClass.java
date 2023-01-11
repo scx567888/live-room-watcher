@@ -10,96 +10,105 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public final class ChatMessageOuterClass {
-  /**
-   * <p>Constructor for ChatMessageOuterClass.</p>
-   */
-  private ChatMessageOuterClass() {}
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  /** Constant <code>internal_static_ChatMessage_descriptor</code> */
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatMessage_descriptor;
-  /** Constant <code>internal_static_ChatMessage_fieldAccessorTable</code> */
-  static final 
+    /**
+     * Constant <code>internal_static_ChatMessage_descriptor</code>
+     */
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ChatMessage_descriptor;
+    /**
+     * Constant <code>internal_static_ChatMessage_fieldAccessorTable</code>
+     */
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatMessage_fieldAccessorTable;
+            internal_static_ChatMessage_fieldAccessorTable;
+    /**
+     * Constant <code>descriptor</code>
+     */
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  /**
-   * <p>Getter for the field <code>descriptor</code>.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
-   */
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  /** Constant <code>descriptor</code> */
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\034webcast/im/ChatMessage.proto\032\027webcast/" +
-      "im/Common.proto\032\027webcast/data/User.proto" +
-      "\032\030webcast/data/Image.proto\032!webcast/im/P" +
-      "ublicAreaCommon.proto\032\027webcast/data/Text" +
-      ".proto\032$webcast/im/LandscapeAreaCommon.p" +
-      "roto\"\250\004\n\013ChatMessage\022\027\n\006common\030\001 \001(\0132\007.C" +
-      "ommon\022\023\n\004user\030\002 \001(\0132\005.User\022\017\n\007content\030\003 " +
-      "\001(\t\022\027\n\017visibleToSender\030\004 \001(\010\022\037\n\017backgrou" +
-      "ndImage\030\005 \001(\0132\006.Image\022\033\n\023fullScreenTextC" +
-      "olor\030\006 \001(\t\022!\n\021backgroundImageV2\030\007 \001(\0132\006." +
-      "Image\022+\n\020publicAreaCommon\030\t \001(\0132\021.Public" +
-      "AreaCommon\022\031\n\tgiftImage\030\n \001(\0132\006.Image\022\022\n" +
-      "\nagreeMsgId\030\013 \001(\003\022\025\n\rpriorityLevel\030\014 \001(\005" +
-      "\0221\n\023landscapeAreaCommon\030\r \001(\0132\024.Landscap" +
-      "eAreaCommon\022\021\n\teventTime\030\017 \001(\003\022\022\n\nsendRe" +
-      "view\030\020 \001(\010\022\024\n\014fromIntercom\030\021 \001(\010\022\034\n\024inte" +
-      "rcomHideUserCard\030\022 \001(\010\022\024\n\014chatTagsList\030\023" +
-      " \001(\005\022\016\n\006chatBy\030\024 \001(\003\022\036\n\026individualChatPr" +
-      "iority\030\025 \001(\005\022\031\n\nrtfContent\030( \001(\0132\005.TextB" +
-      "=\n9cool.scx.live_room_watcher.douyin.pro" +
-      "to_entity.webcast.imP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.LandscapeAreaCommonOuterClass.getDescriptor(),
-        });
-    internal_static_ChatMessage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_ChatMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatMessage_descriptor,
-        new java.lang.String[] { "Common", "User", "Content", "VisibleToSender", "BackgroundImage", "FullScreenTextColor", "BackgroundImageV2", "PublicAreaCommon", "GiftImage", "AgreeMsgId", "PriorityLevel", "LandscapeAreaCommon", "EventTime", "SendReview", "FromIntercom", "IntercomHideUserCard", "ChatTagsList", "ChatBy", "IndividualChatPriority", "RtfContent", });
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.LandscapeAreaCommonOuterClass.getDescriptor();
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\034webcast/im/ChatMessage.proto\032\027webcast/" +
+                        "im/Common.proto\032\027webcast/data/User.proto" +
+                        "\032\030webcast/data/Image.proto\032!webcast/im/P" +
+                        "ublicAreaCommon.proto\032\027webcast/data/Text" +
+                        ".proto\032$webcast/im/LandscapeAreaCommon.p" +
+                        "roto\"\250\004\n\013ChatMessage\022\027\n\006common\030\001 \001(\0132\007.C" +
+                        "ommon\022\023\n\004user\030\002 \001(\0132\005.User\022\017\n\007content\030\003 " +
+                        "\001(\t\022\027\n\017visibleToSender\030\004 \001(\010\022\037\n\017backgrou" +
+                        "ndImage\030\005 \001(\0132\006.Image\022\033\n\023fullScreenTextC" +
+                        "olor\030\006 \001(\t\022!\n\021backgroundImageV2\030\007 \001(\0132\006." +
+                        "Image\022+\n\020publicAreaCommon\030\t \001(\0132\021.Public" +
+                        "AreaCommon\022\031\n\tgiftImage\030\n \001(\0132\006.Image\022\022\n" +
+                        "\nagreeMsgId\030\013 \001(\003\022\025\n\rpriorityLevel\030\014 \001(\005" +
+                        "\0221\n\023landscapeAreaCommon\030\r \001(\0132\024.Landscap" +
+                        "eAreaCommon\022\021\n\teventTime\030\017 \001(\003\022\022\n\nsendRe" +
+                        "view\030\020 \001(\010\022\024\n\014fromIntercom\030\021 \001(\010\022\034\n\024inte" +
+                        "rcomHideUserCard\030\022 \001(\010\022\024\n\014chatTagsList\030\023" +
+                        " \001(\005\022\016\n\006chatBy\030\024 \001(\003\022\036\n\026individualChatPr" +
+                        "iority\030\025 \001(\005\022\031\n\nrtfContent\030( \001(\0132\005.TextB" +
+                        "=\n9cool.scx.live_room_watcher.douyin.pro" +
+                        "to_entity.webcast.imP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.LandscapeAreaCommonOuterClass.getDescriptor(),
+                        });
+        internal_static_ChatMessage_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_ChatMessage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_ChatMessage_descriptor,
+                new java.lang.String[]{"Common", "User", "Content", "VisibleToSender", "BackgroundImage", "FullScreenTextColor", "BackgroundImageV2", "PublicAreaCommon", "GiftImage", "AgreeMsgId", "PriorityLevel", "LandscapeAreaCommon", "EventTime", "SendReview", "FromIntercom", "IntercomHideUserCard", "ChatTagsList", "ChatBy", "IndividualChatPriority", "RtfContent",});
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.LandscapeAreaCommonOuterClass.getDescriptor();
+    }
+    /**
+     * <p>Constructor for ChatMessageOuterClass.</p>
+     */
+    private ChatMessageOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    /**
+     * <p>Getter for the field <code>descriptor</code>.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+     */
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

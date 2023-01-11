@@ -10,6 +10,6 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface CrossRoomLinkCancelInviteContentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:CrossRoomLinkCancelInviteContent)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:CrossRoomLinkCancelInviteContent)
+        com.google.protobuf.MessageOrBuilder {
 }

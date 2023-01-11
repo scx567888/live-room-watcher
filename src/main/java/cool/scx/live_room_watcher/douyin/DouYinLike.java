@@ -26,13 +26,17 @@ public class DouYinLike implements Like {
         this.user = new DouYinUser(likeMessage.getUser());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return user;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long count() {
         return likeMessage.getCount();

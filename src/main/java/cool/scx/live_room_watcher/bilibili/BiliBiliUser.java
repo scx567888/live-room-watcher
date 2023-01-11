@@ -10,13 +10,17 @@ import cool.scx.live_room_watcher.User;
  */
 public class BiliBiliUser implements User {
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String nickName() {
         return null;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String avatar() {
         return null;

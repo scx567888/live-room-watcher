@@ -24,7 +24,9 @@ public class DouYinFollow implements Follow {
         this.user = new DouYinUser(this.socialMessage.getUser());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return user;

@@ -10,6 +10,6 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
  * @version $Id: $Id
  */
 public interface UserVIPInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:UserVIPInfo)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:UserVIPInfo)
+        com.google.protobuf.MessageOrBuilder {
 }

@@ -10,98 +10,106 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface AudioChatMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:AudioChatMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:AudioChatMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-  /**
-   * <code>.User user = 2;</code>
-   *
-   * @return Whether the user field is set.
-   */
-  boolean hasUser();
-  /**
-   * <code>.User user = 2;</code>
-   *
-   * @return The user.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser();
-  /**
-   * <code>.User user = 2;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
 
-  /**
-   * <code>string content = 3;</code>
-   *
-   * @return The content.
-   */
-  java.lang.String getContent();
-      /**
-       * <code>string content = 3;</code>
-       *
-       * @return The bytes for content.
-       */
-  com.google.protobuf.ByteString
-      getContentBytes();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-  /**
-   * <code>string audioUrl = 4;</code>
-   *
-   * @return The audioUrl.
-   */
-  java.lang.String getAudioUrl();
-      /**
-       * <code>string audioUrl = 4;</code>
-       *
-       * @return The bytes for audioUrl.
-       */
-  com.google.protobuf.ByteString
-      getAudioUrlBytes();
+    /**
+     * <code>.User user = 2;</code>
+     *
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
 
-  /**
-   * <code>int64 audioDuration = 5;</code>
-   *
-   * @return The audioDuration.
-   */
-  long getAudioDuration();
+    /**
+     * <code>.User user = 2;</code>
+     *
+     * @return The user.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser();
 
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
-   *
-   * @return Whether the publicAreaCommon field is set.
-   */
-  boolean hasPublicAreaCommon();
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
-   *
-   * @return The publicAreaCommon.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommon getPublicAreaCommon();
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOrBuilder getPublicAreaCommonOrBuilder();
+    /**
+     * <code>.User user = 2;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
+
+    /**
+     * <code>string content = 3;</code>
+     *
+     * @return The content.
+     */
+    java.lang.String getContent();
+
+    /**
+     * <code>string content = 3;</code>
+     *
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+    getContentBytes();
+
+    /**
+     * <code>string audioUrl = 4;</code>
+     *
+     * @return The audioUrl.
+     */
+    java.lang.String getAudioUrl();
+
+    /**
+     * <code>string audioUrl = 4;</code>
+     *
+     * @return The bytes for audioUrl.
+     */
+    com.google.protobuf.ByteString
+    getAudioUrlBytes();
+
+    /**
+     * <code>int64 audioDuration = 5;</code>
+     *
+     * @return The audioDuration.
+     */
+    long getAudioDuration();
+
+    /**
+     * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
+     *
+     * @return Whether the publicAreaCommon field is set.
+     */
+    boolean hasPublicAreaCommon();
+
+    /**
+     * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
+     *
+     * @return The publicAreaCommon.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommon getPublicAreaCommon();
+
+    /**
+     * <code>.PublicAreaCommon publicAreaCommon = 6;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PublicAreaCommonOrBuilder getPublicAreaCommonOrBuilder();
 }

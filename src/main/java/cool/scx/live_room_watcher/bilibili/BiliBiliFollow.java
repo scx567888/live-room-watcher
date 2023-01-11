@@ -10,7 +10,9 @@ import cool.scx.live_room_watcher.User;
  * @version 0.0.1
  */
 public class BiliBiliFollow implements Follow {
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return null;

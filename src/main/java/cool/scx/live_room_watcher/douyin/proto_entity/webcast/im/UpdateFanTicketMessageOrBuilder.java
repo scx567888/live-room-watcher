@@ -10,53 +10,56 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface UpdateFanTicketMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:UpdateFanTicketMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:UpdateFanTicketMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-  /**
-   * <code>string roomFanTicketCountText = 2;</code>
-   *
-   * @return The roomFanTicketCountText.
-   */
-  java.lang.String getRoomFanTicketCountText();
-      /**
-       * <code>string roomFanTicketCountText = 2;</code>
-       *
-       * @return The bytes for roomFanTicketCountText.
-       */
-  com.google.protobuf.ByteString
-      getRoomFanTicketCountTextBytes();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
 
-  /**
-   * <code>int64 roomFanTicketCount = 3;</code>
-   *
-   * @return The roomFanTicketCount.
-   */
-  long getRoomFanTicketCount();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-  /**
-   * <code>bool forceUpdate = 4;</code>
-   *
-   * @return The forceUpdate.
-   */
-  boolean getForceUpdate();
+    /**
+     * <code>string roomFanTicketCountText = 2;</code>
+     *
+     * @return The roomFanTicketCountText.
+     */
+    java.lang.String getRoomFanTicketCountText();
+
+    /**
+     * <code>string roomFanTicketCountText = 2;</code>
+     *
+     * @return The bytes for roomFanTicketCountText.
+     */
+    com.google.protobuf.ByteString
+    getRoomFanTicketCountTextBytes();
+
+    /**
+     * <code>int64 roomFanTicketCount = 3;</code>
+     *
+     * @return The roomFanTicketCount.
+     */
+    long getRoomFanTicketCount();
+
+    /**
+     * <code>bool forceUpdate = 4;</code>
+     *
+     * @return The forceUpdate.
+     */
+    boolean getForceUpdate();
 }

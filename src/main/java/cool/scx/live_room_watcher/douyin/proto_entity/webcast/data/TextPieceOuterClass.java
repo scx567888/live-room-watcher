@@ -10,90 +10,99 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
  * @version $Id: $Id
  */
 public final class TextPieceOuterClass {
-  /**
-   * <p>Constructor for TextPieceOuterClass.</p>
-   */
-  private TextPieceOuterClass() {}
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  /** Constant <code>internal_static_TextPiece_descriptor</code> */
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TextPiece_descriptor;
-  /** Constant <code>internal_static_TextPiece_fieldAccessorTable</code> */
-  static final 
+    /**
+     * Constant <code>internal_static_TextPiece_descriptor</code>
+     */
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_TextPiece_descriptor;
+    /**
+     * Constant <code>internal_static_TextPiece_fieldAccessorTable</code>
+     */
+    static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TextPiece_fieldAccessorTable;
+            internal_static_TextPiece_fieldAccessorTable;
+    /**
+     * Constant <code>descriptor</code>
+     */
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  /**
-   * <p>Getter for the field <code>descriptor</code>.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
-   */
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  /** Constant <code>descriptor</code> */
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\034webcast/data/TextPiece.proto\032\035webcast/" +
-      "data/TextFormat.proto\032 webcast/data/Text" +
-      "PieceUser.proto\032 webcast/data/TextPieceG" +
-      "ift.proto\032!webcast/data/TextPieceHeart.p" +
-      "roto\032&webcast/data/TextPiecePatternRef.p" +
-      "roto\032!webcast/data/TextPieceImage.proto\"" +
-      "\212\002\n\tTextPiece\022\014\n\004type\030\001 \001(\005\022\033\n\006format\030\002 " +
-      "\001(\0132\013.TextFormat\022\023\n\013stringValue\030\013 \001(\t\022!\n" +
-      "\tuserValue\030\025 \001(\0132\016.TextPieceUser\022!\n\tgift" +
-      "Value\030\026 \001(\0132\016.TextPieceGift\022#\n\nheartValu" +
-      "e\030\027 \001(\0132\017.TextPieceHeart\022-\n\017patternRefVa" +
-      "lue\030\030 \001(\0132\024.TextPiecePatternRef\022#\n\nimage" +
-      "Value\030\031 \001(\0132\017.TextPieceImageB?\n;cool.scx" +
-      ".live_room_watcher.douyin.proto_entity.w" +
-      "ebcast.dataP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGiftOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeartOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRefOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImageOuterClass.getDescriptor(),
-        });
-    internal_static_TextPiece_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_TextPiece_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TextPiece_descriptor,
-        new java.lang.String[] { "Type", "Format", "StringValue", "UserValue", "GiftValue", "HeartValue", "PatternRefValue", "ImageValue", });
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGiftOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeartOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRefOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImageOuterClass.getDescriptor();
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\034webcast/data/TextPiece.proto\032\035webcast/" +
+                        "data/TextFormat.proto\032 webcast/data/Text" +
+                        "PieceUser.proto\032 webcast/data/TextPieceG" +
+                        "ift.proto\032!webcast/data/TextPieceHeart.p" +
+                        "roto\032&webcast/data/TextPiecePatternRef.p" +
+                        "roto\032!webcast/data/TextPieceImage.proto\"" +
+                        "\212\002\n\tTextPiece\022\014\n\004type\030\001 \001(\005\022\033\n\006format\030\002 " +
+                        "\001(\0132\013.TextFormat\022\023\n\013stringValue\030\013 \001(\t\022!\n" +
+                        "\tuserValue\030\025 \001(\0132\016.TextPieceUser\022!\n\tgift" +
+                        "Value\030\026 \001(\0132\016.TextPieceGift\022#\n\nheartValu" +
+                        "e\030\027 \001(\0132\017.TextPieceHeart\022-\n\017patternRefVa" +
+                        "lue\030\030 \001(\0132\024.TextPiecePatternRef\022#\n\nimage" +
+                        "Value\030\031 \001(\0132\017.TextPieceImageB?\n;cool.scx" +
+                        ".live_room_watcher.douyin.proto_entity.w" +
+                        "ebcast.dataP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGiftOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeartOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRefOuterClass.getDescriptor(),
+                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImageOuterClass.getDescriptor(),
+                        });
+        internal_static_TextPiece_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_TextPiece_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_TextPiece_descriptor,
+                new java.lang.String[]{"Type", "Format", "StringValue", "UserValue", "GiftValue", "HeartValue", "PatternRefValue", "ImageValue",});
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGiftOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeartOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRefOuterClass.getDescriptor();
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImageOuterClass.getDescriptor();
+    }
+    /**
+     * <p>Constructor for TextPieceOuterClass.</p>
+     */
+    private TextPieceOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    /**
+     * <p>Getter for the field <code>descriptor</code>.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+     */
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

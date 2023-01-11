@@ -11,13 +11,17 @@ import cool.scx.live_room_watcher.User;
  */
 public class BiliBiliChat implements Chat {
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String content() {
         return null;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return null;

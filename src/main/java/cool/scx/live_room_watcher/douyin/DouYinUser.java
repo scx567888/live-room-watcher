@@ -35,13 +35,17 @@ public class DouYinUser implements User {
         this.user = user;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String nickName() {
         return user.getNickname();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String avatar() {
         return user.getAvatarThumb().getUri();

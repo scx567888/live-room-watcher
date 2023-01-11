@@ -10,13 +10,17 @@ import cool.scx.live_room_watcher.User;
  * @version 0.0.1
  */
 public class BiliBiliLike implements Like {
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return null;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long count() {
         return 0;

@@ -10,65 +10,70 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface ControlMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ControlMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ControlMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-  /**
-   * <code>int64 action = 2;</code>
-   *
-   * @return The action.
-   */
-  long getAction();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
 
-  /**
-   * <code>string tips = 3;</code>
-   *
-   * @return The tips.
-   */
-  java.lang.String getTips();
-      /**
-       * <code>string tips = 3;</code>
-       *
-       * @return The bytes for tips.
-       */
-  com.google.protobuf.ByteString
-      getTipsBytes();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   *
-   * @return Whether the extra field is set.
-   */
-  boolean hasExtra();
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   *
-   * @return The extra.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.Extra getExtra();
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder getExtraOrBuilder();
+    /**
+     * <code>int64 action = 2;</code>
+     *
+     * @return The action.
+     */
+    long getAction();
+
+    /**
+     * <code>string tips = 3;</code>
+     *
+     * @return The tips.
+     */
+    java.lang.String getTips();
+
+    /**
+     * <code>string tips = 3;</code>
+     *
+     * @return The bytes for tips.
+     */
+    com.google.protobuf.ByteString
+    getTipsBytes();
+
+    /**
+     * <code>.ControlMessage.Extra extra = 4;</code>
+     *
+     * @return Whether the extra field is set.
+     */
+    boolean hasExtra();
+
+    /**
+     * <code>.ControlMessage.Extra extra = 4;</code>
+     *
+     * @return The extra.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.Extra getExtra();
+
+    /**
+     * <code>.ControlMessage.Extra extra = 4;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder getExtraOrBuilder();
 }

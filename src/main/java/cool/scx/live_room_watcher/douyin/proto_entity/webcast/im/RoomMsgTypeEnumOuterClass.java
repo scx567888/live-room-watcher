@@ -10,59 +10,65 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public final class RoomMsgTypeEnumOuterClass {
-  /**
-   * <p>Constructor for RoomMsgTypeEnumOuterClass.</p>
-   */
-  private RoomMsgTypeEnumOuterClass() {}
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    /**
+     * Constant <code>descriptor</code>
+     */
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  /**
-   * <p>registerAllExtensions.</p>
-   *
-   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
-   */
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    static {
+        java.lang.String[] descriptorData = {
+                "\n webcast/im/RoomMsgTypeEnum.proto*\335\001\n\017R" +
+                        "oomMsgTypeEnum\022\022\n\016DEFAULTROOMMSG\020\000\022\035\n\031EC" +
+                        "OMLIVEREPLAYSAVEROOMMSG\020\001\022\033\n\027CONSUMERREL" +
+                        "ATIONROOMMSG\020\002\022\034\n\030JUMANJIDATAAUTHNOTIFYM" +
+                        "SG\020\003\022\020\n\014VSWELCOMEMSG\020\004\022\022\n\016MINORREFUNDMSG" +
+                        "\020\005\022\037\n\033PAIDLIVEROOMNOTIFYANCHORMSG\020\006\022\025\n\021H" +
+                        "OSTTEAMSYSTEMMSG\020\007B=\n9cool.scx.live_room" +
+                        "_watcher.douyin.proto_entity.webcast.imP" +
+                        "\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+    }
 
-  /**
-   * <p>Getter for the field <code>descriptor</code>.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
-   */
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  /** Constant <code>descriptor</code> */
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n webcast/im/RoomMsgTypeEnum.proto*\335\001\n\017R" +
-      "oomMsgTypeEnum\022\022\n\016DEFAULTROOMMSG\020\000\022\035\n\031EC" +
-      "OMLIVEREPLAYSAVEROOMMSG\020\001\022\033\n\027CONSUMERREL" +
-      "ATIONROOMMSG\020\002\022\034\n\030JUMANJIDATAAUTHNOTIFYM" +
-      "SG\020\003\022\020\n\014VSWELCOMEMSG\020\004\022\022\n\016MINORREFUNDMSG" +
-      "\020\005\022\037\n\033PAIDLIVEROOMNOTIFYANCHORMSG\020\006\022\025\n\021H" +
-      "OSTTEAMSYSTEMMSG\020\007B=\n9cool.scx.live_room" +
-      "_watcher.douyin.proto_entity.webcast.imP" +
-      "\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-  }
+    /**
+     * <p>Constructor for RoomMsgTypeEnumOuterClass.</p>
+     */
+    private RoomMsgTypeEnumOuterClass() {
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    /**
+     * <p>registerAllExtensions.</p>
+     *
+     * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+     */
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    /**
+     * <p>Getter for the field <code>descriptor</code>.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+     */
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

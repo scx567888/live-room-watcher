@@ -25,13 +25,17 @@ public class DouYinChat implements Chat {
         this.douYinUser = new DouYinUser(chatMessage.getUser());
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String content() {
         return chatMessage.getContent();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public User user() {
         return douYinUser;

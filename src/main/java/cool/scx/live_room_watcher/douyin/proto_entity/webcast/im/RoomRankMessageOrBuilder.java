@@ -10,61 +10,67 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
  * @version $Id: $Id
  */
 public interface RoomRankMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:RoomRankMessage)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:RoomRankMessage)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return Whether the common field is set.
-   */
-  boolean hasCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return The common.
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
-  /**
-   * <code>.Common common = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return Whether the common field is set.
+     */
+    boolean hasCommon();
 
-      /**
-       * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
-       *
-       * @return a {@link java.util.List} object
-       */
-  java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank>
-      getRanksListList();
-  /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
-   *
-   * @param index a int
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank getRanksList(int index);
-  /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
-   *
-   * @return a int
-   */
-  int getRanksListCount();
-      /**
-       * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
-       *
-       * @return a {@link java.util.List} object
-       */
-  java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder>
-      getRanksListOrBuilderList();
-  /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
-   *
-   * @param index a int
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder} object
-   */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder getRanksListOrBuilder(
-      int index);
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return The common.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
+
+    /**
+     * <code>.Common common = 1;</code>
+     *
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+
+    /**
+     * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+     *
+     * @return a {@link java.util.List} object
+     */
+    java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank>
+    getRanksListList();
+
+    /**
+     * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+     *
+     * @param index a int
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRank getRanksList(int index);
+
+    /**
+     * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+     *
+     * @return a int
+     */
+    int getRanksListCount();
+
+    /**
+     * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+     *
+     * @return a {@link java.util.List} object
+     */
+    java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder>
+    getRanksListOrBuilderList();
+
+    /**
+     * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+     *
+     * @param index a int
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder} object
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder getRanksListOrBuilder(
+            int index);
 }

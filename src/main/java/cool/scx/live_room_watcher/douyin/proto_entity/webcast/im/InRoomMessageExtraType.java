@@ -5,167 +5,174 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- *更新时间 : 2023-01-11
+ * 更新时间 : 2023-01-11
  * </pre>
- *
+ * <p>
  * Protobuf enum {@code InRoomMessageExtraType}
  *
  * @author scx567888
  * @version $Id: $Id
  */
 public enum InRoomMessageExtraType
-    implements com.google.protobuf.ProtocolMessageEnum {
-  /**
-   * <code>ITEMDATA = 0;</code>
-   */
-  ITEMDATA(0),
-  /**
-   * <code>ITEMADD = 1;</code>
-   */
-  ITEMADD(1),
-  /**
-   * <code>ITEMDELETE = 2;</code>
-   */
-  ITEMDELETE(2),
-  UNRECOGNIZED(-1),
-  ;
+        implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ITEMDATA = 0;</code>
+     */
+    ITEMDATA(0),
+    /**
+     * <code>ITEMADD = 1;</code>
+     */
+    ITEMADD(1),
+    /**
+     * <code>ITEMDELETE = 2;</code>
+     */
+    ITEMDELETE(2),
+    UNRECOGNIZED(-1),
+    ;
 
-  /**
-   * <code>ITEMDATA = 0;</code>
-   */
-  public static final int ITEMDATA_VALUE = 0;
-  /**
-   * <code>ITEMADD = 1;</code>
-   */
-  public static final int ITEMADD_VALUE = 1;
-  /**
-   * <code>ITEMDELETE = 2;</code>
-   */
-  public static final int ITEMDELETE_VALUE = 2;
+    /**
+     * <code>ITEMDATA = 0;</code>
+     */
+    public static final int ITEMDATA_VALUE = 0;
+    /**
+     * <code>ITEMADD = 1;</code>
+     */
+    public static final int ITEMADD_VALUE = 1;
+    /**
+     * <code>ITEMDELETE = 2;</code>
+     */
+    public static final int ITEMDELETE_VALUE = 2;
+    /**
+     * Constant <code>internalValueMap</code>
+     */
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+            InRoomMessageExtraType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<InRoomMessageExtraType>() {
+                public InRoomMessageExtraType findValueByNumber(int number) {
+                    return InRoomMessageExtraType.forNumber(number);
+                }
+            };
+    /**
+     * Constant <code>VALUES</code>
+     */
+    private static final InRoomMessageExtraType[] VALUES = values();
+    /**
+     * <p>Constructor for InRoomMessageExtraType.</p>
+     *
+     * @param value a int
+     */
+    private final int value;
 
-
-  /**
-   * <p>getNumber.</p>
-   *
-   * @return a int
-   */
-  public final int getNumber() {
-    if (this == UNRECOGNIZED) {
-      throw new java.lang.IllegalArgumentException(
-          "Can't get the number of an unknown enum value.");
+    private InRoomMessageExtraType(int value) {
+        this.value = value;
     }
-    return value;
-  }
 
-  /**
-   * <p>valueOf.</p>
-   *
-   * @param value The numeric wire value of the corresponding enum entry.
-   * @return The enum associated with the given numeric wire value.
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
-  @java.lang.Deprecated
-  public static InRoomMessageExtraType valueOf(int value) {
-    return forNumber(value);
-  }
-
-  /**
-   * <p>forNumber.</p>
-   *
-   * @param value The numeric wire value of the corresponding enum entry.
-   * @return The enum associated with the given numeric wire value.
-   */
-  public static InRoomMessageExtraType forNumber(int value) {
-    switch (value) {
-      case 0: return ITEMDATA;
-      case 1: return ITEMADD;
-      case 2: return ITEMDELETE;
-      default: return null;
+    /**
+     * <p>valueOf.</p>
+     *
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static InRoomMessageExtraType valueOf(int value) {
+        return forNumber(value);
     }
-  }
 
-  /**
-   * <p>internalGetValueMap.</p>
-   *
-   * @return a {@link com.google.protobuf.Internal.EnumLiteMap} object
-   */
-  public static com.google.protobuf.Internal.EnumLiteMap<InRoomMessageExtraType>
-      internalGetValueMap() {
-    return internalValueMap;
-  }
-  /** Constant <code>internalValueMap</code> */
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      InRoomMessageExtraType> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<InRoomMessageExtraType>() {
-          public InRoomMessageExtraType findValueByNumber(int number) {
-            return InRoomMessageExtraType.forNumber(number);
-          }
-        };
-
-  /**
-   * <p>getValueDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
-   */
-  public final com.google.protobuf.Descriptors.EnumValueDescriptor
-      getValueDescriptor() {
-    if (this == UNRECOGNIZED) {
-      throw new java.lang.IllegalStateException(
-          "Can't get the descriptor of an unrecognized enum value.");
+    /**
+     * <p>forNumber.</p>
+     *
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static InRoomMessageExtraType forNumber(int value) {
+        switch (value) {
+            case 0:
+                return ITEMDATA;
+            case 1:
+                return ITEMADD;
+            case 2:
+                return ITEMDELETE;
+            default:
+                return null;
+        }
     }
-    return getDescriptor().getValues().get(ordinal());
-  }
-  /**
-   * <p>getDescriptorForType.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
-   */
-  public final com.google.protobuf.Descriptors.EnumDescriptor
-      getDescriptorForType() {
-    return getDescriptor();
-  }
-  /**
-   * <p>getDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
-   */
-  public static final com.google.protobuf.Descriptors.EnumDescriptor
-      getDescriptor() {
-    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomMessageExtraTypeOuterClass.getDescriptor().getEnumTypes().get(0);
-  }
 
-  /** Constant <code>VALUES</code> */
-  private static final InRoomMessageExtraType[] VALUES = values();
-
-  /**
-   * <p>valueOf.</p>
-   *
-   * @param desc a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomMessageExtraType} object
-   */
-  public static InRoomMessageExtraType valueOf(
-      com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-    if (desc.getType() != getDescriptor()) {
-      throw new java.lang.IllegalArgumentException(
-        "EnumValueDescriptor is not for this type.");
+    /**
+     * <p>internalGetValueMap.</p>
+     *
+     * @return a {@link com.google.protobuf.Internal.EnumLiteMap} object
+     */
+    public static com.google.protobuf.Internal.EnumLiteMap<InRoomMessageExtraType>
+    internalGetValueMap() {
+        return internalValueMap;
     }
-    if (desc.getIndex() == -1) {
-      return UNRECOGNIZED;
+
+    /**
+     * <p>getDescriptor.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
+     */
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomMessageExtraTypeOuterClass.getDescriptor().getEnumTypes().get(0);
     }
-    return VALUES[desc.getIndex()];
-  }
 
-  /**
-   * <p>Constructor for InRoomMessageExtraType.</p>
-   *
-   * @param value a int
-   */
-  private final int value;
+    /**
+     * <p>valueOf.</p>
+     *
+     * @param desc a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
+     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.InRoomMessageExtraType} object
+     */
+    public static InRoomMessageExtraType valueOf(
+            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+                    "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+            return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+    }
 
-  private InRoomMessageExtraType(int value) {
-    this.value = value;
-  }
+    /**
+     * <p>getNumber.</p>
+     *
+     * @return a int
+     */
+    public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+            throw new java.lang.IllegalArgumentException(
+                    "Can't get the number of an unknown enum value.");
+        }
+        return value;
+    }
 
-  // @@protoc_insertion_point(enum_scope:InRoomMessageExtraType)
+    /**
+     * <p>getValueDescriptor.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
+     */
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+            throw new java.lang.IllegalStateException(
+                    "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+    }
+
+    /**
+     * <p>getDescriptorForType.</p>
+     *
+     * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
+     */
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptorForType() {
+        return getDescriptor();
+    }
+
+    // @@protoc_insertion_point(enum_scope:InRoomMessageExtraType)
 }
 

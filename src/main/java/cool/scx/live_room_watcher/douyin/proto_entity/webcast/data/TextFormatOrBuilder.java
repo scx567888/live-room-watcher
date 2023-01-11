@@ -10,69 +10,70 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
  * @version $Id: $Id
  */
 public interface TextFormatOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:TextFormat)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:TextFormat)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string color = 1;</code>
-   *
-   * @return The color.
-   */
-  java.lang.String getColor();
-      /**
-       * <code>string color = 1;</code>
-       *
-       * @return The bytes for color.
-       */
-  com.google.protobuf.ByteString
-      getColorBytes();
+    /**
+     * <code>string color = 1;</code>
+     *
+     * @return The color.
+     */
+    java.lang.String getColor();
 
-  /**
-   * <code>bool bold = 2;</code>
-   *
-   * @return The bold.
-   */
-  boolean getBold();
+    /**
+     * <code>string color = 1;</code>
+     *
+     * @return The bytes for color.
+     */
+    com.google.protobuf.ByteString
+    getColorBytes();
 
-  /**
-   * <code>bool italic = 3;</code>
-   *
-   * @return The italic.
-   */
-  boolean getItalic();
+    /**
+     * <code>bool bold = 2;</code>
+     *
+     * @return The bold.
+     */
+    boolean getBold();
 
-  /**
-   * <code>int32 weight = 4;</code>
-   *
-   * @return The weight.
-   */
-  int getWeight();
+    /**
+     * <code>bool italic = 3;</code>
+     *
+     * @return The italic.
+     */
+    boolean getItalic();
 
-  /**
-   * <code>int32 italicAngle = 5;</code>
-   *
-   * @return The italicAngle.
-   */
-  int getItalicAngle();
+    /**
+     * <code>int32 weight = 4;</code>
+     *
+     * @return The weight.
+     */
+    int getWeight();
 
-  /**
-   * <code>int32 fontSize = 6;</code>
-   *
-   * @return The fontSize.
-   */
-  int getFontSize();
+    /**
+     * <code>int32 italicAngle = 5;</code>
+     *
+     * @return The italicAngle.
+     */
+    int getItalicAngle();
 
-  /**
-   * <code>bool useHeighLightColor = 7;</code>
-   *
-   * @return The useHeighLightColor.
-   */
-  boolean getUseHeighLightColor();
+    /**
+     * <code>int32 fontSize = 6;</code>
+     *
+     * @return The fontSize.
+     */
+    int getFontSize();
 
-  /**
-   * <code>bool useRemoteClor = 8;</code>
-   *
-   * @return The useRemoteClor.
-   */
-  boolean getUseRemoteClor();
+    /**
+     * <code>bool useHeighLightColor = 7;</code>
+     *
+     * @return The useHeighLightColor.
+     */
+    boolean getUseHeighLightColor();
+
+    /**
+     * <code>bool useRemoteClor = 8;</code>
+     *
+     * @return The useRemoteClor.
+     */
+    boolean getUseRemoteClor();
 }

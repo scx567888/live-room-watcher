@@ -24,7 +24,9 @@ public enum MemberMessageAction {
     BLOCK(11),
     FOLLOW(20);
 
-    /** Constant <code>MAP</code> */
+    /**
+     * Constant <code>MAP</code>
+     */
     private static final Map<Long, MemberMessageAction> MAP = initMap();
 
     /**
