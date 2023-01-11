@@ -23,8 +23,35 @@ public interface ControlMessageOrBuilder extends
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
-   * <code>int32 status = 2;</code>
+   * <code>int64 status = 2;</code>
    * @return The status.
    */
-  int getStatus();
+  long getStatus();
+
+  /**
+   * <code>string tips = 3;</code>
+   * @return The tips.
+   */
+  java.lang.String getTips();
+  /**
+   * <code>string tips = 3;</code>
+   * @return The bytes for tips.
+   */
+  com.google.protobuf.ByteString
+      getTipsBytes();
+
+  /**
+   * <code>.ControlMessage.Extra extra = 4;</code>
+   * @return Whether the extra field is set.
+   */
+  boolean hasExtra();
+  /**
+   * <code>.ControlMessage.Extra extra = 4;</code>
+   * @return The extra.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.Extra getExtra();
+  /**
+   * <code>.ControlMessage.Extra extra = 4;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder getExtraOrBuilder();
 }

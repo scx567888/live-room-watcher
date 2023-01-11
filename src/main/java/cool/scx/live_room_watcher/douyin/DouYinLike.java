@@ -34,4 +34,9 @@ public class DouYinLike implements Like {
         return user;
     }
 
+    @Override
+    public long count() {
+        return likeMessage.getCount();
+    }
+
 }

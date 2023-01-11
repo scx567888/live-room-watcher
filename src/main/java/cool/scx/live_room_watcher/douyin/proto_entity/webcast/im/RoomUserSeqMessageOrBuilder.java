@@ -23,27 +23,27 @@ public interface RoomUserSeqMessageOrBuilder extends
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> 
-      getRanksList();
+      getRanksListList();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanks(int index);
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index);
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
-  int getRanksCount();
+  int getRanksListCount();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-      getRanksOrBuilderList();
+      getRanksListOrBuilderList();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksOrBuilder(
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
       int index);
 
   /**
@@ -65,27 +65,27 @@ public interface RoomUserSeqMessageOrBuilder extends
       getPopStrBytes();
 
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> 
-      getSeatsList();
+      getSeatsListList();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeats(int index);
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index);
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
-  int getSeatsCount();
+  int getSeatsListCount();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-      getSeatsOrBuilderList();
+      getSeatsListOrBuilderList();
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsOrBuilder(
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
       int index);
 
   /**
@@ -147,4 +147,28 @@ public interface RoomUserSeqMessageOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTotalPvForAnchorBytes();
+
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The upRightStatsStr.
+   */
+  java.lang.String getUpRightStatsStr();
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The bytes for upRightStatsStr.
+   */
+  com.google.protobuf.ByteString
+      getUpRightStatsStrBytes();
+
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The upRightStatsStrComplete.
+   */
+  java.lang.String getUpRightStatsStrComplete();
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The bytes for upRightStatsStrComplete.
+   */
+  com.google.protobuf.ByteString
+      getUpRightStatsStrCompleteBytes();
 }

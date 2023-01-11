@@ -4,6 +4,10 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
+ * <pre>
+ *更新时间 : 2023-01-11
+ * </pre>
+ *
  * Protobuf type {@code FansclubMessage}
  */
 public final class FansclubMessage extends
@@ -51,20 +55,20 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
-            if (commonInfo_ != null) {
-              subBuilder = commonInfo_.toBuilder();
+            if (common_ != null) {
+              subBuilder = common_.toBuilder();
             }
-            commonInfo_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
+            common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(commonInfo_);
-              commonInfo_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(common_);
+              common_ = subBuilder.buildPartial();
             }
 
             break;
           }
           case 16: {
 
-            type_ = input.readInt32();
+            action_ = input.readInt32();
             break;
           }
           case 26: {
@@ -82,6 +86,19 @@ private static final long serialVersionUID = 0L;
             if (subBuilder != null) {
               subBuilder.mergeFrom(user_);
               user_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder subBuilder = null;
+            if (upgradePrivilege_ != null) {
+              subBuilder = upgradePrivilege_.toBuilder();
+            }
+            upgradePrivilege_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(upgradePrivilege_);
+              upgradePrivilege_ = subBuilder.buildPartial();
             }
 
             break;
@@ -118,45 +135,833 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.Builder.class);
   }
 
-  public static final int COMMONINFO_FIELD_NUMBER = 1;
-  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common commonInfo_;
-  /**
-   * <code>.Common commonInfo = 1;</code>
-   * @return Whether the commonInfo field is set.
-   */
-  @java.lang.Override
-  public boolean hasCommonInfo() {
-    return commonInfo_ != null;
+  public interface UpgradePrivilegeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FansclubMessage.UpgradePrivilege)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string content = 1;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 1;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <code>int32 buttonType = 3;</code>
+     * @return The buttonType.
+     */
+    int getButtonType();
   }
   /**
-   * <code>.Common commonInfo = 1;</code>
-   * @return The commonInfo.
+   * Protobuf type {@code FansclubMessage.UpgradePrivilege}
    */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommonInfo() {
-    return commonInfo_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : commonInfo_;
+  public static final class UpgradePrivilege extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FansclubMessage.UpgradePrivilege)
+      UpgradePrivilegeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UpgradePrivilege.newBuilder() to construct.
+    private UpgradePrivilege(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UpgradePrivilege() {
+      content_ = "";
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpgradePrivilege();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UpgradePrivilege(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 24: {
+
+              buttonType_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessageOuterClass.internal_static_FansclubMessage_UpgradePrivilege_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessageOuterClass.internal_static_FansclubMessage_UpgradePrivilege_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.Builder.class);
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 1;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 1;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 2;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 2;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BUTTONTYPE_FIELD_NUMBER = 3;
+    private int buttonType_;
+    /**
+     * <code>int32 buttonType = 3;</code>
+     * @return The buttonType.
+     */
+    @java.lang.Override
+    public int getButtonType() {
+      return buttonType_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, content_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
+      }
+      if (buttonType_ != 0) {
+        output.writeInt32(3, buttonType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, content_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      if (buttonType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, buttonType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege)) {
+        return super.equals(obj);
+      }
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege) obj;
+
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (getButtonType()
+          != other.getButtonType()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + BUTTONTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getButtonType();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FansclubMessage.UpgradePrivilege}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FansclubMessage.UpgradePrivilege)
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilegeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessageOuterClass.internal_static_FansclubMessage_UpgradePrivilege_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessageOuterClass.internal_static_FansclubMessage_UpgradePrivilege_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.Builder.class);
+      }
+
+      // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        content_ = "";
+
+        description_ = "";
+
+        buttonType_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessageOuterClass.internal_static_FansclubMessage_UpgradePrivilege_descriptor;
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege getDefaultInstanceForType() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege build() {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege buildPartial() {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege(this);
+        result.content_ = content_;
+        result.description_ = description_;
+        result.buttonType_ = buttonType_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege) {
+          return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege other) {
+        if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege.getDefaultInstance()) return this;
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        if (other.getButtonType() != 0) {
+          setButtonType(other.getButtonType());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 1;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
   }
-  /**
-   * <code>.Common commonInfo = 1;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonInfoOrBuilder() {
-    return getCommonInfo();
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 2;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 2;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int buttonType_ ;
+      /**
+       * <code>int32 buttonType = 3;</code>
+       * @return The buttonType.
+       */
+      @java.lang.Override
+      public int getButtonType() {
+        return buttonType_;
+      }
+      /**
+       * <code>int32 buttonType = 3;</code>
+       * @param value The buttonType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setButtonType(int value) {
+        
+        buttonType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 buttonType = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearButtonType() {
+        
+        buttonType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FansclubMessage.UpgradePrivilege)
+    }
+
+    // @@protoc_insertion_point(class_scope:FansclubMessage.UpgradePrivilege)
+    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege();
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UpgradePrivilege>
+        PARSER = new com.google.protobuf.AbstractParser<UpgradePrivilege>() {
+      @java.lang.Override
+      public UpgradePrivilege parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UpgradePrivilege(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UpgradePrivilege> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpgradePrivilege> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.UpgradePrivilege getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public static final int TYPE_FIELD_NUMBER = 2;
-  private int type_;
+  public static final int COMMON_FIELD_NUMBER = 1;
+  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
+  /**
+   * <code>.Common common = 1;</code>
+   * @return Whether the common field is set.
+   */
+  @java.lang.Override
+  public boolean hasCommon() {
+    return common_ != null;
+  }
+  /**
+   * <code>.Common common = 1;</code>
+   * @return The common.
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+    return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+  }
+  /**
+   * <code>.Common common = 1;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+    return getCommon();
+  }
+
+  public static final int ACTION_FIELD_NUMBER = 2;
+  private int action_;
   /**
    * <pre>
    * 升级是1，加入是2
    * </pre>
    *
-   * <code>int32 type = 2;</code>
-   * @return The type.
+   * <code>int32 action = 2;</code>
+   * @return The action.
    */
   @java.lang.Override
-  public int getType() {
-    return type_;
+  public int getAction() {
+    return action_;
   }
 
   public static final int CONTENT_FIELD_NUMBER = 3;
@@ -223,6 +1028,32 @@ private static final long serialVersionUID = 0L;
     return getUser();
   }
 
+  public static final int UPGRADEPRIVILEGE_FIELD_NUMBER = 5;
+  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User upgradePrivilege_;
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   * @return Whether the upgradePrivilege field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpgradePrivilege() {
+    return upgradePrivilege_ != null;
+  }
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   * @return The upgradePrivilege.
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUpgradePrivilege() {
+    return upgradePrivilege_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : upgradePrivilege_;
+  }
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUpgradePrivilegeOrBuilder() {
+    return getUpgradePrivilege();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -237,17 +1068,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (commonInfo_ != null) {
-      output.writeMessage(1, getCommonInfo());
+    if (common_ != null) {
+      output.writeMessage(1, getCommon());
     }
-    if (type_ != 0) {
-      output.writeInt32(2, type_);
+    if (action_ != 0) {
+      output.writeInt32(2, action_);
     }
     if (!getContentBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
     }
     if (user_ != null) {
       output.writeMessage(4, getUser());
+    }
+    if (upgradePrivilege_ != null) {
+      output.writeMessage(5, getUpgradePrivilege());
     }
     unknownFields.writeTo(output);
   }
@@ -258,13 +1092,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (commonInfo_ != null) {
+    if (common_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getCommonInfo());
+        .computeMessageSize(1, getCommon());
     }
-    if (type_ != 0) {
+    if (action_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, type_);
+        .computeInt32Size(2, action_);
     }
     if (!getContentBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
@@ -272,6 +1106,10 @@ private static final long serialVersionUID = 0L;
     if (user_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUser());
+    }
+    if (upgradePrivilege_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getUpgradePrivilege());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -288,19 +1126,24 @@ private static final long serialVersionUID = 0L;
     }
     cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage) obj;
 
-    if (hasCommonInfo() != other.hasCommonInfo()) return false;
-    if (hasCommonInfo()) {
-      if (!getCommonInfo()
-          .equals(other.getCommonInfo())) return false;
+    if (hasCommon() != other.hasCommon()) return false;
+    if (hasCommon()) {
+      if (!getCommon()
+          .equals(other.getCommon())) return false;
     }
-    if (getType()
-        != other.getType()) return false;
+    if (getAction()
+        != other.getAction()) return false;
     if (!getContent()
         .equals(other.getContent())) return false;
     if (hasUser() != other.hasUser()) return false;
     if (hasUser()) {
       if (!getUser()
           .equals(other.getUser())) return false;
+    }
+    if (hasUpgradePrivilege() != other.hasUpgradePrivilege()) return false;
+    if (hasUpgradePrivilege()) {
+      if (!getUpgradePrivilege()
+          .equals(other.getUpgradePrivilege())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -313,17 +1156,21 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasCommonInfo()) {
-      hash = (37 * hash) + COMMONINFO_FIELD_NUMBER;
-      hash = (53 * hash) + getCommonInfo().hashCode();
+    if (hasCommon()) {
+      hash = (37 * hash) + COMMON_FIELD_NUMBER;
+      hash = (53 * hash) + getCommon().hashCode();
     }
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType();
+    hash = (37 * hash) + ACTION_FIELD_NUMBER;
+    hash = (53 * hash) + getAction();
     hash = (37 * hash) + CONTENT_FIELD_NUMBER;
     hash = (53 * hash) + getContent().hashCode();
     if (hasUser()) {
       hash = (37 * hash) + USER_FIELD_NUMBER;
       hash = (53 * hash) + getUser().hashCode();
+    }
+    if (hasUpgradePrivilege()) {
+      hash = (37 * hash) + UPGRADEPRIVILEGE_FIELD_NUMBER;
+      hash = (53 * hash) + getUpgradePrivilege().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -421,6 +1268,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *更新时间 : 2023-01-11
+   * </pre>
+   *
    * Protobuf type {@code FansclubMessage}
    */
   public static final class Builder extends
@@ -458,13 +1309,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonInfoBuilder_ == null) {
-        commonInfo_ = null;
+      if (commonBuilder_ == null) {
+        common_ = null;
       } else {
-        commonInfo_ = null;
-        commonInfoBuilder_ = null;
+        common_ = null;
+        commonBuilder_ = null;
       }
-      type_ = 0;
+      action_ = 0;
 
       content_ = "";
 
@@ -473,6 +1324,12 @@ private static final long serialVersionUID = 0L;
       } else {
         user_ = null;
         userBuilder_ = null;
+      }
+      if (upgradePrivilegeBuilder_ == null) {
+        upgradePrivilege_ = null;
+      } else {
+        upgradePrivilege_ = null;
+        upgradePrivilegeBuilder_ = null;
       }
       return this;
     }
@@ -500,17 +1357,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage buildPartial() {
       cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage(this);
-      if (commonInfoBuilder_ == null) {
-        result.commonInfo_ = commonInfo_;
+      if (commonBuilder_ == null) {
+        result.common_ = common_;
       } else {
-        result.commonInfo_ = commonInfoBuilder_.build();
+        result.common_ = commonBuilder_.build();
       }
-      result.type_ = type_;
+      result.action_ = action_;
       result.content_ = content_;
       if (userBuilder_ == null) {
         result.user_ = user_;
       } else {
         result.user_ = userBuilder_.build();
+      }
+      if (upgradePrivilegeBuilder_ == null) {
+        result.upgradePrivilege_ = upgradePrivilege_;
+      } else {
+        result.upgradePrivilege_ = upgradePrivilegeBuilder_.build();
       }
       onBuilt();
       return result;
@@ -560,11 +1422,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage other) {
       if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.FansclubMessage.getDefaultInstance()) return this;
-      if (other.hasCommonInfo()) {
-        mergeCommonInfo(other.getCommonInfo());
+      if (other.hasCommon()) {
+        mergeCommon(other.getCommon());
       }
-      if (other.getType() != 0) {
-        setType(other.getType());
+      if (other.getAction() != 0) {
+        setAction(other.getAction());
       }
       if (!other.getContent().isEmpty()) {
         content_ = other.content_;
@@ -572,6 +1434,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUser()) {
         mergeUser(other.getUser());
+      }
+      if (other.hasUpgradePrivilege()) {
+        mergeUpgradePrivilege(other.getUpgradePrivilege());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -602,150 +1467,150 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common commonInfo_;
+    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonInfoBuilder_;
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
     /**
-     * <code>.Common commonInfo = 1;</code>
-     * @return Whether the commonInfo field is set.
+     * <code>.Common common = 1;</code>
+     * @return Whether the common field is set.
      */
-    public boolean hasCommonInfo() {
-      return commonInfoBuilder_ != null || commonInfo_ != null;
+    public boolean hasCommon() {
+      return commonBuilder_ != null || common_ != null;
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
-     * @return The commonInfo.
+     * <code>.Common common = 1;</code>
+     * @return The common.
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommonInfo() {
-      if (commonInfoBuilder_ == null) {
-        return commonInfo_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : commonInfo_;
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+      if (commonBuilder_ == null) {
+        return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
       } else {
-        return commonInfoBuilder_.getMessage();
+        return commonBuilder_.getMessage();
       }
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public Builder setCommonInfo(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonInfoBuilder_ == null) {
+    public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+      if (commonBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        commonInfo_ = value;
+        common_ = value;
         onChanged();
       } else {
-        commonInfoBuilder_.setMessage(value);
+        commonBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public Builder setCommonInfo(
+    public Builder setCommon(
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
-      if (commonInfoBuilder_ == null) {
-        commonInfo_ = builderForValue.build();
+      if (commonBuilder_ == null) {
+        common_ = builderForValue.build();
         onChanged();
       } else {
-        commonInfoBuilder_.setMessage(builderForValue.build());
+        commonBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public Builder mergeCommonInfo(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-      if (commonInfoBuilder_ == null) {
-        if (commonInfo_ != null) {
-          commonInfo_ =
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(commonInfo_).mergeFrom(value).buildPartial();
+    public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+      if (commonBuilder_ == null) {
+        if (common_ != null) {
+          common_ =
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
         } else {
-          commonInfo_ = value;
+          common_ = value;
         }
         onChanged();
       } else {
-        commonInfoBuilder_.mergeFrom(value);
+        commonBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public Builder clearCommonInfo() {
-      if (commonInfoBuilder_ == null) {
-        commonInfo_ = null;
+    public Builder clearCommon() {
+      if (commonBuilder_ == null) {
+        common_ = null;
         onChanged();
       } else {
-        commonInfo_ = null;
-        commonInfoBuilder_ = null;
+        common_ = null;
+        commonBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonInfoBuilder() {
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
       
       onChanged();
-      return getCommonInfoFieldBuilder().getBuilder();
+      return getCommonFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonInfoOrBuilder() {
-      if (commonInfoBuilder_ != null) {
-        return commonInfoBuilder_.getMessageOrBuilder();
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+      if (commonBuilder_ != null) {
+        return commonBuilder_.getMessageOrBuilder();
       } else {
-        return commonInfo_ == null ?
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : commonInfo_;
+        return common_ == null ?
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
       }
     }
     /**
-     * <code>.Common commonInfo = 1;</code>
+     * <code>.Common common = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> 
-        getCommonInfoFieldBuilder() {
-      if (commonInfoBuilder_ == null) {
-        commonInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getCommonFieldBuilder() {
+      if (commonBuilder_ == null) {
+        commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
-                getCommonInfo(),
+                getCommon(),
                 getParentForChildren(),
                 isClean());
-        commonInfo_ = null;
+        common_ = null;
       }
-      return commonInfoBuilder_;
+      return commonBuilder_;
     }
 
-    private int type_ ;
+    private int action_ ;
     /**
      * <pre>
      * 升级是1，加入是2
      * </pre>
      *
-     * <code>int32 type = 2;</code>
-     * @return The type.
+     * <code>int32 action = 2;</code>
+     * @return The action.
      */
     @java.lang.Override
-    public int getType() {
-      return type_;
+    public int getAction() {
+      return action_;
     }
     /**
      * <pre>
      * 升级是1，加入是2
      * </pre>
      *
-     * <code>int32 type = 2;</code>
-     * @param value The type to set.
+     * <code>int32 action = 2;</code>
+     * @param value The action to set.
      * @return This builder for chaining.
      */
-    public Builder setType(int value) {
+    public Builder setAction(int value) {
       
-      type_ = value;
+      action_ = value;
       onChanged();
       return this;
     }
@@ -754,12 +1619,12 @@ private static final long serialVersionUID = 0L;
      * 升级是1，加入是2
      * </pre>
      *
-     * <code>int32 type = 2;</code>
+     * <code>int32 action = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearType() {
+    public Builder clearAction() {
       
-      type_ = 0;
+      action_ = 0;
       onChanged();
       return this;
     }
@@ -957,6 +1822,125 @@ private static final long serialVersionUID = 0L;
         user_ = null;
       }
       return userBuilder_;
+    }
+
+    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User upgradePrivilege_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> upgradePrivilegeBuilder_;
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     * @return Whether the upgradePrivilege field is set.
+     */
+    public boolean hasUpgradePrivilege() {
+      return upgradePrivilegeBuilder_ != null || upgradePrivilege_ != null;
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     * @return The upgradePrivilege.
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUpgradePrivilege() {
+      if (upgradePrivilegeBuilder_ == null) {
+        return upgradePrivilege_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : upgradePrivilege_;
+      } else {
+        return upgradePrivilegeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public Builder setUpgradePrivilege(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+      if (upgradePrivilegeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        upgradePrivilege_ = value;
+        onChanged();
+      } else {
+        upgradePrivilegeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public Builder setUpgradePrivilege(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder builderForValue) {
+      if (upgradePrivilegeBuilder_ == null) {
+        upgradePrivilege_ = builderForValue.build();
+        onChanged();
+      } else {
+        upgradePrivilegeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public Builder mergeUpgradePrivilege(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+      if (upgradePrivilegeBuilder_ == null) {
+        if (upgradePrivilege_ != null) {
+          upgradePrivilege_ =
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.newBuilder(upgradePrivilege_).mergeFrom(value).buildPartial();
+        } else {
+          upgradePrivilege_ = value;
+        }
+        onChanged();
+      } else {
+        upgradePrivilegeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public Builder clearUpgradePrivilege() {
+      if (upgradePrivilegeBuilder_ == null) {
+        upgradePrivilege_ = null;
+        onChanged();
+      } else {
+        upgradePrivilege_ = null;
+        upgradePrivilegeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder getUpgradePrivilegeBuilder() {
+      
+      onChanged();
+      return getUpgradePrivilegeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUpgradePrivilegeOrBuilder() {
+      if (upgradePrivilegeBuilder_ != null) {
+        return upgradePrivilegeBuilder_.getMessageOrBuilder();
+      } else {
+        return upgradePrivilege_ == null ?
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : upgradePrivilege_;
+      }
+    }
+    /**
+     * <code>.User upgradePrivilege = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> 
+        getUpgradePrivilegeFieldBuilder() {
+      if (upgradePrivilegeBuilder_ == null) {
+        upgradePrivilegeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>(
+                getUpgradePrivilege(),
+                getParentForChildren(),
+                isClean());
+        upgradePrivilege_ = null;
+      }
+      return upgradePrivilegeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

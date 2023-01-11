@@ -17,4 +17,9 @@ public class BiliBiliLike implements Like {
     public User user() {
         return null;
     }
+
+    @Override
+    public long count() {
+        return 0;
+    }
 }
