@@ -10,7 +10,7 @@ import "webcast/data/User.proto";
 //更新时间 : 2023-01-10
 message RoomRankMessage {
   Common common = 1;
-  repeated int64 ranksList = 2;
+  repeated RoomRank ranksList = 2;
 
   message RoomRank{
     User user = 1;
