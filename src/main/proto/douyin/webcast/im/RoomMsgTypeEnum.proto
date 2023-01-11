@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+//更新时间 : 2023-01-11
+enum RoomMsgTypeEnum{
+  DEFAULTROOMMSG = 0;
+  ECOMLIVEREPLAYSAVEROOMMSG = 1;
+  CONSUMERRELATIONROOMMSG = 2;
+  JUMANJIDATAAUTHNOTIFYMSG = 3;
+  VSWELCOMEMSG = 4;
+  MINORREFUNDMSG = 5;
+  PAIDLIVEROOMNOTIFYANCHORMSG = 6;
+  HOSTTEAMSYSTEMMSG = 7;
+}

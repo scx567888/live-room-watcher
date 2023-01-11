@@ -311,7 +311,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
         var method = message.getMethod();
         switch (method) {
             case "RoomMessage", "WebcastRoomMessage" -> {
-                System.out.println("RoomMessage");
+                var roomMessage = RoomMessage.parseFrom(payload);
             }
             case "WebcastChatMessage" -> {// 消息
                 var chatMessage = ChatMessage.parseFrom(payload);
