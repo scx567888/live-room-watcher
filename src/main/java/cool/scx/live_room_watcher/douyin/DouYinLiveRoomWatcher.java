@@ -44,6 +44,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
     private String liveRoomTitle;
     private DouYinApplication douYinApplication;
     private HttpClient httpClient;
+    private WebSocket webSocket;
 
     /**
      * <p>Constructor for DouYinLiveRoomWatcher.</p>
@@ -203,9 +204,14 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
+        if (webSocket != null) {
+            webSocket.close();
+            webSocket = null;
+        }
 
         var webSocketFuture = httpClient.webSocket(getWebSocketOptions());
         webSocketFuture.onSuccess(c -> {
+            webSocket = c;
             ping(c);
             c.binaryMessageHandler(b -> {
                 try {
@@ -228,8 +234,12 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 }
             });
             c.textMessageHandler(System.out::println);
-            c.exceptionHandler(Throwable::printStackTrace);
-        }).onFailure(Throwable::printStackTrace);
+            c.exceptionHandler(e -> {
+                startWatch();
+            });
+        }).onFailure(e -> {
+            startWatch();
+        });
     }
 
     /**
@@ -320,6 +330,11 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastGiftMessage" -> {//礼物
                 var giftMessage = GiftMessage.parseFrom(payload);
+                long groupCount = giftMessage.getGroupCount();
+                long groupId = giftMessage.getGroupId();
+                long repeatCount = giftMessage.getRepeatCount();
+                long repeatEnd = giftMessage.getRepeatEnd();
+                long totalCount = giftMessage.getTotalCount();
                 var douYinGift = new DouYinGift(giftMessage);
                 this.onGiftHandler.handle(douYinGift);
             }
@@ -329,26 +344,60 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastCommonTextMessage" -> {
                 var commonTextMessage = CommonTextMessage.parseFrom(payload);
             }
-            case "WebcastControlMessage" -> {//直播间状态变更
+            case "WebcastControlMessage" -> {//直播间状态变更 比如直播关闭
                 var controlMessage = ControlMessage.parseFrom(payload);
+                long status = controlMessage.getStatus();
+                if (status == 3) {
+                    System.out.println("直播已结束 !!!");
+                    startWatch();
+                }
             }
-            case "WebcastFansclubMessage" -> {
+            case "WebcastFansclubMessage" -> { //粉丝俱乐部
                 var fansclubMessage = FansclubMessage.parseFrom(payload);
             }
-            case "WebcastInRoomBannerMessage" -> {
-                //todo
+            case "WebcastInRoomBannerMessage" -> {//进房间后的标题
+                var inRoomBannerMessage = InRoomBannerMessage.parseFrom(payload);
             }
-            case "WebcastRoomRankMessage" -> {
-                //todo
+            case "WebcastRoomRankMessage" -> {//房间排行榜
+                var roomRankMessage = RoomRankMessage.parseFrom(payload);
             }
-            case "WebcastUpdateFanTicketMessage" -> {
-                //todo
+            case "WebcastUpdateFanTicketMessage" -> {//粉丝票计数 ??? 不玩抖音不太懂
+                var updateFanTicketMessage = UpdateFanTicketMessage.parseFrom(payload);
             }
             case "WebcastRoomStatsMessage" -> {
                 var roomStats = RoomStats.parseFrom(payload);
             }
             case "WebcastCommerceMessage" -> {
                 //todo
+                System.out.println();
+            }
+            case "WebcastAudienceEntranceMessage" -> {//观众入场信息
+                //todo
+                System.out.println();
+            }
+            case "WebcastStampMessage" -> {
+                System.out.println();
+            }
+            case "WebcastSyncStreamMessage" -> {
+                var syncStreamMessage = SyncStreamMessage.parseFrom(payload);
+            }
+            case "WebcastAudioChatMessage" -> {//音频弹幕 ??? 不玩抖音不太懂
+                var audioChatMessage = AudioChatMessage.parseFrom(payload);
+            }
+            case "WebcastLinkMicArmiesMethod" -> {//连麦
+                //todo
+            }
+            case "WebcastProfitInteractionScoreMessage" -> {
+                //todo
+            }
+            case "WebcastLinkMicMethod" -> {
+                //todo
+            }
+            case "LinkMicMethod" -> {
+                //todo
+            }
+            case "WebcastLinkMessage" -> {//连麦 ???
+                var linkMessage = LinkMessage.parseFrom(payload);
             }
             default -> {
                 System.out.println("DouYin -> 未处理 Message :" + message);

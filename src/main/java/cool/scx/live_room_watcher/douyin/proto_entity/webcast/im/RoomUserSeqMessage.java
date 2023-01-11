@@ -4,6 +4,10 @@
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
+ * <pre>
+ *更新时间 : 2023-01-11
+ * </pre>
+ *
  * Protobuf type {@code RoomUserSeqMessage}
  */
 public final class RoomUserSeqMessage extends
@@ -16,13 +20,15 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RoomUserSeqMessage() {
-    ranks_ = java.util.Collections.emptyList();
+    ranksList_ = java.util.Collections.emptyList();
     popStr_ = "";
-    seats_ = java.util.Collections.emptyList();
+    seatsList_ = java.util.Collections.emptyList();
     totalUserStr_ = "";
     totalStr_ = "";
     onlineUserForAnchor_ = "";
     totalPvForAnchor_ = "";
+    upRightStatsStr_ = "";
+    upRightStatsStrComplete_ = "";
   }
 
   @java.lang.Override
@@ -71,10 +77,10 @@ private static final long serialVersionUID = 0L;
           }
           case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ranks_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
+              ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
               mutable_bitField0_ |= 0x00000001;
             }
-            ranks_.add(
+            ranksList_.add(
                 input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
             break;
           }
@@ -91,10 +97,10 @@ private static final long serialVersionUID = 0L;
           }
           case 42: {
             if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              seats_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
+              seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
               mutable_bitField0_ |= 0x00000002;
             }
-            seats_.add(
+            seatsList_.add(
                 input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
             break;
           }
@@ -132,6 +138,18 @@ private static final long serialVersionUID = 0L;
             totalPvForAnchor_ = s;
             break;
           }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            upRightStatsStr_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            upRightStatsStrComplete_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -148,10 +166,10 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ranks_ = java.util.Collections.unmodifiableList(ranks_);
+        ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
       }
       if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        seats_ = java.util.Collections.unmodifiableList(seats_);
+        seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -1401,44 +1419,44 @@ private static final long serialVersionUID = 0L;
     return getCommon();
   }
 
-  public static final int RANKS_FIELD_NUMBER = 2;
-  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranks_;
+  public static final int RANKSLIST_FIELD_NUMBER = 2;
+  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_;
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   @java.lang.Override
-  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksList() {
-    return ranks_;
+  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
+    return ranksList_;
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   @java.lang.Override
   public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-      getRanksOrBuilderList() {
-    return ranks_;
+      getRanksListOrBuilderList() {
+    return ranksList_;
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   @java.lang.Override
-  public int getRanksCount() {
-    return ranks_.size();
+  public int getRanksListCount() {
+    return ranksList_.size();
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanks(int index) {
-    return ranks_.get(index);
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
+    return ranksList_.get(index);
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksOrBuilder(
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
       int index) {
-    return ranks_.get(index);
+    return ranksList_.get(index);
   }
 
   public static final int TOTAL_FIELD_NUMBER = 3;
@@ -1490,44 +1508,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SEATS_FIELD_NUMBER = 5;
-  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seats_;
+  public static final int SEATSLIST_FIELD_NUMBER = 5;
+  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_;
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   @java.lang.Override
-  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsList() {
-    return seats_;
+  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
+    return seatsList_;
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   @java.lang.Override
   public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-      getSeatsOrBuilderList() {
-    return seats_;
+      getSeatsListOrBuilderList() {
+    return seatsList_;
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   @java.lang.Override
-  public int getSeatsCount() {
-    return seats_.size();
+  public int getSeatsListCount() {
+    return seatsList_.size();
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeats(int index) {
-    return seats_.get(index);
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
+    return seatsList_.get(index);
   }
   /**
-   * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsOrBuilder(
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
       int index) {
-    return seats_.get(index);
+    return seatsList_.get(index);
   }
 
   public static final int POPULARITY_FIELD_NUMBER = 6;
@@ -1704,6 +1722,82 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int UPRIGHTSTATSSTR_FIELD_NUMBER = 12;
+  private volatile java.lang.Object upRightStatsStr_;
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The upRightStatsStr.
+   */
+  @java.lang.Override
+  public java.lang.String getUpRightStatsStr() {
+    java.lang.Object ref = upRightStatsStr_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      upRightStatsStr_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The bytes for upRightStatsStr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpRightStatsStrBytes() {
+    java.lang.Object ref = upRightStatsStr_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      upRightStatsStr_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER = 13;
+  private volatile java.lang.Object upRightStatsStrComplete_;
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The upRightStatsStrComplete.
+   */
+  @java.lang.Override
+  public java.lang.String getUpRightStatsStrComplete() {
+    java.lang.Object ref = upRightStatsStrComplete_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      upRightStatsStrComplete_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The bytes for upRightStatsStrComplete.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpRightStatsStrCompleteBytes() {
+    java.lang.Object ref = upRightStatsStrComplete_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      upRightStatsStrComplete_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1721,8 +1815,8 @@ private static final long serialVersionUID = 0L;
     if (common_ != null) {
       output.writeMessage(1, getCommon());
     }
-    for (int i = 0; i < ranks_.size(); i++) {
-      output.writeMessage(2, ranks_.get(i));
+    for (int i = 0; i < ranksList_.size(); i++) {
+      output.writeMessage(2, ranksList_.get(i));
     }
     if (total_ != 0L) {
       output.writeInt64(3, total_);
@@ -1730,8 +1824,8 @@ private static final long serialVersionUID = 0L;
     if (!getPopStrBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, popStr_);
     }
-    for (int i = 0; i < seats_.size(); i++) {
-      output.writeMessage(5, seats_.get(i));
+    for (int i = 0; i < seatsList_.size(); i++) {
+      output.writeMessage(5, seatsList_.get(i));
     }
     if (popularity_ != 0L) {
       output.writeInt64(6, popularity_);
@@ -1751,6 +1845,12 @@ private static final long serialVersionUID = 0L;
     if (!getTotalPvForAnchorBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, totalPvForAnchor_);
     }
+    if (!getUpRightStatsStrBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, upRightStatsStr_);
+    }
+    if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, upRightStatsStrComplete_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -1764,9 +1864,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getCommon());
     }
-    for (int i = 0; i < ranks_.size(); i++) {
+    for (int i = 0; i < ranksList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, ranks_.get(i));
+        .computeMessageSize(2, ranksList_.get(i));
     }
     if (total_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -1775,9 +1875,9 @@ private static final long serialVersionUID = 0L;
     if (!getPopStrBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, popStr_);
     }
-    for (int i = 0; i < seats_.size(); i++) {
+    for (int i = 0; i < seatsList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, seats_.get(i));
+        .computeMessageSize(5, seatsList_.get(i));
     }
     if (popularity_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -1799,6 +1899,12 @@ private static final long serialVersionUID = 0L;
     if (!getTotalPvForAnchorBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, totalPvForAnchor_);
     }
+    if (!getUpRightStatsStrBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, upRightStatsStr_);
+    }
+    if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, upRightStatsStrComplete_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1819,14 +1925,14 @@ private static final long serialVersionUID = 0L;
       if (!getCommon()
           .equals(other.getCommon())) return false;
     }
-    if (!getRanksList()
-        .equals(other.getRanksList())) return false;
+    if (!getRanksListList()
+        .equals(other.getRanksListList())) return false;
     if (getTotal()
         != other.getTotal()) return false;
     if (!getPopStr()
         .equals(other.getPopStr())) return false;
-    if (!getSeatsList()
-        .equals(other.getSeatsList())) return false;
+    if (!getSeatsListList()
+        .equals(other.getSeatsListList())) return false;
     if (getPopularity()
         != other.getPopularity()) return false;
     if (getTotalUser()
@@ -1839,6 +1945,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOnlineUserForAnchor())) return false;
     if (!getTotalPvForAnchor()
         .equals(other.getTotalPvForAnchor())) return false;
+    if (!getUpRightStatsStr()
+        .equals(other.getUpRightStatsStr())) return false;
+    if (!getUpRightStatsStrComplete()
+        .equals(other.getUpRightStatsStrComplete())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1854,18 +1964,18 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_FIELD_NUMBER;
       hash = (53 * hash) + getCommon().hashCode();
     }
-    if (getRanksCount() > 0) {
-      hash = (37 * hash) + RANKS_FIELD_NUMBER;
-      hash = (53 * hash) + getRanksList().hashCode();
+    if (getRanksListCount() > 0) {
+      hash = (37 * hash) + RANKSLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRanksListList().hashCode();
     }
     hash = (37 * hash) + TOTAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotal());
     hash = (37 * hash) + POPSTR_FIELD_NUMBER;
     hash = (53 * hash) + getPopStr().hashCode();
-    if (getSeatsCount() > 0) {
-      hash = (37 * hash) + SEATS_FIELD_NUMBER;
-      hash = (53 * hash) + getSeatsList().hashCode();
+    if (getSeatsListCount() > 0) {
+      hash = (37 * hash) + SEATSLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getSeatsListList().hashCode();
     }
     hash = (37 * hash) + POPULARITY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -1881,6 +1991,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOnlineUserForAnchor().hashCode();
     hash = (37 * hash) + TOTALPVFORANCHOR_FIELD_NUMBER;
     hash = (53 * hash) + getTotalPvForAnchor().hashCode();
+    hash = (37 * hash) + UPRIGHTSTATSSTR_FIELD_NUMBER;
+    hash = (53 * hash) + getUpRightStatsStr().hashCode();
+    hash = (37 * hash) + UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER;
+    hash = (53 * hash) + getUpRightStatsStrComplete().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1977,6 +2091,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *更新时间 : 2023-01-11
+   * </pre>
+   *
    * Protobuf type {@code RoomUserSeqMessage}
    */
   public static final class Builder extends
@@ -2009,8 +2127,8 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getRanksFieldBuilder();
-        getSeatsFieldBuilder();
+        getRanksListFieldBuilder();
+        getSeatsListFieldBuilder();
       }
     }
     @java.lang.Override
@@ -2022,21 +2140,21 @@ private static final long serialVersionUID = 0L;
         common_ = null;
         commonBuilder_ = null;
       }
-      if (ranksBuilder_ == null) {
-        ranks_ = java.util.Collections.emptyList();
+      if (ranksListBuilder_ == null) {
+        ranksList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        ranksBuilder_.clear();
+        ranksListBuilder_.clear();
       }
       total_ = 0L;
 
       popStr_ = "";
 
-      if (seatsBuilder_ == null) {
-        seats_ = java.util.Collections.emptyList();
+      if (seatsListBuilder_ == null) {
+        seatsList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
       } else {
-        seatsBuilder_.clear();
+        seatsListBuilder_.clear();
       }
       popularity_ = 0L;
 
@@ -2049,6 +2167,10 @@ private static final long serialVersionUID = 0L;
       onlineUserForAnchor_ = "";
 
       totalPvForAnchor_ = "";
+
+      upRightStatsStr_ = "";
+
+      upRightStatsStrComplete_ = "";
 
       return this;
     }
@@ -2082,25 +2204,25 @@ private static final long serialVersionUID = 0L;
       } else {
         result.common_ = commonBuilder_.build();
       }
-      if (ranksBuilder_ == null) {
+      if (ranksListBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          ranks_ = java.util.Collections.unmodifiableList(ranks_);
+          ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.ranks_ = ranks_;
+        result.ranksList_ = ranksList_;
       } else {
-        result.ranks_ = ranksBuilder_.build();
+        result.ranksList_ = ranksListBuilder_.build();
       }
       result.total_ = total_;
       result.popStr_ = popStr_;
-      if (seatsBuilder_ == null) {
+      if (seatsListBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
-          seats_ = java.util.Collections.unmodifiableList(seats_);
+          seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
-        result.seats_ = seats_;
+        result.seatsList_ = seatsList_;
       } else {
-        result.seats_ = seatsBuilder_.build();
+        result.seatsList_ = seatsListBuilder_.build();
       }
       result.popularity_ = popularity_;
       result.totalUser_ = totalUser_;
@@ -2108,6 +2230,8 @@ private static final long serialVersionUID = 0L;
       result.totalStr_ = totalStr_;
       result.onlineUserForAnchor_ = onlineUserForAnchor_;
       result.totalPvForAnchor_ = totalPvForAnchor_;
+      result.upRightStatsStr_ = upRightStatsStr_;
+      result.upRightStatsStrComplete_ = upRightStatsStrComplete_;
       onBuilt();
       return result;
     }
@@ -2159,29 +2283,29 @@ private static final long serialVersionUID = 0L;
       if (other.hasCommon()) {
         mergeCommon(other.getCommon());
       }
-      if (ranksBuilder_ == null) {
-        if (!other.ranks_.isEmpty()) {
-          if (ranks_.isEmpty()) {
-            ranks_ = other.ranks_;
+      if (ranksListBuilder_ == null) {
+        if (!other.ranksList_.isEmpty()) {
+          if (ranksList_.isEmpty()) {
+            ranksList_ = other.ranksList_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureRanksIsMutable();
-            ranks_.addAll(other.ranks_);
+            ensureRanksListIsMutable();
+            ranksList_.addAll(other.ranksList_);
           }
           onChanged();
         }
       } else {
-        if (!other.ranks_.isEmpty()) {
-          if (ranksBuilder_.isEmpty()) {
-            ranksBuilder_.dispose();
-            ranksBuilder_ = null;
-            ranks_ = other.ranks_;
+        if (!other.ranksList_.isEmpty()) {
+          if (ranksListBuilder_.isEmpty()) {
+            ranksListBuilder_.dispose();
+            ranksListBuilder_ = null;
+            ranksList_ = other.ranksList_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            ranksBuilder_ = 
+            ranksListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getRanksFieldBuilder() : null;
+                 getRanksListFieldBuilder() : null;
           } else {
-            ranksBuilder_.addAllMessages(other.ranks_);
+            ranksListBuilder_.addAllMessages(other.ranksList_);
           }
         }
       }
@@ -2192,29 +2316,29 @@ private static final long serialVersionUID = 0L;
         popStr_ = other.popStr_;
         onChanged();
       }
-      if (seatsBuilder_ == null) {
-        if (!other.seats_.isEmpty()) {
-          if (seats_.isEmpty()) {
-            seats_ = other.seats_;
+      if (seatsListBuilder_ == null) {
+        if (!other.seatsList_.isEmpty()) {
+          if (seatsList_.isEmpty()) {
+            seatsList_ = other.seatsList_;
             bitField0_ = (bitField0_ & ~0x00000002);
           } else {
-            ensureSeatsIsMutable();
-            seats_.addAll(other.seats_);
+            ensureSeatsListIsMutable();
+            seatsList_.addAll(other.seatsList_);
           }
           onChanged();
         }
       } else {
-        if (!other.seats_.isEmpty()) {
-          if (seatsBuilder_.isEmpty()) {
-            seatsBuilder_.dispose();
-            seatsBuilder_ = null;
-            seats_ = other.seats_;
+        if (!other.seatsList_.isEmpty()) {
+          if (seatsListBuilder_.isEmpty()) {
+            seatsListBuilder_.dispose();
+            seatsListBuilder_ = null;
+            seatsList_ = other.seatsList_;
             bitField0_ = (bitField0_ & ~0x00000002);
-            seatsBuilder_ = 
+            seatsListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getSeatsFieldBuilder() : null;
+                 getSeatsListFieldBuilder() : null;
           } else {
-            seatsBuilder_.addAllMessages(other.seats_);
+            seatsListBuilder_.addAllMessages(other.seatsList_);
           }
         }
       }
@@ -2238,6 +2362,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTotalPvForAnchor().isEmpty()) {
         totalPvForAnchor_ = other.totalPvForAnchor_;
+        onChanged();
+      }
+      if (!other.getUpRightStatsStr().isEmpty()) {
+        upRightStatsStr_ = other.upRightStatsStr_;
+        onChanged();
+      }
+      if (!other.getUpRightStatsStrComplete().isEmpty()) {
+        upRightStatsStrComplete_ = other.upRightStatsStrComplete_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -2389,244 +2521,244 @@ private static final long serialVersionUID = 0L;
       return commonBuilder_;
     }
 
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranks_ =
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_ =
       java.util.Collections.emptyList();
-    private void ensureRanksIsMutable() {
+    private void ensureRanksListIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        ranks_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(ranks_);
+        ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(ranksList_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> ranksBuilder_;
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> ranksListBuilder_;
 
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksList() {
-      if (ranksBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(ranks_);
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
+      if (ranksListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(ranksList_);
       } else {
-        return ranksBuilder_.getMessageList();
+        return ranksListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public int getRanksCount() {
-      if (ranksBuilder_ == null) {
-        return ranks_.size();
+    public int getRanksListCount() {
+      if (ranksListBuilder_ == null) {
+        return ranksList_.size();
       } else {
-        return ranksBuilder_.getCount();
+        return ranksListBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanks(int index) {
-      if (ranksBuilder_ == null) {
-        return ranks_.get(index);
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
+      if (ranksListBuilder_ == null) {
+        return ranksList_.get(index);
       } else {
-        return ranksBuilder_.getMessage(index);
+        return ranksListBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder setRanks(
+    public Builder setRanksList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (ranksBuilder_ == null) {
+      if (ranksListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureRanksIsMutable();
-        ranks_.set(index, value);
+        ensureRanksListIsMutable();
+        ranksList_.set(index, value);
         onChanged();
       } else {
-        ranksBuilder_.setMessage(index, value);
+        ranksListBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder setRanks(
+    public Builder setRanksList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (ranksBuilder_ == null) {
-        ensureRanksIsMutable();
-        ranks_.set(index, builderForValue.build());
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.set(index, builderForValue.build());
         onChanged();
       } else {
-        ranksBuilder_.setMessage(index, builderForValue.build());
+        ranksListBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder addRanks(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (ranksBuilder_ == null) {
+    public Builder addRanksList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (ranksListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureRanksIsMutable();
-        ranks_.add(value);
+        ensureRanksListIsMutable();
+        ranksList_.add(value);
         onChanged();
       } else {
-        ranksBuilder_.addMessage(value);
+        ranksListBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder addRanks(
+    public Builder addRanksList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (ranksBuilder_ == null) {
+      if (ranksListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureRanksIsMutable();
-        ranks_.add(index, value);
+        ensureRanksListIsMutable();
+        ranksList_.add(index, value);
         onChanged();
       } else {
-        ranksBuilder_.addMessage(index, value);
+        ranksListBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder addRanks(
+    public Builder addRanksList(
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (ranksBuilder_ == null) {
-        ensureRanksIsMutable();
-        ranks_.add(builderForValue.build());
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.add(builderForValue.build());
         onChanged();
       } else {
-        ranksBuilder_.addMessage(builderForValue.build());
+        ranksListBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder addRanks(
+    public Builder addRanksList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (ranksBuilder_ == null) {
-        ensureRanksIsMutable();
-        ranks_.add(index, builderForValue.build());
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.add(index, builderForValue.build());
         onChanged();
       } else {
-        ranksBuilder_.addMessage(index, builderForValue.build());
+        ranksListBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder addAllRanks(
+    public Builder addAllRanksList(
         java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
-      if (ranksBuilder_ == null) {
-        ensureRanksIsMutable();
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, ranks_);
+            values, ranksList_);
         onChanged();
       } else {
-        ranksBuilder_.addAllMessages(values);
+        ranksListBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder clearRanks() {
-      if (ranksBuilder_ == null) {
-        ranks_ = java.util.Collections.emptyList();
+    public Builder clearRanksList() {
+      if (ranksListBuilder_ == null) {
+        ranksList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        ranksBuilder_.clear();
+        ranksListBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public Builder removeRanks(int index) {
-      if (ranksBuilder_ == null) {
-        ensureRanksIsMutable();
-        ranks_.remove(index);
+    public Builder removeRanksList(int index) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.remove(index);
         onChanged();
       } else {
-        ranksBuilder_.remove(index);
+        ranksListBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getRanksBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getRanksListBuilder(
         int index) {
-      return getRanksFieldBuilder().getBuilder(index);
+      return getRanksListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksOrBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
         int index) {
-      if (ranksBuilder_ == null) {
-        return ranks_.get(index);  } else {
-        return ranksBuilder_.getMessageOrBuilder(index);
+      if (ranksListBuilder_ == null) {
+        return ranksList_.get(index);  } else {
+        return ranksListBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
     public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-         getRanksOrBuilderList() {
-      if (ranksBuilder_ != null) {
-        return ranksBuilder_.getMessageOrBuilderList();
+         getRanksListOrBuilderList() {
+      if (ranksListBuilder_ != null) {
+        return ranksListBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(ranks_);
+        return java.util.Collections.unmodifiableList(ranksList_);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksBuilder() {
-      return getRanksFieldBuilder().addBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder() {
+      return getRanksListFieldBuilder().addBuilder(
           cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder(
         int index) {
-      return getRanksFieldBuilder().addBuilder(
+      return getRanksListFieldBuilder().addBuilder(
           index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor ranks = 2;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
     public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder> 
-         getRanksBuilderList() {
-      return getRanksFieldBuilder().getBuilderList();
+         getRanksListBuilderList() {
+      return getRanksListFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-        getRanksFieldBuilder() {
-      if (ranksBuilder_ == null) {
-        ranksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getRanksListFieldBuilder() {
+      if (ranksListBuilder_ == null) {
+        ranksListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
-                ranks_,
+                ranksList_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        ranks_ = null;
+        ranksList_ = null;
       }
-      return ranksBuilder_;
+      return ranksListBuilder_;
     }
 
     private long total_ ;
@@ -2736,244 +2868,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seats_ =
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_ =
       java.util.Collections.emptyList();
-    private void ensureSeatsIsMutable() {
+    private void ensureSeatsListIsMutable() {
       if (!((bitField0_ & 0x00000002) != 0)) {
-        seats_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(seats_);
+        seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(seatsList_);
         bitField0_ |= 0x00000002;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> seatsBuilder_;
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> seatsListBuilder_;
 
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsList() {
-      if (seatsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(seats_);
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
+      if (seatsListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(seatsList_);
       } else {
-        return seatsBuilder_.getMessageList();
+        return seatsListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public int getSeatsCount() {
-      if (seatsBuilder_ == null) {
-        return seats_.size();
+    public int getSeatsListCount() {
+      if (seatsListBuilder_ == null) {
+        return seatsList_.size();
       } else {
-        return seatsBuilder_.getCount();
+        return seatsListBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeats(int index) {
-      if (seatsBuilder_ == null) {
-        return seats_.get(index);
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
+      if (seatsListBuilder_ == null) {
+        return seatsList_.get(index);
       } else {
-        return seatsBuilder_.getMessage(index);
+        return seatsListBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder setSeats(
+    public Builder setSeatsList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (seatsBuilder_ == null) {
+      if (seatsListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureSeatsIsMutable();
-        seats_.set(index, value);
+        ensureSeatsListIsMutable();
+        seatsList_.set(index, value);
         onChanged();
       } else {
-        seatsBuilder_.setMessage(index, value);
+        seatsListBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder setSeats(
+    public Builder setSeatsList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (seatsBuilder_ == null) {
-        ensureSeatsIsMutable();
-        seats_.set(index, builderForValue.build());
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.set(index, builderForValue.build());
         onChanged();
       } else {
-        seatsBuilder_.setMessage(index, builderForValue.build());
+        seatsListBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder addSeats(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (seatsBuilder_ == null) {
+    public Builder addSeatsList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (seatsListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureSeatsIsMutable();
-        seats_.add(value);
+        ensureSeatsListIsMutable();
+        seatsList_.add(value);
         onChanged();
       } else {
-        seatsBuilder_.addMessage(value);
+        seatsListBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder addSeats(
+    public Builder addSeatsList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-      if (seatsBuilder_ == null) {
+      if (seatsListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureSeatsIsMutable();
-        seats_.add(index, value);
+        ensureSeatsListIsMutable();
+        seatsList_.add(index, value);
         onChanged();
       } else {
-        seatsBuilder_.addMessage(index, value);
+        seatsListBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder addSeats(
+    public Builder addSeatsList(
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (seatsBuilder_ == null) {
-        ensureSeatsIsMutable();
-        seats_.add(builderForValue.build());
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.add(builderForValue.build());
         onChanged();
       } else {
-        seatsBuilder_.addMessage(builderForValue.build());
+        seatsListBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder addSeats(
+    public Builder addSeatsList(
         int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-      if (seatsBuilder_ == null) {
-        ensureSeatsIsMutable();
-        seats_.add(index, builderForValue.build());
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.add(index, builderForValue.build());
         onChanged();
       } else {
-        seatsBuilder_.addMessage(index, builderForValue.build());
+        seatsListBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder addAllSeats(
+    public Builder addAllSeatsList(
         java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
-      if (seatsBuilder_ == null) {
-        ensureSeatsIsMutable();
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, seats_);
+            values, seatsList_);
         onChanged();
       } else {
-        seatsBuilder_.addAllMessages(values);
+        seatsListBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder clearSeats() {
-      if (seatsBuilder_ == null) {
-        seats_ = java.util.Collections.emptyList();
+    public Builder clearSeatsList() {
+      if (seatsListBuilder_ == null) {
+        seatsList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
-        seatsBuilder_.clear();
+        seatsListBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public Builder removeSeats(int index) {
-      if (seatsBuilder_ == null) {
-        ensureSeatsIsMutable();
-        seats_.remove(index);
+    public Builder removeSeatsList(int index) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.remove(index);
         onChanged();
       } else {
-        seatsBuilder_.remove(index);
+        seatsListBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getSeatsBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getSeatsListBuilder(
         int index) {
-      return getSeatsFieldBuilder().getBuilder(index);
+      return getSeatsListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsOrBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
         int index) {
-      if (seatsBuilder_ == null) {
-        return seats_.get(index);  } else {
-        return seatsBuilder_.getMessageOrBuilder(index);
+      if (seatsListBuilder_ == null) {
+        return seatsList_.get(index);  } else {
+        return seatsListBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
     public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-         getSeatsOrBuilderList() {
-      if (seatsBuilder_ != null) {
-        return seatsBuilder_.getMessageOrBuilderList();
+         getSeatsListOrBuilderList() {
+      if (seatsListBuilder_ != null) {
+        return seatsListBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(seats_);
+        return java.util.Collections.unmodifiableList(seatsList_);
       }
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsBuilder() {
-      return getSeatsFieldBuilder().addBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder() {
+      return getSeatsListFieldBuilder().addBuilder(
           cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsBuilder(
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder(
         int index) {
-      return getSeatsFieldBuilder().addBuilder(
+      return getSeatsListFieldBuilder().addBuilder(
           index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
     }
     /**
-     * <code>repeated .RoomUserSeqMessage.Contributor seats = 5;</code>
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
      */
     public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder> 
-         getSeatsBuilderList() {
-      return getSeatsFieldBuilder().getBuilderList();
+         getSeatsListBuilderList() {
+      return getSeatsListFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
         cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
-        getSeatsFieldBuilder() {
-      if (seatsBuilder_ == null) {
-        seatsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getSeatsListFieldBuilder() {
+      if (seatsListBuilder_ == null) {
+        seatsListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
-                seats_,
+                seatsList_,
                 ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
-        seats_ = null;
+        seatsList_ = null;
       }
-      return seatsBuilder_;
+      return seatsListBuilder_;
     }
 
     private long popularity_ ;
@@ -3338,6 +3470,158 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       totalPvForAnchor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object upRightStatsStr_ = "";
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return The upRightStatsStr.
+     */
+    public java.lang.String getUpRightStatsStr() {
+      java.lang.Object ref = upRightStatsStr_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        upRightStatsStr_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return The bytes for upRightStatsStr.
+     */
+    public com.google.protobuf.ByteString
+        getUpRightStatsStrBytes() {
+      java.lang.Object ref = upRightStatsStr_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        upRightStatsStr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @param value The upRightStatsStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStr(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      upRightStatsStr_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpRightStatsStr() {
+      
+      upRightStatsStr_ = getDefaultInstance().getUpRightStatsStr();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @param value The bytes for upRightStatsStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      upRightStatsStr_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object upRightStatsStrComplete_ = "";
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return The upRightStatsStrComplete.
+     */
+    public java.lang.String getUpRightStatsStrComplete() {
+      java.lang.Object ref = upRightStatsStrComplete_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        upRightStatsStrComplete_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return The bytes for upRightStatsStrComplete.
+     */
+    public com.google.protobuf.ByteString
+        getUpRightStatsStrCompleteBytes() {
+      java.lang.Object ref = upRightStatsStrComplete_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        upRightStatsStrComplete_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @param value The upRightStatsStrComplete to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrComplete(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      upRightStatsStrComplete_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpRightStatsStrComplete() {
+      
+      upRightStatsStrComplete_ = getDefaultInstance().getUpRightStatsStrComplete();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @param value The bytes for upRightStatsStrComplete to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrCompleteBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      upRightStatsStrComplete_ = value;
       onChanged();
       return this;
     }

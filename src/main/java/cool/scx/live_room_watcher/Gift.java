@@ -20,4 +20,6 @@ public interface Gift {
      * @return a
      */
     String name();
+
+    long count();
 }

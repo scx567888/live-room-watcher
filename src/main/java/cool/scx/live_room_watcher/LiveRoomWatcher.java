@@ -32,7 +32,7 @@ public abstract class LiveRoomWatcher {
     protected ScxHandlerA<Gift> onGiftHandler;
 
     public static String nowTimeStr() {
-        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now())+" : ";
+        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
     /**
@@ -46,13 +46,13 @@ public abstract class LiveRoomWatcher {
             Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
         };
         this.onLikeHandler = like -> {
-            Ansi.out().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName()).println();
+            Ansi.out().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName() + " x " + like.count()).println();
         };
         this.onFollowHandler = follow -> {
             Ansi.out().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickName()).println();
         };
         this.onGiftHandler = gift -> {
-            Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name()).println();
+            Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
         };
     }
 

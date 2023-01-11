@@ -15,4 +15,11 @@ public interface Like {
      */
     User user();
 
+    /**
+     * 点赞可能是连击的
+     *
+     * @return a
+     */
+    long count();
+
 }

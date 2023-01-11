@@ -8,29 +8,29 @@ public interface FansclubMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.Common commonInfo = 1;</code>
-   * @return Whether the commonInfo field is set.
+   * <code>.Common common = 1;</code>
+   * @return Whether the common field is set.
    */
-  boolean hasCommonInfo();
+  boolean hasCommon();
   /**
-   * <code>.Common commonInfo = 1;</code>
-   * @return The commonInfo.
+   * <code>.Common common = 1;</code>
+   * @return The common.
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommonInfo();
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
   /**
-   * <code>.Common commonInfo = 1;</code>
+   * <code>.Common common = 1;</code>
    */
-  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonInfoOrBuilder();
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
    * <pre>
    * 升级是1，加入是2
    * </pre>
    *
-   * <code>int32 type = 2;</code>
-   * @return The type.
+   * <code>int32 action = 2;</code>
+   * @return The action.
    */
-  int getType();
+  int getAction();
 
   /**
    * <code>string content = 3;</code>
@@ -58,4 +58,19 @@ public interface FansclubMessageOrBuilder extends
    * <code>.User user = 4;</code>
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
+
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   * @return Whether the upgradePrivilege field is set.
+   */
+  boolean hasUpgradePrivilege();
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   * @return The upgradePrivilege.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUpgradePrivilege();
+  /**
+   * <code>.User upgradePrivilege = 5;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUpgradePrivilegeOrBuilder();
 }

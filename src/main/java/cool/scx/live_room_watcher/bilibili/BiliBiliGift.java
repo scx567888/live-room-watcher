@@ -25,4 +25,9 @@ public class BiliBiliGift implements Gift {
     public String name() {
         return null;
     }
+
+    @Override
+    public long count() {
+        return 0;
+    }
 }

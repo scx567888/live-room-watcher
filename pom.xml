@@ -56,6 +56,7 @@
                     <protoSourceRoot>${project.basedir}/src/main/proto/douyin</protoSourceRoot>
                     <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
                     <clearOutputDirectory>false</clearOutputDirectory>
+                    <useArgumentFile>true</useArgumentFile>
                 </configuration>
 
                 <executions>
