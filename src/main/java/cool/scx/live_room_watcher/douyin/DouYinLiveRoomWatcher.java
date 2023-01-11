@@ -451,6 +451,9 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastLinkerContributeMessage" -> {
                 //todo  WebcastLinkerContributeMessage
             }
+            case "WebcastGameCPUserDownloadMessage" -> {//不知道是啥
+                var gameCPUserDownloadMessage = GameCPUserDownloadMessage.parseFrom(payload);
+            }
             default -> {
                 System.err.println("DouYin -> 未处理 Message :" + message);
             }
