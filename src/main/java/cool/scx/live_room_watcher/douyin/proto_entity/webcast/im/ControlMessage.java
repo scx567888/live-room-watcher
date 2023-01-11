@@ -5,7 +5,7 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- *更新时间 : 2023-01-10
+ *更新时间 : 2023-01-11
  * </pre>
  *
  * Protobuf type {@code ControlMessage}
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            status_ = input.readInt64();
+            action_ = input.readInt64();
             break;
           }
           case 26: {
@@ -1952,15 +1952,15 @@ private static final long serialVersionUID = 0L;
     return getCommon();
   }
 
-  public static final int STATUS_FIELD_NUMBER = 2;
-  private long status_;
+  public static final int ACTION_FIELD_NUMBER = 2;
+  private long action_;
   /**
-   * <code>int64 status = 2;</code>
-   * @return The status.
+   * <code>int64 action = 2;</code>
+   * @return The action.
    */
   @java.lang.Override
-  public long getStatus() {
-    return status_;
+  public long getAction() {
+    return action_;
   }
 
   public static final int TIPS_FIELD_NUMBER = 3;
@@ -2044,8 +2044,8 @@ private static final long serialVersionUID = 0L;
     if (common_ != null) {
       output.writeMessage(1, getCommon());
     }
-    if (status_ != 0L) {
-      output.writeInt64(2, status_);
+    if (action_ != 0L) {
+      output.writeInt64(2, action_);
     }
     if (!getTipsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tips_);
@@ -2066,9 +2066,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getCommon());
     }
-    if (status_ != 0L) {
+    if (action_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, status_);
+        .computeInt64Size(2, action_);
     }
     if (!getTipsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tips_);
@@ -2097,8 +2097,8 @@ private static final long serialVersionUID = 0L;
       if (!getCommon()
           .equals(other.getCommon())) return false;
     }
-    if (getStatus()
-        != other.getStatus()) return false;
+    if (getAction()
+        != other.getAction()) return false;
     if (!getTips()
         .equals(other.getTips())) return false;
     if (hasExtra() != other.hasExtra()) return false;
@@ -2121,9 +2121,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_FIELD_NUMBER;
       hash = (53 * hash) + getCommon().hashCode();
     }
-    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (37 * hash) + ACTION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getStatus());
+        getAction());
     hash = (37 * hash) + TIPS_FIELD_NUMBER;
     hash = (53 * hash) + getTips().hashCode();
     if (hasExtra()) {
@@ -2227,7 +2227,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *更新时间 : 2023-01-10
+   *更新时间 : 2023-01-11
    * </pre>
    *
    * Protobuf type {@code ControlMessage}
@@ -2273,7 +2273,7 @@ private static final long serialVersionUID = 0L;
         common_ = null;
         commonBuilder_ = null;
       }
-      status_ = 0L;
+      action_ = 0L;
 
       tips_ = "";
 
@@ -2314,7 +2314,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.common_ = commonBuilder_.build();
       }
-      result.status_ = status_;
+      result.action_ = action_;
       result.tips_ = tips_;
       if (extraBuilder_ == null) {
         result.extra_ = extra_;
@@ -2372,8 +2372,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasCommon()) {
         mergeCommon(other.getCommon());
       }
-      if (other.getStatus() != 0L) {
-        setStatus(other.getStatus());
+      if (other.getAction() != 0L) {
+        setAction(other.getAction());
       }
       if (!other.getTips().isEmpty()) {
         tips_ = other.tips_;
@@ -2530,33 +2530,33 @@ private static final long serialVersionUID = 0L;
       return commonBuilder_;
     }
 
-    private long status_ ;
+    private long action_ ;
     /**
-     * <code>int64 status = 2;</code>
-     * @return The status.
+     * <code>int64 action = 2;</code>
+     * @return The action.
      */
     @java.lang.Override
-    public long getStatus() {
-      return status_;
+    public long getAction() {
+      return action_;
     }
     /**
-     * <code>int64 status = 2;</code>
-     * @param value The status to set.
+     * <code>int64 action = 2;</code>
+     * @param value The action to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(long value) {
+    public Builder setAction(long value) {
       
-      status_ = value;
+      action_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 status = 2;</code>
+     * <code>int64 action = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearStatus() {
+    public Builder clearAction() {
       
-      status_ = 0L;
+      action_ = 0L;
       onChanged();
       return this;
     }

@@ -41,6 +41,9 @@ public class DouYinGift implements Gift {
         return this.giftMessage.getGift().getName();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long count() {
         return this.giftMessage.getTotalCount();

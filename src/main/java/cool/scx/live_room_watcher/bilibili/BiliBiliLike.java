@@ -18,6 +18,9 @@ public class BiliBiliLike implements Like {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long count() {
         return 0;

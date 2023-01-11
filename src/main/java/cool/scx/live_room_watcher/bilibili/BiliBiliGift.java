@@ -26,6 +26,9 @@ public class BiliBiliGift implements Gift {
         return null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public long count() {
         return 0;

@@ -34,20 +34,18 @@ public final class RoomRankMessageOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n webcast/im/RoomRankMessage.proto\032\027webc" +
-      "ast/im/Common.proto\032\027webcast/data/Text.p" +
-      "roto\032\027webcast/data/User.proto\"\242\001\n\017RoomRa" +
-      "nkMessage\022\027\n\006common\030\001 \001(\0132\007.Common\022,\n\tra" +
-      "nksList\030\002 \003(\0132\031.RoomRankMessage.RoomRank" +
-      "\032H\n\010RoomRank\022\023\n\004user\030\001 \001(\0132\005.User\022\020\n\010sco" +
-      "reStr\030\002 \001(\t\022\025\n\rprofileHidden\030\003 \001(\010B=\n9co" +
-      "ol.scx.live_room_watcher.douyin.proto_en" +
-      "tity.webcast.imP\001b\006proto3"
+      "ast/im/Common.proto\032\027webcast/data/User.p" +
+      "roto\"\242\001\n\017RoomRankMessage\022\027\n\006common\030\001 \001(\013" +
+      "2\007.Common\022,\n\tranksList\030\002 \003(\0132\031.RoomRankM" +
+      "essage.RoomRank\032H\n\010RoomRank\022\023\n\004user\030\001 \001(" +
+      "\0132\005.User\022\020\n\010scoreStr\030\002 \001(\t\022\025\n\rprofileHid" +
+      "den\030\003 \001(\010B=\n9cool.scx.live_room_watcher." +
+      "douyin.proto_entity.webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
           cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
         });
     internal_static_RoomRankMessage_descriptor =
@@ -63,7 +61,6 @@ public final class RoomRankMessageOuterClass {
         internal_static_RoomRankMessage_RoomRank_descriptor,
         new java.lang.String[] { "User", "ScoreStr", "ProfileHidden", });
     cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor();
     cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
   }
 

@@ -5,10 +5,7 @@ option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im
 
 import "webcast/im/Common.proto";
 import "webcast/data/User.proto";
-import "webcast/data/Image.proto";
 import "webcast/im/PublicAreaCommon.proto";
-import "webcast/data/Text.proto";
-import "webcast/im/LandscapeAreaCommon.proto";
 
 //更新时间 : 2023-01-11
 message AudioChatMessage {
