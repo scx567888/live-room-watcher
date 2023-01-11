@@ -3,41 +3,28 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>TextPieceGiftOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface TextPieceGiftOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:TextPieceGift)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:TextPieceGift)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>int64 giftId = 1;</code>
-     *
-     * @return The giftId.
-     */
-    long getGiftId();
+  /**
+   * <code>int64 giftId = 1;</code>
+   * @return The giftId.
+   */
+  long getGiftId();
 
-    /**
-     * <code>.PatternRef nameRef = 2;</code>
-     *
-     * @return Whether the nameRef field is set.
-     */
-    boolean hasNameRef();
-
-    /**
-     * <code>.PatternRef nameRef = 2;</code>
-     *
-     * @return The nameRef.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.PatternRef getNameRef();
-
-    /**
-     * <code>.PatternRef nameRef = 2;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.PatternRefOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.PatternRefOrBuilder getNameRefOrBuilder();
+  /**
+   * <code>.PatternRef nameRef = 2;</code>
+   * @return Whether the nameRef field is set.
+   */
+  boolean hasNameRef();
+  /**
+   * <code>.PatternRef nameRef = 2;</code>
+   * @return The nameRef.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.PatternRef getNameRef();
+  /**
+   * <code>.PatternRef nameRef = 2;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.PatternRefOrBuilder getNameRefOrBuilder();
 }

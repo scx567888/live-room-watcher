@@ -3,89 +3,53 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
-/**
- * <p>CommonTextMessageOuterClass class.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public final class CommonTextMessageOuterClass {
-    /**
-     * Constant <code>internal_static_CommonTextMessage_descriptor</code>
-     */
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CommonTextMessage_descriptor;
-    /**
-     * Constant <code>internal_static_CommonTextMessage_fieldAccessorTable</code>
-     */
-    static final
+  private CommonTextMessageOuterClass() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CommonTextMessage_descriptor;
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CommonTextMessage_fieldAccessorTable;
-    /**
-     * Constant <code>descriptor</code>
-     */
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_CommonTextMessage_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\"webcast/im/CommonTextMessage.proto\032\027we" +
-                        "bcast/im/Common.proto\032\027webcast/data/User" +
-                        ".proto\"P\n\021CommonTextMessage\022\027\n\006common\030\001 " +
-                        "\001(\0132\007.Common\022\023\n\004user\030\002 \001(\0132\005.User\022\r\n\005sce" +
-                        "ne\030\003 \001(\tB=\n9cool.scx.live_room_watcher.d" +
-                        "ouyin.proto_entity.webcast.imP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-                        });
-        internal_static_CommonTextMessage_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_CommonTextMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CommonTextMessage_descriptor,
-                new java.lang.String[]{"Common", "User", "Scene",});
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    }
-    /**
-     * <p>Constructor for CommonTextMessageOuterClass.</p>
-     */
-    private CommonTextMessageOuterClass() {
-    }
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\"webcast/im/CommonTextMessage.proto\032\027we" +
+      "bcast/im/Common.proto\032\027webcast/data/User" +
+      ".proto\"P\n\021CommonTextMessage\022\027\n\006common\030\001 " +
+      "\001(\0132\007.Common\022\023\n\004user\030\002 \001(\0132\005.User\022\r\n\005sce" +
+      "ne\030\003 \001(\tB=\n9cool.scx.live_room_watcher.d" +
+      "ouyin.proto_entity.webcast.imP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+        });
+    internal_static_CommonTextMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_CommonTextMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CommonTextMessage_descriptor,
+        new java.lang.String[] { "Common", "User", "Scene", });
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+  }
 
-    /**
-     * <p>registerAllExtensions.</p>
-     *
-     * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     */
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    /**
-     * <p>registerAllExtensions.</p>
-     *
-     * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
-     */
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    /**
-     * <p>Getter for the field <code>descriptor</code>.</p>
-     *
-     * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
-     */
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

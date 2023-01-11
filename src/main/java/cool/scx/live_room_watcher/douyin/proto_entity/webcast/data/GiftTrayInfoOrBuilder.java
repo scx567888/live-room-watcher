@@ -3,125 +3,88 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>GiftTrayInfoOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface GiftTrayInfoOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:GiftTrayInfo)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:GiftTrayInfo)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>.Text trayDisplayText = 1;</code>
-     *
-     * @return Whether the trayDisplayText field is set.
-     */
-    boolean hasTrayDisplayText();
+  /**
+   * <code>.Text trayDisplayText = 1;</code>
+   * @return Whether the trayDisplayText field is set.
+   */
+  boolean hasTrayDisplayText();
+  /**
+   * <code>.Text trayDisplayText = 1;</code>
+   * @return The trayDisplayText.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Text getTrayDisplayText();
+  /**
+   * <code>.Text trayDisplayText = 1;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOrBuilder getTrayDisplayTextOrBuilder();
 
-    /**
-     * <code>.Text trayDisplayText = 1;</code>
-     *
-     * @return The trayDisplayText.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Text getTrayDisplayText();
+  /**
+   * <code>.Image trayBaseImg = 2;</code>
+   * @return Whether the trayBaseImg field is set.
+   */
+  boolean hasTrayBaseImg();
+  /**
+   * <code>.Image trayBaseImg = 2;</code>
+   * @return The trayBaseImg.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayBaseImg();
+  /**
+   * <code>.Image trayBaseImg = 2;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayBaseImgOrBuilder();
 
-    /**
-     * <code>.Text trayDisplayText = 1;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOrBuilder getTrayDisplayTextOrBuilder();
+  /**
+   * <code>.Image trayHeadImg = 3;</code>
+   * @return Whether the trayHeadImg field is set.
+   */
+  boolean hasTrayHeadImg();
+  /**
+   * <code>.Image trayHeadImg = 3;</code>
+   * @return The trayHeadImg.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayHeadImg();
+  /**
+   * <code>.Image trayHeadImg = 3;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayHeadImgOrBuilder();
 
-    /**
-     * <code>.Image trayBaseImg = 2;</code>
-     *
-     * @return Whether the trayBaseImg field is set.
-     */
-    boolean hasTrayBaseImg();
+  /**
+   * <code>.Image trayRightImg = 4;</code>
+   * @return Whether the trayRightImg field is set.
+   */
+  boolean hasTrayRightImg();
+  /**
+   * <code>.Image trayRightImg = 4;</code>
+   * @return The trayRightImg.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayRightImg();
+  /**
+   * <code>.Image trayRightImg = 4;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayRightImgOrBuilder();
 
-    /**
-     * <code>.Image trayBaseImg = 2;</code>
-     *
-     * @return The trayBaseImg.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayBaseImg();
+  /**
+   * <code>int64 trayLevel = 5;</code>
+   * @return The trayLevel.
+   */
+  long getTrayLevel();
 
-    /**
-     * <code>.Image trayBaseImg = 2;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayBaseImgOrBuilder();
-
-    /**
-     * <code>.Image trayHeadImg = 3;</code>
-     *
-     * @return Whether the trayHeadImg field is set.
-     */
-    boolean hasTrayHeadImg();
-
-    /**
-     * <code>.Image trayHeadImg = 3;</code>
-     *
-     * @return The trayHeadImg.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayHeadImg();
-
-    /**
-     * <code>.Image trayHeadImg = 3;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayHeadImgOrBuilder();
-
-    /**
-     * <code>.Image trayRightImg = 4;</code>
-     *
-     * @return Whether the trayRightImg field is set.
-     */
-    boolean hasTrayRightImg();
-
-    /**
-     * <code>.Image trayRightImg = 4;</code>
-     *
-     * @return The trayRightImg.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayRightImg();
-
-    /**
-     * <code>.Image trayRightImg = 4;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayRightImgOrBuilder();
-
-    /**
-     * <code>int64 trayLevel = 5;</code>
-     *
-     * @return The trayLevel.
-     */
-    long getTrayLevel();
-
-    /**
-     * <code>.Image trayDynamicImg = 6;</code>
-     *
-     * @return Whether the trayDynamicImg field is set.
-     */
-    boolean hasTrayDynamicImg();
-
-    /**
-     * <code>.Image trayDynamicImg = 6;</code>
-     *
-     * @return The trayDynamicImg.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayDynamicImg();
-
-    /**
-     * <code>.Image trayDynamicImg = 6;</code>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayDynamicImgOrBuilder();
+  /**
+   * <code>.Image trayDynamicImg = 6;</code>
+   * @return Whether the trayDynamicImg field is set.
+   */
+  boolean hasTrayDynamicImg();
+  /**
+   * <code>.Image trayDynamicImg = 6;</code>
+   * @return The trayDynamicImg.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getTrayDynamicImg();
+  /**
+   * <code>.Image trayDynamicImg = 6;</code>
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getTrayDynamicImgOrBuilder();
 }

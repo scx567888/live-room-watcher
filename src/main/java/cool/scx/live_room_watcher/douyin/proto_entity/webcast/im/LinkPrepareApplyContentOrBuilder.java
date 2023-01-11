@@ -3,13 +3,7 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
-/**
- * <p>LinkPrepareApplyContentOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface LinkPrepareApplyContentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:LinkPrepareApplyContent)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:LinkPrepareApplyContent)
+    com.google.protobuf.MessageOrBuilder {
 }

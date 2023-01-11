@@ -3,13 +3,7 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
-/**
- * <p>LinkerBanContentOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface LinkerBanContentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:LinkerBanContent)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:LinkerBanContent)
+    com.google.protobuf.MessageOrBuilder {
 }

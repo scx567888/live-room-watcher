@@ -5,2422 +5,1998 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ *更新时间 : 2023-01-09
  * </pre>
- * <p>
- * Protobuf type {@code Response}
  *
- * @author scx567888
- * @version $Id: $Id
+ * Protobuf type {@code Response}
  */
 public final class Response extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:Response)
-        ResponseOrBuilder {
-    /**
-     * Constant <code>MESSAGESLIST_FIELD_NUMBER=1</code>
-     */
-    public static final int MESSAGESLIST_FIELD_NUMBER = 1;
-    // Use Response.newBuilder() to construct.
-    /**
-     * Constant <code>CURSOR_FIELD_NUMBER=2</code>
-     */
-    public static final int CURSOR_FIELD_NUMBER = 2;
-    /**
-     * Constant <code>FETCHINTERVAL_FIELD_NUMBER=3</code>
-     */
-    public static final int FETCHINTERVAL_FIELD_NUMBER = 3;
-    /**
-     * Constant <code>NOW_FIELD_NUMBER=4</code>
-     */
-    public static final int NOW_FIELD_NUMBER = 4;
-    /**
-     * Constant <code>INTERNALEXT_FIELD_NUMBER=5</code>
-     */
-    public static final int INTERNALEXT_FIELD_NUMBER = 5;
-    /**
-     * Constant <code>FETCHTYPE_FIELD_NUMBER=6</code>
-     */
-    public static final int FETCHTYPE_FIELD_NUMBER = 6;
-    /**
-     * Constant <code>ROUTEPARAMSMAP_FIELD_NUMBER=7</code>
-     */
-    public static final int ROUTEPARAMSMAP_FIELD_NUMBER = 7;
-    /**
-     * Constant <code>HEARTBEATDURATION_FIELD_NUMBER=8</code>
-     */
-    public static final int HEARTBEATDURATION_FIELD_NUMBER = 8;
-    /**
-     * Constant <code>NEEDACK_FIELD_NUMBER=9</code>
-     */
-    public static final int NEEDACK_FIELD_NUMBER = 9;
-    /**
-     * Constant <code>PUSHSERVER_FIELD_NUMBER=10</code>
-     */
-    public static final int PUSHSERVER_FIELD_NUMBER = 10;
-    /**
-     * Constant <code>LIVECURSOR_FIELD_NUMBER=11</code>
-     */
-    public static final int LIVECURSOR_FIELD_NUMBER = 11;
-    /**
-     * Constant <code>HISTORYNOMORE_FIELD_NUMBER=12</code>
-     */
-    public static final int HISTORYNOMORE_FIELD_NUMBER = 12;
-    /**
-     * Constant <code>serialVersionUID=0L</code>
-     */
-    private static final long serialVersionUID = 0L;
-    /**
-     * Constant <code>DEFAULT_INSTANCE</code>
-     */
-    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response DEFAULT_INSTANCE;
-    /**
-     * Constant <code>PARSER</code>
-     */
-    private static final com.google.protobuf.Parser<Response>
-            PARSER = new com.google.protobuf.AbstractParser<Response>() {
-        @java.lang.Override
-        public Response parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Response(input, extensionRegistry);
-        }
-    };
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:Response)
+    ResponseOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use Response.newBuilder() to construct.
+  private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private Response() {
+    messagesList_ = java.util.Collections.emptyList();
+    cursor_ = "";
+    internalExt_ = "";
+    pushServer_ = "";
+    liveCursor_ = "";
+  }
 
-    static {
-        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response();
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Response();
+  }
+
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private Response(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
     }
-
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> messagesList_;
-    private volatile java.lang.Object cursor_;
-    private long fetchInterval_;
-    private long now_;
-    private volatile java.lang.Object internalExt_;
-    private int fetchType_;
-    private com.google.protobuf.MapField<
-            java.lang.String, java.lang.String> routeParamsMap_;
-    private long heartbeatDuration_;
-    private boolean needAck_;
-    private volatile java.lang.Object pushServer_;
-    private volatile java.lang.Object liveCursor_;
-    private boolean historyNoMore_;
-    private byte memoizedIsInitialized = -1;
-
-    /**
-     * <p>Constructor for Response.</p>
-     *
-     * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-     */
-    private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-
-    /**
-     * <p>Constructor for Response.</p>
-     */
-    private Response() {
-        messagesList_ = java.util.Collections.emptyList();
-        cursor_ = "";
-        internalExt_ = "";
-        pushServer_ = "";
-        liveCursor_ = "";
-    }
-    /**
-     * <p>Constructor for Response.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    private Response(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    case 10: {
-                        if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                            messagesList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message>();
-                            mutable_bitField0_ |= 0x00000001;
-                        }
-                        messagesList_.add(
-                                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.parser(), extensionRegistry));
-                        break;
-                    }
-                    case 18: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        cursor_ = s;
-                        break;
-                    }
-                    case 24: {
-
-                        fetchInterval_ = input.readInt64();
-                        break;
-                    }
-                    case 32: {
-
-                        now_ = input.readInt64();
-                        break;
-                    }
-                    case 42: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        internalExt_ = s;
-                        break;
-                    }
-                    case 48: {
-
-                        fetchType_ = input.readInt32();
-                        break;
-                    }
-                    case 58: {
-                        if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                            routeParamsMap_ = com.google.protobuf.MapField.newMapField(
-                                    RouteParamsMapDefaultEntryHolder.defaultEntry);
-                            mutable_bitField0_ |= 0x00000002;
-                        }
-                        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                                routeParamsMap__ = input.readMessage(
-                                RouteParamsMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                        routeParamsMap_.getMutableMap().put(
-                                routeParamsMap__.getKey(), routeParamsMap__.getValue());
-                        break;
-                    }
-                    case 64: {
-
-                        heartbeatDuration_ = input.readInt64();
-                        break;
-                    }
-                    case 72: {
-
-                        needAck_ = input.readBool();
-                        break;
-                    }
-                    case 82: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        pushServer_ = s;
-                        break;
-                    }
-                    case 90: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        liveCursor_ = s;
-                        break;
-                    }
-                    case 96: {
-
-                        historyNoMore_ = input.readBool();
-                        break;
-                    }
-                    default: {
-                        if (!parseUnknownField(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              messagesList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message>();
+              mutable_bitField0_ |= 0x00000001;
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-                messagesList_ = java.util.Collections.unmodifiableList(messagesList_);
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-        }
-    }
+            messagesList_.add(
+                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.parser(), extensionRegistry));
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-    /**
-     * <p>getDescriptor.</p>
-     *
-     * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-     */
+            cursor_ = s;
+            break;
+          }
+          case 24: {
+
+            fetchInterval_ = input.readInt64();
+            break;
+          }
+          case 32: {
+
+            now_ = input.readInt64();
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            internalExt_ = s;
+            break;
+          }
+          case 48: {
+
+            fetchType_ = input.readInt32();
+            break;
+          }
+          case 58: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              routeParamsMap_ = com.google.protobuf.MapField.newMapField(
+                  RouteParamsMapDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000002;
+            }
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            routeParamsMap__ = input.readMessage(
+                RouteParamsMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            routeParamsMap_.getMutableMap().put(
+                routeParamsMap__.getKey(), routeParamsMap__.getValue());
+            break;
+          }
+          case 64: {
+
+            heartbeatDuration_ = input.readInt64();
+            break;
+          }
+          case 72: {
+
+            needAck_ = input.readBool();
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            pushServer_ = s;
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            liveCursor_ = s;
+            break;
+          }
+          case 96: {
+
+            historyNoMore_ = input.readBool();
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        messagesList_ = java.util.Collections.unmodifiableList(messagesList_);
+      }
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
+  }
+
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 7:
+        return internalGetRouteParamsMap();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder.class);
+  }
+
+  public static final int MESSAGESLIST_FIELD_NUMBER = 1;
+  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> messagesList_;
+  /**
+   * <code>repeated .Message messagesList = 1;</code>
+   */
+  @java.lang.Override
+  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> getMessagesListList() {
+    return messagesList_;
+  }
+  /**
+   * <code>repeated .Message messagesList = 1;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder> 
+      getMessagesListOrBuilderList() {
+    return messagesList_;
+  }
+  /**
+   * <code>repeated .Message messagesList = 1;</code>
+   */
+  @java.lang.Override
+  public int getMessagesListCount() {
+    return messagesList_.size();
+  }
+  /**
+   * <code>repeated .Message messagesList = 1;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message getMessagesList(int index) {
+    return messagesList_.get(index);
+  }
+  /**
+   * <code>repeated .Message messagesList = 1;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder getMessagesListOrBuilder(
+      int index) {
+    return messagesList_.get(index);
+  }
+
+  public static final int CURSOR_FIELD_NUMBER = 2;
+  private volatile java.lang.Object cursor_;
+  /**
+   * <code>string cursor = 2;</code>
+   * @return The cursor.
+   */
+  @java.lang.Override
+  public java.lang.String getCursor() {
+    java.lang.Object ref = cursor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cursor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string cursor = 2;</code>
+   * @return The bytes for cursor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCursorBytes() {
+    java.lang.Object ref = cursor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cursor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int FETCHINTERVAL_FIELD_NUMBER = 3;
+  private long fetchInterval_;
+  /**
+   * <code>int64 fetchInterval = 3;</code>
+   * @return The fetchInterval.
+   */
+  @java.lang.Override
+  public long getFetchInterval() {
+    return fetchInterval_;
+  }
+
+  public static final int NOW_FIELD_NUMBER = 4;
+  private long now_;
+  /**
+   * <code>int64 now = 4;</code>
+   * @return The now.
+   */
+  @java.lang.Override
+  public long getNow() {
+    return now_;
+  }
+
+  public static final int INTERNALEXT_FIELD_NUMBER = 5;
+  private volatile java.lang.Object internalExt_;
+  /**
+   * <code>string internalExt = 5;</code>
+   * @return The internalExt.
+   */
+  @java.lang.Override
+  public java.lang.String getInternalExt() {
+    java.lang.Object ref = internalExt_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      internalExt_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string internalExt = 5;</code>
+   * @return The bytes for internalExt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInternalExtBytes() {
+    java.lang.Object ref = internalExt_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      internalExt_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int FETCHTYPE_FIELD_NUMBER = 6;
+  private int fetchType_;
+  /**
+   * <code>int32 fetchType = 6;</code>
+   * @return The fetchType.
+   */
+  @java.lang.Override
+  public int getFetchType() {
+    return fetchType_;
+  }
+
+  public static final int ROUTEPARAMSMAP_FIELD_NUMBER = 7;
+  private static final class RouteParamsMapDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_RouteParamsMapEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> routeParamsMap_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetRouteParamsMap() {
+    if (routeParamsMap_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          RouteParamsMapDefaultEntryHolder.defaultEntry);
+    }
+    return routeParamsMap_;
+  }
+
+  public int getRouteParamsMapCount() {
+    return internalGetRouteParamsMap().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+   */
+
+  @java.lang.Override
+  public boolean containsRouteParamsMap(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    return internalGetRouteParamsMap().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getRouteParamsMapMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMap() {
+    return getRouteParamsMapMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+   */
+  @java.lang.Override
+
+  public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMapMap() {
+    return internalGetRouteParamsMap().getMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getRouteParamsMapOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetRouteParamsMap().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+   */
+  @java.lang.Override
+
+  public java.lang.String getRouteParamsMapOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetRouteParamsMap().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int HEARTBEATDURATION_FIELD_NUMBER = 8;
+  private long heartbeatDuration_;
+  /**
+   * <code>int64 heartbeatDuration = 8;</code>
+   * @return The heartbeatDuration.
+   */
+  @java.lang.Override
+  public long getHeartbeatDuration() {
+    return heartbeatDuration_;
+  }
+
+  public static final int NEEDACK_FIELD_NUMBER = 9;
+  private boolean needAck_;
+  /**
+   * <code>bool needAck = 9;</code>
+   * @return The needAck.
+   */
+  @java.lang.Override
+  public boolean getNeedAck() {
+    return needAck_;
+  }
+
+  public static final int PUSHSERVER_FIELD_NUMBER = 10;
+  private volatile java.lang.Object pushServer_;
+  /**
+   * <code>string pushServer = 10;</code>
+   * @return The pushServer.
+   */
+  @java.lang.Override
+  public java.lang.String getPushServer() {
+    java.lang.Object ref = pushServer_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      pushServer_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string pushServer = 10;</code>
+   * @return The bytes for pushServer.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPushServerBytes() {
+    java.lang.Object ref = pushServer_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      pushServer_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LIVECURSOR_FIELD_NUMBER = 11;
+  private volatile java.lang.Object liveCursor_;
+  /**
+   * <code>string liveCursor = 11;</code>
+   * @return The liveCursor.
+   */
+  @java.lang.Override
+  public java.lang.String getLiveCursor() {
+    java.lang.Object ref = liveCursor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      liveCursor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string liveCursor = 11;</code>
+   * @return The bytes for liveCursor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLiveCursorBytes() {
+    java.lang.Object ref = liveCursor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      liveCursor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int HISTORYNOMORE_FIELD_NUMBER = 12;
+  private boolean historyNoMore_;
+  /**
+   * <code>bool historyNoMore = 12;</code>
+   * @return The historyNoMore.
+   */
+  @java.lang.Override
+  public boolean getHistoryNoMore() {
+    return historyNoMore_;
+  }
+
+  private byte memoizedIsInitialized = -1;
+  @java.lang.Override
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  @java.lang.Override
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    for (int i = 0; i < messagesList_.size(); i++) {
+      output.writeMessage(1, messagesList_.get(i));
+    }
+    if (!getCursorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cursor_);
+    }
+    if (fetchInterval_ != 0L) {
+      output.writeInt64(3, fetchInterval_);
+    }
+    if (now_ != 0L) {
+      output.writeInt64(4, now_);
+    }
+    if (!getInternalExtBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, internalExt_);
+    }
+    if (fetchType_ != 0) {
+      output.writeInt32(6, fetchType_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetRouteParamsMap(),
+        RouteParamsMapDefaultEntryHolder.defaultEntry,
+        7);
+    if (heartbeatDuration_ != 0L) {
+      output.writeInt64(8, heartbeatDuration_);
+    }
+    if (needAck_ != false) {
+      output.writeBool(9, needAck_);
+    }
+    if (!getPushServerBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, pushServer_);
+    }
+    if (!getLiveCursorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, liveCursor_);
+    }
+    if (historyNoMore_ != false) {
+      output.writeBool(12, historyNoMore_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  @java.lang.Override
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    for (int i = 0; i < messagesList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, messagesList_.get(i));
+    }
+    if (!getCursorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cursor_);
+    }
+    if (fetchInterval_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, fetchInterval_);
+    }
+    if (now_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, now_);
+    }
+    if (!getInternalExtBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, internalExt_);
+    }
+    if (fetchType_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, fetchType_);
+    }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetRouteParamsMap().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      routeParamsMap__ = RouteParamsMapDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, routeParamsMap__);
+    }
+    if (heartbeatDuration_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(8, heartbeatDuration_);
+    }
+    if (needAck_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(9, needAck_);
+    }
+    if (!getPushServerBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, pushServer_);
+    }
+    if (!getLiveCursorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, liveCursor_);
+    }
+    if (historyNoMore_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(12, historyNoMore_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response)) {
+      return super.equals(obj);
+    }
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) obj;
+
+    if (!getMessagesListList()
+        .equals(other.getMessagesListList())) return false;
+    if (!getCursor()
+        .equals(other.getCursor())) return false;
+    if (getFetchInterval()
+        != other.getFetchInterval()) return false;
+    if (getNow()
+        != other.getNow()) return false;
+    if (!getInternalExt()
+        .equals(other.getInternalExt())) return false;
+    if (getFetchType()
+        != other.getFetchType()) return false;
+    if (!internalGetRouteParamsMap().equals(
+        other.internalGetRouteParamsMap())) return false;
+    if (getHeartbeatDuration()
+        != other.getHeartbeatDuration()) return false;
+    if (getNeedAck()
+        != other.getNeedAck()) return false;
+    if (!getPushServer()
+        .equals(other.getPushServer())) return false;
+    if (!getLiveCursor()
+        .equals(other.getLiveCursor())) return false;
+    if (getHistoryNoMore()
+        != other.getHistoryNoMore()) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
+  }
+
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    if (getMessagesListCount() > 0) {
+      hash = (37 * hash) + MESSAGESLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getMessagesListList().hashCode();
+    }
+    hash = (37 * hash) + CURSOR_FIELD_NUMBER;
+    hash = (53 * hash) + getCursor().hashCode();
+    hash = (37 * hash) + FETCHINTERVAL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getFetchInterval());
+    hash = (37 * hash) + NOW_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getNow());
+    hash = (37 * hash) + INTERNALEXT_FIELD_NUMBER;
+    hash = (53 * hash) + getInternalExt().hashCode();
+    hash = (37 * hash) + FETCHTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getFetchType();
+    if (!internalGetRouteParamsMap().getMap().isEmpty()) {
+      hash = (37 * hash) + ROUTEPARAMSMAP_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetRouteParamsMap().hashCode();
+    }
+    hash = (37 * hash) + HEARTBEATDURATION_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getHeartbeatDuration());
+    hash = (37 * hash) + NEEDACK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getNeedAck());
+    hash = (37 * hash) + PUSHSERVER_FIELD_NUMBER;
+    hash = (53 * hash) + getPushServer().hashCode();
+    hash = (37 * hash) + LIVECURSOR_FIELD_NUMBER;
+    hash = (53 * hash) + getLiveCursor().hashCode();
+    hash = (37 * hash) + HISTORYNOMORE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getHistoryNoMore());
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  @java.lang.Override
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  @java.lang.Override
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * <pre>
+   *更新时间 : 2023-01-09
+   * </pre>
+   *
+   * Protobuf type {@code Response}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:Response)
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
     }
 
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link java.nio.ByteBuffer} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link java.nio.ByteBuffer} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link com.google.protobuf.ByteString} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link com.google.protobuf.ByteString} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data an array of {@link byte} objects
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              an array of {@link byte} objects
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link com.google.protobuf.CodedInputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder} object
-     */
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder} object
-     */
-    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    /**
-     * <p>getDefaultInstance.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response} object
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * <p>parser.</p>
-     *
-     * @return a {@link com.google.protobuf.Parser} object
-     */
-    public static com.google.protobuf.Parser<Response> parser() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-        return new Response();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
     protected com.google.protobuf.MapField internalGetMapField(
-            int number) {
-        switch (number) {
-            case 7:
-                return internalGetRouteParamsMap();
-            default:
-                throw new RuntimeException(
-                        "Invalid map field number: " + number);
-        }
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetRouteParamsMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
     }
-
-    /**
-     * {@inheritDoc}
-     */
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetMutableRouteParamsMap();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder.class);
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder.class);
     }
 
+    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
+
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getMessagesListFieldBuilder();
+      }
+    }
+    @java.lang.Override
+    public Builder clear() {
+      super.clear();
+      if (messagesListBuilder_ == null) {
+        messagesList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        messagesListBuilder_.clear();
+      }
+      cursor_ = "";
+
+      fetchInterval_ = 0L;
+
+      now_ = 0L;
+
+      internalExt_ = "";
+
+      fetchType_ = 0;
+
+      internalGetMutableRouteParamsMap().clear();
+      heartbeatDuration_ = 0L;
+
+      needAck_ = false;
+
+      pushServer_ = "";
+
+      liveCursor_ = "";
+
+      historyNoMore_ = false;
+
+      return this;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstanceForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.getDefaultInstance();
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response build() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response buildPartial() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response(this);
+      int from_bitField0_ = bitField0_;
+      if (messagesListBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          messagesList_ = java.util.Collections.unmodifiableList(messagesList_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.messagesList_ = messagesList_;
+      } else {
+        result.messagesList_ = messagesListBuilder_.build();
+      }
+      result.cursor_ = cursor_;
+      result.fetchInterval_ = fetchInterval_;
+      result.now_ = now_;
+      result.internalExt_ = internalExt_;
+      result.fetchType_ = fetchType_;
+      result.routeParamsMap_ = internalGetRouteParamsMap();
+      result.routeParamsMap_.makeImmutable();
+      result.heartbeatDuration_ = heartbeatDuration_;
+      result.needAck_ = needAck_;
+      result.pushServer_ = pushServer_;
+      result.liveCursor_ = liveCursor_;
+      result.historyNoMore_ = historyNoMore_;
+      onBuilt();
+      return result;
+    }
+
+    @java.lang.Override
+    public Builder clone() {
+      return super.clone();
+    }
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.addRepeatedField(field, value);
+    }
+    @java.lang.Override
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) {
+        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response other) {
+      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.getDefaultInstance()) return this;
+      if (messagesListBuilder_ == null) {
+        if (!other.messagesList_.isEmpty()) {
+          if (messagesList_.isEmpty()) {
+            messagesList_ = other.messagesList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureMessagesListIsMutable();
+            messagesList_.addAll(other.messagesList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.messagesList_.isEmpty()) {
+          if (messagesListBuilder_.isEmpty()) {
+            messagesListBuilder_.dispose();
+            messagesListBuilder_ = null;
+            messagesList_ = other.messagesList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            messagesListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMessagesListFieldBuilder() : null;
+          } else {
+            messagesListBuilder_.addAllMessages(other.messagesList_);
+          }
+        }
+      }
+      if (!other.getCursor().isEmpty()) {
+        cursor_ = other.cursor_;
+        onChanged();
+      }
+      if (other.getFetchInterval() != 0L) {
+        setFetchInterval(other.getFetchInterval());
+      }
+      if (other.getNow() != 0L) {
+        setNow(other.getNow());
+      }
+      if (!other.getInternalExt().isEmpty()) {
+        internalExt_ = other.internalExt_;
+        onChanged();
+      }
+      if (other.getFetchType() != 0) {
+        setFetchType(other.getFetchType());
+      }
+      internalGetMutableRouteParamsMap().mergeFrom(
+          other.internalGetRouteParamsMap());
+      if (other.getHeartbeatDuration() != 0L) {
+        setHeartbeatDuration(other.getHeartbeatDuration());
+      }
+      if (other.getNeedAck() != false) {
+        setNeedAck(other.getNeedAck());
+      }
+      if (!other.getPushServer().isEmpty()) {
+        pushServer_ = other.pushServer_;
+        onChanged();
+      }
+      if (!other.getLiveCursor().isEmpty()) {
+        liveCursor_ = other.liveCursor_;
+        onChanged();
+      }
+      if (other.getHistoryNoMore() != false) {
+        setHistoryNoMore(other.getHistoryNoMore());
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    @java.lang.Override
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
+    }
+    private int bitField0_;
+
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> messagesList_ =
+      java.util.Collections.emptyList();
+    private void ensureMessagesListIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        messagesList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message>(messagesList_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder> messagesListBuilder_;
+
     /**
-     * {@inheritDoc}
-     *
      * <code>repeated .Message messagesList = 1;</code>
      */
-    @java.lang.Override
     public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> getMessagesListList() {
-        return messagesList_;
+      if (messagesListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(messagesList_);
+      } else {
+        return messagesListBuilder_.getMessageList();
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>repeated .Message messagesList = 1;</code>
      */
-    @java.lang.Override
-    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder>
-    getMessagesListOrBuilderList() {
-        return messagesList_;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .Message messagesList = 1;</code>
-     */
-    @java.lang.Override
     public int getMessagesListCount() {
+      if (messagesListBuilder_ == null) {
         return messagesList_.size();
+      } else {
+        return messagesListBuilder_.getCount();
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>repeated .Message messagesList = 1;</code>
      */
-    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message getMessagesList(int index) {
+      if (messagesListBuilder_ == null) {
         return messagesList_.get(index);
+      } else {
+        return messagesListBuilder_.getMessage(index);
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>repeated .Message messagesList = 1;</code>
      */
-    @java.lang.Override
+    public Builder setMessagesList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
+      if (messagesListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesListIsMutable();
+        messagesList_.set(index, value);
+        onChanged();
+      } else {
+        messagesListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder setMessagesList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
+      if (messagesListBuilder_ == null) {
+        ensureMessagesListIsMutable();
+        messagesList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        messagesListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder addMessagesList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
+      if (messagesListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesListIsMutable();
+        messagesList_.add(value);
+        onChanged();
+      } else {
+        messagesListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder addMessagesList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
+      if (messagesListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMessagesListIsMutable();
+        messagesList_.add(index, value);
+        onChanged();
+      } else {
+        messagesListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder addMessagesList(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
+      if (messagesListBuilder_ == null) {
+        ensureMessagesListIsMutable();
+        messagesList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        messagesListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder addMessagesList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
+      if (messagesListBuilder_ == null) {
+        ensureMessagesListIsMutable();
+        messagesList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        messagesListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder addAllMessagesList(
+        java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> values) {
+      if (messagesListBuilder_ == null) {
+        ensureMessagesListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, messagesList_);
+        onChanged();
+      } else {
+        messagesListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder clearMessagesList() {
+      if (messagesListBuilder_ == null) {
+        messagesList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        messagesListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public Builder removeMessagesList(int index) {
+      if (messagesListBuilder_ == null) {
+        ensureMessagesListIsMutable();
+        messagesList_.remove(index);
+        onChanged();
+      } else {
+        messagesListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder getMessagesListBuilder(
+        int index) {
+      return getMessagesListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder getMessagesListOrBuilder(
-            int index) {
-        return messagesList_.get(index);
+        int index) {
+      if (messagesListBuilder_ == null) {
+        return messagesList_.get(index);  } else {
+        return messagesListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder> 
+         getMessagesListOrBuilderList() {
+      if (messagesListBuilder_ != null) {
+        return messagesListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(messagesList_);
+      }
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder addMessagesListBuilder() {
+      return getMessagesListFieldBuilder().addBuilder(
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder addMessagesListBuilder(
+        int index) {
+      return getMessagesListFieldBuilder().addBuilder(
+          index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Message messagesList = 1;</code>
+     */
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder> 
+         getMessagesListBuilderList() {
+      return getMessagesListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder> 
+        getMessagesListFieldBuilder() {
+      if (messagesListBuilder_ == null) {
+        messagesListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder>(
+                messagesList_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        messagesList_ = null;
+      }
+      return messagesListBuilder_;
     }
 
+    private java.lang.Object cursor_ = "";
     /**
-     * {@inheritDoc}
-     *
      * <code>string cursor = 2;</code>
+     * @return The cursor.
      */
-    @java.lang.Override
     public java.lang.String getCursor() {
-        java.lang.Object ref = cursor_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            cursor_ = s;
-            return s;
-        }
+      java.lang.Object ref = cursor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cursor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>string cursor = 2;</code>
+     * @return The bytes for cursor.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
-    getCursorBytes() {
-        java.lang.Object ref = cursor_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            cursor_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getCursorBytes() {
+      java.lang.Object ref = cursor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cursor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string cursor = 2;</code>
+     * @param value The cursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCursor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      cursor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cursor = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCursor() {
+      
+      cursor_ = getDefaultInstance().getCursor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cursor = 2;</code>
+     * @param value The bytes for cursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCursorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      cursor_ = value;
+      onChanged();
+      return this;
     }
 
+    private long fetchInterval_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>int64 fetchInterval = 3;</code>
+     * @return The fetchInterval.
      */
     @java.lang.Override
     public long getFetchInterval() {
-        return fetchInterval_;
+      return fetchInterval_;
+    }
+    /**
+     * <code>int64 fetchInterval = 3;</code>
+     * @param value The fetchInterval to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFetchInterval(long value) {
+      
+      fetchInterval_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 fetchInterval = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFetchInterval() {
+      
+      fetchInterval_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private long now_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>int64 now = 4;</code>
+     * @return The now.
      */
     @java.lang.Override
     public long getNow() {
-        return now_;
+      return now_;
+    }
+    /**
+     * <code>int64 now = 4;</code>
+     * @param value The now to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNow(long value) {
+      
+      now_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 now = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNow() {
+      
+      now_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object internalExt_ = "";
     /**
-     * {@inheritDoc}
-     *
      * <code>string internalExt = 5;</code>
+     * @return The internalExt.
      */
-    @java.lang.Override
     public java.lang.String getInternalExt() {
-        java.lang.Object ref = internalExt_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            internalExt_ = s;
-            return s;
-        }
+      java.lang.Object ref = internalExt_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        internalExt_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>string internalExt = 5;</code>
+     * @return The bytes for internalExt.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
-    getInternalExtBytes() {
-        java.lang.Object ref = internalExt_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            internalExt_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getInternalExtBytes() {
+      java.lang.Object ref = internalExt_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        internalExt_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string internalExt = 5;</code>
+     * @param value The internalExt to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInternalExt(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      internalExt_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string internalExt = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInternalExt() {
+      
+      internalExt_ = getDefaultInstance().getInternalExt();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string internalExt = 5;</code>
+     * @param value The bytes for internalExt to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInternalExtBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      internalExt_ = value;
+      onChanged();
+      return this;
     }
 
+    private int fetchType_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>int32 fetchType = 6;</code>
+     * @return The fetchType.
      */
     @java.lang.Override
     public int getFetchType() {
-        return fetchType_;
+      return fetchType_;
+    }
+    /**
+     * <code>int32 fetchType = 6;</code>
+     * @param value The fetchType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFetchType(int value) {
+      
+      fetchType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 fetchType = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFetchType() {
+      
+      fetchType_ = 0;
+      onChanged();
+      return this;
     }
 
-    /**
-     * <p>internalGetRouteParamsMap.</p>
-     *
-     * @return a {@link com.google.protobuf.MapField} object
-     */
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> routeParamsMap_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
     internalGetRouteParamsMap() {
-        if (routeParamsMap_ == null) {
-            return com.google.protobuf.MapField.emptyMapField(
-                    RouteParamsMapDefaultEntryHolder.defaultEntry);
-        }
-        return routeParamsMap_;
+      if (routeParamsMap_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            RouteParamsMapDefaultEntryHolder.defaultEntry);
+      }
+      return routeParamsMap_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetMutableRouteParamsMap() {
+      onChanged();;
+      if (routeParamsMap_ == null) {
+        routeParamsMap_ = com.google.protobuf.MapField.newMapField(
+            RouteParamsMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!routeParamsMap_.isMutable()) {
+        routeParamsMap_ = routeParamsMap_.copy();
+      }
+      return routeParamsMap_;
     }
 
-    /**
-     * <p>getRouteParamsMapCount.</p>
-     *
-     * @return a int
-     */
     public int getRouteParamsMapCount() {
-        return internalGetRouteParamsMap().getMap().size();
+      return internalGetRouteParamsMap().getMap().size();
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
      */
 
     @java.lang.Override
     public boolean containsRouteParamsMap(
-            java.lang.String key) {
-        if (key == null) {
-            throw new java.lang.NullPointerException();
-        }
-        return internalGetRouteParamsMap().getMap().containsKey(key);
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetRouteParamsMap().getMap().containsKey(key);
     }
-
     /**
-     * {@inheritDoc}
-     * <p>
      * Use {@link #getRouteParamsMapMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMap() {
-        return getRouteParamsMapMap();
+      return getRouteParamsMapMap();
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
      */
     @java.lang.Override
+
     public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMapMap() {
-        return internalGetRouteParamsMap().getMap();
+      return internalGetRouteParamsMap().getMap();
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
      */
     @java.lang.Override
+
     public java.lang.String getRouteParamsMapOrDefault(
-            java.lang.String key,
-            java.lang.String defaultValue) {
-        if (key == null) {
-            throw new java.lang.NullPointerException();
-        }
-        java.util.Map<java.lang.String, java.lang.String> map =
-                internalGetRouteParamsMap().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetRouteParamsMap().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
      */
     @java.lang.Override
+
     public java.lang.String getRouteParamsMapOrThrow(
-            java.lang.String key) {
-        if (key == null) {
-            throw new java.lang.NullPointerException();
-        }
-        java.util.Map<java.lang.String, java.lang.String> map =
-                internalGetRouteParamsMap().getMap();
-        if (!map.containsKey(key)) {
-            throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetRouteParamsMap().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
+    public Builder clearRouteParamsMap() {
+      internalGetMutableRouteParamsMap().getMutableMap()
+          .clear();
+      return this;
+    }
     /**
-     * {@inheritDoc}
-     *
+     * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+     */
+
+    public Builder removeRouteParamsMap(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableRouteParamsMap().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+    getMutableRouteParamsMap() {
+      return internalGetMutableRouteParamsMap().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+     */
+    public Builder putRouteParamsMap(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (value == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableRouteParamsMap().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
+     */
+
+    public Builder putAllRouteParamsMap(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableRouteParamsMap().getMutableMap()
+          .putAll(values);
+      return this;
+    }
+
+    private long heartbeatDuration_ ;
+    /**
      * <code>int64 heartbeatDuration = 8;</code>
+     * @return The heartbeatDuration.
      */
     @java.lang.Override
     public long getHeartbeatDuration() {
-        return heartbeatDuration_;
+      return heartbeatDuration_;
+    }
+    /**
+     * <code>int64 heartbeatDuration = 8;</code>
+     * @param value The heartbeatDuration to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeartbeatDuration(long value) {
+      
+      heartbeatDuration_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 heartbeatDuration = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHeartbeatDuration() {
+      
+      heartbeatDuration_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private boolean needAck_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>bool needAck = 9;</code>
+     * @return The needAck.
      */
     @java.lang.Override
     public boolean getNeedAck() {
-        return needAck_;
+      return needAck_;
+    }
+    /**
+     * <code>bool needAck = 9;</code>
+     * @param value The needAck to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNeedAck(boolean value) {
+      
+      needAck_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool needAck = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNeedAck() {
+      
+      needAck_ = false;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object pushServer_ = "";
     /**
-     * {@inheritDoc}
-     *
      * <code>string pushServer = 10;</code>
+     * @return The pushServer.
      */
-    @java.lang.Override
     public java.lang.String getPushServer() {
-        java.lang.Object ref = pushServer_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            pushServer_ = s;
-            return s;
-        }
+      java.lang.Object ref = pushServer_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pushServer_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>string pushServer = 10;</code>
+     * @return The bytes for pushServer.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
-    getPushServerBytes() {
-        java.lang.Object ref = pushServer_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            pushServer_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getPushServerBytes() {
+      java.lang.Object ref = pushServer_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pushServer_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string pushServer = 10;</code>
+     * @param value The pushServer to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPushServer(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pushServer_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string pushServer = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPushServer() {
+      
+      pushServer_ = getDefaultInstance().getPushServer();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string pushServer = 10;</code>
+     * @param value The bytes for pushServer to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPushServerBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pushServer_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object liveCursor_ = "";
     /**
-     * {@inheritDoc}
-     *
      * <code>string liveCursor = 11;</code>
+     * @return The liveCursor.
      */
-    @java.lang.Override
     public java.lang.String getLiveCursor() {
-        java.lang.Object ref = liveCursor_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            liveCursor_ = s;
-            return s;
-        }
+      java.lang.Object ref = liveCursor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        liveCursor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>string liveCursor = 11;</code>
+     * @return The bytes for liveCursor.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
-    getLiveCursorBytes() {
-        java.lang.Object ref = liveCursor_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            liveCursor_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getLiveCursorBytes() {
+      java.lang.Object ref = liveCursor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        liveCursor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string liveCursor = 11;</code>
+     * @param value The liveCursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLiveCursor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      liveCursor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string liveCursor = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLiveCursor() {
+      
+      liveCursor_ = getDefaultInstance().getLiveCursor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string liveCursor = 11;</code>
+     * @param value The bytes for liveCursor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLiveCursorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      liveCursor_ = value;
+      onChanged();
+      return this;
     }
 
+    private boolean historyNoMore_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>bool historyNoMore = 12;</code>
+     * @return The historyNoMore.
      */
     @java.lang.Override
     public boolean getHistoryNoMore() {
-        return historyNoMore_;
+      return historyNoMore_;
     }
-
     /**
-     * {@inheritDoc}
+     * <code>bool historyNoMore = 12;</code>
+     * @param value The historyNoMore to set.
+     * @return This builder for chaining.
      */
+    public Builder setHistoryNoMore(boolean value) {
+      
+      historyNoMore_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool historyNoMore = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHistoryNoMore() {
+      
+      historyNoMore_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFields(unknownFields);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        for (int i = 0; i < messagesList_.size(); i++) {
-            output.writeMessage(1, messagesList_.get(i));
-        }
-        if (!getCursorBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cursor_);
-        }
-        if (fetchInterval_ != 0L) {
-            output.writeInt64(3, fetchInterval_);
-        }
-        if (now_ != 0L) {
-            output.writeInt64(4, now_);
-        }
-        if (!getInternalExtBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 5, internalExt_);
-        }
-        if (fetchType_ != 0) {
-            output.writeInt32(6, fetchType_);
-        }
-        com.google.protobuf.GeneratedMessageV3
-                .serializeStringMapTo(
-                        output,
-                        internalGetRouteParamsMap(),
-                        RouteParamsMapDefaultEntryHolder.defaultEntry,
-                        7);
-        if (heartbeatDuration_ != 0L) {
-            output.writeInt64(8, heartbeatDuration_);
-        }
-        if (needAck_ != false) {
-            output.writeBool(9, needAck_);
-        }
-        if (!getPushServerBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 10, pushServer_);
-        }
-        if (!getLiveCursorBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 11, liveCursor_);
-        }
-        if (historyNoMore_ != false) {
-            output.writeBool(12, historyNoMore_);
-        }
-        unknownFields.writeTo(output);
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+
+    // @@protoc_insertion_point(builder_scope:Response)
+  }
+
+  // @@protoc_insertion_point(class_scope:Response)
+  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response();
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  private static final com.google.protobuf.Parser<Response>
+      PARSER = new com.google.protobuf.AbstractParser<Response>() {
     @java.lang.Override
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        for (int i = 0; i < messagesList_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(1, messagesList_.get(i));
-        }
-        if (!getCursorBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cursor_);
-        }
-        if (fetchInterval_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(3, fetchInterval_);
-        }
-        if (now_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(4, now_);
-        }
-        if (!getInternalExtBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, internalExt_);
-        }
-        if (fetchType_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(6, fetchType_);
-        }
-        for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-                : internalGetRouteParamsMap().getMap().entrySet()) {
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                    routeParamsMap__ = RouteParamsMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-                    .setKey(entry.getKey())
-                    .setValue(entry.getValue())
-                    .build();
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(7, routeParamsMap__);
-        }
-        if (heartbeatDuration_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(8, heartbeatDuration_);
-        }
-        if (needAck_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(9, needAck_);
-        }
-        if (!getPushServerBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, pushServer_);
-        }
-        if (!getLiveCursorBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, liveCursor_);
-        }
-        if (historyNoMore_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(12, historyNoMore_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
+    public Response parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return new Response(input, extensionRegistry);
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response)) {
-            return super.equals(obj);
-        }
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) obj;
-
-        if (!getMessagesListList()
-                .equals(other.getMessagesListList())) return false;
-        if (!getCursor()
-                .equals(other.getCursor())) return false;
-        if (getFetchInterval()
-                != other.getFetchInterval()) return false;
-        if (getNow()
-                != other.getNow()) return false;
-        if (!getInternalExt()
-                .equals(other.getInternalExt())) return false;
-        if (getFetchType()
-                != other.getFetchType()) return false;
-        if (!internalGetRouteParamsMap().equals(
-                other.internalGetRouteParamsMap())) return false;
-        if (getHeartbeatDuration()
-                != other.getHeartbeatDuration()) return false;
-        if (getNeedAck()
-                != other.getNeedAck()) return false;
-        if (!getPushServer()
-                .equals(other.getPushServer())) return false;
-        if (!getLiveCursor()
-                .equals(other.getLiveCursor())) return false;
-        if (getHistoryNoMore()
-                != other.getHistoryNoMore()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        if (getMessagesListCount() > 0) {
-            hash = (37 * hash) + MESSAGESLIST_FIELD_NUMBER;
-            hash = (53 * hash) + getMessagesListList().hashCode();
-        }
-        hash = (37 * hash) + CURSOR_FIELD_NUMBER;
-        hash = (53 * hash) + getCursor().hashCode();
-        hash = (37 * hash) + FETCHINTERVAL_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getFetchInterval());
-        hash = (37 * hash) + NOW_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getNow());
-        hash = (37 * hash) + INTERNALEXT_FIELD_NUMBER;
-        hash = (53 * hash) + getInternalExt().hashCode();
-        hash = (37 * hash) + FETCHTYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getFetchType();
-        if (!internalGetRouteParamsMap().getMap().isEmpty()) {
-            hash = (37 * hash) + ROUTEPARAMSMAP_FIELD_NUMBER;
-            hash = (53 * hash) + internalGetRouteParamsMap().hashCode();
-        }
-        hash = (37 * hash) + HEARTBEATDURATION_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getHeartbeatDuration());
-        hash = (37 * hash) + NEEDACK_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getNeedAck());
-        hash = (37 * hash) + PUSHSERVER_FIELD_NUMBER;
-        hash = (53 * hash) + getPushServer().hashCode();
-        hash = (37 * hash) + LIVECURSOR_FIELD_NUMBER;
-        hash = (53 * hash) + getLiveCursor().hashCode();
-        hash = (37 * hash) + HISTORYNOMORE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getHistoryNoMore());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    // @@protoc_insertion_point(class_scope:Response)
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public com.google.protobuf.Parser<Response> getParserForType() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-    }
-
-    private static final class RouteParamsMapDefaultEntryHolder {
-        static final com.google.protobuf.MapEntry<
-                java.lang.String, java.lang.String> defaultEntry =
-                com.google.protobuf.MapEntry
-                        .<java.lang.String, java.lang.String>newDefaultInstance(
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_RouteParamsMapEntry_descriptor,
-                                com.google.protobuf.WireFormat.FieldType.STRING,
-                                "",
-                                com.google.protobuf.WireFormat.FieldType.STRING,
-                                "");
-    }
-
-    /**
-     * <pre>
-     * 更新时间 : 2023-01-09
-     * </pre>
-     * <p>
-     * Protobuf type {@code Response}
-     */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:Response)
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOrBuilder {
-        private int bitField0_;
-        private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> messagesList_ =
-                java.util.Collections.emptyList();
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder> messagesListBuilder_;
-        private java.lang.Object cursor_ = "";
-        private long fetchInterval_;
-        private long now_;
-        private java.lang.Object internalExt_ = "";
-        private int fetchType_;
-        private com.google.protobuf.MapField<
-                java.lang.String, java.lang.String> routeParamsMap_;
-        private long heartbeatDuration_;
-        private boolean needAck_;
-        private java.lang.Object pushServer_ = "";
-        private java.lang.Object liveCursor_ = "";
-        private boolean historyNoMore_;
-
-        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
-        }
-
-        @SuppressWarnings({"rawtypes"})
-        protected com.google.protobuf.MapField internalGetMapField(
-                int number) {
-            switch (number) {
-                case 7:
-                    return internalGetRouteParamsMap();
-                default:
-                    throw new RuntimeException(
-                            "Invalid map field number: " + number);
-            }
-        }
-
-        @SuppressWarnings({"rawtypes"})
-        protected com.google.protobuf.MapField internalGetMutableMapField(
-                int number) {
-            switch (number) {
-                case 7:
-                    return internalGetMutableRouteParamsMap();
-                default:
-                    throw new RuntimeException(
-                            "Invalid map field number: " + number);
-            }
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-                getMessagesListFieldBuilder();
-            }
-        }
-
-        @java.lang.Override
-        public Builder clear() {
-            super.clear();
-            if (messagesListBuilder_ == null) {
-                messagesList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-                messagesListBuilder_.clear();
-            }
-            cursor_ = "";
-
-            fetchInterval_ = 0L;
-
-            now_ = 0L;
-
-            internalExt_ = "";
-
-            fetchType_ = 0;
-
-            internalGetMutableRouteParamsMap().clear();
-            heartbeatDuration_ = 0L;
-
-            needAck_ = false;
-
-            pushServer_ = "";
-
-            liveCursor_ = "";
-
-            historyNoMore_ = false;
-
-            return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.ResponseOuterClass.internal_static_Response_descriptor;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstanceForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response build() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response buildPartial() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response(this);
-            int from_bitField0_ = bitField0_;
-            if (messagesListBuilder_ == null) {
-                if (((bitField0_ & 0x00000001) != 0)) {
-                    messagesList_ = java.util.Collections.unmodifiableList(messagesList_);
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                }
-                result.messagesList_ = messagesList_;
-            } else {
-                result.messagesList_ = messagesListBuilder_.build();
-            }
-            result.cursor_ = cursor_;
-            result.fetchInterval_ = fetchInterval_;
-            result.now_ = now_;
-            result.internalExt_ = internalExt_;
-            result.fetchType_ = fetchType_;
-            result.routeParamsMap_ = internalGetRouteParamsMap();
-            result.routeParamsMap_.makeImmutable();
-            result.heartbeatDuration_ = heartbeatDuration_;
-            result.needAck_ = needAck_;
-            result.pushServer_ = pushServer_;
-            result.liveCursor_ = liveCursor_;
-            result.historyNoMore_ = historyNoMore_;
-            onBuilt();
-            return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-            return super.clone();
-        }
-
-        @java.lang.Override
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.setField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return super.clearField(field);
-        }
-
-        @java.lang.Override
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return super.clearOneof(oneof);
-        }
-
-        @java.lang.Override
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return super.setRepeatedField(field, index, value);
-        }
-
-        @java.lang.Override
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.addRepeatedField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) {
-                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response other) {
-            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response.getDefaultInstance())
-                return this;
-            if (messagesListBuilder_ == null) {
-                if (!other.messagesList_.isEmpty()) {
-                    if (messagesList_.isEmpty()) {
-                        messagesList_ = other.messagesList_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                    } else {
-                        ensureMessagesListIsMutable();
-                        messagesList_.addAll(other.messagesList_);
-                    }
-                    onChanged();
-                }
-            } else {
-                if (!other.messagesList_.isEmpty()) {
-                    if (messagesListBuilder_.isEmpty()) {
-                        messagesListBuilder_.dispose();
-                        messagesListBuilder_ = null;
-                        messagesList_ = other.messagesList_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                        messagesListBuilder_ =
-                                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                        getMessagesListFieldBuilder() : null;
-                    } else {
-                        messagesListBuilder_.addAllMessages(other.messagesList_);
-                    }
-                }
-            }
-            if (!other.getCursor().isEmpty()) {
-                cursor_ = other.cursor_;
-                onChanged();
-            }
-            if (other.getFetchInterval() != 0L) {
-                setFetchInterval(other.getFetchInterval());
-            }
-            if (other.getNow() != 0L) {
-                setNow(other.getNow());
-            }
-            if (!other.getInternalExt().isEmpty()) {
-                internalExt_ = other.internalExt_;
-                onChanged();
-            }
-            if (other.getFetchType() != 0) {
-                setFetchType(other.getFetchType());
-            }
-            internalGetMutableRouteParamsMap().mergeFrom(
-                    other.internalGetRouteParamsMap());
-            if (other.getHeartbeatDuration() != 0L) {
-                setHeartbeatDuration(other.getHeartbeatDuration());
-            }
-            if (other.getNeedAck() != false) {
-                setNeedAck(other.getNeedAck());
-            }
-            if (!other.getPushServer().isEmpty()) {
-                pushServer_ = other.pushServer_;
-                onChanged();
-            }
-            if (!other.getLiveCursor().isEmpty()) {
-                liveCursor_ = other.liveCursor_;
-                onChanged();
-            }
-            if (other.getHistoryNoMore() != false) {
-                setHistoryNoMore(other.getHistoryNoMore());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        private void ensureMessagesListIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
-                messagesList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message>(messagesList_);
-                bitField0_ |= 0x00000001;
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> getMessagesListList() {
-            if (messagesListBuilder_ == null) {
-                return java.util.Collections.unmodifiableList(messagesList_);
-            } else {
-                return messagesListBuilder_.getMessageList();
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public int getMessagesListCount() {
-            if (messagesListBuilder_ == null) {
-                return messagesList_.size();
-            } else {
-                return messagesListBuilder_.getCount();
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message getMessagesList(int index) {
-            if (messagesListBuilder_ == null) {
-                return messagesList_.get(index);
-            } else {
-                return messagesListBuilder_.getMessage(index);
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder setMessagesList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
-            if (messagesListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureMessagesListIsMutable();
-                messagesList_.set(index, value);
-                onChanged();
-            } else {
-                messagesListBuilder_.setMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder setMessagesList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
-            if (messagesListBuilder_ == null) {
-                ensureMessagesListIsMutable();
-                messagesList_.set(index, builderForValue.build());
-                onChanged();
-            } else {
-                messagesListBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder addMessagesList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
-            if (messagesListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureMessagesListIsMutable();
-                messagesList_.add(value);
-                onChanged();
-            } else {
-                messagesListBuilder_.addMessage(value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder addMessagesList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message value) {
-            if (messagesListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureMessagesListIsMutable();
-                messagesList_.add(index, value);
-                onChanged();
-            } else {
-                messagesListBuilder_.addMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder addMessagesList(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
-            if (messagesListBuilder_ == null) {
-                ensureMessagesListIsMutable();
-                messagesList_.add(builderForValue.build());
-                onChanged();
-            } else {
-                messagesListBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder addMessagesList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder builderForValue) {
-            if (messagesListBuilder_ == null) {
-                ensureMessagesListIsMutable();
-                messagesList_.add(index, builderForValue.build());
-                onChanged();
-            } else {
-                messagesListBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder addAllMessagesList(
-                java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message> values) {
-            if (messagesListBuilder_ == null) {
-                ensureMessagesListIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, messagesList_);
-                onChanged();
-            } else {
-                messagesListBuilder_.addAllMessages(values);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder clearMessagesList() {
-            if (messagesListBuilder_ == null) {
-                messagesList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000001);
-                onChanged();
-            } else {
-                messagesListBuilder_.clear();
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public Builder removeMessagesList(int index) {
-            if (messagesListBuilder_ == null) {
-                ensureMessagesListIsMutable();
-                messagesList_.remove(index);
-                onChanged();
-            } else {
-                messagesListBuilder_.remove(index);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder getMessagesListBuilder(
-                int index) {
-            return getMessagesListFieldBuilder().getBuilder(index);
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder getMessagesListOrBuilder(
-                int index) {
-            if (messagesListBuilder_ == null) {
-                return messagesList_.get(index);
-            } else {
-                return messagesListBuilder_.getMessageOrBuilder(index);
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder>
-        getMessagesListOrBuilderList() {
-            if (messagesListBuilder_ != null) {
-                return messagesListBuilder_.getMessageOrBuilderList();
-            } else {
-                return java.util.Collections.unmodifiableList(messagesList_);
-            }
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder addMessagesListBuilder() {
-            return getMessagesListFieldBuilder().addBuilder(
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder addMessagesListBuilder(
-                int index) {
-            return getMessagesListFieldBuilder().addBuilder(
-                    index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .Message messagesList = 1;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder>
-        getMessagesListBuilderList() {
-            return getMessagesListFieldBuilder().getBuilderList();
-        }
-
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder>
-        getMessagesListFieldBuilder() {
-            if (messagesListBuilder_ == null) {
-                messagesListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Message.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MessageOrBuilder>(
-                        messagesList_,
-                        ((bitField0_ & 0x00000001) != 0),
-                        getParentForChildren(),
-                        isClean());
-                messagesList_ = null;
-            }
-            return messagesListBuilder_;
-        }
-
-        /**
-         * <code>string cursor = 2;</code>
-         *
-         * @return The cursor.
-         */
-        public java.lang.String getCursor() {
-            java.lang.Object ref = cursor_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                cursor_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string cursor = 2;</code>
-         *
-         * @param value The cursor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setCursor(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            cursor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cursor = 2;</code>
-         *
-         * @return The bytes for cursor.
-         */
-        public com.google.protobuf.ByteString
-        getCursorBytes() {
-            java.lang.Object ref = cursor_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                cursor_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string cursor = 2;</code>
-         *
-         * @param value The bytes for cursor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setCursorBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            cursor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cursor = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearCursor() {
-
-            cursor_ = getDefaultInstance().getCursor();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 fetchInterval = 3;</code>
-         *
-         * @return The fetchInterval.
-         */
-        @java.lang.Override
-        public long getFetchInterval() {
-            return fetchInterval_;
-        }
-
-        /**
-         * <code>int64 fetchInterval = 3;</code>
-         *
-         * @param value The fetchInterval to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFetchInterval(long value) {
-
-            fetchInterval_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 fetchInterval = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearFetchInterval() {
-
-            fetchInterval_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 now = 4;</code>
-         *
-         * @return The now.
-         */
-        @java.lang.Override
-        public long getNow() {
-            return now_;
-        }
-
-        /**
-         * <code>int64 now = 4;</code>
-         *
-         * @param value The now to set.
-         * @return This builder for chaining.
-         */
-        public Builder setNow(long value) {
-
-            now_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 now = 4;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearNow() {
-
-            now_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internalExt = 5;</code>
-         *
-         * @return The internalExt.
-         */
-        public java.lang.String getInternalExt() {
-            java.lang.Object ref = internalExt_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                internalExt_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string internalExt = 5;</code>
-         *
-         * @param value The internalExt to set.
-         * @return This builder for chaining.
-         */
-        public Builder setInternalExt(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            internalExt_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internalExt = 5;</code>
-         *
-         * @return The bytes for internalExt.
-         */
-        public com.google.protobuf.ByteString
-        getInternalExtBytes() {
-            java.lang.Object ref = internalExt_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                internalExt_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string internalExt = 5;</code>
-         *
-         * @param value The bytes for internalExt to set.
-         * @return This builder for chaining.
-         */
-        public Builder setInternalExtBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            internalExt_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internalExt = 5;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearInternalExt() {
-
-            internalExt_ = getDefaultInstance().getInternalExt();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 fetchType = 6;</code>
-         *
-         * @return The fetchType.
-         */
-        @java.lang.Override
-        public int getFetchType() {
-            return fetchType_;
-        }
-
-        /**
-         * <code>int32 fetchType = 6;</code>
-         *
-         * @param value The fetchType to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFetchType(int value) {
-
-            fetchType_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 fetchType = 6;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearFetchType() {
-
-            fetchType_ = 0;
-            onChanged();
-            return this;
-        }
-
-        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetRouteParamsMap() {
-            if (routeParamsMap_ == null) {
-                return com.google.protobuf.MapField.emptyMapField(
-                        RouteParamsMapDefaultEntryHolder.defaultEntry);
-            }
-            return routeParamsMap_;
-        }
-
-        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetMutableRouteParamsMap() {
-            onChanged();
-            ;
-            if (routeParamsMap_ == null) {
-                routeParamsMap_ = com.google.protobuf.MapField.newMapField(
-                        RouteParamsMapDefaultEntryHolder.defaultEntry);
-            }
-            if (!routeParamsMap_.isMutable()) {
-                routeParamsMap_ = routeParamsMap_.copy();
-            }
-            return routeParamsMap_;
-        }
-
-        public int getRouteParamsMapCount() {
-            return internalGetRouteParamsMap().getMap().size();
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-
-        @java.lang.Override
-        public boolean containsRouteParamsMap(
-                java.lang.String key) {
-            if (key == null) {
-                throw new java.lang.NullPointerException();
-            }
-            return internalGetRouteParamsMap().getMap().containsKey(key);
-        }
-
-        /**
-         * Use {@link #getRouteParamsMapMap()} instead.
-         */
-        @java.lang.Override
-        @java.lang.Deprecated
-        public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMap() {
-            return getRouteParamsMapMap();
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-        @java.lang.Override
-
-        public java.util.Map<java.lang.String, java.lang.String> getRouteParamsMapMap() {
-            return internalGetRouteParamsMap().getMap();
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-        @java.lang.Override
-
-        public java.lang.String getRouteParamsMapOrDefault(
-                java.lang.String key,
-                java.lang.String defaultValue) {
-            if (key == null) {
-                throw new java.lang.NullPointerException();
-            }
-            java.util.Map<java.lang.String, java.lang.String> map =
-                    internalGetRouteParamsMap().getMap();
-            return map.containsKey(key) ? map.get(key) : defaultValue;
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-        @java.lang.Override
-
-        public java.lang.String getRouteParamsMapOrThrow(
-                java.lang.String key) {
-            if (key == null) {
-                throw new java.lang.NullPointerException();
-            }
-            java.util.Map<java.lang.String, java.lang.String> map =
-                    internalGetRouteParamsMap().getMap();
-            if (!map.containsKey(key)) {
-                throw new java.lang.IllegalArgumentException();
-            }
-            return map.get(key);
-        }
-
-        public Builder clearRouteParamsMap() {
-            internalGetMutableRouteParamsMap().getMutableMap()
-                    .clear();
-            return this;
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-
-        public Builder removeRouteParamsMap(
-                java.lang.String key) {
-            if (key == null) {
-                throw new java.lang.NullPointerException();
-            }
-            internalGetMutableRouteParamsMap().getMutableMap()
-                    .remove(key);
-            return this;
-        }
-
-        /**
-         * Use alternate mutation accessors instead.
-         */
-        @java.lang.Deprecated
-        public java.util.Map<java.lang.String, java.lang.String>
-        getMutableRouteParamsMap() {
-            return internalGetMutableRouteParamsMap().getMutableMap();
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-        public Builder putRouteParamsMap(
-                java.lang.String key,
-                java.lang.String value) {
-            if (key == null) {
-                throw new java.lang.NullPointerException();
-            }
-            if (value == null) {
-                throw new java.lang.NullPointerException();
-            }
-            internalGetMutableRouteParamsMap().getMutableMap()
-                    .put(key, value);
-            return this;
-        }
-
-        /**
-         * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-         */
-
-        public Builder putAllRouteParamsMap(
-                java.util.Map<java.lang.String, java.lang.String> values) {
-            internalGetMutableRouteParamsMap().getMutableMap()
-                    .putAll(values);
-            return this;
-        }
-
-        /**
-         * <code>int64 heartbeatDuration = 8;</code>
-         *
-         * @return The heartbeatDuration.
-         */
-        @java.lang.Override
-        public long getHeartbeatDuration() {
-            return heartbeatDuration_;
-        }
-
-        /**
-         * <code>int64 heartbeatDuration = 8;</code>
-         *
-         * @param value The heartbeatDuration to set.
-         * @return This builder for chaining.
-         */
-        public Builder setHeartbeatDuration(long value) {
-
-            heartbeatDuration_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 heartbeatDuration = 8;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearHeartbeatDuration() {
-
-            heartbeatDuration_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool needAck = 9;</code>
-         *
-         * @return The needAck.
-         */
-        @java.lang.Override
-        public boolean getNeedAck() {
-            return needAck_;
-        }
-
-        /**
-         * <code>bool needAck = 9;</code>
-         *
-         * @param value The needAck to set.
-         * @return This builder for chaining.
-         */
-        public Builder setNeedAck(boolean value) {
-
-            needAck_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool needAck = 9;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearNeedAck() {
-
-            needAck_ = false;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string pushServer = 10;</code>
-         *
-         * @return The pushServer.
-         */
-        public java.lang.String getPushServer() {
-            java.lang.Object ref = pushServer_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                pushServer_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string pushServer = 10;</code>
-         *
-         * @param value The pushServer to set.
-         * @return This builder for chaining.
-         */
-        public Builder setPushServer(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            pushServer_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string pushServer = 10;</code>
-         *
-         * @return The bytes for pushServer.
-         */
-        public com.google.protobuf.ByteString
-        getPushServerBytes() {
-            java.lang.Object ref = pushServer_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                pushServer_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string pushServer = 10;</code>
-         *
-         * @param value The bytes for pushServer to set.
-         * @return This builder for chaining.
-         */
-        public Builder setPushServerBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            pushServer_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string pushServer = 10;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearPushServer() {
-
-            pushServer_ = getDefaultInstance().getPushServer();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string liveCursor = 11;</code>
-         *
-         * @return The liveCursor.
-         */
-        public java.lang.String getLiveCursor() {
-            java.lang.Object ref = liveCursor_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                liveCursor_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string liveCursor = 11;</code>
-         *
-         * @param value The liveCursor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLiveCursor(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            liveCursor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string liveCursor = 11;</code>
-         *
-         * @return The bytes for liveCursor.
-         */
-        public com.google.protobuf.ByteString
-        getLiveCursorBytes() {
-            java.lang.Object ref = liveCursor_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                liveCursor_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string liveCursor = 11;</code>
-         *
-         * @param value The bytes for liveCursor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLiveCursorBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            liveCursor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string liveCursor = 11;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearLiveCursor() {
-
-            liveCursor_ = getDefaultInstance().getLiveCursor();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool historyNoMore = 12;</code>
-         *
-         * @return The historyNoMore.
-         */
-        @java.lang.Override
-        public boolean getHistoryNoMore() {
-            return historyNoMore_;
-        }
-
-        /**
-         * <code>bool historyNoMore = 12;</code>
-         *
-         * @param value The historyNoMore to set.
-         * @return This builder for chaining.
-         */
-        public Builder setHistoryNoMore(boolean value) {
-
-            historyNoMore_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool historyNoMore = 12;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearHistoryNoMore() {
-
-            historyNoMore_ = false;
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:Response)
-    }
+  };
+
+  public static com.google.protobuf.Parser<Response> parser() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public com.google.protobuf.Parser<Response> getParserForType() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Response getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 

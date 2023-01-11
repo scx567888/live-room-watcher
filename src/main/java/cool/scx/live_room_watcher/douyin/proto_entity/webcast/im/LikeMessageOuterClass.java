@@ -3,103 +3,67 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
-/**
- * <p>LikeMessageOuterClass class.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public final class LikeMessageOuterClass {
-    /**
-     * Constant <code>internal_static_LikeMessage_descriptor</code>
-     */
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_LikeMessage_descriptor;
-    /**
-     * Constant <code>internal_static_LikeMessage_fieldAccessorTable</code>
-     */
-    static final
+  private LikeMessageOuterClass() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LikeMessage_descriptor;
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_LikeMessage_fieldAccessorTable;
-    /**
-     * Constant <code>descriptor</code>
-     */
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_LikeMessage_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\034webcast/im/LikeMessage.proto\032\027webcast/" +
-                        "im/Common.proto\032\027webcast/data/User.proto" +
-                        "\032!webcast/im/DoubleLikeDetail.proto\032#web" +
-                        "cast/im/DisplayControlInfo.proto\032 webcas" +
-                        "t/im/PicoDisplayInfo.proto\"\247\002\n\013LikeMessa" +
-                        "ge\022\027\n\006common\030\001 \001(\0132\007.Common\022\r\n\005count\030\002 \001" +
-                        "(\003\022\r\n\005total\030\003 \001(\003\022\r\n\005color\030\004 \001(\003\022\023\n\004user" +
-                        "\030\005 \001(\0132\005.User\022\014\n\004icon\030\006 \001(\t\022+\n\020doubleLik" +
-                        "eDetail\030\007 \001(\0132\021.DoubleLikeDetail\022/\n\022disp" +
-                        "layControlInfo\030\010 \001(\0132\023.DisplayControlInf" +
-                        "o\022\027\n\017linkmicGuestUid\030\t \001(\003\022\r\n\005scene\030\n \001(" +
-                        "\t\022)\n\017picoDisplayInfo\030\013 \001(\0132\020.PicoDisplay" +
-                        "InfoB=\n9cool.scx.live_room_watcher.douyi" +
-                        "n.proto_entity.webcast.imP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DoubleLikeDetailOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DisplayControlInfoOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PicoDisplayInfoOuterClass.getDescriptor(),
-                        });
-        internal_static_LikeMessage_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_LikeMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_LikeMessage_descriptor,
-                new java.lang.String[]{"Common", "Count", "Total", "Color", "User", "Icon", "DoubleLikeDetail", "DisplayControlInfo", "LinkmicGuestUid", "Scene", "PicoDisplayInfo",});
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DoubleLikeDetailOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DisplayControlInfoOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PicoDisplayInfoOuterClass.getDescriptor();
-    }
-    /**
-     * <p>Constructor for LikeMessageOuterClass.</p>
-     */
-    private LikeMessageOuterClass() {
-    }
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\034webcast/im/LikeMessage.proto\032\027webcast/" +
+      "im/Common.proto\032\027webcast/data/User.proto" +
+      "\032!webcast/im/DoubleLikeDetail.proto\032#web" +
+      "cast/im/DisplayControlInfo.proto\032 webcas" +
+      "t/im/PicoDisplayInfo.proto\"\247\002\n\013LikeMessa" +
+      "ge\022\027\n\006common\030\001 \001(\0132\007.Common\022\r\n\005count\030\002 \001" +
+      "(\003\022\r\n\005total\030\003 \001(\003\022\r\n\005color\030\004 \001(\003\022\023\n\004user" +
+      "\030\005 \001(\0132\005.User\022\014\n\004icon\030\006 \001(\t\022+\n\020doubleLik" +
+      "eDetail\030\007 \001(\0132\021.DoubleLikeDetail\022/\n\022disp" +
+      "layControlInfo\030\010 \001(\0132\023.DisplayControlInf" +
+      "o\022\027\n\017linkmicGuestUid\030\t \001(\003\022\r\n\005scene\030\n \001(" +
+      "\t\022)\n\017picoDisplayInfo\030\013 \001(\0132\020.PicoDisplay" +
+      "InfoB=\n9cool.scx.live_room_watcher.douyi" +
+      "n.proto_entity.webcast.imP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DoubleLikeDetailOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DisplayControlInfoOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PicoDisplayInfoOuterClass.getDescriptor(),
+        });
+    internal_static_LikeMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_LikeMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LikeMessage_descriptor,
+        new java.lang.String[] { "Common", "Count", "Total", "Color", "User", "Icon", "DoubleLikeDetail", "DisplayControlInfo", "LinkmicGuestUid", "Scene", "PicoDisplayInfo", });
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DoubleLikeDetailOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.DisplayControlInfoOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.PicoDisplayInfoOuterClass.getDescriptor();
+  }
 
-    /**
-     * <p>registerAllExtensions.</p>
-     *
-     * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     */
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    /**
-     * <p>registerAllExtensions.</p>
-     *
-     * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
-     */
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    /**
-     * <p>Getter for the field <code>descriptor</code>.</p>
-     *
-     * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
-     */
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

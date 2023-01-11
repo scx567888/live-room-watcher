@@ -3,13 +3,7 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>EffectMixImageInfoOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface EffectMixImageInfoOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:EffectMixImageInfo)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:EffectMixImageInfo)
+    com.google.protobuf.MessageOrBuilder {
 }

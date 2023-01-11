@@ -5,918 +5,676 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ *更新时间 : 2023-01-09
  * </pre>
- * <p>
- * Protobuf type {@code TextPieceUser}
  *
- * @author scx567888
- * @version $Id: $Id
+ * Protobuf type {@code TextPieceUser}
  */
 public final class TextPieceUser extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:TextPieceUser)
-        TextPieceUserOrBuilder {
-    /**
-     * Constant <code>USER_FIELD_NUMBER=1</code>
-     */
-    public static final int USER_FIELD_NUMBER = 1;
-    // Use TextPieceUser.newBuilder() to construct.
-    /**
-     * Constant <code>WITHCOLON_FIELD_NUMBER=2</code>
-     */
-    public static final int WITHCOLON_FIELD_NUMBER = 2;
-    /**
-     * Constant <code>serialVersionUID=0L</code>
-     */
-    private static final long serialVersionUID = 0L;
-    /**
-     * Constant <code>DEFAULT_INSTANCE</code>
-     */
-    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser DEFAULT_INSTANCE;
-    /**
-     * Constant <code>PARSER</code>
-     */
-    private static final com.google.protobuf.Parser<TextPieceUser>
-            PARSER = new com.google.protobuf.AbstractParser<TextPieceUser>() {
-        @java.lang.Override
-        public TextPieceUser parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new TextPieceUser(input, extensionRegistry);
-        }
-    };
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:TextPieceUser)
+    TextPieceUserOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use TextPieceUser.newBuilder() to construct.
+  private TextPieceUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private TextPieceUser() {
+  }
 
-    static {
-        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser();
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new TextPieceUser();
+  }
+
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private TextPieceUser(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder subBuilder = null;
+            if (user_ != null) {
+              subBuilder = user_.toBuilder();
+            }
+            user_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(user_);
+              user_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 16: {
+
+            withColon_ = input.readBool();
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
+  }
+
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder.class);
+  }
+
+  public static final int USER_FIELD_NUMBER = 1;
+  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
+  /**
+   * <code>.User user = 1;</code>
+   * @return Whether the user field is set.
+   */
+  @java.lang.Override
+  public boolean hasUser() {
+    return user_ != null;
+  }
+  /**
+   * <code>.User user = 1;</code>
+   * @return The user.
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
+    return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
+  }
+  /**
+   * <code>.User user = 1;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
+    return getUser();
+  }
+
+  public static final int WITHCOLON_FIELD_NUMBER = 2;
+  private boolean withColon_;
+  /**
+   * <code>bool withColon = 2;</code>
+   * @return The withColon.
+   */
+  @java.lang.Override
+  public boolean getWithColon() {
+    return withColon_;
+  }
+
+  private byte memoizedIsInitialized = -1;
+  @java.lang.Override
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  @java.lang.Override
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    if (user_ != null) {
+      output.writeMessage(1, getUser());
+    }
+    if (withColon_ != false) {
+      output.writeBool(2, withColon_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  @java.lang.Override
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    if (user_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getUser());
+    }
+    if (withColon_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, withColon_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser)) {
+      return super.equals(obj);
+    }
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) obj;
+
+    if (hasUser() != other.hasUser()) return false;
+    if (hasUser()) {
+      if (!getUser()
+          .equals(other.getUser())) return false;
+    }
+    if (getWithColon()
+        != other.getWithColon()) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
+  }
+
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasUser()) {
+      hash = (37 * hash) + USER_FIELD_NUMBER;
+      hash = (53 * hash) + getUser().hashCode();
+    }
+    hash = (37 * hash) + WITHCOLON_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getWithColon());
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  @java.lang.Override
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  @java.lang.Override
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * <pre>
+   *更新时间 : 2023-01-09
+   * </pre>
+   *
+   * Protobuf type {@code TextPieceUser}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:TextPieceUser)
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOrBuilder {
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder.class);
+    }
+
+    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
+
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
+    }
+    @java.lang.Override
+    public Builder clear() {
+      super.clear();
+      if (userBuilder_ == null) {
+        user_ = null;
+      } else {
+        user_ = null;
+        userBuilder_ = null;
+      }
+      withColon_ = false;
+
+      return this;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstanceForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.getDefaultInstance();
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser build() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser buildPartial() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser(this);
+      if (userBuilder_ == null) {
+        result.user_ = user_;
+      } else {
+        result.user_ = userBuilder_.build();
+      }
+      result.withColon_ = withColon_;
+      onBuilt();
+      return result;
+    }
+
+    @java.lang.Override
+    public Builder clone() {
+      return super.clone();
+    }
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.addRepeatedField(field, value);
+    }
+    @java.lang.Override
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) {
+        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser other) {
+      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.getDefaultInstance()) return this;
+      if (other.hasUser()) {
+        mergeUser(other.getUser());
+      }
+      if (other.getWithColon() != false) {
+        setWithColon(other.getWithColon());
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    @java.lang.Override
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
     }
 
     private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
-    private boolean withColon_;
-    private byte memoizedIsInitialized = -1;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> userBuilder_;
     /**
-     * <p>Constructor for TextPieceUser.</p>
-     *
-     * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-     */
-    private TextPieceUser(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-
-    /**
-     * <p>Constructor for TextPieceUser.</p>
-     */
-    private TextPieceUser() {
-    }
-
-    /**
-     * <p>Constructor for TextPieceUser.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    private TextPieceUser(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    case 10: {
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder subBuilder = null;
-                        if (user_ != null) {
-                            subBuilder = user_.toBuilder();
-                        }
-                        user_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.parser(), extensionRegistry);
-                        if (subBuilder != null) {
-                            subBuilder.mergeFrom(user_);
-                            user_ = subBuilder.buildPartial();
-                        }
-
-                        break;
-                    }
-                    case 16: {
-
-                        withColon_ = input.readBool();
-                        break;
-                    }
-                    default: {
-                        if (!parseUnknownField(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                }
-            }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-        }
-    }
-
-    /**
-     * <p>getDescriptor.</p>
-     *
-     * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-     */
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link java.nio.ByteBuffer} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link java.nio.ByteBuffer} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link com.google.protobuf.ByteString} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link com.google.protobuf.ByteString} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data an array of {@link byte} objects
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              an array of {@link byte} objects
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link com.google.protobuf.CodedInputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder} object
-     */
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder} object
-     */
-    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    /**
-     * <p>getDefaultInstance.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser} object
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * <p>parser.</p>
-     *
-     * @return a {@link com.google.protobuf.Parser} object
-     */
-    public static com.google.protobuf.Parser<TextPieceUser> parser() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-        return new TextPieceUser();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder.class);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
      * <code>.User user = 1;</code>
+     * @return Whether the user field is set.
      */
-    @java.lang.Override
     public boolean hasUser() {
-        return user_ != null;
+      return userBuilder_ != null || user_ != null;
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>.User user = 1;</code>
+     * @return The user.
      */
-    @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
+      if (userBuilder_ == null) {
         return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
+      } else {
+        return userBuilder_.getMessage();
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
      * <code>.User user = 1;</code>
      */
-    @java.lang.Override
+    public Builder setUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+      if (userBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        user_ = value;
+        onChanged();
+      } else {
+        userBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
+    public Builder setUser(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder builderForValue) {
+      if (userBuilder_ == null) {
+        user_ = builderForValue.build();
+        onChanged();
+      } else {
+        userBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
+    public Builder mergeUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+      if (userBuilder_ == null) {
+        if (user_ != null) {
+          user_ =
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.newBuilder(user_).mergeFrom(value).buildPartial();
+        } else {
+          user_ = value;
+        }
+        onChanged();
+      } else {
+        userBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
+    public Builder clearUser() {
+      if (userBuilder_ == null) {
+        user_ = null;
+        onChanged();
+      } else {
+        user_ = null;
+        userBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder getUserBuilder() {
+      
+      onChanged();
+      return getUserFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
-        return getUser();
+      if (userBuilder_ != null) {
+        return userBuilder_.getMessageOrBuilder();
+      } else {
+        return user_ == null ?
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
+      }
+    }
+    /**
+     * <code>.User user = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> 
+        getUserFieldBuilder() {
+      if (userBuilder_ == null) {
+        userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>(
+                getUser(),
+                getParentForChildren(),
+                isClean());
+        user_ = null;
+      }
+      return userBuilder_;
     }
 
+    private boolean withColon_ ;
     /**
-     * {@inheritDoc}
-     *
      * <code>bool withColon = 2;</code>
+     * @return The withColon.
      */
     @java.lang.Override
     public boolean getWithColon() {
-        return withColon_;
+      return withColon_;
     }
-
     /**
-     * {@inheritDoc}
+     * <code>bool withColon = 2;</code>
+     * @param value The withColon to set.
+     * @return This builder for chaining.
      */
+    public Builder setWithColon(boolean value) {
+      
+      withColon_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool withColon = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWithColon() {
+      
+      withColon_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFields(unknownFields);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (user_ != null) {
-            output.writeMessage(1, getUser());
-        }
-        if (withColon_ != false) {
-            output.writeBool(2, withColon_);
-        }
-        unknownFields.writeTo(output);
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+
+    // @@protoc_insertion_point(builder_scope:TextPieceUser)
+  }
+
+  // @@protoc_insertion_point(class_scope:TextPieceUser)
+  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser();
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  private static final com.google.protobuf.Parser<TextPieceUser>
+      PARSER = new com.google.protobuf.AbstractParser<TextPieceUser>() {
     @java.lang.Override
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (user_ != null) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(1, getUser());
-        }
-        if (withColon_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(2, withColon_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
+    public TextPieceUser parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return new TextPieceUser(input, extensionRegistry);
     }
+  };
 
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser)) {
-            return super.equals(obj);
-        }
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) obj;
+  public static com.google.protobuf.Parser<TextPieceUser> parser() {
+    return PARSER;
+  }
 
-        if (hasUser() != other.hasUser()) return false;
-        if (hasUser()) {
-            if (!getUser()
-                    .equals(other.getUser())) return false;
-        }
-        if (getWithColon()
-                != other.getWithColon()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-    }
+  @java.lang.Override
+  public com.google.protobuf.Parser<TextPieceUser> getParserForType() {
+    return PARSER;
+  }
 
-    // @@protoc_insertion_point(class_scope:TextPieceUser)
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        if (hasUser()) {
-            hash = (37 * hash) + USER_FIELD_NUMBER;
-            hash = (53 * hash) + getUser().hashCode();
-        }
-        hash = (37 * hash) + WITHCOLON_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getWithColon());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public com.google.protobuf.Parser<TextPieceUser> getParserForType() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * <pre>
-     * 更新时间 : 2023-01-09
-     * </pre>
-     * <p>
-     * Protobuf type {@code TextPieceUser}
-     */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:TextPieceUser)
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOrBuilder {
-        private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> userBuilder_;
-        private boolean withColon_;
-
-        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-        }
-
-        @java.lang.Override
-        public Builder clear() {
-            super.clear();
-            if (userBuilder_ == null) {
-                user_ = null;
-            } else {
-                user_ = null;
-                userBuilder_ = null;
-            }
-            withColon_ = false;
-
-            return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUserOuterClass.internal_static_TextPieceUser_descriptor;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstanceForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser build() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser buildPartial() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser(this);
-            if (userBuilder_ == null) {
-                result.user_ = user_;
-            } else {
-                result.user_ = userBuilder_.build();
-            }
-            result.withColon_ = withColon_;
-            onBuilt();
-            return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-            return super.clone();
-        }
-
-        @java.lang.Override
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.setField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return super.clearField(field);
-        }
-
-        @java.lang.Override
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return super.clearOneof(oneof);
-        }
-
-        @java.lang.Override
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return super.setRepeatedField(field, index, value);
-        }
-
-        @java.lang.Override
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.addRepeatedField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) {
-                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser other) {
-            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.getDefaultInstance())
-                return this;
-            if (other.hasUser()) {
-                mergeUser(other.getUser());
-            }
-            if (other.getWithColon() != false) {
-                setWithColon(other.getWithColon());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         *
-         * @return Whether the user field is set.
-         */
-        public boolean hasUser() {
-            return userBuilder_ != null || user_ != null;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         *
-         * @return The user.
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
-            if (userBuilder_ == null) {
-                return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
-            } else {
-                return userBuilder_.getMessage();
-            }
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public Builder setUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
-            if (userBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                user_ = value;
-                onChanged();
-            } else {
-                userBuilder_.setMessage(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public Builder setUser(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder builderForValue) {
-            if (userBuilder_ == null) {
-                user_ = builderForValue.build();
-                onChanged();
-            } else {
-                userBuilder_.setMessage(builderForValue.build());
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public Builder mergeUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
-            if (userBuilder_ == null) {
-                if (user_ != null) {
-                    user_ =
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.newBuilder(user_).mergeFrom(value).buildPartial();
-                } else {
-                    user_ = value;
-                }
-                onChanged();
-            } else {
-                userBuilder_.mergeFrom(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public Builder clearUser() {
-            if (userBuilder_ == null) {
-                user_ = null;
-                onChanged();
-            } else {
-                user_ = null;
-                userBuilder_ = null;
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder getUserBuilder() {
-
-            onChanged();
-            return getUserFieldBuilder().getBuilder();
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
-            if (userBuilder_ != null) {
-                return userBuilder_.getMessageOrBuilder();
-            } else {
-                return user_ == null ?
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
-            }
-        }
-
-        /**
-         * <code>.User user = 1;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>
-        getUserFieldBuilder() {
-            if (userBuilder_ == null) {
-                userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>(
-                        getUser(),
-                        getParentForChildren(),
-                        isClean());
-                user_ = null;
-            }
-            return userBuilder_;
-        }
-
-        /**
-         * <code>bool withColon = 2;</code>
-         *
-         * @return The withColon.
-         */
-        @java.lang.Override
-        public boolean getWithColon() {
-            return withColon_;
-        }
-
-        /**
-         * <code>bool withColon = 2;</code>
-         *
-         * @param value The withColon to set.
-         * @return This builder for chaining.
-         */
-        public Builder setWithColon(boolean value) {
-
-            withColon_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool withColon = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearWithColon() {
-
-            withColon_ = false;
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:TextPieceUser)
-    }
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 

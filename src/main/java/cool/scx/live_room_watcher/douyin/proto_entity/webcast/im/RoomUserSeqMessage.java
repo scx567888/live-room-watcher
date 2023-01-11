@@ -5,4220 +5,3676 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-11
+ *更新时间 : 2023-01-11
  * </pre>
- * <p>
- * Protobuf type {@code RoomUserSeqMessage}
  *
- * @author scx567888
- * @version $Id: $Id
+ * Protobuf type {@code RoomUserSeqMessage}
  */
 public final class RoomUserSeqMessage extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:RoomUserSeqMessage)
-        RoomUserSeqMessageOrBuilder {
-    /**
-     * Constant <code>COMMON_FIELD_NUMBER=1</code>
-     */
-    public static final int COMMON_FIELD_NUMBER = 1;
-    // Use RoomUserSeqMessage.newBuilder() to construct.
-    /**
-     * Constant <code>RANKSLIST_FIELD_NUMBER=2</code>
-     */
-    public static final int RANKSLIST_FIELD_NUMBER = 2;
-    /**
-     * Constant <code>TOTAL_FIELD_NUMBER=3</code>
-     */
-    public static final int TOTAL_FIELD_NUMBER = 3;
-    /**
-     * Constant <code>POPSTR_FIELD_NUMBER=4</code>
-     */
-    public static final int POPSTR_FIELD_NUMBER = 4;
-    /**
-     * Constant <code>SEATSLIST_FIELD_NUMBER=5</code>
-     */
-    public static final int SEATSLIST_FIELD_NUMBER = 5;
-    /**
-     * Constant <code>POPULARITY_FIELD_NUMBER=6</code>
-     */
-    public static final int POPULARITY_FIELD_NUMBER = 6;
-    /**
-     * Constant <code>TOTALUSER_FIELD_NUMBER=7</code>
-     */
-    public static final int TOTALUSER_FIELD_NUMBER = 7;
-    /**
-     * Constant <code>TOTALUSERSTR_FIELD_NUMBER=8</code>
-     */
-    public static final int TOTALUSERSTR_FIELD_NUMBER = 8;
-    /**
-     * Constant <code>TOTALSTR_FIELD_NUMBER=9</code>
-     */
-    public static final int TOTALSTR_FIELD_NUMBER = 9;
-    /**
-     * Constant <code>ONLINEUSERFORANCHOR_FIELD_NUMBER=10</code>
-     */
-    public static final int ONLINEUSERFORANCHOR_FIELD_NUMBER = 10;
-    /**
-     * Constant <code>TOTALPVFORANCHOR_FIELD_NUMBER=11</code>
-     */
-    public static final int TOTALPVFORANCHOR_FIELD_NUMBER = 11;
-    /**
-     * Constant <code>UPRIGHTSTATSSTR_FIELD_NUMBER=12</code>
-     */
-    public static final int UPRIGHTSTATSSTR_FIELD_NUMBER = 12;
-    /**
-     * Constant <code>UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER=13</code>
-     */
-    public static final int UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER = 13;
-    /**
-     * Constant <code>serialVersionUID=0L</code>
-     */
-    private static final long serialVersionUID = 0L;
-    /**
-     * Constant <code>DEFAULT_INSTANCE</code>
-     */
-    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage DEFAULT_INSTANCE;
-    /**
-     * Constant <code>PARSER</code>
-     */
-    private static final com.google.protobuf.Parser<RoomUserSeqMessage>
-            PARSER = new com.google.protobuf.AbstractParser<RoomUserSeqMessage>() {
-        @java.lang.Override
-        public RoomUserSeqMessage parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new RoomUserSeqMessage(input, extensionRegistry);
-        }
-    };
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:RoomUserSeqMessage)
+    RoomUserSeqMessageOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use RoomUserSeqMessage.newBuilder() to construct.
+  private RoomUserSeqMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private RoomUserSeqMessage() {
+    ranksList_ = java.util.Collections.emptyList();
+    popStr_ = "";
+    seatsList_ = java.util.Collections.emptyList();
+    totalUserStr_ = "";
+    totalStr_ = "";
+    onlineUserForAnchor_ = "";
+    totalPvForAnchor_ = "";
+    upRightStatsStr_ = "";
+    upRightStatsStrComplete_ = "";
+  }
 
-    static {
-        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage();
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new RoomUserSeqMessage();
+  }
+
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private RoomUserSeqMessage(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
     }
-
-    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_;
-    private long total_;
-    private volatile java.lang.Object popStr_;
-    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_;
-    private long popularity_;
-    private long totalUser_;
-    private volatile java.lang.Object totalUserStr_;
-    private volatile java.lang.Object totalStr_;
-    private volatile java.lang.Object onlineUserForAnchor_;
-    private volatile java.lang.Object totalPvForAnchor_;
-    private volatile java.lang.Object upRightStatsStr_;
-    private volatile java.lang.Object upRightStatsStrComplete_;
-    private byte memoizedIsInitialized = -1;
-
-    /**
-     * <p>Constructor for RoomUserSeqMessage.</p>
-     *
-     * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-     */
-    private RoomUserSeqMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-
-    /**
-     * <p>Constructor for RoomUserSeqMessage.</p>
-     */
-    private RoomUserSeqMessage() {
-        ranksList_ = java.util.Collections.emptyList();
-        popStr_ = "";
-        seatsList_ = java.util.Collections.emptyList();
-        totalUserStr_ = "";
-        totalStr_ = "";
-        onlineUserForAnchor_ = "";
-        totalPvForAnchor_ = "";
-        upRightStatsStr_ = "";
-        upRightStatsStrComplete_ = "";
-    }
-
-    /**
-     * <p>Constructor for RoomUserSeqMessage.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-     */
-    private RoomUserSeqMessage(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    case 10: {
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
-                        if (common_ != null) {
-                            subBuilder = common_.toBuilder();
-                        }
-                        common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
-                        if (subBuilder != null) {
-                            subBuilder.mergeFrom(common_);
-                            common_ = subBuilder.buildPartial();
-                        }
-
-                        break;
-                    }
-                    case 18: {
-                        if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                            ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
-                            mutable_bitField0_ |= 0x00000001;
-                        }
-                        ranksList_.add(
-                                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
-                        break;
-                    }
-                    case 24: {
-
-                        total_ = input.readInt64();
-                        break;
-                    }
-                    case 34: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        popStr_ = s;
-                        break;
-                    }
-                    case 42: {
-                        if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                            seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
-                            mutable_bitField0_ |= 0x00000002;
-                        }
-                        seatsList_.add(
-                                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
-                        break;
-                    }
-                    case 48: {
-
-                        popularity_ = input.readInt64();
-                        break;
-                    }
-                    case 56: {
-
-                        totalUser_ = input.readInt64();
-                        break;
-                    }
-                    case 66: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        totalUserStr_ = s;
-                        break;
-                    }
-                    case 74: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        totalStr_ = s;
-                        break;
-                    }
-                    case 82: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        onlineUserForAnchor_ = s;
-                        break;
-                    }
-                    case 90: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        totalPvForAnchor_ = s;
-                        break;
-                    }
-                    case 98: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        upRightStatsStr_ = s;
-                        break;
-                    }
-                    case 106: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        upRightStatsStrComplete_ = s;
-                        break;
-                    }
-                    default: {
-                        if (!parseUnknownField(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder subBuilder = null;
+            if (common_ != null) {
+              subBuilder = common_.toBuilder();
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-                ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
+            common_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(common_);
+              common_ = subBuilder.buildPartial();
             }
-            if (((mutable_bitField0_ & 0x00000002) != 0)) {
-                seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
+
+            break;
+          }
+          case 18: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
+            ranksList_.add(
+                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
+            break;
+          }
+          case 24: {
+
+            total_ = input.readInt64();
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            popStr_ = s;
+            break;
+          }
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            seatsList_.add(
+                input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.parser(), extensionRegistry));
+            break;
+          }
+          case 48: {
+
+            popularity_ = input.readInt64();
+            break;
+          }
+          case 56: {
+
+            totalUser_ = input.readInt64();
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            totalUserStr_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            totalStr_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            onlineUserForAnchor_ = s;
+            break;
+          }
+          case 90: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            totalPvForAnchor_ = s;
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            upRightStatsStr_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            upRightStatsStrComplete_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
+      }
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
     }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
+  }
+
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder.class);
+  }
+
+  public interface ContributorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RoomUserSeqMessage.Contributor)
+      com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <p>getDescriptor.</p>
-     *
-     * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
+     * <code>int64 score = 1;</code>
+     * @return The score.
      */
-    public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
-    }
+    long getScore();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link java.nio.ByteBuffer} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>.User user = 2;</code>
+     * @return Whether the user field is set.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
+    boolean hasUser();
+    /**
+     * <code>.User user = 2;</code>
+     * @return The user.
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser();
+    /**
+     * <code>.User user = 2;</code>
+     */
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link java.nio.ByteBuffer} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>int64 rank = 3;</code>
+     * @return The rank.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
+    long getRank();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data a {@link com.google.protobuf.ByteString} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>int64 delta = 4;</code>
+     * @return The delta.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
+    long getDelta();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              a {@link com.google.protobuf.ByteString} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>bool isHidden = 5;</code>
+     * @return The isHidden.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
+    boolean getIsHidden();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data an array of {@link byte} objects
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>string scoreDescription = 6;</code>
+     * @return The scoreDescription.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
+    java.lang.String getScoreDescription();
+    /**
+     * <code>string scoreDescription = 6;</code>
+     * @return The bytes for scoreDescription.
+     */
+    com.google.protobuf.ByteString
+        getScoreDescriptionBytes();
 
     /**
-     * <p>parseFrom.</p>
-     *
-     * @param data              an array of {@link byte} objects
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+     * <code>string exactlyScore = 7;</code>
+     * @return The exactlyScore.
      */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
+    java.lang.String getExactlyScore();
+    /**
+     * <code>string exactlyScore = 7;</code>
+     * @return The bytes for exactlyScore.
+     */
+    com.google.protobuf.ByteString
+        getExactlyScoreBytes();
+  }
+  /**
+   * Protobuf type {@code RoomUserSeqMessage.Contributor}
+   */
+  public static final class Contributor extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RoomUserSeqMessage.Contributor)
+      ContributorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Contributor.newBuilder() to construct.
+    private Contributor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Contributor() {
+      scoreDescription_ = "";
+      exactlyScore_ = "";
     }
 
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input a {@link java.io.InputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseDelimitedFrom.</p>
-     *
-     * @param input             a {@link java.io.InputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input a {@link com.google.protobuf.CodedInputStream} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    /**
-     * <p>parseFrom.</p>
-     *
-     * @param input             a {@link com.google.protobuf.CodedInputStream} object
-     * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @throws java.io.IOException if any.
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder} object
-     */
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    /**
-     * <p>newBuilder.</p>
-     *
-     * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder} object
-     */
-    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    /**
-     * <p>getDefaultInstance.</p>
-     *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage} object
-     */
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * <p>parser.</p>
-     *
-     * @return a {@link com.google.protobuf.Parser} object
-     */
-    public static com.google.protobuf.Parser<RoomUserSeqMessage> parser() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-        return new RoomUserSeqMessage();
+        UnusedPrivateParameter unused) {
+      return new Contributor();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-        return this.unknownFields;
+      return this.unknownFields;
+    }
+    private Contributor(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              score_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              rank_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              delta_ = input.readInt64();
+              break;
+            }
+            case 40: {
+
+              isHidden_ = input.readBool();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              scoreDescription_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              exactlyScore_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder.class);
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder.class);
     }
 
+    public static final int SCORE_FIELD_NUMBER = 1;
+    private long score_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>.Common common = 1;</code>
+     * <code>int64 score = 1;</code>
+     * @return The score.
      */
     @java.lang.Override
-    public boolean hasCommon() {
-        return common_ != null;
+    public long getScore() {
+      return score_;
     }
 
+    public static final int USER_FIELD_NUMBER = 2;
+    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>.Common common = 1;</code>
+     * <code>.User user = 2;</code>
+     * @return Whether the user field is set.
      */
     @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-        return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+    public boolean hasUser() {
+      return user_ != null;
     }
-
     /**
-     * {@inheritDoc}
-     *
-     * <code>.Common common = 1;</code>
+     * <code>.User user = 2;</code>
+     * @return The user.
      */
     @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-        return getCommon();
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
+      return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
     }
-
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     * <code>.User user = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
-        return ranksList_;
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
+      return getUser();
     }
 
+    public static final int RANK_FIELD_NUMBER = 3;
+    private long rank_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     * <code>int64 rank = 3;</code>
+     * @return The rank.
      */
     @java.lang.Override
-    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-    getRanksListOrBuilderList() {
-        return ranksList_;
+    public long getRank() {
+      return rank_;
     }
 
+    public static final int DELTA_FIELD_NUMBER = 4;
+    private long delta_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     * <code>int64 delta = 4;</code>
+     * @return The delta.
      */
     @java.lang.Override
-    public int getRanksListCount() {
-        return ranksList_.size();
+    public long getDelta() {
+      return delta_;
     }
 
+    public static final int ISHIDDEN_FIELD_NUMBER = 5;
+    private boolean isHidden_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     * <code>bool isHidden = 5;</code>
+     * @return The isHidden.
      */
     @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
-        return ranksList_.get(index);
+    public boolean getIsHidden() {
+      return isHidden_;
     }
 
+    public static final int SCOREDESCRIPTION_FIELD_NUMBER = 6;
+    private volatile java.lang.Object scoreDescription_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     * <code>string scoreDescription = 6;</code>
+     * @return The scoreDescription.
      */
     @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
-            int index) {
-        return ranksList_.get(index);
+    public java.lang.String getScoreDescription() {
+      java.lang.Object ref = scoreDescription_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        scoreDescription_ = s;
+        return s;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
-     * <code>int64 total = 3;</code>
-     */
-    @java.lang.Override
-    public long getTotal() {
-        return total_;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string popStr = 4;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getPopStr() {
-        java.lang.Object ref = popStr_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            popStr_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string popStr = 4;</code>
+     * <code>string scoreDescription = 6;</code>
+     * @return The bytes for scoreDescription.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-    getPopStrBytes() {
-        java.lang.Object ref = popStr_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            popStr_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getScoreDescriptionBytes() {
+      java.lang.Object ref = scoreDescription_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        scoreDescription_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
+    public static final int EXACTLYSCORE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object exactlyScore_;
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     * <code>string exactlyScore = 7;</code>
+     * @return The exactlyScore.
      */
     @java.lang.Override
-    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
-        return seatsList_;
+    public java.lang.String getExactlyScore() {
+      java.lang.Object ref = exactlyScore_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        exactlyScore_ = s;
+        return s;
+      }
     }
-
     /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-    getSeatsListOrBuilderList() {
-        return seatsList_;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-     */
-    @java.lang.Override
-    public int getSeatsListCount() {
-        return seatsList_.size();
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-     */
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
-        return seatsList_.get(index);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-     */
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
-            int index) {
-        return seatsList_.get(index);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>int64 popularity = 6;</code>
-     */
-    @java.lang.Override
-    public long getPopularity() {
-        return popularity_;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>int64 totalUser = 7;</code>
-     */
-    @java.lang.Override
-    public long getTotalUser() {
-        return totalUser_;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalUserStr = 8;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getTotalUserStr() {
-        java.lang.Object ref = totalUserStr_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            totalUserStr_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalUserStr = 8;</code>
+     * <code>string exactlyScore = 7;</code>
+     * @return The bytes for exactlyScore.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-    getTotalUserStrBytes() {
-        java.lang.Object ref = totalUserStr_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            totalUserStr_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getExactlyScoreBytes() {
+      java.lang.Object ref = exactlyScore_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        exactlyScore_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalStr = 9;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getTotalStr() {
-        java.lang.Object ref = totalStr_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            totalStr_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalStr = 9;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getTotalStrBytes() {
-        java.lang.Object ref = totalStr_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            totalStr_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string onlineUserForAnchor = 10;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getOnlineUserForAnchor() {
-        java.lang.Object ref = onlineUserForAnchor_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            onlineUserForAnchor_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string onlineUserForAnchor = 10;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getOnlineUserForAnchorBytes() {
-        java.lang.Object ref = onlineUserForAnchor_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            onlineUserForAnchor_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalPvForAnchor = 11;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getTotalPvForAnchor() {
-        java.lang.Object ref = totalPvForAnchor_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            totalPvForAnchor_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string totalPvForAnchor = 11;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getTotalPvForAnchorBytes() {
-        java.lang.Object ref = totalPvForAnchor_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            totalPvForAnchor_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string upRightStatsStr = 12;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getUpRightStatsStr() {
-        java.lang.Object ref = upRightStatsStr_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            upRightStatsStr_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string upRightStatsStr = 12;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getUpRightStatsStrBytes() {
-        java.lang.Object ref = upRightStatsStr_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            upRightStatsStr_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string upRightStatsStrComplete = 13;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getUpRightStatsStrComplete() {
-        java.lang.Object ref = upRightStatsStrComplete_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            upRightStatsStrComplete_ = s;
-            return s;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>string upRightStatsStrComplete = 13;</code>
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getUpRightStatsStrCompleteBytes() {
-        java.lang.Object ref = upRightStatsStrComplete_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            upRightStatsStrComplete_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
+    private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
-        memoizedIsInitialized = 1;
-        return true;
+      memoizedIsInitialized = 1;
+      return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (common_ != null) {
-            output.writeMessage(1, getCommon());
-        }
-        for (int i = 0; i < ranksList_.size(); i++) {
-            output.writeMessage(2, ranksList_.get(i));
-        }
-        if (total_ != 0L) {
-            output.writeInt64(3, total_);
-        }
-        if (!getPopStrBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 4, popStr_);
-        }
-        for (int i = 0; i < seatsList_.size(); i++) {
-            output.writeMessage(5, seatsList_.get(i));
-        }
-        if (popularity_ != 0L) {
-            output.writeInt64(6, popularity_);
-        }
-        if (totalUser_ != 0L) {
-            output.writeInt64(7, totalUser_);
-        }
-        if (!getTotalUserStrBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 8, totalUserStr_);
-        }
-        if (!getTotalStrBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 9, totalStr_);
-        }
-        if (!getOnlineUserForAnchorBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 10, onlineUserForAnchor_);
-        }
-        if (!getTotalPvForAnchorBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 11, totalPvForAnchor_);
-        }
-        if (!getUpRightStatsStrBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 12, upRightStatsStr_);
-        }
-        if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 13, upRightStatsStrComplete_);
-        }
-        unknownFields.writeTo(output);
+                        throws java.io.IOException {
+      if (score_ != 0L) {
+        output.writeInt64(1, score_);
+      }
+      if (user_ != null) {
+        output.writeMessage(2, getUser());
+      }
+      if (rank_ != 0L) {
+        output.writeInt64(3, rank_);
+      }
+      if (delta_ != 0L) {
+        output.writeInt64(4, delta_);
+      }
+      if (isHidden_ != false) {
+        output.writeBool(5, isHidden_);
+      }
+      if (!getScoreDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, scoreDescription_);
+      }
+      if (!getExactlyScoreBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, exactlyScore_);
+      }
+      unknownFields.writeTo(output);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
+      int size = memoizedSize;
+      if (size != -1) return size;
 
-        size = 0;
-        if (common_ != null) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(1, getCommon());
-        }
-        for (int i = 0; i < ranksList_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(2, ranksList_.get(i));
-        }
-        if (total_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(3, total_);
-        }
-        if (!getPopStrBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, popStr_);
-        }
-        for (int i = 0; i < seatsList_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(5, seatsList_.get(i));
-        }
-        if (popularity_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(6, popularity_);
-        }
-        if (totalUser_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(7, totalUser_);
-        }
-        if (!getTotalUserStrBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, totalUserStr_);
-        }
-        if (!getTotalStrBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, totalStr_);
-        }
-        if (!getOnlineUserForAnchorBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, onlineUserForAnchor_);
-        }
-        if (!getTotalPvForAnchorBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, totalPvForAnchor_);
-        }
-        if (!getUpRightStatsStrBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, upRightStatsStr_);
-        }
-        if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, upRightStatsStrComplete_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
+      size = 0;
+      if (score_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, score_);
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getUser());
+      }
+      if (rank_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, rank_);
+      }
+      if (delta_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, delta_);
+      }
+      if (isHidden_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, isHidden_);
+      }
+      if (!getScoreDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, scoreDescription_);
+      }
+      if (!getExactlyScoreBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, exactlyScore_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage)) {
-            return super.equals(obj);
-        }
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) obj;
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor)) {
+        return super.equals(obj);
+      }
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) obj;
 
-        if (hasCommon() != other.hasCommon()) return false;
-        if (hasCommon()) {
-            if (!getCommon()
-                    .equals(other.getCommon())) return false;
-        }
-        if (!getRanksListList()
-                .equals(other.getRanksListList())) return false;
-        if (getTotal()
-                != other.getTotal()) return false;
-        if (!getPopStr()
-                .equals(other.getPopStr())) return false;
-        if (!getSeatsListList()
-                .equals(other.getSeatsListList())) return false;
-        if (getPopularity()
-                != other.getPopularity()) return false;
-        if (getTotalUser()
-                != other.getTotalUser()) return false;
-        if (!getTotalUserStr()
-                .equals(other.getTotalUserStr())) return false;
-        if (!getTotalStr()
-                .equals(other.getTotalStr())) return false;
-        if (!getOnlineUserForAnchor()
-                .equals(other.getOnlineUserForAnchor())) return false;
-        if (!getTotalPvForAnchor()
-                .equals(other.getTotalPvForAnchor())) return false;
-        if (!getUpRightStatsStr()
-                .equals(other.getUpRightStatsStr())) return false;
-        if (!getUpRightStatsStrComplete()
-                .equals(other.getUpRightStatsStrComplete())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
+      if (getScore()
+          != other.getScore()) return false;
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
+      if (getRank()
+          != other.getRank()) return false;
+      if (getDelta()
+          != other.getDelta()) return false;
+      if (getIsHidden()
+          != other.getIsHidden()) return false;
+      if (!getScoreDescription()
+          .equals(other.getScoreDescription())) return false;
+      if (!getExactlyScore()
+          .equals(other.getExactlyScore())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        if (hasCommon()) {
-            hash = (37 * hash) + COMMON_FIELD_NUMBER;
-            hash = (53 * hash) + getCommon().hashCode();
-        }
-        if (getRanksListCount() > 0) {
-            hash = (37 * hash) + RANKSLIST_FIELD_NUMBER;
-            hash = (53 * hash) + getRanksListList().hashCode();
-        }
-        hash = (37 * hash) + TOTAL_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotal());
-        hash = (37 * hash) + POPSTR_FIELD_NUMBER;
-        hash = (53 * hash) + getPopStr().hashCode();
-        if (getSeatsListCount() > 0) {
-            hash = (37 * hash) + SEATSLIST_FIELD_NUMBER;
-            hash = (53 * hash) + getSeatsListList().hashCode();
-        }
-        hash = (37 * hash) + POPULARITY_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getPopularity());
-        hash = (37 * hash) + TOTALUSER_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotalUser());
-        hash = (37 * hash) + TOTALUSERSTR_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalUserStr().hashCode();
-        hash = (37 * hash) + TOTALSTR_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalStr().hashCode();
-        hash = (37 * hash) + ONLINEUSERFORANCHOR_FIELD_NUMBER;
-        hash = (53 * hash) + getOnlineUserForAnchor().hashCode();
-        hash = (37 * hash) + TOTALPVFORANCHOR_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalPvForAnchor().hashCode();
-        hash = (37 * hash) + UPRIGHTSTATSSTR_FIELD_NUMBER;
-        hash = (53 * hash) + getUpRightStatsStr().hashCode();
-        hash = (37 * hash) + UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER;
-        hash = (53 * hash) + getUpRightStatsStrComplete().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SCORE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getScore());
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (37 * hash) + RANK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRank());
+      hash = (37 * hash) + DELTA_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDelta());
+      hash = (37 * hash) + ISHIDDEN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsHidden());
+      hash = (37 * hash) + SCOREDESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getScoreDescription().hashCode();
+      hash = (37 * hash) + EXACTLYSCORE_FIELD_NUMBER;
+      hash = (53 * hash) + getExactlyScore().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
     @java.lang.Override
-    public Builder newBuilderForType() {
-        return newBuilder();
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-
-    // @@protoc_insertion_point(class_scope:RoomUserSeqMessage)
-
-    /**
-     * {@inheritDoc}
-     */
+    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
     @java.lang.Override
     public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @java.lang.Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public com.google.protobuf.Parser<RoomUserSeqMessage> getParserForType() {
-        return PARSER;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @java.lang.Override
-    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-    }
-
-    public interface ContributorOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:RoomUserSeqMessage.Contributor)
-            com.google.protobuf.MessageOrBuilder {
-
-        /**
-         * <code>int64 score = 1;</code>
-         *
-         * @return The score.
-         */
-        long getScore();
-
-        /**
-         * <code>.User user = 2;</code>
-         *
-         * @return Whether the user field is set.
-         */
-        boolean hasUser();
-
-        /**
-         * <code>.User user = 2;</code>
-         *
-         * @return The user.
-         */
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser();
-
-        /**
-         * <code>.User user = 2;</code>
-         */
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
-
-        /**
-         * <code>int64 rank = 3;</code>
-         *
-         * @return The rank.
-         */
-        long getRank();
-
-        /**
-         * <code>int64 delta = 4;</code>
-         *
-         * @return The delta.
-         */
-        long getDelta();
-
-        /**
-         * <code>bool isHidden = 5;</code>
-         *
-         * @return The isHidden.
-         */
-        boolean getIsHidden();
-
-        /**
-         * <code>string scoreDescription = 6;</code>
-         *
-         * @return The scoreDescription.
-         */
-        java.lang.String getScoreDescription();
-
-        /**
-         * <code>string scoreDescription = 6;</code>
-         *
-         * @return The bytes for scoreDescription.
-         */
-        com.google.protobuf.ByteString
-        getScoreDescriptionBytes();
-
-        /**
-         * <code>string exactlyScore = 7;</code>
-         *
-         * @return The exactlyScore.
-         */
-        java.lang.String getExactlyScore();
-
-        /**
-         * <code>string exactlyScore = 7;</code>
-         *
-         * @return The bytes for exactlyScore.
-         */
-        com.google.protobuf.ByteString
-        getExactlyScoreBytes();
-    }
-
     /**
      * Protobuf type {@code RoomUserSeqMessage.Contributor}
      */
-    public static final class Contributor extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:RoomUserSeqMessage.Contributor)
-            ContributorOrBuilder {
-        public static final int SCORE_FIELD_NUMBER = 1;
-        public static final int USER_FIELD_NUMBER = 2;
-        public static final int RANK_FIELD_NUMBER = 3;
-        public static final int DELTA_FIELD_NUMBER = 4;
-        public static final int ISHIDDEN_FIELD_NUMBER = 5;
-        public static final int SCOREDESCRIPTION_FIELD_NUMBER = 6;
-        public static final int EXACTLYSCORE_FIELD_NUMBER = 7;
-        private static final long serialVersionUID = 0L;
-        // @@protoc_insertion_point(class_scope:RoomUserSeqMessage.Contributor)
-        private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor DEFAULT_INSTANCE;
-        private static final com.google.protobuf.Parser<Contributor>
-                PARSER = new com.google.protobuf.AbstractParser<Contributor>() {
-            @java.lang.Override
-            public Contributor parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new Contributor(input, extensionRegistry);
-            }
-        };
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RoomUserSeqMessage.Contributor)
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
+      }
 
-        static {
-            DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor();
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder.class);
+      }
+
+      // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        score_ = 0L;
+
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        rank_ = 0L;
+
+        delta_ = 0L;
+
+        isHidden_ = false;
+
+        scoreDescription_ = "";
+
+        exactlyScore_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstanceForType() {
+        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor build() {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor buildPartial() {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor(this);
+        result.score_ = score_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        result.rank_ = rank_;
+        result.delta_ = delta_;
+        result.isHidden_ = isHidden_;
+        result.scoreDescription_ = scoreDescription_;
+        result.exactlyScore_ = exactlyScore_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) {
+          return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor other) {
+        if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance()) return this;
+        if (other.getScore() != 0L) {
+          setScore(other.getScore());
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        if (other.getRank() != 0L) {
+          setRank(other.getRank());
+        }
+        if (other.getDelta() != 0L) {
+          setDelta(other.getDelta());
+        }
+        if (other.getIsHidden() != false) {
+          setIsHidden(other.getIsHidden());
+        }
+        if (!other.getScoreDescription().isEmpty()) {
+          scoreDescription_ = other.scoreDescription_;
+          onChanged();
+        }
+        if (!other.getExactlyScore().isEmpty()) {
+          exactlyScore_ = other.exactlyScore_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long score_ ;
+      /**
+       * <code>int64 score = 1;</code>
+       * @return The score.
+       */
+      @java.lang.Override
+      public long getScore() {
+        return score_;
+      }
+      /**
+       * <code>int64 score = 1;</code>
+       * @param value The score to set.
+       * @return This builder for chaining.
+       */
+      public Builder setScore(long value) {
+        
+        score_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 score = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearScore() {
+        
+        score_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> userBuilder_;
+      /**
+       * <code>.User user = 2;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.User user = 2;</code>
+       * @return The user.
+       */
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public Builder setUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
         }
 
-        private long score_;
-        private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
-        private long rank_;
-        private long delta_;
-        private boolean isHidden_;
-        private volatile java.lang.Object scoreDescription_;
-        private volatile java.lang.Object exactlyScore_;
-        private byte memoizedIsInitialized = -1;
-
-        // Use Contributor.newBuilder() to construct.
-        private Contributor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
-        }
-        private Contributor() {
-            scoreDescription_ = "";
-            exactlyScore_ = "";
+        return this;
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public Builder setUser(
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
         }
 
-        private Contributor(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        case 8: {
-
-                            score_ = input.readInt64();
-                            break;
-                        }
-                        case 18: {
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder subBuilder = null;
-                            if (user_ != null) {
-                                subBuilder = user_.toBuilder();
-                            }
-                            user_ = input.readMessage(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.parser(), extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(user_);
-                                user_ = subBuilder.buildPartial();
-                            }
-
-                            break;
-                        }
-                        case 24: {
-
-                            rank_ = input.readInt64();
-                            break;
-                        }
-                        case 32: {
-
-                            delta_ = input.readInt64();
-                            break;
-                        }
-                        case 40: {
-
-                            isHidden_ = input.readBool();
-                            break;
-                        }
-                        case 50: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            scoreDescription_ = s;
-                            break;
-                        }
-                        case 58: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            exactlyScore_ = s;
-                            break;
-                        }
-                        default: {
-                            if (!parseUnknownField(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+        return this;
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public Builder mergeUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
         }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
+        return this;
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
         }
 
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
+        return this;
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
         }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
+      }
+      /**
+       * <code>.User user = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
         }
+        return userBuilder_;
+      }
 
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
+      private long rank_ ;
+      /**
+       * <code>int64 rank = 3;</code>
+       * @return The rank.
+       */
+      @java.lang.Override
+      public long getRank() {
+        return rank_;
+      }
+      /**
+       * <code>int64 rank = 3;</code>
+       * @param value The rank to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRank(long value) {
+        
+        rank_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 rank = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRank() {
+        
+        rank_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long delta_ ;
+      /**
+       * <code>int64 delta = 4;</code>
+       * @return The delta.
+       */
+      @java.lang.Override
+      public long getDelta() {
+        return delta_;
+      }
+      /**
+       * <code>int64 delta = 4;</code>
+       * @param value The delta to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDelta(long value) {
+        
+        delta_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 delta = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDelta() {
+        
+        delta_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isHidden_ ;
+      /**
+       * <code>bool isHidden = 5;</code>
+       * @return The isHidden.
+       */
+      @java.lang.Override
+      public boolean getIsHidden() {
+        return isHidden_;
+      }
+      /**
+       * <code>bool isHidden = 5;</code>
+       * @param value The isHidden to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsHidden(boolean value) {
+        
+        isHidden_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool isHidden = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsHidden() {
+        
+        isHidden_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object scoreDescription_ = "";
+      /**
+       * <code>string scoreDescription = 6;</code>
+       * @return The scoreDescription.
+       */
+      public java.lang.String getScoreDescription() {
+        java.lang.Object ref = scoreDescription_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          scoreDescription_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
+      }
+      /**
+       * <code>string scoreDescription = 6;</code>
+       * @return The bytes for scoreDescription.
+       */
+      public com.google.protobuf.ByteString
+          getScoreDescriptionBytes() {
+        java.lang.Object ref = scoreDescription_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          scoreDescription_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string scoreDescription = 6;</code>
+       * @param value The scoreDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setScoreDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        scoreDescription_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string scoreDescription = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearScoreDescription() {
+        
+        scoreDescription_ = getDefaultInstance().getScoreDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string scoreDescription = 6;</code>
+       * @param value The bytes for scoreDescription to set.
+       * @return This builder for chaining.
+       */
+      public Builder setScoreDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        scoreDescription_ = value;
+        onChanged();
+        return this;
+      }
 
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
+      private java.lang.Object exactlyScore_ = "";
+      /**
+       * <code>string exactlyScore = 7;</code>
+       * @return The exactlyScore.
+       */
+      public java.lang.String getExactlyScore() {
+        java.lang.Object ref = exactlyScore_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          exactlyScore_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
+      }
+      /**
+       * <code>string exactlyScore = 7;</code>
+       * @return The bytes for exactlyScore.
+       */
+      public com.google.protobuf.ByteString
+          getExactlyScoreBytes() {
+        java.lang.Object ref = exactlyScore_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          exactlyScore_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        public static com.google.protobuf.Parser<Contributor> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        @SuppressWarnings({"unused"})
-        protected java.lang.Object newInstance(
-                UnusedPrivateParameter unused) {
-            return new Contributor();
-        }
-
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder.class);
-        }
-
-        /**
-         * <code>int64 score = 1;</code>
-         *
-         * @return The score.
-         */
-        @java.lang.Override
-        public long getScore() {
-            return score_;
-        }
-
-        /**
-         * <code>.User user = 2;</code>
-         *
-         * @return Whether the user field is set.
-         */
-        @java.lang.Override
-        public boolean hasUser() {
-            return user_ != null;
-        }
-
-        /**
-         * <code>.User user = 2;</code>
-         *
-         * @return The user.
-         */
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
-            return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
-        }
-
-        /**
-         * <code>.User user = 2;</code>
-         */
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
-            return getUser();
-        }
-
-        /**
-         * <code>int64 rank = 3;</code>
-         *
-         * @return The rank.
-         */
-        @java.lang.Override
-        public long getRank() {
-            return rank_;
-        }
-
-        /**
-         * <code>int64 delta = 4;</code>
-         *
-         * @return The delta.
-         */
-        @java.lang.Override
-        public long getDelta() {
-            return delta_;
-        }
-
-        /**
-         * <code>bool isHidden = 5;</code>
-         *
-         * @return The isHidden.
-         */
-        @java.lang.Override
-        public boolean getIsHidden() {
-            return isHidden_;
-        }
-
-        /**
-         * <code>string scoreDescription = 6;</code>
-         *
-         * @return The scoreDescription.
-         */
-        @java.lang.Override
-        public java.lang.String getScoreDescription() {
-            java.lang.Object ref = scoreDescription_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                scoreDescription_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string scoreDescription = 6;</code>
-         *
-         * @return The bytes for scoreDescription.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-        getScoreDescriptionBytes() {
-            java.lang.Object ref = scoreDescription_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                scoreDescription_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string exactlyScore = 7;</code>
-         *
-         * @return The exactlyScore.
-         */
-        @java.lang.Override
-        public java.lang.String getExactlyScore() {
-            java.lang.Object ref = exactlyScore_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                exactlyScore_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string exactlyScore = 7;</code>
-         *
-         * @return The bytes for exactlyScore.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-        getExactlyScoreBytes() {
-            java.lang.Object ref = exactlyScore_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                exactlyScore_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        @java.lang.Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (score_ != 0L) {
-                output.writeInt64(1, score_);
-            }
-            if (user_ != null) {
-                output.writeMessage(2, getUser());
-            }
-            if (rank_ != 0L) {
-                output.writeInt64(3, rank_);
-            }
-            if (delta_ != 0L) {
-                output.writeInt64(4, delta_);
-            }
-            if (isHidden_ != false) {
-                output.writeBool(5, isHidden_);
-            }
-            if (!getScoreDescriptionBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 6, scoreDescription_);
-            }
-            if (!getExactlyScoreBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 7, exactlyScore_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        @java.lang.Override
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (score_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt64Size(1, score_);
-            }
-            if (user_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(2, getUser());
-            }
-            if (rank_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt64Size(3, rank_);
-            }
-            if (delta_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt64Size(4, delta_);
-            }
-            if (isHidden_ != false) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBoolSize(5, isHidden_);
-            }
-            if (!getScoreDescriptionBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, scoreDescription_);
-            }
-            if (!getExactlyScoreBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, exactlyScore_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor)) {
-                return super.equals(obj);
-            }
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) obj;
-
-            if (getScore()
-                    != other.getScore()) return false;
-            if (hasUser() != other.hasUser()) return false;
-            if (hasUser()) {
-                if (!getUser()
-                        .equals(other.getUser())) return false;
-            }
-            if (getRank()
-                    != other.getRank()) return false;
-            if (getDelta()
-                    != other.getDelta()) return false;
-            if (getIsHidden()
-                    != other.getIsHidden()) return false;
-            if (!getScoreDescription()
-                    .equals(other.getScoreDescription())) return false;
-            if (!getExactlyScore()
-                    .equals(other.getExactlyScore())) return false;
-            if (!unknownFields.equals(other.unknownFields)) return false;
-            return true;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + SCORE_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    getScore());
-            if (hasUser()) {
-                hash = (37 * hash) + USER_FIELD_NUMBER;
-                hash = (53 * hash) + getUser().hashCode();
-            }
-            hash = (37 * hash) + RANK_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    getRank());
-            hash = (37 * hash) + DELTA_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    getDelta());
-            hash = (37 * hash) + ISHIDDEN_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                    getIsHidden());
-            hash = (37 * hash) + SCOREDESCRIPTION_FIELD_NUMBER;
-            hash = (53 * hash) + getScoreDescription().hashCode();
-            hash = (37 * hash) + EXACTLYSCORE_FIELD_NUMBER;
-            hash = (53 * hash) + getExactlyScore().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        @java.lang.Override
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        @java.lang.Override
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<Contributor> getParserForType() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
-        /**
-         * Protobuf type {@code RoomUserSeqMessage.Contributor}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:RoomUserSeqMessage.Contributor)
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder {
-            private long score_;
-            private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User user_;
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder> userBuilder_;
-            private long rank_;
-            private long delta_;
-            private boolean isHidden_;
-            private java.lang.Object scoreDescription_ = "";
-            private java.lang.Object exactlyScore_ = "";
-
-            // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
-            }
-
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder.class);
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-
-            @java.lang.Override
-            public Builder clear() {
-                super.clear();
-                score_ = 0L;
-
-                if (userBuilder_ == null) {
-                    user_ = null;
-                } else {
-                    user_ = null;
-                    userBuilder_ = null;
-                }
-                rank_ = 0L;
-
-                delta_ = 0L;
-
-                isHidden_ = false;
-
-                scoreDescription_ = "";
-
-                exactlyScore_ = "";
-
-                return this;
-            }
-
-            @java.lang.Override
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_Contributor_descriptor;
-            }
-
-            @java.lang.Override
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstanceForType() {
-                return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance();
-            }
-
-            @java.lang.Override
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor build() {
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            @java.lang.Override
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor buildPartial() {
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor(this);
-                result.score_ = score_;
-                if (userBuilder_ == null) {
-                    result.user_ = user_;
-                } else {
-                    result.user_ = userBuilder_.build();
-                }
-                result.rank_ = rank_;
-                result.delta_ = delta_;
-                result.isHidden_ = isHidden_;
-                result.scoreDescription_ = scoreDescription_;
-                result.exactlyScore_ = exactlyScore_;
-                onBuilt();
-                return result;
-            }
-
-            @java.lang.Override
-            public Builder clone() {
-                return super.clone();
-            }
-
-            @java.lang.Override
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return super.setField(field, value);
-            }
-
-            @java.lang.Override
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return super.clearField(field);
-            }
-
-            @java.lang.Override
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return super.clearOneof(oneof);
-            }
-
-            @java.lang.Override
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return super.setRepeatedField(field, index, value);
-            }
-
-            @java.lang.Override
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return super.addRepeatedField(field, value);
-            }
-
-            @java.lang.Override
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) {
-                    return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor other) {
-                if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance())
-                    return this;
-                if (other.getScore() != 0L) {
-                    setScore(other.getScore());
-                }
-                if (other.hasUser()) {
-                    mergeUser(other.getUser());
-                }
-                if (other.getRank() != 0L) {
-                    setRank(other.getRank());
-                }
-                if (other.getDelta() != 0L) {
-                    setDelta(other.getDelta());
-                }
-                if (other.getIsHidden() != false) {
-                    setIsHidden(other.getIsHidden());
-                }
-                if (!other.getScoreDescription().isEmpty()) {
-                    scoreDescription_ = other.scoreDescription_;
-                    onChanged();
-                }
-                if (!other.getExactlyScore().isEmpty()) {
-                    exactlyScore_ = other.exactlyScore_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            @java.lang.Override
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            @java.lang.Override
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            /**
-             * <code>int64 score = 1;</code>
-             *
-             * @return The score.
-             */
-            @java.lang.Override
-            public long getScore() {
-                return score_;
-            }
-
-            /**
-             * <code>int64 score = 1;</code>
-             *
-             * @param value The score to set.
-             * @return This builder for chaining.
-             */
-            public Builder setScore(long value) {
-
-                score_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int64 score = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearScore() {
-
-                score_ = 0L;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             *
-             * @return Whether the user field is set.
-             */
-            public boolean hasUser() {
-                return userBuilder_ != null || user_ != null;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             *
-             * @return The user.
-             */
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser() {
-                if (userBuilder_ == null) {
-                    return user_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
-                } else {
-                    return userBuilder_.getMessage();
-                }
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public Builder setUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
-                if (userBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    user_ = value;
-                    onChanged();
-                } else {
-                    userBuilder_.setMessage(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public Builder setUser(
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder builderForValue) {
-                if (userBuilder_ == null) {
-                    user_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    userBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public Builder mergeUser(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User value) {
-                if (userBuilder_ == null) {
-                    if (user_ != null) {
-                        user_ =
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.newBuilder(user_).mergeFrom(value).buildPartial();
-                    } else {
-                        user_ = value;
-                    }
-                    onChanged();
-                } else {
-                    userBuilder_.mergeFrom(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public Builder clearUser() {
-                if (userBuilder_ == null) {
-                    user_ = null;
-                    onChanged();
-                } else {
-                    user_ = null;
-                    userBuilder_ = null;
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder getUserBuilder() {
-
-                onChanged();
-                return getUserFieldBuilder().getBuilder();
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder() {
-                if (userBuilder_ != null) {
-                    return userBuilder_.getMessageOrBuilder();
-                } else {
-                    return user_ == null ?
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : user_;
-                }
-            }
-
-            /**
-             * <code>.User user = 2;</code>
-             */
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>
-            getUserFieldBuilder() {
-                if (userBuilder_ == null) {
-                    userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder>(
-                            getUser(),
-                            getParentForChildren(),
-                            isClean());
-                    user_ = null;
-                }
-                return userBuilder_;
-            }
-
-            /**
-             * <code>int64 rank = 3;</code>
-             *
-             * @return The rank.
-             */
-            @java.lang.Override
-            public long getRank() {
-                return rank_;
-            }
-
-            /**
-             * <code>int64 rank = 3;</code>
-             *
-             * @param value The rank to set.
-             * @return This builder for chaining.
-             */
-            public Builder setRank(long value) {
-
-                rank_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int64 rank = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearRank() {
-
-                rank_ = 0L;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int64 delta = 4;</code>
-             *
-             * @return The delta.
-             */
-            @java.lang.Override
-            public long getDelta() {
-                return delta_;
-            }
-
-            /**
-             * <code>int64 delta = 4;</code>
-             *
-             * @param value The delta to set.
-             * @return This builder for chaining.
-             */
-            public Builder setDelta(long value) {
-
-                delta_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int64 delta = 4;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearDelta() {
-
-                delta_ = 0L;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>bool isHidden = 5;</code>
-             *
-             * @return The isHidden.
-             */
-            @java.lang.Override
-            public boolean getIsHidden() {
-                return isHidden_;
-            }
-
-            /**
-             * <code>bool isHidden = 5;</code>
-             *
-             * @param value The isHidden to set.
-             * @return This builder for chaining.
-             */
-            public Builder setIsHidden(boolean value) {
-
-                isHidden_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>bool isHidden = 5;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearIsHidden() {
-
-                isHidden_ = false;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string scoreDescription = 6;</code>
-             *
-             * @return The scoreDescription.
-             */
-            public java.lang.String getScoreDescription() {
-                java.lang.Object ref = scoreDescription_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    scoreDescription_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string scoreDescription = 6;</code>
-             *
-             * @param value The scoreDescription to set.
-             * @return This builder for chaining.
-             */
-            public Builder setScoreDescription(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                scoreDescription_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string scoreDescription = 6;</code>
-             *
-             * @return The bytes for scoreDescription.
-             */
-            public com.google.protobuf.ByteString
-            getScoreDescriptionBytes() {
-                java.lang.Object ref = scoreDescription_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    scoreDescription_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string scoreDescription = 6;</code>
-             *
-             * @param value The bytes for scoreDescription to set.
-             * @return This builder for chaining.
-             */
-            public Builder setScoreDescriptionBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                scoreDescription_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string scoreDescription = 6;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearScoreDescription() {
-
-                scoreDescription_ = getDefaultInstance().getScoreDescription();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string exactlyScore = 7;</code>
-             *
-             * @return The exactlyScore.
-             */
-            public java.lang.String getExactlyScore() {
-                java.lang.Object ref = exactlyScore_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    exactlyScore_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string exactlyScore = 7;</code>
-             *
-             * @param value The exactlyScore to set.
-             * @return This builder for chaining.
-             */
-            public Builder setExactlyScore(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                exactlyScore_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string exactlyScore = 7;</code>
-             *
-             * @return The bytes for exactlyScore.
-             */
-            public com.google.protobuf.ByteString
-            getExactlyScoreBytes() {
-                java.lang.Object ref = exactlyScore_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    exactlyScore_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string exactlyScore = 7;</code>
-             *
-             * @param value The bytes for exactlyScore to set.
-             * @return This builder for chaining.
-             */
-            public Builder setExactlyScoreBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                exactlyScore_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string exactlyScore = 7;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearExactlyScore() {
-
-                exactlyScore_ = getDefaultInstance().getExactlyScore();
-                onChanged();
-                return this;
-            }
-
-            @java.lang.Override
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFields(unknownFields);
-            }
-
-            @java.lang.Override
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:RoomUserSeqMessage.Contributor)
-        }
-
+      }
+      /**
+       * <code>string exactlyScore = 7;</code>
+       * @param value The exactlyScore to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExactlyScore(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        exactlyScore_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string exactlyScore = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExactlyScore() {
+        
+        exactlyScore_ = getDefaultInstance().getExactlyScore();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string exactlyScore = 7;</code>
+       * @param value The bytes for exactlyScore to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExactlyScoreBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        exactlyScore_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RoomUserSeqMessage.Contributor)
     }
+
+    // @@protoc_insertion_point(class_scope:RoomUserSeqMessage.Contributor)
+    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor();
+    }
+
+    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Contributor>
+        PARSER = new com.google.protobuf.AbstractParser<Contributor>() {
+      @java.lang.Override
+      public Contributor parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Contributor(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Contributor> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Contributor> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public static final int COMMON_FIELD_NUMBER = 1;
+  private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
+  /**
+   * <code>.Common common = 1;</code>
+   * @return Whether the common field is set.
+   */
+  @java.lang.Override
+  public boolean hasCommon() {
+    return common_ != null;
+  }
+  /**
+   * <code>.Common common = 1;</code>
+   * @return The common.
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+    return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+  }
+  /**
+   * <code>.Common common = 1;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+    return getCommon();
+  }
+
+  public static final int RANKSLIST_FIELD_NUMBER = 2;
+  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_;
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
+    return ranksList_;
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+      getRanksListOrBuilderList() {
+    return ranksList_;
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+   */
+  @java.lang.Override
+  public int getRanksListCount() {
+    return ranksList_.size();
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
+    return ranksList_.get(index);
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
+      int index) {
+    return ranksList_.get(index);
+  }
+
+  public static final int TOTAL_FIELD_NUMBER = 3;
+  private long total_;
+  /**
+   * <code>int64 total = 3;</code>
+   * @return The total.
+   */
+  @java.lang.Override
+  public long getTotal() {
+    return total_;
+  }
+
+  public static final int POPSTR_FIELD_NUMBER = 4;
+  private volatile java.lang.Object popStr_;
+  /**
+   * <code>string popStr = 4;</code>
+   * @return The popStr.
+   */
+  @java.lang.Override
+  public java.lang.String getPopStr() {
+    java.lang.Object ref = popStr_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      popStr_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string popStr = 4;</code>
+   * @return The bytes for popStr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPopStrBytes() {
+    java.lang.Object ref = popStr_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      popStr_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SEATSLIST_FIELD_NUMBER = 5;
+  private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_;
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
+    return seatsList_;
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+      getSeatsListOrBuilderList() {
+    return seatsList_;
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+   */
+  @java.lang.Override
+  public int getSeatsListCount() {
+    return seatsList_.size();
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
+    return seatsList_.get(index);
+  }
+  /**
+   * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+   */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
+      int index) {
+    return seatsList_.get(index);
+  }
+
+  public static final int POPULARITY_FIELD_NUMBER = 6;
+  private long popularity_;
+  /**
+   * <code>int64 popularity = 6;</code>
+   * @return The popularity.
+   */
+  @java.lang.Override
+  public long getPopularity() {
+    return popularity_;
+  }
+
+  public static final int TOTALUSER_FIELD_NUMBER = 7;
+  private long totalUser_;
+  /**
+   * <code>int64 totalUser = 7;</code>
+   * @return The totalUser.
+   */
+  @java.lang.Override
+  public long getTotalUser() {
+    return totalUser_;
+  }
+
+  public static final int TOTALUSERSTR_FIELD_NUMBER = 8;
+  private volatile java.lang.Object totalUserStr_;
+  /**
+   * <code>string totalUserStr = 8;</code>
+   * @return The totalUserStr.
+   */
+  @java.lang.Override
+  public java.lang.String getTotalUserStr() {
+    java.lang.Object ref = totalUserStr_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      totalUserStr_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string totalUserStr = 8;</code>
+   * @return The bytes for totalUserStr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTotalUserStrBytes() {
+    java.lang.Object ref = totalUserStr_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      totalUserStr_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TOTALSTR_FIELD_NUMBER = 9;
+  private volatile java.lang.Object totalStr_;
+  /**
+   * <code>string totalStr = 9;</code>
+   * @return The totalStr.
+   */
+  @java.lang.Override
+  public java.lang.String getTotalStr() {
+    java.lang.Object ref = totalStr_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      totalStr_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string totalStr = 9;</code>
+   * @return The bytes for totalStr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTotalStrBytes() {
+    java.lang.Object ref = totalStr_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      totalStr_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ONLINEUSERFORANCHOR_FIELD_NUMBER = 10;
+  private volatile java.lang.Object onlineUserForAnchor_;
+  /**
+   * <code>string onlineUserForAnchor = 10;</code>
+   * @return The onlineUserForAnchor.
+   */
+  @java.lang.Override
+  public java.lang.String getOnlineUserForAnchor() {
+    java.lang.Object ref = onlineUserForAnchor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      onlineUserForAnchor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string onlineUserForAnchor = 10;</code>
+   * @return The bytes for onlineUserForAnchor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOnlineUserForAnchorBytes() {
+    java.lang.Object ref = onlineUserForAnchor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      onlineUserForAnchor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TOTALPVFORANCHOR_FIELD_NUMBER = 11;
+  private volatile java.lang.Object totalPvForAnchor_;
+  /**
+   * <code>string totalPvForAnchor = 11;</code>
+   * @return The totalPvForAnchor.
+   */
+  @java.lang.Override
+  public java.lang.String getTotalPvForAnchor() {
+    java.lang.Object ref = totalPvForAnchor_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      totalPvForAnchor_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string totalPvForAnchor = 11;</code>
+   * @return The bytes for totalPvForAnchor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTotalPvForAnchorBytes() {
+    java.lang.Object ref = totalPvForAnchor_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      totalPvForAnchor_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int UPRIGHTSTATSSTR_FIELD_NUMBER = 12;
+  private volatile java.lang.Object upRightStatsStr_;
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The upRightStatsStr.
+   */
+  @java.lang.Override
+  public java.lang.String getUpRightStatsStr() {
+    java.lang.Object ref = upRightStatsStr_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      upRightStatsStr_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string upRightStatsStr = 12;</code>
+   * @return The bytes for upRightStatsStr.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpRightStatsStrBytes() {
+    java.lang.Object ref = upRightStatsStr_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      upRightStatsStr_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER = 13;
+  private volatile java.lang.Object upRightStatsStrComplete_;
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The upRightStatsStrComplete.
+   */
+  @java.lang.Override
+  public java.lang.String getUpRightStatsStrComplete() {
+    java.lang.Object ref = upRightStatsStrComplete_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      upRightStatsStrComplete_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string upRightStatsStrComplete = 13;</code>
+   * @return The bytes for upRightStatsStrComplete.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpRightStatsStrCompleteBytes() {
+    java.lang.Object ref = upRightStatsStrComplete_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      upRightStatsStrComplete_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  private byte memoizedIsInitialized = -1;
+  @java.lang.Override
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  @java.lang.Override
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    if (common_ != null) {
+      output.writeMessage(1, getCommon());
+    }
+    for (int i = 0; i < ranksList_.size(); i++) {
+      output.writeMessage(2, ranksList_.get(i));
+    }
+    if (total_ != 0L) {
+      output.writeInt64(3, total_);
+    }
+    if (!getPopStrBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, popStr_);
+    }
+    for (int i = 0; i < seatsList_.size(); i++) {
+      output.writeMessage(5, seatsList_.get(i));
+    }
+    if (popularity_ != 0L) {
+      output.writeInt64(6, popularity_);
+    }
+    if (totalUser_ != 0L) {
+      output.writeInt64(7, totalUser_);
+    }
+    if (!getTotalUserStrBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, totalUserStr_);
+    }
+    if (!getTotalStrBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, totalStr_);
+    }
+    if (!getOnlineUserForAnchorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, onlineUserForAnchor_);
+    }
+    if (!getTotalPvForAnchorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, totalPvForAnchor_);
+    }
+    if (!getUpRightStatsStrBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, upRightStatsStr_);
+    }
+    if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, upRightStatsStrComplete_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  @java.lang.Override
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    if (common_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getCommon());
+    }
+    for (int i = 0; i < ranksList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, ranksList_.get(i));
+    }
+    if (total_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, total_);
+    }
+    if (!getPopStrBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, popStr_);
+    }
+    for (int i = 0; i < seatsList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, seatsList_.get(i));
+    }
+    if (popularity_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, popularity_);
+    }
+    if (totalUser_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, totalUser_);
+    }
+    if (!getTotalUserStrBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, totalUserStr_);
+    }
+    if (!getTotalStrBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, totalStr_);
+    }
+    if (!getOnlineUserForAnchorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, onlineUserForAnchor_);
+    }
+    if (!getTotalPvForAnchorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, totalPvForAnchor_);
+    }
+    if (!getUpRightStatsStrBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, upRightStatsStr_);
+    }
+    if (!getUpRightStatsStrCompleteBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, upRightStatsStrComplete_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage)) {
+      return super.equals(obj);
+    }
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) obj;
+
+    if (hasCommon() != other.hasCommon()) return false;
+    if (hasCommon()) {
+      if (!getCommon()
+          .equals(other.getCommon())) return false;
+    }
+    if (!getRanksListList()
+        .equals(other.getRanksListList())) return false;
+    if (getTotal()
+        != other.getTotal()) return false;
+    if (!getPopStr()
+        .equals(other.getPopStr())) return false;
+    if (!getSeatsListList()
+        .equals(other.getSeatsListList())) return false;
+    if (getPopularity()
+        != other.getPopularity()) return false;
+    if (getTotalUser()
+        != other.getTotalUser()) return false;
+    if (!getTotalUserStr()
+        .equals(other.getTotalUserStr())) return false;
+    if (!getTotalStr()
+        .equals(other.getTotalStr())) return false;
+    if (!getOnlineUserForAnchor()
+        .equals(other.getOnlineUserForAnchor())) return false;
+    if (!getTotalPvForAnchor()
+        .equals(other.getTotalPvForAnchor())) return false;
+    if (!getUpRightStatsStr()
+        .equals(other.getUpRightStatsStr())) return false;
+    if (!getUpRightStatsStrComplete()
+        .equals(other.getUpRightStatsStrComplete())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
+  }
+
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasCommon()) {
+      hash = (37 * hash) + COMMON_FIELD_NUMBER;
+      hash = (53 * hash) + getCommon().hashCode();
+    }
+    if (getRanksListCount() > 0) {
+      hash = (37 * hash) + RANKSLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getRanksListList().hashCode();
+    }
+    hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotal());
+    hash = (37 * hash) + POPSTR_FIELD_NUMBER;
+    hash = (53 * hash) + getPopStr().hashCode();
+    if (getSeatsListCount() > 0) {
+      hash = (37 * hash) + SEATSLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getSeatsListList().hashCode();
+    }
+    hash = (37 * hash) + POPULARITY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPopularity());
+    hash = (37 * hash) + TOTALUSER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalUser());
+    hash = (37 * hash) + TOTALUSERSTR_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalUserStr().hashCode();
+    hash = (37 * hash) + TOTALSTR_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalStr().hashCode();
+    hash = (37 * hash) + ONLINEUSERFORANCHOR_FIELD_NUMBER;
+    hash = (53 * hash) + getOnlineUserForAnchor().hashCode();
+    hash = (37 * hash) + TOTALPVFORANCHOR_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalPvForAnchor().hashCode();
+    hash = (37 * hash) + UPRIGHTSTATSSTR_FIELD_NUMBER;
+    hash = (53 * hash) + getUpRightStatsStr().hashCode();
+    hash = (37 * hash) + UPRIGHTSTATSSTRCOMPLETE_FIELD_NUMBER;
+    hash = (53 * hash) + getUpRightStatsStrComplete().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  @java.lang.Override
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  @java.lang.Override
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * <pre>
+   *更新时间 : 2023-01-11
+   * </pre>
+   *
+   * Protobuf type {@code RoomUserSeqMessage}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:RoomUserSeqMessage)
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOrBuilder {
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder.class);
+    }
+
+    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
+
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getRanksListFieldBuilder();
+        getSeatsListFieldBuilder();
+      }
+    }
+    @java.lang.Override
+    public Builder clear() {
+      super.clear();
+      if (commonBuilder_ == null) {
+        common_ = null;
+      } else {
+        common_ = null;
+        commonBuilder_ = null;
+      }
+      if (ranksListBuilder_ == null) {
+        ranksList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        ranksListBuilder_.clear();
+      }
+      total_ = 0L;
+
+      popStr_ = "";
+
+      if (seatsListBuilder_ == null) {
+        seatsList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        seatsListBuilder_.clear();
+      }
+      popularity_ = 0L;
+
+      totalUser_ = 0L;
+
+      totalUserStr_ = "";
+
+      totalStr_ = "";
+
+      onlineUserForAnchor_ = "";
+
+      totalPvForAnchor_ = "";
+
+      upRightStatsStr_ = "";
+
+      upRightStatsStrComplete_ = "";
+
+      return this;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstanceForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.getDefaultInstance();
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage build() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage buildPartial() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage(this);
+      int from_bitField0_ = bitField0_;
+      if (commonBuilder_ == null) {
+        result.common_ = common_;
+      } else {
+        result.common_ = commonBuilder_.build();
+      }
+      if (ranksListBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.ranksList_ = ranksList_;
+      } else {
+        result.ranksList_ = ranksListBuilder_.build();
+      }
+      result.total_ = total_;
+      result.popStr_ = popStr_;
+      if (seatsListBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.seatsList_ = seatsList_;
+      } else {
+        result.seatsList_ = seatsListBuilder_.build();
+      }
+      result.popularity_ = popularity_;
+      result.totalUser_ = totalUser_;
+      result.totalUserStr_ = totalUserStr_;
+      result.totalStr_ = totalStr_;
+      result.onlineUserForAnchor_ = onlineUserForAnchor_;
+      result.totalPvForAnchor_ = totalPvForAnchor_;
+      result.upRightStatsStr_ = upRightStatsStr_;
+      result.upRightStatsStrComplete_ = upRightStatsStrComplete_;
+      onBuilt();
+      return result;
+    }
+
+    @java.lang.Override
+    public Builder clone() {
+      return super.clone();
+    }
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.addRepeatedField(field, value);
+    }
+    @java.lang.Override
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) {
+        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage other) {
+      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.getDefaultInstance()) return this;
+      if (other.hasCommon()) {
+        mergeCommon(other.getCommon());
+      }
+      if (ranksListBuilder_ == null) {
+        if (!other.ranksList_.isEmpty()) {
+          if (ranksList_.isEmpty()) {
+            ranksList_ = other.ranksList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureRanksListIsMutable();
+            ranksList_.addAll(other.ranksList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.ranksList_.isEmpty()) {
+          if (ranksListBuilder_.isEmpty()) {
+            ranksListBuilder_.dispose();
+            ranksListBuilder_ = null;
+            ranksList_ = other.ranksList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            ranksListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getRanksListFieldBuilder() : null;
+          } else {
+            ranksListBuilder_.addAllMessages(other.ranksList_);
+          }
+        }
+      }
+      if (other.getTotal() != 0L) {
+        setTotal(other.getTotal());
+      }
+      if (!other.getPopStr().isEmpty()) {
+        popStr_ = other.popStr_;
+        onChanged();
+      }
+      if (seatsListBuilder_ == null) {
+        if (!other.seatsList_.isEmpty()) {
+          if (seatsList_.isEmpty()) {
+            seatsList_ = other.seatsList_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureSeatsListIsMutable();
+            seatsList_.addAll(other.seatsList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.seatsList_.isEmpty()) {
+          if (seatsListBuilder_.isEmpty()) {
+            seatsListBuilder_.dispose();
+            seatsListBuilder_ = null;
+            seatsList_ = other.seatsList_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            seatsListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSeatsListFieldBuilder() : null;
+          } else {
+            seatsListBuilder_.addAllMessages(other.seatsList_);
+          }
+        }
+      }
+      if (other.getPopularity() != 0L) {
+        setPopularity(other.getPopularity());
+      }
+      if (other.getTotalUser() != 0L) {
+        setTotalUser(other.getTotalUser());
+      }
+      if (!other.getTotalUserStr().isEmpty()) {
+        totalUserStr_ = other.totalUserStr_;
+        onChanged();
+      }
+      if (!other.getTotalStr().isEmpty()) {
+        totalStr_ = other.totalStr_;
+        onChanged();
+      }
+      if (!other.getOnlineUserForAnchor().isEmpty()) {
+        onlineUserForAnchor_ = other.onlineUserForAnchor_;
+        onChanged();
+      }
+      if (!other.getTotalPvForAnchor().isEmpty()) {
+        totalPvForAnchor_ = other.totalPvForAnchor_;
+        onChanged();
+      }
+      if (!other.getUpRightStatsStr().isEmpty()) {
+        upRightStatsStr_ = other.upRightStatsStr_;
+        onChanged();
+      }
+      if (!other.getUpRightStatsStrComplete().isEmpty()) {
+        upRightStatsStrComplete_ = other.upRightStatsStrComplete_;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    @java.lang.Override
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
+    }
+    private int bitField0_;
+
+    private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
+    /**
+     * <code>.Common common = 1;</code>
+     * @return Whether the common field is set.
+     */
+    public boolean hasCommon() {
+      return commonBuilder_ != null || common_ != null;
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     * @return The common.
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
+      if (commonBuilder_ == null) {
+        return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+      } else {
+        return commonBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+      if (commonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        common_ = value;
+        onChanged();
+      } else {
+        commonBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public Builder setCommon(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
+      if (commonBuilder_ == null) {
+        common_ = builderForValue.build();
+        onChanged();
+      } else {
+        commonBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
+      if (commonBuilder_ == null) {
+        if (common_ != null) {
+          common_ =
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
+        } else {
+          common_ = value;
+        }
+        onChanged();
+      } else {
+        commonBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public Builder clearCommon() {
+      if (commonBuilder_ == null) {
+        common_ = null;
+        onChanged();
+      } else {
+        common_ = null;
+        commonBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
+      
+      onChanged();
+      return getCommonFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
+      if (commonBuilder_ != null) {
+        return commonBuilder_.getMessageOrBuilder();
+      } else {
+        return common_ == null ?
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
+      }
+    }
+    /**
+     * <code>.Common common = 1;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> 
+        getCommonFieldBuilder() {
+      if (commonBuilder_ == null) {
+        commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
+                getCommon(),
+                getParentForChildren(),
+                isClean());
+        common_ = null;
+      }
+      return commonBuilder_;
+    }
+
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_ =
+      java.util.Collections.emptyList();
+    private void ensureRanksListIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(ranksList_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> ranksListBuilder_;
 
     /**
-     * <pre>
-     * 更新时间 : 2023-01-11
-     * </pre>
-     * <p>
-     * Protobuf type {@code RoomUserSeqMessage}
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:RoomUserSeqMessage)
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOrBuilder {
-        private int bitField0_;
-        private cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common common_;
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
-        private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> ranksList_ =
-                java.util.Collections.emptyList();
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> ranksListBuilder_;
-        private long total_;
-        private java.lang.Object popStr_ = "";
-        private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_ =
-                java.util.Collections.emptyList();
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> seatsListBuilder_;
-        private long popularity_;
-        private long totalUser_;
-        private java.lang.Object totalUserStr_ = "";
-        private java.lang.Object totalStr_ = "";
-        private java.lang.Object onlineUserForAnchor_ = "";
-        private java.lang.Object totalPvForAnchor_ = "";
-        private java.lang.Object upRightStatsStr_ = "";
-        private java.lang.Object upRightStatsStrComplete_ = "";
-
-        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-                getRanksListFieldBuilder();
-                getSeatsListFieldBuilder();
-            }
-        }
-
-        @java.lang.Override
-        public Builder clear() {
-            super.clear();
-            if (commonBuilder_ == null) {
-                common_ = null;
-            } else {
-                common_ = null;
-                commonBuilder_ = null;
-            }
-            if (ranksListBuilder_ == null) {
-                ranksList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-                ranksListBuilder_.clear();
-            }
-            total_ = 0L;
-
-            popStr_ = "";
-
-            if (seatsListBuilder_ == null) {
-                seatsList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-                seatsListBuilder_.clear();
-            }
-            popularity_ = 0L;
-
-            totalUser_ = 0L;
-
-            totalUserStr_ = "";
-
-            totalStr_ = "";
-
-            onlineUserForAnchor_ = "";
-
-            totalPvForAnchor_ = "";
-
-            upRightStatsStr_ = "";
-
-            upRightStatsStrComplete_ = "";
-
-            return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessageOuterClass.internal_static_RoomUserSeqMessage_descriptor;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstanceForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage build() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage buildPartial() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage(this);
-            int from_bitField0_ = bitField0_;
-            if (commonBuilder_ == null) {
-                result.common_ = common_;
-            } else {
-                result.common_ = commonBuilder_.build();
-            }
-            if (ranksListBuilder_ == null) {
-                if (((bitField0_ & 0x00000001) != 0)) {
-                    ranksList_ = java.util.Collections.unmodifiableList(ranksList_);
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                }
-                result.ranksList_ = ranksList_;
-            } else {
-                result.ranksList_ = ranksListBuilder_.build();
-            }
-            result.total_ = total_;
-            result.popStr_ = popStr_;
-            if (seatsListBuilder_ == null) {
-                if (((bitField0_ & 0x00000002) != 0)) {
-                    seatsList_ = java.util.Collections.unmodifiableList(seatsList_);
-                    bitField0_ = (bitField0_ & ~0x00000002);
-                }
-                result.seatsList_ = seatsList_;
-            } else {
-                result.seatsList_ = seatsListBuilder_.build();
-            }
-            result.popularity_ = popularity_;
-            result.totalUser_ = totalUser_;
-            result.totalUserStr_ = totalUserStr_;
-            result.totalStr_ = totalStr_;
-            result.onlineUserForAnchor_ = onlineUserForAnchor_;
-            result.totalPvForAnchor_ = totalPvForAnchor_;
-            result.upRightStatsStr_ = upRightStatsStr_;
-            result.upRightStatsStrComplete_ = upRightStatsStrComplete_;
-            onBuilt();
-            return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-            return super.clone();
-        }
-
-        @java.lang.Override
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.setField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return super.clearField(field);
-        }
-
-        @java.lang.Override
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return super.clearOneof(oneof);
-        }
-
-        @java.lang.Override
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return super.setRepeatedField(field, index, value);
-        }
-
-        @java.lang.Override
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.addRepeatedField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) {
-                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage other) {
-            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.getDefaultInstance())
-                return this;
-            if (other.hasCommon()) {
-                mergeCommon(other.getCommon());
-            }
-            if (ranksListBuilder_ == null) {
-                if (!other.ranksList_.isEmpty()) {
-                    if (ranksList_.isEmpty()) {
-                        ranksList_ = other.ranksList_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                    } else {
-                        ensureRanksListIsMutable();
-                        ranksList_.addAll(other.ranksList_);
-                    }
-                    onChanged();
-                }
-            } else {
-                if (!other.ranksList_.isEmpty()) {
-                    if (ranksListBuilder_.isEmpty()) {
-                        ranksListBuilder_.dispose();
-                        ranksListBuilder_ = null;
-                        ranksList_ = other.ranksList_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                        ranksListBuilder_ =
-                                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                        getRanksListFieldBuilder() : null;
-                    } else {
-                        ranksListBuilder_.addAllMessages(other.ranksList_);
-                    }
-                }
-            }
-            if (other.getTotal() != 0L) {
-                setTotal(other.getTotal());
-            }
-            if (!other.getPopStr().isEmpty()) {
-                popStr_ = other.popStr_;
-                onChanged();
-            }
-            if (seatsListBuilder_ == null) {
-                if (!other.seatsList_.isEmpty()) {
-                    if (seatsList_.isEmpty()) {
-                        seatsList_ = other.seatsList_;
-                        bitField0_ = (bitField0_ & ~0x00000002);
-                    } else {
-                        ensureSeatsListIsMutable();
-                        seatsList_.addAll(other.seatsList_);
-                    }
-                    onChanged();
-                }
-            } else {
-                if (!other.seatsList_.isEmpty()) {
-                    if (seatsListBuilder_.isEmpty()) {
-                        seatsListBuilder_.dispose();
-                        seatsListBuilder_ = null;
-                        seatsList_ = other.seatsList_;
-                        bitField0_ = (bitField0_ & ~0x00000002);
-                        seatsListBuilder_ =
-                                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                        getSeatsListFieldBuilder() : null;
-                    } else {
-                        seatsListBuilder_.addAllMessages(other.seatsList_);
-                    }
-                }
-            }
-            if (other.getPopularity() != 0L) {
-                setPopularity(other.getPopularity());
-            }
-            if (other.getTotalUser() != 0L) {
-                setTotalUser(other.getTotalUser());
-            }
-            if (!other.getTotalUserStr().isEmpty()) {
-                totalUserStr_ = other.totalUserStr_;
-                onChanged();
-            }
-            if (!other.getTotalStr().isEmpty()) {
-                totalStr_ = other.totalStr_;
-                onChanged();
-            }
-            if (!other.getOnlineUserForAnchor().isEmpty()) {
-                onlineUserForAnchor_ = other.onlineUserForAnchor_;
-                onChanged();
-            }
-            if (!other.getTotalPvForAnchor().isEmpty()) {
-                totalPvForAnchor_ = other.totalPvForAnchor_;
-                onChanged();
-            }
-            if (!other.getUpRightStatsStr().isEmpty()) {
-                upRightStatsStr_ = other.upRightStatsStr_;
-                onChanged();
-            }
-            if (!other.getUpRightStatsStrComplete().isEmpty()) {
-                upRightStatsStrComplete_ = other.upRightStatsStrComplete_;
-                onChanged();
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         *
-         * @return Whether the common field is set.
-         */
-        public boolean hasCommon() {
-            return commonBuilder_ != null || common_ != null;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         *
-         * @return The common.
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon() {
-            if (commonBuilder_ == null) {
-                return common_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-            } else {
-                return commonBuilder_.getMessage();
-            }
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public Builder setCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-            if (commonBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                common_ = value;
-                onChanged();
-            } else {
-                commonBuilder_.setMessage(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public Builder setCommon(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder builderForValue) {
-            if (commonBuilder_ == null) {
-                common_ = builderForValue.build();
-                onChanged();
-            } else {
-                commonBuilder_.setMessage(builderForValue.build());
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public Builder mergeCommon(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common value) {
-            if (commonBuilder_ == null) {
-                if (common_ != null) {
-                    common_ =
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.newBuilder(common_).mergeFrom(value).buildPartial();
-                } else {
-                    common_ = value;
-                }
-                onChanged();
-            } else {
-                commonBuilder_.mergeFrom(value);
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public Builder clearCommon() {
-            if (commonBuilder_ == null) {
-                common_ = null;
-                onChanged();
-            } else {
-                common_ = null;
-                commonBuilder_ = null;
-            }
-
-            return this;
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
-
-            onChanged();
-            return getCommonFieldBuilder().getBuilder();
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-            if (commonBuilder_ != null) {
-                return commonBuilder_.getMessageOrBuilder();
-            } else {
-                return common_ == null ?
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-            }
-        }
-
-        /**
-         * <code>.Common common = 1;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>
-        getCommonFieldBuilder() {
-            if (commonBuilder_ == null) {
-                commonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder>(
-                        getCommon(),
-                        getParentForChildren(),
-                        isClean());
-                common_ = null;
-            }
-            return commonBuilder_;
-        }
-
-        private void ensureRanksListIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
-                ranksList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(ranksList_);
-                bitField0_ |= 0x00000001;
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
-            if (ranksListBuilder_ == null) {
-                return java.util.Collections.unmodifiableList(ranksList_);
-            } else {
-                return ranksListBuilder_.getMessageList();
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public int getRanksListCount() {
-            if (ranksListBuilder_ == null) {
-                return ranksList_.size();
-            } else {
-                return ranksListBuilder_.getCount();
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
-            if (ranksListBuilder_ == null) {
-                return ranksList_.get(index);
-            } else {
-                return ranksListBuilder_.getMessage(index);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder setRanksList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (ranksListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureRanksListIsMutable();
-                ranksList_.set(index, value);
-                onChanged();
-            } else {
-                ranksListBuilder_.setMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder setRanksList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (ranksListBuilder_ == null) {
-                ensureRanksListIsMutable();
-                ranksList_.set(index, builderForValue.build());
-                onChanged();
-            } else {
-                ranksListBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder addRanksList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (ranksListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureRanksListIsMutable();
-                ranksList_.add(value);
-                onChanged();
-            } else {
-                ranksListBuilder_.addMessage(value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder addRanksList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (ranksListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureRanksListIsMutable();
-                ranksList_.add(index, value);
-                onChanged();
-            } else {
-                ranksListBuilder_.addMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder addRanksList(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (ranksListBuilder_ == null) {
-                ensureRanksListIsMutable();
-                ranksList_.add(builderForValue.build());
-                onChanged();
-            } else {
-                ranksListBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder addRanksList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (ranksListBuilder_ == null) {
-                ensureRanksListIsMutable();
-                ranksList_.add(index, builderForValue.build());
-                onChanged();
-            } else {
-                ranksListBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder addAllRanksList(
-                java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
-            if (ranksListBuilder_ == null) {
-                ensureRanksListIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, ranksList_);
-                onChanged();
-            } else {
-                ranksListBuilder_.addAllMessages(values);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder clearRanksList() {
-            if (ranksListBuilder_ == null) {
-                ranksList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000001);
-                onChanged();
-            } else {
-                ranksListBuilder_.clear();
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public Builder removeRanksList(int index) {
-            if (ranksListBuilder_ == null) {
-                ensureRanksListIsMutable();
-                ranksList_.remove(index);
-                onChanged();
-            } else {
-                ranksListBuilder_.remove(index);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getRanksListBuilder(
-                int index) {
-            return getRanksListFieldBuilder().getBuilder(index);
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
-                int index) {
-            if (ranksListBuilder_ == null) {
-                return ranksList_.get(index);
-            } else {
-                return ranksListBuilder_.getMessageOrBuilder(index);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-        getRanksListOrBuilderList() {
-            if (ranksListBuilder_ != null) {
-                return ranksListBuilder_.getMessageOrBuilderList();
-            } else {
-                return java.util.Collections.unmodifiableList(ranksList_);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder() {
-            return getRanksListFieldBuilder().addBuilder(
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder(
-                int index) {
-            return getRanksListFieldBuilder().addBuilder(
-                    index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder>
-        getRanksListBuilderList() {
-            return getRanksListFieldBuilder().getBuilderList();
-        }
-
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-        getRanksListFieldBuilder() {
-            if (ranksListBuilder_ == null) {
-                ranksListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
-                        ranksList_,
-                        ((bitField0_ & 0x00000001) != 0),
-                        getParentForChildren(),
-                        isClean());
-                ranksList_ = null;
-            }
-            return ranksListBuilder_;
-        }
-
-        /**
-         * <code>int64 total = 3;</code>
-         *
-         * @return The total.
-         */
-        @java.lang.Override
-        public long getTotal() {
-            return total_;
-        }
-
-        /**
-         * <code>int64 total = 3;</code>
-         *
-         * @param value The total to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotal(long value) {
-
-            total_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 total = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearTotal() {
-
-            total_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string popStr = 4;</code>
-         *
-         * @return The popStr.
-         */
-        public java.lang.String getPopStr() {
-            java.lang.Object ref = popStr_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                popStr_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string popStr = 4;</code>
-         *
-         * @param value The popStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setPopStr(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            popStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string popStr = 4;</code>
-         *
-         * @return The bytes for popStr.
-         */
-        public com.google.protobuf.ByteString
-        getPopStrBytes() {
-            java.lang.Object ref = popStr_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                popStr_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string popStr = 4;</code>
-         *
-         * @param value The bytes for popStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setPopStrBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            popStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string popStr = 4;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearPopStr() {
-
-            popStr_ = getDefaultInstance().getPopStr();
-            onChanged();
-            return this;
-        }
-
-        private void ensureSeatsListIsMutable() {
-            if (!((bitField0_ & 0x00000002) != 0)) {
-                seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(seatsList_);
-                bitField0_ |= 0x00000002;
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
-            if (seatsListBuilder_ == null) {
-                return java.util.Collections.unmodifiableList(seatsList_);
-            } else {
-                return seatsListBuilder_.getMessageList();
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public int getSeatsListCount() {
-            if (seatsListBuilder_ == null) {
-                return seatsList_.size();
-            } else {
-                return seatsListBuilder_.getCount();
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
-            if (seatsListBuilder_ == null) {
-                return seatsList_.get(index);
-            } else {
-                return seatsListBuilder_.getMessage(index);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder setSeatsList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (seatsListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureSeatsListIsMutable();
-                seatsList_.set(index, value);
-                onChanged();
-            } else {
-                seatsListBuilder_.setMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder setSeatsList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (seatsListBuilder_ == null) {
-                ensureSeatsListIsMutable();
-                seatsList_.set(index, builderForValue.build());
-                onChanged();
-            } else {
-                seatsListBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder addSeatsList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (seatsListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureSeatsListIsMutable();
-                seatsList_.add(value);
-                onChanged();
-            } else {
-                seatsListBuilder_.addMessage(value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder addSeatsList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
-            if (seatsListBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureSeatsListIsMutable();
-                seatsList_.add(index, value);
-                onChanged();
-            } else {
-                seatsListBuilder_.addMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder addSeatsList(
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (seatsListBuilder_ == null) {
-                ensureSeatsListIsMutable();
-                seatsList_.add(builderForValue.build());
-                onChanged();
-            } else {
-                seatsListBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder addSeatsList(
-                int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
-            if (seatsListBuilder_ == null) {
-                ensureSeatsListIsMutable();
-                seatsList_.add(index, builderForValue.build());
-                onChanged();
-            } else {
-                seatsListBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder addAllSeatsList(
-                java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
-            if (seatsListBuilder_ == null) {
-                ensureSeatsListIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, seatsList_);
-                onChanged();
-            } else {
-                seatsListBuilder_.addAllMessages(values);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder clearSeatsList() {
-            if (seatsListBuilder_ == null) {
-                seatsList_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000002);
-                onChanged();
-            } else {
-                seatsListBuilder_.clear();
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public Builder removeSeatsList(int index) {
-            if (seatsListBuilder_ == null) {
-                ensureSeatsListIsMutable();
-                seatsList_.remove(index);
-                onChanged();
-            } else {
-                seatsListBuilder_.remove(index);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getSeatsListBuilder(
-                int index) {
-            return getSeatsListFieldBuilder().getBuilder(index);
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
-                int index) {
-            if (seatsListBuilder_ == null) {
-                return seatsList_.get(index);
-            } else {
-                return seatsListBuilder_.getMessageOrBuilder(index);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-        getSeatsListOrBuilderList() {
-            if (seatsListBuilder_ != null) {
-                return seatsListBuilder_.getMessageOrBuilderList();
-            } else {
-                return java.util.Collections.unmodifiableList(seatsList_);
-            }
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder() {
-            return getSeatsListFieldBuilder().addBuilder(
-                    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder(
-                int index) {
-            return getSeatsListFieldBuilder().addBuilder(
-                    index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
-         */
-        public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder>
-        getSeatsListBuilderList() {
-            return getSeatsListFieldBuilder().getBuilderList();
-        }
-
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>
-        getSeatsListFieldBuilder() {
-            if (seatsListBuilder_ == null) {
-                seatsListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
-                        seatsList_,
-                        ((bitField0_ & 0x00000002) != 0),
-                        getParentForChildren(),
-                        isClean());
-                seatsList_ = null;
-            }
-            return seatsListBuilder_;
-        }
-
-        /**
-         * <code>int64 popularity = 6;</code>
-         *
-         * @return The popularity.
-         */
-        @java.lang.Override
-        public long getPopularity() {
-            return popularity_;
-        }
-
-        /**
-         * <code>int64 popularity = 6;</code>
-         *
-         * @param value The popularity to set.
-         * @return This builder for chaining.
-         */
-        public Builder setPopularity(long value) {
-
-            popularity_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 popularity = 6;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearPopularity() {
-
-            popularity_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 totalUser = 7;</code>
-         *
-         * @return The totalUser.
-         */
-        @java.lang.Override
-        public long getTotalUser() {
-            return totalUser_;
-        }
-
-        /**
-         * <code>int64 totalUser = 7;</code>
-         *
-         * @param value The totalUser to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalUser(long value) {
-
-            totalUser_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 totalUser = 7;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearTotalUser() {
-
-            totalUser_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalUserStr = 8;</code>
-         *
-         * @return The totalUserStr.
-         */
-        public java.lang.String getTotalUserStr() {
-            java.lang.Object ref = totalUserStr_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                totalUserStr_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string totalUserStr = 8;</code>
-         *
-         * @param value The totalUserStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalUserStr(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            totalUserStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalUserStr = 8;</code>
-         *
-         * @return The bytes for totalUserStr.
-         */
-        public com.google.protobuf.ByteString
-        getTotalUserStrBytes() {
-            java.lang.Object ref = totalUserStr_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                totalUserStr_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string totalUserStr = 8;</code>
-         *
-         * @param value The bytes for totalUserStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalUserStrBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            totalUserStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalUserStr = 8;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearTotalUserStr() {
-
-            totalUserStr_ = getDefaultInstance().getTotalUserStr();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalStr = 9;</code>
-         *
-         * @return The totalStr.
-         */
-        public java.lang.String getTotalStr() {
-            java.lang.Object ref = totalStr_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                totalStr_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string totalStr = 9;</code>
-         *
-         * @param value The totalStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalStr(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            totalStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalStr = 9;</code>
-         *
-         * @return The bytes for totalStr.
-         */
-        public com.google.protobuf.ByteString
-        getTotalStrBytes() {
-            java.lang.Object ref = totalStr_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                totalStr_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string totalStr = 9;</code>
-         *
-         * @param value The bytes for totalStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalStrBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            totalStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalStr = 9;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearTotalStr() {
-
-            totalStr_ = getDefaultInstance().getTotalStr();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string onlineUserForAnchor = 10;</code>
-         *
-         * @return The onlineUserForAnchor.
-         */
-        public java.lang.String getOnlineUserForAnchor() {
-            java.lang.Object ref = onlineUserForAnchor_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                onlineUserForAnchor_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string onlineUserForAnchor = 10;</code>
-         *
-         * @param value The onlineUserForAnchor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setOnlineUserForAnchor(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            onlineUserForAnchor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string onlineUserForAnchor = 10;</code>
-         *
-         * @return The bytes for onlineUserForAnchor.
-         */
-        public com.google.protobuf.ByteString
-        getOnlineUserForAnchorBytes() {
-            java.lang.Object ref = onlineUserForAnchor_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                onlineUserForAnchor_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string onlineUserForAnchor = 10;</code>
-         *
-         * @param value The bytes for onlineUserForAnchor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setOnlineUserForAnchorBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            onlineUserForAnchor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string onlineUserForAnchor = 10;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearOnlineUserForAnchor() {
-
-            onlineUserForAnchor_ = getDefaultInstance().getOnlineUserForAnchor();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalPvForAnchor = 11;</code>
-         *
-         * @return The totalPvForAnchor.
-         */
-        public java.lang.String getTotalPvForAnchor() {
-            java.lang.Object ref = totalPvForAnchor_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                totalPvForAnchor_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string totalPvForAnchor = 11;</code>
-         *
-         * @param value The totalPvForAnchor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalPvForAnchor(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            totalPvForAnchor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalPvForAnchor = 11;</code>
-         *
-         * @return The bytes for totalPvForAnchor.
-         */
-        public com.google.protobuf.ByteString
-        getTotalPvForAnchorBytes() {
-            java.lang.Object ref = totalPvForAnchor_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                totalPvForAnchor_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string totalPvForAnchor = 11;</code>
-         *
-         * @param value The bytes for totalPvForAnchor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTotalPvForAnchorBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            totalPvForAnchor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string totalPvForAnchor = 11;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearTotalPvForAnchor() {
-
-            totalPvForAnchor_ = getDefaultInstance().getTotalPvForAnchor();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStr = 12;</code>
-         *
-         * @return The upRightStatsStr.
-         */
-        public java.lang.String getUpRightStatsStr() {
-            java.lang.Object ref = upRightStatsStr_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                upRightStatsStr_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string upRightStatsStr = 12;</code>
-         *
-         * @param value The upRightStatsStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUpRightStatsStr(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            upRightStatsStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStr = 12;</code>
-         *
-         * @return The bytes for upRightStatsStr.
-         */
-        public com.google.protobuf.ByteString
-        getUpRightStatsStrBytes() {
-            java.lang.Object ref = upRightStatsStr_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                upRightStatsStr_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string upRightStatsStr = 12;</code>
-         *
-         * @param value The bytes for upRightStatsStr to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUpRightStatsStrBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            upRightStatsStr_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStr = 12;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearUpRightStatsStr() {
-
-            upRightStatsStr_ = getDefaultInstance().getUpRightStatsStr();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStrComplete = 13;</code>
-         *
-         * @return The upRightStatsStrComplete.
-         */
-        public java.lang.String getUpRightStatsStrComplete() {
-            java.lang.Object ref = upRightStatsStrComplete_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                upRightStatsStrComplete_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string upRightStatsStrComplete = 13;</code>
-         *
-         * @param value The upRightStatsStrComplete to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUpRightStatsStrComplete(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            upRightStatsStrComplete_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStrComplete = 13;</code>
-         *
-         * @return The bytes for upRightStatsStrComplete.
-         */
-        public com.google.protobuf.ByteString
-        getUpRightStatsStrCompleteBytes() {
-            java.lang.Object ref = upRightStatsStrComplete_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                upRightStatsStrComplete_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string upRightStatsStrComplete = 13;</code>
-         *
-         * @param value The bytes for upRightStatsStrComplete to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUpRightStatsStrCompleteBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            upRightStatsStrComplete_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string upRightStatsStrComplete = 13;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearUpRightStatsStrComplete() {
-
-            upRightStatsStrComplete_ = getDefaultInstance().getUpRightStatsStrComplete();
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:RoomUserSeqMessage)
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getRanksListList() {
+      if (ranksListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(ranksList_);
+      } else {
+        return ranksListBuilder_.getMessageList();
+      }
     }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public int getRanksListCount() {
+      if (ranksListBuilder_ == null) {
+        return ranksList_.size();
+      } else {
+        return ranksListBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getRanksList(int index) {
+      if (ranksListBuilder_ == null) {
+        return ranksList_.get(index);
+      } else {
+        return ranksListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder setRanksList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (ranksListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRanksListIsMutable();
+        ranksList_.set(index, value);
+        onChanged();
+      } else {
+        ranksListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder setRanksList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        ranksListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder addRanksList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (ranksListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRanksListIsMutable();
+        ranksList_.add(value);
+        onChanged();
+      } else {
+        ranksListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder addRanksList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (ranksListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRanksListIsMutable();
+        ranksList_.add(index, value);
+        onChanged();
+      } else {
+        ranksListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder addRanksList(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        ranksListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder addRanksList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        ranksListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder addAllRanksList(
+        java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, ranksList_);
+        onChanged();
+      } else {
+        ranksListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder clearRanksList() {
+      if (ranksListBuilder_ == null) {
+        ranksList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        ranksListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public Builder removeRanksList(int index) {
+      if (ranksListBuilder_ == null) {
+        ensureRanksListIsMutable();
+        ranksList_.remove(index);
+        onChanged();
+      } else {
+        ranksListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getRanksListBuilder(
+        int index) {
+      return getRanksListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getRanksListOrBuilder(
+        int index) {
+      if (ranksListBuilder_ == null) {
+        return ranksList_.get(index);  } else {
+        return ranksListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+         getRanksListOrBuilderList() {
+      if (ranksListBuilder_ != null) {
+        return ranksListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(ranksList_);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder() {
+      return getRanksListFieldBuilder().addBuilder(
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addRanksListBuilder(
+        int index) {
+      return getRanksListFieldBuilder().addBuilder(
+          index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor ranksList = 2;</code>
+     */
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder> 
+         getRanksListBuilderList() {
+      return getRanksListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+        getRanksListFieldBuilder() {
+      if (ranksListBuilder_ == null) {
+        ranksListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
+                ranksList_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        ranksList_ = null;
+      }
+      return ranksListBuilder_;
+    }
+
+    private long total_ ;
+    /**
+     * <code>int64 total = 3;</code>
+     * @return The total.
+     */
+    @java.lang.Override
+    public long getTotal() {
+      return total_;
+    }
+    /**
+     * <code>int64 total = 3;</code>
+     * @param value The total to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotal(long value) {
+      
+      total_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 total = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotal() {
+      
+      total_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object popStr_ = "";
+    /**
+     * <code>string popStr = 4;</code>
+     * @return The popStr.
+     */
+    public java.lang.String getPopStr() {
+      java.lang.Object ref = popStr_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        popStr_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string popStr = 4;</code>
+     * @return The bytes for popStr.
+     */
+    public com.google.protobuf.ByteString
+        getPopStrBytes() {
+      java.lang.Object ref = popStr_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        popStr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string popStr = 4;</code>
+     * @param value The popStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPopStr(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      popStr_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string popStr = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPopStr() {
+      
+      popStr_ = getDefaultInstance().getPopStr();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string popStr = 4;</code>
+     * @param value The bytes for popStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPopStrBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      popStr_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> seatsList_ =
+      java.util.Collections.emptyList();
+    private void ensureSeatsListIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        seatsList_ = new java.util.ArrayList<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor>(seatsList_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> seatsListBuilder_;
+
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> getSeatsListList() {
+      if (seatsListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(seatsList_);
+      } else {
+        return seatsListBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public int getSeatsListCount() {
+      if (seatsListBuilder_ == null) {
+        return seatsList_.size();
+      } else {
+        return seatsListBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor getSeatsList(int index) {
+      if (seatsListBuilder_ == null) {
+        return seatsList_.get(index);
+      } else {
+        return seatsListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder setSeatsList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (seatsListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSeatsListIsMutable();
+        seatsList_.set(index, value);
+        onChanged();
+      } else {
+        seatsListBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder setSeatsList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        seatsListBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder addSeatsList(cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (seatsListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSeatsListIsMutable();
+        seatsList_.add(value);
+        onChanged();
+      } else {
+        seatsListBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder addSeatsList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor value) {
+      if (seatsListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSeatsListIsMutable();
+        seatsList_.add(index, value);
+        onChanged();
+      } else {
+        seatsListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder addSeatsList(
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        seatsListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder addSeatsList(
+        int index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder builderForValue) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        seatsListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder addAllSeatsList(
+        java.lang.Iterable<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor> values) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, seatsList_);
+        onChanged();
+      } else {
+        seatsListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder clearSeatsList() {
+      if (seatsListBuilder_ == null) {
+        seatsList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        seatsListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public Builder removeSeatsList(int index) {
+      if (seatsListBuilder_ == null) {
+        ensureSeatsListIsMutable();
+        seatsList_.remove(index);
+        onChanged();
+      } else {
+        seatsListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder getSeatsListBuilder(
+        int index) {
+      return getSeatsListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder getSeatsListOrBuilder(
+        int index) {
+      if (seatsListBuilder_ == null) {
+        return seatsList_.get(index);  } else {
+        return seatsListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public java.util.List<? extends cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+         getSeatsListOrBuilderList() {
+      if (seatsListBuilder_ != null) {
+        return seatsListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(seatsList_);
+      }
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder() {
+      return getSeatsListFieldBuilder().addBuilder(
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder addSeatsListBuilder(
+        int index) {
+      return getSeatsListFieldBuilder().addBuilder(
+          index, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .RoomUserSeqMessage.Contributor seatsList = 5;</code>
+     */
+    public java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder> 
+         getSeatsListBuilderList() {
+      return getSeatsListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder> 
+        getSeatsListFieldBuilder() {
+      if (seatsListBuilder_ == null) {
+        seatsListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.Contributor.Builder, cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage.ContributorOrBuilder>(
+                seatsList_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        seatsList_ = null;
+      }
+      return seatsListBuilder_;
+    }
+
+    private long popularity_ ;
+    /**
+     * <code>int64 popularity = 6;</code>
+     * @return The popularity.
+     */
+    @java.lang.Override
+    public long getPopularity() {
+      return popularity_;
+    }
+    /**
+     * <code>int64 popularity = 6;</code>
+     * @param value The popularity to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPopularity(long value) {
+      
+      popularity_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 popularity = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPopularity() {
+      
+      popularity_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long totalUser_ ;
+    /**
+     * <code>int64 totalUser = 7;</code>
+     * @return The totalUser.
+     */
+    @java.lang.Override
+    public long getTotalUser() {
+      return totalUser_;
+    }
+    /**
+     * <code>int64 totalUser = 7;</code>
+     * @param value The totalUser to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalUser(long value) {
+      
+      totalUser_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 totalUser = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotalUser() {
+      
+      totalUser_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object totalUserStr_ = "";
+    /**
+     * <code>string totalUserStr = 8;</code>
+     * @return The totalUserStr.
+     */
+    public java.lang.String getTotalUserStr() {
+      java.lang.Object ref = totalUserStr_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        totalUserStr_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string totalUserStr = 8;</code>
+     * @return The bytes for totalUserStr.
+     */
+    public com.google.protobuf.ByteString
+        getTotalUserStrBytes() {
+      java.lang.Object ref = totalUserStr_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalUserStr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string totalUserStr = 8;</code>
+     * @param value The totalUserStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalUserStr(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      totalUserStr_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalUserStr = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotalUserStr() {
+      
+      totalUserStr_ = getDefaultInstance().getTotalUserStr();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalUserStr = 8;</code>
+     * @param value The bytes for totalUserStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalUserStrBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      totalUserStr_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object totalStr_ = "";
+    /**
+     * <code>string totalStr = 9;</code>
+     * @return The totalStr.
+     */
+    public java.lang.String getTotalStr() {
+      java.lang.Object ref = totalStr_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        totalStr_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string totalStr = 9;</code>
+     * @return The bytes for totalStr.
+     */
+    public com.google.protobuf.ByteString
+        getTotalStrBytes() {
+      java.lang.Object ref = totalStr_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalStr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string totalStr = 9;</code>
+     * @param value The totalStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalStr(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      totalStr_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalStr = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotalStr() {
+      
+      totalStr_ = getDefaultInstance().getTotalStr();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalStr = 9;</code>
+     * @param value The bytes for totalStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalStrBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      totalStr_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object onlineUserForAnchor_ = "";
+    /**
+     * <code>string onlineUserForAnchor = 10;</code>
+     * @return The onlineUserForAnchor.
+     */
+    public java.lang.String getOnlineUserForAnchor() {
+      java.lang.Object ref = onlineUserForAnchor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        onlineUserForAnchor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string onlineUserForAnchor = 10;</code>
+     * @return The bytes for onlineUserForAnchor.
+     */
+    public com.google.protobuf.ByteString
+        getOnlineUserForAnchorBytes() {
+      java.lang.Object ref = onlineUserForAnchor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        onlineUserForAnchor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string onlineUserForAnchor = 10;</code>
+     * @param value The onlineUserForAnchor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOnlineUserForAnchor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      onlineUserForAnchor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string onlineUserForAnchor = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOnlineUserForAnchor() {
+      
+      onlineUserForAnchor_ = getDefaultInstance().getOnlineUserForAnchor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string onlineUserForAnchor = 10;</code>
+     * @param value The bytes for onlineUserForAnchor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOnlineUserForAnchorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      onlineUserForAnchor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object totalPvForAnchor_ = "";
+    /**
+     * <code>string totalPvForAnchor = 11;</code>
+     * @return The totalPvForAnchor.
+     */
+    public java.lang.String getTotalPvForAnchor() {
+      java.lang.Object ref = totalPvForAnchor_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        totalPvForAnchor_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string totalPvForAnchor = 11;</code>
+     * @return The bytes for totalPvForAnchor.
+     */
+    public com.google.protobuf.ByteString
+        getTotalPvForAnchorBytes() {
+      java.lang.Object ref = totalPvForAnchor_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalPvForAnchor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string totalPvForAnchor = 11;</code>
+     * @param value The totalPvForAnchor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalPvForAnchor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      totalPvForAnchor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalPvForAnchor = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotalPvForAnchor() {
+      
+      totalPvForAnchor_ = getDefaultInstance().getTotalPvForAnchor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string totalPvForAnchor = 11;</code>
+     * @param value The bytes for totalPvForAnchor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalPvForAnchorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      totalPvForAnchor_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object upRightStatsStr_ = "";
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return The upRightStatsStr.
+     */
+    public java.lang.String getUpRightStatsStr() {
+      java.lang.Object ref = upRightStatsStr_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        upRightStatsStr_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return The bytes for upRightStatsStr.
+     */
+    public com.google.protobuf.ByteString
+        getUpRightStatsStrBytes() {
+      java.lang.Object ref = upRightStatsStr_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        upRightStatsStr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @param value The upRightStatsStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStr(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      upRightStatsStr_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpRightStatsStr() {
+      
+      upRightStatsStr_ = getDefaultInstance().getUpRightStatsStr();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStr = 12;</code>
+     * @param value The bytes for upRightStatsStr to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      upRightStatsStr_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object upRightStatsStrComplete_ = "";
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return The upRightStatsStrComplete.
+     */
+    public java.lang.String getUpRightStatsStrComplete() {
+      java.lang.Object ref = upRightStatsStrComplete_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        upRightStatsStrComplete_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return The bytes for upRightStatsStrComplete.
+     */
+    public com.google.protobuf.ByteString
+        getUpRightStatsStrCompleteBytes() {
+      java.lang.Object ref = upRightStatsStrComplete_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        upRightStatsStrComplete_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @param value The upRightStatsStrComplete to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrComplete(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      upRightStatsStrComplete_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpRightStatsStrComplete() {
+      
+      upRightStatsStrComplete_ = getDefaultInstance().getUpRightStatsStrComplete();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string upRightStatsStrComplete = 13;</code>
+     * @param value The bytes for upRightStatsStrComplete to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpRightStatsStrCompleteBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      upRightStatsStrComplete_ = value;
+      onChanged();
+      return this;
+    }
+    @java.lang.Override
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFields(unknownFields);
+    }
+
+    @java.lang.Override
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
+    }
+
+
+    // @@protoc_insertion_point(builder_scope:RoomUserSeqMessage)
+  }
+
+  // @@protoc_insertion_point(class_scope:RoomUserSeqMessage)
+  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage();
+  }
+
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  private static final com.google.protobuf.Parser<RoomUserSeqMessage>
+      PARSER = new com.google.protobuf.AbstractParser<RoomUserSeqMessage>() {
+    @java.lang.Override
+    public RoomUserSeqMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return new RoomUserSeqMessage(input, extensionRegistry);
+    }
+  };
+
+  public static com.google.protobuf.Parser<RoomUserSeqMessage> parser() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public com.google.protobuf.Parser<RoomUserSeqMessage> getParserForType() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomUserSeqMessage getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 
