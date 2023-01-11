@@ -485,6 +485,9 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 var hotChatMessage = HotChatMessage.parseFrom(payload);
                 System.out.println(hotChatMessage);
             }
+            case "WebcastLuckyBoxMessage" -> {//幸运盒 ???
+                //todo  WebcastLuckyBoxMessage
+            }
             default -> {
                 System.err.println("DouYin -> 未处理 Message :" + message);
             }
