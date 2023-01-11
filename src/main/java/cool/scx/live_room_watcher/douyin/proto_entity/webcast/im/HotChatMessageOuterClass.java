@@ -28,20 +28,18 @@ public final class HotChatMessageOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\037webcast/im/HotChatMessage.proto\032\030webca" +
-      "st/data/Image.proto\032\027webcast/im/Common.p" +
-      "roto\"\257\001\n\016HotChatMessage\022\027\n\006common\030\001 \001(\0132" +
-      "\007.Common\022\r\n\005title\030\002 \001(\t\022\017\n\007content\030\003 \001(\t" +
-      "\022\017\n\007numList\030\004 \003(\003\022\020\n\010duration\030\005 \001(\003\022\030\n\020s" +
-      "howDurationList\030\006 \003(\003\022\022\n\nsequenceId\030\007 \001(" +
-      "\003\022\023\n\013hotListList\030\010 \003(\tB=\n9cool.scx.live_" +
-      "room_watcher.douyin.proto_entity.webcast" +
-      ".imP\001b\006proto3"
+      "\n\037webcast/im/HotChatMessage.proto\032\027webca" +
+      "st/im/Common.proto\"\257\001\n\016HotChatMessage\022\027\n" +
+      "\006common\030\001 \001(\0132\007.Common\022\r\n\005title\030\002 \001(\t\022\017\n" +
+      "\007content\030\003 \001(\t\022\017\n\007numList\030\004 \003(\003\022\020\n\010durat" +
+      "ion\030\005 \001(\003\022\030\n\020showDurationList\030\006 \003(\003\022\022\n\ns" +
+      "equenceId\030\007 \001(\003\022\023\n\013hotListList\030\010 \003(\tB=\n9" +
+      "cool.scx.live_room_watcher.douyin.proto_" +
+      "entity.webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
           cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
         });
     internal_static_HotChatMessage_descriptor =
@@ -50,7 +48,6 @@ public final class HotChatMessageOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_HotChatMessage_descriptor,
         new java.lang.String[] { "Common", "Title", "Content", "NumList", "Duration", "ShowDurationList", "SequenceId", "HotListList", });
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
     cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
   }
 

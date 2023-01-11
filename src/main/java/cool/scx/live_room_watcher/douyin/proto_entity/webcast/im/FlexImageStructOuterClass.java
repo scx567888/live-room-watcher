@@ -28,18 +28,16 @@ public final class FlexImageStructOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n webcast/im/FlexImageStruct.proto\032\030webc" +
-      "ast/data/Image.proto\"~\n\017FlexImageStruct\022" +
-      "\023\n\013urlListList\030\001 \003(\t\022\013\n\003uri\030\002 \001(\t\022\027\n\017fle" +
-      "xSettingList\030\003 \003(\003\022\027\n\017textSettingList\030\004 " +
-      "\003(\003\022\027\n\017topBorderHeight\030\005 \001(\003B=\n9cool.scx" +
-      ".live_room_watcher.douyin.proto_entity.w" +
-      "ebcast.imP\001b\006proto3"
+      "\n webcast/im/FlexImageStruct.proto\"~\n\017Fl" +
+      "exImageStruct\022\023\n\013urlListList\030\001 \003(\t\022\013\n\003ur" +
+      "i\030\002 \001(\t\022\027\n\017flexSettingList\030\003 \003(\003\022\027\n\017text" +
+      "SettingList\030\004 \003(\003\022\027\n\017topBorderHeight\030\005 \001" +
+      "(\003B=\n9cool.scx.live_room_watcher.douyin." +
+      "proto_entity.webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
         });
     internal_static_FlexImageStruct_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -47,7 +45,6 @@ public final class FlexImageStructOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FlexImageStruct_descriptor,
         new java.lang.String[] { "UrlListList", "Uri", "FlexSettingList", "TextSettingList", "TopBorderHeight", });
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
