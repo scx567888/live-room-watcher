@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/im/HotRoomInfo.proto";
+
+//更新时间 : 2023-01-11
+message HotRoomMessage {
+  Common common = 1;
+  HotRoomInfo info = 2;
+}
