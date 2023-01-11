@@ -23,10 +23,10 @@ public interface ControlMessageOrBuilder extends
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
-   * <code>int64 status = 2;</code>
-   * @return The status.
+   * <code>int64 action = 2;</code>
+   * @return The action.
    */
-  long getStatus();
+  long getAction();
 
   /**
    * <code>string tips = 3;</code>

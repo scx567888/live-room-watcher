@@ -5,6 +5,8 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.live_room_watcher.LiveRoomWatcher;
 import cool.scx.live_room_watcher.douyin.entity.DouYinApplication;
+import cool.scx.live_room_watcher.douyin.enumeration.ControlMessageAction;
+import cool.scx.live_room_watcher.douyin.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomStats;
 import cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.*;
@@ -308,15 +310,48 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
         switch (method) {
-            case "WebcastMemberMessage" -> {// 来了
-                var memberMessage = MemberMessage.parseFrom(payload);
-                var douYinUser = new DouYinUser(memberMessage);
-                this.onUserHandler.handle(douYinUser);
+            case "RoomMessage", "WebcastRoomMessage" -> {
+                System.out.println("RoomMessage");
             }
             case "WebcastChatMessage" -> {// 消息
                 var chatMessage = ChatMessage.parseFrom(payload);
                 var douYinChat = new DouYinChat(chatMessage);
                 this.onChatHandler.handle(douYinChat);
+            }
+            case "WebcastMemberMessage" -> {// 来了
+                var memberMessage = MemberMessage.parseFrom(payload);
+                long actionCode = memberMessage.getAction();
+                var action = MemberMessageAction.of(actionCode);
+                switch (action) {
+                    case SET_SILENCE, MANAGER_SET_SILENCE -> {
+                        System.out.println("SET_SILENCE");
+                    }
+                    case CANCEL_SILENCE, MANAGER_CANCEL_SILENCE -> {
+                        System.out.println("CANCEL_SILENCE");
+                    }
+                    case BLOCK -> {
+                        System.out.println("BLOCK");
+                    }
+                    case KICK_OUT -> {
+                        System.out.println("KICK_OUT");
+                    }
+                    case ENTER -> {
+                        System.out.println("ENTER");
+                    }
+                    case LEAVE -> {
+                        System.out.println("LEAVE");
+                    }
+                    case SET_ADMIN -> {
+                    }
+                    case CANCEL_ADMIN -> {
+                    }
+                    case SHARE -> {
+                    }
+                    case FOLLOW -> {
+                    }
+                }
+                var douYinUser = new DouYinUser(memberMessage);
+                this.onUserHandler.handle(douYinUser);
             }
             case "WebcastLikeMessage" -> {//点赞
                 var likeMessage = LikeMessage.parseFrom(payload);
@@ -338,6 +373,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 var douYinGift = new DouYinGift(giftMessage);
                 this.onGiftHandler.handle(douYinGift);
             }
+            //************** 以下的暂时用不到 ****************
             case "WebcastRoomUserSeqMessage" -> {//直播间统计
                 var roomUserSeqMessage = RoomUserSeqMessage.parseFrom(payload);
             }
@@ -346,16 +382,24 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastControlMessage" -> {//直播间状态变更 比如直播关闭
                 var controlMessage = ControlMessage.parseFrom(payload);
-                long status = controlMessage.getStatus();
-                if (status == 3) {
-                    System.out.println("直播已结束 !!!");
-                    startWatch();
+                var actionCode = controlMessage.getAction();
+                var action = ControlMessageAction.of(actionCode);
+                switch (action) {
+                    case FINISH, FINISH_BY_ADMIN, ROOM_FINISH_BY_SWITCH -> {
+                        System.out.println("直播已结束 !!!");
+                    }
+                    case RESUME -> {
+                        System.out.println("RESUME");
+                    }
+                    case PAUSE -> {
+                        System.out.println("暂停");
+                    }
                 }
             }
-            case "WebcastFansclubMessage" -> { //粉丝俱乐部
+            case "WebcastFansclubMessage" -> { //粉丝俱乐部 ???
                 var fansclubMessage = FansclubMessage.parseFrom(payload);
             }
-            case "WebcastInRoomBannerMessage" -> {//进房间后的标题
+            case "WebcastInRoomBannerMessage" -> {//进房间后的 Banner
                 var inRoomBannerMessage = InRoomBannerMessage.parseFrom(payload);
             }
             case "WebcastRoomRankMessage" -> {//房间排行榜
@@ -369,14 +413,12 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastCommerceMessage" -> {
                 //todo
-                System.out.println();
             }
             case "WebcastAudienceEntranceMessage" -> {//观众入场信息
                 //todo
-                System.out.println();
             }
             case "WebcastStampMessage" -> {
-                System.out.println();
+                //todo
             }
             case "WebcastSyncStreamMessage" -> {
                 var syncStreamMessage = SyncStreamMessage.parseFrom(payload);
@@ -384,7 +426,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastAudioChatMessage" -> {//音频弹幕 ??? 不玩抖音不太懂
                 var audioChatMessage = AudioChatMessage.parseFrom(payload);
             }
-            case "WebcastLinkMicArmiesMethod" -> {//连麦
+            case "WebcastLinkMicArmiesMethod" -> {//连麦 ??
                 //todo
             }
             case "WebcastProfitInteractionScoreMessage" -> {
@@ -399,8 +441,17 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastLinkMessage" -> {//连麦 ???
                 var linkMessage = LinkMessage.parseFrom(payload);
             }
+            case "WebcastRoomDataSyncMessage"->{
+
+            }
+            case "WebcastEmojiChatMessage"->{
+
+            }
+            case "WebcastLinkerContributeMessage"->{
+
+            }
             default -> {
-                System.out.println("DouYin -> 未处理 Message :" + message);
+                System.err.println("DouYin -> 未处理 Message :" + message);
             }
         }
 

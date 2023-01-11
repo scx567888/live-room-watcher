@@ -36,7 +36,7 @@ public final class ControlMessageOuterClass {
       "\n\037webcast/im/ControlMessage.proto\032\027webca" +
       "st/im/Common.proto\032\027webcast/data/Text.pr" +
       "oto\"\267\002\n\016ControlMessage\022\027\n\006common\030\001 \001(\0132\007" +
-      ".Common\022\016\n\006status\030\002 \001(\003\022\014\n\004tips\030\003 \001(\t\022$\n" +
+      ".Common\022\016\n\006action\030\002 \001(\003\022\014\n\004tips\030\003 \001(\t\022$\n" +
       "\005extra\030\004 \001(\0132\025.ControlMessage.Extra\032\307\001\n\005" +
       "Extra\022\022\n\nbanInfoUrl\030\001 \001(\t\022\020\n\010reasonNo\030\002 " +
       "\001(\003\022\024\n\005title\030\003 \001(\0132\005.Text\022\036\n\017violationRe" +
@@ -57,7 +57,7 @@ public final class ControlMessageOuterClass {
     internal_static_ControlMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ControlMessage_descriptor,
-        new java.lang.String[] { "Common", "Status", "Tips", "Extra", });
+        new java.lang.String[] { "Common", "Action", "Tips", "Extra", });
     internal_static_ControlMessage_Extra_descriptor =
       internal_static_ControlMessage_descriptor.getNestedTypes().get(0);
     internal_static_ControlMessage_Extra_fieldAccessorTable = new
