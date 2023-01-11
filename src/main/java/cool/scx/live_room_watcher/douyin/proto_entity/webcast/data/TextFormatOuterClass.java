@@ -3,53 +3,77 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>TextFormatOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class TextFormatOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_TextFormat_descriptor;
-    static final
+  /**
+   * <p>Constructor for TextFormatOuterClass.</p>
+   */
+  private TextFormatOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_TextFormat_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TextFormat_descriptor;
+  /** Constant <code>internal_static_TextFormat_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_TextFormat_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_TextFormat_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\035webcast/data/TextFormat.proto\"\243\001\n\nText" +
-                        "Format\022\r\n\005color\030\001 \001(\t\022\014\n\004bold\030\002 \001(\010\022\016\n\006i" +
-                        "talic\030\003 \001(\010\022\016\n\006weight\030\004 \001(\005\022\023\n\013italicAng" +
-                        "le\030\005 \001(\005\022\020\n\010fontSize\030\006 \001(\005\022\032\n\022useHeighLi" +
-                        "ghtColor\030\007 \001(\010\022\025\n\ruseRemoteClor\030\010 \001(\010B?\n" +
-                        ";cool.scx.live_room_watcher.douyin.proto" +
-                        "_entity.webcast.dataP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        });
-        internal_static_TextFormat_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_TextFormat_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_TextFormat_descriptor,
-                new java.lang.String[]{"Color", "Bold", "Italic", "Weight", "ItalicAngle", "FontSize", "UseHeighLightColor", "UseRemoteClor",});
-    }
-    private TextFormatOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\035webcast/data/TextFormat.proto\"\243\001\n\nText" +
+      "Format\022\r\n\005color\030\001 \001(\t\022\014\n\004bold\030\002 \001(\010\022\016\n\006i" +
+      "talic\030\003 \001(\010\022\016\n\006weight\030\004 \001(\005\022\023\n\013italicAng" +
+      "le\030\005 \001(\005\022\020\n\010fontSize\030\006 \001(\005\022\032\n\022useHeighLi" +
+      "ghtColor\030\007 \001(\010\022\025\n\ruseRemoteClor\030\010 \001(\010B?\n" +
+      ";cool.scx.live_room_watcher.douyin.proto" +
+      "_entity.webcast.dataP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        });
+    internal_static_TextFormat_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_TextFormat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TextFormat_descriptor,
+        new java.lang.String[] { "Color", "Bold", "Italic", "Weight", "ItalicAngle", "FontSize", "UseHeighLightColor", "UseRemoteClor", });
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

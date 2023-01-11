@@ -3,53 +3,77 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>TextPieceUserOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class TextPieceUserOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_TextPieceUser_descriptor;
-    static final
+  /**
+   * <p>Constructor for TextPieceUserOuterClass.</p>
+   */
+  private TextPieceUserOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_TextPieceUser_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TextPieceUser_descriptor;
+  /** Constant <code>internal_static_TextPieceUser_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_TextPieceUser_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_TextPieceUser_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n webcast/data/TextPieceUser.proto\032\027webc" +
-                        "ast/data/User.proto\"7\n\rTextPieceUser\022\023\n\004" +
-                        "user\030\001 \001(\0132\005.User\022\021\n\twithColon\030\002 \001(\010B?\n;" +
-                        "cool.scx.live_room_watcher.douyin.proto_" +
-                        "entity.webcast.dataP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-                        });
-        internal_static_TextPieceUser_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_TextPieceUser_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_TextPieceUser_descriptor,
-                new java.lang.String[]{"User", "WithColon",});
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    }
-    private TextPieceUserOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n webcast/data/TextPieceUser.proto\032\027webc" +
+      "ast/data/User.proto\"7\n\rTextPieceUser\022\023\n\004" +
+      "user\030\001 \001(\0132\005.User\022\021\n\twithColon\030\002 \001(\010B?\n;" +
+      "cool.scx.live_room_watcher.douyin.proto_" +
+      "entity.webcast.dataP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+        });
+    internal_static_TextPieceUser_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_TextPieceUser_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TextPieceUser_descriptor,
+        new java.lang.String[] { "User", "WithColon", });
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

@@ -3,7 +3,13 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>LinkerItemContentOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface LinkerItemContentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:LinkerItemContent)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:LinkerItemContent)
+    com.google.protobuf.MessageOrBuilder {
 }

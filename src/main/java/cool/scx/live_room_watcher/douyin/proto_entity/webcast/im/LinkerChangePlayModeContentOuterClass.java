@@ -3,50 +3,74 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>LinkerChangePlayModeContentOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class LinkerChangePlayModeContentOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_LinkerChangePlayModeContent_descriptor;
-    static final
+  /**
+   * <p>Constructor for LinkerChangePlayModeContentOuterClass.</p>
+   */
+  private LinkerChangePlayModeContentOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_LinkerChangePlayModeContent_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LinkerChangePlayModeContent_descriptor;
+  /** Constant <code>internal_static_LinkerChangePlayModeContent_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_LinkerChangePlayModeContent_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_LinkerChangePlayModeContent_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n,webcast/im/LinkerChangePlayModeContent" +
-                        ".proto\"\035\n\033LinkerChangePlayModeContentB=\n" +
-                        "9cool.scx.live_room_watcher.douyin.proto" +
-                        "_entity.webcast.imP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        });
-        internal_static_LinkerChangePlayModeContent_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_LinkerChangePlayModeContent_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_LinkerChangePlayModeContent_descriptor,
-                new java.lang.String[]{});
-    }
-    private LinkerChangePlayModeContentOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n,webcast/im/LinkerChangePlayModeContent" +
+      ".proto\"\035\n\033LinkerChangePlayModeContentB=\n" +
+      "9cool.scx.live_room_watcher.douyin.proto" +
+      "_entity.webcast.imP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        });
+    internal_static_LinkerChangePlayModeContent_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_LinkerChangePlayModeContent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LinkerChangePlayModeContent_descriptor,
+        new java.lang.String[] { });
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

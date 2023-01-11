@@ -3,59 +3,83 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>GiftTrayInfoOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class GiftTrayInfoOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GiftTrayInfo_descriptor;
-    static final
+  /**
+   * <p>Constructor for GiftTrayInfoOuterClass.</p>
+   */
+  private GiftTrayInfoOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_GiftTrayInfo_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GiftTrayInfo_descriptor;
+  /** Constant <code>internal_static_GiftTrayInfo_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GiftTrayInfo_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_GiftTrayInfo_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\037webcast/data/GiftTrayInfo.proto\032\027webca" +
-                        "st/data/Text.proto\032\030webcast/data/Image.p" +
-                        "roto\"\271\001\n\014GiftTrayInfo\022\036\n\017trayDisplayText" +
-                        "\030\001 \001(\0132\005.Text\022\033\n\013trayBaseImg\030\002 \001(\0132\006.Ima" +
-                        "ge\022\033\n\013trayHeadImg\030\003 \001(\0132\006.Image\022\034\n\014trayR" +
-                        "ightImg\030\004 \001(\0132\006.Image\022\021\n\ttrayLevel\030\005 \001(\003" +
-                        "\022\036\n\016trayDynamicImg\030\006 \001(\0132\006.ImageB?\n;cool" +
-                        ".scx.live_room_watcher.douyin.proto_enti" +
-                        "ty.webcast.dataP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
-                        });
-        internal_static_GiftTrayInfo_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_GiftTrayInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GiftTrayInfo_descriptor,
-                new java.lang.String[]{"TrayDisplayText", "TrayBaseImg", "TrayHeadImg", "TrayRightImg", "TrayLevel", "TrayDynamicImg",});
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
-    }
-    private GiftTrayInfoOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\037webcast/data/GiftTrayInfo.proto\032\027webca" +
+      "st/data/Text.proto\032\030webcast/data/Image.p" +
+      "roto\"\271\001\n\014GiftTrayInfo\022\036\n\017trayDisplayText" +
+      "\030\001 \001(\0132\005.Text\022\033\n\013trayBaseImg\030\002 \001(\0132\006.Ima" +
+      "ge\022\033\n\013trayHeadImg\030\003 \001(\0132\006.Image\022\034\n\014trayR" +
+      "ightImg\030\004 \001(\0132\006.Image\022\021\n\ttrayLevel\030\005 \001(\003" +
+      "\022\036\n\016trayDynamicImg\030\006 \001(\0132\006.ImageB?\n;cool" +
+      ".scx.live_room_watcher.douyin.proto_enti" +
+      "ty.webcast.dataP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
+        });
+    internal_static_GiftTrayInfo_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_GiftTrayInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GiftTrayInfo_descriptor,
+        new java.lang.String[] { "TrayDisplayText", "TrayBaseImg", "TrayHeadImg", "TrayRightImg", "TrayLevel", "TrayDynamicImg", });
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

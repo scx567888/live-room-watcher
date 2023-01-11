@@ -3,50 +3,74 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>TextPieceHeartOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class TextPieceHeartOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_TextPieceHeart_descriptor;
-    static final
+  /**
+   * <p>Constructor for TextPieceHeartOuterClass.</p>
+   */
+  private TextPieceHeartOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_TextPieceHeart_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TextPieceHeart_descriptor;
+  /** Constant <code>internal_static_TextPieceHeart_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_TextPieceHeart_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_TextPieceHeart_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n!webcast/data/TextPieceHeart.proto\"\037\n\016T" +
-                        "extPieceHeart\022\r\n\005color\030\001 \001(\tB?\n;cool.scx" +
-                        ".live_room_watcher.douyin.proto_entity.w" +
-                        "ebcast.dataP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        });
-        internal_static_TextPieceHeart_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_TextPieceHeart_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_TextPieceHeart_descriptor,
-                new java.lang.String[]{"Color",});
-    }
-    private TextPieceHeartOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n!webcast/data/TextPieceHeart.proto\"\037\n\016T" +
+      "extPieceHeart\022\r\n\005color\030\001 \001(\tB?\n;cool.scx" +
+      ".live_room_watcher.douyin.proto_entity.w" +
+      "ebcast.dataP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        });
+    internal_static_TextPieceHeart_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_TextPieceHeart_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TextPieceHeart_descriptor,
+        new java.lang.String[] { "Color", });
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

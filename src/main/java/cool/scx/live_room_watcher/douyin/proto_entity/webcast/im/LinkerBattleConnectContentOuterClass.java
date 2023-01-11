@@ -3,50 +3,74 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>LinkerBattleConnectContentOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class LinkerBattleConnectContentOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_LinkerBattleConnectContent_descriptor;
-    static final
+  /**
+   * <p>Constructor for LinkerBattleConnectContentOuterClass.</p>
+   */
+  private LinkerBattleConnectContentOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_LinkerBattleConnectContent_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LinkerBattleConnectContent_descriptor;
+  /** Constant <code>internal_static_LinkerBattleConnectContent_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_LinkerBattleConnectContent_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_LinkerBattleConnectContent_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n+webcast/im/LinkerBattleConnectContent." +
-                        "proto\"\034\n\032LinkerBattleConnectContentB=\n9c" +
-                        "ool.scx.live_room_watcher.douyin.proto_e" +
-                        "ntity.webcast.imP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        });
-        internal_static_LinkerBattleConnectContent_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_LinkerBattleConnectContent_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_LinkerBattleConnectContent_descriptor,
-                new java.lang.String[]{});
-    }
-    private LinkerBattleConnectContentOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n+webcast/im/LinkerBattleConnectContent." +
+      "proto\"\034\n\032LinkerBattleConnectContentB=\n9c" +
+      "ool.scx.live_room_watcher.douyin.proto_e" +
+      "ntity.webcast.imP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        });
+    internal_static_LinkerBattleConnectContent_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_LinkerBattleConnectContent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LinkerBattleConnectContent_descriptor,
+        new java.lang.String[] { });
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

@@ -3,130 +3,142 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>RoomMessageOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface RoomMessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:RoomMessage)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:RoomMessage)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>.Common common = 1;</code>
-     *
-     * @return Whether the common field is set.
-     */
-    boolean hasCommon();
+  /**
+   * <code>.Common common = 1;</code>
+   *
+   * @return Whether the common field is set.
+   */
+  boolean hasCommon();
+  /**
+   * <code>.Common common = 1;</code>
+   *
+   * @return The common.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
+  /**
+   * <code>.Common common = 1;</code>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder} object
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
-    /**
-     * <code>.Common common = 1;</code>
-     *
-     * @return The common.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.Common getCommon();
+  /**
+   * <code>string content = 2;</code>
+   *
+   * @return The content.
+   */
+  java.lang.String getContent();
+      /**
+       * <code>string content = 2;</code>
+       *
+       * @return The bytes for content.
+       */
+  com.google.protobuf.ByteString
+      getContentBytes();
 
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
+  /**
+   * <code>bool supprotLandscape = 3;</code>
+   *
+   * @return The supprotLandscape.
+   */
+  boolean getSupprotLandscape();
 
-    /**
-     * <code>string content = 2;</code>
-     *
-     * @return The content.
-     */
-    java.lang.String getContent();
+  /**
+   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+   *
+   * @return The enum numeric value on the wire for roommessagetype.
+   */
+  int getRoommessagetypeValue();
+  /**
+   * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
+   *
+   * @return The roommessagetype.
+   */
+  cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype();
 
-    /**
-     * <code>string content = 2;</code>
-     *
-     * @return The bytes for content.
-     */
-    com.google.protobuf.ByteString
-    getContentBytes();
+  /**
+   * <code>bool systemTopMsg = 5;</code>
+   *
+   * @return The systemTopMsg.
+   */
+  boolean getSystemTopMsg();
 
-    /**
-     * <code>bool supprotLandscape = 3;</code>
-     *
-     * @return The supprotLandscape.
-     */
-    boolean getSupprotLandscape();
+  /**
+   * <code>bool forcedGuarantee = 6;</code>
+   *
+   * @return The forcedGuarantee.
+   */
+  boolean getForcedGuarantee();
 
-    /**
-     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-     *
-     * @return The enum numeric value on the wire for roommessagetype.
-     */
-    int getRoommessagetypeValue();
+  /**
+   * <code>string bizScene = 20;</code>
+   *
+   * @return The bizScene.
+   */
+  java.lang.String getBizScene();
+      /**
+       * <code>string bizScene = 20;</code>
+       *
+       * @return The bytes for bizScene.
+       */
+  com.google.protobuf.ByteString
+      getBizSceneBytes();
 
-    /**
-     * <code>.RoomMsgTypeEnum roommessagetype = 4;</code>
-     *
-     * @return The roommessagetype.
-     */
-    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum getRoommessagetype();
-
-    /**
-     * <code>bool systemTopMsg = 5;</code>
-     *
-     * @return The systemTopMsg.
-     */
-    boolean getSystemTopMsg();
-
-    /**
-     * <code>bool forcedGuarantee = 6;</code>
-     *
-     * @return The forcedGuarantee.
-     */
-    boolean getForcedGuarantee();
-
-    /**
-     * <code>string bizScene = 20;</code>
-     *
-     * @return The bizScene.
-     */
-    java.lang.String getBizScene();
-
-    /**
-     * <code>string bizScene = 20;</code>
-     *
-     * @return The bytes for bizScene.
-     */
-    com.google.protobuf.ByteString
-    getBizSceneBytes();
-
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-    int getBuriedPointMapCount();
-
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-    boolean containsBuriedPointMap(
-            java.lang.String key);
-
-    /**
-     * Use {@link #getBuriedPointMapMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getBuriedPointMap();
-
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getBuriedPointMapMap();
-
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-
-    java.lang.String getBuriedPointMapOrDefault(
-            java.lang.String key,
-            java.lang.String defaultValue);
-
-    /**
-     * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
-     */
-
-    java.lang.String getBuriedPointMapOrThrow(
-            java.lang.String key);
+  /**
+   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+   *
+   * @return a int
+   */
+  int getBuriedPointMapCount();
+  /**
+   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+   *
+   * @param key a {@link java.lang.String} object
+   * @return a boolean
+   */
+  boolean containsBuriedPointMap(
+      java.lang.String key);
+  /**
+   * Use {@link #getBuriedPointMapMap()} instead.
+   *
+   * @return a {@link java.util.Map} object
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getBuriedPointMap();
+  /**
+   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+   *
+   * @return a {@link java.util.Map} object
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getBuriedPointMapMap();
+  /**
+   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+   *
+   * @param key a {@link java.lang.String} object
+   * @param defaultValue a {@link java.lang.String} object
+   * @return a {@link java.lang.String} object
+   */
+  java.lang.String getBuriedPointMapOrDefault(
+      java.lang.String key,
+      java.lang.String defaultValue);
+  /**
+   * <code>map&lt;string, string&gt; buriedPointMap = 30;</code>
+   *
+   * @param key a {@link java.lang.String} object
+   * @return a {@link java.lang.String} object
+   */
+  java.lang.String getBuriedPointMapOrThrow(
+      java.lang.String key);
 }

@@ -3,69 +3,95 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>RoomRankMessageOuterClass class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public final class RoomRankMessageOuterClass {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_RoomRankMessage_descriptor;
-    static final
+  /**
+   * <p>Constructor for RoomRankMessageOuterClass.</p>
+   */
+  private RoomRankMessageOuterClass() {}
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  /**
+   * <p>registerAllExtensions.</p>
+   *
+   * @param registry a {@link com.google.protobuf.ExtensionRegistry} object
+   */
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /** Constant <code>internal_static_RoomRankMessage_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RoomRankMessage_descriptor;
+  /** Constant <code>internal_static_RoomRankMessage_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_RoomRankMessage_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_RoomRankMessage_RoomRank_descriptor;
-    static final
+      internal_static_RoomRankMessage_fieldAccessorTable;
+  /** Constant <code>internal_static_RoomRankMessage_RoomRank_descriptor</code> */
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RoomRankMessage_RoomRank_descriptor;
+  /** Constant <code>internal_static_RoomRankMessage_RoomRank_fieldAccessorTable</code> */
+  static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_RoomRankMessage_RoomRank_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+      internal_static_RoomRankMessage_RoomRank_fieldAccessorTable;
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n webcast/im/RoomRankMessage.proto\032\027webc" +
-                        "ast/im/Common.proto\032\027webcast/data/User.p" +
-                        "roto\"\242\001\n\017RoomRankMessage\022\027\n\006common\030\001 \001(\013" +
-                        "2\007.Common\022,\n\tranksList\030\002 \003(\0132\031.RoomRankM" +
-                        "essage.RoomRank\032H\n\010RoomRank\022\023\n\004user\030\001 \001(" +
-                        "\0132\005.User\022\020\n\010scoreStr\030\002 \001(\t\022\025\n\rprofileHid" +
-                        "den\030\003 \001(\010B=\n9cool.scx.live_room_watcher." +
-                        "douyin.proto_entity.webcast.imP\001b\006proto3"
-        };
-        descriptor = com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
-                                cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-                        });
-        internal_static_RoomRankMessage_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_RoomRankMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_RoomRankMessage_descriptor,
-                new java.lang.String[]{"Common", "RanksList",});
-        internal_static_RoomRankMessage_RoomRank_descriptor =
-                internal_static_RoomRankMessage_descriptor.getNestedTypes().get(0);
-        internal_static_RoomRankMessage_RoomRank_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_RoomRankMessage_RoomRank_descriptor,
-                new java.lang.String[]{"User", "ScoreStr", "ProfileHidden",});
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    }
-    private RoomRankMessageOuterClass() {
-    }
+  /**
+   * <p>Getter for the field <code>descriptor</code>.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.FileDescriptor} object
+   */
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  /** Constant <code>descriptor</code> */
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n webcast/im/RoomRankMessage.proto\032\027webc" +
+      "ast/im/Common.proto\032\027webcast/data/User.p" +
+      "roto\"\242\001\n\017RoomRankMessage\022\027\n\006common\030\001 \001(\013" +
+      "2\007.Common\022,\n\tranksList\030\002 \003(\0132\031.RoomRankM" +
+      "essage.RoomRank\032H\n\010RoomRank\022\023\n\004user\030\001 \001(" +
+      "\0132\005.User\022\020\n\010scoreStr\030\002 \001(\t\022\025\n\rprofileHid" +
+      "den\030\003 \001(\010B=\n9cool.scx.live_room_watcher." +
+      "douyin.proto_entity.webcast.imP\001b\006proto3"
+    };
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
+          cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
+        });
+    internal_static_RoomRankMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_RoomRankMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RoomRankMessage_descriptor,
+        new java.lang.String[] { "Common", "RanksList", });
+    internal_static_RoomRankMessage_RoomRank_descriptor =
+      internal_static_RoomRankMessage_descriptor.getNestedTypes().get(0);
+    internal_static_RoomRankMessage_RoomRank_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RoomRankMessage_RoomRank_descriptor,
+        new java.lang.String[] { "User", "ScoreStr", "ProfileHidden", });
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOuterClass.getDescriptor();
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

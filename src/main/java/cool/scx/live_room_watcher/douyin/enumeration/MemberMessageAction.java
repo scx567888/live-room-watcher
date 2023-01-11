@@ -3,6 +3,12 @@ package cool.scx.live_room_watcher.douyin.enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <p>MemberMessageAction class.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public enum MemberMessageAction {
 
     ENTER(1),
@@ -18,14 +24,25 @@ public enum MemberMessageAction {
     BLOCK(11),
     FOLLOW(20);
 
+    /** Constant <code>MAP</code> */
     private static final Map<Long, MemberMessageAction> MAP = initMap();
 
+    /**
+     * <p>Constructor for MemberMessageAction.</p>
+     *
+     * @param i a long
+     */
     final long code;
 
     MemberMessageAction(long i) {
         this.code = i;
     }
 
+    /**
+     * <p>initMap.</p>
+     *
+     * @return a {@link java.util.Map} object
+     */
     private static Map<Long, MemberMessageAction> initMap() {
         var map = new HashMap<Long, MemberMessageAction>();
         for (var value : MemberMessageAction.values()) {
@@ -34,10 +51,21 @@ public enum MemberMessageAction {
         return map;
     }
 
+    /**
+     * <p>of.</p>
+     *
+     * @param i a long
+     * @return a {@link cool.scx.live_room_watcher.douyin.enumeration.MemberMessageAction} object
+     */
     public static MemberMessageAction of(long i) {
         return MAP.get(i);
     }
 
+    /**
+     * <p>code.</p>
+     *
+     * @return a long
+     */
     public long code() {
         return code;
     }

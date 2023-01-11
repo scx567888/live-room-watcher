@@ -5,175 +5,212 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-11
+ *更新时间 : 2023-01-11
  * </pre>
- * <p>
+ *
  * Protobuf enum {@code RoomMsgTypeEnum}
+ *
+ * @author scx567888
+ * @version $Id: $Id
  */
 public enum RoomMsgTypeEnum
-        implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>DEFAULTROOMMSG = 0;</code>
-     */
-    DEFAULTROOMMSG(0),
-    /**
-     * <code>ECOMLIVEREPLAYSAVEROOMMSG = 1;</code>
-     */
-    ECOMLIVEREPLAYSAVEROOMMSG(1),
-    /**
-     * <code>CONSUMERRELATIONROOMMSG = 2;</code>
-     */
-    CONSUMERRELATIONROOMMSG(2),
-    /**
-     * <code>JUMANJIDATAAUTHNOTIFYMSG = 3;</code>
-     */
-    JUMANJIDATAAUTHNOTIFYMSG(3),
-    /**
-     * <code>VSWELCOMEMSG = 4;</code>
-     */
-    VSWELCOMEMSG(4),
-    /**
-     * <code>MINORREFUNDMSG = 5;</code>
-     */
-    MINORREFUNDMSG(5),
-    /**
-     * <code>PAIDLIVEROOMNOTIFYANCHORMSG = 6;</code>
-     */
-    PAIDLIVEROOMNOTIFYANCHORMSG(6),
-    /**
-     * <code>HOSTTEAMSYSTEMMSG = 7;</code>
-     */
-    HOSTTEAMSYSTEMMSG(7),
-    UNRECOGNIZED(-1),
-    ;
+    implements com.google.protobuf.ProtocolMessageEnum {
+  /**
+   * <code>DEFAULTROOMMSG = 0;</code>
+   */
+  DEFAULTROOMMSG(0),
+  /**
+   * <code>ECOMLIVEREPLAYSAVEROOMMSG = 1;</code>
+   */
+  ECOMLIVEREPLAYSAVEROOMMSG(1),
+  /**
+   * <code>CONSUMERRELATIONROOMMSG = 2;</code>
+   */
+  CONSUMERRELATIONROOMMSG(2),
+  /**
+   * <code>JUMANJIDATAAUTHNOTIFYMSG = 3;</code>
+   */
+  JUMANJIDATAAUTHNOTIFYMSG(3),
+  /**
+   * <code>VSWELCOMEMSG = 4;</code>
+   */
+  VSWELCOMEMSG(4),
+  /**
+   * <code>MINORREFUNDMSG = 5;</code>
+   */
+  MINORREFUNDMSG(5),
+  /**
+   * <code>PAIDLIVEROOMNOTIFYANCHORMSG = 6;</code>
+   */
+  PAIDLIVEROOMNOTIFYANCHORMSG(6),
+  /**
+   * <code>HOSTTEAMSYSTEMMSG = 7;</code>
+   */
+  HOSTTEAMSYSTEMMSG(7),
+  UNRECOGNIZED(-1),
+  ;
 
-    /**
-     * <code>DEFAULTROOMMSG = 0;</code>
-     */
-    public static final int DEFAULTROOMMSG_VALUE = 0;
-    /**
-     * <code>ECOMLIVEREPLAYSAVEROOMMSG = 1;</code>
-     */
-    public static final int ECOMLIVEREPLAYSAVEROOMMSG_VALUE = 1;
-    /**
-     * <code>CONSUMERRELATIONROOMMSG = 2;</code>
-     */
-    public static final int CONSUMERRELATIONROOMMSG_VALUE = 2;
-    /**
-     * <code>JUMANJIDATAAUTHNOTIFYMSG = 3;</code>
-     */
-    public static final int JUMANJIDATAAUTHNOTIFYMSG_VALUE = 3;
-    /**
-     * <code>VSWELCOMEMSG = 4;</code>
-     */
-    public static final int VSWELCOMEMSG_VALUE = 4;
-    /**
-     * <code>MINORREFUNDMSG = 5;</code>
-     */
-    public static final int MINORREFUNDMSG_VALUE = 5;
-    /**
-     * <code>PAIDLIVEROOMNOTIFYANCHORMSG = 6;</code>
-     */
-    public static final int PAIDLIVEROOMNOTIFYANCHORMSG_VALUE = 6;
-    /**
-     * <code>HOSTTEAMSYSTEMMSG = 7;</code>
-     */
-    public static final int HOSTTEAMSYSTEMMSG_VALUE = 7;
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-            RoomMsgTypeEnum> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<RoomMsgTypeEnum>() {
-                public RoomMsgTypeEnum findValueByNumber(int number) {
-                    return RoomMsgTypeEnum.forNumber(number);
-                }
-            };
-    private static final RoomMsgTypeEnum[] VALUES = values();
-    private final int value;
+  /**
+   * <code>DEFAULTROOMMSG = 0;</code>
+   */
+  public static final int DEFAULTROOMMSG_VALUE = 0;
+  /**
+   * <code>ECOMLIVEREPLAYSAVEROOMMSG = 1;</code>
+   */
+  public static final int ECOMLIVEREPLAYSAVEROOMMSG_VALUE = 1;
+  /**
+   * <code>CONSUMERRELATIONROOMMSG = 2;</code>
+   */
+  public static final int CONSUMERRELATIONROOMMSG_VALUE = 2;
+  /**
+   * <code>JUMANJIDATAAUTHNOTIFYMSG = 3;</code>
+   */
+  public static final int JUMANJIDATAAUTHNOTIFYMSG_VALUE = 3;
+  /**
+   * <code>VSWELCOMEMSG = 4;</code>
+   */
+  public static final int VSWELCOMEMSG_VALUE = 4;
+  /**
+   * <code>MINORREFUNDMSG = 5;</code>
+   */
+  public static final int MINORREFUNDMSG_VALUE = 5;
+  /**
+   * <code>PAIDLIVEROOMNOTIFYANCHORMSG = 6;</code>
+   */
+  public static final int PAIDLIVEROOMNOTIFYANCHORMSG_VALUE = 6;
+  /**
+   * <code>HOSTTEAMSYSTEMMSG = 7;</code>
+   */
+  public static final int HOSTTEAMSYSTEMMSG_VALUE = 7;
 
-    private RoomMsgTypeEnum(int value) {
-        this.value = value;
+
+  /**
+   * <p>getNumber.</p>
+   *
+   * @return a int
+   */
+  public final int getNumber() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalArgumentException(
+          "Can't get the number of an unknown enum value.");
     }
+    return value;
+  }
 
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static RoomMsgTypeEnum valueOf(int value) {
-        return forNumber(value);
+  /**
+   * <p>valueOf.</p>
+   *
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
+  @java.lang.Deprecated
+  public static RoomMsgTypeEnum valueOf(int value) {
+    return forNumber(value);
+  }
+
+  /**
+   * <p>forNumber.</p>
+   *
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
+   */
+  public static RoomMsgTypeEnum forNumber(int value) {
+    switch (value) {
+      case 0: return DEFAULTROOMMSG;
+      case 1: return ECOMLIVEREPLAYSAVEROOMMSG;
+      case 2: return CONSUMERRELATIONROOMMSG;
+      case 3: return JUMANJIDATAAUTHNOTIFYMSG;
+      case 4: return VSWELCOMEMSG;
+      case 5: return MINORREFUNDMSG;
+      case 6: return PAIDLIVEROOMNOTIFYANCHORMSG;
+      case 7: return HOSTTEAMSYSTEMMSG;
+      default: return null;
     }
+  }
 
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static RoomMsgTypeEnum forNumber(int value) {
-        switch (value) {
-            case 0:
-                return DEFAULTROOMMSG;
-            case 1:
-                return ECOMLIVEREPLAYSAVEROOMMSG;
-            case 2:
-                return CONSUMERRELATIONROOMMSG;
-            case 3:
-                return JUMANJIDATAAUTHNOTIFYMSG;
-            case 4:
-                return VSWELCOMEMSG;
-            case 5:
-                return MINORREFUNDMSG;
-            case 6:
-                return PAIDLIVEROOMNOTIFYANCHORMSG;
-            case 7:
-                return HOSTTEAMSYSTEMMSG;
-            default:
-                return null;
-        }
+  /**
+   * <p>internalGetValueMap.</p>
+   *
+   * @return a {@link com.google.protobuf.Internal.EnumLiteMap} object
+   */
+  public static com.google.protobuf.Internal.EnumLiteMap<RoomMsgTypeEnum>
+      internalGetValueMap() {
+    return internalValueMap;
+  }
+  /** Constant <code>internalValueMap</code> */
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      RoomMsgTypeEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RoomMsgTypeEnum>() {
+          public RoomMsgTypeEnum findValueByNumber(int number) {
+            return RoomMsgTypeEnum.forNumber(number);
+          }
+        };
+
+  /**
+   * <p>getValueDescriptor.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
+   */
+  public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      getValueDescriptor() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalStateException(
+          "Can't get the descriptor of an unrecognized enum value.");
     }
+    return getDescriptor().getValues().get(ordinal());
+  }
+  /**
+   * <p>getDescriptorForType.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
+   */
+  public final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptorForType() {
+    return getDescriptor();
+  }
+  /**
+   * <p>getDescriptor.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.EnumDescriptor} object
+   */
+  public static final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptor() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnumOuterClass.getDescriptor().getEnumTypes().get(0);
+  }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<RoomMsgTypeEnum>
-    internalGetValueMap() {
-        return internalValueMap;
+  /** Constant <code>VALUES</code> */
+  private static final RoomMsgTypeEnum[] VALUES = values();
+
+  /**
+   * <p>valueOf.</p>
+   *
+   * @param desc a {@link com.google.protobuf.Descriptors.EnumValueDescriptor} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnum} object
+   */
+  public static RoomMsgTypeEnum valueOf(
+      com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    if (desc.getType() != getDescriptor()) {
+      throw new java.lang.IllegalArgumentException(
+        "EnumValueDescriptor is not for this type.");
     }
-
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.RoomMsgTypeEnumOuterClass.getDescriptor().getEnumTypes().get(0);
+    if (desc.getIndex() == -1) {
+      return UNRECOGNIZED;
     }
+    return VALUES[desc.getIndex()];
+  }
 
-    public static RoomMsgTypeEnum valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-                    "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-            return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-    }
+  /**
+   * <p>Constructor for RoomMsgTypeEnum.</p>
+   *
+   * @param value a int
+   */
+  private final int value;
 
-    public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
-                    "Can't get the number of an unknown enum value.");
-        }
-        return value;
-    }
+  private RoomMsgTypeEnum(int value) {
+    this.value = value;
+  }
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalStateException(
-                    "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
-        return getDescriptor();
-    }
-
-    // @@protoc_insertion_point(enum_scope:RoomMsgTypeEnum)
+  // @@protoc_insertion_point(enum_scope:RoomMsgTypeEnum)
 }
 

@@ -3,7 +3,13 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.im;
 
+/**
+ * <p>LinkerLowBalanceForPaidLinkmicContentOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface LinkerLowBalanceForPaidLinkmicContentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:LinkerLowBalanceForPaidLinkmicContent)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:LinkerLowBalanceForPaidLinkmicContent)
+    com.google.protobuf.MessageOrBuilder {
 }

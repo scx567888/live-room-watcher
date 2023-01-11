@@ -52,6 +52,11 @@ public abstract class LiveRoomWatcher {
         };
     }
 
+    /**
+     * <p>nowTimeStr.</p>
+     *
+     * @return a {@link java.lang.String} object
+     */
     public static String nowTimeStr() {
         return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }

@@ -21,5 +21,10 @@ public interface Gift {
      */
     String name();
 
+    /**
+     * <p>count.</p>
+     *
+     * @return a long
+     */
     long count();
 }

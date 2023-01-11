@@ -5,1100 +5,1182 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 /**
  * <pre>
- * 根据抖音前台 js 编写
- * 更新时间 : 2023-01-05 17:14:42
+ *根据抖音前台 js 编写
+ *更新时间 : 2023-01-05 17:14:42
  * </pre>
- * <p>
+ *
  * Protobuf type {@code TextFormat}
+ *
+ * @author scx567888
+ * @version $Id: $Id
  */
 public final class TextFormat extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:TextFormat)
-        TextFormatOrBuilder {
-    public static final int COLOR_FIELD_NUMBER = 1;
-    public static final int BOLD_FIELD_NUMBER = 2;
-    public static final int ITALIC_FIELD_NUMBER = 3;
-    public static final int WEIGHT_FIELD_NUMBER = 4;
-    public static final int ITALICANGLE_FIELD_NUMBER = 5;
-    public static final int FONTSIZE_FIELD_NUMBER = 6;
-    public static final int USEHEIGHLIGHTCOLOR_FIELD_NUMBER = 7;
-    public static final int USEREMOTECLOR_FIELD_NUMBER = 8;
-    private static final long serialVersionUID = 0L;
-    // @@protoc_insertion_point(class_scope:TextFormat)
-    private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<TextFormat>
-            PARSER = new com.google.protobuf.AbstractParser<TextFormat>() {
-        @java.lang.Override
-        public TextFormat parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new TextFormat(input, extensionRegistry);
-        }
-    };
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:TextFormat)
+    TextFormatOrBuilder {
+/** Constant <code>serialVersionUID=0L</code> */
+private static final long serialVersionUID = 0L;
+  // Use TextFormat.newBuilder() to construct.
+  /**
+   * <p>Constructor for TextFormat.</p>
+   *
+   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
+   */
+  private TextFormat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  /**
+   * <p>Constructor for TextFormat.</p>
+   */
+  private TextFormat() {
+    color_ = "";
+  }
 
-    static {
-        DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat();
+  /** {@inheritDoc} */
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new TextFormat();
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  /**
+   * <p>Constructor for TextFormat.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  private TextFormat(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
     }
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-    private volatile java.lang.Object color_;
-    private boolean bold_;
-    private boolean italic_;
-    private int weight_;
-    private int italicAngle_;
-    private int fontSize_;
-    private boolean useHeighLightColor_;
-    private boolean useRemoteClor_;
-    private byte memoizedIsInitialized = -1;
+            color_ = s;
+            break;
+          }
+          case 16: {
 
-    // Use TextFormat.newBuilder() to construct.
-    private TextFormat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-    private TextFormat() {
-        color_ = "";
-    }
+            bold_ = input.readBool();
+            break;
+          }
+          case 24: {
 
-    private TextFormat(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    case 10: {
-                        java.lang.String s = input.readStringRequireUtf8();
+            italic_ = input.readBool();
+            break;
+          }
+          case 32: {
 
-                        color_ = s;
-                        break;
-                    }
-                    case 16: {
+            weight_ = input.readInt32();
+            break;
+          }
+          case 40: {
 
-                        bold_ = input.readBool();
-                        break;
-                    }
-                    case 24: {
+            italicAngle_ = input.readInt32();
+            break;
+          }
+          case 48: {
 
-                        italic_ = input.readBool();
-                        break;
-                    }
-                    case 32: {
+            fontSize_ = input.readInt32();
+            break;
+          }
+          case 56: {
 
-                        weight_ = input.readInt32();
-                        break;
-                    }
-                    case 40: {
+            useHeighLightColor_ = input.readBool();
+            break;
+          }
+          case 64: {
 
-                        italicAngle_ = input.readInt32();
-                        break;
-                    }
-                    case 48: {
-
-                        fontSize_ = input.readInt32();
-                        break;
-                    }
-                    case 56: {
-
-                        useHeighLightColor_ = input.readBool();
-                        break;
-                    }
-                    case 64: {
-
-                        useRemoteClor_ = input.readBool();
-                        break;
-                    }
-                    default: {
-                        if (!parseUnknownField(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                }
+            useRemoteClor_ = input.readBool();
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
+            break;
+          }
         }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
     }
+  }
+  /**
+   * <p>getDescriptor.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
+   */
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
+  }
 
+  /** {@inheritDoc} */
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder.class);
+  }
+
+  /** Constant <code>COLOR_FIELD_NUMBER=1</code> */
+  public static final int COLOR_FIELD_NUMBER = 1;
+  private volatile java.lang.Object color_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>string color = 1;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getColor() {
+    java.lang.Object ref = color_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      color_ = s;
+      return s;
+    }
+  }
+  /**
+   * {@inheritDoc}
+   *
+   * <code>string color = 1;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getColorBytes() {
+    java.lang.Object ref = color_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      color_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  /** Constant <code>BOLD_FIELD_NUMBER=2</code> */
+  public static final int BOLD_FIELD_NUMBER = 2;
+  private boolean bold_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>bool bold = 2;</code>
+   */
+  @java.lang.Override
+  public boolean getBold() {
+    return bold_;
+  }
+
+  /** Constant <code>ITALIC_FIELD_NUMBER=3</code> */
+  public static final int ITALIC_FIELD_NUMBER = 3;
+  private boolean italic_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>bool italic = 3;</code>
+   */
+  @java.lang.Override
+  public boolean getItalic() {
+    return italic_;
+  }
+
+  /** Constant <code>WEIGHT_FIELD_NUMBER=4</code> */
+  public static final int WEIGHT_FIELD_NUMBER = 4;
+  private int weight_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>int32 weight = 4;</code>
+   */
+  @java.lang.Override
+  public int getWeight() {
+    return weight_;
+  }
+
+  /** Constant <code>ITALICANGLE_FIELD_NUMBER=5</code> */
+  public static final int ITALICANGLE_FIELD_NUMBER = 5;
+  private int italicAngle_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>int32 italicAngle = 5;</code>
+   */
+  @java.lang.Override
+  public int getItalicAngle() {
+    return italicAngle_;
+  }
+
+  /** Constant <code>FONTSIZE_FIELD_NUMBER=6</code> */
+  public static final int FONTSIZE_FIELD_NUMBER = 6;
+  private int fontSize_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>int32 fontSize = 6;</code>
+   */
+  @java.lang.Override
+  public int getFontSize() {
+    return fontSize_;
+  }
+
+  /** Constant <code>USEHEIGHLIGHTCOLOR_FIELD_NUMBER=7</code> */
+  public static final int USEHEIGHLIGHTCOLOR_FIELD_NUMBER = 7;
+  private boolean useHeighLightColor_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>bool useHeighLightColor = 7;</code>
+   */
+  @java.lang.Override
+  public boolean getUseHeighLightColor() {
+    return useHeighLightColor_;
+  }
+
+  /** Constant <code>USEREMOTECLOR_FIELD_NUMBER=8</code> */
+  public static final int USEREMOTECLOR_FIELD_NUMBER = 8;
+  private boolean useRemoteClor_;
+  /**
+   * {@inheritDoc}
+   *
+   * <code>bool useRemoteClor = 8;</code>
+   */
+  @java.lang.Override
+  public boolean getUseRemoteClor() {
+    return useRemoteClor_;
+  }
+
+  private byte memoizedIsInitialized = -1;
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    if (!getColorBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, color_);
+    }
+    if (bold_ != false) {
+      output.writeBool(2, bold_);
+    }
+    if (italic_ != false) {
+      output.writeBool(3, italic_);
+    }
+    if (weight_ != 0) {
+      output.writeInt32(4, weight_);
+    }
+    if (italicAngle_ != 0) {
+      output.writeInt32(5, italicAngle_);
+    }
+    if (fontSize_ != 0) {
+      output.writeInt32(6, fontSize_);
+    }
+    if (useHeighLightColor_ != false) {
+      output.writeBool(7, useHeighLightColor_);
+    }
+    if (useRemoteClor_ != false) {
+      output.writeBool(8, useRemoteClor_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    if (!getColorBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, color_);
+    }
+    if (bold_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, bold_);
+    }
+    if (italic_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, italic_);
+    }
+    if (weight_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, weight_);
+    }
+    if (italicAngle_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, italicAngle_);
+    }
+    if (fontSize_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, fontSize_);
+    }
+    if (useHeighLightColor_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, useHeighLightColor_);
+    }
+    if (useRemoteClor_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(8, useRemoteClor_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat)) {
+      return super.equals(obj);
+    }
+    cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) obj;
+
+    if (!getColor()
+        .equals(other.getColor())) return false;
+    if (getBold()
+        != other.getBold()) return false;
+    if (getItalic()
+        != other.getItalic()) return false;
+    if (getWeight()
+        != other.getWeight()) return false;
+    if (getItalicAngle()
+        != other.getItalicAngle()) return false;
+    if (getFontSize()
+        != other.getFontSize()) return false;
+    if (getUseHeighLightColor()
+        != other.getUseHeighLightColor()) return false;
+    if (getUseRemoteClor()
+        != other.getUseRemoteClor()) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + COLOR_FIELD_NUMBER;
+    hash = (53 * hash) + getColor().hashCode();
+    hash = (37 * hash) + BOLD_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getBold());
+    hash = (37 * hash) + ITALIC_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getItalic());
+    hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
+    hash = (53 * hash) + getWeight();
+    hash = (37 * hash) + ITALICANGLE_FIELD_NUMBER;
+    hash = (53 * hash) + getItalicAngle();
+    hash = (37 * hash) + FONTSIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getFontSize();
+    hash = (37 * hash) + USEHEIGHLIGHTCOLOR_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getUseHeighLightColor());
+    hash = (37 * hash) + USEREMOTECLOR_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getUseRemoteClor());
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @throws java.io.IOException if any.
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public Builder newBuilderForType() { return newBuilder(); }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder} object
+   */
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder} object
+   */
+  public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * <pre>
+   *根据抖音前台 js 编写
+   *更新时间 : 2023-01-05 17:14:42
+   * </pre>
+   *
+   * Protobuf type {@code TextFormat}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:TextFormat)
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<TextFormat> parser() {
-        return PARSER;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-        return new TextFormat();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
+        getDescriptor() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder.class);
+        internalGetFieldAccessorTable() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder.class);
     }
 
-    /**
-     * <code>string color = 1;</code>
-     *
-     * @return The color.
-     */
-    @java.lang.Override
-    public java.lang.String getColor() {
-        java.lang.Object ref = color_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            color_ = s;
-            return s;
-        }
+    // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
     }
 
-    /**
-     * <code>string color = 1;</code>
-     *
-     * @return The bytes for color.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getColorBytes() {
-        java.lang.Object ref = color_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            color_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
     }
-
-    /**
-     * <code>bool bold = 2;</code>
-     *
-     * @return The bold.
-     */
-    @java.lang.Override
-    public boolean getBold() {
-        return bold_;
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
     }
-
-    /**
-     * <code>bool italic = 3;</code>
-     *
-     * @return The italic.
-     */
     @java.lang.Override
-    public boolean getItalic() {
-        return italic_;
-    }
+    public Builder clear() {
+      super.clear();
+      color_ = "";
 
-    /**
-     * <code>int32 weight = 4;</code>
-     *
-     * @return The weight.
-     */
-    @java.lang.Override
-    public int getWeight() {
-        return weight_;
-    }
+      bold_ = false;
 
-    /**
-     * <code>int32 italicAngle = 5;</code>
-     *
-     * @return The italicAngle.
-     */
-    @java.lang.Override
-    public int getItalicAngle() {
-        return italicAngle_;
-    }
+      italic_ = false;
 
-    /**
-     * <code>int32 fontSize = 6;</code>
-     *
-     * @return The fontSize.
-     */
-    @java.lang.Override
-    public int getFontSize() {
-        return fontSize_;
-    }
+      weight_ = 0;
 
-    /**
-     * <code>bool useHeighLightColor = 7;</code>
-     *
-     * @return The useHeighLightColor.
-     */
-    @java.lang.Override
-    public boolean getUseHeighLightColor() {
-        return useHeighLightColor_;
-    }
+      italicAngle_ = 0;
 
-    /**
-     * <code>bool useRemoteClor = 8;</code>
-     *
-     * @return The useRemoteClor.
-     */
-    @java.lang.Override
-    public boolean getUseRemoteClor() {
-        return useRemoteClor_;
+      fontSize_ = 0;
+
+      useHeighLightColor_ = false;
+
+      useRemoteClor_ = false;
+
+      return this;
     }
 
     @java.lang.Override
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (!getColorBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, color_);
-        }
-        if (bold_ != false) {
-            output.writeBool(2, bold_);
-        }
-        if (italic_ != false) {
-            output.writeBool(3, italic_);
-        }
-        if (weight_ != 0) {
-            output.writeInt32(4, weight_);
-        }
-        if (italicAngle_ != 0) {
-            output.writeInt32(5, italicAngle_);
-        }
-        if (fontSize_ != 0) {
-            output.writeInt32(6, fontSize_);
-        }
-        if (useHeighLightColor_ != false) {
-            output.writeBool(7, useHeighLightColor_);
-        }
-        if (useRemoteClor_ != false) {
-            output.writeBool(8, useRemoteClor_);
-        }
-        unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getColorBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, color_);
-        }
-        if (bold_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(2, bold_);
-        }
-        if (italic_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(3, italic_);
-        }
-        if (weight_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(4, weight_);
-        }
-        if (italicAngle_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(5, italicAngle_);
-        }
-        if (fontSize_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(6, fontSize_);
-        }
-        if (useHeighLightColor_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(7, useHeighLightColor_);
-        }
-        if (useRemoteClor_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeBoolSize(8, useRemoteClor_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat)) {
-            return super.equals(obj);
-        }
-        cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat other = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) obj;
-
-        if (!getColor()
-                .equals(other.getColor())) return false;
-        if (getBold()
-                != other.getBold()) return false;
-        if (getItalic()
-                != other.getItalic()) return false;
-        if (getWeight()
-                != other.getWeight()) return false;
-        if (getItalicAngle()
-                != other.getItalicAngle()) return false;
-        if (getFontSize()
-                != other.getFontSize()) return false;
-        if (getUseHeighLightColor()
-                != other.getUseHeighLightColor()) return false;
-        if (getUseRemoteClor()
-                != other.getUseRemoteClor()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + COLOR_FIELD_NUMBER;
-        hash = (53 * hash) + getColor().hashCode();
-        hash = (37 * hash) + BOLD_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getBold());
-        hash = (37 * hash) + ITALIC_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getItalic());
-        hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
-        hash = (53 * hash) + getWeight();
-        hash = (37 * hash) + ITALICANGLE_FIELD_NUMBER;
-        hash = (53 * hash) + getItalicAngle();
-        hash = (37 * hash) + FONTSIZE_FIELD_NUMBER;
-        hash = (53 * hash) + getFontSize();
-        hash = (37 * hash) + USEHEIGHLIGHTCOLOR_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getUseHeighLightColor());
-        hash = (37 * hash) + USEREMOTECLOR_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                getUseRemoteClor());
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    @java.lang.Override
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TextFormat> getParserForType() {
-        return PARSER;
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
     }
 
     @java.lang.Override
     public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
+      return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.getDefaultInstance();
     }
 
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat build() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat buildPartial() {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat(this);
+      result.color_ = color_;
+      result.bold_ = bold_;
+      result.italic_ = italic_;
+      result.weight_ = weight_;
+      result.italicAngle_ = italicAngle_;
+      result.fontSize_ = fontSize_;
+      result.useHeighLightColor_ = useHeighLightColor_;
+      result.useRemoteClor_ = useRemoteClor_;
+      onBuilt();
+      return result;
+    }
+
+    @java.lang.Override
+    public Builder clone() {
+      return super.clone();
+    }
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return super.addRepeatedField(field, value);
+    }
+    @java.lang.Override
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) {
+        return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat other) {
+      if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.getDefaultInstance()) return this;
+      if (!other.getColor().isEmpty()) {
+        color_ = other.color_;
+        onChanged();
+      }
+      if (other.getBold() != false) {
+        setBold(other.getBold());
+      }
+      if (other.getItalic() != false) {
+        setItalic(other.getItalic());
+      }
+      if (other.getWeight() != 0) {
+        setWeight(other.getWeight());
+      }
+      if (other.getItalicAngle() != 0) {
+        setItalicAngle(other.getItalicAngle());
+      }
+      if (other.getFontSize() != 0) {
+        setFontSize(other.getFontSize());
+      }
+      if (other.getUseHeighLightColor() != false) {
+        setUseHeighLightColor(other.getUseHeighLightColor());
+      }
+      if (other.getUseRemoteClor() != false) {
+        setUseRemoteClor(other.getUseRemoteClor());
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    @java.lang.Override
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
+    }
+
+    private java.lang.Object color_ = "";
     /**
-     * <pre>
-     * 根据抖音前台 js 编写
-     * 更新时间 : 2023-01-05 17:14:42
-     * </pre>
-     * <p>
-     * Protobuf type {@code TextFormat}
+     * <code>string color = 1;</code>
+     * @return The color.
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:TextFormat)
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOrBuilder {
-        private java.lang.Object color_ = "";
-        private boolean bold_;
-        private boolean italic_;
-        private int weight_;
-        private int italicAngle_;
-        private int fontSize_;
-        private boolean useHeighLightColor_;
-        private boolean useRemoteClor_;
-
-        // Construct using cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-        }
-
-        @java.lang.Override
-        public Builder clear() {
-            super.clear();
-            color_ = "";
-
-            bold_ = false;
-
-            italic_ = false;
-
-            weight_ = 0;
-
-            italicAngle_ = 0;
-
-            fontSize_ = 0;
-
-            useHeighLightColor_ = false;
-
-            useRemoteClor_ = false;
-
-            return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstanceForType() {
-            return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat build() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        @java.lang.Override
-        public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat buildPartial() {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat result = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat(this);
-            result.color_ = color_;
-            result.bold_ = bold_;
-            result.italic_ = italic_;
-            result.weight_ = weight_;
-            result.italicAngle_ = italicAngle_;
-            result.fontSize_ = fontSize_;
-            result.useHeighLightColor_ = useHeighLightColor_;
-            result.useRemoteClor_ = useRemoteClor_;
-            onBuilt();
-            return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-            return super.clone();
-        }
-
-        @java.lang.Override
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.setField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return super.clearField(field);
-        }
-
-        @java.lang.Override
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return super.clearOneof(oneof);
-        }
-
-        @java.lang.Override
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return super.setRepeatedField(field, index, value);
-        }
-
-        @java.lang.Override
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return super.addRepeatedField(field, value);
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) {
-                return mergeFrom((cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat other) {
-            if (other == cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.getDefaultInstance())
-                return this;
-            if (!other.getColor().isEmpty()) {
-                color_ = other.color_;
-                onChanged();
-            }
-            if (other.getBold() != false) {
-                setBold(other.getBold());
-            }
-            if (other.getItalic() != false) {
-                setItalic(other.getItalic());
-            }
-            if (other.getWeight() != 0) {
-                setWeight(other.getWeight());
-            }
-            if (other.getItalicAngle() != 0) {
-                setItalicAngle(other.getItalicAngle());
-            }
-            if (other.getFontSize() != 0) {
-                setFontSize(other.getFontSize());
-            }
-            if (other.getUseHeighLightColor() != false) {
-                setUseHeighLightColor(other.getUseHeighLightColor());
-            }
-            if (other.getUseRemoteClor() != false) {
-                setUseRemoteClor(other.getUseRemoteClor());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        /**
-         * <code>string color = 1;</code>
-         *
-         * @return The color.
-         */
-        public java.lang.String getColor() {
-            java.lang.Object ref = color_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                color_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string color = 1;</code>
-         *
-         * @param value The color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColor(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            color_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string color = 1;</code>
-         *
-         * @return The bytes for color.
-         */
-        public com.google.protobuf.ByteString
-        getColorBytes() {
-            java.lang.Object ref = color_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                color_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string color = 1;</code>
-         *
-         * @param value The bytes for color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColorBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            color_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string color = 1;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearColor() {
-
-            color_ = getDefaultInstance().getColor();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool bold = 2;</code>
-         *
-         * @return The bold.
-         */
-        @java.lang.Override
-        public boolean getBold() {
-            return bold_;
-        }
-
-        /**
-         * <code>bool bold = 2;</code>
-         *
-         * @param value The bold to set.
-         * @return This builder for chaining.
-         */
-        public Builder setBold(boolean value) {
-
-            bold_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool bold = 2;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearBold() {
-
-            bold_ = false;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool italic = 3;</code>
-         *
-         * @return The italic.
-         */
-        @java.lang.Override
-        public boolean getItalic() {
-            return italic_;
-        }
-
-        /**
-         * <code>bool italic = 3;</code>
-         *
-         * @param value The italic to set.
-         * @return This builder for chaining.
-         */
-        public Builder setItalic(boolean value) {
-
-            italic_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool italic = 3;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearItalic() {
-
-            italic_ = false;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 weight = 4;</code>
-         *
-         * @return The weight.
-         */
-        @java.lang.Override
-        public int getWeight() {
-            return weight_;
-        }
-
-        /**
-         * <code>int32 weight = 4;</code>
-         *
-         * @param value The weight to set.
-         * @return This builder for chaining.
-         */
-        public Builder setWeight(int value) {
-
-            weight_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 weight = 4;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearWeight() {
-
-            weight_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 italicAngle = 5;</code>
-         *
-         * @return The italicAngle.
-         */
-        @java.lang.Override
-        public int getItalicAngle() {
-            return italicAngle_;
-        }
-
-        /**
-         * <code>int32 italicAngle = 5;</code>
-         *
-         * @param value The italicAngle to set.
-         * @return This builder for chaining.
-         */
-        public Builder setItalicAngle(int value) {
-
-            italicAngle_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 italicAngle = 5;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearItalicAngle() {
-
-            italicAngle_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 fontSize = 6;</code>
-         *
-         * @return The fontSize.
-         */
-        @java.lang.Override
-        public int getFontSize() {
-            return fontSize_;
-        }
-
-        /**
-         * <code>int32 fontSize = 6;</code>
-         *
-         * @param value The fontSize to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFontSize(int value) {
-
-            fontSize_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 fontSize = 6;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearFontSize() {
-
-            fontSize_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool useHeighLightColor = 7;</code>
-         *
-         * @return The useHeighLightColor.
-         */
-        @java.lang.Override
-        public boolean getUseHeighLightColor() {
-            return useHeighLightColor_;
-        }
-
-        /**
-         * <code>bool useHeighLightColor = 7;</code>
-         *
-         * @param value The useHeighLightColor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUseHeighLightColor(boolean value) {
-
-            useHeighLightColor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool useHeighLightColor = 7;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearUseHeighLightColor() {
-
-            useHeighLightColor_ = false;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool useRemoteClor = 8;</code>
-         *
-         * @return The useRemoteClor.
-         */
-        @java.lang.Override
-        public boolean getUseRemoteClor() {
-            return useRemoteClor_;
-        }
-
-        /**
-         * <code>bool useRemoteClor = 8;</code>
-         *
-         * @param value The useRemoteClor to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUseRemoteClor(boolean value) {
-
-            useRemoteClor_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>bool useRemoteClor = 8;</code>
-         *
-         * @return This builder for chaining.
-         */
-        public Builder clearUseRemoteClor() {
-
-            useRemoteClor_ = false;
-            onChanged();
-            return this;
-        }
-
-        @java.lang.Override
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:TextFormat)
+    public java.lang.String getColor() {
+      java.lang.Object ref = color_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        color_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
+    /**
+     * <code>string color = 1;</code>
+     * @return The bytes for color.
+     */
+    public com.google.protobuf.ByteString
+        getColorBytes() {
+      java.lang.Object ref = color_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        color_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string color = 1;</code>
+     * @param value The color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setColor(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      color_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string color = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearColor() {
+      
+      color_ = getDefaultInstance().getColor();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string color = 1;</code>
+     * @param value The bytes for color to set.
+     * @return This builder for chaining.
+     */
+    public Builder setColorBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      color_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean bold_ ;
+    /**
+     * <code>bool bold = 2;</code>
+     * @return The bold.
+     */
+    @java.lang.Override
+    public boolean getBold() {
+      return bold_;
+    }
+    /**
+     * <code>bool bold = 2;</code>
+     * @param value The bold to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBold(boolean value) {
+      
+      bold_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool bold = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBold() {
+      
+      bold_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean italic_ ;
+    /**
+     * <code>bool italic = 3;</code>
+     * @return The italic.
+     */
+    @java.lang.Override
+    public boolean getItalic() {
+      return italic_;
+    }
+    /**
+     * <code>bool italic = 3;</code>
+     * @param value The italic to set.
+     * @return This builder for chaining.
+     */
+    public Builder setItalic(boolean value) {
+      
+      italic_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool italic = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearItalic() {
+      
+      italic_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int weight_ ;
+    /**
+     * <code>int32 weight = 4;</code>
+     * @return The weight.
+     */
+    @java.lang.Override
+    public int getWeight() {
+      return weight_;
+    }
+    /**
+     * <code>int32 weight = 4;</code>
+     * @param value The weight to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWeight(int value) {
+      
+      weight_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 weight = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWeight() {
+      
+      weight_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int italicAngle_ ;
+    /**
+     * <code>int32 italicAngle = 5;</code>
+     * @return The italicAngle.
+     */
+    @java.lang.Override
+    public int getItalicAngle() {
+      return italicAngle_;
+    }
+    /**
+     * <code>int32 italicAngle = 5;</code>
+     * @param value The italicAngle to set.
+     * @return This builder for chaining.
+     */
+    public Builder setItalicAngle(int value) {
+      
+      italicAngle_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 italicAngle = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearItalicAngle() {
+      
+      italicAngle_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int fontSize_ ;
+    /**
+     * <code>int32 fontSize = 6;</code>
+     * @return The fontSize.
+     */
+    @java.lang.Override
+    public int getFontSize() {
+      return fontSize_;
+    }
+    /**
+     * <code>int32 fontSize = 6;</code>
+     * @param value The fontSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFontSize(int value) {
+      
+      fontSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 fontSize = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFontSize() {
+      
+      fontSize_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean useHeighLightColor_ ;
+    /**
+     * <code>bool useHeighLightColor = 7;</code>
+     * @return The useHeighLightColor.
+     */
+    @java.lang.Override
+    public boolean getUseHeighLightColor() {
+      return useHeighLightColor_;
+    }
+    /**
+     * <code>bool useHeighLightColor = 7;</code>
+     * @param value The useHeighLightColor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUseHeighLightColor(boolean value) {
+      
+      useHeighLightColor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool useHeighLightColor = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUseHeighLightColor() {
+      
+      useHeighLightColor_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean useRemoteClor_ ;
+    /**
+     * <code>bool useRemoteClor = 8;</code>
+     * @return The useRemoteClor.
+     */
+    @java.lang.Override
+    public boolean getUseRemoteClor() {
+      return useRemoteClor_;
+    }
+    /**
+     * <code>bool useRemoteClor = 8;</code>
+     * @param value The useRemoteClor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUseRemoteClor(boolean value) {
+      
+      useRemoteClor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool useRemoteClor = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUseRemoteClor() {
+      
+      useRemoteClor_ = false;
+      onChanged();
+      return this;
+    }
+    @java.lang.Override
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFields(unknownFields);
+    }
+
+    @java.lang.Override
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
+    }
+
+
+    // @@protoc_insertion_point(builder_scope:TextFormat)
+  }
+
+  // @@protoc_insertion_point(class_scope:TextFormat)
+  /** Constant <code>DEFAULT_INSTANCE</code> */
+  private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat();
+  }
+
+  /**
+   * <p>getDefaultInstance.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
+   */
+  public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  /** Constant <code>PARSER</code> */
+  private static final com.google.protobuf.Parser<TextFormat>
+      PARSER = new com.google.protobuf.AbstractParser<TextFormat>() {
+    @java.lang.Override
+    public TextFormat parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return new TextFormat(input, extensionRegistry);
+    }
+  };
+
+  /**
+   * <p>parser.</p>
+   *
+   * @return a {@link com.google.protobuf.Parser} object
+   */
+  public static com.google.protobuf.Parser<TextFormat> parser() {
+    return PARSER;
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public com.google.protobuf.Parser<TextFormat> getParserForType() {
+    return PARSER;
+  }
+
+  /** {@inheritDoc} */
+  @java.lang.Override
+  public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 

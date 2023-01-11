@@ -25,22 +25,19 @@ public class DouYinGift implements Gift {
         this.user = new DouYinUser(giftMessage.getUser());
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public User user() {
         return user;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public String name() {
         return this.giftMessage.getGift().getName();
     }
 
+    /** {@inheritDoc} */
     @Override
     public long count() {
         return this.giftMessage.getTotalCount();
