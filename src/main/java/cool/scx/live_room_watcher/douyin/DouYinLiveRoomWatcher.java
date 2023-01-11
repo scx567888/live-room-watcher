@@ -8,7 +8,6 @@ import cool.scx.live_room_watcher.douyin.entity.DouYinApplication;
 import cool.scx.live_room_watcher.douyin.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.douyin.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame;
-import cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomStats;
 import cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.*;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -418,12 +417,20 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastRoomRankMessage" -> {//房间排行榜
                 var roomRankMessage = RoomRankMessage.parseFrom(payload);
+                var sb = new StringBuilder("房间排行榜更新 : \n");
+                var index = 1;
+                for (var roomRank : roomRankMessage.getRanksListList()) {
+                    sb.append(index).append(" : ").append(roomRank.getUser().getNickname()).append("\n");
+                    index += 1;
+                }
+                System.out.print(sb);
             }
             case "WebcastUpdateFanTicketMessage" -> {//粉丝票计数 ??? 不玩抖音不太懂
                 var updateFanTicketMessage = UpdateFanTicketMessage.parseFrom(payload);
             }
-            case "WebcastRoomStatsMessage" -> {
-                var roomStats = RoomStats.parseFrom(payload);
+            case "WebcastRoomStatsMessage" -> {//房间状态
+                var roomStats = RoomStatsMessage.parseFrom(payload);
+                System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
             }
             case "WebcastCommerceMessage" -> {
                 //todo WebcastCommerceMessage
@@ -466,6 +473,9 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastGameCPUserDownloadMessage" -> {//不知道是啥
                 var gameCPUserDownloadMessage = GameCPUserDownloadMessage.parseFrom(payload);
+            }
+            case "WebcastHotRoomMessage" -> {//热门直播间 ???
+                var hotRoomMessage = HotRoomMessage.parseFrom(payload);
             }
             default -> {
                 System.err.println("DouYin -> 未处理 Message :" + message);
