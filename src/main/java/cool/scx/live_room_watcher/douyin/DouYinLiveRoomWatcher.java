@@ -383,6 +383,8 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 long repeatEnd = giftMessage.getRepeatEnd();
                 long totalCount = giftMessage.getTotalCount();
                 //todo 哪个是真正的总数 ???
+                //todo 人气 Top 是拿不到 name 的
+                String name = giftMessage.getGift().getName();
                 var douYinGift = new DouYinGift(giftMessage);
                 this.onGiftHandler.handle(douYinGift);
             }
@@ -483,7 +485,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             }
             case "WebcastHotChatMessage" -> {
                 var hotChatMessage = HotChatMessage.parseFrom(payload);
-                System.out.println(hotChatMessage);
+                System.out.println("热门消息 : " + hotChatMessage.getTitle() + " : " + hotChatMessage.getContent());
             }
             case "WebcastLuckyBoxMessage" -> {//幸运盒 ???
                 //todo  WebcastLuckyBoxMessage
