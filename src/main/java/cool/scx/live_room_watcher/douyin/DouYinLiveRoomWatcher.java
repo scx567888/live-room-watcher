@@ -251,6 +251,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             });
             System.out.println("连接成功 !!!");
         }).onFailure(e -> {
+            //todo 这里有时会 200 待研究
             e.printStackTrace();
             startWatch();
         });
