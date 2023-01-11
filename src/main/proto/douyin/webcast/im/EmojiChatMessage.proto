@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+import "webcast/data/Text.proto";
+import "webcast/data/GiftTrayInfo.proto";
+import "webcast/data/Image.proto";
+import "webcast/data/GiftIMPriority.proto";
+import "webcast/data/GiftStruct.proto";
+import "webcast/data/AssetEffectMixInfo.proto";
+import "webcast/im/PublicAreaCommon.proto";
+import "webcast/data/AnchorGiftData.proto";
+
+//更新时间 : 2023-01-11
+message EmojiChatMessage {
+  Common common = 1;
+  User   user = 2;
+  int64 emojiId = 3;
+  Text  emojiContent = 4;
+  string defaultContent = 5;
+  Image    backgroundImage = 6;
+  bool  fromIntercom = 7;
+  bool   intercomHideUserCard = 8;
+}

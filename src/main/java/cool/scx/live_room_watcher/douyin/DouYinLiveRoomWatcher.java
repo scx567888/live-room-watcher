@@ -336,7 +336,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                         System.out.println("KICK_OUT");
                     }
                     case ENTER -> {
-                        System.out.println("ENTER");
+//                        System.out.println("ENTER");
                     }
                     case LEAVE -> {
                         System.out.println("LEAVE");
@@ -370,6 +370,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 long repeatCount = giftMessage.getRepeatCount();
                 long repeatEnd = giftMessage.getRepeatEnd();
                 long totalCount = giftMessage.getTotalCount();
+                //todo 哪个是真正的总数 ???
                 var douYinGift = new DouYinGift(giftMessage);
                 this.onGiftHandler.handle(douYinGift);
             }
@@ -412,13 +413,13 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 var roomStats = RoomStats.parseFrom(payload);
             }
             case "WebcastCommerceMessage" -> {
-                //todo
+                //todo WebcastCommerceMessage
             }
             case "WebcastAudienceEntranceMessage" -> {//观众入场信息
-                //todo
+                //todo WebcastAudienceEntranceMessage
             }
             case "WebcastStampMessage" -> {
-                //todo
+                //todo WebcastStampMessage
             }
             case "WebcastSyncStreamMessage" -> {
                 var syncStreamMessage = SyncStreamMessage.parseFrom(payload);
@@ -427,28 +428,28 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 var audioChatMessage = AudioChatMessage.parseFrom(payload);
             }
             case "WebcastLinkMicArmiesMethod" -> {//连麦 ??
-                //todo
+                //todo WebcastLinkMicArmiesMethod
             }
             case "WebcastProfitInteractionScoreMessage" -> {
-                //todo
+                //todo WebcastProfitInteractionScoreMessage
             }
             case "WebcastLinkMicMethod" -> {
-                //todo
+                //todo WebcastLinkMicMethod
             }
             case "LinkMicMethod" -> {
-                //todo
+                //todo LinkMicMethod
             }
             case "WebcastLinkMessage" -> {//连麦 ???
                 var linkMessage = LinkMessage.parseFrom(payload);
             }
-            case "WebcastRoomDataSyncMessage"->{
-
+            case "WebcastRoomDataSyncMessage" -> {
+                //todo WebcastRoomDataSyncMessage
             }
-            case "WebcastEmojiChatMessage"->{
-
+            case "WebcastEmojiChatMessage" -> {//emoji 类型的消息 ???
+                var emojiChatMessage = EmojiChatMessage.parseFrom(payload);
             }
-            case "WebcastLinkerContributeMessage"->{
-
+            case "WebcastLinkerContributeMessage" -> {
+                //todo  WebcastLinkerContributeMessage
             }
             default -> {
                 System.err.println("DouYin -> 未处理 Message :" + message);
