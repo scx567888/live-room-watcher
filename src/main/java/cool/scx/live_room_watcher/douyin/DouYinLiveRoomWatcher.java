@@ -25,7 +25,11 @@ import java.net.URLDecoder;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import static cool.scx.live_room_watcher.Navigator.navigator;
 
 /**
  * <p>DouYinLiveRoomWatcher class.</p>
@@ -267,7 +271,8 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 .setSsl(true)
                 .setHost("webcast3-ws-web-lf.douyin.com")
                 .setPort(443)
-                .addHeader("Cookie", "ttwid=" + ttwid);
+                .addHeader("Cookie", "ttwid=" + ttwid)
+                .addHeader("User-Agent", navigator().userAgent());
     }
 
     /**
@@ -276,8 +281,17 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      * @return a {@link java.net.URI} object
      */
     public URI getWebSocketURI() {
+        var internalExtMap = new LinkedHashMap<>();
+        internalExtMap.put("internal_src", "dim");
+        internalExtMap.put("wss_push_room_id", liveRoomID);
+        internalExtMap.put("wss_push_did", "7184667748424615439");
+        internalExtMap.put("dim_log_id", "2023011316221327ACACF0E44A2C0E8200");
+        internalExtMap.put("fetch_time", "1673598133900");
+        internalExtMap.put("seq", "1");
+        internalExtMap.put("wss_info", "0-1673598133900-0-0");
+        internalExtMap.put("wrds_kvs", "WebcastRoomRankMessage-1673597852921055645_WebcastRoomStatsMessage-1673598128993068211");
 
-        var internalExt = "internal_src:dim|wss_push_room_id:" + liveRoomID + "|wss_push_did:7184667748424615439|dim_log_id:202301041518458B50FA14C1692B20E226|fetch_time:1672816725842|seq:1|wss_info:0-1672816725842-0-0|wrds_kvs:WebcastRoomRankMessage-1672793739221591107_WebcastRoomStatsMessage-1672816721958290810";
+        var internalExt = internalExtMap.entrySet().stream().map(c -> c.getKey() + ":" + c.getValue()).collect(Collectors.joining("|"));
 
         return URIBuilder.of("/webcast/im/push/v2/")
                 .addParam("app_name", "douyin_web")
@@ -296,14 +310,14 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 .addParam("support_wrds", "1")
                 .addParam("im_path", "/webcast/im/fetch/")
                 .addParam("device_platform", "web")
-                .addParam("cookie_enabled", "true")
-                .addParam("screen_width", "1228")
-                .addParam("screen_height", "691")
-                .addParam("browser_language", "zh-CN")
-                .addParam("browser_platform", "Win32")
-                .addParam("browser_name", "Mozilla")
-                .addParam("browser_version", "5.0 (Windows NT 10.0 Win64 x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
-                .addParam("browser_online", "true")
+                .addParam("cookie_enabled", navigator().cookieEnabled())
+                .addParam("screen_width", 1228)
+                .addParam("screen_height", 691)
+                .addParam("browser_language", navigator().language())
+                .addParam("browser_platform", navigator().appCodeName())
+                .addParam("browser_name", navigator().appCodeName())
+                .addParam("browser_version", navigator().appVersion())
+                .addParam("browser_online", navigator().onLine())
                 .addParam("tz_name", "Asia/Shanghai")
                 .addParam("identity", "audience")
                 .addParam("room_id", liveRoomID)
