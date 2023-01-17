@@ -11,24 +11,19 @@ import cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.*;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
-import cool.scx.util.http.HttpClientHelper;
-import cool.scx.util.http.Options;
 import io.netty.handler.codec.http.cookie.ClientCookieDecoder;
+import io.vertx.core.MultiMap;
 import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.HttpClient;
-import io.vertx.core.http.HttpClientOptions;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
+import io.vertx.core.http.*;
 
 import java.net.URI;
 import java.net.URLDecoder;
-import java.net.http.HttpHeaders;
-import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static cool.scx.live_room_watcher.FutureUtils.await;
 import static cool.scx.live_room_watcher.Navigator.navigator;
 
 /**
@@ -90,13 +85,17 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      * @param liveRoomURI a {@link java.lang.String} object
      * @return a HttpResponse object
      */
-    private static HttpResponse<String> getIndexHtml(String liveRoomURI) {
+    private HttpClientResponse getIndexHtml(String liveRoomURI) {
         //模拟浏览器发送请求
-        return HttpClientHelper.get(liveRoomURI, new Options()
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-                .setHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
-                .setHeader("cookie", "__ac_nonce=063b51155007d27728929; ")
-        );
+        var request = await(httpClient.request(new RequestOptions()
+                .setMethod(HttpMethod.GET)
+                .setAbsoluteURI(liveRoomURI)
+                .putHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                .putHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
+                .putHeader("cookie", "__ac_nonce=063b51155007d27728929; ")
+        ));
+        request.end();
+        return await(request.response());
     }
 
     /**
@@ -105,8 +104,8 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      * @param headers a
      * @return a
      */
-    private static String parseHeaders(HttpHeaders headers) {
-        var setCookieList = headers.allValues("set-cookie");
+    private static String parseHeaders(MultiMap headers) {
+        var setCookieList = headers.getAll("set-cookie");
         for (var s : setCookieList) {
             var cookie = ClientCookieDecoder.LAX.decode(s);
             if (cookie != null && "ttwid".equals(cookie.name())) {
@@ -194,7 +193,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
     private void parseByLiveRoomURI() throws JsonProcessingException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
         this.ttwid = parseHeaders(indexHtml.headers());
-        this.douYinApplication = parseBody(indexHtml.body());
+        this.douYinApplication = parseBody(await(indexHtml.body()).toString());
         this.liveRoomID = this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
         this.liveRoomTitle = this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
     }
@@ -342,7 +341,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             case "WebcastChatMessage" -> {// 消息
                 var chatMessage = ChatMessage.parseFrom(payload);
                 var douYinChat = new DouYinChat(chatMessage);
-                this.onChatHandler.handle(douYinChat);
+                this.onChatHandler.accept(douYinChat);
             }
             case "WebcastMemberMessage" -> {// 来了
                 var memberMessage = MemberMessage.parseFrom(payload);
@@ -377,17 +376,17 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                     }
                 }
                 var douYinUser = new DouYinUser(memberMessage);
-                this.onUserHandler.handle(douYinUser);
+                this.onUserHandler.accept(douYinUser);
             }
             case "WebcastLikeMessage" -> {//点赞
                 var likeMessage = LikeMessage.parseFrom(payload);
                 var douYinLike = new DouYinLike(likeMessage);
-                this.onLikeHandler.handle(douYinLike);
+                this.onLikeHandler.accept(douYinLike);
             }
             case "WebcastSocialMessage" -> {//关注
                 var socialMessage = SocialMessage.parseFrom(payload);
                 var douYinFollow = new DouYinFollow(socialMessage);
-                this.onFollowHandler.handle(douYinFollow);
+                this.onFollowHandler.accept(douYinFollow);
             }
             case "WebcastGiftMessage" -> {//礼物
                 var giftMessage = GiftMessage.parseFrom(payload);
@@ -400,7 +399,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
                 //todo 人气 Top 是拿不到 name 的
                 String name = giftMessage.getGift().getName();
                 var douYinGift = new DouYinGift(giftMessage);
-                this.onGiftHandler.handle(douYinGift);
+                this.onGiftHandler.accept(douYinGift);
             }
             //************** 以下的暂时用不到 ****************
             case "WebcastRoomUserSeqMessage" -> {//直播间统计
