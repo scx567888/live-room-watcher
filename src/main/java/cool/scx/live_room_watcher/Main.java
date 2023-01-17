@@ -19,7 +19,7 @@ public class Main {
      * @param args an array of {@link java.lang.String} objects
      */
     public static void main(String[] args) {
-        var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/357626301151?cover_type=0&enter_from_merge=web_live&enter_method=web_card&game_name=%E5%BE%AE%E4%B9%90%E6%96%97%E5%9C%B0%E4%B8%BB&is_recommend=1&live_type=game&more_detail=all&request_id=2023011316183888CD58D8D555D50DBE9A&room_id=7188030594935163707&stream_type=horizontal&title_type=1&web_live_page=game_591&web_live_tab=more");
+        var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/950159208474?cover_type=1&enter_from_merge=web_live&enter_method=web_card&game_name=%E6%A0%BC%E6%96%97%E6%89%8B%E6%B8%B8&is_recommend=1&live_type=game&more_detail=game_687&request_id=2023011709485397EF063DBB37ABA46C7C&room_id=7189420631958555452&stream_type=horizontal&title_type=1&web_live_page=game_4618&web_live_tab=more");
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();

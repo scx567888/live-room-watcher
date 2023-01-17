@@ -1,12 +1,12 @@
 package cool.scx.live_room_watcher;
 
 import cool.scx.core.ScxConstant;
-import cool.scx.functional.ScxHandlerA;
 import cool.scx.util.ansi.Ansi;
 import io.vertx.core.Vertx;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * <p>Abstract LiveRoomWatcher class.</p>
@@ -25,11 +25,11 @@ public abstract class LiveRoomWatcher {
         vertx = Vertx.vertx();
     }
 
-    protected ScxHandlerA<Chat> onChatHandler;
-    protected ScxHandlerA<User> onUserHandler;
-    protected ScxHandlerA<Like> onLikeHandler;
-    protected ScxHandlerA<Follow> onFollowHandler;
-    protected ScxHandlerA<Gift> onGiftHandler;
+    protected Consumer<Chat> onChatHandler;
+    protected Consumer<User> onUserHandler;
+    protected Consumer<Like> onLikeHandler;
+    protected Consumer<Follow> onFollowHandler;
+    protected Consumer<Gift> onGiftHandler;
 
     /**
      * <p>Constructor for LiveRoomWatcher.</p>
@@ -67,7 +67,7 @@ public abstract class LiveRoomWatcher {
      * @param handler a
      * @return a
      */
-    public final LiveRoomWatcher onChat(ScxHandlerA<Chat> handler) {
+    public final LiveRoomWatcher onChat(Consumer<Chat> handler) {
         Objects.requireNonNull(handler);
         this.onChatHandler = handler;
         return this;
@@ -79,7 +79,7 @@ public abstract class LiveRoomWatcher {
      * @param handler a
      * @return a
      */
-    public final LiveRoomWatcher onUser(ScxHandlerA<User> handler) {
+    public final LiveRoomWatcher onUser(Consumer<User> handler) {
         Objects.requireNonNull(handler);
         this.onUserHandler = handler;
         return this;
@@ -91,7 +91,7 @@ public abstract class LiveRoomWatcher {
      * @param handler a
      * @return a
      */
-    public final LiveRoomWatcher onLike(ScxHandlerA<Like> handler) {
+    public final LiveRoomWatcher onLike(Consumer<Like> handler) {
         Objects.requireNonNull(handler);
         this.onLikeHandler = handler;
         return this;
@@ -103,7 +103,7 @@ public abstract class LiveRoomWatcher {
      * @param handler a
      * @return a
      */
-    public final LiveRoomWatcher onFollow(ScxHandlerA<Follow> handler) {
+    public final LiveRoomWatcher onFollow(Consumer<Follow> handler) {
         Objects.requireNonNull(handler);
         this.onFollowHandler = handler;
         return this;
@@ -115,7 +115,7 @@ public abstract class LiveRoomWatcher {
      * @param handler a
      * @return a
      */
-    public final LiveRoomWatcher onGift(ScxHandlerA<Gift> handler) {
+    public final LiveRoomWatcher onGift(Consumer<Gift> handler) {
         Objects.requireNonNull(handler);
         this.onGiftHandler = handler;
         return this;
