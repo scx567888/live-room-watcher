@@ -3,6 +3,9 @@ package cool.scx.live_room_watcher.douyin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
+import cool.scx.http_client.ScxHttpClientHelper;
+import cool.scx.http_client.ScxHttpClientRequest;
+import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.live_room_watcher.LiveRoomWatcher;
 import cool.scx.live_room_watcher.douyin.entity.DouYinApplication;
 import cool.scx.live_room_watcher.douyin.enumeration.ControlMessageAction;
@@ -12,18 +15,22 @@ import cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.*;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 import io.netty.handler.codec.http.cookie.ClientCookieDecoder;
-import io.vertx.core.MultiMap;
 import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.*;
+import io.vertx.core.http.HttpClient;
+import io.vertx.core.http.HttpClientOptions;
+import io.vertx.core.http.WebSocket;
+import io.vertx.core.http.WebSocketConnectOptions;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URLDecoder;
+import java.net.http.HttpHeaders;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static cool.scx.live_room_watcher.FutureUtils.await;
+import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.live_room_watcher.Navigator.navigator;
 
 /**
@@ -85,17 +92,14 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      * @param liveRoomURI a {@link java.lang.String} object
      * @return a HttpResponse object
      */
-    private HttpClientResponse getIndexHtml(String liveRoomURI) {
+    private static ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
-        var request = await(httpClient.request(new RequestOptions()
-                .setMethod(HttpMethod.GET)
-                .setAbsoluteURI(liveRoomURI)
-                .putHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-                .putHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
-                .putHeader("cookie", "__ac_nonce=063b51155007d27728929; ")
-        ));
-        request.end();
-        return await(request.response());
+        return ScxHttpClientHelper.request(new ScxHttpClientRequest()
+                .method(GET)
+                .uri(URI.create(liveRoomURI))
+                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                .setHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
+                .setHeader("cookie", "__ac_nonce=063b51155007d27728929; "));
     }
 
     /**
@@ -104,8 +108,8 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      * @param headers a
      * @return a
      */
-    private static String parseHeaders(MultiMap headers) {
-        var setCookieList = headers.getAll("set-cookie");
+    private static String parseHeaders(HttpHeaders headers) {
+        var setCookieList = headers.allValues("set-cookie");
         for (var s : setCookieList) {
             var cookie = ClientCookieDecoder.LAX.decode(s);
             if (cookie != null && "ttwid".equals(cookie.name())) {
@@ -190,10 +194,10 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
      *
      * @throws com.fasterxml.jackson.core.JsonProcessingException if any.
      */
-    private void parseByLiveRoomURI() throws JsonProcessingException {
+    private void parseByLiveRoomURI() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
         this.ttwid = parseHeaders(indexHtml.headers());
-        this.douYinApplication = parseBody(await(indexHtml.body()).toString());
+        this.douYinApplication = parseBody(indexHtml.body().toString());
         this.liveRoomID = this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
         this.liveRoomTitle = this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
     }
@@ -207,7 +211,7 @@ public class DouYinLiveRoomWatcher extends LiveRoomWatcher {
             System.out.println("解析中...");
             parseByLiveRoomURI();
             System.out.println("解析完成 -> " + liveRoomTitle + " (ID : " + liveRoomID + ")");
-        } catch (JsonProcessingException e) {
+        } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         if (webSocket != null) {
