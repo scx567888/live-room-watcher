@@ -3,6 +3,12 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>GiftGroupInfoOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface GiftGroupInfoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:GiftGroupInfo)
     com.google.protobuf.MessageOrBuilder {

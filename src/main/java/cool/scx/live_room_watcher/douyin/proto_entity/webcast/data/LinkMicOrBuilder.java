@@ -3,6 +3,12 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>LinkMicOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface LinkMicOrBuilder extends
     // @@protoc_insertion_point(interface_extends:LinkMic)
     com.google.protobuf.MessageOrBuilder {

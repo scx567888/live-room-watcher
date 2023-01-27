@@ -5,20 +5,33 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 /**
  * Protobuf type {@code GiftIMPriority}
+ *
+ * @author scx567888
+ * @version $Id: $Id
  */
 public final class GiftIMPriority extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:GiftIMPriority)
     GiftIMPriorityOrBuilder {
+/** Constant <code>serialVersionUID=0L</code> */
 private static final long serialVersionUID = 0L;
   // Use GiftIMPriority.newBuilder() to construct.
+  /**
+   * <p>Constructor for GiftIMPriority.</p>
+   *
+   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
+   */
   private GiftIMPriority(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
+  /**
+   * <p>Constructor for GiftIMPriority.</p>
+   */
   private GiftIMPriority() {
     queueSizes_ = emptyLongList();
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
@@ -26,11 +39,19 @@ private static final long serialVersionUID = 0L;
     return new GiftIMPriority();
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
   }
+  /**
+   * <p>Constructor for GiftIMPriority.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   private GiftIMPriority(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -103,11 +124,17 @@ private static final long serialVersionUID = 0L;
       makeExtensionsImmutable();
     }
   }
+  /**
+   * <p>getDescriptor.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
+   */
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriorityOuterClass.internal_static_GiftIMPriority_descriptor;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -116,11 +143,13 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority.Builder.class);
   }
 
+  /** Constant <code>QUEUESIZES_FIELD_NUMBER=1</code> */
   public static final int QUEUESIZES_FIELD_NUMBER = 1;
   private com.google.protobuf.Internal.LongList queueSizes_;
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated int64 queueSizes = 1;</code>
-   * @return A list containing the queueSizes.
    */
   @java.lang.Override
   public java.util.List<java.lang.Long>
@@ -129,37 +158,42 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated int64 queueSizes = 1;</code>
+   *
    * @return The count of queueSizes.
    */
   public int getQueueSizesCount() {
     return queueSizes_.size();
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated int64 queueSizes = 1;</code>
-   * @param index The index of the element to return.
-   * @return The queueSizes at the given index.
    */
   public long getQueueSizes(int index) {
     return queueSizes_.getLong(index);
   }
   private int queueSizesMemoizedSerializedSize = -1;
 
+  /** Constant <code>SELFQUEUEPRIORITY_FIELD_NUMBER=2</code> */
   public static final int SELFQUEUEPRIORITY_FIELD_NUMBER = 2;
   private long selfQueuePriority_;
   /**
+   * {@inheritDoc}
+   *
    * <code>int64 selfQueuePriority = 2;</code>
-   * @return The selfQueuePriority.
    */
   @java.lang.Override
   public long getSelfQueuePriority() {
     return selfQueuePriority_;
   }
 
+  /** Constant <code>PRIORITY_FIELD_NUMBER=3</code> */
   public static final int PRIORITY_FIELD_NUMBER = 3;
   private long priority_;
   /**
+   * {@inheritDoc}
+   *
    * <code>int64 priority = 3;</code>
-   * @return The priority.
    */
   @java.lang.Override
   public long getPriority() {
@@ -167,6 +201,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  /** {@inheritDoc} */
   @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -177,6 +212,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
@@ -197,6 +233,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
@@ -230,6 +267,7 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -250,6 +288,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
@@ -272,43 +311,103 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -316,11 +415,26 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -328,12 +442,27 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -342,20 +471,34 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority.Builder} object
+   */
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority.Builder} object
+   */
   public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  /** {@inheritDoc} */
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   protected Builder newBuilderForType(
       com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
@@ -691,15 +834,22 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:GiftIMPriority)
+  /** Constant <code>DEFAULT_INSTANCE</code> */
   private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority();
   }
 
+  /**
+   * <p>getDefaultInstance.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority} object
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
+  /** Constant <code>PARSER</code> */
   private static final com.google.protobuf.Parser<GiftIMPriority>
       PARSER = new com.google.protobuf.AbstractParser<GiftIMPriority>() {
     @java.lang.Override
@@ -711,15 +861,22 @@ private static final long serialVersionUID = 0L;
     }
   };
 
+  /**
+   * <p>parser.</p>
+   *
+   * @return a {@link com.google.protobuf.Parser} object
+   */
   public static com.google.protobuf.Parser<GiftIMPriority> parser() {
     return PARSER;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public com.google.protobuf.Parser<GiftIMPriority> getParserForType() {
     return PARSER;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.GiftIMPriority getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;

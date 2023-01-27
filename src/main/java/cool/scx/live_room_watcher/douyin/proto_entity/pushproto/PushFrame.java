@@ -9,16 +9,28 @@ package cool.scx.live_room_watcher.douyin.proto_entity.pushproto;
  * </pre>
  *
  * Protobuf type {@code PushFrame}
+ *
+ * @author scx567888
+ * @version $Id: $Id
  */
 public final class PushFrame extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:PushFrame)
     PushFrameOrBuilder {
+/** Constant <code>serialVersionUID=0L</code> */
 private static final long serialVersionUID = 0L;
   // Use PushFrame.newBuilder() to construct.
+  /**
+   * <p>Constructor for PushFrame.</p>
+   *
+   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
+   */
   private PushFrame(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
+  /**
+   * <p>Constructor for PushFrame.</p>
+   */
   private PushFrame() {
     headersList_ = java.util.Collections.emptyList();
     payloadEncoding_ = "";
@@ -26,6 +38,7 @@ private static final long serialVersionUID = 0L;
     payload_ = com.google.protobuf.ByteString.EMPTY;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
@@ -33,11 +46,19 @@ private static final long serialVersionUID = 0L;
     return new PushFrame();
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
   }
+  /**
+   * <p>Constructor for PushFrame.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   private PushFrame(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -125,11 +146,17 @@ private static final long serialVersionUID = 0L;
       makeExtensionsImmutable();
     }
   }
+  /**
+   * <p>getDescriptor.</p>
+   *
+   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
+   */
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrameOuterClass.internal_static_PushFrame_descriptor;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -138,53 +165,64 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.class, cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder.class);
   }
 
+  /** Constant <code>SEQID_FIELD_NUMBER=1</code> */
   public static final int SEQID_FIELD_NUMBER = 1;
   private long seqid_;
   /**
+   * {@inheritDoc}
+   *
    * <code>uint64 seqid = 1;</code>
-   * @return The seqid.
    */
   @java.lang.Override
   public long getSeqid() {
     return seqid_;
   }
 
+  /** Constant <code>LOGID_FIELD_NUMBER=2</code> */
   public static final int LOGID_FIELD_NUMBER = 2;
   private long logid_;
   /**
+   * {@inheritDoc}
+   *
    * <code>uint64 logid = 2;</code>
-   * @return The logid.
    */
   @java.lang.Override
   public long getLogid() {
     return logid_;
   }
 
+  /** Constant <code>SERVICE_FIELD_NUMBER=3</code> */
   public static final int SERVICE_FIELD_NUMBER = 3;
   private long service_;
   /**
+   * {@inheritDoc}
+   *
    * <code>uint64 service = 3;</code>
-   * @return The service.
    */
   @java.lang.Override
   public long getService() {
     return service_;
   }
 
+  /** Constant <code>METHOD_FIELD_NUMBER=4</code> */
   public static final int METHOD_FIELD_NUMBER = 4;
   private long method_;
   /**
+   * {@inheritDoc}
+   *
    * <code>uint64 method = 4;</code>
-   * @return The method.
    */
   @java.lang.Override
   public long getMethod() {
     return method_;
   }
 
+  /** Constant <code>HEADERSLIST_FIELD_NUMBER=5</code> */
   public static final int HEADERSLIST_FIELD_NUMBER = 5;
   private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushHeader> headersList_;
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated .PushHeader headersList = 5;</code>
    */
   @java.lang.Override
@@ -192,6 +230,8 @@ private static final long serialVersionUID = 0L;
     return headersList_;
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated .PushHeader headersList = 5;</code>
    */
   @java.lang.Override
@@ -200,6 +240,8 @@ private static final long serialVersionUID = 0L;
     return headersList_;
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated .PushHeader headersList = 5;</code>
    */
   @java.lang.Override
@@ -207,6 +249,8 @@ private static final long serialVersionUID = 0L;
     return headersList_.size();
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated .PushHeader headersList = 5;</code>
    */
   @java.lang.Override
@@ -214,6 +258,8 @@ private static final long serialVersionUID = 0L;
     return headersList_.get(index);
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>repeated .PushHeader headersList = 5;</code>
    */
   @java.lang.Override
@@ -222,11 +268,13 @@ private static final long serialVersionUID = 0L;
     return headersList_.get(index);
   }
 
+  /** Constant <code>PAYLOADENCODING_FIELD_NUMBER=6</code> */
   public static final int PAYLOADENCODING_FIELD_NUMBER = 6;
   private volatile java.lang.Object payloadEncoding_;
   /**
+   * {@inheritDoc}
+   *
    * <code>string payloadEncoding = 6;</code>
-   * @return The payloadEncoding.
    */
   @java.lang.Override
   public java.lang.String getPayloadEncoding() {
@@ -242,8 +290,9 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>string payloadEncoding = 6;</code>
-   * @return The bytes for payloadEncoding.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -260,11 +309,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  /** Constant <code>PAYLOADTYPE_FIELD_NUMBER=7</code> */
   public static final int PAYLOADTYPE_FIELD_NUMBER = 7;
   private volatile java.lang.Object payloadType_;
   /**
+   * {@inheritDoc}
+   *
    * <code>string payloadType = 7;</code>
-   * @return The payloadType.
    */
   @java.lang.Override
   public java.lang.String getPayloadType() {
@@ -280,8 +331,9 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * {@inheritDoc}
+   *
    * <code>string payloadType = 7;</code>
-   * @return The bytes for payloadType.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -298,11 +350,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  /** Constant <code>PAYLOAD_FIELD_NUMBER=8</code> */
   public static final int PAYLOAD_FIELD_NUMBER = 8;
   private com.google.protobuf.ByteString payload_;
   /**
+   * {@inheritDoc}
+   *
    * <code>bytes payload = 8;</code>
-   * @return The payload.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString getPayload() {
@@ -310,6 +364,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  /** {@inheritDoc} */
   @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -320,6 +375,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
@@ -350,6 +406,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
@@ -391,6 +448,7 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -421,6 +479,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
@@ -455,43 +514,103 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link java.nio.ByteBuffer} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data a {@link com.google.protobuf.ByteString} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param data an array of {@link byte} objects
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -499,11 +618,26 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseDelimitedFrom.</p>
+   *
+   * @param input a {@link java.io.InputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -511,12 +645,27 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
+  /**
+   * <p>parseFrom.</p>
+   *
+   * @param input a {@link com.google.protobuf.CodedInputStream} object
+   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @throws java.io.IOException if any.
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -525,20 +674,34 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder} object
+   */
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+  /**
+   * <p>newBuilder.</p>
+   *
+   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame.Builder} object
+   */
   public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  /** {@inheritDoc} */
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   protected Builder newBuilderForType(
       com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
@@ -1344,15 +1507,22 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:PushFrame)
+  /** Constant <code>DEFAULT_INSTANCE</code> */
   private static final cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame();
   }
 
+  /**
+   * <p>getDefaultInstance.</p>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame} object
+   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
+  /** Constant <code>PARSER</code> */
   private static final com.google.protobuf.Parser<PushFrame>
       PARSER = new com.google.protobuf.AbstractParser<PushFrame>() {
     @java.lang.Override
@@ -1364,15 +1534,22 @@ private static final long serialVersionUID = 0L;
     }
   };
 
+  /**
+   * <p>parser.</p>
+   *
+   * @return a {@link com.google.protobuf.Parser} object
+   */
   public static com.google.protobuf.Parser<PushFrame> parser() {
     return PARSER;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public com.google.protobuf.Parser<PushFrame> getParserForType() {
     return PARSER;
   }
 
+  /** {@inheritDoc} */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.pushproto.PushFrame getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;

@@ -3,28 +3,39 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
+/**
+ * <p>ChatIdentityOrBuilder interface.</p>
+ *
+ * @author scx567888
+ * @version $Id: $Id
+ */
 public interface ChatIdentityOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ChatIdentity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <code>int32 showIdentity = 1;</code>
+   *
    * @return The showIdentity.
    */
   int getShowIdentity();
 
   /**
    * <code>.Image identityLabel = 2;</code>
+   *
    * @return Whether the identityLabel field is set.
    */
   boolean hasIdentityLabel();
   /**
    * <code>.Image identityLabel = 2;</code>
+   *
    * @return The identityLabel.
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getIdentityLabel();
   /**
    * <code>.Image identityLabel = 2;</code>
+   *
+   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getIdentityLabelOrBuilder();
 }
