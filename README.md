@@ -12,14 +12,11 @@
 package cool.scx.live_room_watcher;
 
 import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
-import cool.scx.util.ansi.Ansi;
-
-import static cool.scx.live_room_watcher.LiveRoomWatcher.nowTimeStr;
 
 public class Main {
 
     public static void main(String[] args) {
-        var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/398877650540");
+        var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/357626301151");
 
         liveRoomWatcher.onChat(chat -> {
             System.out.println("[消息] " + chat.user().nickName() + " : " + chat.content());
