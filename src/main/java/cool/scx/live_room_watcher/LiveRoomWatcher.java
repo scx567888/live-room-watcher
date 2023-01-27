@@ -1,129 +1,143 @@
 package cool.scx.live_room_watcher;
 
-import cool.scx.core.ScxConstant;
-import cool.scx.util.ansi.Ansi;
-import io.vertx.core.Vertx;
-
-import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
- * <p>Abstract LiveRoomWatcher class.</p>
+ * <p>直播间观察者</p>
  *
  * @author scx567888
  * @version 0.0.1
  */
-public abstract class LiveRoomWatcher {
+public interface LiveRoomWatcher {
 
     /**
-     * Constant <code>vertx</code>
-     */
-    protected static final Vertx vertx;
-
-    static {
-        vertx = Vertx.vertx();
-    }
-
-    protected Consumer<Chat> onChatHandler;
-    protected Consumer<User> onUserHandler;
-    protected Consumer<Like> onLikeHandler;
-    protected Consumer<Follow> onFollowHandler;
-    protected Consumer<Gift> onGiftHandler;
-
-    /**
-     * <p>Constructor for LiveRoomWatcher.</p>
-     */
-    public LiveRoomWatcher() {
-        this.onChatHandler = chat -> {
-            Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
-        };
-        this.onUserHandler = user -> {
-            Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
-        };
-        this.onLikeHandler = like -> {
-            Ansi.out().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName() + " x " + like.count()).println();
-        };
-        this.onFollowHandler = follow -> {
-            Ansi.out().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickName()).println();
-        };
-        this.onGiftHandler = gift -> {
-            Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
-        };
-    }
-
-    /**
-     * <p>nowTimeStr.</p>
+     * chatHandler 的别名
      *
-     * @return a {@link java.lang.String} object
+     * @param handler handler
+     * @return this
      */
-    public static String nowTimeStr() {
-        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
+    default LiveRoomWatcher onChat(Consumer<Chat> handler) {
+        return this.chatHandler(handler);
+    }
+
+    /**
+     * userHandler 的别名
+     *
+     * @param handler handler
+     * @return this
+     */
+    default LiveRoomWatcher onUser(Consumer<User> handler) {
+        return this.userHandler(handler);
+    }
+
+    /**
+     * likeHandler 的别名
+     *
+     * @param handler handler
+     * @return this
+     */
+    default LiveRoomWatcher onLike(Consumer<Like> handler) {
+        return this.likeHandler(handler);
+    }
+
+    /**
+     * followHandler 的别名
+     *
+     * @param handler handler
+     * @return this
+     */
+    default LiveRoomWatcher onFollow(Consumer<Follow> handler) {
+        return this.followHandler(handler);
+    }
+
+    /**
+     * giftHandler 的别名
+     *
+     * @param handler handler
+     * @return this
+     */
+    default LiveRoomWatcher onGift(Consumer<Gift> handler) {
+        return this.giftHandler(handler);
     }
 
     /**
      * 当获取到新弹幕时
      *
-     * @param handler a
-     * @return a
+     * @param handler handler
+     * @return this
      */
-    public final LiveRoomWatcher onChat(Consumer<Chat> handler) {
-        Objects.requireNonNull(handler);
-        this.onChatHandler = handler;
-        return this;
-    }
+    LiveRoomWatcher chatHandler(Consumer<Chat> handler);
 
     /**
      * 当新用户进入直播间时
      *
-     * @param handler a
-     * @return a
+     * @param handler handler
+     * @return this
      */
-    public final LiveRoomWatcher onUser(Consumer<User> handler) {
-        Objects.requireNonNull(handler);
-        this.onUserHandler = handler;
-        return this;
-    }
+    LiveRoomWatcher userHandler(Consumer<User> handler);
 
     /**
      * 点赞
      *
-     * @param handler a
-     * @return a
+     * @param handler handler
+     * @return this
      */
-    public final LiveRoomWatcher onLike(Consumer<Like> handler) {
-        Objects.requireNonNull(handler);
-        this.onLikeHandler = handler;
-        return this;
-    }
+    LiveRoomWatcher likeHandler(Consumer<Like> handler);
 
     /**
      * 关注
      *
-     * @param handler a
-     * @return a
+     * @param handler handler
+     * @return this
      */
-    public final LiveRoomWatcher onFollow(Consumer<Follow> handler) {
-        Objects.requireNonNull(handler);
-        this.onFollowHandler = handler;
-        return this;
-    }
+    LiveRoomWatcher followHandler(Consumer<Follow> handler);
 
     /**
      * 礼物
      *
-     * @param handler a
-     * @return a
+     * @param handler handler
+     * @return this
      */
-    public final LiveRoomWatcher onGift(Consumer<Gift> handler) {
-        Objects.requireNonNull(handler);
-        this.onGiftHandler = handler;
-        return this;
-    }
+    LiveRoomWatcher giftHandler(Consumer<Gift> handler);
 
     /**
-     * <p>startWatch.</p>
+     * 获取 chatHandler
+     *
+     * @return chatHandler
      */
-    public abstract void startWatch();
+    Consumer<Chat> chatHandler();
+
+    /**
+     * 获取 userHandler
+     *
+     * @return userHandler
+     */
+    Consumer<User> userHandler();
+
+    /**
+     * 获取 likeHandler
+     *
+     * @return likeHandler
+     */
+    Consumer<Like> likeHandler();
+
+    /**
+     * 获取  followHandler
+     *
+     * @return followHandler
+     */
+    Consumer<Follow> followHandler();
+
+    /**
+     * 获取  giftHandler
+     *
+     * @return giftHandler
+     */
+    Consumer<Gift> giftHandler();
+
+    /**
+     * 启动 监控
+     */
+    void startWatch();
 
 }
