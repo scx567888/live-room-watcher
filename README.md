@@ -22,15 +22,15 @@ public class Main {
         var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/398877650540");
 
         liveRoomWatcher.onChat(chat -> {
-            Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
+            System.out.println("[消息] " + chat.user().nickName() + " : " + chat.content());
         }).onUser(user -> {
-            Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
+            System.out.println("[来了] " + user.nickName());
         }).onLike(like -> {
-            Ansi.out().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName()).println();
+            System.out.println("[点赞] " + like.user().nickName() + " x " + like.count());
         }).onFollow(follow -> {
-            Ansi.out().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickName()).println();
+            System.out.println("[关注] " + follow.user().nickName());
         }).onGift(gift -> {
-            Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name()).println();
+            System.out.println("[礼物] " + gift.user().nickName() + " : " + gift.name() + " x " + gift.count());
         });
 
         liveRoomWatcher.startWatch();
