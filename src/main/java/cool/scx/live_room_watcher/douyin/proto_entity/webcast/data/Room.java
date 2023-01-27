@@ -5,28 +5,16 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
 /**
  * Protobuf type {@code Room}
- *
- * @author scx567888
- * @version $Id: $Id
  */
 public final class Room extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:Room)
     RoomOrBuilder {
-/** Constant <code>serialVersionUID=0L</code> */
 private static final long serialVersionUID = 0L;
   // Use Room.newBuilder() to construct.
-  /**
-   * <p>Constructor for Room.</p>
-   *
-   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-   */
   private Room(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  /**
-   * <p>Constructor for Room.</p>
-   */
   private Room() {
     idStr_ = "";
     title_ = "";
@@ -48,7 +36,6 @@ private static final long serialVersionUID = 0L;
     privateInfo_ = "";
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
@@ -56,19 +43,11 @@ private static final long serialVersionUID = 0L;
     return new Room();
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
   }
-  /**
-   * <p>Constructor for Room.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   private Room(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -478,17 +457,11 @@ private static final long serialVersionUID = 0L;
       makeExtensionsImmutable();
     }
   }
-  /**
-   * <p>getDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-   */
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomOuterClass.internal_static_Room_descriptor;
   }
 
-  /** {@inheritDoc} */
   @SuppressWarnings({"rawtypes"})
   @java.lang.Override
   protected com.google.protobuf.MapField internalGetMapField(
@@ -501,7 +474,6 @@ private static final long serialVersionUID = 0L;
             "Invalid map field number: " + number);
     }
   }
-  /** {@inheritDoc} */
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -510,26 +482,22 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room.Builder.class);
   }
 
-  /** Constant <code>ID_FIELD_NUMBER=1</code> */
   public static final int ID_FIELD_NUMBER = 1;
   private long id_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 id = 1;</code>
+   * @return The id.
    */
   @java.lang.Override
   public long getId() {
     return id_;
   }
 
-  /** Constant <code>IDSTR_FIELD_NUMBER=2</code> */
   public static final int IDSTR_FIELD_NUMBER = 2;
   private volatile java.lang.Object idStr_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string idStr = 2;</code>
+   * @return The idStr.
    */
   @java.lang.Override
   public java.lang.String getIdStr() {
@@ -545,9 +513,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string idStr = 2;</code>
+   * @return The bytes for idStr.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -564,39 +531,33 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>STATUS_FIELD_NUMBER=3</code> */
   public static final int STATUS_FIELD_NUMBER = 3;
   private long status_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 status = 3;</code>
+   * @return The status.
    */
   @java.lang.Override
   public long getStatus() {
     return status_;
   }
 
-  /** Constant <code>OWNERUSERID_FIELD_NUMBER=4</code> */
   public static final int OWNERUSERID_FIELD_NUMBER = 4;
   private long ownerUserId_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 ownerUserId = 4;</code>
+   * @return The ownerUserId.
    */
   @java.lang.Override
   public long getOwnerUserId() {
     return ownerUserId_;
   }
 
-  /** Constant <code>TITLE_FIELD_NUMBER=5</code> */
   public static final int TITLE_FIELD_NUMBER = 5;
   private volatile java.lang.Object title_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string title = 5;</code>
+   * @return The title.
    */
   @java.lang.Override
   public java.lang.String getTitle() {
@@ -612,9 +573,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string title = 5;</code>
+   * @return The bytes for title.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -631,82 +591,69 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>USERCOUNT_FIELD_NUMBER=6</code> */
   public static final int USERCOUNT_FIELD_NUMBER = 6;
   private long userCount_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 userCount = 6;</code>
+   * @return The userCount.
    */
   @java.lang.Override
   public long getUserCount() {
     return userCount_;
   }
 
-  /** Constant <code>CREATETIME_FIELD_NUMBER=7</code> */
   public static final int CREATETIME_FIELD_NUMBER = 7;
   private long createTime_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 createTime = 7;</code>
+   * @return The createTime.
    */
   @java.lang.Override
   public long getCreateTime() {
     return createTime_;
   }
 
-  /** Constant <code>LINKMICLAYOUT_FIELD_NUMBER=8</code> */
   public static final int LINKMICLAYOUT_FIELD_NUMBER = 8;
   private long linkmicLayout_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 linkmicLayout = 8;</code>
+   * @return The linkmicLayout.
    */
   @java.lang.Override
   public long getLinkmicLayout() {
     return linkmicLayout_;
   }
 
-  /** Constant <code>FINISHTIME_FIELD_NUMBER=9</code> */
   public static final int FINISHTIME_FIELD_NUMBER = 9;
   private long finishTime_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 finishTime = 9;</code>
+   * @return The finishTime.
    */
   @java.lang.Override
   public long getFinishTime() {
     return finishTime_;
   }
 
-  /** Constant <code>EXTRA_FIELD_NUMBER=10</code> */
   public static final int EXTRA_FIELD_NUMBER = 10;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomExtra extra_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomExtra extra = 10;</code>
+   * @return Whether the extra field is set.
    */
   @java.lang.Override
   public boolean hasExtra() {
     return extra_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomExtra extra = 10;</code>
+   * @return The extra.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomExtra getExtra() {
     return extra_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomExtra.getDefaultInstance() : extra_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomExtra extra = 10;</code>
    */
   @java.lang.Override
@@ -714,13 +661,11 @@ private static final long serialVersionUID = 0L;
     return getExtra();
   }
 
-  /** Constant <code>DYNAMICCOVERURI_FIELD_NUMBER=11</code> */
   public static final int DYNAMICCOVERURI_FIELD_NUMBER = 11;
   private volatile java.lang.Object dynamicCoverUri_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string dynamicCoverUri = 11;</code>
+   * @return The dynamicCoverUri.
    */
   @java.lang.Override
   public java.lang.String getDynamicCoverUri() {
@@ -736,9 +681,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string dynamicCoverUri = 11;</code>
+   * @return The bytes for dynamicCoverUri.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -755,7 +699,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>DYNAMICCOVERDICT_FIELD_NUMBER=12</code> */
   public static final int DYNAMICCOVERDICT_FIELD_NUMBER = 12;
   private static final class DynamicCoverDictDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -770,11 +713,6 @@ private static final long serialVersionUID = 0L;
   }
   private com.google.protobuf.MapField<
       java.lang.Long, java.lang.String> dynamicCoverDict_;
-  /**
-   * <p>internalGetDynamicCoverDict.</p>
-   *
-   * @return a {@link com.google.protobuf.MapField} object
-   */
   private com.google.protobuf.MapField<java.lang.Long, java.lang.String>
   internalGetDynamicCoverDict() {
     if (dynamicCoverDict_ == null) {
@@ -784,17 +722,10 @@ private static final long serialVersionUID = 0L;
     return dynamicCoverDict_;
   }
 
-  /**
-   * <p>getDynamicCoverDictCount.</p>
-   *
-   * @return a int
-   */
   public int getDynamicCoverDictCount() {
     return internalGetDynamicCoverDict().getMap().size();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>map&lt;int64, string&gt; dynamicCoverDict = 12;</code>
    */
 
@@ -805,8 +736,6 @@ private static final long serialVersionUID = 0L;
     return internalGetDynamicCoverDict().getMap().containsKey(key);
   }
   /**
-   * {@inheritDoc}
-   *
    * Use {@link #getDynamicCoverDictMap()} instead.
    */
   @java.lang.Override
@@ -815,20 +744,18 @@ private static final long serialVersionUID = 0L;
     return getDynamicCoverDictMap();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>map&lt;int64, string&gt; dynamicCoverDict = 12;</code>
    */
   @java.lang.Override
+
   public java.util.Map<java.lang.Long, java.lang.String> getDynamicCoverDictMap() {
     return internalGetDynamicCoverDict().getMap();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>map&lt;int64, string&gt; dynamicCoverDict = 12;</code>
    */
   @java.lang.Override
+
   public java.lang.String getDynamicCoverDictOrDefault(
       long key,
       java.lang.String defaultValue) {
@@ -838,11 +765,10 @@ private static final long serialVersionUID = 0L;
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>map&lt;int64, string&gt; dynamicCoverDict = 12;</code>
    */
   @java.lang.Override
+
   public java.lang.String getDynamicCoverDictOrThrow(
       long key) {
     
@@ -854,121 +780,102 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
-  /** Constant <code>LASTPINGTIME_FIELD_NUMBER=13</code> */
   public static final int LASTPINGTIME_FIELD_NUMBER = 13;
   private long lastPingTime_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 lastPingTime = 13;</code>
+   * @return The lastPingTime.
    */
   @java.lang.Override
   public long getLastPingTime() {
     return lastPingTime_;
   }
 
-  /** Constant <code>LIVEID_FIELD_NUMBER=14</code> */
   public static final int LIVEID_FIELD_NUMBER = 14;
   private long liveId_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 liveId = 14;</code>
+   * @return The liveId.
    */
   @java.lang.Override
   public long getLiveId() {
     return liveId_;
   }
 
-  /** Constant <code>STREAMPROVIDER_FIELD_NUMBER=15</code> */
   public static final int STREAMPROVIDER_FIELD_NUMBER = 15;
   private long streamProvider_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 streamProvider = 15;</code>
+   * @return The streamProvider.
    */
   @java.lang.Override
   public long getStreamProvider() {
     return streamProvider_;
   }
 
-  /** Constant <code>OSTYPE_FIELD_NUMBER=16</code> */
   public static final int OSTYPE_FIELD_NUMBER = 16;
   private long osType_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 osType = 16;</code>
+   * @return The osType.
    */
   @java.lang.Override
   public long getOsType() {
     return osType_;
   }
 
-  /** Constant <code>CLIENTVERSION_FIELD_NUMBER=17</code> */
   public static final int CLIENTVERSION_FIELD_NUMBER = 17;
   private long clientVersion_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 clientVersion = 17;</code>
+   * @return The clientVersion.
    */
   @java.lang.Override
   public long getClientVersion() {
     return clientVersion_;
   }
 
-  /** Constant <code>WITHLINKMIC_FIELD_NUMBER=18</code> */
   public static final int WITHLINKMIC_FIELD_NUMBER = 18;
   private boolean withLinkmic_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool withLinkmic = 18;</code>
+   * @return The withLinkmic.
    */
   @java.lang.Override
   public boolean getWithLinkmic() {
     return withLinkmic_;
   }
 
-  /** Constant <code>ENABLEROOMPERSPECTIVE_FIELD_NUMBER=19</code> */
   public static final int ENABLEROOMPERSPECTIVE_FIELD_NUMBER = 19;
   private boolean enableRoomPerspective_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool enableRoomPerspective = 19;</code>
+   * @return The enableRoomPerspective.
    */
   @java.lang.Override
   public boolean getEnableRoomPerspective() {
     return enableRoomPerspective_;
   }
 
-  /** Constant <code>COVER_FIELD_NUMBER=20</code> */
   public static final int COVER_FIELD_NUMBER = 20;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image cover_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image cover = 20;</code>
+   * @return Whether the cover field is set.
    */
   @java.lang.Override
   public boolean hasCover() {
     return cover_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image cover = 20;</code>
+   * @return The cover.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getCover() {
     return cover_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image.getDefaultInstance() : cover_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image cover = 20;</code>
    */
   @java.lang.Override
@@ -976,30 +883,25 @@ private static final long serialVersionUID = 0L;
     return getCover();
   }
 
-  /** Constant <code>DYNAMICCOVER_FIELD_NUMBER=21</code> */
   public static final int DYNAMICCOVER_FIELD_NUMBER = 21;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image dynamicCover_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCover = 21;</code>
+   * @return Whether the dynamicCover field is set.
    */
   @java.lang.Override
   public boolean hasDynamicCover() {
     return dynamicCover_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCover = 21;</code>
+   * @return The dynamicCover.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getDynamicCover() {
     return dynamicCover_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image.getDefaultInstance() : dynamicCover_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCover = 21;</code>
    */
   @java.lang.Override
@@ -1007,30 +909,25 @@ private static final long serialVersionUID = 0L;
     return getDynamicCover();
   }
 
-  /** Constant <code>DYNAMICCOVERLOW_FIELD_NUMBER=22</code> */
   public static final int DYNAMICCOVERLOW_FIELD_NUMBER = 22;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image dynamicCoverLow_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCoverLow = 22;</code>
+   * @return Whether the dynamicCoverLow field is set.
    */
   @java.lang.Override
   public boolean hasDynamicCoverLow() {
     return dynamicCoverLow_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCoverLow = 22;</code>
+   * @return The dynamicCoverLow.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getDynamicCoverLow() {
     return dynamicCoverLow_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image.getDefaultInstance() : dynamicCoverLow_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image dynamicCoverLow = 22;</code>
    */
   @java.lang.Override
@@ -1038,13 +935,11 @@ private static final long serialVersionUID = 0L;
     return getDynamicCoverLow();
   }
 
-  /** Constant <code>SHAREURL_FIELD_NUMBER=23</code> */
   public static final int SHAREURL_FIELD_NUMBER = 23;
   private volatile java.lang.Object shareUrl_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string shareUrl = 23;</code>
+   * @return The shareUrl.
    */
   @java.lang.Override
   public java.lang.String getShareUrl() {
@@ -1060,9 +955,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string shareUrl = 23;</code>
+   * @return The bytes for shareUrl.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1079,13 +973,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>ANCHORSHARETEXT_FIELD_NUMBER=24</code> */
   public static final int ANCHORSHARETEXT_FIELD_NUMBER = 24;
   private volatile java.lang.Object anchorShareText_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string anchorShareText = 24;</code>
+   * @return The anchorShareText.
    */
   @java.lang.Override
   public java.lang.String getAnchorShareText() {
@@ -1101,9 +993,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string anchorShareText = 24;</code>
+   * @return The bytes for anchorShareText.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1120,13 +1011,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>USERSHARETEXT_FIELD_NUMBER=25</code> */
   public static final int USERSHARETEXT_FIELD_NUMBER = 25;
   private volatile java.lang.Object userShareText_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string userShareText = 25;</code>
+   * @return The userShareText.
    */
   @java.lang.Override
   public java.lang.String getUserShareText() {
@@ -1142,9 +1031,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string userShareText = 25;</code>
+   * @return The bytes for userShareText.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1161,26 +1049,22 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>STREAMID_FIELD_NUMBER=26</code> */
   public static final int STREAMID_FIELD_NUMBER = 26;
   private long streamId_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 streamId = 26;</code>
+   * @return The streamId.
    */
   @java.lang.Override
   public long getStreamId() {
     return streamId_;
   }
 
-  /** Constant <code>STREAMIDSTR_FIELD_NUMBER=27</code> */
   public static final int STREAMIDSTR_FIELD_NUMBER = 27;
   private volatile java.lang.Object streamIdStr_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string streamIdStr = 27;</code>
+   * @return The streamIdStr.
    */
   @java.lang.Override
   public java.lang.String getStreamIdStr() {
@@ -1196,9 +1080,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string streamIdStr = 27;</code>
+   * @return The bytes for streamIdStr.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1215,30 +1098,25 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>STREAMURL_FIELD_NUMBER=28</code> */
   public static final int STREAMURL_FIELD_NUMBER = 28;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.StreamUrl streamUrl_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.StreamUrl streamUrl = 28;</code>
+   * @return Whether the streamUrl field is set.
    */
   @java.lang.Override
   public boolean hasStreamUrl() {
     return streamUrl_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.StreamUrl streamUrl = 28;</code>
+   * @return The streamUrl.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.StreamUrl getStreamUrl() {
     return streamUrl_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.StreamUrl.getDefaultInstance() : streamUrl_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.StreamUrl streamUrl = 28;</code>
    */
   @java.lang.Override
@@ -1246,26 +1124,22 @@ private static final long serialVersionUID = 0L;
     return getStreamUrl();
   }
 
-  /** Constant <code>MOSAICSTATUS_FIELD_NUMBER=29</code> */
   public static final int MOSAICSTATUS_FIELD_NUMBER = 29;
   private long mosaicStatus_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 mosaicStatus = 29;</code>
+   * @return The mosaicStatus.
    */
   @java.lang.Override
   public long getMosaicStatus() {
     return mosaicStatus_;
   }
 
-  /** Constant <code>MOSAICTIP_FIELD_NUMBER=30</code> */
   public static final int MOSAICTIP_FIELD_NUMBER = 30;
   private volatile java.lang.Object mosaicTip_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string mosaicTip = 30;</code>
+   * @return The mosaicTip.
    */
   @java.lang.Override
   public java.lang.String getMosaicTip() {
@@ -1281,9 +1155,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string mosaicTip = 30;</code>
+   * @return The bytes for mosaicTip.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1300,43 +1173,36 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>CELLSTYLE_FIELD_NUMBER=31</code> */
   public static final int CELLSTYLE_FIELD_NUMBER = 31;
   private long cellStyle_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 cellStyle = 31;</code>
+   * @return The cellStyle.
    */
   @java.lang.Override
   public long getCellStyle() {
     return cellStyle_;
   }
 
-  /** Constant <code>LINKMIC_FIELD_NUMBER=32</code> */
   public static final int LINKMIC_FIELD_NUMBER = 32;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.LinkMic linkMic_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.LinkMic linkMic = 32;</code>
+   * @return Whether the linkMic field is set.
    */
   @java.lang.Override
   public boolean hasLinkMic() {
     return linkMic_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.LinkMic linkMic = 32;</code>
+   * @return The linkMic.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.LinkMic getLinkMic() {
     return linkMic_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.LinkMic.getDefaultInstance() : linkMic_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.LinkMic linkMic = 32;</code>
    */
   @java.lang.Override
@@ -1344,25 +1210,20 @@ private static final long serialVersionUID = 0L;
     return getLinkMic();
   }
 
-  /** Constant <code>LUCKYMONEYNUM_FIELD_NUMBER=33</code> */
   public static final int LUCKYMONEYNUM_FIELD_NUMBER = 33;
   private long luckymoneyNum_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int64 luckymoneyNum = 33;</code>
+   * @return The luckymoneyNum.
    */
   @java.lang.Override
   public long getLuckymoneyNum() {
     return luckymoneyNum_;
   }
 
-  /** Constant <code>DECOLIST_FIELD_NUMBER=34</code> */
   public static final int DECOLIST_FIELD_NUMBER = 34;
   private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Decoration> decoList_;
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .Decoration decoList = 34;</code>
    */
   @java.lang.Override
@@ -1370,8 +1231,6 @@ private static final long serialVersionUID = 0L;
     return decoList_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .Decoration decoList = 34;</code>
    */
   @java.lang.Override
@@ -1380,8 +1239,6 @@ private static final long serialVersionUID = 0L;
     return decoList_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .Decoration decoList = 34;</code>
    */
   @java.lang.Override
@@ -1389,8 +1246,6 @@ private static final long serialVersionUID = 0L;
     return decoList_.size();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .Decoration decoList = 34;</code>
    */
   @java.lang.Override
@@ -1398,8 +1253,6 @@ private static final long serialVersionUID = 0L;
     return decoList_.get(index);
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .Decoration decoList = 34;</code>
    */
   @java.lang.Override
@@ -1408,12 +1261,9 @@ private static final long serialVersionUID = 0L;
     return decoList_.get(index);
   }
 
-  /** Constant <code>TOPFANS_FIELD_NUMBER=35</code> */
   public static final int TOPFANS_FIELD_NUMBER = 35;
   private java.util.List<cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TopFan> topFans_;
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .TopFan topFans = 35;</code>
    */
   @java.lang.Override
@@ -1421,8 +1271,6 @@ private static final long serialVersionUID = 0L;
     return topFans_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .TopFan topFans = 35;</code>
    */
   @java.lang.Override
@@ -1431,8 +1279,6 @@ private static final long serialVersionUID = 0L;
     return topFans_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .TopFan topFans = 35;</code>
    */
   @java.lang.Override
@@ -1440,8 +1286,6 @@ private static final long serialVersionUID = 0L;
     return topFans_.size();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .TopFan topFans = 35;</code>
    */
   @java.lang.Override
@@ -1449,8 +1293,6 @@ private static final long serialVersionUID = 0L;
     return topFans_.get(index);
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated .TopFan topFans = 35;</code>
    */
   @java.lang.Override
@@ -1459,30 +1301,25 @@ private static final long serialVersionUID = 0L;
     return topFans_.get(index);
   }
 
-  /** Constant <code>STATS_FIELD_NUMBER=36</code> */
   public static final int STATS_FIELD_NUMBER = 36;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomStats stats_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomStats stats = 36;</code>
+   * @return Whether the stats field is set.
    */
   @java.lang.Override
   public boolean hasStats() {
     return stats_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomStats stats = 36;</code>
+   * @return The stats.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomStats getStats() {
     return stats_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomStats.getDefaultInstance() : stats_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomStats stats = 36;</code>
    */
   @java.lang.Override
@@ -1490,13 +1327,11 @@ private static final long serialVersionUID = 0L;
     return getStats();
   }
 
-  /** Constant <code>SUNDAILYICONCONTENT_FIELD_NUMBER=37</code> */
   public static final int SUNDAILYICONCONTENT_FIELD_NUMBER = 37;
   private volatile java.lang.Object sunDailyIconContent_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string sunDailyIconContent = 37;</code>
+   * @return The sunDailyIconContent.
    */
   @java.lang.Override
   public java.lang.String getSunDailyIconContent() {
@@ -1512,9 +1347,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string sunDailyIconContent = 37;</code>
+   * @return The bytes for sunDailyIconContent.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1531,13 +1365,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>DISTANCE_FIELD_NUMBER=38</code> */
   public static final int DISTANCE_FIELD_NUMBER = 38;
   private volatile java.lang.Object distance_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string distance = 38;</code>
+   * @return The distance.
    */
   @java.lang.Override
   public java.lang.String getDistance() {
@@ -1553,9 +1385,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string distance = 38;</code>
+   * @return The bytes for distance.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1572,13 +1403,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>DISTANCECITY_FIELD_NUMBER=39</code> */
   public static final int DISTANCECITY_FIELD_NUMBER = 39;
   private volatile java.lang.Object distanceCity_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string distanceCity = 39;</code>
+   * @return The distanceCity.
    */
   @java.lang.Override
   public java.lang.String getDistanceCity() {
@@ -1594,9 +1423,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string distanceCity = 39;</code>
+   * @return The bytes for distanceCity.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1613,13 +1441,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>LOCATION_FIELD_NUMBER=40</code> */
   public static final int LOCATION_FIELD_NUMBER = 40;
   private volatile java.lang.Object location_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string location = 40;</code>
+   * @return The location.
    */
   @java.lang.Override
   public java.lang.String getLocation() {
@@ -1635,9 +1461,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string location = 40;</code>
+   * @return The bytes for location.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1654,13 +1479,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>REALDISTANCE_FIELD_NUMBER=41</code> */
   public static final int REALDISTANCE_FIELD_NUMBER = 41;
   private volatile java.lang.Object realDistance_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string realDistance = 41;</code>
+   * @return The realDistance.
    */
   @java.lang.Override
   public java.lang.String getRealDistance() {
@@ -1676,9 +1499,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string realDistance = 41;</code>
+   * @return The bytes for realDistance.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1695,30 +1517,25 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>FEEDROOMLABEL_FIELD_NUMBER=42</code> */
   public static final int FEEDROOMLABEL_FIELD_NUMBER = 42;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image feedRoomLabel_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image feedRoomLabel = 42;</code>
+   * @return Whether the feedRoomLabel field is set.
    */
   @java.lang.Override
   public boolean hasFeedRoomLabel() {
     return feedRoomLabel_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image feedRoomLabel = 42;</code>
+   * @return The feedRoomLabel.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getFeedRoomLabel() {
     return feedRoomLabel_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image.getDefaultInstance() : feedRoomLabel_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.Image feedRoomLabel = 42;</code>
    */
   @java.lang.Override
@@ -1726,13 +1543,11 @@ private static final long serialVersionUID = 0L;
     return getFeedRoomLabel();
   }
 
-  /** Constant <code>COMMONLABELLIST_FIELD_NUMBER=43</code> */
   public static final int COMMONLABELLIST_FIELD_NUMBER = 43;
   private volatile java.lang.Object commonLabelList_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string commonLabelList = 43;</code>
+   * @return The commonLabelList.
    */
   @java.lang.Override
   public java.lang.String getCommonLabelList() {
@@ -1748,9 +1563,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string commonLabelList = 43;</code>
+   * @return The bytes for commonLabelList.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1767,30 +1581,25 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>LIVINGROOMATTRS_FIELD_NUMBER=44</code> */
   public static final int LIVINGROOMATTRS_FIELD_NUMBER = 44;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomUserAttr livingRoomAttrs_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomUserAttr livingRoomAttrs = 44;</code>
+   * @return Whether the livingRoomAttrs field is set.
    */
   @java.lang.Override
   public boolean hasLivingRoomAttrs() {
     return livingRoomAttrs_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomUserAttr livingRoomAttrs = 44;</code>
+   * @return The livingRoomAttrs.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomUserAttr getLivingRoomAttrs() {
     return livingRoomAttrs_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.RoomUserAttr.getDefaultInstance() : livingRoomAttrs_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.RoomUserAttr livingRoomAttrs = 44;</code>
    */
   @java.lang.Override
@@ -1798,13 +1607,11 @@ private static final long serialVersionUID = 0L;
     return getLivingRoomAttrs();
   }
 
-  /** Constant <code>ADMINUSERIDS_FIELD_NUMBER=45</code> */
   public static final int ADMINUSERIDS_FIELD_NUMBER = 45;
   private com.google.protobuf.Internal.LongList adminUserIds_;
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated int64 adminUserIds = 45;</code>
+   * @return A list containing the adminUserIds.
    */
   @java.lang.Override
   public java.util.List<java.lang.Long>
@@ -1813,46 +1620,40 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated int64 adminUserIds = 45;</code>
-   *
    * @return The count of adminUserIds.
    */
   public int getAdminUserIdsCount() {
     return adminUserIds_.size();
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>repeated int64 adminUserIds = 45;</code>
+   * @param index The index of the element to return.
+   * @return The adminUserIds at the given index.
    */
   public long getAdminUserIds(int index) {
     return adminUserIds_.getLong(index);
   }
   private int adminUserIdsMemoizedSerializedSize = -1;
 
-  /** Constant <code>OWNER_FIELD_NUMBER=46</code> */
   public static final int OWNER_FIELD_NUMBER = 46;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User owner_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.User owner = 46;</code>
+   * @return Whether the owner field is set.
    */
   @java.lang.Override
   public boolean hasOwner() {
     return owner_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.User owner = 46;</code>
+   * @return The owner.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getOwner() {
     return owner_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User.getDefaultInstance() : owner_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.User owner = 46;</code>
    */
   @java.lang.Override
@@ -1860,13 +1661,11 @@ private static final long serialVersionUID = 0L;
     return getOwner();
   }
 
-  /** Constant <code>PRIVATEINFO_FIELD_NUMBER=47</code> */
   public static final int PRIVATEINFO_FIELD_NUMBER = 47;
   private volatile java.lang.Object privateInfo_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string privateInfo = 47;</code>
+   * @return The privateInfo.
    */
   @java.lang.Override
   public java.lang.String getPrivateInfo() {
@@ -1882,9 +1681,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string privateInfo = 47;</code>
+   * @return The bytes for privateInfo.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -1902,7 +1700,6 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  /** {@inheritDoc} */
   @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -1913,7 +1710,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
@@ -2069,7 +1865,6 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
@@ -2270,7 +2065,6 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -2409,7 +2203,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
@@ -2562,103 +2355,43 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2666,26 +2399,11 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2693,27 +2411,12 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2722,34 +2425,20 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room.Builder} object
-   */
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room.Builder} object
-   */
   public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   protected Builder newBuilderForType(
       com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
@@ -6971,22 +6660,15 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:Room)
-  /** Constant <code>DEFAULT_INSTANCE</code> */
   private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room();
   }
 
-  /**
-   * <p>getDefaultInstance.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room} object
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  /** Constant <code>PARSER</code> */
   private static final com.google.protobuf.Parser<Room>
       PARSER = new com.google.protobuf.AbstractParser<Room>() {
     @java.lang.Override
@@ -6998,22 +6680,15 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  /**
-   * <p>parser.</p>
-   *
-   * @return a {@link com.google.protobuf.Parser} object
-   */
   public static com.google.protobuf.Parser<Room> parser() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public com.google.protobuf.Parser<Room> getParserForType() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Room getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;

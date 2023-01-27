@@ -9,33 +9,20 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
  * </pre>
  *
  * Protobuf type {@code TextPiece}
- *
- * @author scx567888
- * @version $Id: $Id
  */
 public final class TextPiece extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:TextPiece)
     TextPieceOrBuilder {
-/** Constant <code>serialVersionUID=0L</code> */
 private static final long serialVersionUID = 0L;
   // Use TextPiece.newBuilder() to construct.
-  /**
-   * <p>Constructor for TextPiece.</p>
-   *
-   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-   */
   private TextPiece(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  /**
-   * <p>Constructor for TextPiece.</p>
-   */
   private TextPiece() {
     stringValue_ = "";
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
@@ -43,19 +30,11 @@ private static final long serialVersionUID = 0L;
     return new TextPiece();
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
   }
-  /**
-   * <p>Constructor for TextPiece.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   private TextPiece(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -182,17 +161,11 @@ private static final long serialVersionUID = 0L;
       makeExtensionsImmutable();
     }
   }
-  /**
-   * <p>getDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-   */
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceOuterClass.internal_static_TextPiece_descriptor;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -201,43 +174,36 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece.Builder.class);
   }
 
-  /** Constant <code>TYPE_FIELD_NUMBER=1</code> */
   public static final int TYPE_FIELD_NUMBER = 1;
   private int type_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int32 type = 1;</code>
+   * @return The type.
    */
   @java.lang.Override
   public int getType() {
     return type_;
   }
 
-  /** Constant <code>FORMAT_FIELD_NUMBER=2</code> */
   public static final int FORMAT_FIELD_NUMBER = 2;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat format_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextFormat format = 2;</code>
+   * @return Whether the format field is set.
    */
   @java.lang.Override
   public boolean hasFormat() {
     return format_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextFormat format = 2;</code>
+   * @return The format.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getFormat() {
     return format_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.getDefaultInstance() : format_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextFormat format = 2;</code>
    */
   @java.lang.Override
@@ -245,13 +211,11 @@ private static final long serialVersionUID = 0L;
     return getFormat();
   }
 
-  /** Constant <code>STRINGVALUE_FIELD_NUMBER=11</code> */
   public static final int STRINGVALUE_FIELD_NUMBER = 11;
   private volatile java.lang.Object stringValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string stringValue = 11;</code>
+   * @return The stringValue.
    */
   @java.lang.Override
   public java.lang.String getStringValue() {
@@ -267,9 +231,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string stringValue = 11;</code>
+   * @return The bytes for stringValue.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -286,30 +249,25 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>USERVALUE_FIELD_NUMBER=21</code> */
   public static final int USERVALUE_FIELD_NUMBER = 21;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser userValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceUser userValue = 21;</code>
+   * @return Whether the userValue field is set.
    */
   @java.lang.Override
   public boolean hasUserValue() {
     return userValue_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceUser userValue = 21;</code>
+   * @return The userValue.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser getUserValue() {
     return userValue_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceUser.getDefaultInstance() : userValue_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceUser userValue = 21;</code>
    */
   @java.lang.Override
@@ -317,30 +275,25 @@ private static final long serialVersionUID = 0L;
     return getUserValue();
   }
 
-  /** Constant <code>GIFTVALUE_FIELD_NUMBER=22</code> */
   public static final int GIFTVALUE_FIELD_NUMBER = 22;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGift giftValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceGift giftValue = 22;</code>
+   * @return Whether the giftValue field is set.
    */
   @java.lang.Override
   public boolean hasGiftValue() {
     return giftValue_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceGift giftValue = 22;</code>
+   * @return The giftValue.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGift getGiftValue() {
     return giftValue_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceGift.getDefaultInstance() : giftValue_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceGift giftValue = 22;</code>
    */
   @java.lang.Override
@@ -348,30 +301,25 @@ private static final long serialVersionUID = 0L;
     return getGiftValue();
   }
 
-  /** Constant <code>HEARTVALUE_FIELD_NUMBER=23</code> */
   public static final int HEARTVALUE_FIELD_NUMBER = 23;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeart heartValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceHeart heartValue = 23;</code>
+   * @return Whether the heartValue field is set.
    */
   @java.lang.Override
   public boolean hasHeartValue() {
     return heartValue_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceHeart heartValue = 23;</code>
+   * @return The heartValue.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeart getHeartValue() {
     return heartValue_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceHeart.getDefaultInstance() : heartValue_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceHeart heartValue = 23;</code>
    */
   @java.lang.Override
@@ -379,30 +327,25 @@ private static final long serialVersionUID = 0L;
     return getHeartValue();
   }
 
-  /** Constant <code>PATTERNREFVALUE_FIELD_NUMBER=24</code> */
   public static final int PATTERNREFVALUE_FIELD_NUMBER = 24;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRef patternRefValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPiecePatternRef patternRefValue = 24;</code>
+   * @return Whether the patternRefValue field is set.
    */
   @java.lang.Override
   public boolean hasPatternRefValue() {
     return patternRefValue_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPiecePatternRef patternRefValue = 24;</code>
+   * @return The patternRefValue.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRef getPatternRefValue() {
     return patternRefValue_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiecePatternRef.getDefaultInstance() : patternRefValue_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPiecePatternRef patternRefValue = 24;</code>
    */
   @java.lang.Override
@@ -410,30 +353,25 @@ private static final long serialVersionUID = 0L;
     return getPatternRefValue();
   }
 
-  /** Constant <code>IMAGEVALUE_FIELD_NUMBER=25</code> */
   public static final int IMAGEVALUE_FIELD_NUMBER = 25;
   private cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImage imageValue_;
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceImage imageValue = 25;</code>
+   * @return Whether the imageValue field is set.
    */
   @java.lang.Override
   public boolean hasImageValue() {
     return imageValue_ != null;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceImage imageValue = 25;</code>
+   * @return The imageValue.
    */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImage getImageValue() {
     return imageValue_ == null ? cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPieceImage.getDefaultInstance() : imageValue_;
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>.TextPieceImage imageValue = 25;</code>
    */
   @java.lang.Override
@@ -442,7 +380,6 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  /** {@inheritDoc} */
   @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -453,7 +390,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
@@ -484,7 +420,6 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
@@ -527,7 +462,6 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -576,7 +510,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
@@ -617,103 +550,43 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -721,26 +594,11 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -748,27 +606,12 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -777,34 +620,20 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece.Builder} object
-   */
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece.Builder} object
-   */
   public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   protected Builder newBuilderForType(
       com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
@@ -1890,22 +1719,15 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:TextPiece)
-  /** Constant <code>DEFAULT_INSTANCE</code> */
   private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece();
   }
 
-  /**
-   * <p>getDefaultInstance.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece} object
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  /** Constant <code>PARSER</code> */
   private static final com.google.protobuf.Parser<TextPiece>
       PARSER = new com.google.protobuf.AbstractParser<TextPiece>() {
     @java.lang.Override
@@ -1917,22 +1739,15 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  /**
-   * <p>parser.</p>
-   *
-   * @return a {@link com.google.protobuf.Parser} object
-   */
   public static com.google.protobuf.Parser<TextPiece> parser() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public com.google.protobuf.Parser<TextPiece> getParserForType() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextPiece getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;

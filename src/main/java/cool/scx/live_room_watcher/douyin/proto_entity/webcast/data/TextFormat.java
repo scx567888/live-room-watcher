@@ -10,33 +10,20 @@ package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
  * </pre>
  *
  * Protobuf type {@code TextFormat}
- *
- * @author scx567888
- * @version $Id: $Id
  */
 public final class TextFormat extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:TextFormat)
     TextFormatOrBuilder {
-/** Constant <code>serialVersionUID=0L</code> */
 private static final long serialVersionUID = 0L;
   // Use TextFormat.newBuilder() to construct.
-  /**
-   * <p>Constructor for TextFormat.</p>
-   *
-   * @param builder a {@link com.google.protobuf.GeneratedMessageV3.Builder} object
-   */
   private TextFormat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  /**
-   * <p>Constructor for TextFormat.</p>
-   */
   private TextFormat() {
     color_ = "";
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
@@ -44,19 +31,11 @@ private static final long serialVersionUID = 0L;
     return new TextFormat();
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
   }
-  /**
-   * <p>Constructor for TextFormat.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   private TextFormat(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -135,17 +114,11 @@ private static final long serialVersionUID = 0L;
       makeExtensionsImmutable();
     }
   }
-  /**
-   * <p>getDescriptor.</p>
-   *
-   * @return a {@link com.google.protobuf.Descriptors.Descriptor} object
-   */
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormatOuterClass.internal_static_TextFormat_descriptor;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -154,13 +127,11 @@ private static final long serialVersionUID = 0L;
             cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.class, cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder.class);
   }
 
-  /** Constant <code>COLOR_FIELD_NUMBER=1</code> */
   public static final int COLOR_FIELD_NUMBER = 1;
   private volatile java.lang.Object color_;
   /**
-   * {@inheritDoc}
-   *
    * <code>string color = 1;</code>
+   * @return The color.
    */
   @java.lang.Override
   public java.lang.String getColor() {
@@ -176,9 +147,8 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * {@inheritDoc}
-   *
    * <code>string color = 1;</code>
+   * @return The bytes for color.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
@@ -195,91 +165,77 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  /** Constant <code>BOLD_FIELD_NUMBER=2</code> */
   public static final int BOLD_FIELD_NUMBER = 2;
   private boolean bold_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool bold = 2;</code>
+   * @return The bold.
    */
   @java.lang.Override
   public boolean getBold() {
     return bold_;
   }
 
-  /** Constant <code>ITALIC_FIELD_NUMBER=3</code> */
   public static final int ITALIC_FIELD_NUMBER = 3;
   private boolean italic_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool italic = 3;</code>
+   * @return The italic.
    */
   @java.lang.Override
   public boolean getItalic() {
     return italic_;
   }
 
-  /** Constant <code>WEIGHT_FIELD_NUMBER=4</code> */
   public static final int WEIGHT_FIELD_NUMBER = 4;
   private int weight_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int32 weight = 4;</code>
+   * @return The weight.
    */
   @java.lang.Override
   public int getWeight() {
     return weight_;
   }
 
-  /** Constant <code>ITALICANGLE_FIELD_NUMBER=5</code> */
   public static final int ITALICANGLE_FIELD_NUMBER = 5;
   private int italicAngle_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int32 italicAngle = 5;</code>
+   * @return The italicAngle.
    */
   @java.lang.Override
   public int getItalicAngle() {
     return italicAngle_;
   }
 
-  /** Constant <code>FONTSIZE_FIELD_NUMBER=6</code> */
   public static final int FONTSIZE_FIELD_NUMBER = 6;
   private int fontSize_;
   /**
-   * {@inheritDoc}
-   *
    * <code>int32 fontSize = 6;</code>
+   * @return The fontSize.
    */
   @java.lang.Override
   public int getFontSize() {
     return fontSize_;
   }
 
-  /** Constant <code>USEHEIGHLIGHTCOLOR_FIELD_NUMBER=7</code> */
   public static final int USEHEIGHLIGHTCOLOR_FIELD_NUMBER = 7;
   private boolean useHeighLightColor_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool useHeighLightColor = 7;</code>
+   * @return The useHeighLightColor.
    */
   @java.lang.Override
   public boolean getUseHeighLightColor() {
     return useHeighLightColor_;
   }
 
-  /** Constant <code>USEREMOTECLOR_FIELD_NUMBER=8</code> */
   public static final int USEREMOTECLOR_FIELD_NUMBER = 8;
   private boolean useRemoteClor_;
   /**
-   * {@inheritDoc}
-   *
    * <code>bool useRemoteClor = 8;</code>
+   * @return The useRemoteClor.
    */
   @java.lang.Override
   public boolean getUseRemoteClor() {
@@ -287,7 +243,6 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  /** {@inheritDoc} */
   @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -298,7 +253,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
@@ -329,7 +283,6 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
@@ -372,7 +325,6 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
@@ -403,7 +355,6 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
@@ -436,103 +387,43 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link java.nio.ByteBuffer} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data a {@link com.google.protobuf.ByteString} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param data an array of {@link byte} objects
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws com.google.protobuf.InvalidProtocolBufferException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -540,26 +431,11 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseDelimitedFrom.</p>
-   *
-   * @param input a {@link java.io.InputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -567,27 +443,12 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  /**
-   * <p>parseFrom.</p>
-   *
-   * @param input a {@link com.google.protobuf.CodedInputStream} object
-   * @param extensionRegistry a {@link com.google.protobuf.ExtensionRegistryLite} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @throws java.io.IOException if any.
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -596,34 +457,20 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder} object
-   */
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  /**
-   * <p>newBuilder.</p>
-   *
-   * @param prototype a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat.Builder} object
-   */
   public static Builder newBuilder(cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  /** {@inheritDoc} */
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   protected Builder newBuilderForType(
       com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
@@ -1134,22 +981,15 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:TextFormat)
-  /** Constant <code>DEFAULT_INSTANCE</code> */
   private static final cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat();
   }
 
-  /**
-   * <p>getDefaultInstance.</p>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat} object
-   */
   public static cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  /** Constant <code>PARSER</code> */
   private static final com.google.protobuf.Parser<TextFormat>
       PARSER = new com.google.protobuf.AbstractParser<TextFormat>() {
     @java.lang.Override
@@ -1161,22 +1001,15 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  /**
-   * <p>parser.</p>
-   *
-   * @return a {@link com.google.protobuf.Parser} object
-   */
   public static com.google.protobuf.Parser<TextFormat> parser() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public com.google.protobuf.Parser<TextFormat> getParserForType() {
     return PARSER;
   }
 
-  /** {@inheritDoc} */
   @java.lang.Override
   public cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.TextFormat getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;

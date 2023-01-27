@@ -3,12 +3,6 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>StreamUrlOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface StreamUrlOrBuilder extends
     // @@protoc_insertion_point(interface_extends:StreamUrl)
     com.google.protobuf.MessageOrBuilder {

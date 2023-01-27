@@ -3,38 +3,27 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>TextPieceUserOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface TextPieceUserOrBuilder extends
     // @@protoc_insertion_point(interface_extends:TextPieceUser)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <code>.User user = 1;</code>
-   *
    * @return Whether the user field is set.
    */
   boolean hasUser();
   /**
    * <code>.User user = 1;</code>
-   *
    * @return The user.
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User getUser();
   /**
    * <code>.User user = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder} object
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.UserOrBuilder getUserOrBuilder();
 
   /**
    * <code>bool withColon = 2;</code>
-   *
    * @return The withColon.
    */
   boolean getWithColon();

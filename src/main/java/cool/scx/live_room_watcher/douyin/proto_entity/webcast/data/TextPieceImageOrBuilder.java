@@ -3,38 +3,27 @@
 
 package cool.scx.live_room_watcher.douyin.proto_entity.webcast.data;
 
-/**
- * <p>TextPieceImageOrBuilder interface.</p>
- *
- * @author scx567888
- * @version $Id: $Id
- */
 public interface TextPieceImageOrBuilder extends
     // @@protoc_insertion_point(interface_extends:TextPieceImage)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <code>.Image image = 1;</code>
-   *
    * @return Whether the image field is set.
    */
   boolean hasImage();
   /**
    * <code>.Image image = 1;</code>
-   *
    * @return The image.
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.Image getImage();
   /**
    * <code>.Image image = 1;</code>
-   *
-   * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder} object
    */
   cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.ImageOrBuilder getImageOrBuilder();
 
   /**
    * <code>float scalingRate = 2;</code>
-   *
    * @return The scalingRate.
    */
   float getScalingRate();
