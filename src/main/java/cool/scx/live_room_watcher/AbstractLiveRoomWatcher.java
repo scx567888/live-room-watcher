@@ -14,32 +14,39 @@ import java.util.function.Consumer;
 public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
 
     /**
+     * Constant <code>vertx</code>
+     */
+    public static final Vertx vertx;
+    /**
      * 默认情况下我们什么都不做
      */
     public static Consumer<Chat> DEFAULT_CHAT_HANDLER = chat -> {
 
     };
-
+    /**
+     * Constant <code>DEFAULT_USER_HANDLER</code>
+     */
     public static Consumer<User> DEFAULT_USER_HANDLER = user -> {
 
     };
-
+    /**
+     * Constant <code>DEFAULT_LIKE_HANDLER</code>
+     */
     public static Consumer<Like> DEFAULT_LIKE_HANDLER = like -> {
 
     };
-
+    /**
+     * Constant <code>DEFAULT_FOLLOW_HANDLER</code>
+     */
     public static Consumer<Follow> DEFAULT_FOLLOW_HANDLER = follow -> {
 
     };
-
+    /**
+     * Constant <code>DEFAULT_GIFT_HANDLER</code>
+     */
     public static Consumer<Gift> DEFAULT_GIFT_HANDLER = gift -> {
 
     };
-
-    /**
-     * Constant <code>vertx</code>
-     */
-    public static final Vertx vertx;
 
     static {
         vertx = Vertx.vertx();
@@ -51,6 +58,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
     private Consumer<Follow> followHandler;
     private Consumer<Gift> giftHandler;
 
+    /**
+     * <p>Constructor for AbstractLiveRoomWatcher.</p>
+     */
     protected AbstractLiveRoomWatcher() {
         chatHandler = DEFAULT_CHAT_HANDLER;
         userHandler = DEFAULT_USER_HANDLER;
@@ -59,6 +69,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         giftHandler = DEFAULT_GIFT_HANDLER;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LiveRoomWatcher chatHandler(Consumer<Chat> handler) {
         Objects.requireNonNull(handler);
@@ -66,6 +79,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LiveRoomWatcher userHandler(Consumer<User> handler) {
         Objects.requireNonNull(handler);
@@ -73,6 +89,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LiveRoomWatcher likeHandler(Consumer<Like> handler) {
         Objects.requireNonNull(handler);
@@ -80,6 +99,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LiveRoomWatcher followHandler(Consumer<Follow> handler) {
         Objects.requireNonNull(handler);
@@ -87,6 +109,9 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LiveRoomWatcher giftHandler(Consumer<Gift> handler) {
         Objects.requireNonNull(handler);
@@ -94,26 +119,41 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Consumer<Chat> chatHandler() {
         return chatHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Consumer<User> userHandler() {
         return userHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Consumer<Like> likeHandler() {
         return likeHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Consumer<Follow> followHandler() {
         return followHandler;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Consumer<Gift> giftHandler() {
         return giftHandler;
