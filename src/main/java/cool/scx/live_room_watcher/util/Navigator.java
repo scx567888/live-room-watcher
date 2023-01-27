@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher;
+package cool.scx.live_room_watcher.util;
 
 public final class Navigator {
 
@@ -37,6 +37,7 @@ public final class Navigator {
     }
 
     private Navigator() {
+
     }
 
 }
