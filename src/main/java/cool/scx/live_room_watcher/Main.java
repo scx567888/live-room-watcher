@@ -20,6 +20,8 @@ public class Main {
         });
 
         liveRoomWatcher.startWatch();
+
+        System.out.println("[直播流地址] " + liveRoomWatcher.liveRoomWebStreamURLs());
     }
 
 }
