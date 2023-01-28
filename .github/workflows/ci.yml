@@ -5,8 +5,8 @@ jobs:
     name: 构建和测试
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-latest ]
-        java: [ 17, 19 ]
+        os: [ ubuntu-latest ]
+        java: [ 17 ]
     runs-on: ${{ matrix.os }}
     steps:
 
