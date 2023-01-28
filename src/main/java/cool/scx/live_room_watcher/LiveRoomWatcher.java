@@ -1,5 +1,6 @@
 package cool.scx.live_room_watcher;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -134,6 +135,22 @@ public interface LiveRoomWatcher {
      * @return giftHandler
      */
     Consumer<Gift> giftHandler();
+
+    /**
+     * 获取直播源地址
+     * @return a
+     */
+    default List<String> liveRoomWebStreamURLs(){
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * 获取直播间标题
+     * @return a
+     */
+    default String liveRoomTitle(){
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * 启动 监控
