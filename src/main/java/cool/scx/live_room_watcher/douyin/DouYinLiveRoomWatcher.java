@@ -27,7 +27,9 @@ import java.net.URI;
 import java.net.URLDecoder;
 import java.net.http.HttpHeaders;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -49,7 +51,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private String ttwid;
     private String liveRoomID;
-    private String liveRoomTitle;
     private DouYinApplication douYinApplication;
     private final HttpClient httpClient;
     private WebSocket webSocket;
@@ -92,7 +93,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      *
      * @param liveRoomURI a {@link java.lang.String} object
      * @return a HttpResponse object
-     * @throws java.io.IOException if any.
+     * @throws java.io.IOException            if any.
      * @throws java.lang.InterruptedException if any.
      */
     private static ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
@@ -195,7 +196,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     /**
      * 根据直播间 uri 解析 直播间的信息
      *
-     * @throws java.io.IOException if any.
+     * @throws java.io.IOException            if any.
      * @throws java.lang.InterruptedException if any.
      */
     private void parseByLiveRoomURI() throws IOException, InterruptedException {
@@ -203,7 +204,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.ttwid = parseHeaders(indexHtml.headers());
         this.douYinApplication = parseBody(indexHtml.body().toString());
         this.liveRoomID = this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
-        this.liveRoomTitle = this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
     }
 
     /**
@@ -219,13 +219,15 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return Response.parseFrom(bytes);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startWatch() {
         try {
             System.out.println("解析中...");
             parseByLiveRoomURI();
-            System.out.println("解析完成 -> " + liveRoomTitle + " (ID : " + liveRoomID + ")");
+            System.out.println("解析完成 -> " + liveRoomTitle() + " (ID : " + liveRoomID + ")");
         } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
@@ -533,7 +535,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     /**
-     * <p>useGzip.</p>
+     * 连接 抖音 弹幕服务时是否传递 gip 压缩参数
      *
      * @param useGzip a boolean
      * @return a {@link cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher} object
@@ -541,6 +543,39 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public DouYinLiveRoomWatcher useGzip(boolean useGzip) {
         this.useGzip = useGzip;
         return this;
+    }
+
+    //identity : "audience"
+    //
+    //last_rtt : "0"
+    //
+    //room_id : "7193510167019359033"
+    //
+    //
+    //
+    public static void fetchImServer(String[] args) {
+        String a = "https://live.douyin.com/webcast/im/fetch/";
+    }
+
+    @Override
+    public String liveRoomTitle() {
+        return this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
+    }
+
+    @Override
+    public List<String> liveRoomWebStreamURLs() {
+        var webStreamUrl = this.douYinApplication.app.initialState.roomStore.roomInfo.web_stream_url;
+        if (webStreamUrl == null) {
+            return List.of();
+        }
+        var list = new ArrayList<String>();
+        list.add(webStreamUrl.hls_pull_url_map.FULL_HD1);
+        list.add(webStreamUrl.hls_pull_url_map.SD1);
+        list.add(webStreamUrl.hls_pull_url_map.SD2);
+        list.add(webStreamUrl.flv_pull_url.FULL_HD1);
+        list.add(webStreamUrl.flv_pull_url.SD1);
+        list.add(webStreamUrl.flv_pull_url.SD2);
+        return list;
     }
 
 }
