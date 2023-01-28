@@ -1,11 +1,13 @@
-import cool.scx.core.ScxConstant;
 import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class LiveRoomWatcherTest {
+
+    public static final DateTimeFormatter DEFAULT_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         tes1();
@@ -17,7 +19,7 @@ public class LiveRoomWatcherTest {
      * @return a {@link java.lang.String} object
      */
     public static String nowTimeStr() {
-        return ScxConstant.DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
+        return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
     @Test
