@@ -17,7 +17,7 @@
 
         <dependency>
             <groupId>cool.scx</groupId>
-            <artifactId>scx-core</artifactId>
+            <artifactId>scx-common</artifactId>
             <version>${scx.version}</version>
         </dependency>
 
