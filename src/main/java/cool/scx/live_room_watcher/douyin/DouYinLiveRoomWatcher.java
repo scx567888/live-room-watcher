@@ -50,7 +50,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private static final Pattern RENDER_DATA_PATTERN = Pattern.compile("<script id=\"RENDER_DATA\" type=\"application/json\">(.*?)</script>");
     private final String liveRoomURI;
     private String ttwid;
-    private String liveRoomID;
     private DouYinApplication douYinApplication;
     private final HttpClient httpClient;
     private WebSocket webSocket;
@@ -102,7 +101,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .method(GET)
                 .uri(URI.create(liveRoomURI))
                 .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-                .setHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54")
+                .setHeader("user-agent", navigator().userAgent())
                 .setHeader("cookie", "__ac_nonce=063b51155007d27728929; "));
     }
 
@@ -203,7 +202,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var indexHtml = getIndexHtml(this.liveRoomURI);
         this.ttwid = parseHeaders(indexHtml.headers());
         this.douYinApplication = parseBody(indexHtml.body().toString());
-        this.liveRoomID = this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
     }
 
     /**
@@ -227,7 +225,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         try {
             System.out.println("解析中...");
             parseByLiveRoomURI();
-            System.out.println("解析完成 -> " + liveRoomTitle() + " (ID : " + liveRoomID + ")");
+            System.out.println("解析完成 -> " + liveRoomTitle() + " (ID : " + liveRoomID() + ")");
         } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
@@ -304,7 +302,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public URI getWebSocketURI() {
         var internalExtMap = new LinkedHashMap<>();
         internalExtMap.put("internal_src", "dim");
-        internalExtMap.put("wss_push_room_id", liveRoomID);
+        internalExtMap.put("wss_push_room_id", liveRoomID());
         internalExtMap.put("wss_push_did", "7184667748424615439");
         internalExtMap.put("dim_log_id", "2023011316221327ACACF0E44A2C0E8200");
         internalExtMap.put("fetch_time", "1673598133900");
@@ -340,8 +338,9 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addParam("browser_online", navigator().onLine())
                 .addParam("tz_name", "Asia/Shanghai")
                 .addParam("identity", "audience")
-                .addParam("room_id", liveRoomID)
-                .addParam("heartbeatDuration", "0");
+                .addParam("room_id", liveRoomID())
+                .addParam("heartbeatDuration", "0")
+                .addParam("signature", "WKRpizZepEXBX9Zr");
         if (useGzip) {
             builder.addParam("compress", "gzip");
         }
@@ -532,6 +531,10 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             }
         }
 
+    }
+
+    public String liveRoomID() {
+        return this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
     }
 
     /**
