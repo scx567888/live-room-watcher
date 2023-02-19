@@ -74,6 +74,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var options = new HttpClientOptions();
         //调大一些
         options.setMaxWebSocketFrameSize(65536 * 10);
+        options.setMaxWebSocketMessageSize(65536 * 40);
 //                .setTrustOptions(new KeyStoreOptions()
 //                        .setPath("keystore.jks")
 //                        .setPassword("123456")
@@ -528,7 +529,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 //todo  WebcastLuckyBoxMessage
             }
             default -> {
-                System.err.println("DouYin -> 未处理 Message :" + message);
+                // System.err.println("DouYin -> 未处理 Message :" + message);
             }
         }
 
