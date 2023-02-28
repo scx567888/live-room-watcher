@@ -8,6 +8,7 @@
         <groupId>cool.scx</groupId>
         <artifactId>scx-parent</artifactId>
         <version>15</version>
+        <relativePath/>
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
