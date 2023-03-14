@@ -272,7 +272,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addParam("room_id", liveRoomID())
                 .addParam("heartbeatDuration", "0")
                 //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
-                .addParam("signature", "WKRpizZepEXBX9Zr");
+                .addParam("signature", "00000000");
         if (useGzip) {
             builder.addParam("compress", "gzip");
         }
