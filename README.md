@@ -37,4 +37,12 @@ public class Main {
 }
 ```
 
-#### 由于第三方的系统总是在不断的更新升级 如果功能失效请提 issues 并详细说明情况
+### 由于第三方的系统总是在不断的更新升级 如果功能失效请提 issues 并详细说明情况 .
+
+#### PS : 如果这个项目帮助到了您, 可以自愿打赏哟 😘 .
+
+<p align="center">
+    微信支付
+    <br>
+    <img width="200px" height="198px" src="./wxpay.jpg" alt="wxpay">
+</p>
