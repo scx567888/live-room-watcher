@@ -5,7 +5,7 @@ import java.util.Map;
 public class AppStore {
 
     public Boolean needInital;
-    public Map<String,Object> linkMicHeartConfig;
+    public Map<String, Object> linkMicHeartConfig;
     public Boolean isOpenLongTask;
 
 }

@@ -4,6 +4,6 @@
 *.iml
 *.ipr
 
-### Build targets ###
+### Build Targets ###
 target/
 built/
