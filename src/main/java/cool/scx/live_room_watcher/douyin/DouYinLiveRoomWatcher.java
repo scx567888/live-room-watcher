@@ -46,10 +46,10 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     private static final Pattern RENDER_DATA_PATTERN = Pattern.compile("<script id=\"RENDER_DATA\" type=\"application/json\">(.*?)</script>");
     private final String liveRoomURI;
+    private final Browser browser;
     private DouYinApplication douYinApplication;
     private WebSocket webSocket;
     private boolean useGzip;
-    private final Browser browser;
 
     /**
      * <p>Constructor for DouYinLiveRoomWatcher.</p>
@@ -59,22 +59,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public DouYinLiveRoomWatcher(String uri) {
         this.liveRoomURI = initLiveRoomURI(uri);
         this.browser = new Browser(vertx).addCookie(new DefaultCookie("__ac_nonce", "063b51155007d27728929"));
-    }
-
-    /**
-     * <p>getIndexHtml.</p>
-     *
-     * @param liveRoomURI a {@link java.lang.String} object
-     * @return a HttpResponse object
-     * @throws java.io.IOException            if any.
-     * @throws java.lang.InterruptedException if any.
-     */
-    private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
-        //模拟浏览器发送请求
-        return browser.request(new ScxHttpClientRequest()
-                .method(GET)
-                .uri(URI.create(liveRoomURI))
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"));
     }
 
     /**
@@ -148,17 +132,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     /**
-     * 根据直播间 uri 解析 直播间的信息
-     *
-     * @throws java.io.IOException            if any.
-     * @throws java.lang.InterruptedException if any.
-     */
-    private void parseByLiveRoomURI() throws IOException, InterruptedException {
-        var indexHtml = getIndexHtml(this.liveRoomURI);
-        this.douYinApplication = parseBody(indexHtml.body().toString());
-    }
-
-    /**
      * 处理 PushFrame 中的 gzip 压缩
      *
      * @param pushFrame a
@@ -169,6 +142,33 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var gzip = pushFrame.getHeadersListList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
         var bytes = gzip ? new GunzipBuilder(pushFrame.getPayload().toByteArray()).toBytes() : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
+    }
+
+    /**
+     * <p>getIndexHtml.</p>
+     *
+     * @param liveRoomURI a {@link java.lang.String} object
+     * @return a HttpResponse object
+     * @throws java.io.IOException            if any.
+     * @throws java.lang.InterruptedException if any.
+     */
+    private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
+        //模拟浏览器发送请求
+        return browser.request(new ScxHttpClientRequest()
+                .method(GET)
+                .uri(URI.create(liveRoomURI))
+                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"));
+    }
+
+    /**
+     * 根据直播间 uri 解析 直播间的信息
+     *
+     * @throws java.io.IOException            if any.
+     * @throws java.lang.InterruptedException if any.
+     */
+    private void parseByLiveRoomURI() throws IOException, InterruptedException {
+        var indexHtml = getIndexHtml(this.liveRoomURI);
+        this.douYinApplication = parseBody(indexHtml.body().toString());
     }
 
     /**

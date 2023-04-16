@@ -1,4 +1,5 @@
 package cool.scx.live_room_watcher.douyin.entity;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +13,9 @@ public class RoomStore {
 
     public RoomInfo roomInfo;
     public List<String> emojiList;
-    public Map<String,Object> emojiReflex;
+    public Map<String, Object> emojiReflex;
     public String liveStatus;
-    public Map<String,Object> followInfo;
+    public Map<String, Object> followInfo;
     public Boolean isUgcLive;
     public Boolean hasAppointment;
     public Boolean enableProgramme;

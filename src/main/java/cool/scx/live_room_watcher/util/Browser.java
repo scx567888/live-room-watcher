@@ -75,8 +75,8 @@ public class Browser {
     }
 
     public Browser addCookie(Cookie c) {
-         cookieMap.put(c.name(), c);
-         return this;
+        cookieMap.put(c.name(), c);
+        return this;
     }
 
 }

@@ -138,17 +138,19 @@ public interface LiveRoomWatcher {
 
     /**
      * 获取直播源地址
+     *
      * @return a
      */
-    default List<String> liveRoomWebStreamURLs(){
+    default List<String> liveRoomWebStreamURLs() {
         throw new UnsupportedOperationException();
     }
 
     /**
      * 获取直播间标题
+     *
      * @return a
      */
-    default String liveRoomTitle(){
+    default String liveRoomTitle() {
         throw new UnsupportedOperationException();
     }
 
