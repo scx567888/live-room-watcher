@@ -1,0 +1,200 @@
+;   版本: 2
+root = true
+
+[*]
+;   字符集
+charset = utf-8
+;   换行符
+end_of_line = lf
+;   缩进类型
+indent_style = space
+;   缩进
+indent_size = 4
+;   表示文件是否应以换行结束
+insert_final_newline = true
+;   强制换行位置
+max_line_length = 120
+;   单个制表符的宽度 (当 indent_size 为数字时, 默认值为 indent_size)
+tab_width = 4
+;   是否从行尾删除空白
+trim_trailing_whitespace = false
+;   连续缩进
+ij_continuation_indent_size = 8
+;   视觉参考线
+ij_visual_guides = none
+;   键入时换行 (搭配 max_line_length 使用)
+ij_wrap_on_typing = false
+;   空行时保持缩进
+ij_any_keep_indents_on_empty_lines = false
+
+[*.java]
+;   换行和大括号
+;   重新格式化时保持
+;   简单的 块 在同一行
+ij_java_keep_simple_blocks_in_one_line = false
+;   简单的 方法 在同一行
+ij_java_keep_simple_methods_in_one_line = false
+;   简单的 lambda 在同一行
+ij_java_keep_simple_lambdas_in_one_line = true
+;   简单的 类 在同一行
+ij_java_keep_simple_classes_in_one_line = true
+;   'if()' 语句
+;   强制加大括号
+ij_java_if_brace_force = always
+;   'for()' 语句
+;   强制加大括号
+ij_java_for_brace_force = always
+;   'while()' 语句
+;   强制加大括号
+ij_java_while_brace_force = always
+;   'do...while()' 语句
+;   强制加大括号
+ij_java_do_while_brace_force = always
+
+[*.js]
+;   换行和大括号
+;   'if()' 语句
+;   强制加大括号
+ij_javascript_if_brace_force = always
+;   'for()' 语句
+;   强制加大括号
+ij_javascript_for_brace_force = always
+;   'while()' 语句
+;   强制加大括号
+ij_javascript_while_brace_force = always
+;   'do...while()' 语句
+;   强制加大括号
+ij_javascript_do_while_brace_force = always
+;   对象换行
+ij_javascript_object_literal_wrap = on_every_item
+;   变量声明换行
+ij_javascript_var_declaration_wrap = on_every_item
+;   标点
+;   使用分号终止语句
+ij_javascript_use_semicolon_after_statement = true
+;   强制语句格式
+ij_javascript_force_semicolon_style = true
+;   使用双引号
+ij_javascript_use_double_quotes = true
+;   强制引号格式
+ij_javascript_force_quote_style = true
+;   尾随逗号
+ij_javascript_enforce_trailing_comma = whenmultiline
+
+[*.html]
+;   其他
+;   换行特性
+ij_html_attribute_wrap = normal
+;   文字换行
+ij_html_text_wrap = off
+;   在第一个特性前换行
+ij_html_new_line_before_first_attribute = never
+;   在最后一个特性后换行
+ij_html_new_line_after_last_attribute = never
+;   生成的引号
+ij_html_quote_style = double
+;   强制引号
+ij_html_enforce_quotes = true
+
+[*.xml]
+;   其他
+;   换行特性
+ij_xml_attribute_wrap = normal
+;   文字换行
+ij_xml_text_wrap = off
+
+[*.css]
+;   空行
+;   保持最大的空白行
+;   在代码中
+ij_css_keep_blank_lines_in_code = 2
+;   最小的空白行
+;   顶层块周围
+ij_css_blank_lines_between_blocks = 1
+;   嵌套的选择器周围
+ij_css_blank_lines_around_nested_selector = 1
+;   其他
+;   大括号位置
+ij_css_brace_placement = end_of_line
+;   对齐值
+ij_css_value_alignment = do_not_align
+;   引号 (双引号或单引号)
+ij_css_use_double_quotes = true
+;   引号 强制格式化
+ij_css_enforce_quotes_on_format = true
+;   将右大括号与属性对齐
+ij_css_align_closing_brace_with_properties = false
+;   保持单行块
+ij_css_keep_single_line_blocks = false
+;   空格
+;   空格 冒号后
+ij_css_space_after_colon = true
+;   空格 左大括号前
+ij_css_space_before_opening_brace = true
+;   注释
+;   在块注释周围添加空格
+ij_css_block_comment_add_space = false
+;   十六进制颜色
+;   将十六进制颜色转换为
+;   大写
+ij_css_hex_color_upper_case = false
+;   小写
+ij_css_hex_color_lower_case = false
+;   将十六进制颜色转换为
+;   长格式
+ij_css_hex_color_long_format = false
+;   短格式
+ij_css_hex_color_short_format = false
+
+[*.json]
+indent_size = 2
+;   空格
+;   大括号
+ij_json_spaces_within_braces = false
+;   中括号
+ij_json_spaces_within_brackets = false
+;   在逗号前
+ij_json_space_before_comma = false
+;   在逗号后
+ij_json_space_after_comma = true
+;   在 ':' 前
+ij_json_space_before_colon = false
+;   在 ':' 后
+ij_json_space_after_colon = true
+;   键入时换行
+ij_json_wrap_long_lines = false
+;   保持的最大空白行
+;   代码中
+ij_json_keep_blank_lines_in_code = 0
+;   重新格式化时保持
+;   换行符
+ij_json_keep_line_breaks = true
+;   尾随逗号
+ij_json_keep_trailing_comma = false
+;   数组始终换行
+ij_json_array_wrapping = split_into_lines
+;   对象 始终换行
+ij_json_object_wrapping = split_into_lines
+;   对象属性对齐
+ij_json_property_alignment = do_not_align
+
+[*.vue]
+;   空格
+;   内部 插值
+ij_vue_spaces_within_interpolation_expressions = true
+;   换行和大括号
+;   插值
+ij_vue_interpolation_wrap = off
+;   在 '{{' 后换行
+ij_vue_interpolation_new_line_after_start_delimiter = true
+;   在 '}}' 前换行
+ij_vue_interpolation_new_line_before_end_delimiter = true
+
+[*.md]
+;   换行和大括号
+;   重新格式化时
+;   格式化表
+ij_markdown_format_tables = true
+
+[{*.yaml,*.yml}]
+indent_size = 2

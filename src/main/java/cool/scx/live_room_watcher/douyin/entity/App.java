@@ -12,8 +12,8 @@ public class App {
 
     public String pathname;
     public Odin odin;
-    public Map<String,Object> layoutData;
-    public Map<String,Object> routeInitialProps;
+    public Map<String, Object> layoutData;
+    public Map<String, Object> routeInitialProps;
     public InitialState initialState;
 
 }

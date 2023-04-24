@@ -9,6 +9,6 @@ public class Anchor {
     public String sec_uid;
     public String nickname;
     public AvatarThumb avatar_thumb;
-    public Map<String,Object> follow_info;
+    public Map<String, Object> follow_info;
 
 }
