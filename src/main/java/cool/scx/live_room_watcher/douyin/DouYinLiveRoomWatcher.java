@@ -157,6 +157,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return browser.request(new ScxHttpClientRequest()
                 .method(GET)
                 .uri(URI.create(liveRoomURI))
+                .setHeader("User-Agent", navigator().userAgent())
                 .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"));
     }
 
