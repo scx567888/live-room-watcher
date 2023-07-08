@@ -92,7 +92,7 @@
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
 
-        <scx.version>2.2.8</scx.version>
+        <scx.version>2.2.9</scx.version>
         <protobuf.version>3.23.4</protobuf.version>
         <testng.version>7.8.0</testng.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
