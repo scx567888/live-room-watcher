@@ -48,7 +48,7 @@ public class DouYinUser implements User {
      */
     @Override
     public String avatar() {
-        return user.getAvatarThumb().getUri();
+        return user.getAvatarThumb().getUrlListList(0);
     }
 
     /**
