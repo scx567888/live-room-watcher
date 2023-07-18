@@ -22,6 +22,9 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 public class DouYinHelper {
 
+    /**
+     * 用来解析 RENDER_DATA
+     */
     public static final Pattern RENDER_DATA_PATTERN = Pattern.compile("<script id=\"RENDER_DATA\" type=\"application/json\">(.*?)</script>");
 
     /**
