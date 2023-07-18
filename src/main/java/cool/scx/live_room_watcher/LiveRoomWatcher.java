@@ -154,9 +154,18 @@ public interface LiveRoomWatcher {
         throw new UnsupportedOperationException();
     }
 
+    default String liveRoomID() {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * 启动 监控
      */
     void startWatch();
 
+    /**
+     * 停止 监控
+     */
+    void stopWatch();
+    
 }
