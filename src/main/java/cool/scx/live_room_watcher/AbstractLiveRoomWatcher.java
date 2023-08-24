@@ -47,11 +47,11 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         vertx = Vertx.vertx();
     }
 
-    private Consumer<Chat> chatHandler;
-    private Consumer<User> userHandler;
-    private Consumer<Like> likeHandler;
-    private Consumer<Follow> followHandler;
-    private Consumer<Gift> giftHandler;
+    protected Consumer<Chat> chatHandler;
+    protected Consumer<User> userHandler;
+    protected Consumer<Like> likeHandler;
+    protected Consumer<Follow> followHandler;
+    protected Consumer<Gift> giftHandler;
 
     /**
      * <p>Constructor for AbstractLiveRoomWatcher.</p>
@@ -94,9 +94,6 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public LiveRoomWatcher followHandler(Consumer<Follow> handler) {
         Objects.requireNonNull(handler);
@@ -104,9 +101,6 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
         return this;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public LiveRoomWatcher giftHandler(Consumer<Gift> handler) {
         Objects.requireNonNull(handler);

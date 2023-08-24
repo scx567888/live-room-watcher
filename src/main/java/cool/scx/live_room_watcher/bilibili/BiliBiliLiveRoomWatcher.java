@@ -27,4 +27,9 @@ public class BiliBiliLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     }
 
+    @Override
+    public void stopWatch() {
+        
+    }
+
 }
