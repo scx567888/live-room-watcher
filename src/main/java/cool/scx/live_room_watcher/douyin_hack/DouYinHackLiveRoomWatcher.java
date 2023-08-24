@@ -27,7 +27,7 @@ import static cool.scx.live_room_watcher.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
- * <p>DouYinLiveRoomWatcher class.</p>
+ * 利用模拟网页 websocket 的方式获取直播间信息
  *
  * @author scx567888
  * @version 0.0.1
