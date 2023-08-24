@@ -12,7 +12,34 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
+
+    <name>Live Room Watcher</name>
+    <url>https://github.com/scx567888/live-room-watcher</url>
+    <description>
+        Live Room Watcher
+    </description>
+
+    <developers>
+        <developer>
+            <id>scx567888</id>
+            <name>scx567888</name>
+            <email>scx567888@outlook.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/scx567888/live-room-watcher/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/scx567888/live-room-watcher.git</connection>
+        <developerConnection>scm:git:https://github.com/scx567888/live-room-watcher.git</developerConnection>
+        <url>https://github.com/scx567888/live-room-watcher</url>
+    </scm>
 
     <dependencies>
 
@@ -77,10 +104,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 因为 scx 并不是可执行 jar 包, 所以此处不添加 classpath 到描述文件中 -->
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                    </archive>
                     <excludes>
                         <exclude>/pushproto/</exclude>
                         <exclude>/webcast/</exclude>
                         <exclude>/*.proto</exclude>
+                        <!-- 默认 git 占位空文件 -->
+                        <exclude>/.gitkeep</exclude>
                     </excludes>
                 </configuration>
             </plugin>
