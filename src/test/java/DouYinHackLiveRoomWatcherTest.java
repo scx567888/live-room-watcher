@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class LiveRoomWatcherTest {
+public class DouYinHackLiveRoomWatcherTest {
 
     public static final DateTimeFormatter DEFAULT_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
