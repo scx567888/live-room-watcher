@@ -5,7 +5,7 @@ param($JAVA_HOME, $MAVEN_HOME)
 
 #---------------------------------------------- 全局变量 ------------------------------------------------
 # 当前脚本的版本号
-$SCRIPT_VERSION = '5'
+$SCRIPT_VERSION = '6'
 #项目名称
 $PROJECT_NAME = '-'
 #项目版本
@@ -125,7 +125,7 @@ function ShowSuccess()
     mvn clean
     Write-Host '打包成功'  -ForegroundColor Green
     Write-Host "后台项目是$OUTPUT_URL\$PROJECT_NAME-$PROJECT_VERSION.jar" -ForegroundColor Green
-    Write-Host "启动脚本是$OUTPUT_URL\startup.bat" -ForegroundColor Green
+    Write-Host "启动脚本是$OUTPUT_URL\startup-$PROJECT_VERSION.bat" -ForegroundColor Green
     pause
     explorer $OUTPUT_URL
 }
@@ -176,7 +176,7 @@ SET JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 -Duser.language=zh
 java -jar $PROJECT_NAME-$PROJECT_VERSION.jar"
     # 将内容写入文件
     $UTF8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
-    [System.IO.File]::WriteAllText("$OUTPUT_URL\startup.bat", $ScriptContent, $UTF8NoBomEncoding)
+    [System.IO.File]::WriteAllText("$OUTPUT_URL\startup-$PROJECT_VERSION.bat", $ScriptContent, $UTF8NoBomEncoding)
 }
 
 function BuildProject()
