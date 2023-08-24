@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data";
+
+//更新时间 : 2023-01-05 17:25:27
+message TextPieceHeart{
+  string color = 1;
+}

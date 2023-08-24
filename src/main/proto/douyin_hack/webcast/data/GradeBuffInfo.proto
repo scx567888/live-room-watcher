@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data";
+
+import "webcast/data/Image.proto";
+
+message GradeBuffInfo {
+  int64 buffLevel = 1;
+  int32 status = 2;
+  int64 endTime = 3;
+  map<int64, int64> statsInfoMap = 4;
+  Image buffBadge = 5;
+}

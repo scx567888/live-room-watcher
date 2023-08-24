@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+import "webcast/im/PublicAreaCommon.proto";
+
+//更新时间 : 2023-01-11
+message AudioChatMessage {
+  Common common = 1;
+  User user = 2;
+  string content = 3;
+  string audioUrl = 4;
+  int64  audioDuration = 5;
+  PublicAreaCommon   publicAreaCommon = 6;
+}

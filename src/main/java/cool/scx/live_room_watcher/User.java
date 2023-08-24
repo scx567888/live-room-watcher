@@ -22,4 +22,9 @@ public interface User {
      */
     String avatar();
 
+
+    default String userID() {
+        return null;
+    }
+
 }

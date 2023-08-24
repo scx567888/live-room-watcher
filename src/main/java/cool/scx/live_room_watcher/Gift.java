@@ -27,4 +27,14 @@ public interface Gift {
      * @return a long
      */
     long count();
+
+    /**
+     * 房间号
+     *
+     * @return 房间号
+     */
+    default String roomID(){
+        return null;
+    }
+    
 }

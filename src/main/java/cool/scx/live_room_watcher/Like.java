@@ -22,4 +22,12 @@ public interface Like {
      */
     long count();
 
+    /**
+     * 房间号
+     * @return a
+     */
+    default String roomID(){
+        return null;
+    }
+
 }

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+import "webcast/im/DoubleLikeDetail.proto";
+import "webcast/im/DisplayControlInfo.proto";
+import "webcast/im/PicoDisplayInfo.proto";
+
+//更新时间 : 2023-01-09
+message LikeMessage {
+  Common common = 1;
+  int64 count = 2;
+  int64 total = 3;
+  int64 color = 4;
+  User user = 5;
+  string icon = 6;
+  DoubleLikeDetail doubleLikeDetail = 7;
+  DisplayControlInfo displayControlInfo = 8;
+  int64 linkmicGuestUid = 9;
+  string scene = 10;
+  PicoDisplayInfo picoDisplayInfo = 11;
+}
