@@ -18,7 +18,7 @@ public class DouYinHackUser implements User {
     /**
      * <p>Constructor for DouYinUser.</p>
      *
-     * @param memberMessage a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MemberMessage} object
+     * @param memberMessage a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.MemberMessage} object
      */
     public DouYinHackUser(MemberMessage memberMessage) {
         this.memberMessage = memberMessage;
@@ -28,7 +28,7 @@ public class DouYinHackUser implements User {
     /**
      * <p>Constructor for DouYinUser.</p>
      *
-     * @param user a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User} object
+     * @param user a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data.User} object
      */
     public DouYinHackUser(cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data.User user) {
         this.memberMessage = null;
@@ -54,7 +54,7 @@ public class DouYinHackUser implements User {
     /**
      * <p>_memberMessage.</p>
      *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.MemberMessage} object
+     * @return a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.MemberMessage} object
      */
     public MemberMessage _memberMessage() {
         return memberMessage;
@@ -63,7 +63,7 @@ public class DouYinHackUser implements User {
     /**
      * <p>_user.</p>
      *
-     * @return a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.data.User} object
+     * @return a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data.User} object
      */
     public cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data.User _user() {
         return user;
