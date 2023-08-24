@@ -19,6 +19,9 @@ import java.util.Map;
 
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
+/**
+ * 模拟浏览器的 HttpClient
+ */
 public class Browser {
 
     private final Map<String, Cookie> cookieMap = new HashMap<>();
