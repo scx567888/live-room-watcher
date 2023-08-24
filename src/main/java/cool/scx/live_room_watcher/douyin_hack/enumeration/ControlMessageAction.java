@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin.enumeration;
+package cool.scx.live_room_watcher.douyin_hack.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +52,7 @@ public enum ControlMessageAction {
      * <p>of.</p>
      *
      * @param i a long
-     * @return a {@link cool.scx.live_room_watcher.douyin.enumeration.ControlMessageAction} object
+     * @return a {@link cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction} object
      */
     public static ControlMessageAction of(long i) {
         return MAP.get(i);
