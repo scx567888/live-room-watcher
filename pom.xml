@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.0.7</version>
+    <version>0.1.0</version>
 
     <dependencies>
 
