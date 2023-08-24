@@ -17,7 +17,7 @@ public class DouYinHackFollow implements Follow {
     /**
      * <p>Constructor for DouYinFollow.</p>
      *
-     * @param socialMessage a {@link cool.scx.live_room_watcher.douyin.proto_entity.webcast.im.SocialMessage} object
+     * @param socialMessage a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.SocialMessage} object
      */
     public DouYinHackFollow(SocialMessage socialMessage) {
         this.socialMessage = socialMessage;

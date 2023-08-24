@@ -135,8 +135,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * 刷新 accessToken
      * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
      *
-     * @throws IOException          a
-     * @throws InterruptedException a
      */
     public void refreshAccessToken() {
         try {
