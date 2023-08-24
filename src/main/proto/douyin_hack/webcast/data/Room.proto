@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.data";
+
+import "webcast/data/RoomExtra.proto";
+import "webcast/data/Image.proto";
+import "webcast/data/User.proto";
+import "webcast/data/StreamUrl.proto";
+import "webcast/data/LinkMic.proto";
+import "webcast/data/Decoration.proto";
+import "webcast/data/TopFan.proto";
+import "webcast/data/RoomStats.proto";
+import "webcast/data/RoomUserAttr.proto";
+
+message Room {
+  int64 id = 1;
+  string idStr = 2;
+  int64 status = 3;
+  int64 ownerUserId = 4;
+  string title = 5;
+  int64 userCount = 6;
+  int64 createTime = 7;
+  int64 linkmicLayout = 8;
+  int64 finishTime = 9;
+  RoomExtra extra = 10;
+  string dynamicCoverUri = 11;
+  map<int64, string> dynamicCoverDict = 12;
+  int64 lastPingTime = 13;
+  int64 liveId = 14;
+  int64 streamProvider = 15;
+  int64 osType = 16;
+  int64 clientVersion = 17;
+  bool withLinkmic = 18;
+  bool enableRoomPerspective = 19;
+  Image cover = 20;
+  Image dynamicCover = 21;
+  Image dynamicCoverLow = 22;
+  string shareUrl = 23;
+  string anchorShareText = 24;
+  string userShareText = 25;
+  int64 streamId = 26;
+  string streamIdStr = 27;
+  StreamUrl streamUrl = 28;
+  int64 mosaicStatus = 29;
+  string mosaicTip = 30;
+  int64 cellStyle = 31;
+  LinkMic linkMic = 32;
+  int64 luckymoneyNum = 33;
+  repeated Decoration decoList = 34;
+  repeated TopFan topFans = 35;
+  RoomStats stats = 36;
+  string sunDailyIconContent = 37;
+  string distance = 38;
+  string distanceCity = 39;
+  string location = 40;
+  string realDistance = 41;
+  Image feedRoomLabel = 42;
+  string commonLabelList = 43;
+  RoomUserAttr livingRoomAttrs = 44;
+  repeated int64 adminUserIds = 45;
+  User owner = 46;
+  string privateInfo = 47;
+}

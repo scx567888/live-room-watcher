@@ -22,4 +22,13 @@ public interface Chat {
      */
     User user();
 
+    /**
+     * 房间号
+     *
+     * @return 房间号
+     */
+    default String roomID() {
+        return null;
+    }
+
 }

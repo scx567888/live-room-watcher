@@ -55,7 +55,7 @@
                 <version>${protobuf-maven-plugin.version}</version>
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
-                    <protoSourceRoot>${project.basedir}/src/main/proto/douyin</protoSourceRoot>
+                    <protoSourceRoot>${project.basedir}/src/main/proto/douyin_hack</protoSourceRoot>
                     <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
                     <clearOutputDirectory>false</clearOutputDirectory>
                     <useArgumentFile>true</useArgumentFile>

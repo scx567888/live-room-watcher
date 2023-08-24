@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/im/ActionType.proto";
+
+//更新时间 : 2023-01-11
+message InRoomBannerMessage {
+  Common common = 1;
+  string extra = 2;
+  PositionType position = 3;
+  ActionType actionType = 4;
+  string containerUrl = 5;
+  string lynxContainerUrl = 6;
+  ContainerType containerType = 7;
+  OpType opType = 8;
+
+  enum PositionType{
+    UNDEFINED = 0;
+    BOTTOM_RIGHT = 1;
+    TOP_RIGHT = 2;
+    TOP_LEFT = 3;
+    BOTTOM_LEFT = 4;
+    ACTIVITY_TOP_RIGHT = 5;
+    ACTIVITY_VS_INTERACTIVE = 6;
+    ACTIVITY_INTERACTIVE = 7;
+    ACTIVITY_VS_BOTTOM_RIGHT = 8;
+  }
+
+  enum ContainerType{
+    WEBVIEW = 0;
+    LYNX = 1;
+  }
+
+  enum OpType{
+    DELETE = 0;
+    ADD = 1;
+  }
+
+}

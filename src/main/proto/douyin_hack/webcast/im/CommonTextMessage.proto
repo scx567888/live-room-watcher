@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/User.proto";
+
+//更新时间 : 2023-01-09
+message CommonTextMessage{
+  Common common = 1;
+  User   user = 2;
+  string  scene = 3;
+}

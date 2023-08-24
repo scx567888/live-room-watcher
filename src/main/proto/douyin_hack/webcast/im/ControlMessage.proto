@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im";
+
+import "webcast/im/Common.proto";
+import "webcast/data/Text.proto";
+
+//更新时间 : 2023-01-11
+message ControlMessage {
+  Common common = 1;
+  int64 action = 2;
+  string tips = 3;
+  Extra extra = 4;
+
+  message Extra{
+    string banInfoUrl = 1;
+    int64 reasonNo = 2;
+    Text title = 3;
+    Text violationReason = 4;
+    Text content = 5;
+    Text gotItButton = 6;
+    Text  banDetailButton = 7;
+    string source = 8;
+  }
+
+}

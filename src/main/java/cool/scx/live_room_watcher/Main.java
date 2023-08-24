@@ -1,11 +1,11 @@
 package cool.scx.live_room_watcher;
 
-import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
+import cool.scx.live_room_watcher.douyin_hack.DouYinHackLiveRoomWatcher;
 
 public class Main {
 
     public static void main(String[] args) {
-        var liveRoomWatcher = new DouYinLiveRoomWatcher("https://live.douyin.com/357626301151");
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/30717205098");
 
         liveRoomWatcher.onChat(chat -> {
             System.out.println("[消息] " + chat.user().nickName() + " : " + chat.content());
