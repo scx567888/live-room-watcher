@@ -22,7 +22,7 @@ import static cool.scx.live_room_watcher.douyin.DouYinMsgType.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
- * 官方的获取方式
+ * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, DouYinMsgType)}
  *
  * @author scx567888
  * @version 0.0.1
