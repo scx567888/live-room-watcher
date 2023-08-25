@@ -6,7 +6,7 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -18,8 +18,6 @@ import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkData;
-import static cool.scx.live_room_watcher.douyin.DouYinMsgType.*;
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, DouYinMsgType)}
@@ -46,7 +44,18 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
     }
 
-    public String taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
+    private static String getMsgTypeValue(MsgType msgType) {
+        return switch (msgType) {
+            case LIVE_COMMENT -> "live_comment";
+            case LIVE_GIFT -> "live_gift";
+            case LIVE_LIKE -> "live_like";
+            case LIVE_FANS_CLUB -> "live_fansclub";
+            default -> throw new IllegalArgumentException();
+        };
+    }
+
+    @Override
+    public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_START_URL)
                 .method(POST)
@@ -54,12 +63,13 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .body(new JsonBody(Map.of(
                         "roomid", roomID,
                         "appid", appID,
-                        "msg_type", msgType.value()
+                        "msg_type",getMsgTypeValue(msgType)
                 ))));
         return response.body().toString();
     }
 
-    public String taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
+    @Override
+    public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_STOP_URL)
                 .method(POST)
@@ -67,7 +77,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .body(new JsonBody(Map.of(
                         "roomid", roomCode,
                         "appid", appID,
-                        "msg_type", msgType.value()
+                        "msg_type", getMsgTypeValue(msgType)
                 ))));
         return response.body().toString();
     }
@@ -98,20 +108,6 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "sec_gift_id_list", secGiftIDList
                 ))));
         return response.body().toString();
-    }
-
-    @Override
-    public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
-        taskStart(roomID, LIVE_GIFT);
-        taskStart(roomID, LIVE_LIKE);
-    }
-
-    @Override
-    public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, LIVE_COMMENT);
-        taskStop(roomID, LIVE_GIFT);
-        taskStop(roomID, LIVE_LIKE);
     }
 
     @Override
@@ -196,7 +192,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @param msgType 类型
      */
     @Override
-    public void call(String bodyStr, Map<String, String> header, DouYinMsgType msgType) throws JsonProcessingException {
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
         switch (msgType) {
             case LIVE_GIFT -> {
                 checkData(bodyStr, header, giftDataSecret);
