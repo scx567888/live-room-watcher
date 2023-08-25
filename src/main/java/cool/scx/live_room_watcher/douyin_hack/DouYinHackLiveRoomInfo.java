@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.douyin_hack;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.live_room_watcher.LiveRoomAnchor;
+import cool.scx.live_room_watcher.Anchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.douyin_hack.entity.DouYinApplication;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static cool.scx.live_room_watcher.douyin_hack.DouYinHackHelper.parseBody;
 
-public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
+public class DouYinHackLiveRoomInfo implements LiveRoomInfo, Anchor {
 
     private final DouYinApplication douYinApplication;
 
@@ -44,14 +44,19 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
         return this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
     }
 
+    @Override
+    public Anchor liveRoomAnchor() {
+        return this;
+    }
+
 
     @Override
-    public String anchorNickName() {
+    public String nickName() {
         return this.douYinApplication.app.initialState.roomStore.roomInfo.anchor.nickname;
     }
 
     @Override
-    public String anchorAvatar() {
+    public String avatar() {
         return this.douYinApplication.app.initialState.roomStore.roomInfo.anchor.avatar_thumb.url_list.get(0);
     }
 
