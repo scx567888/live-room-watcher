@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.douyin;
 
-public class DouYinApi {
+class DouYinApi {
     
     public static final String ACCESS_TOKEN_URL = "https://developer.toutiao.com/api/apps/v2/token";
     public static final String TASK_START_URL = "https://webcast.bytedance.com/api/live_data/task/start";

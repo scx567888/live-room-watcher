@@ -9,7 +9,7 @@ import static cool.scx.util.Base64Utils.encodeToString;
 import static cool.scx.util.HashUtils.md5;
 import static cool.scx.util.HexUtils.toBytes;
 
-public class DouYinHelper {
+class DouYinHelper {
 
     /**
      * 校验参数数据是否正确

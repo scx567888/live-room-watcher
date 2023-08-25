@@ -36,22 +36,15 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String likeDataSecret;
     private String accessToken;
 
-    public DouYinLiveRoomWatcher(DouYinLiveRoomWatcherOptions options) {
-        options.checkOptions();
-        this.appID = options.appID;
-        this.appSecret = options.appSecret;
-        this.commentDataSecret = options.commentDataSecret;
-        this.giftDataSecret = options.giftDataSecret;
-        this.likeDataSecret = options.likeDataSecret;
-    }
-
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret) {
-        this(new DouYinLiveRoomWatcherOptions()
-                .appID(appID)
-                .appSecret(appSecret)
-                .commentDataSecret(commentDataSecret)
-                .giftDataSecret(giftDataSecret)
-                .likeDataSecret(likeDataSecret));
+        this.appID = appID;
+        this.appSecret = appSecret;
+        this.commentDataSecret = commentDataSecret;
+        this.giftDataSecret = giftDataSecret;
+        this.likeDataSecret = likeDataSecret;
+        if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null) {
+            throw new RuntimeException();
+        }
     }
 
     public String taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
@@ -134,7 +127,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     /**
      * 刷新 accessToken
      * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
-     *
      */
     public void refreshAccessToken() {
         try {
