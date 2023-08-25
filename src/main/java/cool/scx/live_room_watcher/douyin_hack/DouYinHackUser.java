@@ -51,6 +51,11 @@ public class DouYinHackUser implements User {
         return user.getAvatarThumb().getUrlListList(0);
     }
 
+    @Override
+    public String userID() {
+        return null;
+    }
+
     /**
      * <p>_memberMessage.</p>
      *
