@@ -11,7 +11,7 @@ import java.util.function.Consumer;
  * @author scx567888
  * @version 0.0.1
  */
-public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
+public abstract class BaseLiveRoomWatcher implements LiveRoomWatcher {
 
     /**
      * Constant <code>vertx</code>
@@ -56,7 +56,7 @@ public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
     /**
      * <p>Constructor for AbstractLiveRoomWatcher.</p>
      */
-    protected AbstractLiveRoomWatcher() {
+    protected BaseLiveRoomWatcher() {
         chatHandler = DEFAULT_CHAT_HANDLER;
         userHandler = DEFAULT_USER_HANDLER;
         likeHandler = DEFAULT_LIKE_HANDLER;

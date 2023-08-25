@@ -6,8 +6,8 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.douyin.type.*;
+import cool.scx.live_room_watcher.MsgType;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -18,151 +18,35 @@ import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkData;
-import static cool.scx.live_room_watcher.douyin.DouYinMsgType.*;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static cool.scx.live_room_watcher.douyin.DouYinHelper.getMsgTypeValue;
 
 /**
- * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, DouYinMsgType)}
+ * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MsgType)}
  *
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
+public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
     private final String commentDataSecret;
     private final String giftDataSecret;
     private final String likeDataSecret;
-    private String accessToken;
-
-    public DouYinLiveRoomWatcher(DouYinLiveRoomWatcherOptions options) {
-        options.checkOptions();
-        this.appID = options.appID;
-        this.appSecret = options.appSecret;
-        this.commentDataSecret = options.commentDataSecret;
-        this.giftDataSecret = options.giftDataSecret;
-        this.likeDataSecret = options.likeDataSecret;
-    }
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret) {
-        this(new DouYinLiveRoomWatcherOptions()
-                .appID(appID)
-                .appSecret(appSecret)
-                .commentDataSecret(commentDataSecret)
-                .giftDataSecret(giftDataSecret)
-                .likeDataSecret(likeDataSecret));
-    }
-
-    public String taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
-                .uri(TASK_START_URL)
-                .method(POST)
-                .setHeader("access-token", getAccessToken())
-                .body(new JsonBody(Map.of(
-                        "roomid", roomID,
-                        "appid", appID,
-                        "msg_type", msgType.value()
-                ))));
-        return response.body().toString();
-    }
-
-    public String taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
-                .uri(TASK_STOP_URL)
-                .method(POST)
-                .setHeader("access-token", getAccessToken())
-                .body(new JsonBody(Map.of(
-                        "roomid", roomCode,
-                        "appid", appID,
-                        "msg_type", msgType.value()
-                ))));
-        return response.body().toString();
-    }
-
-    public String taskStatus(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(TASK_STATUS_URL)
-                .addParam("roomid", roomCode)
-                .addParam("appid", appID)
-                .addParam("msg_type", msgType.value())
-                .build();
-
-        var response = request(new ScxHttpClientRequest()
-                .uri(uri)
-                .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
-        return response.body().toString();
-    }
-
-
-    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
-                .uri(TOP_GIFT_URL)
-                .method(POST)
-                .setHeader("x-token", getAccessToken())
-                .body(new JsonBody(Map.of(
-                        "room_id", roomCode,
-                        "app_id", appID,
-                        "sec_gift_id_list", secGiftIDList
-                ))));
-        return response.body().toString();
-    }
-
-    @Override
-    public void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
-    }
-
-
-    @Override
-    public void stopWatch() {
-        throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
-    }
-
-    public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
-        taskStart(roomID, LIVE_GIFT);
-        taskStart(roomID, LIVE_LIKE);
-    }
-
-    public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, LIVE_COMMENT);
-        taskStop(roomID, LIVE_GIFT);
-        taskStop(roomID, LIVE_LIKE);
-    }
-
-    /**
-     * 刷新 accessToken
-     * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
-     *
-     */
-    public void refreshAccessToken() {
-        try {
-            var accessTokenResult = getAccessToken0();
-            this.accessToken = accessTokenResult.data().access_token();
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, accessTokenResult.data().expires_in() / 2, SECONDS);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //发生错误的话 2秒后重试
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, 2000, SECONDS);
+        this.appID = appID;
+        this.appSecret = appSecret;
+        this.commentDataSecret = commentDataSecret;
+        this.giftDataSecret = giftDataSecret;
+        this.likeDataSecret = likeDataSecret;
+        if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null) {
+            throw new RuntimeException();
         }
     }
 
-    /**
-     * 获取 accessToken
-     *
-     * @return a
-     */
-    public String getAccessToken() {
-        if (this.accessToken == null) {
-            refreshAccessToken();
-        }
-        return this.accessToken;
-    }
-
-    private AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+    @Override
+    protected DouYinAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
                 .uri(ACCESS_TOKEN_URL)
                 .method(POST)
@@ -172,7 +56,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         "grant_type", "client_credential"
                 ))));
         var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, AccessTokenResult.class);
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinAccessTokenResult.class);
         if (accessTokenResult.err_no() != 0) {
             throw new IllegalArgumentException(bodyStr);
         }
@@ -187,7 +71,8 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @throws InterruptedException a
      * @see <a href="https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo">https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo</a>
      */
-    public WebcastMateInfo webcastMateInfo(String token) throws IOException, InterruptedException {
+    @Override
+    public DouYinWebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
         var response = request(
                 new ScxHttpClientRequest()
                         .uri(WEBCAST_MATE_INFO_URL)
@@ -205,25 +90,58 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (info == null) {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
-        return ObjectUtils.jsonMapper().convertValue(info, WebcastMateInfo.class);
+        return ObjectUtils.jsonMapper().convertValue(info, DouYinWebcastMateInfo.class);
     }
 
-    /**
-     * 推送失败数据获取
-     *
-     * @param roomCode  房间号
-     * @param msg_type  消息类型
-     * @param page_num  分页
-     * @param page_size 分页
-     * @return a
-     * @throws IOException          a
-     * @throws InterruptedException a
-     */
-    public String failDataGet(String roomCode, DouYinMsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
+    @Override
+    public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
+        var response = request(new ScxHttpClientRequest()
+                .uri(TASK_START_URL)
+                .method(POST)
+                .setHeader("access-token", getAccessToken())
+                .body(new JsonBody(Map.of(
+                        "roomid", roomID,
+                        "appid", appID,
+                        "msg_type", getMsgTypeValue(msgType)
+                ))));
+        return response.body().toString();
+    }
+
+    @Override
+    public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
+        var response = request(new ScxHttpClientRequest()
+                .uri(TASK_STOP_URL)
+                .method(POST)
+                .setHeader("access-token", getAccessToken())
+                .body(new JsonBody(Map.of(
+                        "roomid", roomCode,
+                        "appid", appID,
+                        "msg_type", getMsgTypeValue(msgType)
+                ))));
+        return response.body().toString();
+    }
+
+    @Override
+    public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
+        var uri = URIBuilder.of(TASK_STATUS_URL)
+                .addParam("roomid", roomCode)
+                .addParam("appid", appID)
+                .addParam("msg_type", getMsgTypeValue(msgType))
+                .build();
+
+        var response = request(new ScxHttpClientRequest()
+                .uri(uri)
+                .method(HttpMethod.GET)
+                .setHeader("access-token", getAccessToken()));
+        return response.body().toString();
+    }
+
+    @Override
+    public String failDataGet(String roomCode, MsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
         var uri = URIBuilder.of(FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
-                .addParam("msg_type", msg_type.value())
+                .addParam("msg_type", getMsgTypeValue(msg_type))
                 .addParam("page_num", page_num)
                 .addParam("page_size", page_size)
                 .build();
@@ -235,6 +153,21 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return response.body().toString();
     }
 
+    @Override
+    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+        var response = request(new ScxHttpClientRequest()
+                .uri(TOP_GIFT_URL)
+                .method(POST)
+                .setHeader("x-token", getAccessToken())
+                .body(new JsonBody(Map.of(
+                        "room_id", roomCode,
+                        "app_id", appID,
+                        "sec_gift_id_list", secGiftIDList
+                ))));
+        return response.body().toString();
+    }
+
+
     /**
      * 当收到回调时请调用 此方法
      *
@@ -242,12 +175,13 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @param header  请求头
      * @param msgType 类型
      */
-    public void call(String bodyStr, Map<String, String> header, DouYinMsgType msgType) throws JsonProcessingException {
+    @Override
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
         switch (msgType) {
             case LIVE_GIFT -> {
                 checkData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
-                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<GiftBody[]>() {});
+                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGiftBody[]>() {});
                 for (var gift : giftList) {
                     gift.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -262,7 +196,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             case LIVE_LIKE -> {
                 checkData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
-                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<LikeBody[]>() {});
+                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLikeBody[]>() {});
                 for (var like : likeList) {
                     like.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -277,7 +211,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             case LIVE_COMMENT -> {
                 checkData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
-                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CommentBody[]>() {});
+                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinCommentBody[]>() {});
                 for (var comment : commentList) {
                     comment.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {

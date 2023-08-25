@@ -1,30 +1,23 @@
-import cool.scx.live_room_watcher.douyin_hack.DouYinHackLiveRoomWatcher;
+package cool.scx.live_room_watcher.test;
+
+import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
-import org.testng.annotations.Test;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.IOException;
+import java.util.Map;
 
-public class DouYinHackLiveRoomWatcherTest {
+import static cool.scx.live_room_watcher.MsgType.LIVE_GIFT;
+import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
-    public static final DateTimeFormatter DEFAULT_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+public class DouYinLiveRoomWatcherTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         tes1();
     }
 
-    /**
-     * <p>nowTimeStr.</p>
-     *
-     * @return a {@link java.lang.String} object
-     */
-    public static String nowTimeStr() {
-        return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
-    }
-
-    @Test
-    public static void tes1() {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/398877650540").useGzip(true);
+//    @Test
+    public static void tes1() throws IOException, InterruptedException {
+        var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123");
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
@@ -38,9 +31,11 @@ public class DouYinHackLiveRoomWatcherTest {
             Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
         });
 
-        liveRoomWatcher.startWatch();
+        liveRoomWatcher.startWatch("roomID");
 
-        System.out.println("[直播流地址] " + liveRoomWatcher.liveRoomWebStreamURLs());
+        //此处模拟 接收到了来自抖音的回调请求, 您可以在您的 服务端调用
+        
+        liveRoomWatcher.call("body", Map.of("x-roomid", "123"), LIVE_GIFT);
 
     }
 

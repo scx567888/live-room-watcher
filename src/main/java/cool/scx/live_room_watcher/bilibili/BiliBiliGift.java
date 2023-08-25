@@ -33,4 +33,9 @@ public class BiliBiliGift implements Gift {
     public long count() {
         return 0;
     }
+
+    @Override
+    public String roomID() {
+        return null;
+    }
 }

@@ -5,7 +5,6 @@ package cool.scx.live_room_watcher;
  */
 public interface LiveRoomAnchor {
 
-
     String anchorNickName();
 
     String anchorAvatar();

@@ -51,8 +51,6 @@
 ## 基本用法
 
 ``` java
-package cool.scx.live_room_watcher;
-
 import cool.scx.live_room_watcher.douyin_hack.DouYinHackLiveRoomWatcher;
 
 public class Main {

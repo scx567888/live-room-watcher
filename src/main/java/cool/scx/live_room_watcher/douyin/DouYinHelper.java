@@ -1,5 +1,7 @@
 package cool.scx.live_room_watcher.douyin;
 
+import cool.scx.live_room_watcher.MsgType;
+
 import java.security.InvalidParameterException;
 import java.util.Map;
 import java.util.Objects;
@@ -9,7 +11,7 @@ import static cool.scx.util.Base64Utils.encodeToString;
 import static cool.scx.util.HashUtils.md5;
 import static cool.scx.util.HexUtils.toBytes;
 
-public class DouYinHelper {
+class DouYinHelper {
 
     /**
      * 校验参数数据是否正确
@@ -54,6 +56,15 @@ public class DouYinHelper {
         var md5 = md5(rawData.getBytes());
         var md5Bytes = toBytes(md5);
         return encodeToString(md5Bytes);
+    }
+
+    public static String getMsgTypeValue(MsgType msgType) {
+        return switch (msgType) {
+            case LIVE_COMMENT -> "live_comment";
+            case LIVE_GIFT -> "live_gift";
+            case LIVE_LIKE -> "live_like";
+            case LIVE_FANS_CLUB -> "live_fansclub";
+        };
     }
 
 }

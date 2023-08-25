@@ -27,8 +27,6 @@ public interface Chat {
      *
      * @return 房间号
      */
-    default String roomID() {
-        return null;
-    }
+    String roomID();
 
 }

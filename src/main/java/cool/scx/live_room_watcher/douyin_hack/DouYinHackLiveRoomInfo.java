@@ -44,6 +44,11 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
         return this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
     }
 
+    @Override
+    public LiveRoomAnchor liveRoomAnchor() {
+        return this;
+    }
+
 
     @Override
     public String anchorNickName() {

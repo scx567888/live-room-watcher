@@ -26,4 +26,9 @@ public class BiliBiliChat implements Chat {
     public User user() {
         return null;
     }
+
+    @Override
+    public String roomID() {
+        return null;
+    }
 }

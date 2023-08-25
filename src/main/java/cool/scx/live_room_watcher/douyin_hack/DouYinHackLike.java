@@ -42,4 +42,9 @@ public class DouYinHackLike implements Like {
         return likeMessage.getCount();
     }
 
+    @Override
+    public String roomID() {
+        return null;
+    }
+
 }

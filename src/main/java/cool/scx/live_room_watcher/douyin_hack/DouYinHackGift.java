@@ -50,4 +50,9 @@ public class DouYinHackGift implements Gift {
         return this.giftMessage.getTotalCount();
     }
 
+    @Override
+    public String roomID() {
+        return null;
+    }
+
 }
