@@ -5,11 +5,11 @@ import cool.scx.live_room_watcher.User;
 
 public class CCGift implements Gift, User {
 
-    public Long msg_id;
+    public String msg_id;
     public String sec_openid;    // 用户的加密openid，当前没有加密
     public String sec_gift_id;   // 加密的礼物id，当前没有加密
     public Integer gift_num;      // 送出的礼物数量
-    public Integer gift_value;      // 礼物总价值，单位分
+    public Long gift_value;      // 礼物总价值，单位分
     public String avatar_url;      // 用户头像
     public String nickname;     // 用户昵称(不加密)
     public Long timestamp; // 礼物毫秒级时间戳
