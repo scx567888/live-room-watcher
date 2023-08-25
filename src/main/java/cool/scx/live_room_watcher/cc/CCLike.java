@@ -5,7 +5,7 @@ import cool.scx.live_room_watcher.User;
 
 public class CCLike implements Like, User {
 
-    public Long msg_id;
+    public String msg_id;
     public String sec_openid;      // 点赞用户的加密openid，当前没有加密
     public Integer like_num;       // 点赞数量，上游定期合并一次数据
     public String avatar_url;      // 点赞用户头像

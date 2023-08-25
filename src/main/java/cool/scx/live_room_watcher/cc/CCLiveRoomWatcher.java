@@ -14,15 +14,15 @@ import cool.scx.util.URIBuilder;
 import java.io.IOException;
 import java.util.Map;
 
+import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.cc.CCApi.*;
-import static cool.scx.live_room_watcher.cc.CCHelper.DEFAULT_CC_GIFT_AND_NAME_MAP;
-import static cool.scx.live_room_watcher.cc.CCHelper.getMsgTypeValue;
+import static cool.scx.live_room_watcher.cc.CCHelper.*;
 
 /**
  * 网易 CC 官方的获取方式 需要在 CC 进行回调时手动调用 {@link CCLiveRoomWatcher#call(String, Map, MsgType)}
- * todo 未完成
+ *
  * @author scx567888
  * @version 0.0.1
  */
@@ -34,6 +34,8 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     private final String giftDataSecret;
     private final String likeDataSecret;
     private final Map<String, String> giftAndNameMap;
+
+    private boolean test = false;
 
     public CCLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret) {
         this(appID, appSecret, commentDataSecret, giftDataSecret, likeDataSecret, DEFAULT_CC_GIFT_AND_NAME_MAP);
@@ -54,7 +56,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     protected CCAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(ACCESS_TOKEN_URL)
+                .uri(test ? TEST_ACCESS_TOKEN_URL : ACCESS_TOKEN_URL)
                 .method(POST)
                 .body(new JsonBody(Map.of(
                         "appid", appID,
@@ -79,15 +81,14 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      */
     @Override
     public CCLiveInfo liveInfo(String roomID) throws IOException, InterruptedException {
+        var uri = URIBuilder.of(test ? TEST_LIVE_INFO_URL : LIVE_INFO_URL)
+                .addParam("roomid", roomID)
+                .addParam("appid", appID).build();
         var response = request(
                 new ScxHttpClientRequest()
-                        .uri(LIVE_INFO_URL)
-                        .method(POST)
+                        .uri(uri)
+                        .method(GET)
                         .setHeader("access-token", getAccessToken())
-                        .body(new JsonBody(Map.of(
-                                "roomid", roomID,
-                                "appid", appID
-                        )))
         );
         var bodyStr = response.body().toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
@@ -95,17 +96,13 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         if (data == null) {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
-        var info = data.get("info");
-        if (info == null) {
-            throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
-        }
-        return ObjectUtils.jsonMapper().convertValue(info, CCLiveInfo.class);
+        return ObjectUtils.jsonMapper().convertValue(data, CCLiveInfo.class);
     }
 
     @Override
     public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(TASK_START_URL)
+                .uri(test ? TEST_TASK_START_URL : TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -119,7 +116,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(TASK_STOP_URL)
+                .uri(test ? TEST_TASK_STOP_URL : TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -132,7 +129,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(TASK_STATUS_URL)
+        var uri = URIBuilder.of(test ? TEST_TASK_STATUS_URL : TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -147,7 +144,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public String failDataGet(String roomCode, MsgType msgType, Integer page_num, Integer page_size) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(FAIL_DATA_GET_URL)
+        var uri = URIBuilder.of(test ? TEST_FAIL_DATA_GET_URL : FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -166,7 +163,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(TOP_GIFT_URL)
+                .uri(test ? TEST_TOP_GIFT_URL : TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -189,7 +186,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
         switch (msgType) {
             case LIVE_GIFT -> {
-//                checkData(bodyStr, header, giftDataSecret);
+                checkCCData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
                 var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {});
                 for (var gift : giftList) {
@@ -205,7 +202,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 }
             }
             case LIVE_LIKE -> {
-//                checkData(bodyStr, header, likeDataSecret);
+                checkCCData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
                 var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {});
                 for (var like : likeList) {
@@ -220,7 +217,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 }
             }
             case LIVE_COMMENT -> {
-//                checkData(bodyStr, header, commentDataSecret);
+                checkCCData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
                 var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {});
                 for (var comment : commentList) {
@@ -237,6 +234,15 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_FANS_CLUB -> {
             }
         }
+    }
+
+    public CCLiveRoomWatcher setTest(boolean t) {
+        this.test = t;
+        return this;
+    }
+
+    public boolean getTest() {
+        return this.test;
     }
 
     private String getGiftName(String secGiftId) {

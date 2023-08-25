@@ -5,7 +5,7 @@ import cool.scx.live_room_watcher.User;
 
 public class CCComment implements Chat, User {
 
-    public Long msg_id;
+    public String msg_id;
     public String sec_openid;       // 弹幕用户的加密openid, 当前没有加密
     public String content;         // 弹幕内容
     public String avatar_url;      // 弹幕用户头像

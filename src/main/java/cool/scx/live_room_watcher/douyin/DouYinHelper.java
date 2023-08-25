@@ -16,7 +16,7 @@ class DouYinHelper {
     /**
      * 校验参数数据是否正确
      */
-    public static void checkData(String bodyStr, Map<String, String> headers, String dataSecret) {
+    public static void checkDouYinData(String bodyStr, Map<String, String> headers, String dataSecret) {
         var x_nonce_str = headers.get("x-nonce-str");
         var x_timestamp = headers.get("x-timestamp");
         var x_signature = headers.get("x-signature");

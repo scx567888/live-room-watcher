@@ -17,7 +17,7 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.douyin.DouYinApi.*;
-import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkData;
+import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.douyin.DouYinHelper.getMsgTypeValue;
 
 /**
@@ -179,7 +179,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
         switch (msgType) {
             case LIVE_GIFT -> {
-                checkData(bodyStr, header, giftDataSecret);
+                checkDouYinData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
                 var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGiftBody[]>() {});
                 for (var gift : giftList) {
@@ -194,7 +194,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 }
             }
             case LIVE_LIKE -> {
-                checkData(bodyStr, header, likeDataSecret);
+                checkDouYinData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
                 var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLikeBody[]>() {});
                 for (var like : likeList) {
@@ -209,7 +209,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 }
             }
             case LIVE_COMMENT -> {
-                checkData(bodyStr, header, commentDataSecret);
+                checkDouYinData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
                 var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinCommentBody[]>() {});
                 for (var comment : commentList) {
