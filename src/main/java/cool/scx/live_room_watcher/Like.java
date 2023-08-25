@@ -26,8 +26,6 @@ public interface Like {
      * 房间号
      * @return a
      */
-    default String roomID(){
-        return null;
-    }
+     String roomID();
 
 }

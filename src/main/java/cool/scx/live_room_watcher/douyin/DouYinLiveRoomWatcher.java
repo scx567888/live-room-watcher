@@ -46,7 +46,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    protected AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+    protected DouYinAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
                 .uri(ACCESS_TOKEN_URL)
                 .method(POST)
@@ -56,7 +56,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "grant_type", "client_credential"
                 ))));
         var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, AccessTokenResult.class);
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinAccessTokenResult.class);
         if (accessTokenResult.err_no() != 0) {
             throw new IllegalArgumentException(bodyStr);
         }
@@ -72,7 +72,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @see <a href="https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo">https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo</a>
      */
     @Override
-    public WebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
+    public DouYinWebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
         var response = request(
                 new ScxHttpClientRequest()
                         .uri(WEBCAST_MATE_INFO_URL)
@@ -90,7 +90,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         if (info == null) {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
-        return ObjectUtils.jsonMapper().convertValue(info, WebcastMateInfo.class);
+        return ObjectUtils.jsonMapper().convertValue(info, DouYinWebcastMateInfo.class);
     }
 
     @Override
@@ -181,7 +181,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_GIFT -> {
                 checkData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
-                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<GiftBody[]>() {});
+                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGiftBody[]>() {});
                 for (var gift : giftList) {
                     gift.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -196,7 +196,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_LIKE -> {
                 checkData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
-                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<LikeBody[]>() {});
+                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLikeBody[]>() {});
                 for (var like : likeList) {
                     like.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -211,7 +211,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_COMMENT -> {
                 checkData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
-                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CommentBody[]>() {});
+                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinCommentBody[]>() {});
                 for (var comment : commentList) {
                     comment.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {

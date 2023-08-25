@@ -41,4 +41,9 @@ public class DouYinHackChat implements Chat {
         return douYinUser;
     }
 
+    @Override
+    public String roomID() {
+        return null;
+    }
+
 }

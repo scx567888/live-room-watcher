@@ -4,27 +4,15 @@ import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.MsgType.LIVE_GIFT;
+import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class DouYinLiveRoomWatcherTest {
 
-    public static final DateTimeFormatter DEFAULT_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
     public static void main(String[] args) throws IOException, InterruptedException {
         tes1();
-    }
-
-    /**
-     * <p>nowTimeStr.</p>
-     *
-     * @return a {@link String} object
-     */
-    public static String nowTimeStr() {
-        return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
 //    @Test

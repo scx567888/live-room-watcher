@@ -25,4 +25,9 @@ public class BiliBiliLike implements Like {
     public long count() {
         return 0;
     }
+
+    @Override
+    public String roomID() {
+        return null;
+    }
 }
