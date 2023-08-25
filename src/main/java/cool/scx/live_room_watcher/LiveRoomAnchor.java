@@ -3,11 +3,11 @@ package cool.scx.live_room_watcher;
 /**
  * 主播信息
  */
-public interface Anchor {
+public interface LiveRoomAnchor {
 
-    String nickName();
+    String anchorNickName();
 
-    String avatar();
+    String anchorAvatar();
 
     String anchorID();
 

@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.douyin;
 
-import cool.scx.live_room_watcher.Anchor;
+import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 直播间信息相应包装体
  */
-public class WebcastMateInfo implements LiveRoomInfo, Anchor {
+public class WebcastMateInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     public String room_id;
     public String anchor_open_id;
@@ -31,17 +31,17 @@ public class WebcastMateInfo implements LiveRoomInfo, Anchor {
     }
 
     @Override
-    public Anchor liveRoomAnchor() {
+    public LiveRoomAnchor liveRoomAnchor() {
         return this;
     }
 
     @Override
-    public String nickName() {
+    public String anchorNickName() {
         return nick_name;
     }
 
     @Override
-    public String avatar() {
+    public String anchorAvatar() {
         return avatar_url;
     }
 

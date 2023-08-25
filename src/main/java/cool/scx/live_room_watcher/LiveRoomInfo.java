@@ -29,6 +29,6 @@ public interface LiveRoomInfo {
      */
     String liveRoomID();
 
-    Anchor liveRoomAnchor();
+    LiveRoomAnchor liveRoomAnchor();
 
 }
