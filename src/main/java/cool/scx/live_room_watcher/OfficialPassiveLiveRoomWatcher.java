@@ -16,12 +16,31 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
     protected String accessToken;
 
     protected abstract AccessToken getAccessToken0() throws IOException, InterruptedException;
+    
+    protected abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
 
     public abstract String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
     public abstract String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
     
     public abstract String taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
+
+    /**
+     * 推送失败数据获取
+     *
+     * @param roomID  房间号
+     * @param msgType  消息类型
+     * @param pageNum  分页
+     * @param pageSize 分页
+     * @return a
+     * @throws IOException          a
+     * @throws InterruptedException a
+     */
+    public abstract String failDataGet(String roomID, MsgType msgType,Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
+
+    public abstract String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
+
+    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
 
     /**
      * 获取 accessToken
@@ -74,7 +93,5 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         taskStop(roomID, LIVE_GIFT);
         taskStop(roomID, LIVE_LIKE);
     }
-
-    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
 
 }
