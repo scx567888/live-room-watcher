@@ -5,6 +5,7 @@ import cool.scx.functional.ScxConsumer;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.MemberMessageAction;
@@ -454,6 +455,11 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
     @Override
     public String liveRoomID() {
         return liveRoomInfo.liveRoomID();
+    }
+
+    @Override
+    public LiveRoomAnchor liveRoomAnchor() {
+        return liveRoomInfo.liveRoomAnchor();
     }
 
     @Override
