@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin.type;
+package cool.scx.live_room_watcher.douyin;
 
 import cool.scx.live_room_watcher.Like;
 import cool.scx.live_room_watcher.User;

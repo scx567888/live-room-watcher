@@ -4,7 +4,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.functional.ScxConsumer;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.MemberMessageAction;
@@ -32,7 +32,7 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher implements LiveRoomInfo {
+public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements LiveRoomInfo {
 
     private final String liveRoomURI;
     private final Browser browser;
