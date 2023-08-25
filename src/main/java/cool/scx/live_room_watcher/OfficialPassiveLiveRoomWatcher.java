@@ -17,6 +17,12 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
 
     protected abstract AccessToken getAccessToken0() throws IOException, InterruptedException;
 
+    public abstract String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
+
+    public abstract String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    
+    public abstract String taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
+
     /**
      * 获取 accessToken
      *
@@ -68,10 +74,6 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         taskStop(roomID, LIVE_GIFT);
         taskStop(roomID, LIVE_LIKE);
     }
-
-    public abstract String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
-
-    public abstract String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
     public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
 

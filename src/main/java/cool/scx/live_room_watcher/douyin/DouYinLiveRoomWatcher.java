@@ -20,7 +20,7 @@ import static cool.scx.live_room_watcher.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkData;
 
 /**
- * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, DouYinMsgType)}
+ * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MsgType)}
  *
  * @author scx567888
  * @version 0.0.1
@@ -50,8 +50,25 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_GIFT -> "live_gift";
             case LIVE_LIKE -> "live_like";
             case LIVE_FANS_CLUB -> "live_fansclub";
-            default -> throw new IllegalArgumentException();
         };
+    }
+
+    @Override
+    protected AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+        var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
+                .uri(ACCESS_TOKEN_URL)
+                .method(POST)
+                .body(new JsonBody(Map.of(
+                        "appid", appID,
+                        "secret", appSecret,
+                        "grant_type", "client_credential"
+                ))));
+        var bodyStr = response.body().toString();
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, AccessTokenResult.class);
+        if (accessTokenResult.err_no() != 0) {
+            throw new IllegalArgumentException(bodyStr);
+        }
+        return accessTokenResult;
     }
 
     @Override
@@ -82,11 +99,11 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         return response.body().toString();
     }
 
-    public String taskStatus(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
+    public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var uri = URIBuilder.of(TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
-                .addParam("msg_type", msgType.value())
+                .addParam("msg_type", getMsgTypeValue(msgType))
                 .build();
 
         var response = request(new ScxHttpClientRequest()
@@ -95,7 +112,6 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .setHeader("access-token", getAccessToken()));
         return response.body().toString();
     }
-
 
     public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
@@ -108,24 +124,6 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "sec_gift_id_list", secGiftIDList
                 ))));
         return response.body().toString();
-    }
-
-    @Override
-    protected AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
-        var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(ACCESS_TOKEN_URL)
-                .method(POST)
-                .body(new JsonBody(Map.of(
-                        "appid", appID,
-                        "secret", appSecret,
-                        "grant_type", "client_credential"
-                ))));
-        var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, AccessTokenResult.class);
-        if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(bodyStr);
-        }
-        return accessTokenResult;
     }
 
     /**
@@ -155,33 +153,6 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
         return ObjectUtils.jsonMapper().convertValue(info, WebcastMateInfo.class);
-    }
-
-    /**
-     * 推送失败数据获取
-     *
-     * @param roomCode  房间号
-     * @param msg_type  消息类型
-     * @param page_num  分页
-     * @param page_size 分页
-     * @return a
-     * @throws IOException          a
-     * @throws InterruptedException a
-     */
-    public String failDataGet(String roomCode, DouYinMsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(FAIL_DATA_GET_URL)
-                .addParam("roomid", roomCode)
-                .addParam("appid", appID)
-                .addParam("msg_type", msg_type.value())
-                .addParam("page_num", page_num)
-                .addParam("page_size", page_size)
-                .build();
-
-        var response = request(new ScxHttpClientRequest()
-                .uri(uri)
-                .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
-        return response.body().toString();
     }
 
     /**
@@ -242,6 +213,33 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_FANS_CLUB -> {
             }
         }
+    }
+
+    /**
+     * 推送失败数据获取
+     *
+     * @param roomCode  房间号
+     * @param msg_type  消息类型
+     * @param page_num  分页
+     * @param page_size 分页
+     * @return a
+     * @throws IOException          a
+     * @throws InterruptedException a
+     */
+    public String failDataGet(String roomCode, MsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
+        var uri = URIBuilder.of(FAIL_DATA_GET_URL)
+                .addParam("roomid", roomCode)
+                .addParam("appid", appID)
+                .addParam("msg_type", getMsgTypeValue(msg_type) )
+                .addParam("page_num", page_num)
+                .addParam("page_size", page_size)
+                .build();
+
+        var response = request(new ScxHttpClientRequest()
+                .uri(uri)
+                .method(HttpMethod.GET)
+                .setHeader("access-token", getAccessToken()));
+        return response.body().toString();
     }
 
 }
