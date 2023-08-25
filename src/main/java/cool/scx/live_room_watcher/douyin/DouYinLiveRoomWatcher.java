@@ -6,8 +6,8 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.douyin.type.*;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -27,14 +27,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
+public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
     private final String commentDataSecret;
     private final String giftDataSecret;
     private final String likeDataSecret;
-    private String accessToken;
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret) {
         this.appID = appID;
@@ -102,59 +101,21 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     @Override
-    public void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
-    }
-
-
-    @Override
-    public void stopWatch() {
-        throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
-    }
-
     public void startWatch(String roomID) throws IOException, InterruptedException {
         taskStart(roomID, LIVE_COMMENT);
         taskStart(roomID, LIVE_GIFT);
         taskStart(roomID, LIVE_LIKE);
     }
 
+    @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, LIVE_COMMENT);
         taskStop(roomID, LIVE_GIFT);
         taskStop(roomID, LIVE_LIKE);
     }
 
-    /**
-     * 刷新 accessToken
-     * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
-     */
-    public void refreshAccessToken() {
-        try {
-            var accessTokenResult = getAccessToken0();
-            this.accessToken = accessTokenResult.data().access_token();
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, accessTokenResult.data().expires_in() / 2, SECONDS);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //发生错误的话 2秒后重试
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, 2000, SECONDS);
-        }
-    }
-
-    /**
-     * 获取 accessToken
-     *
-     * @return a
-     */
-    public String getAccessToken() {
-        if (this.accessToken == null) {
-            refreshAccessToken();
-        }
-        return this.accessToken;
-    }
-
-    private AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+    @Override
+    protected AccessTokenResult getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
                 .uri(ACCESS_TOKEN_URL)
                 .method(POST)
@@ -234,6 +195,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @param header  请求头
      * @param msgType 类型
      */
+    @Override
     public void call(String bodyStr, Map<String, String> header, DouYinMsgType msgType) throws JsonProcessingException {
         switch (msgType) {
             case LIVE_GIFT -> {
