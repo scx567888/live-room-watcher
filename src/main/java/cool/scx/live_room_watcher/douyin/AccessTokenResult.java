@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher.douyin;
 
 import cool.scx.live_room_watcher.AccessToken;
 
-record AccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
+public record AccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
 
     @Override
     public String accessToken() {

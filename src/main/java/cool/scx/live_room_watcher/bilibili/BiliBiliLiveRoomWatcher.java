@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.bilibili;
 
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 
 /**
  * <p>BiliBiliLiveRoomWatcher class.</p>
@@ -8,7 +8,7 @@ import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
  * @author scx567888
  * @version 0.0.1
  */
-public class BiliBiliLiveRoomWatcher extends AbstractLiveRoomWatcher {
+public class BiliBiliLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     /**
      * <p>Constructor for BiliBiliLiveRoomWatcher.</p>
