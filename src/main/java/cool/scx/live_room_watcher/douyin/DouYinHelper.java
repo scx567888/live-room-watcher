@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 import static cool.scx.util.Base64Utils.encodeToString;
 import static cool.scx.util.HashUtils.md5;
-import static cool.scx.util.HexUtils.toBytes;
 
 class DouYinHelper {
 
@@ -53,8 +52,7 @@ class DouYinHelper {
                 .collect(Collectors.joining("&"));
 
         var rawData = urlParams + bodyStr + secret;
-        var md5 = md5(rawData.getBytes());
-        var md5Bytes = toBytes(md5);
+        var md5Bytes = md5(rawData.getBytes());
         return encodeToString(md5Bytes);
     }
 
