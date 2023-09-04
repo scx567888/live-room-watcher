@@ -10,38 +10,36 @@ import cool.scx.util.URIBuilder;
 import cool.scx.util.zip.GunzipBuilder;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
-public  final class DouYinHackHelper {
-
-    /**
-     * 用来解析 RENDER_DATA
-     */
-    private static final Pattern RENDER_DATA_PATTERN = Pattern.compile("<script id=\"RENDER_DATA\" type=\"application/json\">(.*?)</script>");
+public final class DouYinHackHelper {
 
     /**
      * 从 body 中解析出 liveRoomInfo
      *
      * @param htmlStr a
      * @return a
-     * @throws com.fasterxml.jackson.core.JsonProcessingException a
      */
-    public static DouYinApplication parseBody(String htmlStr) throws JsonProcessingException {
-        var matcher = RENDER_DATA_PATTERN.matcher(htmlStr);
-        if (matcher.find()) {
-            var urlData = matcher.group(1);
+    public static DouYinApplication parseBody(String htmlStr) {
+        try {
+            Document parse = Jsoup.parse(htmlStr);
+            Elements RENDER_DATA = parse.select("#RENDER_DATA");
+            String urlData = RENDER_DATA.html();
             var jsonData = URLDecoder.decode(urlData, StandardCharsets.UTF_8);
-            return ObjectUtils.jsonMapper().readValue(jsonData, DouYinApplication.class);
+            return ObjectUtils.jsonMapper().readValue(jsonData, DouYinApplication.class);    
+        }catch (Exception e){
+            throw new IllegalArgumentException("解析 RENDER_DATA 错误",e);
         }
-        throw new RuntimeException("解析 RENDER_DATA 错误");
     }
 
     /**
