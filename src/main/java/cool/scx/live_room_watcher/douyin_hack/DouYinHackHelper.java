@@ -64,7 +64,6 @@ public final class DouYinHackHelper {
                     self.__pace_f.forEach(m);
                     let str = r[r.length - 1];    
                     let index = str.indexOf(":");
-                    console.log()
                     let arr = JSON.parse(str.slice(index + 1));
                     JSON.stringify(arr[arr.length - 1])
                     """);
