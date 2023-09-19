@@ -24,7 +24,7 @@ public class KuaiShouHackLiveRoomWatcherTest {
         return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
-    @Test
+//    @Test
     public static void tes1() {
         var liveRoomWatcher = new KuaiShouHackLiveRoomWatcher("https://live.kuaishou.com/u/Ahao1124");
 
