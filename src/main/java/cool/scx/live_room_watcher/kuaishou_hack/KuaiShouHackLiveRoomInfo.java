@@ -19,17 +19,17 @@ public class KuaiShouHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     @Override
     public String anchorNickName() {
-        return kuaiShouInitialState.liveroom.author.name;
+        return null;
     }
 
     @Override
     public String anchorAvatar() {
-        return kuaiShouInitialState.liveroom.author.avatar;
+        return null;
     }
 
     @Override
     public String anchorID() {
-        return kuaiShouInitialState.liveroom.author.id;
+        return null;
     }
 
     @Override
@@ -39,12 +39,12 @@ public class KuaiShouHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     @Override
     public String liveRoomTitle() {
-        return kuaiShouInitialState.liveroom.liveStream.caption;
+        return null;
     }
 
     @Override
     public String liveRoomID() {
-        return kuaiShouInitialState.liveroom.liveStream.id;
+        return  null;
     }
 
     @Override

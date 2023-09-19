@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class KuaiShouInitialState {
 
-    public User user;
-    public Liveroom liveroom;
+    public Map<String, Object> user;
+    public Map<String, Object> liveroom;
     public Map<String, Object> categoryMask;
     public Map<String, Object> historyMask;
     public Map<String, Object> emoji;
