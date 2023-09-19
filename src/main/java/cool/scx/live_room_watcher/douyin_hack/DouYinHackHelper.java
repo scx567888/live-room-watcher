@@ -1,8 +1,7 @@
 package cool.scx.live_room_watcher.douyin_hack;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.protobuf.ByteString;
-import cool.scx.live_room_watcher.douyin_hack.entity.DouYinApplication;
+import cool.scx.live_room_watcher.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.Response;
 import cool.scx.util.ObjectUtils;
@@ -10,38 +9,68 @@ import cool.scx.util.URIBuilder;
 import cool.scx.util.zip.GunzipBuilder;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
+import org.graalvm.polyglot.Context;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.net.URI;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.ENGINE;
+import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.HOST_ACCESS;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
-public  final class DouYinHackHelper {
-
-    /**
-     * 用来解析 RENDER_DATA
-     */
-    private static final Pattern RENDER_DATA_PATTERN = Pattern.compile("<script id=\"RENDER_DATA\" type=\"application/json\">(.*?)</script>");
+public final class DouYinHackHelper {
 
     /**
      * 从 body 中解析出 liveRoomInfo
      *
      * @param htmlStr a
      * @return a
-     * @throws com.fasterxml.jackson.core.JsonProcessingException a
      */
-    public static DouYinApplication parseBody(String htmlStr) throws JsonProcessingException {
-        var matcher = RENDER_DATA_PATTERN.matcher(htmlStr);
-        if (matcher.find()) {
-            var urlData = matcher.group(1);
-            var jsonData = URLDecoder.decode(urlData, StandardCharsets.UTF_8);
-            return ObjectUtils.jsonMapper().readValue(jsonData, DouYinApplication.class);
+    public static DouYinAPP parseBody(String htmlStr) {
+        Context context = Context.newBuilder().allowHostAccess(HOST_ACCESS).engine(ENGINE).build();
+        try (context) {
+            Document parse = Jsoup.parse(htmlStr);
+            Elements scripts = parse.select("script");
+            context.eval("js", """
+                    var window= {};
+                    var self= window;
+                    var document={
+                            scripts:[{
+                                parentNode:{removeChild(e){}}
+                            }]};
+                    """);
+            for (Element script : scripts) {
+                String html = script.html();
+                if (html.startsWith("self.__pace_f") || html.startsWith("(self.__pace_f")) {
+                    context.eval("js", html);
+                }
+            }
+            var value = context.eval("js", """
+                    var r;
+                    function m(e) {
+                       if (0 === e[0])
+                           r = [];
+                       else {
+                           if (r){
+                               r.push(e[1]);
+                           }
+                       }
+                    }
+                    self.__pace_f.forEach(m);
+                    let str = r[r.length - 1];    
+                    let index = str.indexOf(":");
+                    let arr = JSON.parse(str.slice(index + 1));
+                    JSON.stringify(arr[arr.length - 1])
+                    """);
+            return ObjectUtils.jsonMapper().readValue(value.asString(), DouYinAPP.class);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("解析直播间错误", e);
         }
-        throw new RuntimeException("解析 RENDER_DATA 错误");
     }
 
     /**

@@ -56,6 +56,18 @@
         </dependency>
 
         <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.graalvm.js</groupId>
+            <artifactId>js</artifactId>
+            <version>${graalvm-js.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
@@ -129,6 +141,8 @@
 
         <scx.version>2.4.5</scx.version>
         <protobuf.version>3.24.2</protobuf.version>
+        <jsoup.version>1.16.1</jsoup.version>
+        <graalvm-js.version>22.3.2</graalvm-js.version>
         <testng.version>7.8.0</testng.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>

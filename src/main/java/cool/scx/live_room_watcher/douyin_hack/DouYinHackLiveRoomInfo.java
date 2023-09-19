@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.douyin_hack;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.douyin_hack.entity.DouYinApplication;
+import cool.scx.live_room_watcher.douyin_hack.entity.DouYinAPP;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +12,15 @@ import static cool.scx.live_room_watcher.douyin_hack.DouYinHackHelper.parseBody;
 
 public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
-    private final DouYinApplication douYinApplication;
+    private final DouYinAPP douYinApp;
 
     public DouYinHackLiveRoomInfo(String indexHtmlStr) throws JsonProcessingException {
-        this.douYinApplication = parseBody(indexHtmlStr);
+        this.douYinApp = parseBody(indexHtmlStr);
     }
 
     @Override
     public List<String> liveRoomWebStreamURLs() {
-        var webStreamUrl = this.douYinApplication.app.initialState.roomStore.roomInfo.web_stream_url;
+        var webStreamUrl = this.douYinApp.state.roomStore.roomInfo.web_stream_url;
         if (webStreamUrl == null) {
             return List.of();
         }
@@ -36,12 +36,12 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     @Override
     public String liveRoomTitle() {
-        return this.douYinApplication.app.initialState.roomStore.roomInfo.room.title;
+        return this.douYinApp.state.roomStore.roomInfo.room.title;
     }
 
     @Override
     public String liveRoomID() {
-        return this.douYinApplication.app.initialState.roomStore.roomInfo.roomId;
+        return this.douYinApp.state.roomStore.roomInfo.roomId;
     }
 
     @Override
@@ -52,17 +52,17 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     @Override
     public String anchorNickName() {
-        return this.douYinApplication.app.initialState.roomStore.roomInfo.anchor.nickname;
+        return this.douYinApp.state.roomStore.roomInfo.anchor.nickname;
     }
 
     @Override
     public String anchorAvatar() {
-        return this.douYinApplication.app.initialState.roomStore.roomInfo.anchor.avatar_thumb.url_list.get(0);
+        return this.douYinApp.state.roomStore.roomInfo.anchor.avatar_thumb.url_list.get(0);
     }
 
     @Override
     public String anchorID() {
-        return this.douYinApplication.app.initialState.roomStore.roomInfo.anchor.sec_uid;
+        return this.douYinApp.state.roomStore.roomInfo.anchor.sec_uid;
     }
     
 }
