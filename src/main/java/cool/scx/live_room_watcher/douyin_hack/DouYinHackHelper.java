@@ -69,7 +69,7 @@ public final class DouYinHackHelper {
                     """);
             return ObjectUtils.jsonMapper().readValue(value.asString(), DouYinAPP.class);
         } catch (Exception e) {
-            throw new IllegalArgumentException("解析 RENDER_DATA 错误", e);
+            throw new IllegalArgumentException("解析直播间错误", e);
         }
     }
 
