@@ -14,8 +14,8 @@ import org.jsoup.select.Elements;
 
 public class KuaiShouHackHelper {
 
-    static Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
-    static HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+  public static Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
+  public static HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
 
     /**
      * 标准化 直播间 URI

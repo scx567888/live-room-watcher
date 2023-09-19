@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.douyin_hack.entity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,11 +14,10 @@ public class RoomInfo {
     public String roomId;
     public String web_rid;
     public Anchor anchor;
-    public RoomExtra roomExtra;
+    public Map<String, Object> roomExtra;
     public Integer enter_mode;
     public String qrcode_url;
-    public PartitionRoadMap partition_road_map;
-    public List<Map<String, Object>> relevant_rooms;
+    public Map<String, Object> partition_road_map;
     public WebStreamUrl web_stream_url;
 
 }

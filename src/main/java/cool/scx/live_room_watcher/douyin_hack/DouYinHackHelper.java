@@ -1,8 +1,7 @@
 package cool.scx.live_room_watcher.douyin_hack;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.protobuf.ByteString;
-import cool.scx.live_room_watcher.douyin_hack.entity.DouYinApplication;
+import cool.scx.live_room_watcher.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.Response;
 import cool.scx.util.ObjectUtils;
@@ -10,16 +9,18 @@ import cool.scx.util.URIBuilder;
 import cool.scx.util.zip.GunzipBuilder;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
+import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.net.URI;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
+import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.ENGINE;
+import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.HOST_ACCESS;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 public final class DouYinHackHelper {
@@ -30,15 +31,46 @@ public final class DouYinHackHelper {
      * @param htmlStr a
      * @return a
      */
-    public static DouYinApplication parseBody(String htmlStr) {
-        try {
+    public static DouYinAPP parseBody(String htmlStr) {
+        Context context = Context.newBuilder().allowHostAccess(HOST_ACCESS).engine(ENGINE).build();
+        try (context) {
             Document parse = Jsoup.parse(htmlStr);
-            Elements RENDER_DATA = parse.select("#RENDER_DATA");
-            String urlData = RENDER_DATA.html();
-            var jsonData = URLDecoder.decode(urlData, StandardCharsets.UTF_8);
-            return ObjectUtils.jsonMapper().readValue(jsonData, DouYinApplication.class);    
-        }catch (Exception e){
-            throw new IllegalArgumentException("解析 RENDER_DATA 错误",e);
+            Elements scripts = parse.select("script");
+            context.eval("js", """
+                    var window= {};
+                    var self= window;
+                    var document={
+                            scripts:[{
+                                parentNode:{removeChild(e){}}
+                            }]};
+                    """);
+            for (Element script : scripts) {
+                String html = script.html();
+                if (html.startsWith("self.__pace_f") || html.startsWith("(self.__pace_f")) {
+                    context.eval("js", html);
+                }
+            }
+            var value = context.eval("js", """
+                    var r;
+                    function m(e) {
+                       if (0 === e[0])
+                           r = [];
+                       else {
+                           if (r){
+                               r.push(e[1]);
+                           }
+                       }
+                    }
+                    self.__pace_f.forEach(m);
+                    let str = r[r.length - 1];    
+                    let index = str.indexOf(":");
+                    console.log()
+                    let arr = JSON.parse(str.slice(index + 1));
+                    JSON.stringify(arr[arr.length - 1])
+                    """);
+            return ObjectUtils.jsonMapper().readValue(value.asString(), DouYinAPP.class);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("解析 RENDER_DATA 错误", e);
         }
     }
 
