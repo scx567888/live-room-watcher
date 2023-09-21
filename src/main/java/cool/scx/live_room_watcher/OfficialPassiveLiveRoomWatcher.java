@@ -16,19 +16,19 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
     protected String accessToken;
 
     protected abstract AccessToken getAccessToken0() throws IOException, InterruptedException;
-    
+
     protected abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
 
     public abstract String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
     public abstract String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
-    
+
     public abstract String taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
     /**
      * 推送失败数据获取
      *
-     * @param roomID  房间号
+     * @param roomID   房间号
      * @param msgType  消息类型
      * @param pageNum  分页
      * @param pageSize 分页
@@ -36,7 +36,7 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
      * @throws IOException          a
      * @throws InterruptedException a
      */
-    public abstract String failDataGet(String roomID, MsgType msgType,Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
+    public abstract String failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
 
     public abstract String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
@@ -82,13 +82,13 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
     }
 
-    public  void startWatch(String roomID) throws IOException, InterruptedException{
+    public void startWatch(String roomID) throws IOException, InterruptedException {
         taskStart(roomID, LIVE_COMMENT);
         taskStart(roomID, LIVE_GIFT);
         taskStart(roomID, LIVE_LIKE);
     }
 
-    public  void stopWatch(String roomID) throws IOException, InterruptedException{
+    public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, LIVE_COMMENT);
         taskStop(roomID, LIVE_GIFT);
         taskStop(roomID, LIVE_LIKE);
