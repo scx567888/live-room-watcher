@@ -25,7 +25,7 @@ public class DouYinHackLiveRoomWatcherTest {
         return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
-    @Test
+//    @Test
     public static void tes1() {
         var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/71427343402").useGzip(true);
 

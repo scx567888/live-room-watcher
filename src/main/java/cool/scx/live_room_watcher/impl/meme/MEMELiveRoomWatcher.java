@@ -175,12 +175,12 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     @Override
     public void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
     }
 
     @Override
     public void stopWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
     }
 
     public void startWatch(String token, String roomID) throws IOException, InterruptedException {
