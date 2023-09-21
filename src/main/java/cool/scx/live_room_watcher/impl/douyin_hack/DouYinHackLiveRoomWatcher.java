@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.functional.ScxConsumer;
@@ -9,8 +9,9 @@ import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.douyin_hack.enumeration.MemberMessageAction;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.pushproto.PushFrame;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.*;
+import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.GET;
-import static cool.scx.live_room_watcher.douyin_hack.DouYinHackHelper.*;
+import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**

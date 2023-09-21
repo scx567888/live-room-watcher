@@ -1,14 +1,14 @@
-package cool.scx.live_room_watcher.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.douyin_hack.entity.DouYinAPP;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static cool.scx.live_room_watcher.douyin_hack.DouYinHackHelper.parseBody;
+import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.parseBody;
 
 public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 

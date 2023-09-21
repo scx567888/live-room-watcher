@@ -1,8 +1,8 @@
-package cool.scx.live_room_watcher.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack.message;
 
-import cool.scx.live_room_watcher.Chat;
-import cool.scx.live_room_watcher.User;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.ChatMessage;
+import cool.scx.live_room_watcher.message.Chat;
+import cool.scx.live_room_watcher.message.User;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.ChatMessage;
 
 /**
  * 弹幕

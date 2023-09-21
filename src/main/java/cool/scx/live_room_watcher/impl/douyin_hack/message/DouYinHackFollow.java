@@ -1,8 +1,8 @@
-package cool.scx.live_room_watcher.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack.message;
 
-import cool.scx.live_room_watcher.Follow;
-import cool.scx.live_room_watcher.User;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.SocialMessage;
+import cool.scx.live_room_watcher.message.Follow;
+import cool.scx.live_room_watcher.message.User;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.SocialMessage;
 
 /**
  * <p>DouYinFollow class.</p>
@@ -30,6 +30,11 @@ public class DouYinHackFollow implements Follow {
     @Override
     public User user() {
         return user;
+    }
+
+    @Override
+    public String roomID() {
+        return null;
     }
 
 }

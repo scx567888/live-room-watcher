@@ -1,9 +1,9 @@
-package cool.scx.live_room_watcher.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.ByteString;
-import cool.scx.live_room_watcher.douyin_hack.entity.DouYinAPP;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.pushproto.PushFrame;
-import cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.Response;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 import cool.scx.util.zip.GunzipBuilder;
@@ -19,8 +19,9 @@ import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
-import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.ENGINE;
-import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.HOST_ACCESS;
+
+import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
+import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 public final class DouYinHackHelper {

@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin_hack.entity;
+package cool.scx.live_room_watcher.impl.douyin_hack.entity;
 
 
 public class Owner {
