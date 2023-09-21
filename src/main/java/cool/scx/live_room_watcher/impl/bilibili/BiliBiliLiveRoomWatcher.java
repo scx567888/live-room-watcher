@@ -2,12 +2,7 @@ package cool.scx.live_room_watcher.impl.bilibili;
 
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 
-/**
- * <p>BiliBiliLiveRoomWatcher class.</p>
- *
- * @author scx567888
- * @version 0.0.1
- */
+//todo 未完成
 public class BiliBiliLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     /**
@@ -29,7 +24,7 @@ public class BiliBiliLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     @Override
     public void stopWatch() {
-        
+
     }
 
 }
