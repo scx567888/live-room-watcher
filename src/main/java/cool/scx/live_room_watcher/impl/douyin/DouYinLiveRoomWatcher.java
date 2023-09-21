@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin;
+package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,8 +6,10 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -16,9 +18,9 @@ import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.douyin.DouYinApi.*;
-import static cool.scx.live_room_watcher.douyin.DouYinHelper.checkDouYinData;
-import static cool.scx.live_room_watcher.douyin.DouYinHelper.getMsgTypeValue;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
 
 /**
  * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MsgType)}
@@ -181,7 +183,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_GIFT -> {
                 checkDouYinData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
-                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGiftBody[]>() {});
+                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
                 for (var gift : giftList) {
                     gift.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -196,7 +198,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_LIKE -> {
                 checkDouYinData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
-                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLikeBody[]>() {});
+                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
                 for (var like : likeList) {
                     like.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -211,7 +213,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_COMMENT -> {
                 checkDouYinData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
-                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinCommentBody[]>() {});
+                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinComment[]>() {});
                 for (var comment : commentList) {
                     comment.roomID = roomID;
                     vertx.nettyEventLoopGroup().execute(() -> {
@@ -228,4 +230,22 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
     }
 
+    public record DouYinAccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
+    
+        @Override
+        public String accessToken() {
+            return data().access_token();
+        }
+    
+        @Override
+        public Integer expiresIn() {
+            return data().expires_in();
+        }
+    
+        record AccessTokenResultData(String access_token, Integer expires_in) {
+    
+        }
+        
+    }
+    
 }

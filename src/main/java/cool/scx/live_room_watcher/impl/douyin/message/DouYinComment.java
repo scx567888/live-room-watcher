@@ -1,11 +1,11 @@
-package cool.scx.live_room_watcher.douyin;
+package cool.scx.live_room_watcher.impl.douyin.message;
 
 
-import cool.scx.live_room_watcher.Chat;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Chat;
+import cool.scx.live_room_watcher.message.User;
 
 
-public class DouYinCommentBody implements Chat, User {
+public class DouYinComment implements Chat, User {
     
     public String msg_id; // string类型id
     public String sec_openid; // 评论用户的加密openid, 当前其实没有加密

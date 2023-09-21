@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin;
+package cool.scx.live_room_watcher.impl.douyin;
 
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;

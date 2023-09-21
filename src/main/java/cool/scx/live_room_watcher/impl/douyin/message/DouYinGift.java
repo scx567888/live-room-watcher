@@ -1,10 +1,10 @@
-package cool.scx.live_room_watcher.douyin;
+package cool.scx.live_room_watcher.impl.douyin.message;
 
-import cool.scx.live_room_watcher.Gift;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Gift;
+import cool.scx.live_room_watcher.message.User;
 
 
-public class DouYinGiftBody implements Gift, User {
+public class DouYinGift implements Gift, User {
 
     public String msg_id; // string类型id
     public String sec_openid; // 用户的加密openid，当前其实没有加密
