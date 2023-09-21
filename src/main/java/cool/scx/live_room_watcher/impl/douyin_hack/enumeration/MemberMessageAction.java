@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.douyin_hack.enumeration;
+package cool.scx.live_room_watcher.impl.douyin_hack.enumeration;
 
 import java.util.HashMap;
 import java.util.Map;
