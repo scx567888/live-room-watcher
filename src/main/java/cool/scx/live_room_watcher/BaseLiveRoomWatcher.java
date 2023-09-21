@@ -1,5 +1,6 @@
 package cool.scx.live_room_watcher;
 
+import cool.scx.live_room_watcher.message.*;
 import io.vertx.core.Vertx;
 
 import java.util.Objects;

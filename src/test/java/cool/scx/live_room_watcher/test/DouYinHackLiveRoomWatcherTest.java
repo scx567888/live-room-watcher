@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.live_room_watcher.douyin_hack.DouYinHackLiveRoomWatcher;
+
+import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 import org.testng.annotations.Test;
 
@@ -26,7 +27,7 @@ public class DouYinHackLiveRoomWatcherTest {
 
     @Test
     public static void tes1() {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/712850887307").useGzip(true);
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/71427343402").useGzip(true);
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();

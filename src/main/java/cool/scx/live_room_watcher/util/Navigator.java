@@ -23,7 +23,7 @@ public final class Navigator {
     /**
      * <p>navigator.</p>
      *
-     * @return a {@link cool.scx.live_room_watcher.util.Navigator} object
+     * @return a {@link Navigator} object
      */
     public static Navigator navigator() {
         return navigator;
