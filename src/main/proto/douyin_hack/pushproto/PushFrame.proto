@@ -7,12 +7,12 @@ import "pushproto/PushHeader.proto";
 
 //更新时间 : 2023-01-09
 message PushFrame {
-  uint64 seqid = 1;
-  uint64 logid = 2;
-  uint64 service = 3;
-  uint64 method = 4;
-  repeated PushHeader headersList = 5;
-  string payloadEncoding = 6;
-  string payloadType = 7;
-  bytes payload = 8;
+    uint64 seqid = 1;
+    uint64 logid = 2;
+    uint64 service = 3;
+    uint64 method = 4;
+    repeated PushHeader headersList = 5;
+    string payloadEncoding = 6;
+    string payloadType = 7;
+    bytes payload = 8;
 }

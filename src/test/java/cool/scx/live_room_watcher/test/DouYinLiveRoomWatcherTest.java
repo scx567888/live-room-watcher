@@ -15,7 +15,7 @@ public class DouYinLiveRoomWatcherTest {
         tes1();
     }
 
-//    @Test
+    //    @Test
     public static void tes1() throws IOException, InterruptedException {
         var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123");
 
@@ -34,7 +34,7 @@ public class DouYinLiveRoomWatcherTest {
         liveRoomWatcher.startWatch("roomID");
 
         //此处模拟 接收到了来自抖音的回调请求, 您可以在您的 服务端调用
-        
+
         liveRoomWatcher.call("body", Map.of("x-roomid", "123"), LIVE_GIFT);
 
     }

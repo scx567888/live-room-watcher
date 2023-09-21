@@ -8,13 +8,13 @@ import "webcast/data/User.proto";
 
 //更新时间 : 2023-01-10
 message RoomRankMessage {
-  Common common = 1;
-  repeated RoomRank ranksList = 2;
+    Common common = 1;
+    repeated RoomRank ranksList = 2;
 
-  message RoomRank{
-    User user = 1;
-    string scoreStr = 2;
-    bool profileHidden = 3;
-  }
+    message RoomRank{
+        User user = 1;
+        string scoreStr = 2;
+        bool profileHidden = 3;
+    }
 
 }

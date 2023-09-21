@@ -24,8 +24,8 @@ public class KuaiShouHackLiveRoomWatcher extends BaseLiveRoomWatcher implements 
     private KuaiShouHackLiveRoomInfo liveRoomInfo;
 
     public KuaiShouHackLiveRoomWatcher(String url) {
-        this.liveRoomURI= KuaiShouHackHelper.initLiveRoomURI(url);
-        this.browser = new Browser(vertx).addCookie(new DefaultCookie("userId", "3030376223")).addCookie(new DefaultCookie("_did","web_7085119610F79C3B"));
+        this.liveRoomURI = KuaiShouHackHelper.initLiveRoomURI(url);
+        this.browser = new Browser(vertx).addCookie(new DefaultCookie("userId", "3030376223")).addCookie(new DefaultCookie("_did", "web_7085119610F79C3B"));
     }
 
     @Override
@@ -120,5 +120,5 @@ public class KuaiShouHackLiveRoomWatcher extends BaseLiveRoomWatcher implements 
     public void stopWatch() {
 
     }
-    
+
 }

@@ -6,7 +6,7 @@ package cool.scx.live_room_watcher.message;
  * @author scx567888
  * @version 0.0.1
  */
-public interface Chat extends Message{
+public interface Chat extends Message {
 
     /**
      * 消息内容

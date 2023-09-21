@@ -1,8 +1,8 @@
 package cool.scx.live_room_watcher.impl.douyin_hack.message;
 
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.GiftMessage;
 import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.GiftMessage;
 
 /**
  * <p>DouYinGift class.</p>

@@ -7,8 +7,8 @@ import "webcast/data/TextPiece.proto";
 
 //更新时间 : 2023-01-09
 message Text{
-  string key = 1;
-  string defaultPattern = 2;
-  TextFormat defaultFormat = 3;
-  repeated TextPiece piecesList = 4;
+    string key = 1;
+    string defaultPattern = 2;
+    TextFormat defaultFormat = 3;
+    repeated TextPiece piecesList = 4;
 }

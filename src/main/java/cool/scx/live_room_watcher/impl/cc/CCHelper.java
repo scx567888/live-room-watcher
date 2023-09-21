@@ -12,6 +12,16 @@ import static cool.scx.util.HashUtils.md5;
 
 public class CCHelper {
 
+    public static final Map<String, String> DEFAULT_CC_GIFT_AND_NAME_MAP = Map.of(
+            "26884", "愚你同乐",
+            "26885", "小飞机",
+            "26886", "营养快充",
+            "26887", "杯盏明月",
+            "26888", "独角兽",
+            "26889", "我养你",
+            "27121", "法拉利"
+    );
+
     public static void checkCCData(String bodyStr, Map<String, String> headers, String dataSecret) {
         var x_nonce_str = headers.get("x-nonce-str");
         var x_timestamp = headers.get("x-timestamp");
@@ -54,14 +64,4 @@ public class CCHelper {
         };
     }
 
-   public static final Map<String,String> DEFAULT_CC_GIFT_AND_NAME_MAP = Map.of(
-           "26884","愚你同乐",
-           "26885","小飞机",
-           "26886","营养快充",
-           "26887","杯盏明月",
-           "26888","独角兽",
-           "26889","我养你",
-           "27121","法拉利"
-   ); 
-    
 }

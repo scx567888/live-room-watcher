@@ -5,5 +5,5 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 //更新时间 : 2023-01-11
 message HotRoomInfo {
-  int64 bitmap = 1;
+    int64 bitmap = 1;
 }

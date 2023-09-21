@@ -15,5 +15,5 @@ public interface Message {
      * @return 房间号
      */
     String roomID();
-    
+
 }

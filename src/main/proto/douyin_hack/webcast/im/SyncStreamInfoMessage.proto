@@ -7,8 +7,8 @@ import "webcast/im/Common.proto";
 
 //更新时间 : 2023-01-10
 message SyncStreamInfoMessage {
-  int64 timestamp = 1;
-  string key = 2;
-  string  info = 3;
-  Common common = 4;
+    int64 timestamp = 1;
+    string key = 2;
+    string  info = 3;
+    Common common = 4;
 }

@@ -11,15 +11,15 @@ import "webcast/im/PicoDisplayInfo.proto";
 
 //更新时间 : 2023-01-09
 message LikeMessage {
-  Common common = 1;
-  int64 count = 2;
-  int64 total = 3;
-  int64 color = 4;
-  User user = 5;
-  string icon = 6;
-  DoubleLikeDetail doubleLikeDetail = 7;
-  DisplayControlInfo displayControlInfo = 8;
-  int64 linkmicGuestUid = 9;
-  string scene = 10;
-  PicoDisplayInfo picoDisplayInfo = 11;
+    Common common = 1;
+    int64 count = 2;
+    int64 total = 3;
+    int64 color = 4;
+    User user = 5;
+    string icon = 6;
+    DoubleLikeDetail doubleLikeDetail = 7;
+    DisplayControlInfo displayControlInfo = 8;
+    int64 linkmicGuestUid = 9;
+    string scene = 10;
+    PicoDisplayInfo picoDisplayInfo = 11;
 }

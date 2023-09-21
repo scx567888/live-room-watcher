@@ -4,13 +4,13 @@ import cool.scx.live_room_watcher.message.Like;
 import cool.scx.live_room_watcher.message.User;
 
 public class MEMELike implements Like {
-    
+
     public Integer count;
-    
+
     public MEMEUser userInfo;
-    
+
     public String roomID;
-    
+
     @Override
     public User user() {
         return userInfo;
@@ -25,5 +25,5 @@ public class MEMELike implements Like {
     public String roomID() {
         return roomID;
     }
-    
+
 }

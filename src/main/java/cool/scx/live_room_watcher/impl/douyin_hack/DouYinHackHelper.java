@@ -19,7 +19,6 @@ import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
-
 import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
 import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;

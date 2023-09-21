@@ -30,6 +30,6 @@ public class RoomStore {
     public Boolean longtouchShowTcc;
     public List<String> usePageUrlBannerId;
     public Boolean isAsianGames;
-    public List<Map<String,Object>> relevantRooms;
+    public List<Map<String, Object>> relevantRooms;
 
 }

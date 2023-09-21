@@ -9,10 +9,10 @@ import "webcast/im/PublicAreaCommon.proto";
 
 //更新时间 : 2023-01-11
 message AudioChatMessage {
-  Common common = 1;
-  User user = 2;
-  string content = 3;
-  string audioUrl = 4;
-  int64  audioDuration = 5;
-  PublicAreaCommon   publicAreaCommon = 6;
+    Common common = 1;
+    User user = 2;
+    string content = 3;
+    string audioUrl = 4;
+    int64  audioDuration = 5;
+    PublicAreaCommon   publicAreaCommon = 6;
 }

@@ -9,11 +9,11 @@ import "webcast/im/PublicAreaCommon.proto";
 
 //更新时间 : 2023-01-09
 message SocialMessage {
-  Common common = 1;
-  User user = 2;
-  int64 shareType = 3;
-  int64 action = 4;
-  string shareTarget = 5;
-  int64 followCount = 6;
-  PublicAreaCommon publicAreaCommon = 7;
+    Common common = 1;
+    User user = 2;
+    int64 shareType = 3;
+    int64 action = 4;
+    string shareTarget = 5;
+    int64 followCount = 6;
+    PublicAreaCommon publicAreaCommon = 7;
 }

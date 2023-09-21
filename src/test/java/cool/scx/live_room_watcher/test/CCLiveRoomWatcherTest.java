@@ -10,7 +10,7 @@ import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class CCLiveRoomWatcherTest {
-    
+
     public static void main(String[] args) throws IOException, InterruptedException {
         test1();
     }
@@ -36,5 +36,5 @@ public class CCLiveRoomWatcherTest {
 
         liveRoomWatcher.call("body", Map.of("x-roomid", "123"), LIVE_GIFT);
     }
-    
+
 }

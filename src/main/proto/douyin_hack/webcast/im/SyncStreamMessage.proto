@@ -7,6 +7,6 @@ import "webcast/im/SyncStreamInfoMessage.proto";
 
 //更新时间 : 2023-01-10
 message SyncStreamMessage {
-  string common = 1;
-  repeated SyncStreamInfoMessage infoListList = 2;
+    string common = 1;
+    repeated SyncStreamInfoMessage infoListList = 2;
 }

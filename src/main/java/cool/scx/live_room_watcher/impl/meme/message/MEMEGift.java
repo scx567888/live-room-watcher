@@ -4,7 +4,7 @@ import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
 
 public class MEMEGift implements Gift {
-    
+
     @Override
     public User user() {
         return null;
@@ -24,5 +24,5 @@ public class MEMEGift implements Gift {
     public String roomID() {
         return null;
     }
-    
+
 }

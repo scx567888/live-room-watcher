@@ -238,35 +238,36 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
     }
 
+    public boolean getTest() {
+        return this.test;
+    }
+
     public CCLiveRoomWatcher setTest(boolean t) {
         this.test = t;
         return this;
-    }
-
-    public boolean getTest() {
-        return this.test;
     }
 
     private String getGiftName(String secGiftId) {
         return giftAndNameMap.get(secGiftId);
     }
 
-    public record CCAccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
-    
+    public record CCAccessTokenResult(Integer err_no, String err_tips,
+                                      AccessTokenResultData data) implements AccessToken {
+
         @Override
         public String accessToken() {
             return data().access_token();
         }
-    
+
         @Override
         public Integer expiresIn() {
             return data().expires_in();
         }
-    
+
         record AccessTokenResultData(String access_token, Integer expires_in) {
-    
+
         }
-        
+
     }
-    
+
 }

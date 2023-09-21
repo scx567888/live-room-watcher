@@ -3,7 +3,6 @@ package cool.scx.live_room_watcher.test;
 
 import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
-import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,7 +24,7 @@ public class DouYinHackLiveRoomWatcherTest {
         return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
-//    @Test
+    //    @Test
     public static void tes1() {
         var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/71427343402").useGzip(true);
 

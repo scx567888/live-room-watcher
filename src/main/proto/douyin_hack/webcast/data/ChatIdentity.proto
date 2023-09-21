@@ -7,6 +7,6 @@ import "webcast/data/Image.proto";
 
 //更新时间 2023-01-11
 message ChatIdentity{
-  int32 showIdentity = 1;
-  Image identityLabel = 2;
+    int32 showIdentity = 1;
+    Image identityLabel = 2;
 }

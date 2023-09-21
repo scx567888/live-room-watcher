@@ -49,5 +49,5 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
 
     }
-    
+
 }

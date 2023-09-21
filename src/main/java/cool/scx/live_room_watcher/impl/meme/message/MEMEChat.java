@@ -4,7 +4,7 @@ import cool.scx.live_room_watcher.message.Chat;
 import cool.scx.live_room_watcher.message.User;
 
 public class MEMEChat implements Chat {
-    
+
     @Override
     public String content() {
         return null;
@@ -19,5 +19,5 @@ public class MEMEChat implements Chat {
     public String roomID() {
         return null;
     }
-    
+
 }

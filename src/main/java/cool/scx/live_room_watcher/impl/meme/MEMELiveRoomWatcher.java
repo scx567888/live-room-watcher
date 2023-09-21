@@ -49,21 +49,12 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         this.httpClient = vertx.createHttpClient();
     }
 
-    static final class JsonBody implements ScxHttpClientRequestBody {
-        private final String bodyStr;
-
-        public JsonBody(Object o) throws JsonProcessingException {
-            this.bodyStr = ObjectUtils.toJson(o);
-        }
-
-        public JsonBody(String json) throws JsonProcessingException {
-            this.bodyStr = json;
-        }
-
-        public HttpRequest.BodyPublisher bodyPublisher(HttpRequest.Builder builder) {
-            builder.setHeader(HttpHeaderNames.CONTENT_TYPE.toString(), HttpHeaderValues.APPLICATION_JSON + "; charset=utf-8");
-            return HttpRequest.BodyPublishers.ofByteArray(this.bodyStr.getBytes(StandardCharsets.UTF_8));
-        }
+    public static WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
+        var absoluteURI = "https://test-games-sock.memeyule.com:6211/websocket?roomId=" + roomId;
+//        var absoluteURI= MEMEApi.WEBSOCKET_CHANNEL_URL + "/" + roomId;
+        var options = new WebSocketConnectOptions();
+        options.setAbsoluteURI(absoluteURI);
+        return options;
     }
 
     public ScxHttpClientResponse request(HttpMethod method, String url, String body) throws IOException, InterruptedException {
@@ -112,14 +103,6 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         var body = Map.of("liveRoomId", roomID, "matchId", RandomUtils.randomUUID());
         ScxHttpClientResponse request = this.request(POST, MEMEApi.START_CALLBACK_URL, toJson(body));
         System.out.println(request.body().toString());
-    }
-
-    public static WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
-        var absoluteURI = "https://test-games-sock.memeyule.com:6211/websocket?roomId=" + roomId;
-//        var absoluteURI= MEMEApi.WEBSOCKET_CHANNEL_URL + "/" + roomId;
-        var options = new WebSocketConnectOptions();
-        options.setAbsoluteURI(absoluteURI);
-        return options;
     }
 
     public void websocketChannel(String roomId) {
@@ -194,6 +177,23 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     public void stopWatch(String roomID) throws IOException, InterruptedException {
 
+    }
+
+    static final class JsonBody implements ScxHttpClientRequestBody {
+        private final String bodyStr;
+
+        public JsonBody(Object o) throws JsonProcessingException {
+            this.bodyStr = ObjectUtils.toJson(o);
+        }
+
+        public JsonBody(String json) throws JsonProcessingException {
+            this.bodyStr = json;
+        }
+
+        public HttpRequest.BodyPublisher bodyPublisher(HttpRequest.Builder builder) {
+            builder.setHeader(HttpHeaderNames.CONTENT_TYPE.toString(), HttpHeaderValues.APPLICATION_JSON + "; charset=utf-8");
+            return HttpRequest.BodyPublishers.ofByteArray(this.bodyStr.getBytes(StandardCharsets.UTF_8));
+        }
     }
 
 }

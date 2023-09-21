@@ -6,6 +6,6 @@ package cool.scx.live_room_watcher.message;
  * @author scx567888
  * @version 0.0.1
  */
-public interface Follow extends Message{
-    
+public interface Follow extends Message {
+
 }
