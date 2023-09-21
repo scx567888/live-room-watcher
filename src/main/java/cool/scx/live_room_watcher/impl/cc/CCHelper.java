@@ -1,6 +1,6 @@
-package cool.scx.live_room_watcher.cc;
+package cool.scx.live_room_watcher.impl.cc;
 
-import cool.scx.live_room_watcher.MsgType;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 
 import java.security.InvalidParameterException;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class CCHelper {
         return encodeToString(md5Bytes);
     }
 
-    public static String getMsgTypeValue(MsgType msgType) {
+    public static String getMsgTypeValue(OfficialPassiveLiveRoomWatcher.MsgType msgType) {
         return switch (msgType) {
             case LIVE_COMMENT -> "live_comment";
             case LIVE_GIFT -> "live_gift";

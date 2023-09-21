@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.cc;
+package cool.scx.live_room_watcher.impl.cc.message;
 
-import cool.scx.live_room_watcher.Gift;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Gift;
+import cool.scx.live_room_watcher.message.User;
 
 public class CCGift implements Gift, User {
 

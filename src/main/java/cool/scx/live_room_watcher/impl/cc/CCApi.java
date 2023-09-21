@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.cc;
+package cool.scx.live_room_watcher.impl.cc;
 
 class CCApi {
     

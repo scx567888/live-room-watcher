@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.cc;
+package cool.scx.live_room_watcher.impl.cc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,8 +6,10 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.cc.message.CCComment;
+import cool.scx.live_room_watcher.impl.cc.message.CCGift;
+import cool.scx.live_room_watcher.impl.cc.message.CCLike;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -17,8 +19,8 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.cc.CCApi.*;
-import static cool.scx.live_room_watcher.cc.CCHelper.*;
+import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
+import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 
 /**
  * 网易 CC 官方的获取方式 需要在 CC 进行回调时手动调用 {@link CCLiveRoomWatcher#call(String, Map, MsgType)}
@@ -249,4 +251,22 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         return giftAndNameMap.get(secGiftId);
     }
 
+    public record CCAccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
+    
+        @Override
+        public String accessToken() {
+            return data().access_token();
+        }
+    
+        @Override
+        public Integer expiresIn() {
+            return data().expires_in();
+        }
+    
+        record AccessTokenResultData(String access_token, Integer expires_in) {
+    
+        }
+        
+    }
+    
 }
