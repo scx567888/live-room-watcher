@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.bilibili;
+package cool.scx.live_room_watcher.impl.bilibili.message;
 
-import cool.scx.live_room_watcher.Follow;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Follow;
+import cool.scx.live_room_watcher.message.User;
 
 /**
  * <p>BiliBiliFollow class.</p>
@@ -10,6 +10,7 @@ import cool.scx.live_room_watcher.User;
  * @version 0.0.1
  */
 public class BiliBiliFollow implements Follow {
+    
     /**
      * {@inheritDoc}
      */
@@ -17,4 +18,10 @@ public class BiliBiliFollow implements Follow {
     public User user() {
         return null;
     }
+
+    @Override
+    public String roomID() {
+        return null;
+    }
+
 }

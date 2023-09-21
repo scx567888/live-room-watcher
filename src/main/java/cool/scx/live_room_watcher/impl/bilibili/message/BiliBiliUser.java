@@ -1,6 +1,6 @@
-package cool.scx.live_room_watcher.bilibili;
+package cool.scx.live_room_watcher.impl.bilibili.message;
 
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.User;
 
 /**
  * 直播间用户
@@ -31,4 +31,8 @@ public class BiliBiliUser implements User {
         return null;
     }
 
+    @Override
+    public String roomID() {
+        return null;
+    }
 }

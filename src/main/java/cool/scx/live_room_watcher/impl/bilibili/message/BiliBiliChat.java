@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.bilibili;
+package cool.scx.live_room_watcher.impl.bilibili.message;
 
-import cool.scx.live_room_watcher.Chat;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Chat;
+import cool.scx.live_room_watcher.message.User;
 
 /**
  * 弹幕
@@ -31,4 +31,5 @@ public class BiliBiliChat implements Chat {
     public String roomID() {
         return null;
     }
+    
 }

@@ -1,28 +1,20 @@
-package cool.scx.live_room_watcher.bilibili;
+package cool.scx.live_room_watcher.impl.bilibili.message;
 
-import cool.scx.live_room_watcher.Gift;
-import cool.scx.live_room_watcher.User;
+import cool.scx.live_room_watcher.message.Like;
+import cool.scx.live_room_watcher.message.User;
 
 /**
- * <p>BiliBiliGift class.</p>
+ * <p>BiliBiliLike class.</p>
  *
  * @author scx567888
  * @version 0.0.1
  */
-public class BiliBiliGift implements Gift {
+public class BiliBiliLike implements Like {
     /**
      * {@inheritDoc}
      */
     @Override
     public User user() {
-        return null;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String name() {
         return null;
     }
 
