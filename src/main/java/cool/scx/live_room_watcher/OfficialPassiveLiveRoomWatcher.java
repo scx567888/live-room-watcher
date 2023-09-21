@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.MsgType.*;
+import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
@@ -94,4 +94,36 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         taskStop(roomID, LIVE_LIKE);
     }
 
+    public enum MsgType {
+    
+        /**
+         * 评论
+         */
+        LIVE_COMMENT,
+    
+        /**
+         * 礼物
+         */
+        LIVE_GIFT,
+    
+        /**
+         * 点赞
+         */
+        LIVE_LIKE,
+    
+        /**
+         * 粉丝团
+         */
+        LIVE_FANS_CLUB
+        
+    }
+
+    public interface AccessToken {
+        
+        String accessToken();
+    
+        Integer expiresIn();
+        
+    }
+    
 }

@@ -1,12 +1,12 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.MsgType.LIVE_GIFT;
+import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.LIVE_GIFT;
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class DouYinLiveRoomWatcherTest {
