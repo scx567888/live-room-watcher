@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.kuaishou_hack;
+package cool.scx.live_room_watcher.impl.kuaishou_hack;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.live_room_watcher.kuaishou_hack.entity.KuaiShouInitialState;
+import cool.scx.live_room_watcher.impl.kuaishou_hack.entity.KuaiShouInitialState;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 import org.graalvm.polyglot.Context;
@@ -12,10 +12,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class KuaiShouHackHelper {
+import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
+import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
 
-  public static Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
-  public static HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+public class KuaiShouHackHelper {
 
     /**
      * 标准化 直播间 URI

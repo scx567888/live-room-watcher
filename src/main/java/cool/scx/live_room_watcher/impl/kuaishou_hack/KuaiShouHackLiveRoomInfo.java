@@ -1,13 +1,13 @@
-package cool.scx.live_room_watcher.kuaishou_hack;
+package cool.scx.live_room_watcher.impl.kuaishou_hack;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.kuaishou_hack.entity.KuaiShouInitialState;
+import cool.scx.live_room_watcher.impl.kuaishou_hack.entity.KuaiShouInitialState;
 
 import java.util.List;
 
-import static cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackHelper.parseBody;
+import static cool.scx.live_room_watcher.impl.kuaishou_hack.KuaiShouHackHelper.parseBody;
 
 public class KuaiShouHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 

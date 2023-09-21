@@ -1,8 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.live_room_watcher.kuaishou_hack.KuaiShouHackLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.kuaishou_hack.KuaiShouHackLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
-import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,7 +23,7 @@ public class KuaiShouHackLiveRoomWatcherTest {
         return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
-//    @Test
+    //    @Test
     public static void tes1() {
         var liveRoomWatcher = new KuaiShouHackLiveRoomWatcher("https://live.kuaishou.com/u/Ahao1124");
 

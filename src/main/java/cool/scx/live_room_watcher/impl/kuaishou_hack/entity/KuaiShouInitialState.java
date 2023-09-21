@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.kuaishou_hack.entity;
+package cool.scx.live_room_watcher.impl.kuaishou_hack.entity;
 
 import java.util.Map;
 

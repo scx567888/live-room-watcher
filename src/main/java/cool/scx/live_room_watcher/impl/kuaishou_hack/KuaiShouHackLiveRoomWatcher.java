@@ -1,8 +1,7 @@
-package cool.scx.live_room_watcher.kuaishou_hack;
+package cool.scx.live_room_watcher.impl.kuaishou_hack;
 
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
-import cool.scx.http_client.ScxHttpClientResponseBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
@@ -15,7 +14,6 @@ import java.net.URI;
 import java.util.List;
 
 import static cool.scx.enumeration.HttpMethod.GET;
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
  * todo 未完成
