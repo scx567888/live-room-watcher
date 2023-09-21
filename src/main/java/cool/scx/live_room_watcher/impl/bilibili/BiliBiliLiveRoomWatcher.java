@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.bilibili;
+package cool.scx.live_room_watcher.impl.bilibili;
 
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 
