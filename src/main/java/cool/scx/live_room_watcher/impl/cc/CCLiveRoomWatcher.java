@@ -10,6 +10,7 @@ import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
+import cool.scx.live_room_watcher.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -194,13 +195,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 for (var gift : giftList) {
                     gift.giftName = getGiftName(gift.sec_gift_id);
                     gift.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.giftHandler.accept(gift);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.giftHandler.accept(gift));
                 }
             }
             case LIVE_LIKE -> {
@@ -209,13 +204,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {});
                 for (var like : likeList) {
                     like.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.likeHandler.accept(like);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.likeHandler.accept(like));
                 }
             }
             case LIVE_COMMENT -> {
@@ -224,13 +213,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {});
                 for (var comment : commentList) {
                     comment.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.chatHandler.accept(comment);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.chatHandler.accept(comment));
                 }
             }
             case LIVE_FANS_CLUB -> {

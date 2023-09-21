@@ -16,11 +16,7 @@ public class DouYinHackLike implements Like {
     LikeMessage likeMessage;
     User user;
 
-    /**
-     * <p>Constructor for DouYinLike.</p>
-     *
-     * @param likeMessage a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.LikeMessage} object
-     */
+    
     public DouYinHackLike(LikeMessage likeMessage) {
         this.likeMessage = likeMessage;
         this.user = new DouYinHackUser(likeMessage.getUser());

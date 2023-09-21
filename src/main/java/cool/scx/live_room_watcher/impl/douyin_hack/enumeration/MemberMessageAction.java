@@ -29,11 +29,7 @@ public enum MemberMessageAction {
      */
     private static final Map<Long, MemberMessageAction> MAP = initMap();
 
-    /**
-     * <p>Constructor for MemberMessageAction.</p>
-     *
-     * @param i a long
-     */
+ 
     final long code;
 
     MemberMessageAction(long i) {
@@ -52,13 +48,7 @@ public enum MemberMessageAction {
         }
         return map;
     }
-
-    /**
-     * <p>of.</p>
-     *
-     * @param i a long
-     * @return a {@link cool.scx.live_room_watcher.douyin_hack.enumeration.MemberMessageAction} object
-     */
+    
     public static MemberMessageAction of(long i) {
         return MAP.get(i);
     }

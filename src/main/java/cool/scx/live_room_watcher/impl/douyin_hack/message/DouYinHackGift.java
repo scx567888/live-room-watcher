@@ -15,11 +15,7 @@ public class DouYinHackGift implements Gift {
     GiftMessage giftMessage;
     User user;
 
-    /**
-     * <p>Constructor for DouYinGift.</p>
-     *
-     * @param giftMessage a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.GiftMessage} object
-     */
+   
     public DouYinHackGift(GiftMessage giftMessage) {
         this.giftMessage = giftMessage;
         this.user = new DouYinHackUser(giftMessage.getUser());

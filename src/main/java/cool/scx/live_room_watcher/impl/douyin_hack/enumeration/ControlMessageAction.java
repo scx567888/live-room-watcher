@@ -23,12 +23,7 @@ public enum ControlMessageAction {
      * Constant <code>MAP</code>
      */
     private static final Map<Long, ControlMessageAction> MAP = initMap();
-
-    /**
-     * <p>Constructor for ControlMessageAction.</p>
-     *
-     * @param i a long
-     */
+    
     final long code;
 
     ControlMessageAction(long i) {
@@ -48,12 +43,7 @@ public enum ControlMessageAction {
         return map;
     }
 
-    /**
-     * <p>of.</p>
-     *
-     * @param i a long
-     * @return a {@link cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction} object
-     */
+  
     public static ControlMessageAction of(long i) {
         return MAP.get(i);
     }

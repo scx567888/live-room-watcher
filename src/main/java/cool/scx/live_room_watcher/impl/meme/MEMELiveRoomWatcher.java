@@ -11,6 +11,7 @@ import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
+import cool.scx.live_room_watcher.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
@@ -108,18 +109,9 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
     public void websocketChannel(String roomId) {
         var webSocketFuture = httpClient.webSocket(getWebsocketChannelOptions(roomId));
         webSocketFuture.onSuccess(ws -> {
+            System.out.println("连接成功");
             ws.textMessageHandler(c -> {
-                try {
-                    var payload = ObjectUtils.jsonMapper().readValue(c, MEMEWebSocketPayload.class);
-                    switch (payload.action) {
-                        case "enterRoom" -> callEnterRoom(payload);
-                        case "sendGift" -> callSendGift(payload);
-                        case "comment" -> callComment(payload);
-                        case "like" -> callLike(payload);
-                    }
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                }
+                $.async(() -> callMessage(c));
             });
             ws.closeHandler((v) -> {
                 System.out.println("close");
@@ -127,11 +119,24 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
             ws.exceptionHandler(e -> {
                 e.printStackTrace();
             });
-            System.out.println("连接成功");
         }).onFailure(e -> {
             e.printStackTrace();
             System.out.println("连接失败");
         });
+    }
+
+    public void callMessage(String jsonPayload) {
+        try {
+            var payload = ObjectUtils.jsonMapper().readValue(jsonPayload, MEMEWebSocketPayload.class);
+            switch (payload.action) {
+                case "enterRoom" -> callEnterRoom(payload);
+                case "sendGift" -> callSendGift(payload);
+                case "comment" -> callComment(payload);
+                case "like" -> callLike(payload);
+            }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void callLike(MEMEWebSocketPayload payload) {
