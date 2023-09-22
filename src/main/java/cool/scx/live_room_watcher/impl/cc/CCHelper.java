@@ -60,7 +60,7 @@ public class CCHelper {
             case LIVE_COMMENT -> "live_comment";
             case LIVE_GIFT -> "live_gift";
             case LIVE_LIKE -> "live_like";
-            case LIVE_FANS_CLUB -> throw new UnsupportedOperationException();
+            case LIVE_FANS_CLUB, LIVE_FOLLOW -> throw new UnsupportedOperationException();
         };
     }
 

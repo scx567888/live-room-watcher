@@ -62,6 +62,7 @@ class DouYinHelper {
             case LIVE_GIFT -> "live_gift";
             case LIVE_LIKE -> "live_like";
             case LIVE_FANS_CLUB -> "live_fansclub";
+            case LIVE_FOLLOW -> throw new UnsupportedOperationException();
         };
     }
 
