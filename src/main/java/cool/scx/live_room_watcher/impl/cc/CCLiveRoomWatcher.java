@@ -22,6 +22,7 @@ import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
+import static cool.scx.util.ScxExceptionHelper.wrap;
 
 /**
  * 网易 CC 官方的获取方式 需要在 CC 进行回调时手动调用 {@link CCLiveRoomWatcher#call(String, Map, MsgType)}
@@ -186,12 +187,12 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @param msgType 类型
      */
     @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
         switch (msgType) {
             case LIVE_GIFT -> {
                 checkCCData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
-                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {});
+                var giftList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {}));
                 for (var gift : giftList) {
                     gift.giftName = getGiftName(gift.sec_gift_id);
                     gift.roomID = roomID;
@@ -201,7 +202,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_LIKE -> {
                 checkCCData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
-                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {});
+                var likeList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {}));
                 for (var like : likeList) {
                     like.roomID = roomID;
                     $.async(() -> this.likeHandler.accept(like));
@@ -210,7 +211,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_COMMENT -> {
                 checkCCData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
-                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {});
+                var commentList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {}));
                 for (var comment : commentList) {
                     comment.roomID = roomID;
                     $.async(() -> this.chatHandler.accept(comment));

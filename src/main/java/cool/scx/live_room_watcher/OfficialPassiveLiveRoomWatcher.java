@@ -41,7 +41,7 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
 
     public abstract String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
-    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
+    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType);
 
     /**
      * 获取 accessToken
@@ -96,22 +96,22 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
     }
 
     public enum MsgType {
-    
+
         /**
          * 评论
          */
         LIVE_COMMENT,
-    
+
         /**
          * 礼物
          */
         LIVE_GIFT,
-    
+
         /**
          * 点赞
          */
         LIVE_LIKE,
-    
+
         /**
          * 粉丝团
          */
@@ -121,15 +121,15 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
          * 关注
          */
         LIVE_FOLLOW
-        
+
     }
 
     public interface AccessToken {
-        
+
         String accessToken();
-    
+
         Integer expiresIn();
-        
+
     }
-    
+
 }
