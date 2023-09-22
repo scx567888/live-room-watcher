@@ -11,7 +11,6 @@ import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
-import cool.scx.live_room_watcher.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
@@ -26,6 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
@@ -39,7 +39,8 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
-    private final HttpClient httpClient;
+    final HttpClient httpClient;
+    private final Map<String, WatchTask> watchTaskMap = new ConcurrentHashMap<>();
 
     public MEMELiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
@@ -106,23 +107,20 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         System.out.println(request.body().toString());
     }
 
-    public void websocketChannel(String roomId) {
-        var webSocketFuture = httpClient.webSocket(getWebsocketChannelOptions(roomId));
-        webSocketFuture.onSuccess(ws -> {
-            System.out.println("连接成功");
-            ws.textMessageHandler(c -> {
-                $.async(() -> callMessage(c));
-            });
-            ws.closeHandler((v) -> {
-                System.out.println("close");
-            });
-            ws.exceptionHandler(e -> {
-                e.printStackTrace();
-            });
-        }).onFailure(e -> {
-            e.printStackTrace();
-            System.out.println("连接失败");
-        });
+    public void startWatchTask(String roomId) {
+        if (watchTaskMap.get(roomId) == null) {
+            var watchTask = new WatchTask(this, roomId);
+            watchTaskMap.put(roomId, watchTask);
+            watchTask.start();
+        }
+    }
+
+    public void stopWatchTask(String roomId) {
+        var watchTask = watchTaskMap.get(roomId);
+        if (watchTask != null) {
+            watchTask.stop();
+            watchTaskMap.remove(roomId);
+        }
     }
 
     public void callMessage(String jsonPayload) {
@@ -177,11 +175,11 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         roomCodeStatus(roomID);
         starInfo(roomID);
         gifts();
-        websocketChannel(roomID);
+        startWatchTask(roomID);
     }
 
     public void stopWatch(String roomID) throws IOException, InterruptedException {
-
+        stopWatchTask(roomID);
     }
 
     static final class JsonBody implements ScxHttpClientRequestBody {

@@ -5,12 +5,17 @@ import io.vertx.core.Future;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 import static cool.scx.util.ScxExceptionHelper.getRootCause;
 
 public class $ {
 
+    public static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(Integer.MAX_VALUE, Thread.ofVirtual().factory());
+
     public static CompletableFuture<Void> async(ScxRunnable<?> runnable) {
+
         var promise = new CompletableFuture<Void>();
         Thread.ofVirtual().start(() -> {
             try {
