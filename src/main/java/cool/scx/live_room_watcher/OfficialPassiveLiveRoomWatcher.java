@@ -114,7 +114,12 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         /**
          * 粉丝团
          */
-        LIVE_FANS_CLUB
+        LIVE_FANS_CLUB,
+
+        /**
+         * 关注
+         */
+        LIVE_FOLLOW
         
     }
 
