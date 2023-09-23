@@ -1,8 +1,8 @@
 package cool.scx.live_room_watcher.impl.douyin_hack.message;
 
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.LikeMessage;
 import cool.scx.live_room_watcher.message.Like;
 import cool.scx.live_room_watcher.message.User;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.LikeMessage;
 
 
 /**
@@ -16,11 +16,7 @@ public class DouYinHackLike implements Like {
     LikeMessage likeMessage;
     User user;
 
-    /**
-     * <p>Constructor for DouYinLike.</p>
-     *
-     * @param likeMessage a {@link cool.scx.live_room_watcher.douyin_hack.proto_entity.webcast.im.LikeMessage} object
-     */
+    
     public DouYinHackLike(LikeMessage likeMessage) {
         this.likeMessage = likeMessage;
         this.user = new DouYinHackUser(likeMessage.getUser());

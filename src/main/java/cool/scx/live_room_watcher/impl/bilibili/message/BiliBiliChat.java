@@ -31,5 +31,5 @@ public class BiliBiliChat implements Chat {
     public String roomID() {
         return null;
     }
-    
+
 }

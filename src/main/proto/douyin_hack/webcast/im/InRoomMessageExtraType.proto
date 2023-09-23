@@ -5,7 +5,7 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 //更新时间 : 2023-01-11
 enum InRoomMessageExtraType{
-  ITEMDATA = 0;
-  ITEMADD = 1;
-  ITEMDELETE = 2;
+    ITEMDATA = 0;
+    ITEMADD = 1;
+    ITEMDELETE = 2;
 }

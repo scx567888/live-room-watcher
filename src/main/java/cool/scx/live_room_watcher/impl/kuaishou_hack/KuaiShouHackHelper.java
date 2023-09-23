@@ -5,8 +5,6 @@ import cool.scx.live_room_watcher.impl.kuaishou_hack.entity.KuaiShouInitialState
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 import org.graalvm.polyglot.Context;
-import org.graalvm.polyglot.Engine;
-import org.graalvm.polyglot.HostAccess;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -63,5 +61,5 @@ public class KuaiShouHackHelper {
             return ObjectUtils.jsonMapper().readValue(value.asString(), KuaiShouInitialState.class);
         }
     }
-    
+
 }

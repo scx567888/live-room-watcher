@@ -30,5 +30,5 @@ public class BiliBiliGift implements Gift {
     public String roomID() {
         return null;
     }
-    
+
 }

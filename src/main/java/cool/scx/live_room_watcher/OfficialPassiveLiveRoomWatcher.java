@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import cool.scx.live_room_watcher.util.Helper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -40,7 +40,7 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
 
     public abstract String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
-    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
+    public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType);
 
     /**
      * 获取 accessToken
@@ -62,13 +62,13 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         try {
             var accessToken0 = getAccessToken0();
             this.accessToken = accessToken0.accessToken();
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
+            Helper.scheduler.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             //发生错误的话 2秒后重试
-            vertx.nettyEventLoopGroup().schedule(this::refreshAccessToken, 2000, SECONDS);
+            Helper.scheduler.schedule(this::refreshAccessToken, 2000, SECONDS);
         }
     }
 
@@ -95,35 +95,40 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
     }
 
     public enum MsgType {
-    
+
         /**
          * 评论
          */
         LIVE_COMMENT,
-    
+
         /**
          * 礼物
          */
         LIVE_GIFT,
-    
+
         /**
          * 点赞
          */
         LIVE_LIKE,
-    
+
         /**
          * 粉丝团
          */
-        LIVE_FANS_CLUB
-        
+        LIVE_FANS_CLUB,
+
+        /**
+         * 关注
+         */
+        LIVE_FOLLOW
+
     }
 
     public interface AccessToken {
-        
+
         String accessToken();
-    
+
         Integer expiresIn();
-        
+
     }
-    
+
 }

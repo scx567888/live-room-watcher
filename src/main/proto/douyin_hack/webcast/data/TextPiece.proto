@@ -12,12 +12,12 @@ import "webcast/data/TextPieceImage.proto";
 
 //更新时间 : 2023-01-05 17:29:29
 message TextPiece {
-  int32 type = 1;
-  TextFormat format = 2;
-  string stringValue = 11;
-  TextPieceUser userValue = 21;
-  TextPieceGift giftValue = 22;
-  TextPieceHeart heartValue = 23;
-  TextPiecePatternRef patternRefValue = 24;
-  TextPieceImage imageValue = 25;
+    int32 type = 1;
+    TextFormat format = 2;
+    string stringValue = 11;
+    TextPieceUser userValue = 21;
+    TextPieceGift giftValue = 22;
+    TextPieceHeart heartValue = 23;
+    TextPiecePatternRef patternRefValue = 24;
+    TextPieceImage imageValue = 25;
 }

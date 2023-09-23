@@ -3,11 +3,11 @@ package cool.scx.live_room_watcher.impl.meme.message;
 import cool.scx.live_room_watcher.message.User;
 
 public class MEMEUser implements User {
-    
+
     public String avatar;
     public String nickname;
     public String userId;
-    
+
     @Override
     public String nickName() {
         return nickname;
@@ -27,5 +27,5 @@ public class MEMEUser implements User {
     public String roomID() {
         return null;
     }
-    
+
 }

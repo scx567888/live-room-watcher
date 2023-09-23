@@ -44,7 +44,7 @@ public class KuaiShouHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     @Override
     public String liveRoomID() {
-        return  null;
+        return null;
     }
 
     @Override

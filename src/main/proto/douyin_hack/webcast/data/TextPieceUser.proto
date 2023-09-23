@@ -7,6 +7,6 @@ import "webcast/data/User.proto";
 
 //更新时间 : 2023-01-09
 message TextPieceUser {
-  User user = 1;
-  bool withColon = 2;
+    User user = 1;
+    bool withColon = 2;
 }

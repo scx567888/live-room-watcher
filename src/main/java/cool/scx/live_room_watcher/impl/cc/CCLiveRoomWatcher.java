@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.cc;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
@@ -10,6 +9,7 @@ import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
+import cool.scx.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -21,6 +21,7 @@ import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
+import static cool.scx.util.ScxExceptionHelper.wrap;
 
 /**
  * 网易 CC 官方的获取方式 需要在 CC 进行回调时手动调用 {@link CCLiveRoomWatcher#call(String, Map, MsgType)}
@@ -185,52 +186,34 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @param msgType 类型
      */
     @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
         switch (msgType) {
             case LIVE_GIFT -> {
                 checkCCData(bodyStr, header, giftDataSecret);
                 var roomID = header.get("x-roomid");
-                var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {});
+                var giftList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {}));
                 for (var gift : giftList) {
                     gift.giftName = getGiftName(gift.sec_gift_id);
                     gift.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.giftHandler.accept(gift);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.giftHandler.accept(gift));
                 }
             }
             case LIVE_LIKE -> {
                 checkCCData(bodyStr, header, likeDataSecret);
                 var roomID = header.get("x-roomid");
-                var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {});
+                var likeList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {}));
                 for (var like : likeList) {
                     like.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.likeHandler.accept(like);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.likeHandler.accept(like));
                 }
             }
             case LIVE_COMMENT -> {
                 checkCCData(bodyStr, header, commentDataSecret);
                 var roomID = header.get("x-roomid");
-                var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {});
+                var commentList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {}));
                 for (var comment : commentList) {
                     comment.roomID = roomID;
-                    vertx.nettyEventLoopGroup().execute(() -> {
-                        try {
-                            this.chatHandler.accept(comment);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
+                    $.async(() -> this.chatHandler.accept(comment));
                 }
             }
             case LIVE_FANS_CLUB -> {
@@ -238,35 +221,36 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
     }
 
+    public boolean getTest() {
+        return this.test;
+    }
+
     public CCLiveRoomWatcher setTest(boolean t) {
         this.test = t;
         return this;
-    }
-
-    public boolean getTest() {
-        return this.test;
     }
 
     private String getGiftName(String secGiftId) {
         return giftAndNameMap.get(secGiftId);
     }
 
-    public record CCAccessTokenResult(Integer err_no, String err_tips, AccessTokenResultData data) implements AccessToken {
-    
+    public record CCAccessTokenResult(Integer err_no, String err_tips,
+                                      AccessTokenResultData data) implements AccessToken {
+
         @Override
         public String accessToken() {
             return data().access_token();
         }
-    
+
         @Override
         public Integer expiresIn() {
             return data().expires_in();
         }
-    
+
         record AccessTokenResultData(String access_token, Integer expires_in) {
-    
+
         }
-        
+
     }
-    
+
 }

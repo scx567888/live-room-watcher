@@ -7,12 +7,13 @@ import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.douyin_hack.enumeration.ControlMessageAction;
-import cool.scx.live_room_watcher.douyin_hack.enumeration.MemberMessageAction;
+import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
+import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
@@ -131,7 +132,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
     /**
      * 根据直播间 uri 解析 直播间的信息
      *
-     * @return
+     * @return a
      * @throws java.io.IOException            if any.
      * @throws java.lang.InterruptedException if any.
      */
@@ -441,7 +442,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
      * 连接 抖音 弹幕服务时是否传递 gip 压缩参数
      *
      * @param useGzip a boolean
-     * @return a {@link cool.scx.live_room_watcher.douyin.DouYinLiveRoomWatcher} object
+     * @return a
      */
     public DouYinHackLiveRoomWatcher useGzip(boolean useGzip) {
         this.useGzip = useGzip;
@@ -486,14 +487,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
             switch (pushFrame.getPayloadType()) {
                 case "msg" -> {
                     for (var message : response.getMessagesListList()) {
-                        vertx.nettyEventLoopGroup().execute(() -> {
-                            try {
-                                //防止线程阻塞
-                                callHandler(message);
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
+                        $.async(() -> callHandler(message));
                     }
                 }
                 case "close" -> System.out.println("关闭");

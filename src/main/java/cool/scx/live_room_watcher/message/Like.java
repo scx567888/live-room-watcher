@@ -6,7 +6,7 @@ package cool.scx.live_room_watcher.message;
  * @author scx567888
  * @version 0.0.1
  */
-public interface Like extends Message{
+public interface Like extends Message {
 
     /**
      * 点赞可能是连击的

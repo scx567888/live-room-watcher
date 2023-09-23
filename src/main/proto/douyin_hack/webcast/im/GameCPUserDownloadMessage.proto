@@ -8,10 +8,10 @@ import "webcast/im/GameCPUserDownloadMessageEnum.proto";
 
 //更新时间 : 2023-01-11
 message GameCPUserDownloadMessage {
-  Common  common = 1;
-  string   userNickName = 2;
-  int64 userDownloadCount = 3;
-  string    userDownloadContent = 4;
-  string  downloadGameName = 5;
-  GameCPUserDownloadMessageEnum   type = 6;
+    Common  common = 1;
+    string   userNickName = 2;
+    int64 userDownloadCount = 3;
+    string    userDownloadContent = 4;
+    string  downloadGameName = 5;
+    GameCPUserDownloadMessageEnum   type = 6;
 }

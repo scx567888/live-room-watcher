@@ -8,12 +8,12 @@ import "webcast/im/RoomMsgTypeEnum.proto";
 
 //更新时间 : 2023-01-11
 message RoomMessage{
-  Common common = 1;
-  string content = 2;
-  bool supprotLandscape = 3;
-  RoomMsgTypeEnum roommessagetype = 4;
-  bool systemTopMsg = 5;
-  bool forcedGuarantee = 6;
-  string bizScene = 20;
-  map<string, string> buriedPointMap = 30;
+    Common common = 1;
+    string content = 2;
+    bool supprotLandscape = 3;
+    RoomMsgTypeEnum roommessagetype = 4;
+    bool systemTopMsg = 5;
+    bool forcedGuarantee = 6;
+    string bizScene = 20;
+    map<string, string> buriedPointMap = 30;
 }

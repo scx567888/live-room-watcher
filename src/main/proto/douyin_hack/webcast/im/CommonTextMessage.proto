@@ -8,7 +8,7 @@ import "webcast/data/User.proto";
 
 //更新时间 : 2023-01-09
 message CommonTextMessage{
-  Common common = 1;
-  User   user = 2;
-  string  scene = 3;
+    Common common = 1;
+    User   user = 2;
+    string  scene = 3;
 }

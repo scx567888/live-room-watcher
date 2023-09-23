@@ -50,5 +50,5 @@ public class CCLiveInfo implements LiveRoomInfo, LiveRoomAnchor {
     public String anchorID() {
         return sec_openid;
     }
-    
+
 }

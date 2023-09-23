@@ -5,5 +5,5 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 //更新时间 : 2023-01-05 17:25:27
 message TextPieceHeart{
-  string color = 1;
+    string color = 1;
 }

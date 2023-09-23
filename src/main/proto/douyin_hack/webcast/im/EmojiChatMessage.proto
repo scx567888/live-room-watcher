@@ -10,12 +10,12 @@ import "webcast/data/Image.proto";
 
 //更新时间 : 2023-01-11
 message EmojiChatMessage {
-  Common common = 1;
-  User   user = 2;
-  int64 emojiId = 3;
-  Text  emojiContent = 4;
-  string defaultContent = 5;
-  Image    backgroundImage = 6;
-  bool  fromIntercom = 7;
-  bool   intercomHideUserCard = 8;
+    Common common = 1;
+    User   user = 2;
+    int64 emojiId = 3;
+    Text  emojiContent = 4;
+    string defaultContent = 5;
+    Image    backgroundImage = 6;
+    bool  fromIntercom = 7;
+    bool   intercomHideUserCard = 8;
 }

@@ -10,7 +10,7 @@ import cool.scx.live_room_watcher.message.User;
  * @version 0.0.1
  */
 public class BiliBiliFollow implements Follow {
-    
+
     /**
      * {@inheritDoc}
      */

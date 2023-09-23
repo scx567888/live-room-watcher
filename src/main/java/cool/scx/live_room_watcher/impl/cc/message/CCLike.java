@@ -43,5 +43,5 @@ public class CCLike implements Like, User {
     public String userID() {
         return sec_openid;
     }
-    
+
 }

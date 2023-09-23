@@ -49,5 +49,5 @@ public class DouYinWebcastMateInfo implements LiveRoomInfo, LiveRoomAnchor {
     public String anchorID() {
         return anchor_open_id;
     }
-    
+
 }

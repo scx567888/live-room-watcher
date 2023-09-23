@@ -7,10 +7,10 @@ import "webcast/data/Text.proto";
 import "webcast/data/Image.proto";
 
 message GiftTrayInfo{
-  Text trayDisplayText = 1;
-  Image trayBaseImg = 2;
-  Image trayHeadImg = 3;
-  Image trayRightImg = 4;
-  int64 trayLevel = 5;
-  Image trayDynamicImg = 6;
+    Text trayDisplayText = 1;
+    Image trayBaseImg = 2;
+    Image trayHeadImg = 3;
+    Image trayRightImg = 4;
+    int64 trayLevel = 5;
+    Image trayDynamicImg = 6;
 }

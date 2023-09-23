@@ -8,6 +8,6 @@ import "webcast/im/HotRoomInfo.proto";
 
 //更新时间 : 2023-01-11
 message HotRoomMessage {
-  Common common = 1;
-  HotRoomInfo info = 2;
+    Common common = 1;
+    HotRoomInfo info = 2;
 }

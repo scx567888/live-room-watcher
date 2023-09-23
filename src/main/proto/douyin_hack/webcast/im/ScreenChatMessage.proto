@@ -13,29 +13,29 @@ import "webcast/im/FlexImageStruct.proto";
 
 //更新时间 : 2023-01-11
 message ScreenChatMessage{
-  Common   common = 1;
-  User   user = 2;
-  int64 screenChatType = 3;
-  string  content = 4;
-  int64 priority = 5;
-  Effect      effect = 6;
-  Image   backgroundImage = 7;
-  Effect      effectV2 = 8;
-  Image  backgroundImageV2 = 9;
-  PublicAreaCommon    publicAreaCommon = 10;
-  OfficialCommentConfig   officialCommentConfig = 11;
-  int64    eventTime = 12;
-  bool sendReview = 13;
-  ChatIdentity   chatIdentityInfo = 14;
-  Text rtfContent = 30;
+    Common   common = 1;
+    User   user = 2;
+    int64 screenChatType = 3;
+    string  content = 4;
+    int64 priority = 5;
+    Effect      effect = 6;
+    Image   backgroundImage = 7;
+    Effect      effectV2 = 8;
+    Image  backgroundImageV2 = 9;
+    PublicAreaCommon    publicAreaCommon = 10;
+    OfficialCommentConfig   officialCommentConfig = 11;
+    int64    eventTime = 12;
+    bool sendReview = 13;
+    ChatIdentity   chatIdentityInfo = 14;
+    Text rtfContent = 30;
 
-  message OfficialCommentConfig{
-    bool official = 1;
-  }
+    message OfficialCommentConfig{
+        bool official = 1;
+    }
 
-  message Effect{
-    FlexImageStruct  icon = 1;
-    Image    avatarIcon = 2;
-    string  backgroundColor = 3;
-  }
+    message Effect{
+        FlexImageStruct  icon = 1;
+        Image    avatarIcon = 2;
+        string  backgroundColor = 3;
+    }
 }

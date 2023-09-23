@@ -7,12 +7,12 @@ import "webcast/im/Common.proto";
 
 //更新时间 2023-01-11
 message HotChatMessage{
-  Common common = 1;
-  string  title = 2;
-  string   content = 3;
-  repeated int64  numList = 4;
-  int64  duration = 5;
-  repeated int64  showDurationList = 6;
-  int64  sequenceId = 7;
-  repeated string  hotListList = 8;
+    Common common = 1;
+    string  title = 2;
+    string   content = 3;
+    repeated int64  numList = 4;
+    int64  duration = 5;
+    repeated int64  showDurationList = 6;
+    int64  sequenceId = 7;
+    repeated string  hotListList = 8;
 }
