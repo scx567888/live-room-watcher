@@ -9,7 +9,7 @@ public class KuaiShouLiveRoomWatcherTest {
     }
 
     public static void test1() {
-        var liveRoomWatcher = new KuaiShouLiveRoomWatcher();
+        var liveRoomWatcher = new KuaiShouLiveRoomWatcher("xxx","xxx");
 
     }
 
