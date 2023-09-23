@@ -96,7 +96,6 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         System.out.println(request.body().toString());
     }
 
-
     public void startCallBack(String roomID) throws IOException, InterruptedException {
         var body = Map.of("liveRoomId", roomID, "matchId", RandomUtils.randomUUID());
         ScxHttpClientResponse request = this.request(POST, MEMEApi.START_CALLBACK_URL, toJson(body));
@@ -146,12 +145,14 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
     }
 
     public void callComment(MEMEWebSocketPayload payload) {
-        var memeChat = new MEMEChat();
+        var memeChat = ObjectUtils.convertValue(payload.data, MEMEChat.class);
+        memeChat.roomID = payload.roomId + "";
         this.chatHandler.accept(memeChat);
     }
 
     public void callSendGift(MEMEWebSocketPayload payload) {
-        var memeGift = new MEMEGift();
+        var memeGift = ObjectUtils.convertValue(payload.data, MEMEGift.class);
+        memeGift.roomID = payload.roomId + "";
         this.giftHandler.accept(memeGift);
     }
 
@@ -166,16 +167,17 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
     }
 
     public void startWatch(String token, String roomID) throws IOException, InterruptedException {
-        startCallBack(roomID);
-        bindRoomCode(token);
-        roomCodeStatus(roomID);
-        starInfo(roomID);
-        gifts();
         startWatchTask(roomID);
+//        startCallBack(roomID);
+//        bindRoomCode(token);
+//        roomCodeStatus(roomID);
+//        starInfo(roomID);
+//        gifts();
     }
 
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         stopWatchTask(roomID);
     }
+
 
 }

@@ -5,19 +5,25 @@ import cool.scx.live_room_watcher.message.User;
 
 public class MEMEChat implements Chat {
 
+    public String roomID;
+
+    public MEMEUser userInfo;
+    
+    public String content;
+
     @Override
     public String content() {
-        return null;
+        return content;
     }
 
     @Override
     public User user() {
-        return null;
+        return userInfo;
     }
 
     @Override
     public String roomID() {
-        return null;
+        return roomID;
     }
 
 }

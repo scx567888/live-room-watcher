@@ -5,24 +5,32 @@ import cool.scx.live_room_watcher.message.User;
 
 public class MEMEGift implements Gift {
 
+    public Integer giftCount;
+    public Integer giftId;
+    public String giftName;
+    public Integer giftTotalPrice;
+    public Integer giftUnitPrice;
+    public MEMEUser userInfo;
+    public String roomID;
+
     @Override
     public User user() {
-        return null;
+        return userInfo;
     }
 
     @Override
     public String name() {
-        return null;
+        return giftName;
     }
 
     @Override
     public long count() {
-        return 0;
+        return giftCount;
     }
 
     @Override
     public String roomID() {
-        return null;
+        return roomID;
     }
 
 }
