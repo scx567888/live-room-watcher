@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.live_room_watcher.util.$;
+import cool.scx.live_room_watcher.util.Helper;
+import cool.scx.util.$;
 import io.vertx.core.http.WebSocket;
 
 import java.time.LocalDateTime;
@@ -54,7 +55,7 @@ public class WatchTask {
     }
 
     public void startHeartbeat(WebSocket webSocket) {
-        heartbeatFuture = $.scheduler.scheduleAtFixedRate(() -> {
+        heartbeatFuture = Helper.scheduler.scheduleAtFixedRate(() -> {
             webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
                 System.out.println("心跳发送成功 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
             }).onFailure(e -> {

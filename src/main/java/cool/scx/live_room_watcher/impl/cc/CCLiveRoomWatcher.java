@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.cc;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
@@ -10,7 +9,7 @@ import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
-import cool.scx.live_room_watcher.util.$;
+import cool.scx.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 

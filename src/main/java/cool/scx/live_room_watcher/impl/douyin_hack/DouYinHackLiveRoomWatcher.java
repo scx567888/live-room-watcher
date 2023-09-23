@@ -12,8 +12,8 @@ import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageActi
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
-import cool.scx.live_room_watcher.util.$;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
@@ -487,7 +487,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
             switch (pushFrame.getPayloadType()) {
                 case "msg" -> {
                     for (var message : response.getMessagesListList()) {
-                        $.async(()-> callHandler(message));
+                        $.async(() -> callHandler(message));
                     }
                 }
                 case "close" -> System.out.println("关闭");

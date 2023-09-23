@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.ScxHttpClientRequestBody;
 import cool.scx.http_client.ScxHttpClientResponse;
+import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
@@ -14,14 +14,10 @@ import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
-import io.netty.handler.codec.http.HttpHeaderNames;
-import io.netty.handler.codec.http.HttpHeaderValues;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.WebSocketConnectOptions;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Map;
@@ -180,23 +176,6 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         stopWatchTask(roomID);
-    }
-
-    static final class JsonBody implements ScxHttpClientRequestBody {
-        private final String bodyStr;
-
-        public JsonBody(Object o) throws JsonProcessingException {
-            this.bodyStr = ObjectUtils.toJson(o);
-        }
-
-        public JsonBody(String json) throws JsonProcessingException {
-            this.bodyStr = json;
-        }
-
-        public HttpRequest.BodyPublisher bodyPublisher(HttpRequest.Builder builder) {
-            builder.setHeader(HttpHeaderNames.CONTENT_TYPE.toString(), HttpHeaderValues.APPLICATION_JSON + "; charset=utf-8");
-            return HttpRequest.BodyPublishers.ofByteArray(this.bodyStr.getBytes(StandardCharsets.UTF_8));
-        }
     }
 
 }

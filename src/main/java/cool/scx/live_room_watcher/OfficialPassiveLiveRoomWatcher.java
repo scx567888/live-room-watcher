@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.live_room_watcher.util.$;
+import cool.scx.live_room_watcher.util.Helper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -63,13 +62,13 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         try {
             var accessToken0 = getAccessToken0();
             this.accessToken = accessToken0.accessToken();
-            $.scheduler.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
+            Helper.scheduler.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             //发生错误的话 2秒后重试
-            $.scheduler.schedule(this::refreshAccessToken, 2000, SECONDS);
+            Helper.scheduler.schedule(this::refreshAccessToken, 2000, SECONDS);
         }
     }
 
