@@ -8,7 +8,8 @@ import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -69,7 +70,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
-//        map.put("callBackUrl", "");
+        map.put("callBackUrl", "");
         map.put("sign", sign);
         var url = URIBuilder.of(TASK_START_URL)
                 .addParam("app_id", appID)
@@ -77,7 +78,6 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var s = response.body().toString();
-        System.out.println(s);
         return s;
     }
 
@@ -124,21 +124,62 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
-        return null;
+        var map = new HashMap<String, Object>();
+        map.put("roomCode", roomCode);
+        map.put("timestamp", System.currentTimeMillis());
+        map.put("giftList", String.join(",", secGiftIDList));
+        String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
+        map.put("callBackUrl", "");
+        map.put("sign", sign);
+        var url = URIBuilder.of(GIFT_TOP_URL)
+                .addParam("app_id", appID)
+                .addParam("access_token", getAccessToken())
+                .toString();
+        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
+        var s = response.body().toString();
+        return s;
     }
 
     @Override
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
         var ksMessage = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class));
-        switch (msgType){
+        switch (msgType) {
             case LIVE_LIKE -> {
                 var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
                 for (KuaiShouLike like : likes) {
-                    like.roomID=ksMessage.data.room_code;
-                    like.userInfo.roomID=ksMessage.data.room_code;
+                    like.roomID = ksMessage.data.room_code;
+                    like.userInfo.roomID = ksMessage.data.room_code;
                     Thread.ofVirtual().start(() -> {
                         try {
                             this.likeHandler.accept(like);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+            }
+            case LIVE_COMMENT -> {
+                var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouComment[]>() {});
+                for (var conment : comments) {
+                    conment.roomID = ksMessage.data.room_code;
+                    conment.userInfo.roomID = ksMessage.data.room_code;
+                    Thread.ofVirtual().start(() -> {
+                        try {
+                            this.chatHandler.accept(conment);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+            }
+            case LIVE_GIFT -> {
+                var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
+                for (var gift : gifts) {
+                    gift.roomID = ksMessage.data.room_code;
+                    gift.userInfo.roomID = ksMessage.data.room_code;
+                    Thread.ofVirtual().start(() -> {
+                        try {
+                            this.giftHandler.accept(gift);
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
