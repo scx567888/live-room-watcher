@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
@@ -8,6 +9,7 @@ import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -21,6 +23,7 @@ import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.LIVE_COMMENT;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
+import static cool.scx.util.ScxExceptionHelper.wrap;
 
 // todo 未完成
 public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
@@ -66,7 +69,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
-        map.put("callBackUrl", "");
+//        map.put("callBackUrl", "");
         map.put("sign", sign);
         var url = URIBuilder.of(TASK_START_URL)
                 .addParam("app_id", appID)
@@ -126,7 +129,23 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
-
+        var ksMessage = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class));
+        switch (msgType){
+            case LIVE_LIKE -> {
+                var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
+                for (KuaiShouLike like : likes) {
+                    like.roomID=ksMessage.data.room_code;
+                    like.userInfo.roomID=ksMessage.data.room_code;
+                    Thread.ofVirtual().start(() -> {
+                        try {
+                            this.likeHandler.accept(like);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+            }
+        }
     }
 
     @Override

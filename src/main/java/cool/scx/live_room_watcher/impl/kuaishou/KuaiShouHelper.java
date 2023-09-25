@@ -37,8 +37,8 @@ public class KuaiShouHelper {
         String paramStr = sortedParamMap.entrySet().stream().map(e -> e.getKey() + "=" + e.getValue()).collect(Collectors.joining("&"));
         String signStr = paramStr + APP_SECRET;
 
-        // 生成签名返回
-        return HashUtils.md5Hex(signStr);
+        // 生成签名返回 注意快手要求 md5 必须小写
+        return HashUtils.md5Hex(signStr).toLowerCase();
     }
 
 }
