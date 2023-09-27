@@ -9,5 +9,6 @@ class DouYinApi {
     public static final String TOP_GIFT_URL = "https://webcast.bytedance.com/api/gift/top_gift";
     public static final String FAIL_DATA_GET_URL = "https://webcast.bytedance.com/api/live_data/task/fail_data/get";
     public static final String WEBCAST_MATE_INFO_URL = "https://webcast.bytedance.com/api/webcastmate/info";
+    public static final String FANS_CLUB_GET_INFO_URL = "https://webcast.bytedance.com/api/live_data/fans_club/get_info";
 
 }

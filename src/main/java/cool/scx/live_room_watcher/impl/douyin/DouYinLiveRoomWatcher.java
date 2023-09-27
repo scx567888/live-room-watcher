@@ -15,6 +15,7 @@ import cool.scx.util.URIBuilder;
 import java.io.IOException;
 import java.util.Map;
 
+import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
@@ -166,6 +167,21 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "app_id", appID,
                         "sec_gift_id_list", secGiftIDList
                 ))));
+        return response.body().toString();
+    }
+
+    public String fansClubGetInfo(String roomCode, String anchor_openid, String[] user_openids) throws IOException, InterruptedException {
+        var uri = URIBuilder.of(FANS_CLUB_GET_INFO_URL)
+                .addParam("roomid", roomCode)
+                .addParam("anchor_openid", anchor_openid)
+                .addParam("user_openids", String.join(",", user_openids))
+                .build();
+        var response = request(
+                new ScxHttpClientRequest()
+                        .uri(uri)
+                        .method(GET)
+                        .setHeader("access-token", getAccessToken())
+        );
         return response.body().toString();
     }
 
