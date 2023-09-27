@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
@@ -15,13 +14,10 @@ import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.POST;
-import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.LIVE_COMMENT;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
@@ -147,6 +143,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_LIKE -> {
                 var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
                 for (KuaiShouLike like : likes) {
+                    like.message_id = ksMessage.message_id;
+                    like.timestamp = ksMessage.timestamp;
                     like.roomID = ksMessage.data.room_code;
                     like.userInfo.roomID = ksMessage.data.room_code;
                     Thread.ofVirtual().start(() -> {
@@ -161,6 +159,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_COMMENT -> {
                 var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouComment[]>() {});
                 for (var conment : comments) {
+                    conment.message_id = ksMessage.message_id;
+                    conment.timestamp = ksMessage.timestamp;
                     conment.roomID = ksMessage.data.room_code;
                     conment.userInfo.roomID = ksMessage.data.room_code;
                     Thread.ofVirtual().start(() -> {
@@ -175,6 +175,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             case LIVE_GIFT -> {
                 var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
                 for (var gift : gifts) {
+                    gift.message_id = ksMessage.message_id;
+                    gift.timestamp = ksMessage.timestamp;
                     gift.roomID = ksMessage.data.room_code;
                     gift.userInfo.roomID = ksMessage.data.room_code;
                     Thread.ofVirtual().start(() -> {

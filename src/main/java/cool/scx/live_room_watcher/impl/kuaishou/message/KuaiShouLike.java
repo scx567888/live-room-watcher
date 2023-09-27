@@ -9,6 +9,9 @@ public class KuaiShouLike implements Like {
     public KuaiShouUser userInfo;
     public String roomID;
 
+    public Long timestamp;
+    public String message_id;
+
     @Override
     public long count() {
         return count;

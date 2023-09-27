@@ -9,6 +9,9 @@ public class KuaiShouComment implements Chat {
     public KuaiShouUser userInfo;
     public String roomID;
 
+    public Long timestamp;
+    public String message_id;
+
     @Override
     public User user() {
         return userInfo;
