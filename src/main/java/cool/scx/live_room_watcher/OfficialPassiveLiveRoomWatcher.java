@@ -5,7 +5,6 @@ import cool.scx.live_room_watcher.util.Helper;
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
@@ -82,17 +81,9 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
         throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
     }
 
-    public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
-        taskStart(roomID, LIVE_GIFT);
-        taskStart(roomID, LIVE_LIKE);
-    }
+    public abstract void startWatch(String roomID) throws IOException, InterruptedException;
 
-    public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, LIVE_COMMENT);
-        taskStop(roomID, LIVE_GIFT);
-        taskStop(roomID, LIVE_LIKE);
-    }
+    public abstract void stopWatch(String roomID) throws IOException, InterruptedException;
 
     public enum MsgType {
 

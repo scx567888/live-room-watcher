@@ -17,6 +17,7 @@ import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
@@ -168,6 +169,21 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         return response.body().toString();
     }
 
+    @Override
+    public void startWatch(String roomID) throws IOException, InterruptedException {
+        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, LIVE_GIFT);
+        taskStart(roomID, LIVE_LIKE);
+        taskStart(roomID, LIVE_FANS_CLUB);
+    }
+
+    @Override
+    public void stopWatch(String roomID) throws IOException, InterruptedException {
+        taskStop(roomID, LIVE_COMMENT);
+        taskStop(roomID, LIVE_GIFT);
+        taskStop(roomID, LIVE_LIKE);
+        taskStop(roomID, LIVE_FANS_CLUB);
+    }
 
     /**
      * 当收到回调时请调用 此方法

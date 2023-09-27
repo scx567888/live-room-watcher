@@ -19,6 +19,7 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
@@ -177,6 +178,19 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         return response.body().toString();
     }
 
+    @Override
+    public void startWatch(String roomID) throws IOException, InterruptedException {
+        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, LIVE_GIFT);
+        taskStart(roomID, LIVE_LIKE);
+    }
+
+    @Override
+    public void stopWatch(String roomID) throws IOException, InterruptedException {
+        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, LIVE_GIFT);
+        taskStart(roomID, LIVE_LIKE);
+    }
 
     /**
      * 当收到回调时请调用 此方法
