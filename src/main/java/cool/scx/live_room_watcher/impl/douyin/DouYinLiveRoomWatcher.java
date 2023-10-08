@@ -1,5 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
@@ -210,59 +211,51 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      */
     @Override
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
-        Thread.ofVirtual().start(() -> {
-            try {
-                var roomID = header.get("x-roomid");
-                switch (msgType) {
-                    case LIVE_GIFT -> {
-                        checkDouYinData(bodyStr, header, giftDataSecret);
-                        var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
-                        for (var gift : giftList) {
-                            gift.roomID = roomID;
-                            Thread.ofVirtual().start(() -> {
-                                try {
-                                    this.giftHandler.accept(gift);
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
-                            });
-                        }
-                    }
-                    case LIVE_LIKE -> {
-                        checkDouYinData(bodyStr, header, likeDataSecret);
-                        var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
-                        for (var like : likeList) {
-                            like.roomID = roomID;
-                            Thread.ofVirtual().start(() -> {
-                                try {
-                                    this.likeHandler.accept(like);
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
-                            });
-                        }
-                    }
-                    case LIVE_COMMENT -> {
-                        checkDouYinData(bodyStr, header, commentDataSecret);
-                        var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinComment[]>() {});
-                        for (var comment : commentList) {
-                            comment.roomID = roomID;
-                            Thread.ofVirtual().start(() -> {
-                                try {
-                                    this.chatHandler.accept(comment);
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
-                            });
-                        }
-                    }
-                    case LIVE_FANS_CLUB -> {
-                    }
+        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
+    }
+
+    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
+        try {
+            switch (msgType) {
+                case LIVE_GIFT -> callGift(bodyStr, header);
+                case LIVE_LIKE -> callLike(bodyStr, header);
+                case LIVE_COMMENT -> callComment(bodyStr, header);
+                case LIVE_FANS_CLUB -> {
                 }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
             }
-        });
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void callComment(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+        var roomID = header.get("x-roomid");
+        checkDouYinData(bodyStr, header, commentDataSecret);
+        var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinComment[]>() {});
+        for (var comment : commentList) {
+            comment.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+        }
+    }
+
+    private void callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+        var roomID = header.get("x-roomid");
+        checkDouYinData(bodyStr, header, likeDataSecret);
+        var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
+        for (var like : likeList) {
+            like.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
+        }
+    }
+
+    private void callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+        var roomID = header.get("x-roomid");
+        checkDouYinData(bodyStr, header, giftDataSecret);
+        var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
+        for (var gift : giftList) {
+            gift.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
+        }
     }
 
     public record DouYinAccessTokenResult(Integer err_no, String err_tips,
