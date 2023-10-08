@@ -1,9 +1,7 @@
 package cool.scx.live_room_watcher.impl.douyin.message;
 
-
 import cool.scx.live_room_watcher.message.Chat;
 import cool.scx.live_room_watcher.message.User;
-
 
 public class DouYinComment implements Chat, User {
 

@@ -20,7 +20,7 @@ public class DouYinLiveRoomWatcherTest {
         var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123");
 
         liveRoomWatcher.onChat(chat -> {
-            Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
+            Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
         }).onUser(user -> {
             Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
         }).onLike(like -> {

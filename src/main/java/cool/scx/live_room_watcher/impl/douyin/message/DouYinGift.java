@@ -3,7 +3,6 @@ package cool.scx.live_room_watcher.impl.douyin.message;
 import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
 
-
 public class DouYinGift implements Gift, User {
 
     public String msg_id; // string类型id

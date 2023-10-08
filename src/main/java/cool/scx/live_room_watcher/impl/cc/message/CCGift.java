@@ -51,4 +51,5 @@ public class CCGift implements Gift, User {
     public String userID() {
         return sec_openid;
     }
+    
 }

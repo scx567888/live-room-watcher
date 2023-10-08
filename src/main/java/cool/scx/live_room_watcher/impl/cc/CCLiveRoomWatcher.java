@@ -9,7 +9,6 @@ import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
-import cool.scx.util.$;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -201,37 +200,47 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      */
     @Override
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
+        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
+    }
+
+    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
         switch (msgType) {
-            case LIVE_GIFT -> {
-                checkCCData(bodyStr, header, giftDataSecret);
-                var roomID = header.get("x-roomid");
-                var giftList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {}));
-                for (var gift : giftList) {
-                    gift.giftName = getGiftName(gift.sec_gift_id);
-                    gift.roomID = roomID;
-                    $.async(() -> this.giftHandler.accept(gift));
-                }
-            }
-            case LIVE_LIKE -> {
-                checkCCData(bodyStr, header, likeDataSecret);
-                var roomID = header.get("x-roomid");
-                var likeList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {}));
-                for (var like : likeList) {
-                    like.roomID = roomID;
-                    $.async(() -> this.likeHandler.accept(like));
-                }
-            }
-            case LIVE_COMMENT -> {
-                checkCCData(bodyStr, header, commentDataSecret);
-                var roomID = header.get("x-roomid");
-                var commentList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {}));
-                for (var comment : commentList) {
-                    comment.roomID = roomID;
-                    $.async(() -> this.chatHandler.accept(comment));
-                }
-            }
+            case LIVE_GIFT -> callGift(bodyStr, header);
+            case LIVE_LIKE -> callLike(bodyStr, header);
+            case LIVE_COMMENT -> callComment(bodyStr, header);
             case LIVE_FANS_CLUB -> {
             }
+        }
+    }
+
+    private void callComment(String bodyStr, Map<String, String> header) {
+        checkCCData(bodyStr, header, commentDataSecret);
+        var roomID = header.get("x-roomid");
+        var commentList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {}));
+        for (var comment : commentList) {
+            comment.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+        }
+    }
+
+    private void callLike(String bodyStr, Map<String, String> header) {
+        checkCCData(bodyStr, header, likeDataSecret);
+        var roomID = header.get("x-roomid");
+        var likeList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {}));
+        for (var like : likeList) {
+            like.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
+        }
+    }
+
+    private void callGift(String bodyStr, Map<String, String> header) {
+        checkCCData(bodyStr, header, giftDataSecret);
+        var roomID = header.get("x-roomid");
+        var giftList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {}));
+        for (var gift : giftList) {
+            gift.giftName = getGiftName(gift.sec_gift_id);
+            gift.roomID = roomID;
+            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
         }
     }
 

@@ -138,56 +138,48 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
+        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
+    }
+
+    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
         var ksMessage = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class));
         switch (msgType) {
-            case LIVE_LIKE -> {
-                var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
-                for (KuaiShouLike like : likes) {
-                    like.message_id = ksMessage.message_id;
-                    like.timestamp = ksMessage.timestamp;
-                    like.roomID = ksMessage.data.room_code;
-                    like.userInfo.roomID = ksMessage.data.room_code;
-                    Thread.ofVirtual().start(() -> {
-                        try {
-                            this.likeHandler.accept(like);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                }
-            }
-            case LIVE_COMMENT -> {
-                var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouComment[]>() {});
-                for (var conment : comments) {
-                    conment.message_id = ksMessage.message_id;
-                    conment.timestamp = ksMessage.timestamp;
-                    conment.roomID = ksMessage.data.room_code;
-                    conment.userInfo.roomID = ksMessage.data.room_code;
-                    Thread.ofVirtual().start(() -> {
-                        try {
-                            this.chatHandler.accept(conment);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                }
-            }
-            case LIVE_GIFT -> {
-                var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
-                for (var gift : gifts) {
-                    gift.message_id = ksMessage.message_id;
-                    gift.timestamp = ksMessage.timestamp;
-                    gift.roomID = ksMessage.data.room_code;
-                    gift.userInfo.roomID = ksMessage.data.room_code;
-                    Thread.ofVirtual().start(() -> {
-                        try {
-                            this.giftHandler.accept(gift);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-                }
-            }
+            case LIVE_LIKE -> callLike(ksMessage);
+            case LIVE_COMMENT -> callComment(ksMessage);
+            case LIVE_GIFT -> callGift(ksMessage);
+        }
+    }
+
+    private void callGift(KuaiShouMessage ksMessage) {
+        var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
+        for (var gift : gifts) {
+            gift.message_id = ksMessage.message_id;
+            gift.timestamp = ksMessage.timestamp;
+            gift.roomID = ksMessage.data.room_code;
+            gift.userInfo.roomID = ksMessage.data.room_code;
+            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
+        }
+    }
+
+    private void callComment(KuaiShouMessage ksMessage) {
+        var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouComment[]>() {});
+        for (var comment : comments) {
+            comment.message_id = ksMessage.message_id;
+            comment.timestamp = ksMessage.timestamp;
+            comment.roomID = ksMessage.data.room_code;
+            comment.userInfo.roomID = ksMessage.data.room_code;
+            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+        }
+    }
+
+    private void callLike(KuaiShouMessage ksMessage) {
+        var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
+        for (var like : likes) {
+            like.message_id = ksMessage.message_id;
+            like.timestamp = ksMessage.timestamp;
+            like.roomID = ksMessage.data.room_code;
+            like.userInfo.roomID = ksMessage.data.room_code;
+            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
         }
     }
 
