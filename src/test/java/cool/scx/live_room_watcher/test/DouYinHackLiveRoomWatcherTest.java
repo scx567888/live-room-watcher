@@ -26,10 +26,10 @@ public class DouYinHackLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/71427343402").useGzip(true);
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/201176429482").useGzip(true);
 
         liveRoomWatcher.onChat(chat -> {
-            Ansi.out().brightGreen(nowTimeStr() + " [消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
+            Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
         }).onUser(user -> {
             Ansi.out().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
         }).onLike(like -> {
