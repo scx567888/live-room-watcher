@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-public class KuaiShouApi {
+class KuaiShouApi {
     
     public static final String ACCESS_TOKEN_URL = "https://open.kuaishou.com/oauth2/access_token";
     public static final String TASK_START_URL = "https://open.kuaishou.com/openapi/developer/live/data/task/start";
