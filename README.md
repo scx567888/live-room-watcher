@@ -54,7 +54,7 @@
 ## 基本用法
 
 ``` java
-import cool.scx.live_room_watcher.douyin_hack.DouYinHackLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
 
 public class Main {
 

@@ -4,6 +4,7 @@ import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.LIVE_GIFT;
@@ -17,7 +18,7 @@ public class DouYinLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() throws IOException, InterruptedException {
-        var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123");
+        var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123",new HashMap<>());
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
