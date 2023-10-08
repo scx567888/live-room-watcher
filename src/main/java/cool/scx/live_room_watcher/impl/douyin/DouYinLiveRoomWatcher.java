@@ -38,13 +38,16 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     private final String giftDataSecret;
     private final String likeDataSecret;
 
-    public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret) {
+    public final Map<String, String> giftNameMap;
+
+    public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret, Map<String, String> giftNameMap) {
         this.appID = appID;
         this.appSecret = appSecret;
         this.commentDataSecret = commentDataSecret;
         this.giftDataSecret = giftDataSecret;
         this.likeDataSecret = likeDataSecret;
-        if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null) {
+        this.giftNameMap = giftNameMap;
+        if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null || giftNameMap == null) {
             throw new RuntimeException();
         }
     }
@@ -253,6 +256,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         checkDouYinData(bodyStr, header, giftDataSecret);
         var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
         for (var gift : giftList) {
+            gift.gift_name = giftNameMap.get(gift.sec_gift_id);
             gift.roomID = roomID;
             Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
         }
