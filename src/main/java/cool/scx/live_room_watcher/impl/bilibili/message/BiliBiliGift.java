@@ -4,7 +4,7 @@ import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
 
 /**
- * <p>BiliBiliGift class.</p>
+ * 礼物
  *
  * @author scx567888
  * @version 0.0.1

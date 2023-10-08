@@ -4,7 +4,7 @@ import cool.scx.live_room_watcher.message.Follow;
 import cool.scx.live_room_watcher.message.User;
 
 /**
- * <p>BiliBiliFollow class.</p>
+ * 关注
  *
  * @author scx567888
  * @version 0.0.1
