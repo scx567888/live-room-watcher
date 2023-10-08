@@ -3,12 +3,6 @@ package cool.scx.live_room_watcher.impl.bilibili.message;
 import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
 
-/**
- * 礼物
- *
- * @author scx567888
- * @version 0.0.1
- */
 public class BiliBiliGift implements Gift {
 
     @Override
