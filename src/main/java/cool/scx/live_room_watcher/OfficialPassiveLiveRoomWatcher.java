@@ -118,7 +118,7 @@ public abstract class OfficialPassiveLiveRoomWatcher extends BaseLiveRoomWatcher
 
         String accessToken();
 
-        Integer expiresIn();
+        Long expiresIn();
 
     }
 

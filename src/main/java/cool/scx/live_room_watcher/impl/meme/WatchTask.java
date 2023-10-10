@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static cool.scx.constant.ScxDateTimeFormatter.yyyy_MM_dd_HH_mm_ss;
 import static cool.scx.constant.ScxDateTimeFormatter.yyyy_MM_dd_HH_mm_ss_SSS;
-import static cool.scx.live_room_watcher.impl.meme.MEMELiveRoomWatcher.getWebsocketChannelOptions;
 
 public class WatchTask {
 
@@ -30,7 +29,7 @@ public class WatchTask {
 
     public void start() {
         stop();
-        var webSocketFuture = watcher.httpClient.webSocket(getWebsocketChannelOptions(roomID));
+        var webSocketFuture = watcher.httpClient.webSocket(watcher.getWebsocketChannelOptions(roomID));
         webSocketFuture.onSuccess(ws -> {
             webSocket = ws;
             System.out.println("连接成功 " + yyyy_MM_dd_HH_mm_ss.format(LocalDateTime.now()));
