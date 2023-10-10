@@ -193,7 +193,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         taskStop(roomID, LIVE_COMMENT);
     }
 
-    record KuaiShouAccessTokenResult(Integer result, String access_token, Integer expires_in,
+    record KuaiShouAccessTokenResult(Integer result, String access_token, Long expires_in,
                                      String token_type) implements AccessToken {
         @Override
         public String accessToken() {
@@ -201,7 +201,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
 
         @Override
-        public Integer expiresIn() {
+        public Long expiresIn() {
             return expires_in;
         }
     }

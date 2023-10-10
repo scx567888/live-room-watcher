@@ -12,6 +12,7 @@ public class MEMEApi {
     public static final String GIFTS_URL = BASE_URL + "/api/v1/openapi/gifts";
     public static final String END_CALLBACK_URL = BASE_URL + "/api/v1/game/barrage/endCallback";
     public static final String START_CALLBACK_URL = BASE_URL + "/api/v1/game/barrage/startCallback";
+    public static final String ACCESS_TOKEN_URL = BASE_URL+"/api/v1/openapi/accessToken";
 
 
 }

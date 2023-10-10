@@ -7,10 +7,12 @@ import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
+import cool.scx.live_room_watcher.util.Helper;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
@@ -27,6 +29,7 @@ import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
 import static cool.scx.util.ObjectUtils.toJson;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * 么么直播
@@ -38,6 +41,45 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
     final HttpClient httpClient;
     private final Map<String, WatchTask> watchTaskMap = new ConcurrentHashMap<>();
 
+    protected String accessToken;
+
+    /**
+     * 获取 accessToken
+     *
+     * @return a
+     */
+    public String getAccessToken() {
+        if (this.accessToken == null) {
+            refreshAccessToken();
+        }
+        return this.accessToken;
+    }
+
+    protected OfficialPassiveLiveRoomWatcher.AccessToken getAccessToken0() throws IOException, InterruptedException {
+        var uri = URIBuilder.of(MEMEApi.ACCESS_TOKEN_URL).addParam("appkey", appID).toString();
+        ScxHttpClientResponse response = this.request(GET, uri);
+        var json = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(json, MEMEAccessToken.class);
+    }
+
+    /**
+     * 刷新 accessToken
+     * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
+     */
+    public void refreshAccessToken() {
+        try {
+            var accessToken0 = getAccessToken0();
+            this.accessToken = accessToken0.accessToken();
+            Helper.scheduler.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //发生错误的话 2秒后重试
+            Helper.scheduler.schedule(this::refreshAccessToken, 2000, SECONDS);
+        }
+    }
+
     public MEMELiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
         this.appSecret = appSecret;
@@ -47,8 +89,8 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         this.httpClient = vertx.createHttpClient();
     }
 
-    public static WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
-        var absoluteURI = "https://test-games-sock.memeyule.com:6211/websocket?roomId=" + roomId;
+    public WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
+        var absoluteURI = "https://test-games-sock.memeyule.com:6211/websocket?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + getAccessToken();
 //        var absoluteURI= MEMEApi.WEBSOCKET_CHANNEL_URL + "/" + roomId;
         var options = new WebSocketConnectOptions();
         options.setAbsoluteURI(absoluteURI);
@@ -179,5 +221,25 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         stopWatchTask(roomID);
     }
 
+    public static class MEMEAccessToken implements OfficialPassiveLiveRoomWatcher.AccessToken {
+        public Integer code;
+        public String message;
+        public MEMEAccessTokenData data;
+
+        @Override
+        public String accessToken() {
+            return data.accessToken;
+        }
+
+        @Override
+        public Long expiresIn() {
+            return (data.expireTime - System.currentTimeMillis()) / 1000;
+        }
+    }
+
+    public static class MEMEAccessTokenData {
+        public String accessToken;
+        public Long expireTime;
+    }
 
 }

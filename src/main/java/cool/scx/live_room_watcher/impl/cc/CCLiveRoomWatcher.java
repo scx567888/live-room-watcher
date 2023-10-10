@@ -266,11 +266,11 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         }
 
         @Override
-        public Integer expiresIn() {
+        public Long expiresIn() {
             return data().expires_in();
         }
 
-        record AccessTokenResultData(String access_token, Integer expires_in) {
+        record AccessTokenResultData(String access_token, Long expires_in) {
 
         }
 
