@@ -6,7 +6,8 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
@@ -34,7 +35,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 /**
  * 么么直播
  */
-public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
+public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -43,18 +44,6 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     protected String accessToken;
 
-    /**
-     * 获取 accessToken
-     *
-     * @return a
-     */
-    public String getAccessToken() {
-        if (this.accessToken == null) {
-            refreshAccessToken();
-        }
-        return this.accessToken;
-    }
-
     protected OfficialPassiveLiveRoomWatcher.AccessToken getAccessToken0() throws IOException, InterruptedException {
         var uri = URIBuilder.of(MEMEApi.ACCESS_TOKEN_URL).addParam("appkey", appID).toString();
         ScxHttpClientResponse response = this.request(GET, uri);
@@ -62,22 +51,19 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(json, MEMEAccessToken.class);
     }
 
-    /**
-     * 刷新 accessToken
-     * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
-     */
-    public void refreshAccessToken() {
-        try {
-            var accessToken0 = getAccessToken0();
-            this.accessToken = accessToken0.accessToken();
-            Helper.scheduler.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //发生错误的话 2秒后重试
-            Helper.scheduler.schedule(this::refreshAccessToken, 2000, SECONDS);
-        }
+    @Override
+    protected LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+        return null;
     }
 
     public MEMELiveRoomWatcher(String appID, String appSecret) {
@@ -198,16 +184,6 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         this.giftHandler.accept(memeGift);
     }
 
-    @Override
-    public void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
-    }
-
-    @Override
-    public void stopWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
-    }
-
     public void startWatch(String token, String roomID) throws IOException, InterruptedException {
         startWatchTask(roomID);
 //        startCallBack(roomID);
@@ -221,7 +197,7 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         stopWatchTask(roomID);
     }
 
-    public static class MEMEAccessToken implements OfficialPassiveLiveRoomWatcher.AccessToken {
+    public static class MEMEAccessToken implements AccessToken {
         public Integer code;
         public String message;
         public MEMEAccessTokenData data;
@@ -240,6 +216,21 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
     public static class MEMEAccessTokenData {
         public String accessToken;
         public Long expireTime;
+    }
+    
+    @Override
+    public void startWatch() {
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
+    }
+
+    @Override
+    public void stopWatch() {
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
+    }
+
+    @Override
+    public void startWatch(String roomID) throws IOException, InterruptedException {
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
     }
 
 }

@@ -18,11 +18,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.POST;
-import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.LIVE_COMMENT;
+import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.LIVE_COMMENT;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
 
-// todo 未完成
+/**
+ * 快手官方
+ */
 public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     private final String appID;

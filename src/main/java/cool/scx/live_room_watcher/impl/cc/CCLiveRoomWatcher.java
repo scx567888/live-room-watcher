@@ -18,7 +18,7 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
+import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
