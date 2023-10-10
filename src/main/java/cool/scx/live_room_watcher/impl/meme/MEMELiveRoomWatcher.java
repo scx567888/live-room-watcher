@@ -233,7 +233,7 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
         @Override
         public Long expiresIn() {
-            return data.expireTime;
+            return (data.expireTime - System.currentTimeMillis()) / 1000;
         }
     }
 
