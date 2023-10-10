@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher.MsgType.*;
+import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.*;
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class KuaiShouLiveRoomWatcherTest {
