@@ -6,7 +6,8 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
@@ -34,7 +35,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 /**
  * 么么直播
  */
-public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
+public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -60,6 +61,21 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
         ScxHttpClientResponse response = this.request(GET, uri);
         var json = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(json, MEMEAccessToken.class);
+    }
+
+    @Override
+    protected LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+        return null;
     }
 
     /**
@@ -205,6 +221,11 @@ public class MEMELiveRoomWatcher extends BaseLiveRoomWatcher {
 
     @Override
     public void stopWatch() {
+        throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
+    }
+
+    @Override
+    public void startWatch(String roomID) throws IOException, InterruptedException {
         throw new UnsupportedOperationException("请使用 startWatch(String token, String roomID) !!!");
     }
 
