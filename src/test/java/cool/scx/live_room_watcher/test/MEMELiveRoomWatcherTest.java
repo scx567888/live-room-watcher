@@ -30,8 +30,8 @@ public class MEMELiveRoomWatcherTest {
             Ansi.out().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
         });
 
-        liveRoomWatcher.startWatch("xxxxxxx", "xxxxxxx");
+        liveRoomWatcher.startWatch("xxxxxxx");
 
     }
-    
+
 }

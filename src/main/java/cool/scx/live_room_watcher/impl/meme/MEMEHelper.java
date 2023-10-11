@@ -11,7 +11,7 @@ public class MEMEHelper {
     public static String getSign(String body, String appSecret, String nonce, Long timestamp) {
         var res = HashUtils.md5Hex(body + appSecret + nonce + timestamp);
         logger.log(DEBUG, "获取签名结果 :{0}", res);
-        return res;
+        return res.toLowerCase();
     }
 
 }
