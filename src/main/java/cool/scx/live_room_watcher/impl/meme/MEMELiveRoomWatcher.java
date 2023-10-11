@@ -6,7 +6,6 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
@@ -84,10 +83,13 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
     }
 
     @Override
-    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
-        ScxHttpClientResponse request = this.request(GET, memeApi.STAR_INFO_URL());
-        var s = request.body().toString();
-        return s;
+    public String topGift(String roomCode, String[] memeTopGifts) throws IOException, InterruptedException {
+        throw new UnsupportedOperationException();
+    }
+
+    public String gifts() throws IOException, InterruptedException {
+        var request = this.request(GET, memeApi.GIFTS_URL());
+        return request.body().toString();
     }
 
     private ScxHttpClientResponse request(HttpMethod method, String url, String body) throws IOException, InterruptedException {
