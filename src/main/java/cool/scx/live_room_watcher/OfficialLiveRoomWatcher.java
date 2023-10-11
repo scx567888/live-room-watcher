@@ -15,7 +15,7 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     protected abstract AccessToken getAccessToken0() throws IOException, InterruptedException;
 
-    protected abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
+    public abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
 
     /**
      * 推送失败数据获取
