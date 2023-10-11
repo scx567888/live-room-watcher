@@ -66,7 +66,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
     }
 
     @Override
-    public LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
+    public MEMELiveRoomAnchor liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
         var uri = URIBuilder.of(memeApi.STAR_INFO_URL()).addParam("uid", tokenOrRoomID).toString();
         ScxHttpClientResponse request = this.request(GET, uri);
         var str = request.body().toString();
