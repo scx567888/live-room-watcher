@@ -58,7 +58,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    protected LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
+    public LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
         return null;
     }
 
