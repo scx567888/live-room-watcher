@@ -53,6 +53,9 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     @Override
     protected LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
+        var uri = URIBuilder.of(MEMEApi.STAR_INFO_URL).addParam("uid", tokenOrRoomID).toString();
+        ScxHttpClientResponse request = this.request(GET, uri);
+        System.out.println(request.body().toString());
         return null;
     }
 
@@ -109,12 +112,6 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     public void roomCodeStatus(String code) throws IOException, InterruptedException {
         var uri = URIBuilder.of(MEMEApi.ROOM_CODE_STATUS_URL).addParam("code", code).toString();
-        ScxHttpClientResponse request = this.request(GET, uri);
-        System.out.println(request.body().toString());
-    }
-
-    public void starInfo(String uid) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(MEMEApi.STAR_INFO_URL).addParam("uid", uid).toString();
         ScxHttpClientResponse request = this.request(GET, uri);
         System.out.println(request.body().toString());
     }
