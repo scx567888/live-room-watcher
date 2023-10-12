@@ -6,8 +6,9 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.AccessToken;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
@@ -57,7 +58,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         return options;
     }
 
-    protected OfficialPassiveLiveRoomWatcher.AccessToken getAccessToken0() throws IOException, InterruptedException {
+    protected AccessToken getAccessToken0() throws IOException, InterruptedException {
         var uri = URIBuilder.of(memeApi.ACCESS_TOKEN_URL()).addParam("appkey", appID).toString();
         ScxHttpClientResponse response = this.request(GET, uri);
         var json = response.body().toString();
@@ -210,27 +211,6 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         if (watchTask != null) {
             watchTask.stop();
             watchTaskMap.remove(roomID);
-        }
-    }
-
-    public static class MEMEAccessTokenData {
-        public String accessToken;
-        public Long expireTime;
-    }
-
-    public static class MEMEAccessToken implements AccessToken {
-        public Integer code;
-        public String message;
-        public MEMEAccessTokenData data;
-
-        @Override
-        public String accessToken() {
-            return data.accessToken;
-        }
-
-        @Override
-        public Long expiresIn() {
-            return (data.expireTime - System.currentTimeMillis()) / 1000;
         }
     }
 
