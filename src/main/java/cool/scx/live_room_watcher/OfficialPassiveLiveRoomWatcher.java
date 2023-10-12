@@ -14,10 +14,10 @@ public abstract class OfficialPassiveLiveRoomWatcher extends OfficialLiveRoomWat
 
     public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType);
 
-    public abstract String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public abstract Object taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
-    public abstract String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public abstract Object taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
-    public abstract String taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public abstract Object taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
 
 }
