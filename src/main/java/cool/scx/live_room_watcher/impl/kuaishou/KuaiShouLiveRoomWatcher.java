@@ -51,8 +51,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         .attribute("grant_type", "client_credentials")
                 ));
         var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouAccessTokenResult.class);
-        if (accessTokenResult.result() != 1) {
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouAccessToken.class);
+        if (accessTokenResult.result != 1) {
             throw new IllegalArgumentException(bodyStr);
         }
         System.err.println("获取 accessToken 成功 : " + accessTokenResult.accessToken());
@@ -65,7 +65,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -77,12 +77,12 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .addParam("access_token", getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var s = response.body().toString();
-        return s;
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
     @Override
-    public String taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -94,13 +94,12 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .addParam("access_token", getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var s = response.body().toString();
-        System.out.println(s);
-        return s;
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
     @Override
-    public String taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -112,9 +111,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .addParam("access_token", getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var s = response.body().toString();
-        System.out.println(s);
-        return s;
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
     @Override
@@ -123,7 +121,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+    public KuaiShouResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomCode);
         map.put("timestamp", System.currentTimeMillis());
@@ -136,8 +134,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .addParam("access_token", getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var s = response.body().toString();
-        return s;
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
     @Override
