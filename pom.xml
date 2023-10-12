@@ -66,13 +66,6 @@
             <artifactId>js</artifactId>
             <version>${graalvm-js.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-web</artifactId>
-            <version>4.4.5</version>
-            <scope>test</scope>
-        </dependency>
         
         <dependency>
             <groupId>org.testng</groupId>
