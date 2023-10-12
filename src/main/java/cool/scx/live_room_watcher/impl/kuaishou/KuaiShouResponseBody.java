@@ -6,5 +6,5 @@ public class KuaiShouResponseBody {
     public String error;
     public String error_msg;
     public String request_id;
-    
+
 }
