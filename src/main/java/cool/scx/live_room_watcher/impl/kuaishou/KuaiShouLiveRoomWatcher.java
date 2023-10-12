@@ -65,7 +65,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    public KuaiShouResponseBody taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouTaskStartResult taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -78,7 +78,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
+        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
     }
 
     @Override
