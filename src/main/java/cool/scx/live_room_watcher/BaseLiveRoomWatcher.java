@@ -18,27 +18,27 @@ public abstract class BaseLiveRoomWatcher implements LiveRoomWatcher {
      * Constant <code>vertx</code>
      */
     public static final Vertx vertx;
-    
+
     /**
      * 默认情况下我们什么都不做
      */
     public static Consumer<Chat> DEFAULT_CHAT_HANDLER = chat -> {};
-    
+
     /**
      * Constant <code>DEFAULT_USER_HANDLER</code>
      */
     public static Consumer<User> DEFAULT_USER_HANDLER = user -> {};
-    
+
     /**
      * Constant <code>DEFAULT_LIKE_HANDLER</code>
      */
     public static Consumer<Like> DEFAULT_LIKE_HANDLER = like -> {};
-    
+
     /**
      * Constant <code>DEFAULT_FOLLOW_HANDLER</code>
      */
     public static Consumer<Follow> DEFAULT_FOLLOW_HANDLER = follow -> {};
-    
+
     /**
      * Constant <code>DEFAULT_GIFT_HANDLER</code>
      */

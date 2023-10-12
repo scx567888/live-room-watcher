@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.1.5</version>
+    <version>0.1.6</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -65,13 +65,6 @@
             <groupId>org.graalvm.js</groupId>
             <artifactId>js</artifactId>
             <version>${graalvm-js.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-web</artifactId>
-            <version>4.4.5</version>
-            <scope>test</scope>
         </dependency>
         
         <dependency>

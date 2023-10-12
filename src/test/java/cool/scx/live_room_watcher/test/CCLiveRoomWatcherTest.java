@@ -6,7 +6,7 @@ import cool.scx.util.ansi.Ansi;
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.LIVE_GIFT;
+import static cool.scx.live_room_watcher.MsgType.LIVE_GIFT;
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class CCLiveRoomWatcherTest {
@@ -35,6 +35,7 @@ public class CCLiveRoomWatcherTest {
         //此处模拟 接收到了来自抖音的回调请求, 您可以在您的 服务端调用
 
         liveRoomWatcher.call("body", Map.of("x-roomid", "123"), LIVE_GIFT);
+
     }
 
 }

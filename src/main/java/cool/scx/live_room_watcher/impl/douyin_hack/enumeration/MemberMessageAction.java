@@ -29,7 +29,7 @@ public enum MemberMessageAction {
      */
     private static final Map<Long, MemberMessageAction> MAP = initMap();
 
- 
+
     final long code;
 
     MemberMessageAction(long i) {
@@ -48,7 +48,7 @@ public enum MemberMessageAction {
         }
         return map;
     }
-    
+
     public static MemberMessageAction of(long i) {
         return MAP.get(i);
     }

@@ -16,16 +16,14 @@ public class WatchTask {
 
     final MEMELiveRoomWatcher watcher;
     final String roomID;
+    ScheduledFuture<?> heartbeatFuture;
+    AtomicInteger heartbeatFailTime = new AtomicInteger(0);
+    WebSocket webSocket;
 
     public WatchTask(MEMELiveRoomWatcher watcher, String roomID) {
         this.watcher = watcher;
         this.roomID = roomID;
     }
-
-    ScheduledFuture<?> heartbeatFuture;
-    AtomicInteger heartbeatFailTime = new AtomicInteger(0);
-
-    WebSocket webSocket;
 
     public void start() {
         stop();

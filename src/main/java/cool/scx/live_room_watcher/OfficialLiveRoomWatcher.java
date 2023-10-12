@@ -28,9 +28,9 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
      * @throws IOException          a
      * @throws InterruptedException a
      */
-    public abstract String failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
+    public abstract Object failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
 
-    public abstract String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
+    public abstract Object topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
     /**
      * 获取 accessToken
@@ -75,42 +75,5 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
     public abstract void startWatch(String roomID) throws IOException, InterruptedException;
 
     public abstract void stopWatch(String roomID) throws IOException, InterruptedException;
-
-    public enum MsgType {
-
-        /**
-         * 评论
-         */
-        LIVE_COMMENT,
-
-        /**
-         * 礼物
-         */
-        LIVE_GIFT,
-
-        /**
-         * 点赞
-         */
-        LIVE_LIKE,
-
-        /**
-         * 粉丝团
-         */
-        LIVE_FANS_CLUB,
-
-        /**
-         * 关注
-         */
-        LIVE_FOLLOW
-
-    }
-
-    public interface AccessToken {
-
-        String accessToken();
-
-        Long expiresIn();
-
-    }
 
 }

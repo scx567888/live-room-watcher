@@ -6,6 +6,7 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
@@ -19,7 +20,7 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.*;
+import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
@@ -32,13 +33,12 @@ import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValu
  */
 public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
+    public final Map<String, String> giftNameMap;
     private final String appID;
     private final String appSecret;
     private final String commentDataSecret;
     private final String giftDataSecret;
     private final String likeDataSecret;
-
-    public final Map<String, String> giftNameMap;
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret, Map<String, String> giftNameMap) {
         this.appID = appID;
@@ -53,7 +53,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    protected DouYinAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+    public DouYinAccessToken getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
                 .uri(ACCESS_TOKEN_URL)
                 .method(POST)
@@ -63,11 +63,11 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "grant_type", "client_credential"
                 ))));
         var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinAccessTokenResult.class);
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
         if (accessTokenResult.err_no() != 0) {
             throw new IllegalArgumentException(bodyStr);
         }
-        return accessTokenResult;
+        return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
     }
 
     /**
@@ -101,7 +101,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_START_URL)
                 .method(POST)
@@ -111,11 +111,12 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "appid", appID,
                         "msg_type", getMsgTypeValue(msgType)
                 ))));
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     @Override
-    public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_STOP_URL)
                 .method(POST)
@@ -125,11 +126,12 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "appid", appID,
                         "msg_type", getMsgTypeValue(msgType)
                 ))));
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     @Override
-    public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var uri = URIBuilder.of(TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
@@ -140,11 +142,12 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .uri(uri)
                 .method(HttpMethod.GET)
                 .setHeader("access-token", getAccessToken()));
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     @Override
-    public String failDataGet(String roomCode, MsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
+    public DouYinResponseBody failDataGet(String roomCode, MsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
         var uri = URIBuilder.of(FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
@@ -157,11 +160,12 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 .uri(uri)
                 .method(HttpMethod.GET)
                 .setHeader("access-token", getAccessToken()));
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     @Override
-    public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+    public DouYinResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TOP_GIFT_URL)
                 .method(POST)
@@ -171,10 +175,11 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "app_id", appID,
                         "sec_gift_id_list", secGiftIDList
                 ))));
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
-    public String fansClubGetInfo(String roomCode, String anchor_openid, String[] user_openids) throws IOException, InterruptedException {
+    public DouYinResponseBody fansClubGetInfo(String roomCode, String anchor_openid, String[] user_openids) throws IOException, InterruptedException {
         var uri = URIBuilder.of(FANS_CLUB_GET_INFO_URL)
                 .addParam("roomid", roomCode)
                 .addParam("anchor_openid", anchor_openid)
@@ -186,7 +191,8 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         .method(GET)
                         .setHeader("access-token", getAccessToken())
         );
-        return response.body().toString();
+        var bodyStr = response.body().toString();
+        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     @Override
@@ -260,25 +266,6 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             gift.roomID = roomID;
             Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
         }
-    }
-
-    public record DouYinAccessTokenResult(Integer err_no, String err_tips,
-                                          AccessTokenResultData data) implements AccessToken {
-
-        @Override
-        public String accessToken() {
-            return data().access_token();
-        }
-
-        @Override
-        public Long expiresIn() {
-            return data().expires_in();
-        }
-
-        record AccessTokenResultData(String access_token, Long expires_in) {
-
-        }
-
     }
 
 }

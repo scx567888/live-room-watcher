@@ -5,7 +5,9 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.enumeration.HttpMethod.POST;
-import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.LIVE_COMMENT;
+import static cool.scx.live_room_watcher.MsgType.LIVE_COMMENT;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
 
@@ -50,7 +52,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                 ));
         var bodyStr = response.body().toString();
         var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouAccessTokenResult.class);
-        if (accessTokenResult.result != 1) {
+        if (accessTokenResult.result() != 1) {
             throw new IllegalArgumentException(bodyStr);
         }
         System.err.println("获取 accessToken 成功 : " + accessTokenResult.accessToken());
@@ -194,19 +196,5 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, LIVE_COMMENT);
     }
-
-    record KuaiShouAccessTokenResult(Integer result, String access_token, Long expires_in,
-                                     String token_type) implements AccessToken {
-        @Override
-        public String accessToken() {
-            return access_token;
-        }
-
-        @Override
-        public Long expiresIn() {
-            return expires_in;
-        }
-    }
-
 
 }

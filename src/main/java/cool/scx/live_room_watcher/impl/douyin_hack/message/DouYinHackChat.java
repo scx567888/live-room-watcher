@@ -15,7 +15,7 @@ public class DouYinHackChat implements Chat {
     private final ChatMessage chatMessage;
     private final DouYinHackUser douYinUser;
 
-   
+
     public DouYinHackChat(ChatMessage chatMessage) {
         this.chatMessage = chatMessage;
         this.douYinUser = new DouYinHackUser(chatMessage.getUser());

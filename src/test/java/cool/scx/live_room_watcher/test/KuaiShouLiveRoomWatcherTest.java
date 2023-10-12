@@ -1,41 +1,20 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.KuaiShouLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
-import io.vertx.core.MultiMap;
-import io.vertx.core.Vertx;
-import io.vertx.core.http.HttpServer;
-import io.vertx.core.http.HttpServerOptions;
-import io.vertx.core.net.JksOptions;
-import io.vertx.ext.web.RequestBody;
-import io.vertx.ext.web.Router;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.*;
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
 public class KuaiShouLiveRoomWatcherTest {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Vertx vertx = Vertx.vertx();
-        HttpServer httpServer = vertx.createHttpServer(new HttpServerOptions()
-                .setSsl(true)
-                .setKeyStoreOptions(new JksOptions()
-                        .setPath("xxxx")
-                        .setPassword("xxx"))
-        );
-        Router router = Router.router(vertx);
-        httpServer.requestHandler(router)
-                .listen(443);
-        test1(router);
+        test1();
     }
 
-    public static void test1(Router router) throws IOException, InterruptedException {
-        var liveRoomWatcher = new KuaiShouLiveRoomWatcher("xxx","xxxx");
+    public static void test1() throws IOException, InterruptedException {
+        var liveRoomWatcher = new KuaiShouLiveRoomWatcher("xxx", "xxxx");
 
         String accessToken = liveRoomWatcher.getAccessToken();
 
@@ -52,51 +31,6 @@ public class KuaiShouLiveRoomWatcherTest {
         });
 
         liveRoomWatcher.startWatch("");
-
-
-        router.post("/test/comment").handler((c)->{
-            RequestBody body = c.body();
-            String bodyString = body.asString();
-            MultiMap headers = c.response().headers();
-            var m=new HashMap<String,String>();
-            for (Map.Entry<String, String> header : headers) {
-                m.put(header.getKey(),header.getValue());
-            }
-            liveRoomWatcher.call(bodyString,m, LIVE_COMMENT);
-        });
-
-        router.post("/test/like").handler((c)->{
-            RequestBody body = c.body();
-            String bodyString = body.asString();
-            MultiMap headers = c.response().headers();
-            var m=new HashMap<String,String>();
-            for (Map.Entry<String, String> header : headers) {
-                m.put(header.getKey(),header.getValue());
-            }
-            liveRoomWatcher.call(bodyString,m, LIVE_LIKE);
-        });
-
-        router.post("/test/gift").handler((c)->{
-            RequestBody body = c.body();
-            String bodyString = body.asString();
-            MultiMap headers = c.response().headers();
-            var m=new HashMap<String,String>();
-            for (Map.Entry<String, String> header : headers) {
-                m.put(header.getKey(),header.getValue());
-            }
-            liveRoomWatcher.call(bodyString,m, LIVE_GIFT);
-        });
-
-        router.post("/test/follow").handler((c)->{
-            RequestBody body = c.body();
-            String bodyString = body.asString();
-            MultiMap headers = c.response().headers();
-            var m=new HashMap<String,String>();
-            for (Map.Entry<String, String> header : headers) {
-                m.put(header.getKey(),header.getValue());
-            }
-            liveRoomWatcher.call(bodyString,m, LIVE_FOLLOW);
-        });
 
     }
 

@@ -14,7 +14,7 @@ public class DouYinHackFollow implements Follow {
     private final DouYinHackUser user;
     SocialMessage socialMessage;
 
- 
+
     public DouYinHackFollow(SocialMessage socialMessage) {
         this.socialMessage = socialMessage;
         this.user = new DouYinHackUser(this.socialMessage.getUser());

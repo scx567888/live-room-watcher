@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
 
 import java.security.InvalidParameterException;
 import java.util.Map;
@@ -56,7 +56,7 @@ class DouYinHelper {
         return encodeToString(md5Bytes);
     }
 
-    public static String getMsgTypeValue(OfficialPassiveLiveRoomWatcher.MsgType msgType) {
+    public static String getMsgTypeValue(MsgType msgType) {
         return switch (msgType) {
             case LIVE_COMMENT -> "live_comment";
             case LIVE_GIFT -> "live_gift";
