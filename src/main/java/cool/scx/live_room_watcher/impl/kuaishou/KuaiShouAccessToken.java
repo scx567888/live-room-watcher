@@ -2,8 +2,12 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 
 import cool.scx.live_room_watcher.AccessToken;
 
-record KuaiShouAccessTokenResult(Integer result, String access_token, Long expires_in,
-                                 String token_type) implements AccessToken {
+final class KuaiShouAccessToken extends KuaiShouResponseBody implements AccessToken {
+
+    public String access_token;
+    public Long expires_in;
+    public String token_type;
+
     @Override
     public String accessToken() {
         return access_token;

@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
 import cool.scx.util.HashUtils;
+import cool.scx.util.ObjectUtils;
 import cool.scx.util.StringUtils;
 
 import java.util.LinkedHashMap;
@@ -39,6 +40,14 @@ public class KuaiShouHelper {
 
         // 生成签名返回 注意快手要求 md5 必须小写
         return HashUtils.md5Hex(signStr).toLowerCase();
+    }
+
+    public static String ok() {
+        return ObjectUtils.toJson(Map.of("result", 1), "");
+    }
+
+    public static String fail(String errorMsg) {
+        return ObjectUtils.toJson(Map.of("result", 0, "errorMsg", errorMsg), "");
     }
 
 }
