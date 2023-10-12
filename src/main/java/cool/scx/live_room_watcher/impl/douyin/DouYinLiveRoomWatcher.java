@@ -54,7 +54,7 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    protected DouYinAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
+    public DouYinAccessToken getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
                 .uri(ACCESS_TOKEN_URL)
                 .method(POST)
@@ -64,11 +64,11 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
                         "grant_type", "client_credential"
                 ))));
         var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinAccessTokenResult.class);
+        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
         if (accessTokenResult.err_no() != 0) {
             throw new IllegalArgumentException(bodyStr);
         }
-        return accessTokenResult;
+        return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
     }
 
     /**
