@@ -5,6 +5,7 @@ import cool.scx.enumeration.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
@@ -18,7 +19,7 @@ import java.util.Map;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.OfficialLiveRoomWatcher.MsgType.*;
+import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
@@ -255,25 +256,6 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     private String getGiftName(String secGiftId) {
         return giftAndNameMap.get(secGiftId);
-    }
-
-    public record CCAccessTokenResult(Integer err_no, String err_tips,
-                                      AccessTokenResultData data) implements AccessToken {
-
-        @Override
-        public String accessToken() {
-            return data().access_token();
-        }
-
-        @Override
-        public Long expiresIn() {
-            return data().expires_in();
-        }
-
-        record AccessTokenResultData(String access_token, Long expires_in) {
-
-        }
-
     }
 
 }
