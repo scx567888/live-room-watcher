@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 import com.fasterxml.jackson.databind.JsonNode;
 
 public class KuaiShouMessage {
-    
+
     public Long timestamp;
     public String app_id;
     public String event;

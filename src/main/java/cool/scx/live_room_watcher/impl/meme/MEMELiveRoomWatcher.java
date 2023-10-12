@@ -35,12 +35,11 @@ import static cool.scx.util.ObjectUtils.toJson;
  */
 public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
+    protected final MEMEApi memeApi = new MEMEApi();
     final HttpClient httpClient;
     private final String appID;
     private final String appSecret;
     private final Map<String, WatchTask> watchTaskMap = new ConcurrentHashMap<>();
-
-    protected final MEMEApi memeApi = new MEMEApi();
 
     public MEMELiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;

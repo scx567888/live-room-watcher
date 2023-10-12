@@ -33,13 +33,12 @@ import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValu
  */
 public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
+    public final Map<String, String> giftNameMap;
     private final String appID;
     private final String appSecret;
     private final String commentDataSecret;
     private final String giftDataSecret;
     private final String likeDataSecret;
-
-    public final Map<String, String> giftNameMap;
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret, Map<String, String> giftNameMap) {
         this.appID = appID;

@@ -8,7 +8,7 @@ public class MEMEChat implements Chat {
     public String roomID;
 
     public MEMEUser userInfo;
-    
+
     public String content;
 
     @Override

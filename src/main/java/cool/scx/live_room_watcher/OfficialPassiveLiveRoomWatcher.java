@@ -1,11 +1,7 @@
 package cool.scx.live_room_watcher;
 
-import cool.scx.live_room_watcher.util.Helper;
-
 import java.io.IOException;
 import java.util.Map;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * 官方的被动接受的接口

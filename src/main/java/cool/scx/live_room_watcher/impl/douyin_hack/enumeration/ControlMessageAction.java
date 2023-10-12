@@ -23,7 +23,7 @@ public enum ControlMessageAction {
      * Constant <code>MAP</code>
      */
     private static final Map<Long, ControlMessageAction> MAP = initMap();
-    
+
     final long code;
 
     ControlMessageAction(long i) {
@@ -43,7 +43,7 @@ public enum ControlMessageAction {
         return map;
     }
 
-  
+
     public static ControlMessageAction of(long i) {
         return MAP.get(i);
     }

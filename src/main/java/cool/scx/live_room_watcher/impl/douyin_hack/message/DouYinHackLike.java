@@ -16,7 +16,7 @@ public class DouYinHackLike implements Like {
     LikeMessage likeMessage;
     User user;
 
-    
+
     public DouYinHackLike(LikeMessage likeMessage) {
         this.likeMessage = likeMessage;
         this.user = new DouYinHackUser(likeMessage.getUser());

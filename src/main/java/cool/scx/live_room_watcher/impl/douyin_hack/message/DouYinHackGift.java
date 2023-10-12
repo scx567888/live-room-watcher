@@ -15,7 +15,7 @@ public class DouYinHackGift implements Gift {
     GiftMessage giftMessage;
     User user;
 
-   
+
     public DouYinHackGift(GiftMessage giftMessage) {
         this.giftMessage = giftMessage;
         this.user = new DouYinHackUser(giftMessage.getUser());

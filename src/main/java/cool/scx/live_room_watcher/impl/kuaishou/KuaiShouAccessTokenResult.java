@@ -13,5 +13,5 @@ record KuaiShouAccessTokenResult(Integer result, String access_token, Long expir
     public Long expiresIn() {
         return expires_in;
     }
-    
+
 }
