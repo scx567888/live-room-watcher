@@ -37,7 +37,7 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
      *
      * @return a
      */
-    public String getAccessToken() {
+    public synchronized String getAccessToken() {
         if (this.accessToken == null) {
             refreshAccessToken();
         }
@@ -48,7 +48,7 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
      * 刷新 accessToken
      * 首次调用后 会一直循环进行获取 所以理论上讲只需要获取一次
      */
-    public void refreshAccessToken() {
+    public synchronized void refreshAccessToken() {
         try {
             var accessToken0 = getAccessToken0();
             this.accessToken = accessToken0.accessToken();
