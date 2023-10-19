@@ -145,16 +145,23 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         return request.body().toString();
     }
 
-    public void startCallBack(String roomID) throws IOException, InterruptedException {
-        var body = Map.of("liveRoomId", roomID, "matchId", RandomUtils.randomUUID());
-        ScxHttpClientResponse request = this.request(POST, memeApi.START_CALLBACK_URL(), toJson(body));
-        System.out.println(request.body().toString());
+    public String startCallBack(String roomID, String matchId) throws IOException, InterruptedException {
+        var body = Map.of("liveRoomId", roomID, "matchId", matchId);
+        var request = this.request(POST, memeApi.START_CALLBACK_URL(), toJson(body));
+        return request.body().toString();
     }
 
-    public void endCallBack(String roomID) throws IOException, InterruptedException {
-        var body = Map.of("liveRoomId", roomID, "matchId", RandomUtils.randomUUID());
-        ScxHttpClientResponse request = this.request(POST, memeApi.END_CALLBACK_URL(), toJson(body));
-        System.out.println(request.body().toString());
+    public String endCallBack(String roomID, String matchId) throws IOException, InterruptedException {
+        var body = Map.of(
+                "liveRoomId", roomID,
+                "matchId", matchId,
+                "atypical", 0,
+                "reason", "正常结束",
+                "gameResult", new Object(),
+                "playerResult", new Object()
+        );
+        var request = this.request(POST, memeApi.END_CALLBACK_URL(), toJson(body));
+        return request.body().toString();
     }
 
     public void callMessage(String jsonPayload) {
