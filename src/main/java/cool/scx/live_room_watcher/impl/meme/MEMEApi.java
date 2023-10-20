@@ -2,52 +2,61 @@ package cool.scx.live_room_watcher.impl.meme;
 
 public class MEMEApi {
 
-    private String BASE_URL = "https://test-games.memeyule.com";
+    public static String TEST_BASE_URL = "https://test-games.memeyule.com";
+    public static String BASE_URL = "https://games.memeyule.com";
+    public static String TEST_WEBSOCKET_CHANNEL_URL = "https://test-games-sock.memeyule.com:6211/websocket";
+    public static String WEBSOCKET_CHANNEL_URL = "https://ws-game.memeyule.com:6211/websocket";
 
-    private String WEBSOCKET_CHANNEL_URL = "https://test-games-sock.memeyule.com:6211/websocket";
+    private String baseUrl;
+    private String websocket_channel_url;
+
+    public MEMEApi() {
+        this.setBaseUrl(BASE_URL);
+        this.setWebSocketChannelUrl(WEBSOCKET_CHANNEL_URL);
+    }
 
     public String WEBSOCKET_CHANNEL_URL() {
-        return WEBSOCKET_CHANNEL_URL;
+        return websocket_channel_url;
     }
 
     public String BIND_ROOM_CODE_URL() {
-        return BASE_URL + "/api/v1/openapi/bindRoomCode";
+        return baseUrl + "/api/v1/openapi/bindRoomCode";
     }
 
     public String ROOM_CODE_STATUS_URL() {
-        return BASE_URL + "/api/v1/openapi/roomCodeStatus";
+        return baseUrl + "/api/v1/openapi/roomCodeStatus";
     }
 
     public String STAR_INFO_URL() {
-        return BASE_URL + "/api/v1/openapi/starInfo";
+        return baseUrl + "/api/v1/openapi/starInfo";
     }
 
     public String GIFTS_URL() {
-        return BASE_URL + "/api/v1/openapi/gifts";
+        return baseUrl + "/api/v1/openapi/gifts";
     }
 
     public String END_CALLBACK_URL() {
-        return BASE_URL + "/api/v1/game/barrage/endCallback";
+        return baseUrl + "/api/v1/game/barrage/endCallback";
     }
 
     public String START_CALLBACK_URL() {
-        return BASE_URL + "/api/v1/game/barrage/startCallback";
+        return baseUrl + "/api/v1/game/barrage/startCallback";
     }
 
     public String ACCESS_TOKEN_URL() {
-        return BASE_URL + "/api/v1/openapi/accessToken";
+        return baseUrl + "/api/v1/openapi/accessToken";
     }
 
     public void setBaseUrl(String baseUrl) {
-        this.BASE_URL = baseUrl;
+        this.baseUrl = baseUrl;
     }
 
     public void setWebSocketChannelUrl(String webSocketChannelUrl) {
-        this.WEBSOCKET_CHANNEL_URL = webSocketChannelUrl;
+        this.websocket_channel_url = webSocketChannelUrl;
     }
 
     public String BASE_URL() {
-        return BASE_URL;
+        return baseUrl;
     }
 
 }
