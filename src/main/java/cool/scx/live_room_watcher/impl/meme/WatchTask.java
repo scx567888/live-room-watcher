@@ -11,8 +11,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static cool.scx.constant.ScxDateTimeFormatter.yyyy_MM_dd_HH_mm_ss;
 import static cool.scx.constant.ScxDateTimeFormatter.yyyy_MM_dd_HH_mm_ss_SSS;
+import static java.lang.System.Logger.Level.DEBUG;
 
 public class WatchTask {
+
+    public static final System.Logger logger = System.getLogger(WatchTask.class.getName());
 
     final MEMELiveRoomWatcher watcher;
     final String roomID;
@@ -30,13 +33,13 @@ public class WatchTask {
         var webSocketFuture = watcher.httpClient.webSocket(watcher.getWebsocketChannelOptions(roomID));
         webSocketFuture.onSuccess(ws -> {
             webSocket = ws;
-            System.out.println("连接成功 " + yyyy_MM_dd_HH_mm_ss.format(LocalDateTime.now()));
+            logger.log(DEBUG,"连接成功 " + yyyy_MM_dd_HH_mm_ss.format(LocalDateTime.now()));
             startHeartbeat(ws);
             ws.textMessageHandler(c -> {
                 $.async(() -> watcher.callMessage(c));
             });
             ws.closeHandler((v) -> {
-                System.out.println("连接关闭 " + yyyy_MM_dd_HH_mm_ss.format(LocalDateTime.now()));
+                logger.log(DEBUG,"连接关闭 " + yyyy_MM_dd_HH_mm_ss.format(LocalDateTime.now()));
                 //重连
                 start();
             });
@@ -47,20 +50,20 @@ public class WatchTask {
             });
         }).onFailure(e -> {
             e.printStackTrace();
-            System.out.println("连接失败");
+            logger.log(DEBUG,"连接失败");
         });
     }
 
     public void startHeartbeat(WebSocket webSocket) {
         heartbeatFuture = Helper.scheduler.scheduleAtFixedRate(() -> {
             webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
-                System.out.println("心跳发送成功 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
+                logger.log(DEBUG,"心跳发送成功 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
             }).onFailure(e -> {
                 int i = heartbeatFailTime.addAndGet(1);
                 if (i < 4) {
-                    System.err.println("心跳发送失败第 " + i + " 次 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
+                    logger.log(DEBUG,"心跳发送失败第 " + i + " 次 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
                 } else {
-                    System.err.println("心跳发送失败达到 " + i + " 次, 重新连接 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
+                    logger.log(DEBUG,"心跳发送失败达到 " + i + " 次, 重新连接 : " + yyyy_MM_dd_HH_mm_ss_SSS.format(LocalDateTime.now()));
                     start();
                 }
             });
@@ -72,7 +75,7 @@ public class WatchTask {
             webSocket.closeHandler((c) -> {});
             webSocket.exceptionHandler((c) -> {});
             webSocket.close().onSuccess(c -> {
-                System.out.println("关闭成功");
+                logger.log(DEBUG,"关闭成功");
                 webSocket = null;
             });
         }
