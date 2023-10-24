@@ -11,7 +11,7 @@ public record MEMEAccessToken(Integer code, String message, MEMEAccessTokenData 
 
     @Override
     public Long expiresIn() {
-        return (data.expireTime() - System.currentTimeMillis()) / 1000;
+        return (data.expireTime() - System.currentTimeMillis()) / 1000 / 2;
     }
 
 }
