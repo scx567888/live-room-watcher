@@ -61,18 +61,22 @@ public class MEMEWatchTask {
         //重置 失败次数
         heartbeatFailTime.set(0);
         heartbeatFuture = Helper.scheduler.scheduleAtFixedRate(() -> {
-            webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
-                logger.log(DEBUG, "心跳发送成功 : "+this.roomID);
-            }).onFailure(e -> {
-                int i = heartbeatFailTime.addAndGet(1);
-                if (i < 4) {
-                    logger.log(DEBUG, "心跳发送失败第 " + i + " 次 : "+this.roomID, e);
-                } else {
-                    logger.log(ERROR, "心跳发送失败达到 " + i + " 次, 重新连接 : "+this.roomID, e);
-                    start();
-                }
-            });
+            heartbeat(webSocket);
         }, 0, 5, TimeUnit.SECONDS);
+    }
+
+    public void heartbeat(WebSocket webSocket) {
+        webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
+            logger.log(DEBUG, "心跳发送成功 : " + this.roomID);
+        }).onFailure(e -> {
+            int i = heartbeatFailTime.addAndGet(1);
+            if (i < 4) {
+                logger.log(DEBUG, "心跳发送失败第 " + i + " 次 : " + this.roomID, e);
+            } else {
+                logger.log(ERROR, "心跳发送失败达到 " + i + " 次, 重新连接 : " + this.roomID, e);
+                start();
+            }
+        });
     }
 
     public void stop() {
