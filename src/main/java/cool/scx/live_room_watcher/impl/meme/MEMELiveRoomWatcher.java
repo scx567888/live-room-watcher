@@ -35,19 +35,24 @@ import static cool.scx.util.ObjectUtils.toJson;
  */
 public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
-    protected final MEMEApi memeApi = new MEMEApi();
+    protected final MEMEApi memeApi;
     final HttpClient httpClient;
     private final String appID;
     private final String appSecret;
     private final Map<String, WatchTask> watchTaskMap = new ConcurrentHashMap<>();
 
-    public MEMELiveRoomWatcher(String appID, String appSecret) {
+    public MEMELiveRoomWatcher(String appID, String appSecret, boolean isTest) {
         this.appID = appID;
         this.appSecret = appSecret;
         if (appID == null || appSecret == null) {
             throw new NullPointerException("参数不全 !!!");
         }
         this.httpClient = vertx.createHttpClient();
+        this.memeApi = new MEMEApi(isTest);
+    }
+
+    public MEMELiveRoomWatcher(String appID, String appSecret) {
+        this(appID, appSecret, false);
     }
 
     public WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {

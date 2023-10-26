@@ -7,16 +7,17 @@ public class MEMEApi {
     public static String TEST_WEBSOCKET_CHANNEL_URL = "https://test-games-sock.memeyule.com:6211/websocket";
     public static String WEBSOCKET_CHANNEL_URL = "https://ws-game.memeyule.com:6211/websocket";
 
-    private String baseUrl;
-    private String websocket_channel_url;
+    private final String baseUrl;
+    private final String websocket_channel_url;
 
-    public MEMEApi() {
-        this.setBaseUrl(BASE_URL);
-        this.setWebSocketChannelUrl(WEBSOCKET_CHANNEL_URL);
-    }
-
-    public String WEBSOCKET_CHANNEL_URL() {
-        return websocket_channel_url;
+    public MEMEApi(boolean isTest) {
+        if (isTest) {
+            baseUrl = TEST_BASE_URL;
+            websocket_channel_url = TEST_WEBSOCKET_CHANNEL_URL;
+        } else {
+            baseUrl = BASE_URL;
+            websocket_channel_url = WEBSOCKET_CHANNEL_URL;
+        }
     }
 
     public String BIND_ROOM_CODE_URL() {
@@ -47,16 +48,12 @@ public class MEMEApi {
         return baseUrl + "/api/v1/openapi/accessToken";
     }
 
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
-    public void setWebSocketChannelUrl(String webSocketChannelUrl) {
-        this.websocket_channel_url = webSocketChannelUrl;
-    }
-
     public String BASE_URL() {
         return baseUrl;
+    }
+
+    public String WEBSOCKET_CHANNEL_URL() {
+        return websocket_channel_url;
     }
 
 }
