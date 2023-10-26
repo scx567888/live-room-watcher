@@ -62,13 +62,13 @@ public class MEMEWatchTask {
         heartbeatFailTime.set(0);
         heartbeatFuture = Helper.scheduler.scheduleAtFixedRate(() -> {
             webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
-                logger.log(DEBUG, "心跳发送成功 : ");
+                logger.log(DEBUG, "心跳发送成功 : "+this.roomID);
             }).onFailure(e -> {
                 int i = heartbeatFailTime.addAndGet(1);
                 if (i < 4) {
-                    logger.log(DEBUG, "心跳发送失败第 " + i + " 次 : ", e);
+                    logger.log(DEBUG, "心跳发送失败第 " + i + " 次 : "+this.roomID, e);
                 } else {
-                    logger.log(ERROR, "心跳发送失败达到 " + i + " 次, 重新连接 : ", e);
+                    logger.log(ERROR, "心跳发送失败达到 " + i + " 次, 重新连接 : "+this.roomID, e);
                     start();
                 }
             });
@@ -96,7 +96,7 @@ public class MEMEWatchTask {
 
     public void stopHeartbeat() {
         if (heartbeatFuture != null) {
-            heartbeatFuture.cancel(false);
+            heartbeatFuture.cancel(true);
             heartbeatFuture = null;
         }
     }
