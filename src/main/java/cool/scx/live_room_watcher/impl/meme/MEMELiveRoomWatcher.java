@@ -28,18 +28,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import static cool.scx.enumeration.HttpMethod.GET;
 import static cool.scx.enumeration.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
+import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.logger;
 import static cool.scx.util.ObjectUtils.toJson;
+import static java.lang.System.Logger.Level.DEBUG;
 
 /**
  * 么么直播
  */
 public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
-    protected final MEMEApi memeApi;
     final HttpClient httpClient;
+    private final MEMEApi memeApi;
     private final String appID;
     private final String appSecret;
-    private final Map<String, WatchTask> watchTaskMap = new ConcurrentHashMap<>();
+    private final Map<String, MEMEWatchTask> watchTaskMap = new ConcurrentHashMap<>();
 
     public MEMELiveRoomWatcher(String appID, String appSecret, boolean isTest) {
         this.appID = appID;
@@ -57,6 +59,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     public WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
         var absoluteURI = memeApi.WEBSOCKET_CHANNEL_URL() + "?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + getAccessToken();
+        logger.log(DEBUG, "获取连接地址 : {0}", absoluteURI);
         var options = new WebSocketConnectOptions();
         options.setAbsoluteURI(absoluteURI);
         return options;
@@ -101,14 +104,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         var nonce = RandomUtils.randomString(10);
         var timestamp = LocalDateTime.now().toInstant(ZoneOffset.ofHours(0)).toEpochMilli();
         var sign = getSign(body, appSecret, nonce, timestamp);
-        return ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(url)
-                .setHeader("appkey", appID)
-                .setHeader("sign", sign)
-                .setHeader("nonce", nonce)
-                .setHeader("timestamp", timestamp + "")
-                .method(method)
-                .body(new JsonBody(body)));
+        return ScxHttpClientHelper.request(new ScxHttpClientRequest().uri(url).setHeader("appkey", appID).setHeader("sign", sign).setHeader("nonce", nonce).setHeader("timestamp", timestamp + "").method(method).body(new JsonBody(body)));
     }
 
     private ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
@@ -210,7 +206,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
     @Override
     public void startWatch(String roomID) throws IOException, InterruptedException {
         if (watchTaskMap.get(roomID) == null) {
-            var watchTask = new WatchTask(this, roomID);
+            var watchTask = new MEMEWatchTask(this, roomID);
             watchTaskMap.put(roomID, watchTask);
             watchTask.start();
         }

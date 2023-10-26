@@ -2,10 +2,10 @@ package cool.scx.live_room_watcher.impl.meme;
 
 public class MEMEApi {
 
-    public static String TEST_BASE_URL = "https://test-games.memeyule.com";
-    public static String BASE_URL = "https://games.memeyule.com";
-    public static String TEST_WEBSOCKET_CHANNEL_URL = "https://test-games-sock.memeyule.com:6211/websocket";
-    public static String WEBSOCKET_CHANNEL_URL = "https://ws-game.memeyule.com:6211/websocket";
+    public static final String TEST_BASE_URL = "https://test-games.memeyule.com";
+    public static final String BASE_URL = "https://games.memeyule.com";
+    public static final String TEST_WEBSOCKET_CHANNEL_URL = "https://test-games-sock.memeyule.com:6211/websocket";
+    public static final String WEBSOCKET_CHANNEL_URL = "https://ws-game.memeyule.com:6211/websocket";
 
     private final String baseUrl;
     private final String websocket_channel_url;

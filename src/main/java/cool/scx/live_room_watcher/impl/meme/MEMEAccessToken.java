@@ -14,4 +14,8 @@ public record MEMEAccessToken(Integer code, String message, MEMEAccessTokenData 
         return (data.expireTime() - System.currentTimeMillis()) / 1000;
     }
 
+    public record MEMEAccessTokenData(String accessToken, Long expireTime) {
+
+    }
+
 }
