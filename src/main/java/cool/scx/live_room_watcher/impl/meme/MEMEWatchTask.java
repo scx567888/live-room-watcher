@@ -1,22 +1,28 @@
 package cool.scx.live_room_watcher.impl.meme;
 
 import cool.scx.live_room_watcher.util.Helper;
+import cool.scx.util.$;
+import io.vertx.core.Future;
 import io.vertx.core.http.WebSocket;
 
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.*;
 import static java.lang.System.Logger.Level.DEBUG;
 import static java.lang.System.Logger.Level.ERROR;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class MEMEWatchTask {
 
     public static final System.Logger logger = System.getLogger(MEMEWatchTask.class.getName());
 
+    MEMEWatchTaskStatus status;
+    Future<WebSocket> webSocketFuture;
     final MEMELiveRoomWatcher watcher;
     final String roomID;
-    ScheduledFuture<?> heartbeatFuture;
+    Thread heartbeatThread;
     AtomicInteger heartbeatFailTime = new AtomicInteger(0);
     WebSocket webSocket;
 
@@ -27,11 +33,15 @@ public class MEMEWatchTask {
 
     public void start() {
         stop();
-        var webSocketFuture = watcher.httpClient.webSocket(watcher.getWebsocketChannelOptions(roomID));
+        status = STARTING;
+        this.webSocketFuture = watcher.httpClient.webSocket(watcher.getWebsocketChannelOptions(roomID));
         webSocketFuture.onSuccess(ws -> {
+            if (status == STOP) {
+                return;
+            }
             webSocket = ws;
             logger.log(DEBUG, "连接成功 ");
-            startHeartbeat(ws);
+            startHeartbeat();
             ws.textMessageHandler(c -> Thread.ofVirtual().start(() -> {
                 try {
                     watcher.callMessage(c);
@@ -56,18 +66,19 @@ public class MEMEWatchTask {
         });
     }
 
-    public void startHeartbeat(WebSocket webSocket) {
+    public void startHeartbeat() {
         stopHeartbeat();
         //重置 失败次数
         heartbeatFailTime.set(0);
-        heartbeatFuture = Helper.scheduler.scheduleAtFixedRate(() -> {
-            heartbeat(webSocket);
-        }, 0, 5, TimeUnit.SECONDS);
+        heartbeat();
     }
 
-    public void heartbeat(WebSocket webSocket) {
+    public void heartbeat() {
+        if (status == STOP) {
+            return;
+        }
         webSocket.writeTextMessage("HEARTBEAT").onSuccess(c -> {
-            logger.log(DEBUG, "心跳发送成功 : " + this.roomID);
+            logger.log(DEBUG, "心跳发送成功 : " + this.roomID + " " + this.hashCode());
         }).onFailure(e -> {
             int i = heartbeatFailTime.addAndGet(1);
             if (i < 4) {
@@ -77,15 +88,33 @@ public class MEMEWatchTask {
                 start();
             }
         });
+
+        heartbeatThread = Thread.ofVirtual().start(() -> {
+            try {
+                Thread.sleep(5000);
+                heartbeat();
+            } catch (InterruptedException e) {
+
+            }
+        });
+
     }
 
     public void stop() {
+        status = STOP;
         stopWebSocket();
         stopHeartbeat();
     }
 
     public void stopWebSocket() {
-        if (webSocket != null) {
+        if (webSocketFuture != null && !webSocketFuture.isComplete()) {
+            webSocketFuture.onSuccess(webSocket -> {
+                webSocket.close();
+            }).onFailure(e -> {
+
+            });
+        }
+        if (webSocket != null && !webSocket.isClosed()) {
             webSocket.closeHandler((c) -> {});
             webSocket.exceptionHandler((c) -> {});
             webSocket.close().onSuccess(c -> {
@@ -99,9 +128,9 @@ public class MEMEWatchTask {
     }
 
     public void stopHeartbeat() {
-        if (heartbeatFuture != null) {
-            heartbeatFuture.cancel(true);
-            heartbeatFuture = null;
+        if (heartbeatThread != null) {
+            heartbeatThread.interrupt();
+            heartbeatThread = null;
         }
     }
 
