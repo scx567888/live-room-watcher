@@ -1,18 +1,14 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.live_room_watcher.util.Helper;
-import cool.scx.util.$;
 import io.vertx.core.Future;
 import io.vertx.core.http.WebSocket;
 
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.*;
+import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.STARTING;
+import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.STOP;
 import static java.lang.System.Logger.Level.DEBUG;
 import static java.lang.System.Logger.Level.ERROR;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class MEMEWatchTask {
 
@@ -93,7 +89,7 @@ public class MEMEWatchTask {
             try {
                 Thread.sleep(5000);
                 heartbeat();
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
 
             }
         });
