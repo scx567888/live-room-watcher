@@ -104,7 +104,14 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         var nonce = RandomUtils.randomString(10);
         var timestamp = LocalDateTime.now().toInstant(ZoneOffset.ofHours(0)).toEpochMilli();
         var sign = getSign(body, appSecret, nonce, timestamp);
-        return ScxHttpClientHelper.request(new ScxHttpClientRequest().uri(url).setHeader("appkey", appID).setHeader("sign", sign).setHeader("nonce", nonce).setHeader("timestamp", timestamp + "").method(method).body(new JsonBody(body)));
+        return ScxHttpClientHelper.request(new ScxHttpClientRequest()
+                .uri(url)
+                .setHeader("appkey", appID)
+                .setHeader("sign", sign)
+                .setHeader("nonce", nonce)
+                .setHeader("timestamp", timestamp + "")
+                .method(method)
+                .body(new JsonBody(body)));
     }
 
     private ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
