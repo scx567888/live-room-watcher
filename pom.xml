@@ -141,7 +141,7 @@
 
         <scx.version>2.5.0</scx.version>
         <protobuf.version>3.25.1</protobuf.version>
-        <jsoup.version>1.16.2</jsoup.version>
+        <jsoup.version>1.17.1</jsoup.version>
         <graalvm-js.version>23.0.2</graalvm-js.version>
         <testng.version>7.8.0</testng.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
