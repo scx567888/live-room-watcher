@@ -3,8 +3,8 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
 
-import "webcast/im/Common.proto";
-import "webcast/data/User.proto";
+import "douyin_hack/webcast/im/Common.proto";
+import "douyin_hack/webcast/data/User.proto";
 
 //更新时间 : 2023-01-10
 message RoomRankMessage {

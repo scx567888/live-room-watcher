@@ -3,12 +3,12 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
 
-import "webcast/data/TextFormat.proto";
-import "webcast/data/TextPieceUser.proto";
-import "webcast/data/TextPieceGift.proto";
-import "webcast/data/TextPieceHeart.proto";
-import "webcast/data/TextPiecePatternRef.proto";
-import "webcast/data/TextPieceImage.proto";
+import "douyin_hack/webcast/data/TextFormat.proto";
+import "douyin_hack/webcast/data/TextPieceUser.proto";
+import "douyin_hack/webcast/data/TextPieceGift.proto";
+import "douyin_hack/webcast/data/TextPieceHeart.proto";
+import "douyin_hack/webcast/data/TextPiecePatternRef.proto";
+import "douyin_hack/webcast/data/TextPieceImage.proto";
 
 //更新时间 : 2023-01-05 17:29:29
 message TextPiece {

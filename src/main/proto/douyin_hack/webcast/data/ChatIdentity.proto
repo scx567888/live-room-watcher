@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
 
-import "webcast/data/Image.proto";
+import "douyin_hack/webcast/data/Image.proto";
 
 //更新时间 2023-01-11
 message ChatIdentity{

@@ -3,13 +3,13 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
 
-import "webcast/im/Common.proto";
-import "webcast/im/PublicAreaCommon.proto";
-import "webcast/data/User.proto";
-import "webcast/data/Image.proto";
-import "webcast/data/Text.proto";
-import "webcast/data/ChatIdentity.proto";
-import "webcast/im/FlexImageStruct.proto";
+import "douyin_hack/webcast/im/Common.proto";
+import "douyin_hack/webcast/im/PublicAreaCommon.proto";
+import "douyin_hack/webcast/data/User.proto";
+import "douyin_hack/webcast/data/Image.proto";
+import "douyin_hack/webcast/data/Text.proto";
+import "douyin_hack/webcast/data/ChatIdentity.proto";
+import "douyin_hack/webcast/im/FlexImageStruct.proto";
 
 //更新时间 : 2023-01-11
 message ScreenChatMessage{
