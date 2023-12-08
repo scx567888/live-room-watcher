@@ -3,14 +3,14 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
 
-import "webcast/data/Image.proto";
-import "webcast/data/LuckyMoneyGiftMeta.proto";
-import "webcast/data/GiftPanelOperation.proto";
-import "webcast/data/GiftBanner.proto";
-import "webcast/data/GiftBuffInfo.proto";
-import "webcast/data/GiftPreviewInfo.proto";
-import "webcast/data/GiftTip.proto";
-import "webcast/data/GiftGroupInfo.proto";
+import "douyin_hack/webcast/data/Image.proto";
+import "douyin_hack/webcast/data/LuckyMoneyGiftMeta.proto";
+import "douyin_hack/webcast/data/GiftPanelOperation.proto";
+import "douyin_hack/webcast/data/GiftBanner.proto";
+import "douyin_hack/webcast/data/GiftBuffInfo.proto";
+import "douyin_hack/webcast/data/GiftPreviewInfo.proto";
+import "douyin_hack/webcast/data/GiftTip.proto";
+import "douyin_hack/webcast/data/GiftGroupInfo.proto";
 
 message GiftStruct {
     Image image = 1;

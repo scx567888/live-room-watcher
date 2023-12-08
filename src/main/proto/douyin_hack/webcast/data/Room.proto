@@ -3,15 +3,15 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
 
-import "webcast/data/RoomExtra.proto";
-import "webcast/data/Image.proto";
-import "webcast/data/User.proto";
-import "webcast/data/StreamUrl.proto";
-import "webcast/data/LinkMic.proto";
-import "webcast/data/Decoration.proto";
-import "webcast/data/TopFan.proto";
-import "webcast/data/RoomStats.proto";
-import "webcast/data/RoomUserAttr.proto";
+import "douyin_hack/webcast/data/RoomExtra.proto";
+import "douyin_hack/webcast/data/Image.proto";
+import "douyin_hack/webcast/data/User.proto";
+import "douyin_hack/webcast/data/StreamUrl.proto";
+import "douyin_hack/webcast/data/LinkMic.proto";
+import "douyin_hack/webcast/data/Decoration.proto";
+import "douyin_hack/webcast/data/TopFan.proto";
+import "douyin_hack/webcast/data/RoomStats.proto";
+import "douyin_hack/webcast/data/RoomUserAttr.proto";
 
 message Room {
     int64 id = 1;
