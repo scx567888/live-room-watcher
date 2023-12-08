@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let ws=new WebSocket("wss://webcast16-ws-alisg.tiktok.com/webcast/im/push/?aid=1988&app_language=zh-Hans&app_name=tiktok_web&browser_language=zh-CN&browser_name=Mozilla&browser_online=true&browser_platform=Win32&browser_version=5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F120.0.0.0%20Safari%2F537.36%20Edg%2F120.0.0.0&compress=gzip&cookie_enabled=true&cursor=1702032650109_7310174534114476040_1_1_0_0&debug=false&device_platform=web&heartbeatDuration=0&host=https%3A%2F%2Fwebcast.tiktok.com&identity=audience&imprp=u6UKO_b3cUUAAAkAAAAAAAAABliQQ&internal_ext=fetch_time%3A1702032650109%7Cstart_time%3A0%7Cack_ids%3A%2C%2C%7Cflag%3A0%7Cseq%3A1%7Cnext_cursor%3A1702032650109_7310174534114476040_1_1_0_0%7Cwss_info%3A0-1702032650109-0-0&live_id=12&room_id=7310174144086510344&screen_height=691&screen_width=1228&tz_name=Asia%2FShanghai&update_version_code=1.3.0&version_code=270000&webcast_sdk_version=1.3.0");
+    
+    
+    ws.onopen=()=>{
+        console.log("open")
+    }
+    
+    ws.onmessage=(s)=>{
+        console.log(s.data)
+    }
+</script>
+</body>
+</html>

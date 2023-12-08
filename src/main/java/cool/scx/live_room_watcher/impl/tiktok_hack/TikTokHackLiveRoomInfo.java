@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.tiktok_hack;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.impl.tiktok_hack.entity.TikTokAPP;
+import cool.scx.live_room_watcher.impl.tiktok_hack.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,13 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
     private final TikTokAPP douYinApp;
 
     public TikTokHackLiveRoomInfo(String indexHtmlStr) throws JsonProcessingException {
-        this.douYinApp = parseBody(indexHtmlStr);
+//        this.douYinApp = parseBody(indexHtmlStr);
+        this.douYinApp = new TikTokAPP();
+        this.douYinApp.state=new State();
+        this.douYinApp.state.roomStore=new RoomStore();
+        this.douYinApp.state.roomStore.roomInfo=new RoomInfo();
+        this.douYinApp.state.roomStore.roomInfo.room=new Room();
+        this.douYinApp.state.roomStore.roomInfo.room.title="";
     }
 
     @Override

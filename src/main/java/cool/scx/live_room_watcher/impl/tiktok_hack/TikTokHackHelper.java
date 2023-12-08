@@ -84,9 +84,9 @@ public final class TikTokHackHelper {
     public static String initLiveRoomURI(String uri) {
         var liveRoomURI = URIBuilder.of(uri).removeAllParams().build();
         //检查是否为抖音直播间地址
-        if (!"live.douyin.com".equals(liveRoomURI.getHost())) {
-            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
-        }
+//        if (!"live.douyin.com".equals(liveRoomURI.getHost())) {
+//            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
+//        }
         //清理掉所有的多余路径
         return liveRoomURI.toString();
     }

@@ -14,7 +14,7 @@ public class TikTokHackLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() {
-        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://live.douyin.com/201176429482").useGzip(true);
+        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@takenoko77w/live").useGzip(true);
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
