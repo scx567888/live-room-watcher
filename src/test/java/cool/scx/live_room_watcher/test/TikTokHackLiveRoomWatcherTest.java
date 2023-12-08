@@ -1,15 +1,13 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.live_room_watcher.impl.kuaishou_hack.KuaiShouHackLiveRoomWatcher;
+
+import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.DEFAULT_DATETIME_FORMATTER;
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
-public class KuaiShouHackLiveRoomWatcherTest {
+public class TikTokHackLiveRoomWatcherTest {
 
     public static void main(String[] args) {
         tes1();
@@ -17,7 +15,7 @@ public class KuaiShouHackLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() {
-        var liveRoomWatcher = new KuaiShouHackLiveRoomWatcher("https://live.kuaishou.com/u/Ahao1124");
+        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://live.douyin.com/201176429482").useGzip(true);
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();

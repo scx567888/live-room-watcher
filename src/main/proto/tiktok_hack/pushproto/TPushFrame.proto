@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.pushproto";
+
+import "tiktok_hack/pushproto/TPushHeader.proto";
+
+//更新时间 : 2023-01-09
+message TPushFrame {
+    uint64 seqid = 1;
+    uint64 logid = 2;
+    uint64 service = 3;
+    uint64 method = 4;
+    repeated TPushHeader headersList = 5;
+    string payloadEncoding = 6;
+    string payloadType = 7;
+    bytes payload = 8;
+}
