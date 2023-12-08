@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher.test;
 
 
-import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackLiveRoomWatcher;
 import cool.scx.util.ansi.Ansi;
 

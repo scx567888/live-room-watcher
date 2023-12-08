@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+//更新时间 : 2023-01-09
+message TMessage {
+    string method = 1;
+    bytes payload = 2;
+    int64 msgId = 3;
+    int32 msgType = 4;
+    int64 offset = 5;
+    bool needWrdsStore = 6;
+    int64 wrdsVersion = 7;
+    string wrdsSubKey = 8;
+    map<string, string> messageExtraMap = 9;
+}
