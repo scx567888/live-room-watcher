@@ -8,10 +8,8 @@ import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
 import io.netty.handler.codec.http.cookie.Cookie;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
-import io.vertx.core.http.HttpClient;
-import io.vertx.core.http.HttpClientOptions;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
+import io.vertx.core.http.*;
+import io.vertx.core.net.ProxyOptions;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -26,9 +24,21 @@ public class Browser {
 
     private final Map<String, Cookie> cookieMap = new HashMap<>();
     private final HttpClient httpClient;
+    private final WebSocketClient webSocketClient;
 
     public Browser(Vertx vertx) {
         this.httpClient = initHttpClient(vertx);
+        this.webSocketClient = initWebSocketClient(vertx);
+    }
+
+    private WebSocketClient initWebSocketClient(Vertx vertx) {
+        var options=new WebSocketClientOptions();
+//        options.setProxyOptions(
+//                        new ProxyOptions()
+//                                .setHost("127.0.0.1")
+//                                .setPort(17890)
+//                );
+        return vertx.createWebSocketClient(options);
     }
 
     /**
@@ -46,10 +56,10 @@ public class Browser {
 //                        .setPassword("123456")
 //                        .setType("jks")
 //                )
-//                .setProxyOptions(
+//        options.setProxyOptions(
 //                        new ProxyOptions()
 //                                .setHost("127.0.0.1")
-//                                .setPort(8888)
+//                                .setPort(17890)
 //                );
         return vertx.createHttpClient(options);
     }
@@ -70,7 +80,7 @@ public class Browser {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
         options.addHeader("User-Agent", navigator().userAgent());
         options.addHeader("Cookie", cookieStr);
-        return httpClient.webSocket(options);
+        return webSocketClient.connect(options);
     }
 
     public Cookie getCookie(String cookieName) {
