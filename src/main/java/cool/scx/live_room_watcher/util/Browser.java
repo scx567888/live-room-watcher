@@ -33,11 +33,11 @@ public class Browser {
 
     private WebSocketClient initWebSocketClient(Vertx vertx) {
         var options=new WebSocketClientOptions();
-        options.setProxyOptions(
-                        new ProxyOptions()
-                                .setHost("127.0.0.1")
-                                .setPort(17890)
-                );
+//        options.setProxyOptions(
+//                        new ProxyOptions()
+//                                .setHost("127.0.0.1")
+//                                .setPort(17890)
+//                );
         return vertx.createWebSocketClient(options);
     }
 
@@ -56,11 +56,11 @@ public class Browser {
 //                        .setPassword("123456")
 //                        .setType("jks")
 //                )
-        options.setProxyOptions(
-                        new ProxyOptions()
-                                .setHost("127.0.0.1")
-                                .setPort(17890)
-                );
+//        options.setProxyOptions(
+//                        new ProxyOptions()
+//                                .setHost("127.0.0.1")
+//                                .setPort(17890)
+//                );
         return vertx.createHttpClient(options);
     }
 
