@@ -1,29 +1,21 @@
-package cool.scx.live_room_watcher.impl._560game;
+package cool.scx.live_room_watcher.impl._560game.message;
 
-import cool.scx.live_room_watcher.message.Gift;
+import cool.scx.live_room_watcher.message.Chat;
 import cool.scx.live_room_watcher.message.User;
 
-public class _560GameGift implements Gift, User {
+public class _560GameChat implements Chat, User {
 
     public Integer MsgType;
-    public Integer GiftId;
-    public Integer GiftNum;
     public Integer GameId;
-    public Long GiftPrice;
-    public String GiftName;
+    public String Content;
     public String HeadImage;
     public String Username;
-    public String GiftImage;
+
     public String roomID;
 
     @Override
-    public String name() {
-        return GiftName;
-    }
-
-    @Override
-    public long count() {
-        return GiftNum;
+    public String content() {
+        return Content;
     }
 
     @Override
