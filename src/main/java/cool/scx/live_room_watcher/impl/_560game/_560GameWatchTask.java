@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl._560game;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.ScxExceptionHelper;
 import io.vertx.core.Future;
@@ -38,8 +39,8 @@ public class _560GameWatchTask {
             logger.log(DEBUG, "连接成功 ");
             ws.textMessageHandler(c -> Thread.ofVirtual().start(() -> {
                 try {
-                    System.out.println(c);
                     var jsonNode = ScxExceptionHelper.wrap(() -> ObjectUtils.jsonMapper().readTree(c));
+                    ((ObjectNode) jsonNode).put("roomID", username);
                     var MsgType = jsonNode.get("MsgType").asInt();
                     switch (MsgType) {
                         case 7 -> callOffline(jsonNode);//游戏下线
@@ -93,11 +94,11 @@ public class _560GameWatchTask {
     }
 
     public static void callOffline(JsonNode args) {
-        
-    } 
-    
-    public static void callPing(JsonNode args) {
-        
+
+    }
+
+    public void callPing(JsonNode args) {
+        webSocket.writeTextMessage("ping");
     }
 
 }
