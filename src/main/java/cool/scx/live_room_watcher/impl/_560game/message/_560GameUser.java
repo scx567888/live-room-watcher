@@ -8,6 +8,7 @@ public class _560GameUser implements User {
     public Integer GameId;
     public String HeadImage;
     public String Username;
+    public String UserId;
 
     public String roomID;
     
@@ -28,7 +29,7 @@ public class _560GameUser implements User {
 
     @Override
     public String userID() {
-        return Username;
+        return UserId;
     }
 
 }

@@ -1,5 +1,6 @@
 package cool.scx.live_room_watcher.impl._560game;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.body.JsonBody;
@@ -10,9 +11,11 @@ import io.vertx.core.http.WebSocketClient;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static cool.scx.live_room_watcher.impl._560game._560GameApi.GET_GIFT_LIST_URL;
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.VALIDATE_USER_URL;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 import static cool.scx.util.RandomUtils.randomString;
@@ -99,6 +102,30 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
             throw new RuntimeException("返回数据有误");
         }
         return jsonNode.get("data").get("ws_url").asText();
+    }
+
+    public List<_560GiftListEntry> getGiftList() throws IOException, InterruptedException {
+        var map = new HashMap<String, String>();
+        map.put("mch_id", this.mch_id);
+        map.put("game_id", this.game_id);
+        map.put("nonce", randomString(32));
+
+        var sign = getSign(map, secret);
+        map.put("sign", sign);
+
+        var post = ScxHttpClientHelper.post(root_uri + GET_GIFT_LIST_URL,
+                new JsonBody(
+                        map
+                ));
+        var body = post.body();
+        var bodyStr = body.toString();
+        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        var message = jsonNode.get("message").asText();
+        if (!"success".equals(message)) {
+            throw new RuntimeException("返回数据有误");
+        }
+        return ObjectUtils.convertValue(jsonNode.get("data"), new TypeReference<>() {
+        });
     }
 
     void callMessage(JsonNode jsonNode) {
