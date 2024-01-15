@@ -17,6 +17,7 @@ import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
 import io.vertx.core.http.HttpClient;
+import io.vertx.core.http.WebSocketClient;
 import io.vertx.core.http.WebSocketConnectOptions;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ import static java.lang.System.Logger.Level.DEBUG;
 public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
 
     final HttpClient httpClient;
+    final WebSocketClient webSocketClient;
     private final MEMEApi memeApi;
     private final String appID;
     private final String appSecret;
@@ -50,6 +52,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
             throw new NullPointerException("参数不全 !!!");
         }
         this.httpClient = vertx.createHttpClient();
+        this.webSocketClient = vertx.createWebSocketClient();
         this.memeApi = new MEMEApi(isTest);
     }
 

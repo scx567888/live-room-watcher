@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.ScxExceptionHelper;
-import io.vertx.core.Future;
+import cool.scx.util.ScxFuture;
 import io.vertx.core.http.WebSocket;
 import io.vertx.core.http.WebSocketConnectOptions;
 
@@ -19,7 +19,7 @@ public class _560GameWatchTask {
     private final String username;
     private final String password;
     private final _560GameLiveRoomWatcher watcher;
-    private Future<WebSocket> webSocketFuture;
+    private ScxFuture<WebSocket> webSocketFuture;
     private WebSocket webSocket;
 
     public _560GameWatchTask(String username, String password, _560GameLiveRoomWatcher watcher) {
@@ -32,7 +32,7 @@ public class _560GameWatchTask {
         stop();
         var s = watcher.validateUser(this.username, this.password);
         var ws_url = getWsUrl(s, username);
-        this.webSocketFuture = watcher.webSocketClient.connect(new WebSocketConnectOptions().setAbsoluteURI(ws_url));
+        this.webSocketFuture = new ScxFuture<>(watcher.webSocketClient.connect(new WebSocketConnectOptions().setAbsoluteURI(ws_url)));
 
         webSocketFuture.onSuccess(ws -> {
             webSocket = ws;
