@@ -46,7 +46,7 @@
         <dependency>
             <groupId>cool.scx</groupId>
             <artifactId>scx-common</artifactId>
-            <version>${scx.version}</version>
+            <version>${scx-common.version}</version>
         </dependency>
 
         <dependency>
@@ -139,7 +139,7 @@
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
 
-        <scx.version>2.6.3</scx.version>
+        <scx-common.version>2.6.3</scx-common.version>
         <protobuf.version>3.25.2</protobuf.version>
         <jsoup.version>1.17.2</jsoup.version>
         <graalvm-js.version>23.0.2</graalvm-js.version>
