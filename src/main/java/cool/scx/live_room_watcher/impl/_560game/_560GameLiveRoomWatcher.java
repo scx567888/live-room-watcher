@@ -56,10 +56,13 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
     }
 
     public void startWatch(String username, String password) throws IOException, InterruptedException {
-        if (watchTaskMap.get(username) == null) {
+        var w = watchTaskMap.get(username);
+        if (w == null) {
             var watchTask = new _560GameWatchTask(username, password, this);
             watchTaskMap.put(username, watchTask);
             watchTask.start();
+        }else{
+            w.start();
         }
     }
 
