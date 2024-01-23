@@ -13,7 +13,7 @@ jobs:
       - name: 签出代码
         uses: actions/checkout@v3
 
-      - name: 启动默认的 MySQL # See https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+      - name: 启动默认的 MySQL
         if: ${{ runner.os == 'Linux' }}
         run: sudo systemctl start mysql.service
 
