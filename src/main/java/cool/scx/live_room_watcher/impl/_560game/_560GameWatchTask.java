@@ -51,6 +51,7 @@ public class _560GameWatchTask {
             ws.textMessageHandler(c -> Thread.ofVirtual().start(() -> {
                 startPing();
                 startPingTimeout();
+                logger.log(DEBUG,"收到消息 {0}",c);
                 try {
                     var jsonNode = ScxExceptionHelper.wrap(() -> ObjectUtils.jsonMapper().readTree(c));
                     ((ObjectNode) jsonNode).put("roomID", username);
