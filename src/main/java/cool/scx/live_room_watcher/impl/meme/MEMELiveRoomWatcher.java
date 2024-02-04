@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.impl.meme;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.enumeration.HttpMethod;
+import cool.scx.standard.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
@@ -26,8 +26,8 @@ import java.time.ZoneOffset;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static cool.scx.enumeration.HttpMethod.GET;
-import static cool.scx.enumeration.HttpMethod.POST;
+import static cool.scx.standard.HttpMethod.GET;
+import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.logger;
 import static cool.scx.util.ObjectUtils.toJson;
