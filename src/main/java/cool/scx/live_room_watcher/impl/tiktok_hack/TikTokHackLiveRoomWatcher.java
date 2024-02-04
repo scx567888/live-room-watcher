@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.enumeration.HttpMethod.GET;
+import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.initLiveRoomURI;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;

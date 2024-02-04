@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
-import static cool.scx.enumeration.HttpMethod.GET;
+import static cool.scx.standard.HttpMethod.GET;
 
 /**
  * todo 未完成
