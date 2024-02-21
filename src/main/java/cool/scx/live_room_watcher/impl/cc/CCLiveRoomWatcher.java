@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.impl.cc;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.enumeration.HttpMethod;
+import cool.scx.standard.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
@@ -16,8 +16,8 @@ import cool.scx.util.URIBuilder;
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.enumeration.HttpMethod.GET;
-import static cool.scx.enumeration.HttpMethod.POST;
+import static cool.scx.standard.HttpMethod.GET;
+import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.cc.CCApi.*;

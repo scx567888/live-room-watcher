@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.enumeration.HttpMethod.POST;
+import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.live_room_watcher.MsgType.LIVE_COMMENT;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.util.ScxExceptionHelper.wrap;
