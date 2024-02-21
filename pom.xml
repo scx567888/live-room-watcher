@@ -46,13 +46,13 @@
         <dependency>
             <groupId>cool.scx</groupId>
             <artifactId>scx-common</artifactId>
-            <version>${scx-common.version}</version>
+            <version>${scx.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cool.scx</groupId>
             <artifactId>scx-logging</artifactId>
-            <version>${scx-logging.version}</version>
+            <version>${scx.version}</version>
         </dependency>
 
         <dependency>
