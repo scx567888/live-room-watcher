@@ -151,7 +151,7 @@
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
 
-        <scx-common.version>2.7.0</scx-common.version>
+        <scx-common.version>2.7.1</scx-common.version>
         <scx-logging.version>2.7.0</scx-logging.version>
         <protobuf.version>3.25.2</protobuf.version>
         <jsoup.version>1.17.2</jsoup.version>
