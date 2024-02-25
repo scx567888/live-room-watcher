@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.util.ScxFuture;
+import cool.scx.util.SingleListenerFuture;
 import io.vertx.core.http.WebSocket;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,7 +15,7 @@ public class MEMEWatchTask {
     public static final System.Logger logger = System.getLogger(MEMEWatchTask.class.getName());
 
     MEMEWatchTaskStatus status;
-    ScxFuture<WebSocket> webSocketFuture;
+    SingleListenerFuture<WebSocket> webSocketFuture;
     final MEMELiveRoomWatcher watcher;
     final String roomID;
     Thread heartbeatThread;
@@ -30,7 +30,7 @@ public class MEMEWatchTask {
     public void start() {
         stop();
         status = STARTING;
-        this.webSocketFuture = new ScxFuture<>(watcher.webSocketClient.connect(watcher.getWebsocketChannelOptions(roomID)));
+        this.webSocketFuture = new SingleListenerFuture<>(watcher.webSocketClient.connect(watcher.getWebsocketChannelOptions(roomID)));
         webSocketFuture.onSuccess(ws -> {
             if (status == STOP) {
                 return;
