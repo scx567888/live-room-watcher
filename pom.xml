@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>

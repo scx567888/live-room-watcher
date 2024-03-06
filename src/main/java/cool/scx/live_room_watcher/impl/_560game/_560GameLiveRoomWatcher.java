@@ -15,8 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static cool.scx.live_room_watcher.impl._560game._560GameApi.GET_GIFT_LIST_URL;
-import static cool.scx.live_room_watcher.impl._560game._560GameApi.VALIDATE_USER_URL;
+import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 import static cool.scx.util.RandomUtils.randomString;
 
@@ -105,6 +104,78 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
             throw new RuntimeException("返回数据有误");
         }
         return jsonNode.get("data").get("ws_url").asText();
+    }
+
+    public JsonNode closeGameNotify(String username){
+        try {
+            return closeGameNotify0(username);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 关闭游戏推送通知
+     *
+     * @param username username
+     * @return a
+     * @throws IOException          a
+     * @throws InterruptedException a
+     */
+    public JsonNode closeGameNotify0(String username) throws IOException, InterruptedException {
+        var map = new HashMap<String, String>();
+        map.put("mch_id", this.mch_id);
+        map.put("username", username);
+        map.put("game_id", this.game_id);
+        map.put("nonce", randomString(32));
+
+        var sign = getSign(map, secret);
+        map.put("sign", sign);
+
+        var post = ScxHttpClientHelper.post(root_uri + CLOSE_GAME_NOTIFY_URL,
+                new JsonBody(
+                        map
+                ));
+        var body = post.body();
+        var bodyStr = body.toString();
+        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        String message = jsonNode.get("message").asText();
+        if (!"success".equals(message)) {
+            throw new RuntimeException("返回数据有误");
+        }
+        return jsonNode;
+    }
+
+    public JsonNode reportGameNotify(String username) {
+        try {
+            return reportGameNotify0(username);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public JsonNode reportGameNotify0(String username) throws IOException, InterruptedException {
+        var map = new HashMap<String, String>();
+        map.put("mch_id", this.mch_id);
+        map.put("username", username);
+        map.put("game_id", this.game_id);
+        map.put("nonce", randomString(32));
+
+        var sign = getSign(map, secret);
+        map.put("sign", sign);
+
+        var post = ScxHttpClientHelper.post(root_uri + REPORT_GAME_NOTIFY_URL,
+                new JsonBody(
+                        map
+                ));
+        var body = post.body();
+        var bodyStr = body.toString();
+        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        String message = jsonNode.get("message").asText();
+        if (!"success".equals(message)) {
+            throw new RuntimeException("返回数据有误");
+        }
+        return jsonNode;
     }
 
     public List<_560GiftListEntry> getGiftList() throws IOException, InterruptedException {
