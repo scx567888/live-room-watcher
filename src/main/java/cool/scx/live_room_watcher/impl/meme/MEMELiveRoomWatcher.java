@@ -1,18 +1,18 @@
 package cool.scx.live_room_watcher.impl.meme;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.standard.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AccessToken;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
+import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
 import cool.scx.util.URIBuilder;
@@ -26,24 +26,26 @@ import java.time.ZoneOffset;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static cool.scx.standard.HttpMethod.GET;
-import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.logger;
+import static cool.scx.live_room_watcher.util.Helper.VERTX;
+import static cool.scx.standard.HttpMethod.GET;
+import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.util.ObjectUtils.toJson;
 import static java.lang.System.Logger.Level.DEBUG;
 
 /**
  * 么么直播
  */
-public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
+public class MEMELiveRoomWatcher extends  OfficialLiveRoomWatcher {
 
     final HttpClient httpClient;
     final WebSocketClient webSocketClient;
-    private final MEMEApi memeApi;
-    private final String appID;
-    private final String appSecret;
+    final MEMEApi memeApi;
+    final String appID;
+    final String appSecret;
     private final Map<String, MEMEWatchTask> watchTaskMap = new ConcurrentHashMap<>();
+    private final MEMEAccessTokenManager accessTokenManager;
 
     public MEMELiveRoomWatcher(String appID, String appSecret, boolean isTest) {
         this.appID = appID;
@@ -51,9 +53,10 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         if (appID == null || appSecret == null) {
             throw new NullPointerException("参数不全 !!!");
         }
-        this.httpClient = vertx.createHttpClient();
-        this.webSocketClient = vertx.createWebSocketClient();
+        this.httpClient = VERTX.createHttpClient();
+        this.webSocketClient = VERTX.createWebSocketClient();
         this.memeApi = new MEMEApi(isTest);
+        this.accessTokenManager = new MEMEAccessTokenManager(this);
     }
 
     public MEMELiveRoomWatcher(String appID, String appSecret) {
@@ -61,19 +64,13 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
     }
 
     public WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
-        var absoluteURI = memeApi.WEBSOCKET_CHANNEL_URL() + "?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + getAccessToken();
+        var absoluteURI = memeApi.WEBSOCKET_CHANNEL_URL() + "?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + accessTokenManager.getAccessToken();
         logger.log(DEBUG, "获取连接地址 : {0}", absoluteURI);
         var options = new WebSocketConnectOptions();
         options.setAbsoluteURI(absoluteURI);
         return options;
     }
 
-    protected AccessToken getAccessToken0() throws IOException, InterruptedException {
-        var uri = URIBuilder.of(memeApi.ACCESS_TOKEN_URL()).addParam("appkey", appID).toString();
-        ScxHttpClientResponse response = this.request(GET, uri);
-        var json = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(json, MEMEAccessToken.class);
-    }
 
     @Override
     public MEMELiveRoomAnchor liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
@@ -117,7 +114,7 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
                 .body(new JsonBody(body)));
     }
 
-    private ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
+    ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
         return request(method, url, "");
     }
 
@@ -175,45 +172,40 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         return request.body().toString();
     }
 
-    public void callMessage(String jsonPayload) {
-        try {
-            var payload = ObjectUtils.jsonMapper().readValue(jsonPayload, MEMEWebSocketPayload.class);
-            switch (payload.action) {
-                case "enterRoom" -> callEnterRoom(payload);
-                case "sendGift" -> callSendGift(payload);
-                case "comment" -> callComment(payload);
-                case "like" -> callLike(payload);
-            }
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+    public void callMessage(String jsonPayload) throws JsonProcessingException {
+        var payload = ObjectUtils.jsonMapper().readValue(jsonPayload, MEMEWebSocketPayload.class);
+        switch (payload.action) {
+            case "enterRoom" -> callEnterRoom(payload);
+            case "sendGift" -> callSendGift(payload);
+            case "comment" -> callComment(payload);
+            case "like" -> callLike(payload);
         }
     }
 
     private void callLike(MEMEWebSocketPayload payload) {
         var memeLike = ObjectUtils.convertValue(payload.data, MEMELike.class);
         memeLike.roomID = payload.roomId + "";
-        this.likeHandler.accept(memeLike);
+        this._callOnLike(memeLike);
     }
 
     private void callEnterRoom(MEMEWebSocketPayload payload) {
         var memeEnterRoom = ObjectUtils.convertValue(payload.data, MEMEEnterRoom.class);
         memeEnterRoom.roomID = payload.roomId + "";
-        this.userHandler.accept(memeEnterRoom);
+        this._callOnUser(memeEnterRoom);
     }
 
     private void callComment(MEMEWebSocketPayload payload) {
         var memeChat = ObjectUtils.convertValue(payload.data, MEMEChat.class);
         memeChat.roomID = payload.roomId + "";
-        this.chatHandler.accept(memeChat);
+        this._callOnChat(memeChat);
     }
 
     private void callSendGift(MEMEWebSocketPayload payload) {
         var memeGift = ObjectUtils.convertValue(payload.data, MEMEGift.class);
         memeGift.roomID = payload.roomId + "";
-        this.giftHandler.accept(memeGift);
+        this._callOnGift(memeGift);
     }
-
-    @Override
+    
     public void startWatch(String roomID) throws IOException, InterruptedException {
         if (watchTaskMap.get(roomID) == null) {
             var watchTask = new MEMEWatchTask(this, roomID);
@@ -222,7 +214,6 @@ public class MEMELiveRoomWatcher extends OfficialLiveRoomWatcher {
         }
     }
 
-    @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         var watchTask = watchTaskMap.get(roomID);
         if (watchTask != null) {

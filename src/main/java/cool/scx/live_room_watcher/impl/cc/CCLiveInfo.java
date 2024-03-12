@@ -35,7 +35,6 @@ public class CCLiveInfo implements LiveRoomInfo, LiveRoomAnchor {
         return this;
     }
 
-
     @Override
     public String anchorNickName() {
         return nickname;

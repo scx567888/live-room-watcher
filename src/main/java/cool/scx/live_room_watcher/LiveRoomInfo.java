@@ -29,6 +29,11 @@ public interface LiveRoomInfo {
      */
     String liveRoomID();
 
+    /**
+     * 主播信息
+     *
+     * @return a
+     */
     LiveRoomAnchor liveRoomAnchor();
 
 }

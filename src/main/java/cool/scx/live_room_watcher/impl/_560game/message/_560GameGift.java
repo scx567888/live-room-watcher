@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher.impl._560game.message;
 
 import cool.scx.live_room_watcher.message.Gift;
-import cool.scx.live_room_watcher.message.User;
 
 public class _560GameGift extends _560GameUser implements Gift {
 

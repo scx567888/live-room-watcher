@@ -4,7 +4,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.functional.ScxConsumer;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
@@ -13,6 +12,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
@@ -52,7 +53,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
      */
     public DouYinHackLiveRoomWatcher(String uri) {
         this.liveRoomURI = initLiveRoomURI(uri);
-        this.browser = new Browser(vertx).addCookie(new DefaultCookie("__ac_nonce", "063b51155007d27728929"));
+        this.browser = new Browser(VERTX).addCookie(new DefaultCookie("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
@@ -144,7 +145,6 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
     /**
      * {@inheritDoc}
      */
-    @Override
     public void startWatch() {
         //终止上一次的监听
         stopWatch();
@@ -179,7 +179,6 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
         });
     }
 
-    @Override
     public void stopWatch() {
         //尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
@@ -223,7 +222,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
     public void WebcastSocialMessage(byte[] payload) throws InvalidProtocolBufferException {
         var socialMessage = SocialMessage.parseFrom(payload);
         var douYinFollow = new DouYinHackFollow(socialMessage);
-        this.followHandler().accept(douYinFollow);
+        this._callOnFollow(douYinFollow);
     }
 
     public void RoomMessageOrWebcastRoomMessage(byte[] payload) throws InvalidProtocolBufferException {
@@ -234,7 +233,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
         // 消息
         var chatMessage = ChatMessage.parseFrom(payload);
         var douYinChat = new DouYinHackChat(chatMessage);
-        this.chatHandler().accept(douYinChat);
+        this._callOnChat(douYinChat);
     }
 
     public void WebcastMemberMessage(byte[] payload) throws InvalidProtocolBufferException {
@@ -271,14 +270,14 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
             }
         }
         var douYinUser = new DouYinHackUser(memberMessage);
-        this.userHandler().accept(douYinUser);
+        this._callOnUser(douYinUser);
     }
 
     public void WebcastLikeMessage(byte[] payload) throws InvalidProtocolBufferException {
         //点赞
         var likeMessage = LikeMessage.parseFrom(payload);
         var douYinLike = new DouYinHackLike(likeMessage);
-        this.likeHandler().accept(douYinLike);
+        this._callOnLike(douYinLike);
     }
 
     public void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
@@ -293,7 +292,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
         //todo 人气 Top 是拿不到 name 的
         String name = giftMessage.getGift().getName();
         var douYinGift = new DouYinHackGift(giftMessage);
-        this.giftHandler().accept(douYinGift);
+        this._callOnGift(douYinGift);
     }
 
     public void WebcastRoomUserSeqMessage(byte[] payload) throws InvalidProtocolBufferException {

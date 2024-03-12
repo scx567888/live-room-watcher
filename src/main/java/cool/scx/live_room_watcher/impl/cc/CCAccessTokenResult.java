@@ -15,4 +15,8 @@ public record CCAccessTokenResult(Integer err_no, String err_tips,
         return data().expires_in();
     }
 
+    record CCAccessTokenResultData(String access_token, Long expires_in) {
+
+    }
+
 }

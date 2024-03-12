@@ -5,146 +5,48 @@ import cool.scx.live_room_watcher.message.*;
 import java.util.function.Consumer;
 
 /**
- * <p>直播间观察者</p>
- *
- * @author scx567888
- * @version 0.0.1
+ * LiveRoomWatcher
  */
 public interface LiveRoomWatcher {
 
     /**
-     * chatHandler 的别名
-     *
-     * @param handler handler
-     * @return this
-     */
-    default LiveRoomWatcher onChat(Consumer<Chat> handler) {
-        return this.chatHandler(handler);
-    }
-
-    /**
-     * userHandler 的别名
-     *
-     * @param handler handler
-     * @return this
-     */
-    default LiveRoomWatcher onUser(Consumer<User> handler) {
-        return this.userHandler(handler);
-    }
-
-    /**
-     * likeHandler 的别名
-     *
-     * @param handler handler
-     * @return this
-     */
-    default LiveRoomWatcher onLike(Consumer<Like> handler) {
-        return this.likeHandler(handler);
-    }
-
-    /**
-     * followHandler 的别名
-     *
-     * @param handler handler
-     * @return this
-     */
-    default LiveRoomWatcher onFollow(Consumer<Follow> handler) {
-        return this.followHandler(handler);
-    }
-
-    /**
-     * giftHandler 的别名
-     *
-     * @param handler handler
-     * @return this
-     */
-    default LiveRoomWatcher onGift(Consumer<Gift> handler) {
-        return this.giftHandler(handler);
-    }
-
-    /**
      * 当获取到新弹幕时
      *
-     * @param handler handler
+     * @param onChat onChat
      * @return this
      */
-    LiveRoomWatcher chatHandler(Consumer<Chat> handler);
+    LiveRoomWatcher onChat(Consumer<Chat> onChat);
+
+    /**
+     * 当获取到点赞时
+     *
+     * @param onLike onLike
+     * @return this
+     */
+    LiveRoomWatcher onLike(Consumer<Like> onLike);
+
+    /**
+     * 当收到礼物时
+     *
+     * @param onGift onGift
+     * @return this
+     */
+    LiveRoomWatcher onGift(Consumer<Gift> onGift);
+
+    /**
+     * 当用户关注的时候
+     *
+     * @param onFollow onFollow
+     * @return this
+     */
+    LiveRoomWatcher onFollow(Consumer<Follow> onFollow);
 
     /**
      * 当新用户进入直播间时
      *
-     * @param handler handler
+     * @param onUser onUser
      * @return this
      */
-    LiveRoomWatcher userHandler(Consumer<User> handler);
-
-    /**
-     * 点赞
-     *
-     * @param handler handler
-     * @return this
-     */
-    LiveRoomWatcher likeHandler(Consumer<Like> handler);
-
-    /**
-     * 关注
-     *
-     * @param handler handler
-     * @return this
-     */
-    LiveRoomWatcher followHandler(Consumer<Follow> handler);
-
-    /**
-     * 礼物
-     *
-     * @param handler handler
-     * @return this
-     */
-    LiveRoomWatcher giftHandler(Consumer<Gift> handler);
-
-    /**
-     * 获取 chatHandler
-     *
-     * @return chatHandler
-     */
-    Consumer<Chat> chatHandler();
-
-    /**
-     * 获取 userHandler
-     *
-     * @return userHandler
-     */
-    Consumer<User> userHandler();
-
-    /**
-     * 获取 likeHandler
-     *
-     * @return likeHandler
-     */
-    Consumer<Like> likeHandler();
-
-    /**
-     * 获取  followHandler
-     *
-     * @return followHandler
-     */
-    Consumer<Follow> followHandler();
-
-    /**
-     * 获取  giftHandler
-     *
-     * @return giftHandler
-     */
-    Consumer<Gift> giftHandler();
-
-    /**
-     * 启动 监控
-     */
-    void startWatch();
-
-    /**
-     * 停止监控
-     */
-    void stopWatch();
-
+    LiveRoomWatcher onUser(Consumer<User> onUser);
+    
 }

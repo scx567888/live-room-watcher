@@ -9,7 +9,6 @@ import io.netty.handler.codec.http.cookie.Cookie;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.*;
-import io.vertx.core.net.ProxyOptions;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,7 +31,7 @@ public class Browser {
     }
 
     private WebSocketClient initWebSocketClient(Vertx vertx) {
-        var options=new WebSocketClientOptions();
+        var options = new WebSocketClientOptions();
 //        options.setProxyOptions(
 //                        new ProxyOptions()
 //                                .setHost("127.0.0.1")
