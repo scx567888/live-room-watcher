@@ -145,7 +145,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher implement
     /**
      * {@inheritDoc}
      */
-    @Override
     public void startWatch() {
         //终止上一次的监听
         stopWatch();
@@ -180,7 +179,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher implement
         });
     }
 
-    @Override
     public void stopWatch() {
         //尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {

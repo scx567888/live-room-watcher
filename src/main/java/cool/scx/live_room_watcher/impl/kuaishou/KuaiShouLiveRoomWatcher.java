@@ -161,12 +161,10 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher implements 
         }
     }
 
-    @Override
     public void startWatch(String roomID) throws IOException, InterruptedException {
         taskStart(roomID, null);
     }
 
-    @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, null);
     }

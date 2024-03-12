@@ -10,14 +10,4 @@ import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
  */
 public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
-    @Override
-    public void startWatch() {
-
-    }
-
-    @Override
-    public void stopWatch() {
-
-    }
-
 }

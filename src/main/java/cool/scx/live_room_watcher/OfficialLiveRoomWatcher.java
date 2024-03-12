@@ -32,28 +32,4 @@ public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
      */
     Object topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
-    @Override
-    default void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
-    }
-
-    @Override
-    default void stopWatch() {
-        throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
-    }
-
-    /**
-     * a
-     *
-     * @param roomID a
-     */
-    void startWatch(String roomID) throws IOException, InterruptedException;
-
-    /**
-     * a
-     *
-     * @param roomID a
-     */
-    void stopWatch(String roomID) throws IOException, InterruptedException;
-
 }

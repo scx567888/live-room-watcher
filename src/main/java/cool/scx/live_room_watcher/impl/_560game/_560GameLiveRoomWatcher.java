@@ -45,16 +45,6 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.root_uri = root_url;
     }
 
-    @Override
-    public void startWatch() {
-        throw new UnsupportedOperationException("请使用 startWatch(String roomID) !!!");
-    }
-
-    @Override
-    public void stopWatch() {
-        throw new UnsupportedOperationException("请使用 stopWatch(String roomID) !!!");
-    }
-
     public void startWatch(String username, String password) throws IOException, InterruptedException {
         var w = watchTaskMap.get(username);
         if (w == null) {

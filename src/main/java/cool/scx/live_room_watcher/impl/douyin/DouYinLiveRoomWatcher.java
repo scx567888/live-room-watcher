@@ -180,7 +180,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher implements Of
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
-    @Override
     public void startWatch(String roomID) throws IOException, InterruptedException {
         taskStart(roomID, LIVE_COMMENT);
         taskStart(roomID, LIVE_GIFT);
@@ -188,7 +187,6 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher implements Of
         taskStart(roomID, LIVE_FANS_CLUB);
     }
 
-    @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, LIVE_COMMENT);
         taskStop(roomID, LIVE_GIFT);

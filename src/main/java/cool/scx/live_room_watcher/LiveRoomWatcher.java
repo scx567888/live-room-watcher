@@ -48,15 +48,5 @@ public interface LiveRoomWatcher {
      * @return this
      */
     LiveRoomWatcher onUser(Consumer<User> onUser);
-
-    /**
-     * 启动 监控
-     */
-    void startWatch();
-
-    /**
-     * 停止 监控
-     */
-    void stopWatch();
     
 }

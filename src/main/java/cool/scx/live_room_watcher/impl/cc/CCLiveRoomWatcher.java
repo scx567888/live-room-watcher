@@ -159,14 +159,12 @@ public class CCLiveRoomWatcher extends AbstractLiveRoomWatcher implements Offici
         return response.body().toString();
     }
 
-    @Override
     public void startWatch(String roomID) throws IOException, InterruptedException {
         taskStart(roomID, LIVE_COMMENT);
         taskStart(roomID, LIVE_GIFT);
         taskStart(roomID, LIVE_LIKE);
     }
-
-    @Override
+    
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         taskStop(roomID, LIVE_COMMENT);
         taskStop(roomID, LIVE_GIFT);

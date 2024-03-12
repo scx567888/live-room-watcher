@@ -205,8 +205,7 @@ public class MEMELiveRoomWatcher extends AbstractLiveRoomWatcher implements Offi
         memeGift.roomID = payload.roomId + "";
         this._callOnGift(memeGift);
     }
-
-    @Override
+    
     public void startWatch(String roomID) throws IOException, InterruptedException {
         if (watchTaskMap.get(roomID) == null) {
             var watchTask = new MEMEWatchTask(this, roomID);
@@ -215,7 +214,6 @@ public class MEMELiveRoomWatcher extends AbstractLiveRoomWatcher implements Offi
         }
     }
 
-    @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
         var watchTask = watchTaskMap.get(roomID);
         if (watchTask != null) {
