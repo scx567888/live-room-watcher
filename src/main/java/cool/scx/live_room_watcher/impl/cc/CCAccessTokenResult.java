@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.cc;
 
-import cool.scx.live_room_watcher_old.AccessToken;
+import cool.scx.live_room_watcher.AccessToken;
 
 public record CCAccessTokenResult(Integer err_no, String err_tips,
                                   CCAccessTokenResultData data) implements AccessToken {

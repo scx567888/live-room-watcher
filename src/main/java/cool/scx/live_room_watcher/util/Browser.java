@@ -9,13 +9,10 @@ import io.netty.handler.codec.http.cookie.Cookie;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.*;
-import io.vertx.core.net.ProxyOptions;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
  * 模拟浏览器的 HttpClient
@@ -66,7 +63,7 @@ public class Browser {
 
     public ScxHttpClientResponse request(ScxHttpClientRequest request) throws IOException, InterruptedException {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
-        request.addHeader("User-Agent", navigator().userAgent());
+        request.addHeader("User-Agent", Navigator.navigator().userAgent());
         request.addHeader("Cookie", cookieStr);
         var response = ScxHttpClientHelper.request(request);
         var setCookie = response.headers().allValues("Set-Cookie");
@@ -78,7 +75,7 @@ public class Browser {
 
     public Future<WebSocket> webSocket(WebSocketConnectOptions options) {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
-        options.addHeader("User-Agent", navigator().userAgent());
+        options.addHeader("User-Agent", Navigator.navigator().userAgent());
         options.addHeader("Cookie", cookieStr);
         return webSocketClient.connect(options);
     }

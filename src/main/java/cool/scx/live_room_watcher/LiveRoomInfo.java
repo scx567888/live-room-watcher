@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new;
+package cool.scx.live_room_watcher;
 
 import java.util.List;
 

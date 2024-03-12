@@ -5,17 +5,14 @@ import cool.scx.live_room_watcher.message.*;
 import java.util.function.Consumer;
 
 /**
- * <p>直播间观察者</p>
- *
- * @author scx567888
- * @version 0.0.1
+ * LiveRoomWatcher
  */
 public interface LiveRoomWatcher {
 
     /**
      * 当获取到新弹幕时
      *
-     * @param onChat handler
+     * @param onChat onChat
      * @return this
      */
     LiveRoomWatcher onChat(Consumer<Chat> onChat);
@@ -23,15 +20,15 @@ public interface LiveRoomWatcher {
     /**
      * 当获取到点赞时
      *
-     * @param onLike handler
+     * @param onLike onLike
      * @return this
      */
     LiveRoomWatcher onLike(Consumer<Like> onLike);
 
     /**
-     * 礼物
+     * 当收到礼物时
      *
-     * @param onGift handler
+     * @param onGift onGift
      * @return this
      */
     LiveRoomWatcher onGift(Consumer<Gift> onGift);
@@ -39,7 +36,7 @@ public interface LiveRoomWatcher {
     /**
      * 当用户关注的时候
      *
-     * @param onFollow handler
+     * @param onFollow onFollow
      * @return this
      */
     LiveRoomWatcher onFollow(Consumer<Follow> onFollow);
@@ -47,7 +44,7 @@ public interface LiveRoomWatcher {
     /**
      * 当新用户进入直播间时
      *
-     * @param onUser handler
+     * @param onUser onUser
      * @return this
      */
     LiveRoomWatcher onUser(Consumer<User> onUser);
@@ -55,11 +52,11 @@ public interface LiveRoomWatcher {
     /**
      * 启动 监控
      */
-    void start();
+    void startWatch();
 
     /**
      * 停止 监控
      */
-    void stop();
-
+    void stopWatch();
+    
 }

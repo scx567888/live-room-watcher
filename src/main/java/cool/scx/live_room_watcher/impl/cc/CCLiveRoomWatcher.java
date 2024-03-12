@@ -8,9 +8,9 @@ import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
-import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.type.MsgType;
+import cool.scx.live_room_watcher.AccessTokenManager;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
-import static cool.scx.live_room_watcher.type.MsgType.*;
+import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 

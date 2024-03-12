@@ -6,14 +6,14 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher_old.AccessToken;
+import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
-import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.type.MsgType;
+import cool.scx.live_room_watcher.AccessTokenManager;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 

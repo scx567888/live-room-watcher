@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.live_room_watcher_old.AccessToken;
+import cool.scx.live_room_watcher.AccessToken;
 
 public record MEMEAccessToken(Integer code, String message, MEMEAccessTokenData data) implements AccessToken {
 

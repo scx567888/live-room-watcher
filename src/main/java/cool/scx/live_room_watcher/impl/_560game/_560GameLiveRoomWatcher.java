@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl._560game.message.*;
 import cool.scx.util.ObjectUtils;
 import io.vertx.core.http.WebSocketClient;
@@ -17,9 +17,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
+import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.util.RandomUtils.randomString;
 
-public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
+public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String mch_id;
     private final String game_id;
@@ -32,7 +33,7 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
         this.mch_id = mch_id;
         this.game_id = game_id;
         this.secret = secret;
-        this.webSocketClient = vertx.createWebSocketClient();
+        this.webSocketClient = VERTX.createWebSocketClient();
         this.root_uri = "https://danmu.fa-pay.com";
     }
 
@@ -217,31 +218,31 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
     private void callGift(JsonNode jsonNode) {
         var gift = ObjectUtils.convertValue(jsonNode, _560GameGift.class);
 //        gift.roomID = payload.roomId + "";
-        this.giftHandler.accept(gift);
+        this._callOnGift(gift);
     }
 
     private void callLike(JsonNode jsonNode) {
         var like = ObjectUtils.convertValue(jsonNode, _560GameLike.class);
 //        gift.roomID = payload.roomId + "";
-        this.likeHandler.accept(like);
+        this._callOnLike(like);
     }
 
     private void callChat(JsonNode jsonNode) {
         var chat = ObjectUtils.convertValue(jsonNode, _560GameChat.class);
 //        gift.roomID = payload.roomId + "";
-        this.chatHandler.accept(chat);
+        this._callOnChat(chat);
     }
 
     private void callFollow(JsonNode jsonNode) {
         var follow = ObjectUtils.convertValue(jsonNode, _560GameFollow.class);
 //        gift.roomID = payload.roomId + "";
-        this.followHandler.accept(follow);
+        this._callOnFollow(follow);
     }
 
     private void callUser(JsonNode jsonNode) {
         var user = ObjectUtils.convertValue(jsonNode, _560GameUser.class);
 //        gift.roomID = payload.roomId + "";
-        this.userHandler.accept(user);
+        this._callOnUser(user);
     }
 
 }
