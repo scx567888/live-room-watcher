@@ -7,8 +7,8 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class Helper {
 
-    public static final ScheduledExecutorService SCHEDULER = Executors.newScheduledThreadPool(1000);
-   
+    public static final ScheduledExecutorService SCHEDULER = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors() * 2);
+
     public static final Vertx VERTX = Vertx.vertx();
 
 }
