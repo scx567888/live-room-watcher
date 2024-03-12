@@ -1,11 +1,4 @@
-package cool.scx.live_room_watcher.impl.meme;
-
-import io.vertx.core.http.WebSocket;
-
-import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.lang.System.Logger.Level.DEBUG;
-import static java.lang.System.Logger.Level.ERROR;
+package cool.scx.live_room_watcher_new.impl.meme;
 
 public enum MEMEWatchTaskStatus {
 

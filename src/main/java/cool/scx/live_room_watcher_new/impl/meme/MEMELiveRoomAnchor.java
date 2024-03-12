@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.impl.meme;
+package cool.scx.live_room_watcher_new.impl.meme;
 
-import cool.scx.live_room_watcher.LiveRoomAnchor;
-import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher_new.LiveRoomAnchor;
+import cool.scx.live_room_watcher_new.LiveRoomInfo;
 
 import java.util.List;
 
