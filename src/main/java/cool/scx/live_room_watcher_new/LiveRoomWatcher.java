@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher_new;
 
-import cool.scx.live_room_watcher.message.*;
+import cool.scx.live_room_watcher_new.message.*;
 
 import java.util.function.Consumer;
 
