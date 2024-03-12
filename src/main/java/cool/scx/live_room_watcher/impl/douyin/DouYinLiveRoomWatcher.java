@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
@@ -31,7 +31,7 @@ import static cool.scx.standard.HttpMethod.POST;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
+public class DouYinLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
 
     public final Map<String, String> giftNameMap;
     private final String appID;

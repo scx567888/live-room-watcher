@@ -5,7 +5,7 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
@@ -37,7 +37,7 @@ import static java.lang.System.Logger.Level.DEBUG;
 /**
  * 么么直播
  */
-public class MEMELiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialLiveRoomWatcher {
+public class MEMELiveRoomWatcher extends  OfficialLiveRoomWatcher {
 
     final HttpClient httpClient;
     final WebSocketClient webSocketClient;

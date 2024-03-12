@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher;
 
 import java.io.IOException;
 
-public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
+public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     /**
      * 查询直播间信息
@@ -10,7 +10,7 @@ public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
      * @param tokenOrRoomID a
      * @return a
      */
-    LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
+    public abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
 
     /**
      * 推送失败数据获取
@@ -21,7 +21,7 @@ public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
      * @param pageSize 分页
      * @return a
      */
-    Object failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
+    public abstract Object failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
 
     /**
      * 置顶礼物
@@ -30,6 +30,6 @@ public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
      * @param secGiftIDList a
      * @return a
      */
-    Object topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
+    public abstract Object topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
 
 }

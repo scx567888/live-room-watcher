@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
@@ -29,7 +29,7 @@ import static cool.scx.standard.HttpMethod.POST;
  * @author scx567888
  * @version 0.0.1
  */
-public class CCLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
+public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;

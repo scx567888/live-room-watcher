@@ -12,7 +12,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
@@ -36,7 +36,7 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher implements LiveRoomInfo {
+public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements LiveRoomInfo {
 
     private final String liveRoomURI;
     private final Browser browser;

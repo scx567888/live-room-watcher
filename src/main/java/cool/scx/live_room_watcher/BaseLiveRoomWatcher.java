@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 /**
  * AbstractLiveRoomWatcher
  */
-public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
+public abstract class BaseLiveRoomWatcher implements LiveRoomWatcher {
 
     protected Consumer<Chat> onChat;
     protected Consumer<Like> onLike;

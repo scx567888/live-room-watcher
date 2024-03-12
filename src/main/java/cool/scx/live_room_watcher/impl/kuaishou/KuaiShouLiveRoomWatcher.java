@@ -3,8 +3,6 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.*;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
@@ -18,12 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
-import static cool.scx.standard.HttpMethod.POST;
 
 /**
  * 快手官方
  */
-public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
+public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;

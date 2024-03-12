@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl._560game.message.*;
 import cool.scx.util.ObjectUtils;
 import io.vertx.core.http.WebSocketClient;
@@ -20,7 +20,7 @@ import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.util.RandomUtils.randomString;
 
-public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
+public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
 
     private final String mch_id;
     private final String game_id;
