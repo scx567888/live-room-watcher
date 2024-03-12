@@ -19,6 +19,7 @@ import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.MsgType.*;
+import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
 import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
@@ -66,7 +67,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      */
     @Override
     public CCLiveInfo liveInfo(String roomID) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? CCApi.TEST_LIVE_INFO_URL : CCApi.LIVE_INFO_URL)
+        var uri = URIBuilder.of(test ? TEST_LIVE_INFO_URL : LIVE_INFO_URL)
                 .addParam("roomid", roomID)
                 .addParam("appid", appID).build();
         var response = request(
@@ -87,7 +88,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? CCApi.TEST_TASK_START_URL : CCApi.TASK_START_URL)
+                .uri(test ? TEST_TASK_START_URL : TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -101,7 +102,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? CCApi.TEST_TASK_STOP_URL : CCApi.TASK_STOP_URL)
+                .uri(test ? TEST_TASK_STOP_URL : TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -114,7 +115,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? CCApi.TEST_TASK_STATUS_URL : CCApi.TASK_STATUS_URL)
+        var uri = URIBuilder.of(test ? TEST_TASK_STATUS_URL : TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -129,7 +130,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
 
     @Override
     public String failDataGet(String roomCode, MsgType msgType, Integer page_num, Integer page_size) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? CCApi.TEST_FAIL_DATA_GET_URL : CCApi.FAIL_DATA_GET_URL)
+        var uri = URIBuilder.of(test ? TEST_FAIL_DATA_GET_URL : FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -148,7 +149,7 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     @Override
     public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? CCApi.TEST_TOP_GIFT_URL : CCApi.TOP_GIFT_URL)
+                .uri(test ? TEST_TOP_GIFT_URL : TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
