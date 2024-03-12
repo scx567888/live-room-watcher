@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher_new.impl.douyin.message;
+package cool.scx.live_room_watcher.impl.douyin.message;
 
-import cool.scx.live_room_watcher_new.message.Gift;
-import cool.scx.live_room_watcher_new.message.User;
+import cool.scx.live_room_watcher.message.Gift;
+import cool.scx.live_room_watcher.message.User;
 
 public class DouYinGift implements Gift, User {
 

@@ -1,16 +1,16 @@
-package cool.scx.live_room_watcher_new.impl.douyin;
+package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinComment;
-import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinGift;
-import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinLike;
-import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
+import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
+import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.type.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher_new.impl.douyin.DouYinApi.*;
-import static cool.scx.live_room_watcher_new.impl.douyin.DouYinHelper.checkDouYinData;
-import static cool.scx.live_room_watcher_new.impl.douyin.DouYinHelper.getMsgTypeValue;
-import static cool.scx.live_room_watcher_new.type.MsgType.*;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
+import static cool.scx.live_room_watcher.type.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 

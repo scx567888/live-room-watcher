@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new.impl.douyin;
+package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

@@ -1,6 +1,6 @@
-package cool.scx.live_room_watcher_new.impl.douyin;
+package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.live_room_watcher.AccessToken;
+import cool.scx.live_room_watcher_old.AccessToken;
 
 public record DouYinAccessToken(String access_token, Long expires_in) implements AccessToken {
 
