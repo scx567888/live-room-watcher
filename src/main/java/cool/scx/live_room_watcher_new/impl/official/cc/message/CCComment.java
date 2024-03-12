@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.impl.cc.message;
+package cool.scx.live_room_watcher_new.impl.official.cc.message;
 
-import cool.scx.live_room_watcher.message.Chat;
-import cool.scx.live_room_watcher.message.User;
+import cool.scx.live_room_watcher_new.message.Chat;
+import cool.scx.live_room_watcher_new.message.User;
 
 public class CCComment implements Chat, User {
 

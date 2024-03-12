@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.impl.cc;
+package cool.scx.live_room_watcher_new.impl.official.cc;
 
-import cool.scx.live_room_watcher.LiveRoomAnchor;
-import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher_new.LiveRoomAnchor;
+import cool.scx.live_room_watcher_new.LiveRoomInfo;
 
 import java.util.List;
 
@@ -34,7 +34,6 @@ public class CCLiveInfo implements LiveRoomInfo, LiveRoomAnchor {
     public LiveRoomAnchor liveRoomAnchor() {
         return this;
     }
-
 
     @Override
     public String anchorNickName() {

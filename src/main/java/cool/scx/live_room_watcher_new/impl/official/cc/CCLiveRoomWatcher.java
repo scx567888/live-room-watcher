@@ -1,28 +1,28 @@
-package cool.scx.live_room_watcher.impl.cc;
+package cool.scx.live_room_watcher_new.impl.official.cc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.standard.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.MsgType;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.cc.message.CCComment;
-import cool.scx.live_room_watcher.impl.cc.message.CCGift;
-import cool.scx.live_room_watcher.impl.cc.message.CCLike;
+import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher_new.impl.official.cc.message.CCComment;
+import cool.scx.live_room_watcher_new.impl.official.cc.message.CCGift;
+import cool.scx.live_room_watcher_new.impl.official.cc.message.CCLike;
+import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
 import java.io.IOException;
 import java.util.Map;
 
+import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.live_room_watcher_new.impl.official.cc.CCApi.*;
+import static cool.scx.live_room_watcher_new.impl.official.cc.CCHelper.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
-import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.MsgType.*;
-import static cool.scx.live_room_watcher.impl.cc.CCApi.*;
-import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
-import static cool.scx.util.ScxExceptionHelper.wrap;
 
 /**
  * 网易 CC 官方的获取方式 需要在 CC 进行回调时手动调用 {@link CCLiveRoomWatcher#call(String, Map, MsgType)}
@@ -30,7 +30,7 @@ import static cool.scx.util.ScxExceptionHelper.wrap;
  * @author scx567888
  * @version 0.0.1
  */
-public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
+public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -79,9 +79,6 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * 获取直播信息
      *
      * @param roomID token
-     * @throws IOException          a
-     * @throws InterruptedException a
-     * @see <a href="https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo">https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo</a>
      */
     @Override
     public CCLiveInfo liveInfo(String roomID) throws IOException, InterruptedException {
@@ -178,20 +175,6 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
         return response.body().toString();
     }
 
-    @Override
-    public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
-        taskStart(roomID, LIVE_GIFT);
-        taskStart(roomID, LIVE_LIKE);
-    }
-
-    @Override
-    public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
-        taskStart(roomID, LIVE_GIFT);
-        taskStart(roomID, LIVE_LIKE);
-    }
-
     /**
      * 当收到回调时请调用 此方法
      *
@@ -200,48 +183,44 @@ public class CCLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @param msgType 类型
      */
     @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
-        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
-    }
-
-    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
         switch (msgType) {
-            case LIVE_GIFT -> callGift(bodyStr, header);
-            case LIVE_LIKE -> callLike(bodyStr, header);
-            case LIVE_COMMENT -> callComment(bodyStr, header);
+            case LIVE_GIFT -> _callGift(bodyStr, header);
+            case LIVE_LIKE -> _callLike(bodyStr, header);
+            case LIVE_COMMENT -> _callComment(bodyStr, header);
             case LIVE_FANS_CLUB -> {
             }
         }
     }
 
-    private void callComment(String bodyStr, Map<String, String> header) {
+    private void _callComment(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         checkCCData(bodyStr, header, commentDataSecret);
         var roomID = header.get("x-roomid");
-        var commentList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {}));
+        var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCComment[]>() {});
         for (var comment : commentList) {
             comment.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+            this._callOnChat(comment);
         }
     }
 
-    private void callLike(String bodyStr, Map<String, String> header) {
+    private void _callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         checkCCData(bodyStr, header, likeDataSecret);
         var roomID = header.get("x-roomid");
-        var likeList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {}));
+        var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCLike[]>() {});
         for (var like : likeList) {
             like.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
+            this._callOnLike(like);
         }
     }
 
-    private void callGift(String bodyStr, Map<String, String> header) {
+    private void _callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         checkCCData(bodyStr, header, giftDataSecret);
         var roomID = header.get("x-roomid");
-        var giftList = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {}));
+        var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<CCGift[]>() {});
         for (var gift : giftList) {
             gift.giftName = getGiftName(gift.sec_gift_id);
             gift.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
+            this._callOnGift(gift);
         }
     }
 
