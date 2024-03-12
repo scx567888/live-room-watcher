@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static cool.scx.live_room_watcher.util.Navigator.navigator;
+
 /**
  * 模拟浏览器的 HttpClient
  */
@@ -29,7 +31,7 @@ public class Browser {
     }
 
     private WebSocketClient initWebSocketClient(Vertx vertx) {
-        var options=new WebSocketClientOptions();
+        var options = new WebSocketClientOptions();
 //        options.setProxyOptions(
 //                        new ProxyOptions()
 //                                .setHost("127.0.0.1")
@@ -63,7 +65,7 @@ public class Browser {
 
     public ScxHttpClientResponse request(ScxHttpClientRequest request) throws IOException, InterruptedException {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
-        request.addHeader("User-Agent", Navigator.navigator().userAgent());
+        request.addHeader("User-Agent", navigator().userAgent());
         request.addHeader("Cookie", cookieStr);
         var response = ScxHttpClientHelper.request(request);
         var setCookie = response.headers().allValues("Set-Cookie");
@@ -75,7 +77,7 @@ public class Browser {
 
     public Future<WebSocket> webSocket(WebSocketConnectOptions options) {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
-        options.addHeader("User-Agent", Navigator.navigator().userAgent());
+        options.addHeader("User-Agent", navigator().userAgent());
         options.addHeader("Cookie", cookieStr);
         return webSocketClient.connect(options);
     }
