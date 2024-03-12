@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher.impl.kuaishou.message;
+package cool.scx.live_room_watcher_new.impl.kuaishou.message;
 
-import cool.scx.live_room_watcher.message.Chat;
-import cool.scx.live_room_watcher.message.User;
+import cool.scx.live_room_watcher_new.message.Chat;
+import cool.scx.live_room_watcher_new.message.User;
 
 public class KuaiShouComment implements Chat {
 

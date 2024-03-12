@@ -1,17 +1,19 @@
-package cool.scx.live_room_watcher.impl.kuaishou;
+package cool.scx.live_room_watcher_new.impl.kuaishou;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.AccessToken;
-import cool.scx.live_room_watcher.LiveRoomInfo;
-import cool.scx.live_room_watcher.MsgType;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
+import cool.scx.live_room_watcher_new.LiveRoomInfo;
+import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouComment;
+import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouGift;
+import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouLike;
+import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher_new.type.MsgType;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -19,15 +21,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static cool.scx.live_room_watcher_new.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.standard.HttpMethod.POST;
-import static cool.scx.live_room_watcher.MsgType.LIVE_COMMENT;
-import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
-import static cool.scx.util.ScxExceptionHelper.wrap;
 
 /**
  * 快手官方
  */
-public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
+public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -139,12 +139,8 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
     }
 
     @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
-        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
-    }
-
-    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
-        var ksMessage = wrap(() -> ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class));
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
+        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
         switch (msgType) {
             case LIVE_LIKE -> callLike(ksMessage);
             case LIVE_COMMENT -> callComment(ksMessage);
@@ -159,7 +155,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             gift.timestamp = ksMessage.timestamp;
             gift.roomID = ksMessage.data.room_code;
             gift.userInfo.roomID = ksMessage.data.room_code;
-            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
+            this._callOnGift(gift);
         }
     }
 
@@ -170,7 +166,7 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             comment.timestamp = ksMessage.timestamp;
             comment.roomID = ksMessage.data.room_code;
             comment.userInfo.roomID = ksMessage.data.room_code;
-            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+            this._callOnChat(comment);
         }
     }
 
@@ -181,18 +177,18 @@ public class KuaiShouLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
             like.timestamp = ksMessage.timestamp;
             like.roomID = ksMessage.data.room_code;
             like.userInfo.roomID = ksMessage.data.room_code;
-            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
+            this._callOnLike(like);
         }
     }
 
     @Override
     public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, null);
     }
 
     @Override
     public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, LIVE_COMMENT);
+        taskStop(roomID, null);
     }
 
 }
