@@ -1,6 +1,6 @@
-package cool.scx.live_room_watcher_new.impl.kuaishou;
+package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.live_room_watcher.AccessToken;
+import cool.scx.live_room_watcher_old.AccessToken;
 
 final class KuaiShouAccessToken extends KuaiShouResponseBody implements AccessToken {
 

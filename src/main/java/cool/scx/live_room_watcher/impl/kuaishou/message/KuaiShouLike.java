@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher_new.impl.kuaishou.message;
+package cool.scx.live_room_watcher.impl.kuaishou.message;
 
-import cool.scx.live_room_watcher_new.message.Like;
-import cool.scx.live_room_watcher_new.message.User;
+import cool.scx.live_room_watcher.message.Like;
+import cool.scx.live_room_watcher.message.User;
 
 public class KuaiShouLike implements Like {
 

@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new.impl.kuaishou;
+package cool.scx.live_room_watcher.impl.kuaishou;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,14 +6,14 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AccessToken;
-import cool.scx.live_room_watcher_new.LiveRoomInfo;
-import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouComment;
-import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouGift;
-import cool.scx.live_room_watcher_new.impl.kuaishou.message.KuaiShouLike;
-import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.live_room_watcher_old.AccessToken;
+import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
+import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.type.MsgType;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher_new.impl.kuaishou.KuaiShouApi.*;
+import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static cool.scx.standard.HttpMethod.POST;
 
 /**

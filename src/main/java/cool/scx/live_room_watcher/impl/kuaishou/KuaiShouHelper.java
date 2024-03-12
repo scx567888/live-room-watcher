@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new.impl.kuaishou;
+package cool.scx.live_room_watcher.impl.kuaishou;
 
 import cool.scx.util.HashUtils;
 import cool.scx.util.ObjectUtils;
