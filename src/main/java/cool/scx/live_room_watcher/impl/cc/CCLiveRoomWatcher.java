@@ -1,16 +1,16 @@
-package cool.scx.live_room_watcher_new.impl.cc;
+package cool.scx.live_room_watcher.impl.cc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher_new.impl.cc.message.CCComment;
-import cool.scx.live_room_watcher_new.impl.cc.message.CCGift;
-import cool.scx.live_room_watcher_new.impl.cc.message.CCLike;
-import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.live_room_watcher.impl.cc.message.CCComment;
+import cool.scx.live_room_watcher.impl.cc.message.CCGift;
+import cool.scx.live_room_watcher.impl.cc.message.CCLike;
+import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher.type.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher_new.impl.cc.CCHelper.*;
-import static cool.scx.live_room_watcher_new.type.MsgType.*;
+import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
+import static cool.scx.live_room_watcher.type.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 

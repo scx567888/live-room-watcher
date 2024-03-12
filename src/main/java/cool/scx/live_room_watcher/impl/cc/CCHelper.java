@@ -1,6 +1,6 @@
-package cool.scx.live_room_watcher_new.impl.cc;
+package cool.scx.live_room_watcher.impl.cc;
 
-import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.live_room_watcher.type.MsgType;
 
 import java.security.InvalidParameterException;
 import java.util.Map;
