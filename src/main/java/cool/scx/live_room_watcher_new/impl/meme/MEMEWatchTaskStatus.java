@@ -6,7 +6,7 @@ public enum MEMEWatchTaskStatus {
      * 没有启动时
      */
     WAITING,
-    
+
     /**
      * 启动中
      */

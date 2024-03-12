@@ -13,11 +13,10 @@ import static java.lang.System.Logger.Level.ERROR;
 public class MEMEWatchTask {
 
     public static final System.Logger logger = System.getLogger(MEMEWatchTask.class.getName());
-
-    MEMEWatchTaskStatus status;
-    SingleListenerFuture<WebSocket> webSocketFuture;
     final MEMELiveRoomWatcher watcher;
     final String roomID;
+    MEMEWatchTaskStatus status;
+    SingleListenerFuture<WebSocket> webSocketFuture;
     Thread heartbeatThread;
     AtomicInteger heartbeatFailTime = new AtomicInteger(0);
     WebSocket webSocket;
