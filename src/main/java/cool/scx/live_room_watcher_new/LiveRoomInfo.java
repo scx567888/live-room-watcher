@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher;
+package cool.scx.live_room_watcher_new;
 
 import java.util.List;
 
@@ -29,6 +29,11 @@ public interface LiveRoomInfo {
      */
     String liveRoomID();
 
+    /**
+     * 主播信息
+     *
+     * @return a
+     */
     LiveRoomAnchor liveRoomAnchor();
 
 }
