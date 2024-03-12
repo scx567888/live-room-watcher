@@ -1,12 +1,12 @@
-package cool.scx.live_room_watcher_new.impl.meme;
+package cool.scx.live_room_watcher.impl.meme;
 
 import cool.scx.util.SingleListenerFuture;
 import io.vertx.core.http.WebSocket;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static cool.scx.live_room_watcher_new.impl.meme.MEMEWatchTaskStatus.STARTING;
-import static cool.scx.live_room_watcher_new.impl.meme.MEMEWatchTaskStatus.STOP;
+import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.STARTING;
+import static cool.scx.live_room_watcher.impl.meme.MEMEWatchTaskStatus.STOP;
 import static java.lang.System.Logger.Level.DEBUG;
 import static java.lang.System.Logger.Level.ERROR;
 

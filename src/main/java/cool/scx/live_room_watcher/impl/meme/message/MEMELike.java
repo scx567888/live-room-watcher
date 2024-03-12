@@ -1,7 +1,7 @@
-package cool.scx.live_room_watcher_new.impl.meme.message;
+package cool.scx.live_room_watcher.impl.meme.message;
 
-import cool.scx.live_room_watcher_new.message.Like;
-import cool.scx.live_room_watcher_new.message.User;
+import cool.scx.live_room_watcher.message.Like;
+import cool.scx.live_room_watcher.message.User;
 
 public class MEMELike implements Like {
 

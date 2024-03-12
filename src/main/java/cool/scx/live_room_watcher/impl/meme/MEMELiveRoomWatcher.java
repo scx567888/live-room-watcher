@@ -1,18 +1,18 @@
-package cool.scx.live_room_watcher_new.impl.meme;
+package cool.scx.live_room_watcher.impl.meme;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AccessToken;
-import cool.scx.live_room_watcher_new.impl.meme.message.MEMEChat;
-import cool.scx.live_room_watcher_new.impl.meme.message.MEMEEnterRoom;
-import cool.scx.live_room_watcher_new.impl.meme.message.MEMEGift;
-import cool.scx.live_room_watcher_new.impl.meme.message.MEMELike;
-import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
-import cool.scx.live_room_watcher_new.impl.official.OfficialLiveRoomWatcher;
-import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.live_room_watcher_old.AccessToken;
+import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
+import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
+import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
+import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
+import cool.scx.live_room_watcher.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher.impl.official.OfficialLiveRoomWatcher;
+import cool.scx.live_room_watcher.type.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
@@ -29,7 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.logger;
-import static cool.scx.live_room_watcher.util.Helper.VERTX;
+import static cool.scx.live_room_watcher_old.util.Helper.VERTX;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 import static cool.scx.util.ObjectUtils.toJson;
