@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new.impl.official.cc;
+package cool.scx.live_room_watcher_new.impl.cc;
 
 import cool.scx.live_room_watcher.AccessToken;
 

@@ -1,15 +1,15 @@
-package cool.scx.live_room_watcher_new.impl.official.cc;
+package cool.scx.live_room_watcher_new.impl.cc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher_new.impl.cc.message.CCComment;
+import cool.scx.live_room_watcher_new.impl.cc.message.CCGift;
+import cool.scx.live_room_watcher_new.impl.cc.message.CCLike;
 import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
 import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher_new.impl.official.cc.message.CCComment;
-import cool.scx.live_room_watcher_new.impl.official.cc.message.CCGift;
-import cool.scx.live_room_watcher_new.impl.official.cc.message.CCLike;
 import cool.scx.live_room_watcher_new.type.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher_new.impl.official.cc.CCApi.*;
-import static cool.scx.live_room_watcher_new.impl.official.cc.CCHelper.*;
+import static cool.scx.live_room_watcher_new.impl.cc.CCHelper.*;
+import static cool.scx.live_room_watcher_new.type.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 
@@ -60,7 +60,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
     @Override
     protected CCAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
         var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(test ? TEST_ACCESS_TOKEN_URL : ACCESS_TOKEN_URL)
+                .uri(test ? CCApi.TEST_ACCESS_TOKEN_URL : CCApi.ACCESS_TOKEN_URL)
                 .method(POST)
                 .body(new JsonBody(Map.of(
                         "appid", appID,
@@ -82,7 +82,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
      */
     @Override
     public CCLiveInfo liveInfo(String roomID) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? TEST_LIVE_INFO_URL : LIVE_INFO_URL)
+        var uri = URIBuilder.of(test ? CCApi.TEST_LIVE_INFO_URL : CCApi.LIVE_INFO_URL)
                 .addParam("roomid", roomID)
                 .addParam("appid", appID).build();
         var response = request(
@@ -103,7 +103,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
     @Override
     public String taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? TEST_TASK_START_URL : TASK_START_URL)
+                .uri(test ? CCApi.TEST_TASK_START_URL : CCApi.TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -117,7 +117,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
     @Override
     public String taskStop(String roomCode, MsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? TEST_TASK_STOP_URL : TASK_STOP_URL)
+                .uri(test ? CCApi.TEST_TASK_STOP_URL : CCApi.TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -130,7 +130,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
 
     @Override
     public String taskStatus(String roomCode, MsgType msgType) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? TEST_TASK_STATUS_URL : TASK_STATUS_URL)
+        var uri = URIBuilder.of(test ? CCApi.TEST_TASK_STATUS_URL : CCApi.TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -145,7 +145,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
 
     @Override
     public String failDataGet(String roomCode, MsgType msgType, Integer page_num, Integer page_size) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(test ? TEST_FAIL_DATA_GET_URL : FAIL_DATA_GET_URL)
+        var uri = URIBuilder.of(test ? CCApi.TEST_FAIL_DATA_GET_URL : CCApi.FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
                 .addParam("msg_type", getMsgTypeValue(msgType))
@@ -164,7 +164,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
     @Override
     public String topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
-                .uri(test ? TEST_TOP_GIFT_URL : TOP_GIFT_URL)
+                .uri(test ? CCApi.TEST_TOP_GIFT_URL : CCApi.TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", getAccessToken())
                 .body(new JsonBody(Map.of(
@@ -173,6 +173,20 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
                         "sec_gift_id_list", secGiftIDList
                 ))));
         return response.body().toString();
+    }
+
+    @Override
+    public void startWatch(String roomID) throws IOException, InterruptedException {
+        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, LIVE_GIFT);
+        taskStart(roomID, LIVE_LIKE);
+    }
+
+    @Override
+    public void stopWatch(String roomID) throws IOException, InterruptedException {
+        taskStop(roomID, LIVE_COMMENT);
+        taskStop(roomID, LIVE_GIFT);
+        taskStop(roomID, LIVE_LIKE);
     }
 
     /**

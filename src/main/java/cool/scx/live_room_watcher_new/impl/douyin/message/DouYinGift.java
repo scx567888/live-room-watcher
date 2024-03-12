@@ -1,20 +1,21 @@
-package cool.scx.live_room_watcher_new.impl.official.cc.message;
+package cool.scx.live_room_watcher_new.impl.douyin.message;
 
 import cool.scx.live_room_watcher_new.message.Gift;
 import cool.scx.live_room_watcher_new.message.User;
 
-public class CCGift implements Gift, User {
+public class DouYinGift implements Gift, User {
 
-    public String msg_id;
-    public String sec_openid;    // 用户的加密openid，当前没有加密
-    public String sec_gift_id;   // 加密的礼物id，当前没有加密
-    public Integer gift_num;      // 送出的礼物数量
-    public Long gift_value;      // 礼物总价值，单位分
-    public String avatar_url;      // 用户头像
-    public String nickname;     // 用户昵称(不加密)
+    public String msg_id; // string类型id
+    public String sec_openid; // 用户的加密openid，当前其实没有加密
+    public String sec_gift_id; // 加密的礼物id
+    public String gift_name; // 礼物名称
+    public Integer gift_num; // 送出的礼物数量
+    public Integer gift_value; // 礼物总价值，单位分
+    public String avatar_url; // 用户头像
+    public String nickname; // 用户昵称(不加密)
     public Long timestamp; // 礼物毫秒级时间戳
 
-    public String giftName;
+    //由代码赋值
     public String roomID;
 
     @Override
@@ -24,7 +25,7 @@ public class CCGift implements Gift, User {
 
     @Override
     public String name() {
-        return giftName;
+        return gift_name;
     }
 
     @Override

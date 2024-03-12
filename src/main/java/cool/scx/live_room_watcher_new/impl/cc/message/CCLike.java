@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher_new.impl.official.cc.message;
+package cool.scx.live_room_watcher_new.impl.cc.message;
 
 import cool.scx.live_room_watcher_new.message.Like;
 import cool.scx.live_room_watcher_new.message.User;

@@ -1,29 +1,30 @@
-package cool.scx.live_room_watcher.impl.douyin;
+package cool.scx.live_room_watcher_new.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.standard.HttpMethod;
 import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.MsgType;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
-import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
-import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
+import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinComment;
+import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinGift;
+import cool.scx.live_room_watcher_new.impl.douyin.message.DouYinLike;
+import cool.scx.live_room_watcher_new.impl.official.AccessTokenManager;
+import cool.scx.live_room_watcher_new.impl.official.OfficialPassiveLiveRoomWatcher;
+import cool.scx.live_room_watcher_new.type.MsgType;
+import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
 import java.io.IOException;
 import java.util.Map;
 
+import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.live_room_watcher_new.impl.douyin.DouYinApi.*;
+import static cool.scx.live_room_watcher_new.impl.douyin.DouYinHelper.checkDouYinData;
+import static cool.scx.live_room_watcher_new.impl.douyin.DouYinHelper.getMsgTypeValue;
+import static cool.scx.live_room_watcher_new.type.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
-import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.MsgType.*;
-import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
-import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
-import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
 
 /**
  * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MsgType)}
@@ -31,7 +32,7 @@ import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValu
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
+public class DouYinLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
 
     public final Map<String, String> giftNameMap;
     private final String appID;
@@ -219,52 +220,44 @@ public class DouYinLiveRoomWatcher extends OfficialPassiveLiveRoomWatcher {
      * @param msgType 类型
      */
     @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) {
-        Thread.ofVirtual().start(() -> call0(bodyStr, header, msgType));
-    }
-
-    public void call0(String bodyStr, Map<String, String> header, MsgType msgType) {
-        try {
-            switch (msgType) {
-                case LIVE_GIFT -> callGift(bodyStr, header);
-                case LIVE_LIKE -> callLike(bodyStr, header);
-                case LIVE_COMMENT -> callComment(bodyStr, header);
-                case LIVE_FANS_CLUB -> {
-                }
+    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
+        switch (msgType) {
+            case LIVE_GIFT -> _callGift(bodyStr, header);
+            case LIVE_LIKE -> _callLike(bodyStr, header);
+            case LIVE_COMMENT -> _callComment(bodyStr, header);
+            case LIVE_FANS_CLUB -> {
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 
-    private void callComment(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    private void _callComment(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, commentDataSecret);
         var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinComment[]>() {});
         for (var comment : commentList) {
             comment.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.chatHandler.accept(comment));
+            this._callOnChat(comment);
         }
     }
 
-    private void callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    private void _callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, likeDataSecret);
         var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
         for (var like : likeList) {
             like.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.likeHandler.accept(like));
+            this._callOnLike(like);
         }
     }
 
-    private void callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    private void _callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, giftDataSecret);
         var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
         for (var gift : giftList) {
             gift.gift_name = giftNameMap.get(gift.sec_gift_id);
             gift.roomID = roomID;
-            Thread.ofVirtual().start(() -> this.giftHandler.accept(gift));
+            this._callOnGift(gift);
         }
     }
 
