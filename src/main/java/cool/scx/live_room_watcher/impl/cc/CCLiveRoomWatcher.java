@@ -2,15 +2,14 @@ package cool.scx.live_room_watcher.impl.cc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.cc.message.CCComment;
 import cool.scx.live_room_watcher.impl.cc.message.CCGift;
 import cool.scx.live_room_watcher.impl.cc.message.CCLike;
-import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -19,8 +18,8 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
-import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.live_room_watcher.MsgType.*;
+import static cool.scx.live_room_watcher.impl.cc.CCHelper.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 
@@ -30,7 +29,7 @@ import static cool.scx.standard.HttpMethod.POST;
  * @author scx567888
  * @version 0.0.1
  */
-public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
+public class CCLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -38,6 +37,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
     private final String giftDataSecret;
     private final String likeDataSecret;
     private final Map<String, String> giftAndNameMap;
+    private final CCAccessTokenManager accessTokenManager;
 
     private boolean test = false;
 
@@ -55,25 +55,9 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null || giftAndNameMap == null) {
             throw new RuntimeException();
         }
+        this.accessTokenManager = new CCAccessTokenManager(appID, appSecret, this);
     }
 
-    @Override
-    protected CCAccessTokenResult getAccessToken0() throws IOException, InterruptedException {
-        var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(test ? CCApi.TEST_ACCESS_TOKEN_URL : CCApi.ACCESS_TOKEN_URL)
-                .method(POST)
-                .body(new JsonBody(Map.of(
-                        "appid", appID,
-                        "secret", appSecret,
-                        "grant_type", "client_credential"
-                ))));
-        var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, CCAccessTokenResult.class);
-        if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(bodyStr);
-        }
-        return accessTokenResult;
-    }
 
     /**
      * 获取直播信息
@@ -89,7 +73,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
                 new ScxHttpClientRequest()
                         .uri(uri)
                         .method(GET)
-                        .setHeader("access-token", getAccessToken())
+                        .setHeader("access-token", accessTokenManager.getAccessToken())
         );
         var bodyStr = response.body().toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
@@ -105,7 +89,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         var response = request(new ScxHttpClientRequest()
                 .uri(test ? CCApi.TEST_TASK_START_URL : CCApi.TASK_START_URL)
                 .method(POST)
-                .setHeader("access-token", getAccessToken())
+                .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "roomid", roomID,
                         "appid", appID,
@@ -119,7 +103,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         var response = request(new ScxHttpClientRequest()
                 .uri(test ? CCApi.TEST_TASK_STOP_URL : CCApi.TASK_STOP_URL)
                 .method(POST)
-                .setHeader("access-token", getAccessToken())
+                .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "roomid", roomCode,
                         "appid", appID,
@@ -139,7 +123,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         var response = request(new ScxHttpClientRequest()
                 .uri(uri)
                 .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
+                .setHeader("access-token", accessTokenManager.getAccessToken()));
         return response.body().toString();
     }
 
@@ -156,7 +140,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         var response = request(new ScxHttpClientRequest()
                 .uri(uri)
                 .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
+                .setHeader("access-token", accessTokenManager.getAccessToken()));
         return response.body().toString();
     }
 
@@ -166,7 +150,7 @@ public class CCLiveRoomWatcher extends AccessTokenManager implements OfficialPas
         var response = request(new ScxHttpClientRequest()
                 .uri(test ? CCApi.TEST_TOP_GIFT_URL : CCApi.TOP_GIFT_URL)
                 .method(POST)
-                .setHeader("x-token", getAccessToken())
+                .setHeader("x-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "room_id", roomCode,
                         "app_id", appID,

@@ -6,14 +6,10 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.FormData;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AccessToken;
-import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.live_room_watcher.*;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
-import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
 
@@ -27,10 +23,11 @@ import static cool.scx.standard.HttpMethod.POST;
 /**
  * 快手官方
  */
-public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
+public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
+    private final KuaiShouAccessTokenManager accessTokenManager;
 
     public KuaiShouLiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
@@ -38,26 +35,9 @@ public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements Offic
         if (appID == null || appSecret == null) {
             throw new NullPointerException();
         }
+        this.accessTokenManager=new KuaiShouAccessTokenManager(appID,appSecret);
     }
 
-    @Override
-    protected AccessToken getAccessToken0() throws IOException, InterruptedException {
-        var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(ACCESS_TOKEN_URL)
-                .method(POST)
-                .body(new FormData()
-                        .attribute("app_id", appID)
-                        .attribute("app_secret", appSecret)
-                        .attribute("grant_type", "client_credentials")
-                ));
-        var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouAccessToken.class);
-        if (accessTokenResult.result != 1) {
-            throw new IllegalArgumentException(bodyStr);
-        }
-        System.err.println("获取 accessToken 成功 : " + accessTokenResult.accessToken());
-        return accessTokenResult;
-    }
 
     @Override
     public LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
@@ -74,7 +54,7 @@ public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements Offic
         map.put("sign", sign);
         var url = URIBuilder.of(TASK_START_URL)
                 .addParam("app_id", appID)
-                .addParam("access_token", getAccessToken())
+                .addParam("access_token", accessTokenManager.getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var bodyStr = response.body().toString();
@@ -91,7 +71,7 @@ public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements Offic
         map.put("sign", sign);
         var url = URIBuilder.of(TASK_STOP_URL)
                 .addParam("app_id", appID)
-                .addParam("access_token", getAccessToken())
+                .addParam("access_token", accessTokenManager.getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var bodyStr = response.body().toString();
@@ -108,7 +88,7 @@ public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements Offic
         map.put("sign", sign);
         var url = URIBuilder.of(TASK_STATUS_URL)
                 .addParam("app_id", appID)
-                .addParam("access_token", getAccessToken())
+                .addParam("access_token", accessTokenManager.getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var bodyStr = response.body().toString();
@@ -131,7 +111,7 @@ public class KuaiShouLiveRoomWatcher extends AccessTokenManager implements Offic
         map.put("sign", sign);
         var url = URIBuilder.of(GIFT_TOP_URL)
                 .addParam("app_id", appID)
-                .addParam("access_token", getAccessToken())
+                .addParam("access_token", accessTokenManager.getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
         var bodyStr = response.body().toString();

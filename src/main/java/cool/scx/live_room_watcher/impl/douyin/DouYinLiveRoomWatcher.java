@@ -2,15 +2,14 @@ package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.body.JsonBody;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
+import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
-import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.URIBuilder;
@@ -19,10 +18,10 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
-import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.standard.HttpMethod.GET;
 import static cool.scx.standard.HttpMethod.POST;
 
@@ -32,7 +31,7 @@ import static cool.scx.standard.HttpMethod.POST;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinLiveRoomWatcher extends AccessTokenManager implements OfficialPassiveLiveRoomWatcher {
+public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialPassiveLiveRoomWatcher {
 
     public final Map<String, String> giftNameMap;
     private final String appID;
@@ -40,6 +39,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
     private final String commentDataSecret;
     private final String giftDataSecret;
     private final String likeDataSecret;
+    private final DouYinAccessTokenManager accessTokenManager;
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret, Map<String, String> giftNameMap) {
         this.appID = appID;
@@ -51,25 +51,9 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null || giftNameMap == null) {
             throw new RuntimeException();
         }
+        this.accessTokenManager = new DouYinAccessTokenManager(appID, appSecret);
     }
 
-    @Override
-    public DouYinAccessToken getAccessToken0() throws IOException, InterruptedException {
-        var response = ScxHttpClientHelper.request(new ScxHttpClientRequest()
-                .uri(ACCESS_TOKEN_URL)
-                .method(POST)
-                .body(new JsonBody(Map.of(
-                        "appid", appID,
-                        "secret", appSecret,
-                        "grant_type", "client_credential"
-                ))));
-        var bodyStr = response.body().toString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
-        if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(bodyStr);
-        }
-        return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
-    }
 
     /**
      * 获取直播信息
@@ -85,7 +69,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
                 new ScxHttpClientRequest()
                         .uri(WEBCAST_MATE_INFO_URL)
                         .method(POST)
-                        .setHeader("X-Token", getAccessToken())
+                        .setHeader("X-Token", accessTokenManager.getAccessToken())
                         .body(new JsonBody(Map.of("token", token)))
         );
         var bodyStr = response.body().toString();
@@ -106,7 +90,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_START_URL)
                 .method(POST)
-                .setHeader("access-token", getAccessToken())
+                .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "roomid", roomID,
                         "appid", appID,
@@ -121,7 +105,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_STOP_URL)
                 .method(POST)
-                .setHeader("access-token", getAccessToken())
+                .setHeader("access-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "roomid", roomCode,
                         "appid", appID,
@@ -142,7 +126,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         var response = request(new ScxHttpClientRequest()
                 .uri(uri)
                 .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
+                .setHeader("access-token", accessTokenManager.getAccessToken()));
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
@@ -160,7 +144,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         var response = request(new ScxHttpClientRequest()
                 .uri(uri)
                 .method(HttpMethod.GET)
-                .setHeader("access-token", getAccessToken()));
+                .setHeader("access-token", accessTokenManager.getAccessToken()));
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
@@ -170,7 +154,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
         var response = request(new ScxHttpClientRequest()
                 .uri(TOP_GIFT_URL)
                 .method(POST)
-                .setHeader("x-token", getAccessToken())
+                .setHeader("x-token", accessTokenManager.getAccessToken())
                 .body(new JsonBody(Map.of(
                         "room_id", roomCode,
                         "app_id", appID,
@@ -190,7 +174,7 @@ public class DouYinLiveRoomWatcher extends AccessTokenManager implements Officia
                 new ScxHttpClientRequest()
                         .uri(uri)
                         .method(GET)
-                        .setHeader("access-token", getAccessToken())
+                        .setHeader("access-token", accessTokenManager.getAccessToken())
         );
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);

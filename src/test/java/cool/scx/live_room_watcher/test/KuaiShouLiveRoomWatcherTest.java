@@ -16,8 +16,6 @@ public class KuaiShouLiveRoomWatcherTest {
     public static void test1() throws IOException, InterruptedException {
         var liveRoomWatcher = new KuaiShouLiveRoomWatcher("xxx", "xxxx");
 
-        String accessToken = liveRoomWatcher.getAccessToken();
-
         liveRoomWatcher.onChat(chat -> {
             Ansi.out().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
         }).onUser(user -> {

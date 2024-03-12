@@ -5,14 +5,13 @@ import cool.scx.http_client.ScxHttpClientHelper;
 import cool.scx.http_client.ScxHttpClientRequest;
 import cool.scx.http_client.ScxHttpClientResponse;
 import cool.scx.http_client.body.JsonBody;
-import cool.scx.live_room_watcher.AccessToken;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.MsgType;
+import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
-import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
-import cool.scx.live_room_watcher.MsgType;
 import cool.scx.standard.HttpMethod;
 import cool.scx.util.ObjectUtils;
 import cool.scx.util.RandomUtils;
@@ -38,14 +37,15 @@ import static java.lang.System.Logger.Level.DEBUG;
 /**
  * 么么直播
  */
-public class MEMELiveRoomWatcher extends AccessTokenManager implements OfficialLiveRoomWatcher {
+public class MEMELiveRoomWatcher extends AbstractLiveRoomWatcher implements OfficialLiveRoomWatcher {
 
     final HttpClient httpClient;
     final WebSocketClient webSocketClient;
-    private final MEMEApi memeApi;
-    private final String appID;
-    private final String appSecret;
+    final MEMEApi memeApi;
+    final String appID;
+    final String appSecret;
     private final Map<String, MEMEWatchTask> watchTaskMap = new ConcurrentHashMap<>();
+    private final MEMEAccessTokenManager accessTokenManager;
 
     public MEMELiveRoomWatcher(String appID, String appSecret, boolean isTest) {
         this.appID = appID;
@@ -56,6 +56,7 @@ public class MEMELiveRoomWatcher extends AccessTokenManager implements OfficialL
         this.httpClient = VERTX.createHttpClient();
         this.webSocketClient = VERTX.createWebSocketClient();
         this.memeApi = new MEMEApi(isTest);
+        this.accessTokenManager = new MEMEAccessTokenManager(this);
     }
 
     public MEMELiveRoomWatcher(String appID, String appSecret) {
@@ -63,19 +64,13 @@ public class MEMELiveRoomWatcher extends AccessTokenManager implements OfficialL
     }
 
     public WebSocketConnectOptions getWebsocketChannelOptions(String roomId) {
-        var absoluteURI = memeApi.WEBSOCKET_CHANNEL_URL() + "?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + getAccessToken();
+        var absoluteURI = memeApi.WEBSOCKET_CHANNEL_URL() + "?roomId=" + roomId + "&appkey=" + appID + "&accessToken=" + accessTokenManager.getAccessToken();
         logger.log(DEBUG, "获取连接地址 : {0}", absoluteURI);
         var options = new WebSocketConnectOptions();
         options.setAbsoluteURI(absoluteURI);
         return options;
     }
 
-    protected AccessToken getAccessToken0() throws IOException, InterruptedException {
-        var uri = URIBuilder.of(memeApi.ACCESS_TOKEN_URL()).addParam("appkey", appID).toString();
-        ScxHttpClientResponse response = this.request(GET, uri);
-        var json = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(json, MEMEAccessToken.class);
-    }
 
     @Override
     public MEMELiveRoomAnchor liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
@@ -119,7 +114,7 @@ public class MEMELiveRoomWatcher extends AccessTokenManager implements OfficialL
                 .body(new JsonBody(body)));
     }
 
-    private ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
+    ScxHttpClientResponse request(HttpMethod method, String url) throws IOException, InterruptedException {
         return request(method, url, "");
     }
 

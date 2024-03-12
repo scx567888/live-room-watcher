@@ -9,7 +9,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 /**
  * 官方的被动接受的接口
  */
-public abstract class AccessTokenManager extends AbstractLiveRoomWatcher {
+public abstract class AccessTokenManager {
 
     protected String accessToken;
 
