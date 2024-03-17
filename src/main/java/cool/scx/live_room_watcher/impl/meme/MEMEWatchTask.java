@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.util.SingleListenerFuture;
+import cool.scx.common.util.SingleListenerFuture;
 import io.vertx.core.http.WebSocket;
 
 import java.util.concurrent.atomic.AtomicInteger;

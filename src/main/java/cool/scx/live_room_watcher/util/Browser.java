@@ -1,8 +1,8 @@
 package cool.scx.live_room_watcher.util;
 
-import cool.scx.http_client.ScxHttpClientHelper;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.ScxHttpClientResponse;
+import cool.scx.common.http_client.ScxHttpClientHelper;
+import cool.scx.common.http_client.ScxHttpClientRequest;
+import cool.scx.common.http_client.ScxHttpClientResponse;
 import io.netty.handler.codec.http.cookie.ClientCookieDecoder;
 import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
 import io.netty.handler.codec.http.cookie.Cookie;

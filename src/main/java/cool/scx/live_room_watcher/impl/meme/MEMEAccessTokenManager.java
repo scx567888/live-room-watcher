@@ -1,14 +1,14 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.http_client.ScxHttpClientResponse;
+import cool.scx.common.http_client.ScxHttpClientResponse;
 import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.util.ObjectUtils;
-import cool.scx.util.URIBuilder;
+import cool.scx.common.util.ObjectUtils;
+import cool.scx.common.util.URIBuilder;
 
 import java.io.IOException;
 
-import static cool.scx.standard.HttpMethod.GET;
+import static cool.scx.common.standard.HttpMethod.GET;
 
 public class MEMEAccessTokenManager extends AccessTokenManager {
 

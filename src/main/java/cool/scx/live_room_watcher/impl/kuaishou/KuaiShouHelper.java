@@ -1,8 +1,8 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.util.HashUtils;
-import cool.scx.util.ObjectUtils;
-import cool.scx.util.StringUtils;
+import cool.scx.common.util.HashUtils;
+import cool.scx.common.util.ObjectUtils;
+import cool.scx.common.util.StringUtils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

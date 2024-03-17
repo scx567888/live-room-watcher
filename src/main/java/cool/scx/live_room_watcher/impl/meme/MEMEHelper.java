@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.meme;
 
-import cool.scx.util.HashUtils;
+import cool.scx.common.util.HashUtils;
 
 import static java.lang.System.Logger.Level.DEBUG;
 

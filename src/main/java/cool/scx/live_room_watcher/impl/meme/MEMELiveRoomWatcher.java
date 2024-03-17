@@ -1,10 +1,10 @@
 package cool.scx.live_room_watcher.impl.meme;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.http_client.ScxHttpClientHelper;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.ScxHttpClientResponse;
-import cool.scx.http_client.body.JsonBody;
+import cool.scx.common.http_client.ScxHttpClientHelper;
+import cool.scx.common.http_client.ScxHttpClientRequest;
+import cool.scx.common.http_client.ScxHttpClientResponse;
+import cool.scx.common.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;
@@ -12,10 +12,10 @@ import cool.scx.live_room_watcher.impl.meme.message.MEMEChat;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEEnterRoom;
 import cool.scx.live_room_watcher.impl.meme.message.MEMEGift;
 import cool.scx.live_room_watcher.impl.meme.message.MEMELike;
-import cool.scx.standard.HttpMethod;
-import cool.scx.util.ObjectUtils;
-import cool.scx.util.RandomUtils;
-import cool.scx.util.URIBuilder;
+import cool.scx.common.standard.HttpMethod;
+import cool.scx.common.util.ObjectUtils;
+import cool.scx.common.util.RandomUtils;
+import cool.scx.common.util.URIBuilder;
 import io.vertx.core.http.HttpClient;
 import io.vertx.core.http.WebSocketClient;
 import io.vertx.core.http.WebSocketConnectOptions;
@@ -29,9 +29,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.getSign;
 import static cool.scx.live_room_watcher.impl.meme.MEMEHelper.logger;
 import static cool.scx.live_room_watcher.util.Helper.VERTX;
-import static cool.scx.standard.HttpMethod.GET;
-import static cool.scx.standard.HttpMethod.POST;
-import static cool.scx.util.ObjectUtils.toJson;
+import static cool.scx.common.standard.HttpMethod.GET;
+import static cool.scx.common.standard.HttpMethod.POST;
+import static cool.scx.common.util.ObjectUtils.toJson;
 import static java.lang.System.Logger.Level.DEBUG;
 
 /**

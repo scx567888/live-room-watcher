@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
 import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
-import cool.scx.util.ansi.Ansi;
+import cool.scx.common.util.ansi.Ansi;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl._560game;
 
-import cool.scx.util.URIBuilder;
+import cool.scx.common.util.URIBuilder;
 import io.netty.util.HashedWheelTimer;
 import io.netty.util.Timeout;
 
@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static cool.scx.standard.ScxDateTimeFormatter.yyyy_MM_dd;
-import static cool.scx.util.HashUtils.md5Hex;
-import static cool.scx.util.HashUtils.sha256Hex;
+import static cool.scx.common.standard.ScxDateTimeFormatter.yyyy_MM_dd;
+import static cool.scx.common.util.HashUtils.md5Hex;
+import static cool.scx.common.util.HashUtils.sha256Hex;
 
 public class _560GameHelper {
 

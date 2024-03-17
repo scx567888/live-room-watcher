@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static cool.scx.util.Base64Utils.encodeToString;
-import static cool.scx.util.HashUtils.md5;
+import static cool.scx.common.util.Base64Utils.encodeToString;
+import static cool.scx.common.util.HashUtils.md5;
 
 class DouYinHelper {
 

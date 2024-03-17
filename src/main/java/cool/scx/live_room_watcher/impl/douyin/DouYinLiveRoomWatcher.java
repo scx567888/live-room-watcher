@@ -2,28 +2,28 @@ package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.body.JsonBody;
+import cool.scx.common.http_client.ScxHttpClientRequest;
+import cool.scx.common.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinComment;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
-import cool.scx.standard.HttpMethod;
-import cool.scx.util.ObjectUtils;
-import cool.scx.util.URIBuilder;
+import cool.scx.common.standard.HttpMethod;
+import cool.scx.common.util.ObjectUtils;
+import cool.scx.common.util.URIBuilder;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.http_client.ScxHttpClientHelper.request;
+import static cool.scx.common.http_client.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.MsgType.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
-import static cool.scx.standard.HttpMethod.GET;
-import static cool.scx.standard.HttpMethod.POST;
+import static cool.scx.common.standard.HttpMethod.GET;
+import static cool.scx.common.standard.HttpMethod.POST;
 
 /**
  * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MsgType)}

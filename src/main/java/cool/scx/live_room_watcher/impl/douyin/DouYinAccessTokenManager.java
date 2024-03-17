@@ -1,16 +1,16 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.http_client.ScxHttpClientHelper;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.body.JsonBody;
+import cool.scx.common.http_client.ScxHttpClientHelper;
+import cool.scx.common.http_client.ScxHttpClientRequest;
+import cool.scx.common.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.util.ObjectUtils;
+import cool.scx.common.util.ObjectUtils;
 
 import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.ACCESS_TOKEN_URL;
-import static cool.scx.standard.HttpMethod.POST;
+import static cool.scx.common.standard.HttpMethod.POST;
 
 public class DouYinAccessTokenManager extends AccessTokenManager {
     

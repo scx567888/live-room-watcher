@@ -1,9 +1,9 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import cool.scx.functional.ScxConsumer;
-import cool.scx.http_client.ScxHttpClientRequest;
-import cool.scx.http_client.ScxHttpClientResponse;
+import cool.scx.common.functional.ScxConsumer;
+import cool.scx.common.http_client.ScxHttpClientRequest;
+import cool.scx.common.http_client.ScxHttpClientResponse;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
@@ -13,7 +13,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFr
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
-import cool.scx.util.$;
+import cool.scx.common.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.util.Helper.VERTX;
-import static cool.scx.standard.HttpMethod.GET;
+import static cool.scx.common.standard.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 

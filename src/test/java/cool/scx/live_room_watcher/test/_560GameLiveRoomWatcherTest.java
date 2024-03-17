@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
 import cool.scx.live_room_watcher.impl._560game._560GameLiveRoomWatcher;
-import cool.scx.util.ansi.Ansi;
+import cool.scx.common.util.ansi.Ansi;
 
 import java.io.IOException;
 

@@ -2,11 +2,11 @@ package cool.scx.live_room_watcher.impl._560game;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import cool.scx.http_client.ScxHttpClientHelper;
-import cool.scx.http_client.body.JsonBody;
+import cool.scx.common.http_client.ScxHttpClientHelper;
+import cool.scx.common.http_client.body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl._560game.message.*;
-import cool.scx.util.ObjectUtils;
+import cool.scx.common.util.ObjectUtils;
 import io.vertx.core.http.WebSocketClient;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 import static cool.scx.live_room_watcher.util.Helper.VERTX;
-import static cool.scx.util.RandomUtils.randomString;
+import static cool.scx.common.util.RandomUtils.randomString;
 
 public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
 
