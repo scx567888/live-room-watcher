@@ -1,6 +1,8 @@
 package cool.scx.live_room_watcher;
 
 import cool.scx.live_room_watcher.util.Helper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -10,6 +12,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * 官方的被动接受的接口
  */
 public abstract class AccessTokenManager {
+    
+    final Logger logger= LoggerFactory.getLogger(this.getClass());
 
     protected String accessToken;
 
@@ -34,6 +38,7 @@ public abstract class AccessTokenManager {
     public synchronized void refreshAccessToken() {
         try {
             var accessToken0 = getAccessToken0();
+            logger.debug("获取 accessToken 成功 : {}",accessToken0);
             this.accessToken = accessToken0.accessToken();
             Helper.SCHEDULER.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {
