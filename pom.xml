@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -135,8 +135,8 @@
                         </manifest>
                     </archive>
                     <excludes>
-                        <exclude>/pushproto/</exclude>
-                        <exclude>/webcast/</exclude>
+                        <exclude>/douyin_hack/</exclude>
+                        <exclude>/tiktok_hack/</exclude>
                         <exclude>/*.proto</exclude>
                         <!-- 默认 git 占位空文件 -->
                         <exclude>/.gitkeep</exclude>
