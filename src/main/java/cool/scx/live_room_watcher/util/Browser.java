@@ -32,6 +32,8 @@ public class Browser {
 
     private WebSocketClient initWebSocketClient(Vertx vertx) {
         var options = new WebSocketClientOptions();
+        options.setMaxFrameSize(65536 * 10);
+        options.setMaxMessageSize(65536 * 40);
 //        options.setProxyOptions(
 //                        new ProxyOptions()
 //                                .setHost("127.0.0.1")
