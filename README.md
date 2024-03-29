@@ -4,7 +4,7 @@
     <a target="_blank" href="https://github.com/scx567888/live-room-watcher/actions/workflows/ci.yml">
         <img src="https://github.com/scx567888/live-room-watcher/actions/workflows/ci.yml/badge.svg" alt="CI"/>
     </a>
-    <a target="_blank" href="https://search.maven.org/artifact/cool.scx/live-room-watcher">
+    <a target="_blank" href="https://central.sonatype.com/artifact/cool.scx/live-room-watcher">
         <img src="https://img.shields.io/maven-central/v/cool.scx/live-room-watcher?color=ff69b4" alt="maven-central"/>
     </a>
     <a target="_blank" href="https://github.com/scx567888/live-room-watcher">
