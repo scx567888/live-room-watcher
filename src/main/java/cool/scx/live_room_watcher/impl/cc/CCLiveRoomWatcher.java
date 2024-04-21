@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.cc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.body.JsonBody;
+import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialPassiveLiveRoomWatcher;

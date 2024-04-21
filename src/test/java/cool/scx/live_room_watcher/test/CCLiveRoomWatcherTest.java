@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
 import cool.scx.live_room_watcher.impl.cc.CCLiveRoomWatcher;
-import cool.scx.common.util.ansi.Ansi;
+import cool.scx.common.ansi.Ansi;
 
 import java.io.IOException;
 import java.util.Map;

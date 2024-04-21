@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.http_client.ScxHttpClientHelper;
-import cool.scx.common.http_client.body.JsonBody;
+import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.live_room_watcher.*;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;

@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
 import cool.scx.live_room_watcher.impl.meme.MEMELiveRoomWatcher;
-import cool.scx.common.util.ansi.Ansi;
+import cool.scx.common.ansi.Ansi;
 import org.testng.annotations.Test;
 
 import java.io.IOException;

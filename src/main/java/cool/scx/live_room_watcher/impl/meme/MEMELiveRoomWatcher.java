@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.common.http_client.ScxHttpClientHelper;
 import cool.scx.common.http_client.ScxHttpClientRequest;
 import cool.scx.common.http_client.ScxHttpClientResponse;
-import cool.scx.common.http_client.body.JsonBody;
+import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.MsgType;
 import cool.scx.live_room_watcher.OfficialLiveRoomWatcher;

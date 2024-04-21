@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl._560game;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.common.http_client.ScxHttpClientHelper;
-import cool.scx.common.http_client.body.JsonBody;
+import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl._560game.message.*;
 import cool.scx.common.util.ObjectUtils;
