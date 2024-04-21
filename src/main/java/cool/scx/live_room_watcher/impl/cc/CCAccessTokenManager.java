@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher.impl.cc;
 
 import cool.scx.common.http_client.ScxHttpClientHelper;
 import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.body.JsonBody;
+import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.live_room_watcher.AccessTokenManager;
 import cool.scx.common.util.ObjectUtils;
 

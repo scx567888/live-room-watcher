@@ -6,7 +6,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFr
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
-import cool.scx.common.util.zip.GunzipBuilder;
+import cool.scx.common.zip.GunzipBuilder;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
 import org.graalvm.polyglot.Context;

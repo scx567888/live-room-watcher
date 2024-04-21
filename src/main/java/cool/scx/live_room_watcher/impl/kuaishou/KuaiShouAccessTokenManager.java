@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 
 import cool.scx.common.http_client.ScxHttpClientHelper;
 import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.body.FormData;
+import cool.scx.common.http_client.request_body.FormData;
 import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.AccessTokenManager;
 import cool.scx.common.util.ObjectUtils;
