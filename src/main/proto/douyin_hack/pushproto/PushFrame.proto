@@ -5,7 +5,8 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/pushproto/PushHeader.proto";
 
-//更新时间 : 2023-01-09
+// 更新时间 : 2024-04-28
+// 抖音和 TikTok 通用
 message PushFrame {
     uint64 seqid = 1;
     uint64 logid = 2;
