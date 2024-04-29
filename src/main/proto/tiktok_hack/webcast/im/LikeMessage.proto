@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package tiktok_hack;
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+import "tiktok_hack/webcast/im/Message.proto";
+import "tiktok_hack/webcast/im/Common.proto";
+import "tiktok_hack/webcast/im/PublicAreaMessageCommon.proto";
+import "tiktok_hack/webcast/im/SpecifiedDisplayText.proto";
+import "tiktok_hack/webcast/data/User.proto";
+import "tiktok_hack/webcast/data/Image.proto";
+import "tiktok_hack/webcast/data/LikeEffect.proto";
+
+//更新时间 : 2024-04-29
+message LikeMessage{
+    Common common = 1;
+    int64 count = 2;
+    string total = 3;
+    string color = 4;
+    User user = 5;
+    string icon = 6;
+    Image iconsList = 7;
+    repeated SpecifiedDisplayText specifiedDisplayTextList = 8;
+    string effectCnt = 9;
+    repeated LikeEffect likeEffectList = 10;
+    PublicAreaMessageCommon publicAreaMessageCommon = 11;
+}
