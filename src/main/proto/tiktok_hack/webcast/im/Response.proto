@@ -1,13 +1,15 @@
 syntax = "proto3";
 
+package tiktok_hack;
+
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
 
-import "tiktok_hack/webcast/im/TMessage.proto";
+import "tiktok_hack/webcast/im/Message.proto";
 
-//更新时间 : 2023-01-09
-message TResponse{
-    repeated TMessage messagesList = 1;
+//更新时间 : 2024-04-29
+message Response{
+    repeated Message messagesList = 1;
     string cursor = 2;
     int64 fetchInterval = 3;
     int64 now = 4;
@@ -17,6 +19,7 @@ message TResponse{
     int64 heartbeatDuration = 8;
     bool needAck = 9;
     string pushServer = 10;
-    string liveCursor = 11;
-    bool historyNoMore = 12;
+    string isFirst = 11;
+    string historyCommentCursor = 12;
+    bool historyNoMore = 13;
 }
