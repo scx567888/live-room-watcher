@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package tiktok_hack;
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+import "tiktok_hack/webcast/im/Common.proto";
+import "tiktok_hack/webcast/im/PublicAreaCommon.proto";
+import "tiktok_hack/webcast/im/PublicAreaMessageCommon.proto";
+import "tiktok_hack/webcast/im/CommentQualityScore.proto";
+import "tiktok_hack/webcast/data/UserIdentity.proto";
+import "tiktok_hack/webcast/data/User.proto";
+import "tiktok_hack/webcast/data/Image.proto";
+import "tiktok_hack/webcast/data/MsgFilter.proto";
+
+//更新时间 : 2024-04-29
+message ChatMessage{
+    Common common = 1;
+    User user = 2;
+    string content = 3;
+    bool visibleToSender = 4;
+    Image backgroundImage = 5;
+    string fullScreenTextColor = 6;
+    Image backgroundImageV2 = 7;
+    PublicAreaCommon publicAreaCommon = 9;
+    Image giftImage = 10;
+    int64 inputType = 11;
+    User atUser = 12;
+    repeated EmoteWithIndex emotesList = 13;
+    string contentLanguage = 14;
+    MsgFilter msgFilter = 15;
+    int64 quickChatScene = 16;
+    int32 communityFlaggedStatus = 17;
+    UserIdentity userIdentity = 18;
+    repeated CommentQualityScore  commentQualityScoresList = 19;
+    repeated string commentTagList = 20;
+    PublicAreaMessageCommon publicAreaMessageCommon = 21;
+    string screenTime = 22;
+
+    message EmoteWithIndex{
+
+    }
+
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package tiktok_hack;
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+import "tiktok_hack/webcast/im/PushHeader.proto";
+
+//更新时间 : 2024-04-29
+message PushFrame {
+    uint64 seqid = 1;
+    uint64 logid = 2;
+    uint64 service = 3;
+    uint64 method = 4;
+    repeated PushHeader headersList = 5;
+    string payloadEncoding = 6;
+    string payloadType = 7;
+    bytes payload = 8;
+}

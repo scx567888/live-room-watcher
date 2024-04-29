@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package tiktok_hack;
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+import "tiktok_hack/webcast/data/LiveMessageID.proto";
+import "tiktok_hack/webcast/data/Text.proto";
+import "tiktok_hack/webcast/im/Message.proto";
+
+//更新时间 : 2024-04-29
+message Common {
+
+    string method = 1;
+    int64 msgId = 2;
+    int64 roomId = 3;
+    int64 createTime = 4;
+    int32 monitor = 5;
+    bool isShowMsg = 6;
+    string describe = 7;
+    Text displayText = 8;
+    int64 foldType = 9;
+    int64 anchorFoldType = 10;
+    int64 priorityScore = 11;
+    string logId = 12;
+    string msgProcessFilterK = 13;
+    string msgProcessFilterV = 14;
+    string fromIdc = 15;
+    string toIdc = 16;
+    repeated Message filterMsgTagsList = 17;
+    int64 sei = 18;
+    LiveMessageID dependRootId = 19;
+    LiveMessageID dependId = 20;
+    string anchorPriorityScore = 21;
+    string roomMessageHeatLevel = 22;
+    string foldTypeForWeb = 23;
+    string anchorFoldTypeForWeb = 24;
+    string clientSendTime = 25;
+    int64 dispatchStrategy = 26;
+
+}

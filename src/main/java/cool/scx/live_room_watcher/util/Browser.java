@@ -68,7 +68,7 @@ public class Browser {
     public ScxHttpClientResponse request(ScxHttpClientRequest request) throws IOException, InterruptedException {
         String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
         request.addHeader("User-Agent", navigator().userAgent());
-        request.addHeader("Cookie", cookieStr);
+        request.addHeader("Cookie", cookieStr == null ? "" : cookieStr);
         var response = ScxHttpClientHelper.request(request);
         var setCookie = response.headers().allValues("Set-Cookie");
         for (var s : setCookie) {
