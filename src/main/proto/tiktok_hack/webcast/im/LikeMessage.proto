@@ -5,7 +5,6 @@ package tiktok_hack;
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
 
-import "tiktok_hack/webcast/im/Message.proto";
 import "tiktok_hack/webcast/im/Common.proto";
 import "tiktok_hack/webcast/im/PublicAreaMessageCommon.proto";
 import "tiktok_hack/webcast/im/SpecifiedDisplayText.proto";

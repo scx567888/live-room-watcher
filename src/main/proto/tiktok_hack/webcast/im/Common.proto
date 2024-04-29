@@ -6,7 +6,6 @@ option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
 
 import "tiktok_hack/webcast/data/LiveMessageID.proto";
-import "tiktok_hack/webcast/data/LiveMessageSEI.proto";
 import "tiktok_hack/webcast/data/Text.proto";
 import "tiktok_hack/webcast/im/Message.proto";
 
