@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package tiktok_hack;
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im";
+
+import "tiktok_hack/webcast/im/Common.proto";
+import "tiktok_hack/webcast/data/User.proto";
+import "tiktok_hack/webcast/data/GiftStruct.proto";
+
+//更新时间 : 2024-04-29
+message GiftMessage{
+    Common common = 1;
+    string giftId = 2;
+    int64 fanTicketCount = 3;
+    int64  groupCount = 4;
+    int64  repeatCount = 5;
+    int64  comboCount = 6;
+    User user = 7;
+    User toUser = 8;
+    GiftStruct  gift=15;
+}

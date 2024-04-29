@@ -7,5 +7,18 @@ option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.
 
 // 更新时间 2024-04-29
 message Image{
+    repeated string urlListList = 1;
+    string uri = 2;
+    int32  height = 3;
+    int32  width = 4;
+    string avgColor = 5;
+    int32  imageType = 6;
+    string openWebUrl = 7;
+    Content content = 8;
+    bool isAnimated = 9;
 
+    message Content{
+
+    }
+    
 }

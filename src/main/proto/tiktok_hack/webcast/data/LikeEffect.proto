@@ -5,13 +5,7 @@ package tiktok_hack;
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.data";
 
-import "tiktok_hack/webcast/data/Image.proto";
-
 // 更新时间 2024-04-29
-message User{
-    string id = 1;
-    string nickname = 3;
-    Image  avatarThumb = 9;
-    Image  avatarMedium = 10;
-    Image  avatarLarge = 11;
+message LikeEffect{
+
 }
