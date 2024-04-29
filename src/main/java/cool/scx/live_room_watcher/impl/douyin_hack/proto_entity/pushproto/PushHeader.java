@@ -6,8 +6,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto;
 
 /**
  * <pre>
- * 更新时间 : 2024-04-28
- * 抖音和 TikTok 通用
+ * 更新时间 : 2023-01-09
  * </pre>
  *
  * Protobuf type {@code PushHeader}
@@ -294,8 +293,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2024-04-28
-   * 抖音和 TikTok 通用
+   * 更新时间 : 2023-01-09
    * </pre>
    *
    * Protobuf type {@code PushHeader}
