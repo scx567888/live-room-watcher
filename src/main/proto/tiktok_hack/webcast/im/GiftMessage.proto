@@ -19,5 +19,5 @@ message GiftMessage{
     int64  comboCount = 6;
     User user = 7;
     User toUser = 8;
-    GiftStruct  gift=15;
+    GiftStruct  gift = 15;
 }
