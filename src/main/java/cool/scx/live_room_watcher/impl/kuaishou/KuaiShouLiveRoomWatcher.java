@@ -41,11 +41,11 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return null;
     }
 
-    @Override
-    public KuaiShouTaskStartResult taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouTaskStartResult taskStart(String roomID, String roundId) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
+        map.put("roundId", roundId);
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
@@ -58,11 +58,11 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
     }
 
-    @Override
-    public KuaiShouResponseBody taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStop(String roomID,  String roundId) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
+        map.put("roundId", roundId);
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
@@ -75,8 +75,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
-    @Override
-    public KuaiShouResponseBody taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStatus(String roomID) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -158,12 +157,31 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         }
     }
 
-    public void startWatch(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, null);
+    public void startWatch(String roomID, String roundId) throws IOException, InterruptedException {
+        taskStart(roomID, roundId);
     }
 
-    public void stopWatch(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, null);
+    public void stopWatch(String roomID, String roundId) throws IOException, InterruptedException {
+        taskStop(roomID, roundId);
     }
 
+    public String interactiveStart(String roomID,String roundId,String data) throws IOException, InterruptedException {
+        var map = new HashMap<String, Object>();
+        map.put("roomCode", roomID);
+        map.put("timestamp", System.currentTimeMillis());
+        map.put("roundId", roundId);
+        map.put("type", "1");
+        map.put("data", data);
+        String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
+        map.put("callBackUrl", "");
+        map.put("sign", sign);
+        var url = URIBuilder.of(INTERACTIVE_START_URL)
+                .addParam("app_id", appID)
+                .addParam("access_token", accessTokenManager.getAccessToken())
+                .toString();
+        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
+        var bodyStr = response.body().toString();
+        return bodyStr;
+    }
+    
 }
