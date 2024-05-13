@@ -7,5 +7,6 @@ class KuaiShouApi {
     public static final String TASK_STOP_URL = "https://open.kuaishou.com/openapi/developer/live/data/task/stop";
     public static final String TASK_STATUS_URL = "https://open.kuaishou.com/openapi/developer/live/data/task/status";
     public static final String GIFT_TOP_URL = "https://open.kuaishou.com/openapi/developer/live/interactive/gift/top";
+    public static final String INTERACTIVE_START_URL = "https://open.kuaishou.com/openapi/developer/live/data/interactive/start";
 
 }

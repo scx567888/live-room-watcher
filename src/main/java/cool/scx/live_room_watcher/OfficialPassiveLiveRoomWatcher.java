@@ -16,10 +16,16 @@ public abstract class OfficialPassiveLiveRoomWatcher extends OfficialLiveRoomWat
      */
     public abstract void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException;
 
-    public abstract Object taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public Object taskStart(String roomID, MsgType msgType) throws IOException, InterruptedException{
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-    public abstract Object taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public Object taskStop(String roomID, MsgType msgType) throws IOException, InterruptedException{
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-    public abstract Object taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException;
+    public Object taskStatus(String roomID, MsgType msgType) throws IOException, InterruptedException{
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }
