@@ -1,14 +1,19 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.ByteString;
-import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
+import com.microsoft.playwright.BrowserType.LaunchOptions;
+import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
 import cool.scx.common.zip.GunzipBuilder;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
+import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
+import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
+import io.vertx.core.http.WebSocketConnectOptions;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +22,8 @@ import org.jsoup.select.Elements;
 
 import java.net.URI;
 import java.util.LinkedHashMap;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
@@ -111,6 +118,7 @@ public final class DouYinHackHelper {
      *
      * @return a {@link java.net.URI} object
      */
+    @Deprecated
     public static URI getWebSocketURI(String liveRoomID, boolean useGzip) {
         var internalExtMap = new LinkedHashMap<>();
         internalExtMap.put("internal_src", "dim");
@@ -172,6 +180,37 @@ public final class DouYinHackHelper {
         var gzip = pushFrame.getHeadersListList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
         var bytes = gzip ? new GunzipBuilder(pushFrame.getPayload().toByteArray()).toBytes() : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
+    }
+
+    /**
+     * 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
+     * @param path d
+     * @return d
+     */
+    public static WebSocketConnectOptions getWebSocketOptions(String path) {
+        try (var playwright = Playwright.create();
+             var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
+             var context = browser.newContext();
+             var page = context.newPage()) {
+            var future = new CompletableFuture<WebSocketConnectOptions>();
+            page.onWebSocket(c -> {
+                var cookieStr = ClientCookieEncoder.STRICT.encode(context.cookies().stream().map(cookie -> new DefaultCookie(cookie.name, cookie.value)).toList());
+                var uri = URIBuilder.of(c.url()).build().toString();
+                var options = new WebSocketConnectOptions()
+                        .addHeader("Cookie", cookieStr)
+                        .setAbsoluteURI(uri);
+                future.complete(options);
+            });
+            page.navigate(path);
+            page.waitForWebSocket(() -> {
+                //什么也不做
+            });
+            try {
+               return future.get();
+            } catch (InterruptedException | ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }
