@@ -156,7 +156,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         System.out.println("连接中...");
-        var webSocketFuture = browser.webSocket(getWebSocketOptions());
+        var webSocketFuture = browser.webSocket(DouYinHackHelper.getWebSocketOptions(this.liveRoomURI));
         webSocketFuture.onSuccess(c -> {
             webSocket = c;
             startPing(c);
@@ -199,6 +199,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
      *
      * @return a {@link io.vertx.core.http.WebSocketConnectOptions} object
      */
+    @Deprecated
     public WebSocketConnectOptions getWebSocketOptions() {
         var uri = getWebSocketURI(liveRoomID(), useGzip);
         return new WebSocketConnectOptions()
