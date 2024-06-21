@@ -182,9 +182,14 @@ public final class DouYinHackHelper {
         return Response.parseFrom(bytes);
     }
 
+    /**
+     * 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
+     * @param path d
+     * @return d
+     */
     public static WebSocketConnectOptions getWebSocketOptions(String path) {
         try (var playwright = Playwright.create();
-             var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
+             var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
             var future = new CompletableFuture<WebSocketConnectOptions>();
