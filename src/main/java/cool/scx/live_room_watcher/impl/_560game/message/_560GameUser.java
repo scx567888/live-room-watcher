@@ -11,14 +11,14 @@ public class _560GameUser implements User {
     public String UserId;
 
     public String roomID;
-    
+
     @Override
     public String roomID() {
         return roomID;
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return Username;
     }
 
