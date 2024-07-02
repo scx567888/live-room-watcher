@@ -9,9 +9,9 @@ package cool.scx.live_room_watcher.message;
 public interface Like extends Message {
 
     /**
-     * 点赞可能是连击的
+     * 因为点赞可能是连击的
      *
-     * @return a
+     * @return 点赞数量
      */
     long count();
 

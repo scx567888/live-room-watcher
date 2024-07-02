@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.message;
 
 /**
- * 消息体
+ * 基本消息体
  */
 public interface Message {
 

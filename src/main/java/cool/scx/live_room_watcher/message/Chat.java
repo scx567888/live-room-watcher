@@ -11,7 +11,7 @@ public interface Chat extends Message {
     /**
      * 消息内容
      *
-     * @return a
+     * @return 消息内容
      */
     String content();
 
