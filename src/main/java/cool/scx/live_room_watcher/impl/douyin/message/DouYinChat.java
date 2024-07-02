@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.douyin.message;
 import cool.scx.live_room_watcher.message.Chat;
 import cool.scx.live_room_watcher.message.User;
 
-public class DouYinComment implements Chat, User {
+public class DouYinChat implements Chat, User {
 
     public String msg_id; // string类型id
     public String sec_openid; // 评论用户的加密openid, 当前其实没有加密
@@ -21,17 +21,12 @@ public class DouYinComment implements Chat, User {
     }
 
     @Override
-    public User user() {
-        return this;
-    }
-
-    @Override
     public String roomID() {
         return roomID;
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return nickname;
     }
 

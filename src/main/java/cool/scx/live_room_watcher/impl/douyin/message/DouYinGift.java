@@ -19,11 +19,6 @@ public class DouYinGift implements Gift, User {
     public String roomID;
 
     @Override
-    public User user() {
-        return this;
-    }
-
-    @Override
     public String name() {
         return gift_name;
     }
@@ -39,7 +34,7 @@ public class DouYinGift implements Gift, User {
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return nickname;
     }
 
