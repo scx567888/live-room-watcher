@@ -7,7 +7,6 @@ import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.MessageType;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
@@ -102,16 +101,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
-    public void call(String bodyStr, MessageType msgType) throws JsonProcessingException {
+    public void callGift(String bodyStr) throws JsonProcessingException {
         var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
-        switch (msgType) {
-            case LIKE -> callLike(ksMessage);
-            case CHAT -> callComment(ksMessage);
-            case GIFT -> callGift(ksMessage);
-        }
-    }
-
-    private void callGift(KuaiShouMessage ksMessage) {
         var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
         for (var gift : gifts) {
             gift.message_id = ksMessage.message_id;
@@ -122,7 +113,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    private void callComment(KuaiShouMessage ksMessage) {
+    public void callChat(String bodyStr) throws JsonProcessingException {
+        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
         var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouChat[]>() {});
         for (var comment : comments) {
             comment.message_id = ksMessage.message_id;
@@ -133,7 +125,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    private void callLike(KuaiShouMessage ksMessage) {
+    public void callLike(String bodyStr) throws JsonProcessingException {
+        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
         var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
         for (var like : likes) {
             like.message_id = ksMessage.message_id;
