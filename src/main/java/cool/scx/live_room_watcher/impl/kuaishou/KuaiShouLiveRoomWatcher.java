@@ -4,23 +4,23 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.http_client.ScxHttpClientHelper;
 import cool.scx.common.http_client.request_body.JsonBody;
-import cool.scx.live_room_watcher.*;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouComment;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
-import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.MessageType;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
+import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 
 /**
  * 快手官方
  */
-public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
+public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String appID;
     private final String appSecret;
@@ -32,13 +32,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         if (appID == null || appSecret == null) {
             throw new NullPointerException();
         }
-        this.accessTokenManager=new KuaiShouAccessTokenManager(appID,appSecret);
-    }
-
-
-    @Override
-    public LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException {
-        return null;
+        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret);
     }
 
     public KuaiShouTaskStartResult taskStart(String roomID, String roundId) throws IOException, InterruptedException {
@@ -58,7 +52,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
     }
 
-    public KuaiShouResponseBody taskStop(String roomID,  String roundId) throws IOException, InterruptedException {
+    public KuaiShouResponseBody taskStop(String roomID, String roundId) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -91,12 +85,6 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
-    @Override
-    public String failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException {
-        return null;
-    }
-
-    @Override
     public KuaiShouResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomCode);
@@ -114,13 +102,12 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
-    @Override
-    public void call(String bodyStr, Map<String, String> header, MsgType msgType) throws JsonProcessingException {
+    public void call(String bodyStr, MessageType msgType) throws JsonProcessingException {
         var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
         switch (msgType) {
-            case LIVE_LIKE -> callLike(ksMessage);
-            case LIVE_COMMENT -> callComment(ksMessage);
-            case LIVE_GIFT -> callGift(ksMessage);
+            case LIKE -> callLike(ksMessage);
+            case CHAT -> callComment(ksMessage);
+            case GIFT -> callGift(ksMessage);
         }
     }
 
@@ -136,7 +123,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
     }
 
     private void callComment(KuaiShouMessage ksMessage) {
-        var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouComment[]>() {});
+        var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouChat[]>() {});
         for (var comment : comments) {
             comment.message_id = ksMessage.message_id;
             comment.timestamp = ksMessage.timestamp;
@@ -157,15 +144,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
         }
     }
 
-    public void startWatch(String roomID, String roundId) throws IOException, InterruptedException {
-        taskStart(roomID, roundId);
-    }
-
-    public void stopWatch(String roomID, String roundId) throws IOException, InterruptedException {
-        taskStop(roomID, roundId);
-    }
-
-    public String interactiveStart(String roomID,String roundId,String data) throws IOException, InterruptedException {
+    public String interactiveStart(String roomID, String roundId, String data) throws IOException, InterruptedException {
         var map = new HashMap<String, Object>();
         map.put("roomCode", roomID);
         map.put("timestamp", System.currentTimeMillis());
@@ -180,8 +159,7 @@ public class KuaiShouLiveRoomWatcher extends  OfficialPassiveLiveRoomWatcher {
                 .addParam("access_token", accessTokenManager.getAccessToken())
                 .toString();
         var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var bodyStr = response.body().toString();
-        return bodyStr;
+        return response.body().toString();
     }
-    
+
 }

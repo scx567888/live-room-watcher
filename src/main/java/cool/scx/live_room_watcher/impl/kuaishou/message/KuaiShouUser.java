@@ -15,7 +15,7 @@ public class KuaiShouUser implements User {
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return userName;
     }
 
