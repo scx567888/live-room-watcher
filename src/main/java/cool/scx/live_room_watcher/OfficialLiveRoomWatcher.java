@@ -1,8 +1,11 @@
 package cool.scx.live_room_watcher;
 
-import java.io.IOException;
+import java.util.Map;
 
-public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
+/**
+ * 针对一些官方的接口
+ */
+public interface OfficialLiveRoomWatcher extends LiveRoomWatcher {
 
     /**
      * 查询直播间信息
@@ -10,26 +13,65 @@ public abstract class OfficialLiveRoomWatcher extends BaseLiveRoomWatcher {
      * @param tokenOrRoomID a
      * @return a
      */
-    public abstract LiveRoomInfo liveInfo(String tokenOrRoomID) throws IOException, InterruptedException;
+    LiveRoomInfo liveInfo(String tokenOrRoomID);
 
     /**
      * 推送失败数据获取
      *
-     * @param roomID   房间号
-     * @param msgType  消息类型
-     * @param pageNum  分页
-     * @param pageSize 分页
+     * @param roomID      房间号
+     * @param messageType 消息类型
+     * @param pageNum     分页
+     * @param pageSize    分页
      * @return a
      */
-    public abstract Object failDataGet(String roomID, MsgType msgType, Integer pageNum, Integer pageSize) throws IOException, InterruptedException;
+    Object failDataGet(String roomID, MessageType messageType, Integer pageNum, Integer pageSize);
 
     /**
      * 置顶礼物
      *
-     * @param roomCode      a
-     * @param secGiftIDList a
+     * @param roomID  a
+     * @param giftIDs a
      * @return a
      */
-    public abstract Object topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException;
+    Object topGift(String roomID, String... giftIDs);
+
+    /**
+     * 启动推送任务
+     *
+     * @param roomID  roomID
+     * @param roundID roundID
+     * @param msgType msgType
+     * @return a
+     */
+    Object taskStart(String roomID, String roundID, MessageType msgType);
+
+    /**
+     * 终止推送任务
+     *
+     * @param roomID  roomID
+     * @param roundID roundID
+     * @param msgType msgType
+     * @return a
+     */
+    Object taskStop(String roomID, String roundID, MessageType msgType);
+
+    /**
+     * 查询任务状态
+     *
+     * @param roomID  roomID
+     * @param roundID roundID
+     * @param msgType msgType
+     * @return a
+     */
+    Object taskStatus(String roomID, String roundID, MessageType msgType);
+
+    /**
+     * 被动调用接口
+     *
+     * @param bodyStr     a
+     * @param header      a
+     * @param messageType a
+     */
+    void call(String bodyStr, Map<String, String> header, MessageType messageType);
 
 }

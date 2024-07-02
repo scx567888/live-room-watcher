@@ -1,30 +1,30 @@
 package cool.scx.live_room_watcher;
 
-public enum MsgType {
+public enum MessageType {
 
     /**
      * 评论
      */
-    LIVE_COMMENT,
+    CHAT,
 
     /**
      * 礼物
      */
-    LIVE_GIFT,
+    GIFT,
 
     /**
      * 点赞
      */
-    LIVE_LIKE,
+    LIKE,
 
     /**
      * 粉丝团
      */
-    LIVE_FANS_CLUB,
+    FANS_CLUB,
 
     /**
      * 关注
      */
-    LIVE_FOLLOW
+    FOLLOW
 
 }
