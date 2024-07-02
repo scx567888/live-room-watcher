@@ -16,12 +16,9 @@ import static java.lang.System.Logger.Level.ERROR;
 
 public class _560GameWatchTask {
 
-    private final int pingIntervalTime;
-
-    private final int pingTimeoutTime;
-
     private static final System.Logger logger = System.getLogger(_560GameWatchTask.class.getName());
-
+    private final int pingIntervalTime;
+    private final int pingTimeoutTime;
     private final String username;
     private final String password;
     private final _560GameLiveRoomWatcher watcher;
@@ -39,11 +36,15 @@ public class _560GameWatchTask {
         this.pingTimeoutTime = 1000 * 5;
     }
 
+    public static void callOffline(JsonNode args) {
+
+    }
+
     public void start() {
         stop();
         var s = watcher.validateUser(this.username, this.password);
         var ws_url = getWsUrl(s, username);
-        logger.log(DEBUG,"连接开始 地址"+ws_url);
+        logger.log(DEBUG, "连接开始 地址" + ws_url);
         this.webSocketFuture = new SingleListenerFuture<>(watcher.webSocketClient.connect(new WebSocketConnectOptions().setAbsoluteURI(ws_url)));
 
         webSocketFuture.onSuccess(ws -> {
@@ -52,7 +53,7 @@ public class _560GameWatchTask {
             ws.textMessageHandler(c -> Thread.ofVirtual().start(() -> {
                 startPing();
                 startPingTimeout();
-                logger.log(DEBUG,"收到消息 {0}",c);
+                logger.log(DEBUG, "收到消息 {0}", c);
                 try {
                     var jsonNode = ScxExceptionHelper.wrap(() -> ObjectUtils.jsonMapper().readTree(c));
                     ((ObjectNode) jsonNode).put("roomID", username);
@@ -117,15 +118,11 @@ public class _560GameWatchTask {
         }
     }
 
-    public static void callOffline(JsonNode args) {
-
-    }
-
     private void startPingTimeout() {
         cancelPingTimeout();
         this.pingTimeout = setTimeout(this::doPingTimeout, pingTimeoutTime + pingIntervalTime);
     }
-    
+
     protected void startPing() {
         cancelPing();
         this.ping = setTimeout(() -> {
@@ -148,7 +145,7 @@ public class _560GameWatchTask {
 
             //LOGGER
             if (logger.isLoggable(DEBUG)) {
-                logger.log(DEBUG, "发送 ping 失败",c);
+                logger.log(DEBUG, "发送 ping 失败", c);
             }
 
         });
@@ -162,7 +159,7 @@ public class _560GameWatchTask {
     }
 
     public void callPong(JsonNode args) {
-        
+
     }
 
     private void cancelPingTimeout() {
@@ -172,7 +169,7 @@ public class _560GameWatchTask {
         }
     }
 
-    protected  void doPingTimeout(){
+    protected void doPingTimeout() {
         start();
     }
 

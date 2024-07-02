@@ -19,10 +19,10 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
     }
 
     @Override
-    public List<String> liveRoomWebStreamURLs() {
+    public String[] webStreamURLs() {
         var webStreamUrl = this.douYinApp.state.roomStore.roomInfo.web_stream_url;
         if (webStreamUrl == null) {
-            return List.of();
+            return new String[]{};
         }
         var list = new ArrayList<String>();
         list.add(webStreamUrl.hls_pull_url_map.FULL_HD1);
@@ -31,32 +31,32 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
         list.add(webStreamUrl.flv_pull_url.FULL_HD1);
         list.add(webStreamUrl.flv_pull_url.SD1);
         list.add(webStreamUrl.flv_pull_url.SD2);
-        return list;
+        return list.toArray(String[]::new);
     }
 
     @Override
-    public String liveRoomTitle() {
+    public String title() {
         return this.douYinApp.state.roomStore.roomInfo.room.title;
     }
 
     @Override
-    public String liveRoomID() {
+    public String roomID() {
         return this.douYinApp.state.roomStore.roomInfo.roomId;
     }
 
     @Override
-    public LiveRoomAnchor liveRoomAnchor() {
+    public LiveRoomAnchor anchor() {
         return this;
     }
 
 
     @Override
-    public String anchorNickName() {
+    public String nickname() {
         return this.douYinApp.state.roomStore.roomInfo.anchor.nickname;
     }
 
     @Override
-    public String anchorAvatar() {
+    public String avatar() {
         return this.douYinApp.state.roomStore.roomInfo.anchor.avatar_thumb.url_list.get(0);
     }
 

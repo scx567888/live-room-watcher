@@ -5,8 +5,7 @@ import cool.scx.common.functional.ScxConsumer;
 import cool.scx.common.http_client.ScxHttpClientRequest;
 import cool.scx.common.http_client.ScxHttpClientResponse;
 import cool.scx.common.util.$;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
-import cool.scx.live_room_watcher.LiveRoomAnchor;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
@@ -21,7 +20,6 @@ import io.vertx.core.http.WebSocketConnectOptions;
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static cool.scx.common.standard.HttpMethod.GET;
@@ -35,7 +33,7 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
  * @author scx567888
  * @version 0.0.1
  */
-public class TikTokHackLiveRoomWatcher extends BaseLiveRoomWatcher {
+public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
 
     private final String liveRoomURI;
@@ -122,7 +120,7 @@ public class TikTokHackLiveRoomWatcher extends BaseLiveRoomWatcher {
         try {
             System.out.println("解析中...");
             this.liveRoomInfo = getLiveRoomInfo();
-            System.out.println("解析完成 -> " + this.liveRoomInfo.liveRoomTitle() + " (ID : " + this.liveRoomInfo.liveRoomID() + ")");
+            System.out.println("解析完成 -> " + this.liveRoomInfo.title() + " (ID : " + this.liveRoomInfo.roomID() + ")");
         } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
@@ -166,7 +164,7 @@ public class TikTokHackLiveRoomWatcher extends BaseLiveRoomWatcher {
     }
 
     public WebSocketConnectOptions getWebSocketOptions() {
-        var uri = getWebSocketURI(liveRoomInfo.liveRoomID(), useGzip);
+        var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
         return new WebSocketConnectOptions()
                 .setURI(uri.toString())
                 .setSsl(true)

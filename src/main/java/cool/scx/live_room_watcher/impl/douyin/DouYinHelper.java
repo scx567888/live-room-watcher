@@ -1,7 +1,5 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.live_room_watcher.MsgType;
-
 import java.security.InvalidParameterException;
 import java.util.Map;
 import java.util.Objects;
@@ -54,16 +52,6 @@ class DouYinHelper {
         var rawData = urlParams + bodyStr + secret;
         var md5Bytes = md5(rawData.getBytes());
         return encodeToString(md5Bytes);
-    }
-
-    public static String getMsgTypeValue(MsgType msgType) {
-        return switch (msgType) {
-            case LIVE_COMMENT -> "live_comment";
-            case LIVE_GIFT -> "live_gift";
-            case LIVE_LIKE -> "live_like";
-            case LIVE_FANS_CLUB -> "live_fansclub";
-            case LIVE_FOLLOW -> throw new UnsupportedOperationException();
-        };
     }
 
 }

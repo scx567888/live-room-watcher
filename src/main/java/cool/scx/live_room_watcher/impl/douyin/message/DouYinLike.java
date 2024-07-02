@@ -16,11 +16,6 @@ public class DouYinLike implements Like, User {
     public String roomID;
 
     @Override
-    public User user() {
-        return this;
-    }
-
-    @Override
     public long count() {
         return like_num;
     }
@@ -31,7 +26,7 @@ public class DouYinLike implements Like, User {
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return nickname;
     }
 

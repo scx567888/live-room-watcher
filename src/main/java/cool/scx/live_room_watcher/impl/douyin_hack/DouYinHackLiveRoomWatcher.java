@@ -4,16 +4,14 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.common.http_client.ScxHttpClientRequest;
 import cool.scx.common.http_client.ScxHttpClientResponse;
-import cool.scx.live_room_watcher.LiveRoomAnchor;
-import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.common.util.$;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
-import cool.scx.common.util.$;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.WebSocket;
@@ -25,9 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.common.standard.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
+import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
@@ -36,7 +34,7 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
  * @author scx567888
  * @version 0.0.1
  */
-public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements LiveRoomInfo {
+public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String liveRoomURI;
     private final Browser browser;
@@ -151,7 +149,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
         try {
             System.out.println("解析中...");
             this.liveRoomInfo = getLiveRoomInfo();
-            System.out.println("解析完成 -> " + liveRoomTitle() + " (ID : " + liveRoomID() + ")");
+            System.out.println("解析完成 -> " + this.liveRoomInfo.title() + " (ID : " + this.liveRoomInfo.roomID() + ")");
         } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
@@ -201,7 +199,7 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
      */
     @Deprecated
     public WebSocketConnectOptions getWebSocketOptions() {
-        var uri = getWebSocketURI(liveRoomID(), useGzip);
+        var uri = getWebSocketURI(this.liveRoomInfo.roomID(), useGzip);
         return new WebSocketConnectOptions()
                 .setURI(uri.toString())
                 .setSsl(true)
@@ -454,24 +452,12 @@ public class DouYinHackLiveRoomWatcher extends BaseLiveRoomWatcher implements Li
         return ttwid != null ? ttwid.value() : null;
     }
 
-    @Override
-    public String liveRoomID() {
-        return liveRoomInfo.liveRoomID();
+    public DouYinHackLiveRoomInfo liveRoomInfo() {
+        return liveRoomInfo;
     }
 
-    @Override
-    public LiveRoomAnchor liveRoomAnchor() {
-        return liveRoomInfo.liveRoomAnchor();
-    }
-
-    @Override
-    public String liveRoomTitle() {
-        return liveRoomInfo.liveRoomTitle();
-    }
-
-    @Override
     public List<String> liveRoomWebStreamURLs() {
-        return liveRoomInfo.liveRoomWebStreamURLs();
+        return List.of(liveRoomInfo.webStreamURLs());
     }
 
     /**

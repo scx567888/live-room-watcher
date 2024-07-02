@@ -11,14 +11,14 @@ public interface User extends Message {
     /**
      * 昵称
      *
-     * @return a
+     * @return 昵称
      */
-    String nickName();
+    String nickname();
 
     /**
      * 头像
      *
-     * @return a
+     * @return 头像
      */
     String avatar();
 

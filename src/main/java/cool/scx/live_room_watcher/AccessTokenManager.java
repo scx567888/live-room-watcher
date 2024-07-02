@@ -9,11 +9,11 @@ import java.io.IOException;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
- * 官方的被动接受的接口
+ * AccessToken 管理器 , 一般用于官方的被动接受的接口
  */
 public abstract class AccessTokenManager {
-    
-    final Logger logger= LoggerFactory.getLogger(this.getClass());
+
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     protected String accessToken;
 
@@ -22,7 +22,7 @@ public abstract class AccessTokenManager {
     /**
      * 获取 accessToken
      *
-     * @return a
+     * @return accessToken
      */
     public synchronized String getAccessToken() {
         if (this.accessToken == null) {
@@ -38,7 +38,7 @@ public abstract class AccessTokenManager {
     public synchronized void refreshAccessToken() {
         try {
             var accessToken0 = getAccessToken0();
-            logger.debug("获取 accessToken 成功 : {}",accessToken0);
+            logger.debug("获取 accessToken 成功 : {}", accessToken0);
             this.accessToken = accessToken0.accessToken();
             Helper.SCHEDULER.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {

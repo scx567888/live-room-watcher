@@ -4,9 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.common.http_client.ScxHttpClientHelper;
 import cool.scx.common.http_client.request_body.JsonBody;
-import cool.scx.live_room_watcher.BaseLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl._560game.message.*;
 import cool.scx.common.util.ObjectUtils;
+import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl._560game.message.*;
 import io.vertx.core.http.WebSocketClient;
 
 import java.io.IOException;
@@ -15,19 +15,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static cool.scx.common.util.RandomUtils.randomString;
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 import static cool.scx.live_room_watcher.util.Helper.VERTX;
-import static cool.scx.common.util.RandomUtils.randomString;
 
-public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
+public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
+    final WebSocketClient webSocketClient;
     private final String mch_id;
     private final String game_id;
     private final String secret;
-    final WebSocketClient webSocketClient;
-    private String root_uri;
     private final Map<String, _560GameWatchTask> watchTaskMap = new ConcurrentHashMap<>();
+    private String root_uri;
 
     public _560GameLiveRoomWatcher(String mch_id, String game_id, String secret) {
         this.mch_id = mch_id;
@@ -51,7 +51,7 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
             var watchTask = new _560GameWatchTask(username, password, this);
             watchTaskMap.put(username, watchTask);
             watchTask.start();
-        }else{
+        } else {
             w.start();
         }
     }
@@ -92,12 +92,12 @@ public class _560GameLiveRoomWatcher extends BaseLiveRoomWatcher {
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
-            throw new RuntimeException("返回数据有误");
+            throw new RuntimeException("返回数据有误 : " + jsonNode);
         }
         return jsonNode.get("data").get("ws_url").asText();
     }
 
-    public JsonNode closeGameNotify(String username){
+    public JsonNode closeGameNotify(String username) {
         try {
             return closeGameNotify0(username);
         } catch (IOException | InterruptedException e) {

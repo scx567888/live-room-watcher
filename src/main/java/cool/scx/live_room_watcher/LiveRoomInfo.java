@@ -1,7 +1,5 @@
 package cool.scx.live_room_watcher;
 
-import java.util.List;
-
 /**
  * 直播间信息
  */
@@ -12,28 +10,27 @@ public interface LiveRoomInfo {
      *
      * @return a
      */
-    List<String> liveRoomWebStreamURLs();
-
+    String[] webStreamURLs();
 
     /**
      * 获取直播间标题
      *
      * @return a
      */
-    String liveRoomTitle();
+    String title();
 
     /**
      * 直播间 ID
      *
      * @return a
      */
-    String liveRoomID();
+    String roomID();
 
     /**
      * 主播信息
      *
      * @return a
      */
-    LiveRoomAnchor liveRoomAnchor();
+    LiveRoomAnchor anchor();
 
 }

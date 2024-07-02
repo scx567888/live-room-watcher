@@ -48,5 +48,5 @@ public interface LiveRoomWatcher {
      * @return this
      */
     LiveRoomWatcher onUser(Consumer<User> onUser);
-    
+
 }

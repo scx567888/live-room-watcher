@@ -8,16 +8,16 @@ public interface LiveRoomAnchor {
     /**
      * 主播昵称
      *
-     * @return a
+     * @return 主播昵称
      */
-    String anchorNickName();
+    String nickname();
 
     /**
      * 主播头像地址
      *
      * @return a
      */
-    String anchorAvatar();
+    String avatar();
 
     /**
      * 主播 id

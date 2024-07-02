@@ -11,14 +11,14 @@ public interface Gift extends Message {
     /**
      * 礼物名称
      *
-     * @return a
+     * @return 礼物名称
      */
     String name();
 
     /**
-     * <p>count.</p>
+     * 礼物数量
      *
-     * @return a long
+     * @return 礼物数量
      */
     long count();
 
