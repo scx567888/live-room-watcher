@@ -29,22 +29,22 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
     }
 
     @Override
-    public List<String> liveRoomWebStreamURLs() {
-        return List.of();
+    public String[] webStreamURLs() {
+        return new String[]{};
     }
 
     @Override
-    public String liveRoomTitle() {
+    public String title() {
         return LiveRoom.liveRoomUserInfo.liveRoom.title;
     }
 
     @Override
-    public String liveRoomID() {
+    public String roomID() {
         return LiveRoom.liveRoomUserInfo.liveRoom.roomID;
     }
 
     @Override
-    public LiveRoomAnchor liveRoomAnchor() {
+    public LiveRoomAnchor anchor() {
         return null;
     }
 

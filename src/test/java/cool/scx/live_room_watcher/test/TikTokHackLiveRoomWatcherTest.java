@@ -14,18 +14,18 @@ public class TikTokHackLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() {
-        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@onepiece.staff.official/live");
+        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@harleygaming_/live");
 
         liveRoomWatcher.onChat(chat -> {
-            Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickName() + " : ").brightWhite(chat.content()).println();
+            Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickname() + " : ").brightWhite(chat.content()).println();
         }).onUser(user -> {
-            Ansi.ansi().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickName()).println();
+            Ansi.ansi().brightMagenta(nowTimeStr() + "[来了] ").defaultColor(user.nickname()).println();
         }).onLike(like -> {
-            Ansi.ansi().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickName() + " x " + like.count()).println();
+            Ansi.ansi().brightYellow(nowTimeStr() + "[点赞] ").defaultColor(like.user().nickname() + " x " + like.count()).println();
         }).onFollow(follow -> {
-            Ansi.ansi().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickName()).println();
+            Ansi.ansi().brightCyan(nowTimeStr() + "[关注] ").defaultColor(follow.user().nickname()).println();
         }).onGift(gift -> {
-            Ansi.ansi().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickName() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
+            Ansi.ansi().brightBlue(nowTimeStr() + "[礼物] ").defaultColor(gift.user().nickname() + " : ").brightWhite(gift.name() + " x " + gift.count()).println();
         });
 
         liveRoomWatcher.startWatch();

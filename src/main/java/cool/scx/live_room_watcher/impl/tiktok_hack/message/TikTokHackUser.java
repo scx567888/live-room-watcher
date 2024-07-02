@@ -16,7 +16,7 @@ public class TikTokHackUser implements cool.scx.live_room_watcher.message.User {
     }
 
     @Override
-    public String nickName() {
+    public String nickname() {
         return user.getNickname();
     }
 
