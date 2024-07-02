@@ -12,28 +12,27 @@ public interface LiveRoomInfo {
      *
      * @return a
      */
-    List<String> liveRoomWebStreamURLs();
-
+    List<String> webStreamURLs();
 
     /**
      * 获取直播间标题
      *
      * @return a
      */
-    String liveRoomTitle();
+    String title();
 
     /**
      * 直播间 ID
      *
      * @return a
      */
-    String liveRoomID();
+    String roomID();
 
     /**
      * 主播信息
      *
      * @return a
      */
-    LiveRoomAnchor liveRoomAnchor();
+    LiveRoomAnchor anchor();
 
 }
