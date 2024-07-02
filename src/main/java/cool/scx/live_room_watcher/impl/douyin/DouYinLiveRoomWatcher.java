@@ -8,7 +8,6 @@ import cool.scx.common.standard.HttpMethod;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.MessageType;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinChat;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
@@ -19,13 +18,12 @@ import java.util.Map;
 import static cool.scx.common.http_client.ScxHttpClientHelper.request;
 import static cool.scx.common.standard.HttpMethod.GET;
 import static cool.scx.common.standard.HttpMethod.POST;
-import static cool.scx.live_room_watcher.MessageType.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
-import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.getMsgTypeValue;
+import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;
 
 /**
- * 官方的获取方式 需要在抖音进行回调时手动调用 {@link DouYinLiveRoomWatcher#call(String, Map, MessageType)}
+ * 官方的获取方式 需要在抖音进行回调时手动调用 call xxx }
  *
  * @author scx567888
  * @version 0.0.1
@@ -82,7 +80,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return ObjectUtils.jsonMapper().convertValue(info, DouYinWebcastMateInfo.class);
     }
 
-    public DouYinResponseBody taskStart(String roomID, MessageType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_START_URL)
                 .method(POST)
@@ -90,13 +88,13 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .body(new JsonBody(Map.of(
                         "roomid", roomID,
                         "appid", appID,
-                        "msg_type", getMsgTypeValue(msgType)
+                        "msg_type", msgType.value()
                 ))));
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
-    public DouYinResponseBody taskStop(String roomCode, MessageType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
         var response = request(new ScxHttpClientRequest()
                 .uri(TASK_STOP_URL)
                 .method(POST)
@@ -104,17 +102,17 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .body(new JsonBody(Map.of(
                         "roomid", roomCode,
                         "appid", appID,
-                        "msg_type", getMsgTypeValue(msgType)
+                        "msg_type", msgType.value()
                 ))));
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
-    public DouYinResponseBody taskStatus(String roomCode, MessageType msgType) throws IOException, InterruptedException {
+    public DouYinResponseBody taskStatus(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
         var uri = URIBuilder.of(TASK_STATUS_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
-                .addParam("msg_type", getMsgTypeValue(msgType))
+                .addParam("msg_type", msgType.value())
                 .build();
 
         var response = request(new ScxHttpClientRequest()
@@ -125,11 +123,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
-    public DouYinResponseBody failDataGet(String roomCode, MessageType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
+    public DouYinResponseBody failDataGet(String roomCode, DouYinMsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
         var uri = URIBuilder.of(FAIL_DATA_GET_URL)
                 .addParam("roomid", roomCode)
                 .addParam("appid", appID)
-                .addParam("msg_type", getMsgTypeValue(msg_type))
+                .addParam("msg_type", msg_type.value())
                 .addParam("page_num", page_num)
                 .addParam("page_size", page_size)
                 .build();
@@ -173,17 +171,17 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void taskStartAll(String roomID) throws IOException, InterruptedException {
-        taskStart(roomID, CHAT);
-        taskStart(roomID, GIFT);
-        taskStart(roomID, LIKE);
-        taskStart(roomID, FANS_CLUB);
+        taskStart(roomID, LIVE_COMMENT);
+        taskStart(roomID, LIVE_GIFT);
+        taskStart(roomID, LIVE_LIKE);
+        taskStart(roomID, LIVE_FANSCLUB);
     }
 
     public void taskStopAll(String roomID) throws IOException, InterruptedException {
-        taskStop(roomID, CHAT);
-        taskStop(roomID, GIFT);
-        taskStop(roomID, LIKE);
-        taskStop(roomID, FANS_CLUB);
+        taskStop(roomID, LIVE_COMMENT);
+        taskStop(roomID, LIVE_GIFT);
+        taskStop(roomID, LIVE_LIKE);
+        taskStop(roomID, LIVE_FANSCLUB);
     }
 
     /**
@@ -191,19 +189,8 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      *
      * @param bodyStr body
      * @param header  请求头
-     * @param msgType 类型
      */
-    public void call(String bodyStr, Map<String, String> header, MessageType msgType) throws JsonProcessingException {
-        switch (msgType) {
-            case GIFT -> _callGift(bodyStr, header);
-            case LIKE -> _callLike(bodyStr, header);
-            case CHAT -> _callChat(bodyStr, header);
-            case FANS_CLUB -> {
-            }
-        }
-    }
-
-    private void _callChat(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    public void callChat(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, commentDataSecret);
         var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinChat[]>() {});
@@ -213,7 +200,13 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    private void _callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    /**
+     * 当收到回调时请调用 此方法
+     *
+     * @param bodyStr body
+     * @param header  请求头
+     */
+    public void callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, likeDataSecret);
         var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
@@ -223,7 +216,13 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    private void _callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    /**
+     * 当收到回调时请调用 此方法
+     *
+     * @param bodyStr body
+     * @param header  请求头
+     */
+    public void callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, giftDataSecret);
         var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
