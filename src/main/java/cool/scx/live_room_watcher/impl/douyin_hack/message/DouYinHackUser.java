@@ -30,7 +30,7 @@ public class DouYinHackUser implements User {
      * {@inheritDoc}
      */
     @Override
-    public String nickName() {
+    public String nickname() {
         return user.getNickname();
     }
 
