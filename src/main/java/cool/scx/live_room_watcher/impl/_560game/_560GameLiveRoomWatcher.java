@@ -92,7 +92,7 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
-            throw new RuntimeException("返回数据有误");
+            throw new RuntimeException("返回数据有误 : " + jsonNode);
         }
         return jsonNode.get("data").get("ws_url").asText();
     }
