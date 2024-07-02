@@ -37,8 +37,6 @@
 |   抖音(Hack)    |   ✔    |  ✔  |  ✔  |   ✔   |  ✔  |   ✔   |
 | TikTok (Hack) |   ✔    |  ✔  |  ✔  |   ✔   |  ✔  |   ✔   |
 |    快手(官方)     |   ✔    |  ✔  |  ✔  |   ❌   |  ❌  |   ❌   |
-|   快手(Hack)    |  计划中   | 计划中 | 计划中 |  计划中  | 计划中 |  计划中  |
-|     么么直播      |   ✔    |  ✔  |  ✔  |   ✔   |  ❌  |   ❌   |
 
 ## Maven
 
@@ -61,19 +59,19 @@ public class Main {
         var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/357626301151");
 
         liveRoomWatcher.onChat(chat -> {
-            System.out.println("[消息] " + chat.user().nickName() + " : " + chat.content());
+            System.out.println("[消息] " + chat.user().nickname() + " : " + chat.content());
         }).onUser(user -> {
-            System.out.println("[来了] " + user.nickName());
+            System.out.println("[来了] " + user.nickname());
         }).onLike(like -> {
-            System.out.println("[点赞] " + like.user().nickName() + " x " + like.count());
+            System.out.println("[点赞] " + like.user().nickname() + " x " + like.count());
         }).onFollow(follow -> {
-            System.out.println("[关注] " + follow.user().nickName());
+            System.out.println("[关注] " + follow.user().nickname());
         }).onGift(gift -> {
-            System.out.println("[礼物] " + gift.user().nickName() + " : " + gift.name() + " x " + gift.count());
+            System.out.println("[礼物] " + gift.user().nickname() + " : " + gift.name() + " x " + gift.count());
         });
 
         liveRoomWatcher.startWatch();
-        
+
         System.out.println("[直播流地址] " + liveRoomWatcher.liveRoomWebStreamURLs());
     }
 

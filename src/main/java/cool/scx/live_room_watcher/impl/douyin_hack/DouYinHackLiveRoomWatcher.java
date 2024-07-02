@@ -20,6 +20,7 @@ import io.vertx.core.http.WebSocketConnectOptions;
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static cool.scx.common.standard.HttpMethod.GET;
@@ -453,6 +454,10 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     public DouYinHackLiveRoomInfo liveRoomInfo() {
         return liveRoomInfo;
+    }
+
+    public List<String> liveRoomWebStreamURLs() {
+        return List.of(liveRoomInfo.webStreamURLs());
     }
 
     /**

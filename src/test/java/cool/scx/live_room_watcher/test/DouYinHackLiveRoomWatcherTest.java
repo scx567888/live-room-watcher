@@ -43,7 +43,7 @@ public class DouYinHackLiveRoomWatcherTest {
 
         liveRoomWatcher.startWatch();
 
-        System.out.println("[直播流地址] " + Arrays.toString(liveRoomWatcher.liveRoomInfo().webStreamURLs()));
+        System.out.println("[直播流地址] " + liveRoomWatcher.liveRoomWebStreamURLs());
 
     }
 
