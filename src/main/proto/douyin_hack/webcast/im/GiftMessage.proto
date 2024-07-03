@@ -3,18 +3,10 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
 
-import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
-import "douyin_hack/webcast/data/Text.proto";
-import "douyin_hack/webcast/data/GiftTrayInfo.proto";
-import "douyin_hack/webcast/data/Image.proto";
-import "douyin_hack/webcast/data/GiftIMPriority.proto";
 import "douyin_hack/webcast/data/GiftStruct.proto";
-import "douyin_hack/webcast/data/AssetEffectMixInfo.proto";
-import "douyin_hack/webcast/im/PublicAreaCommon.proto";
-import "douyin_hack/webcast/data/AnchorGiftData.proto";
 
-//更新时间 : 2023-01-09
+// 更新时间 : 2024-07-03
 message GiftMessage {
     int64 gift_id = 2;
     int64 group_count = 4;
