@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
+
+import "douyin_hack/webcast/im/PushHeader.proto";
+
+// 更新时间 : 2024-07-03
+message PushFrame {
+    uint64 SeqID = 1;
+    uint64 LogID = 2;
+    int32 service = 3;
+    int32 method = 4;
+    repeated PushHeader headers = 5;
+    string payload_encoding = 6;
+    string payload_type = 7;
+    bytes payload = 8;
+    string LodIDNew = 9;
+}
