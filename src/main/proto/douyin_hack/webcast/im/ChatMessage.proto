@@ -5,7 +5,7 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/webcast/data/User.proto";
 
-//更新时间 : 2024-07-03
+// 更新时间 : 2024-07-03
 message ChatMessage {
     User user = 2;
     string content = 3;
