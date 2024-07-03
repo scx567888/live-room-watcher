@@ -47,13 +47,13 @@ public final class RoomRankMessageOuterClass {
       "\n,douyin_hack/webcast/im/RoomRankMessage" +
       ".proto\032#douyin_hack/webcast/im/Common.pr" +
       "oto\032#douyin_hack/webcast/data/User.proto" +
-      "\"\242\001\n\017RoomRankMessage\022\027\n\006common\030\001 \001(\0132\007.C" +
-      "ommon\022,\n\tranksList\030\002 \003(\0132\031.RoomRankMessa" +
-      "ge.RoomRank\032H\n\010RoomRank\022\023\n\004user\030\001 \001(\0132\005." +
-      "User\022\020\n\010scoreStr\030\002 \001(\t\022\025\n\rprofileHidden\030" +
-      "\003 \001(\010BG\nCcool.scx.live_room_watcher.impl" +
-      ".douyin_hack.proto_entity.webcast.imP\001b\006" +
-      "proto3"
+      "\"\240\001\n\017RoomRankMessage\022\027\n\006common\030\001 \001(\0132\007.C" +
+      "ommon\022(\n\005ranks\030\002 \003(\0132\031.RoomRankMessage.R" +
+      "oomRank\032J\n\010RoomRank\022\023\n\004user\030\001 \001(\0132\005.User" +
+      "\022\021\n\tscore_str\030\002 \001(\t\022\026\n\016profile_hidden\030\003 " +
+      "\001(\010BG\nCcool.scx.live_room_watcher.impl.d" +
+      "ouyin_hack.proto_entity.webcast.imP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -66,7 +66,7 @@ public final class RoomRankMessageOuterClass {
     internal_static_RoomRankMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RoomRankMessage_descriptor,
-        new java.lang.String[] { "Common", "RanksList", });
+        new java.lang.String[] { "Common", "Ranks", });
     internal_static_RoomRankMessage_RoomRank_descriptor =
       internal_static_RoomRankMessage_descriptor.getNestedTypes().get(0);
     internal_static_RoomRankMessage_RoomRank_fieldAccessorTable = new

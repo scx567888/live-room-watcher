@@ -30,26 +30,6 @@ public final class MemberMessageOuterClass {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_MemberMessage_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MemberMessage_BuriedPointMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_MemberMessage_BuriedPointMapEntry_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MemberMessage_EffectConfig_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_MemberMessage_EffectConfig_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MemberMessage_EffectConfig_ExtraMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_MemberMessage_EffectConfig_ExtraMapEntry_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_MemberMessage_EffectConfig_PieceValuesMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_MemberMessage_EffectConfig_PieceValuesMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -61,99 +41,32 @@ public final class MemberMessageOuterClass {
     java.lang.String[] descriptorData = {
       "\n*douyin_hack/webcast/im/MemberMessage.p" +
       "roto\032#douyin_hack/webcast/im/Common.prot" +
-      "o\032#douyin_hack/webcast/data/User.proto\032$" +
-      "douyin_hack/webcast/data/Image.proto\032#do" +
-      "uyin_hack/webcast/data/Text.proto\032-douyi" +
-      "n_hack/webcast/im/PublicAreaCommon.proto" +
-      "\032(douyin_hack/webcast/data/TextPiece.pro" +
-      "to\"\317\013\n\rMemberMessage\022\027\n\006common\030\001 \001(\0132\007.C" +
-      "ommon\022\023\n\004user\030\002 \001(\0132\005.User\022\023\n\013memberCoun" +
-      "t\030\003 \001(\003\022\027\n\010operator\030\004 \001(\0132\005.User\022\024\n\014isSe" +
-      "tToAdmin\030\005 \001(\010\022\021\n\tisTopUser\030\006 \001(\010\022\021\n\tran" +
-      "kScore\030\007 \001(\003\022\021\n\ttopUserNo\030\010 \001(\003\022\021\n\tenter" +
-      "Type\030\t \001(\003\022\016\n\006action\030\n \001(\003\022\031\n\021actionDesc" +
-      "ription\030\013 \001(\t\022\016\n\006userId\030\014 \001(\003\0221\n\014effectC" +
-      "onfig\030\r \001(\0132\033.MemberMessage.EffectConfig" +
-      "\022\016\n\006popStr\030\016 \001(\t\0226\n\021enterEffectConfig\030\017 " +
-      "\001(\0132\033.MemberMessage.EffectConfig\022\037\n\017back" +
-      "groundImage\030\020 \001(\0132\006.Image\022!\n\021backgroundI" +
-      "mageV2\030\021 \001(\0132\006.Image\022 \n\021anchorDisplayTex" +
-      "t\030\022 \001(\0132\005.Text\022+\n\020publicAreaCommon\030\023 \001(\013" +
-      "2\021.PublicAreaCommon\022\030\n\020userEnterTipType\030" +
-      "\024 \001(\003\022\032\n\022anchorEnterTipType\030\025 \001(\003\022:\n\016bur" +
-      "iedPointMap\030\026 \003(\0132\".MemberMessage.Buried" +
-      "PointMapEntry\0325\n\023BuriedPointMapEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032\215\006\n\014EffectC" +
-      "onfig\022\014\n\004type\030\001 \001(\003\022\024\n\004icon\030\002 \001(\0132\006.Imag" +
-      "e\022\021\n\tavatarPos\030\003 \001(\003\022\023\n\004text\030\004 \001(\0132\005.Tex" +
-      "t\022\030\n\010textIcon\030\005 \001(\0132\006.Image\022\020\n\010stayTime\030" +
-      "\006 \001(\005\022\023\n\013animAssetId\030\007 \001(\003\022\025\n\005badge\030\010 \001(" +
-      "\0132\006.Image\022\034\n\024flexSettingArrayList\030\t \003(\003\022" +
-      "\037\n\017textIconOverlay\030\n \001(\0132\006.Image\022\035\n\ranim" +
-      "atedBadge\030\013 \001(\0132\006.Image\022\025\n\rhasSweepLight" +
-      "\030\014 \001(\010\022 \n\030textFlexSettingArrayList\030\r \003(\003" +
-      "\022\031\n\021centerAnimAssetId\030\016 \001(\003\022\034\n\014dynamicIm" +
-      "age\030\017 \001(\0132\006.Image\022;\n\010extraMap\030\020 \003(\0132).Me" +
-      "mberMessage.EffectConfig.ExtraMapEntry\022\026" +
-      "\n\016mp4AnimAssetId\030\021 \001(\003\022\020\n\010priority\030\022 \001(\003" +
-      "\022\023\n\013maxWaitTime\030\023 \001(\003\022\017\n\007dressId\030\024 \001(\t\022\021" +
-      "\n\talignment\030\025 \001(\003\022\027\n\017alignmentOffset\030\026 \001" +
-      "(\003\022\023\n\013effectScene\030\027 \001(\t\022G\n\016pieceValuesMa" +
-      "p\030\030 \003(\0132/.MemberMessage.EffectConfig.Pie" +
-      "ceValuesMapEntry\032/\n\rExtraMapEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032A\n\023PieceValues" +
-      "MapEntry\022\013\n\003key\030\001 \001(\t\022\031\n\005value\030\002 \001(\0132\n.T" +
-      "extPiece:\0028\001BG\nCcool.scx.live_room_watch" +
-      "er.impl.douyin_hack.proto_entity.webcast" +
-      ".imP\001b\006proto3"
+      "o\032#douyin_hack/webcast/data/User.proto\"\224" +
+      "\002\n\rMemberMessage\022\027\n\006common\030\001 \001(\0132\007.Commo" +
+      "n\022\023\n\004user\030\002 \001(\0132\005.User\022\024\n\014member_count\030\003" +
+      " \001(\003\022\027\n\010operator\030\004 \001(\0132\005.User\022\027\n\017is_set_" +
+      "to_admin\030\005 \001(\010\022\023\n\013is_top_user\030\006 \001(\010\022\022\n\nr" +
+      "ank_score\030\007 \001(\003\022\023\n\013top_user_no\030\010 \001(\003\022\022\n\n" +
+      "enter_type\030\t \001(\003\022\016\n\006action\030\n \001(\003\022\032\n\022acti" +
+      "on_description\030\013 \001(\t\022\017\n\007user_id\030\014 \001(\003BG\n" +
+      "Ccool.scx.live_room_watcher.impl.douyin_" +
+      "hack.proto_entity.webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOuterClass.getDescriptor(),
           cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.UserOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.TextOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.TextPieceOuterClass.getDescriptor(),
         });
     internal_static_MemberMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_MemberMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_MemberMessage_descriptor,
-        new java.lang.String[] { "Common", "User", "MemberCount", "Operator", "IsSetToAdmin", "IsTopUser", "RankScore", "TopUserNo", "EnterType", "Action", "ActionDescription", "UserId", "EffectConfig", "PopStr", "EnterEffectConfig", "BackgroundImage", "BackgroundImageV2", "AnchorDisplayText", "PublicAreaCommon", "UserEnterTipType", "AnchorEnterTipType", "BuriedPointMap", });
-    internal_static_MemberMessage_BuriedPointMapEntry_descriptor =
-      internal_static_MemberMessage_descriptor.getNestedTypes().get(0);
-    internal_static_MemberMessage_BuriedPointMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_MemberMessage_BuriedPointMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_MemberMessage_EffectConfig_descriptor =
-      internal_static_MemberMessage_descriptor.getNestedTypes().get(1);
-    internal_static_MemberMessage_EffectConfig_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_MemberMessage_EffectConfig_descriptor,
-        new java.lang.String[] { "Type", "Icon", "AvatarPos", "Text", "TextIcon", "StayTime", "AnimAssetId", "Badge", "FlexSettingArrayList", "TextIconOverlay", "AnimatedBadge", "HasSweepLight", "TextFlexSettingArrayList", "CenterAnimAssetId", "DynamicImage", "ExtraMap", "Mp4AnimAssetId", "Priority", "MaxWaitTime", "DressId", "Alignment", "AlignmentOffset", "EffectScene", "PieceValuesMap", });
-    internal_static_MemberMessage_EffectConfig_ExtraMapEntry_descriptor =
-      internal_static_MemberMessage_EffectConfig_descriptor.getNestedTypes().get(0);
-    internal_static_MemberMessage_EffectConfig_ExtraMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_MemberMessage_EffectConfig_ExtraMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_MemberMessage_EffectConfig_PieceValuesMapEntry_descriptor =
-      internal_static_MemberMessage_EffectConfig_descriptor.getNestedTypes().get(1);
-    internal_static_MemberMessage_EffectConfig_PieceValuesMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_MemberMessage_EffectConfig_PieceValuesMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Common", "User", "MemberCount", "Operator", "IsSetToAdmin", "IsTopUser", "RankScore", "TopUserNo", "EnterType", "Action", "ActionDescription", "UserId", });
     descriptor.resolveAllFeaturesImmutable();
     cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOuterClass.getDescriptor();
     cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.UserOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.TextOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.TextPieceOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

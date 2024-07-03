@@ -30,16 +30,6 @@ public final class GiftStructOuterClass {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_GiftStruct_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GiftStruct_SpecialEffectsEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_GiftStruct_SpecialEffectsEntry_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GiftStruct_GiftStructFansClubInfo_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_GiftStruct_GiftStructFansClubInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -50,96 +40,22 @@ public final class GiftStructOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n)douyin_hack/webcast/data/GiftStruct.pr" +
-      "oto\032$douyin_hack/webcast/data/Image.prot" +
-      "o\0321douyin_hack/webcast/data/LuckyMoneyGi" +
-      "ftMeta.proto\0321douyin_hack/webcast/data/G" +
-      "iftPanelOperation.proto\032)douyin_hack/web" +
-      "cast/data/GiftBanner.proto\032+douyin_hack/" +
-      "webcast/data/GiftBuffInfo.proto\032.douyin_" +
-      "hack/webcast/data/GiftPreviewInfo.proto\032" +
-      "&douyin_hack/webcast/data/GiftTip.proto\032" +
-      ",douyin_hack/webcast/data/GiftGroupInfo." +
-      "proto\"\204\014\n\nGiftStruct\022\025\n\005image\030\001 \001(\0132\006.Im" +
-      "age\022\020\n\010describe\030\002 \001(\t\022\016\n\006notify\030\003 \001(\010\022\020\n" +
-      "\010duration\030\004 \001(\003\022\n\n\002id\030\005 \001(\003\0228\n\014fansclubI" +
-      "nfo\030\006 \001(\0132\".GiftStruct.GiftStructFansClu" +
-      "bInfo\022\022\n\nforLinkmic\030\007 \001(\010\022\016\n\006doodle\030\010 \001(" +
-      "\010\022\023\n\013forFansclub\030\t \001(\010\022\r\n\005combo\030\n \001(\010\022\014\n" +
-      "\004type\030\013 \001(\005\022\024\n\014diamondCount\030\014 \001(\005\022\032\n\022isD" +
-      "isplayedOnPanel\030\r \001(\005\022\027\n\017primaryEffectId" +
-      "\030\016 \001(\003\022\035\n\rgiftLabelIcon\030\017 \001(\0132\006.Image\022\014\n" +
-      "\004name\030\020 \001(\t\022\016\n\006region\030\021 \001(\t\022\016\n\006manual\030\022 " +
-      "\001(\t\022\021\n\tforCustom\030\023 \001(\010\0227\n\016specialEffects" +
-      "\030\024 \003(\0132\037.GiftStruct.SpecialEffectsEntry\022" +
-      "\024\n\004icon\030\025 \001(\0132\006.Image\022\022\n\nactionType\030\026 \001(" +
-      "\005\022\027\n\017watermelonSeeds\030\027 \001(\005\022\022\n\ngoldEffect" +
-      "\030\030 \001(\t\022!\n\004subs\030\031 \003(\0132\023.LuckyMoneyGiftMet" +
-      "a\022\023\n\013goldenBeans\030\032 \001(\003\022\022\n\nhonorLevel\030\033 \001" +
-      "(\003\022\020\n\010itemType\030\034 \001(\005\022\021\n\tschemeUrl\030\035 \001(\t\022" +
-      "*\n\rgiftOperation\030\036 \001(\0132\023.GiftPanelOperat" +
-      "ion\022\021\n\teventName\030\037 \001(\t\022\022\n\nnobleLevel\030  \001" +
-      "(\003\022\020\n\010guideUrl\030! \001(\t\022\026\n\016punishMedicine\030\"" +
-      " \001(\010\022\021\n\tforPortal\030# \001(\010\022\024\n\014businessText\030" +
-      "$ \001(\t\022\017\n\007cnyGift\030% \001(\010\022\r\n\005appId\030& \001(\003\022\020\n" +
-      "\010vipLevel\030\' \001(\003\022\016\n\006isGray\030( \001(\010\022\025\n\rgrayS" +
-      "chemeUrl\030) \001(\t\022\021\n\tgiftScene\030* \001(\003\022\037\n\ngif" +
-      "tBanner\030+ \001(\0132\013.GiftBanner\022\024\n\014triggerWor" +
-      "ds\030, \003(\t\022$\n\rgiftBuffInfos\030- \003(\0132\r.GiftBu" +
-      "ffInfo\022\030\n\020forFirstRecharge\030. \001(\010\022%\n\025dyna" +
-      "micImgForSelected\030/ \001(\0132\006.Image\022\027\n\017after" +
-      "SendAction\0300 \001(\005\022\027\n\017giftOfflineTime\0301 \001(" +
-      "\003\022\022\n\ntopBarText\0302 \001(\t\022\036\n\016topRightAvatar\030" +
-      "3 \001(\0132\006.Image\022\027\n\017bannerSchemeUrl\0304 \001(\t\022\020" +
-      "\n\010isLocked\0305 \001(\010\022\024\n\014reqExtraType\0306 \001(\003\022\020" +
-      "\n\010assetIds\0307 \003(\003\022)\n\017giftPreviewInfo\0308 \001(" +
-      "\0132\020.GiftPreviewInfo\022\031\n\007giftTip\0309 \001(\0132\010.G" +
-      "iftTip\022\033\n\023needSweepLightCount\030: \001(\005\022!\n\tg" +
-      "roupInfo\030; \003(\0132\016.GiftGroupInfo\0325\n\023Specia" +
-      "lEffectsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\003:\0028\001\032=\n\026GiftStructFansClubInfo\022\020\n\010minLe" +
-      "vel\030\001 \001(\005\022\021\n\tinsertPos\030\002 \001(\005BI\nEcool.scx" +
-      ".live_room_watcher.impl.douyin_hack.prot" +
-      "o_entity.webcast.dataP\001b\006proto3"
+      "oto\"&\n\nGiftStruct\022\n\n\002id\030\005 \001(\003\022\014\n\004name\030\020 " +
+      "\001(\tBI\nEcool.scx.live_room_watcher.impl.d" +
+      "ouyin_hack.proto_entity.webcast.dataP\001b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.ImageOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.LuckyMoneyGiftMetaOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftPanelOperationOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftBannerOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftBuffInfoOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftPreviewInfoOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftTipOuterClass.getDescriptor(),
-          cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftGroupInfoOuterClass.getDescriptor(),
         });
     internal_static_GiftStruct_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_GiftStruct_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_GiftStruct_descriptor,
-        new java.lang.String[] { "Image", "Describe", "Notify", "Duration", "Id", "FansclubInfo", "ForLinkmic", "Doodle", "ForFansclub", "Combo", "Type", "DiamondCount", "IsDisplayedOnPanel", "PrimaryEffectId", "GiftLabelIcon", "Name", "Region", "Manual", "ForCustom", "SpecialEffects", "Icon", "ActionType", "WatermelonSeeds", "GoldEffect", "Subs", "GoldenBeans", "HonorLevel", "ItemType", "SchemeUrl", "GiftOperation", "EventName", "NobleLevel", "GuideUrl", "PunishMedicine", "ForPortal", "BusinessText", "CnyGift", "AppId", "VipLevel", "IsGray", "GraySchemeUrl", "GiftScene", "GiftBanner", "TriggerWords", "GiftBuffInfos", "ForFirstRecharge", "DynamicImgForSelected", "AfterSendAction", "GiftOfflineTime", "TopBarText", "TopRightAvatar", "BannerSchemeUrl", "IsLocked", "ReqExtraType", "AssetIds", "GiftPreviewInfo", "GiftTip", "NeedSweepLightCount", "GroupInfo", });
-    internal_static_GiftStruct_SpecialEffectsEntry_descriptor =
-      internal_static_GiftStruct_descriptor.getNestedTypes().get(0);
-    internal_static_GiftStruct_SpecialEffectsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_GiftStruct_SpecialEffectsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_GiftStruct_GiftStructFansClubInfo_descriptor =
-      internal_static_GiftStruct_descriptor.getNestedTypes().get(1);
-    internal_static_GiftStruct_GiftStructFansClubInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_GiftStruct_GiftStructFansClubInfo_descriptor,
-        new java.lang.String[] { "MinLevel", "InsertPos", });
+        new java.lang.String[] { "Id", "Name", });
     descriptor.resolveAllFeaturesImmutable();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.ImageOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.LuckyMoneyGiftMetaOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftPanelOperationOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftBannerOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftBuffInfoOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftPreviewInfoOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftTipOuterClass.getDescriptor();
-    cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.GiftGroupInfoOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ * 更新时间 : 2024-07-03
  * </pre>
  *
  * Protobuf type {@code LikeMessage}
@@ -32,7 +32,6 @@ private static final long serialVersionUID = 0L;
   }
   private LikeMessage() {
     icon_ = "";
-    scene_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -173,134 +172,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DOUBLELIKEDETAIL_FIELD_NUMBER = 7;
-  private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail doubleLikeDetail_;
-  /**
-   * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-   * @return Whether the doubleLikeDetail field is set.
-   */
-  @java.lang.Override
-  public boolean hasDoubleLikeDetail() {
-    return ((bitField0_ & 0x00000004) != 0);
-  }
-  /**
-   * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-   * @return The doubleLikeDetail.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail getDoubleLikeDetail() {
-    return doubleLikeDetail_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.getDefaultInstance() : doubleLikeDetail_;
-  }
-  /**
-   * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetailOrBuilder getDoubleLikeDetailOrBuilder() {
-    return doubleLikeDetail_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.getDefaultInstance() : doubleLikeDetail_;
-  }
-
-  public static final int DISPLAYCONTROLINFO_FIELD_NUMBER = 8;
-  private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo displayControlInfo_;
-  /**
-   * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-   * @return Whether the displayControlInfo field is set.
-   */
-  @java.lang.Override
-  public boolean hasDisplayControlInfo() {
-    return ((bitField0_ & 0x00000008) != 0);
-  }
-  /**
-   * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-   * @return The displayControlInfo.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo getDisplayControlInfo() {
-    return displayControlInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.getDefaultInstance() : displayControlInfo_;
-  }
-  /**
-   * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfoOrBuilder getDisplayControlInfoOrBuilder() {
-    return displayControlInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.getDefaultInstance() : displayControlInfo_;
-  }
-
-  public static final int LINKMICGUESTUID_FIELD_NUMBER = 9;
-  private long linkmicGuestUid_ = 0L;
-  /**
-   * <code>int64 linkmicGuestUid = 9;</code>
-   * @return The linkmicGuestUid.
-   */
-  @java.lang.Override
-  public long getLinkmicGuestUid() {
-    return linkmicGuestUid_;
-  }
-
-  public static final int SCENE_FIELD_NUMBER = 10;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object scene_ = "";
-  /**
-   * <code>string scene = 10;</code>
-   * @return The scene.
-   */
-  @java.lang.Override
-  public java.lang.String getScene() {
-    java.lang.Object ref = scene_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      scene_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string scene = 10;</code>
-   * @return The bytes for scene.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getSceneBytes() {
-    java.lang.Object ref = scene_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      scene_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PICODISPLAYINFO_FIELD_NUMBER = 11;
-  private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo picoDisplayInfo_;
-  /**
-   * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-   * @return Whether the picoDisplayInfo field is set.
-   */
-  @java.lang.Override
-  public boolean hasPicoDisplayInfo() {
-    return ((bitField0_ & 0x00000010) != 0);
-  }
-  /**
-   * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-   * @return The picoDisplayInfo.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo getPicoDisplayInfo() {
-    return picoDisplayInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.getDefaultInstance() : picoDisplayInfo_;
-  }
-  /**
-   * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfoOrBuilder getPicoDisplayInfoOrBuilder() {
-    return picoDisplayInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.getDefaultInstance() : picoDisplayInfo_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -333,21 +204,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(icon_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 6, icon_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
-      output.writeMessage(7, getDoubleLikeDetail());
-    }
-    if (((bitField0_ & 0x00000008) != 0)) {
-      output.writeMessage(8, getDisplayControlInfo());
-    }
-    if (linkmicGuestUid_ != 0L) {
-      output.writeInt64(9, linkmicGuestUid_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(scene_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 10, scene_);
-    }
-    if (((bitField0_ & 0x00000010) != 0)) {
-      output.writeMessage(11, getPicoDisplayInfo());
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -379,25 +235,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(icon_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(6, icon_);
-    }
-    if (((bitField0_ & 0x00000004) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getDoubleLikeDetail());
-    }
-    if (((bitField0_ & 0x00000008) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getDisplayControlInfo());
-    }
-    if (linkmicGuestUid_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(9, linkmicGuestUid_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(scene_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(10, scene_);
-    }
-    if (((bitField0_ & 0x00000010) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, getPicoDisplayInfo());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -432,25 +269,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getIcon()
         .equals(other.getIcon())) return false;
-    if (hasDoubleLikeDetail() != other.hasDoubleLikeDetail()) return false;
-    if (hasDoubleLikeDetail()) {
-      if (!getDoubleLikeDetail()
-          .equals(other.getDoubleLikeDetail())) return false;
-    }
-    if (hasDisplayControlInfo() != other.hasDisplayControlInfo()) return false;
-    if (hasDisplayControlInfo()) {
-      if (!getDisplayControlInfo()
-          .equals(other.getDisplayControlInfo())) return false;
-    }
-    if (getLinkmicGuestUid()
-        != other.getLinkmicGuestUid()) return false;
-    if (!getScene()
-        .equals(other.getScene())) return false;
-    if (hasPicoDisplayInfo() != other.hasPicoDisplayInfo()) return false;
-    if (hasPicoDisplayInfo()) {
-      if (!getPicoDisplayInfo()
-          .equals(other.getPicoDisplayInfo())) return false;
-    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -481,23 +299,6 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ICON_FIELD_NUMBER;
     hash = (53 * hash) + getIcon().hashCode();
-    if (hasDoubleLikeDetail()) {
-      hash = (37 * hash) + DOUBLELIKEDETAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getDoubleLikeDetail().hashCode();
-    }
-    if (hasDisplayControlInfo()) {
-      hash = (37 * hash) + DISPLAYCONTROLINFO_FIELD_NUMBER;
-      hash = (53 * hash) + getDisplayControlInfo().hashCode();
-    }
-    hash = (37 * hash) + LINKMICGUESTUID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLinkmicGuestUid());
-    hash = (37 * hash) + SCENE_FIELD_NUMBER;
-    hash = (53 * hash) + getScene().hashCode();
-    if (hasPicoDisplayInfo()) {
-      hash = (37 * hash) + PICODISPLAYINFO_FIELD_NUMBER;
-      hash = (53 * hash) + getPicoDisplayInfo().hashCode();
-    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -597,7 +398,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2023-01-09
+   * 更新时间 : 2024-07-03
    * </pre>
    *
    * Protobuf type {@code LikeMessage}
@@ -634,9 +435,6 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         getCommonFieldBuilder();
         getUserFieldBuilder();
-        getDoubleLikeDetailFieldBuilder();
-        getDisplayControlInfoFieldBuilder();
-        getPicoDisplayInfoFieldBuilder();
       }
     }
     @java.lang.Override
@@ -657,23 +455,6 @@ private static final long serialVersionUID = 0L;
         userBuilder_ = null;
       }
       icon_ = "";
-      doubleLikeDetail_ = null;
-      if (doubleLikeDetailBuilder_ != null) {
-        doubleLikeDetailBuilder_.dispose();
-        doubleLikeDetailBuilder_ = null;
-      }
-      displayControlInfo_ = null;
-      if (displayControlInfoBuilder_ != null) {
-        displayControlInfoBuilder_.dispose();
-        displayControlInfoBuilder_ = null;
-      }
-      linkmicGuestUid_ = 0L;
-      scene_ = "";
-      picoDisplayInfo_ = null;
-      if (picoDisplayInfoBuilder_ != null) {
-        picoDisplayInfoBuilder_.dispose();
-        picoDisplayInfoBuilder_ = null;
-      }
       return this;
     }
 
@@ -732,30 +513,6 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.icon_ = icon_;
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.doubleLikeDetail_ = doubleLikeDetailBuilder_ == null
-            ? doubleLikeDetail_
-            : doubleLikeDetailBuilder_.build();
-        to_bitField0_ |= 0x00000004;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.displayControlInfo_ = displayControlInfoBuilder_ == null
-            ? displayControlInfo_
-            : displayControlInfoBuilder_.build();
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.linkmicGuestUid_ = linkmicGuestUid_;
-      }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.scene_ = scene_;
-      }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
-        result.picoDisplayInfo_ = picoDisplayInfoBuilder_ == null
-            ? picoDisplayInfo_
-            : picoDisplayInfoBuilder_.build();
-        to_bitField0_ |= 0x00000010;
-      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -790,23 +547,6 @@ private static final long serialVersionUID = 0L;
         icon_ = other.icon_;
         bitField0_ |= 0x00000020;
         onChanged();
-      }
-      if (other.hasDoubleLikeDetail()) {
-        mergeDoubleLikeDetail(other.getDoubleLikeDetail());
-      }
-      if (other.hasDisplayControlInfo()) {
-        mergeDisplayControlInfo(other.getDisplayControlInfo());
-      }
-      if (other.getLinkmicGuestUid() != 0L) {
-        setLinkmicGuestUid(other.getLinkmicGuestUid());
-      }
-      if (!other.getScene().isEmpty()) {
-        scene_ = other.scene_;
-        bitField0_ |= 0x00000200;
-        onChanged();
-      }
-      if (other.hasPicoDisplayInfo()) {
-        mergePicoDisplayInfo(other.getPicoDisplayInfo());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -868,37 +608,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000020;
               break;
             } // case 50
-            case 58: {
-              input.readMessage(
-                  getDoubleLikeDetailFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000040;
-              break;
-            } // case 58
-            case 66: {
-              input.readMessage(
-                  getDisplayControlInfoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000080;
-              break;
-            } // case 66
-            case 72: {
-              linkmicGuestUid_ = input.readInt64();
-              bitField0_ |= 0x00000100;
-              break;
-            } // case 72
-            case 82: {
-              scene_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000200;
-              break;
-            } // case 82
-            case 90: {
-              input.readMessage(
-                  getPicoDisplayInfoFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000400;
-              break;
-            } // case 90
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1324,473 +1033,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000020;
       onChanged();
       return this;
-    }
-
-    private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail doubleLikeDetail_;
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetailOrBuilder> doubleLikeDetailBuilder_;
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     * @return Whether the doubleLikeDetail field is set.
-     */
-    public boolean hasDoubleLikeDetail() {
-      return ((bitField0_ & 0x00000040) != 0);
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     * @return The doubleLikeDetail.
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail getDoubleLikeDetail() {
-      if (doubleLikeDetailBuilder_ == null) {
-        return doubleLikeDetail_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.getDefaultInstance() : doubleLikeDetail_;
-      } else {
-        return doubleLikeDetailBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public Builder setDoubleLikeDetail(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail value) {
-      if (doubleLikeDetailBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        doubleLikeDetail_ = value;
-      } else {
-        doubleLikeDetailBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public Builder setDoubleLikeDetail(
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.Builder builderForValue) {
-      if (doubleLikeDetailBuilder_ == null) {
-        doubleLikeDetail_ = builderForValue.build();
-      } else {
-        doubleLikeDetailBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public Builder mergeDoubleLikeDetail(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail value) {
-      if (doubleLikeDetailBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
-          doubleLikeDetail_ != null &&
-          doubleLikeDetail_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.getDefaultInstance()) {
-          getDoubleLikeDetailBuilder().mergeFrom(value);
-        } else {
-          doubleLikeDetail_ = value;
-        }
-      } else {
-        doubleLikeDetailBuilder_.mergeFrom(value);
-      }
-      if (doubleLikeDetail_ != null) {
-        bitField0_ |= 0x00000040;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public Builder clearDoubleLikeDetail() {
-      bitField0_ = (bitField0_ & ~0x00000040);
-      doubleLikeDetail_ = null;
-      if (doubleLikeDetailBuilder_ != null) {
-        doubleLikeDetailBuilder_.dispose();
-        doubleLikeDetailBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.Builder getDoubleLikeDetailBuilder() {
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return getDoubleLikeDetailFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetailOrBuilder getDoubleLikeDetailOrBuilder() {
-      if (doubleLikeDetailBuilder_ != null) {
-        return doubleLikeDetailBuilder_.getMessageOrBuilder();
-      } else {
-        return doubleLikeDetail_ == null ?
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.getDefaultInstance() : doubleLikeDetail_;
-      }
-    }
-    /**
-     * <code>.DoubleLikeDetail doubleLikeDetail = 7;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetailOrBuilder> 
-        getDoubleLikeDetailFieldBuilder() {
-      if (doubleLikeDetailBuilder_ == null) {
-        doubleLikeDetailBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetail.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DoubleLikeDetailOrBuilder>(
-                getDoubleLikeDetail(),
-                getParentForChildren(),
-                isClean());
-        doubleLikeDetail_ = null;
-      }
-      return doubleLikeDetailBuilder_;
-    }
-
-    private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo displayControlInfo_;
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfoOrBuilder> displayControlInfoBuilder_;
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     * @return Whether the displayControlInfo field is set.
-     */
-    public boolean hasDisplayControlInfo() {
-      return ((bitField0_ & 0x00000080) != 0);
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     * @return The displayControlInfo.
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo getDisplayControlInfo() {
-      if (displayControlInfoBuilder_ == null) {
-        return displayControlInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.getDefaultInstance() : displayControlInfo_;
-      } else {
-        return displayControlInfoBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public Builder setDisplayControlInfo(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo value) {
-      if (displayControlInfoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        displayControlInfo_ = value;
-      } else {
-        displayControlInfoBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000080;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public Builder setDisplayControlInfo(
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.Builder builderForValue) {
-      if (displayControlInfoBuilder_ == null) {
-        displayControlInfo_ = builderForValue.build();
-      } else {
-        displayControlInfoBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000080;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public Builder mergeDisplayControlInfo(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo value) {
-      if (displayControlInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
-          displayControlInfo_ != null &&
-          displayControlInfo_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.getDefaultInstance()) {
-          getDisplayControlInfoBuilder().mergeFrom(value);
-        } else {
-          displayControlInfo_ = value;
-        }
-      } else {
-        displayControlInfoBuilder_.mergeFrom(value);
-      }
-      if (displayControlInfo_ != null) {
-        bitField0_ |= 0x00000080;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public Builder clearDisplayControlInfo() {
-      bitField0_ = (bitField0_ & ~0x00000080);
-      displayControlInfo_ = null;
-      if (displayControlInfoBuilder_ != null) {
-        displayControlInfoBuilder_.dispose();
-        displayControlInfoBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.Builder getDisplayControlInfoBuilder() {
-      bitField0_ |= 0x00000080;
-      onChanged();
-      return getDisplayControlInfoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfoOrBuilder getDisplayControlInfoOrBuilder() {
-      if (displayControlInfoBuilder_ != null) {
-        return displayControlInfoBuilder_.getMessageOrBuilder();
-      } else {
-        return displayControlInfo_ == null ?
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.getDefaultInstance() : displayControlInfo_;
-      }
-    }
-    /**
-     * <code>.DisplayControlInfo displayControlInfo = 8;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfoOrBuilder> 
-        getDisplayControlInfoFieldBuilder() {
-      if (displayControlInfoBuilder_ == null) {
-        displayControlInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.DisplayControlInfoOrBuilder>(
-                getDisplayControlInfo(),
-                getParentForChildren(),
-                isClean());
-        displayControlInfo_ = null;
-      }
-      return displayControlInfoBuilder_;
-    }
-
-    private long linkmicGuestUid_ ;
-    /**
-     * <code>int64 linkmicGuestUid = 9;</code>
-     * @return The linkmicGuestUid.
-     */
-    @java.lang.Override
-    public long getLinkmicGuestUid() {
-      return linkmicGuestUid_;
-    }
-    /**
-     * <code>int64 linkmicGuestUid = 9;</code>
-     * @param value The linkmicGuestUid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLinkmicGuestUid(long value) {
-
-      linkmicGuestUid_ = value;
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 linkmicGuestUid = 9;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearLinkmicGuestUid() {
-      bitField0_ = (bitField0_ & ~0x00000100);
-      linkmicGuestUid_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object scene_ = "";
-    /**
-     * <code>string scene = 10;</code>
-     * @return The scene.
-     */
-    public java.lang.String getScene() {
-      java.lang.Object ref = scene_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        scene_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string scene = 10;</code>
-     * @return The bytes for scene.
-     */
-    public com.google.protobuf.ByteString
-        getSceneBytes() {
-      java.lang.Object ref = scene_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        scene_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string scene = 10;</code>
-     * @param value The scene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setScene(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      scene_ = value;
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string scene = 10;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearScene() {
-      scene_ = getDefaultInstance().getScene();
-      bitField0_ = (bitField0_ & ~0x00000200);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string scene = 10;</code>
-     * @param value The bytes for scene to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSceneBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      scene_ = value;
-      bitField0_ |= 0x00000200;
-      onChanged();
-      return this;
-    }
-
-    private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo picoDisplayInfo_;
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfoOrBuilder> picoDisplayInfoBuilder_;
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     * @return Whether the picoDisplayInfo field is set.
-     */
-    public boolean hasPicoDisplayInfo() {
-      return ((bitField0_ & 0x00000400) != 0);
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     * @return The picoDisplayInfo.
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo getPicoDisplayInfo() {
-      if (picoDisplayInfoBuilder_ == null) {
-        return picoDisplayInfo_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.getDefaultInstance() : picoDisplayInfo_;
-      } else {
-        return picoDisplayInfoBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public Builder setPicoDisplayInfo(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo value) {
-      if (picoDisplayInfoBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        picoDisplayInfo_ = value;
-      } else {
-        picoDisplayInfoBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public Builder setPicoDisplayInfo(
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.Builder builderForValue) {
-      if (picoDisplayInfoBuilder_ == null) {
-        picoDisplayInfo_ = builderForValue.build();
-      } else {
-        picoDisplayInfoBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public Builder mergePicoDisplayInfo(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo value) {
-      if (picoDisplayInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0) &&
-          picoDisplayInfo_ != null &&
-          picoDisplayInfo_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.getDefaultInstance()) {
-          getPicoDisplayInfoBuilder().mergeFrom(value);
-        } else {
-          picoDisplayInfo_ = value;
-        }
-      } else {
-        picoDisplayInfoBuilder_.mergeFrom(value);
-      }
-      if (picoDisplayInfo_ != null) {
-        bitField0_ |= 0x00000400;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public Builder clearPicoDisplayInfo() {
-      bitField0_ = (bitField0_ & ~0x00000400);
-      picoDisplayInfo_ = null;
-      if (picoDisplayInfoBuilder_ != null) {
-        picoDisplayInfoBuilder_.dispose();
-        picoDisplayInfoBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.Builder getPicoDisplayInfoBuilder() {
-      bitField0_ |= 0x00000400;
-      onChanged();
-      return getPicoDisplayInfoFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfoOrBuilder getPicoDisplayInfoOrBuilder() {
-      if (picoDisplayInfoBuilder_ != null) {
-        return picoDisplayInfoBuilder_.getMessageOrBuilder();
-      } else {
-        return picoDisplayInfo_ == null ?
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.getDefaultInstance() : picoDisplayInfo_;
-      }
-    }
-    /**
-     * <code>.PicoDisplayInfo picoDisplayInfo = 11;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfoOrBuilder> 
-        getPicoDisplayInfoFieldBuilder() {
-      if (picoDisplayInfoBuilder_ == null) {
-        picoDisplayInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfo.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PicoDisplayInfoOrBuilder>(
-                getPicoDisplayInfo(),
-                getParentForChildren(),
-                isClean());
-        picoDisplayInfo_ = null;
-      }
-      return picoDisplayInfoBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:LikeMessage)

@@ -39,7 +39,7 @@ public class DouYinHackUser implements User {
      */
     @Override
     public String avatar() {
-        return user.getAvatarThumb().getUrlListList(0);
+        return user.getAvatarThumb().getUrlList(0);
     }
 
     @Override

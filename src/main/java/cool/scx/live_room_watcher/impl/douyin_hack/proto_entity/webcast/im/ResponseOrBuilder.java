@@ -10,27 +10,27 @@ public interface ResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .Message messagesList = 1;</code>
+   * <code>repeated .Message messages = 1;</code>
    */
   java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Message> 
-      getMessagesListList();
+      getMessagesList();
   /**
-   * <code>repeated .Message messagesList = 1;</code>
+   * <code>repeated .Message messages = 1;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Message getMessagesList(int index);
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Message getMessages(int index);
   /**
-   * <code>repeated .Message messagesList = 1;</code>
+   * <code>repeated .Message messages = 1;</code>
    */
-  int getMessagesListCount();
+  int getMessagesCount();
   /**
-   * <code>repeated .Message messagesList = 1;</code>
+   * <code>repeated .Message messages = 1;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOrBuilder> 
-      getMessagesListOrBuilderList();
+      getMessagesOrBuilderList();
   /**
-   * <code>repeated .Message messagesList = 1;</code>
+   * <code>repeated .Message messages = 1;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOrBuilder getMessagesListOrBuilder(
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOrBuilder getMessagesOrBuilder(
       int index);
 
   /**
@@ -46,7 +46,7 @@ public interface ResponseOrBuilder extends
       getCursorBytes();
 
   /**
-   * <code>int64 fetchInterval = 3;</code>
+   * <code>int64 fetch_interval = 3;</code>
    * @return The fetchInterval.
    */
   long getFetchInterval();
@@ -58,96 +58,74 @@ public interface ResponseOrBuilder extends
   long getNow();
 
   /**
-   * <code>string internalExt = 5;</code>
+   * <code>string internal_ext = 5;</code>
    * @return The internalExt.
    */
   java.lang.String getInternalExt();
   /**
-   * <code>string internalExt = 5;</code>
+   * <code>string internal_ext = 5;</code>
    * @return The bytes for internalExt.
    */
   com.google.protobuf.ByteString
       getInternalExtBytes();
 
   /**
-   * <code>int32 fetchType = 6;</code>
+   * <code>int32 fetch_type = 6;</code>
    * @return The fetchType.
    */
   int getFetchType();
 
   /**
-   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-   */
-  int getRouteParamsMapCount();
-  /**
-   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-   */
-  boolean containsRouteParamsMap(
-      java.lang.String key);
-  /**
-   * Use {@link #getRouteParamsMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
-  getRouteParamsMap();
-  /**
-   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-   */
-  java.util.Map<java.lang.String, java.lang.String>
-  getRouteParamsMapMap();
-  /**
-   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-   */
-  /* nullable */
-java.lang.String getRouteParamsMapOrDefault(
-      java.lang.String key,
-      /* nullable */
-java.lang.String defaultValue);
-  /**
-   * <code>map&lt;string, string&gt; routeParamsMap = 7;</code>
-   */
-  java.lang.String getRouteParamsMapOrThrow(
-      java.lang.String key);
-
-  /**
-   * <code>int64 heartbeatDuration = 8;</code>
+   * <code>int64 heartbeat_duration = 8;</code>
    * @return The heartbeatDuration.
    */
   long getHeartbeatDuration();
 
   /**
-   * <code>bool needAck = 9;</code>
+   * <code>bool need_ack = 9;</code>
    * @return The needAck.
    */
   boolean getNeedAck();
 
   /**
-   * <code>string pushServer = 10;</code>
+   * <code>string push_server = 10;</code>
    * @return The pushServer.
    */
   java.lang.String getPushServer();
   /**
-   * <code>string pushServer = 10;</code>
+   * <code>string push_server = 10;</code>
    * @return The bytes for pushServer.
    */
   com.google.protobuf.ByteString
       getPushServerBytes();
 
   /**
-   * <code>string liveCursor = 11;</code>
+   * <code>string live_cursor = 11;</code>
    * @return The liveCursor.
    */
   java.lang.String getLiveCursor();
   /**
-   * <code>string liveCursor = 11;</code>
+   * <code>string live_cursor = 11;</code>
    * @return The bytes for liveCursor.
    */
   com.google.protobuf.ByteString
       getLiveCursorBytes();
 
   /**
-   * <code>bool historyNoMore = 12;</code>
+   * <code>bool history_no_more = 12;</code>
    * @return The historyNoMore.
    */
   boolean getHistoryNoMore();
+
+  /**
+   * <code>string proxy_server = 13;</code>
+   * @return The proxyServer.
+   */
+  java.lang.String getProxyServer();
+  /**
+   * <code>string proxy_server = 13;</code>
+   * @return The bytes for proxyServer.
+   */
+  com.google.protobuf.ByteString
+      getProxyServerBytes();
 }

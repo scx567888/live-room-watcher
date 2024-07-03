@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ * 更新时间 : 2024-07-03
  * </pre>
  *
  * Protobuf type {@code SocialMessage}
@@ -31,7 +31,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private SocialMessage() {
-    shareTarget_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -48,32 +47,6 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int COMMON_FIELD_NUMBER = 1;
-  private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common common_;
-  /**
-   * <code>.Common common = 1;</code>
-   * @return Whether the common field is set.
-   */
-  @java.lang.Override
-  public boolean hasCommon() {
-    return ((bitField0_ & 0x00000001) != 0);
-  }
-  /**
-   * <code>.Common common = 1;</code>
-   * @return The common.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common getCommon() {
-    return common_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-  }
-  /**
-   * <code>.Common common = 1;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-    return common_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-  }
-
   public static final int USER_FIELD_NUMBER = 2;
   private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User user_;
   /**
@@ -82,7 +55,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasUser() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000001) != 0);
   }
   /**
    * <code>.User user = 2;</code>
@@ -100,104 +73,6 @@ private static final long serialVersionUID = 0L;
     return user_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User.getDefaultInstance() : user_;
   }
 
-  public static final int SHARETYPE_FIELD_NUMBER = 3;
-  private long shareType_ = 0L;
-  /**
-   * <code>int64 shareType = 3;</code>
-   * @return The shareType.
-   */
-  @java.lang.Override
-  public long getShareType() {
-    return shareType_;
-  }
-
-  public static final int ACTION_FIELD_NUMBER = 4;
-  private long action_ = 0L;
-  /**
-   * <code>int64 action = 4;</code>
-   * @return The action.
-   */
-  @java.lang.Override
-  public long getAction() {
-    return action_;
-  }
-
-  public static final int SHARETARGET_FIELD_NUMBER = 5;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object shareTarget_ = "";
-  /**
-   * <code>string shareTarget = 5;</code>
-   * @return The shareTarget.
-   */
-  @java.lang.Override
-  public java.lang.String getShareTarget() {
-    java.lang.Object ref = shareTarget_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      shareTarget_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string shareTarget = 5;</code>
-   * @return The bytes for shareTarget.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getShareTargetBytes() {
-    java.lang.Object ref = shareTarget_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      shareTarget_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int FOLLOWCOUNT_FIELD_NUMBER = 6;
-  private long followCount_ = 0L;
-  /**
-   * <code>int64 followCount = 6;</code>
-   * @return The followCount.
-   */
-  @java.lang.Override
-  public long getFollowCount() {
-    return followCount_;
-  }
-
-  public static final int PUBLICAREACOMMON_FIELD_NUMBER = 7;
-  private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon publicAreaCommon_;
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-   * @return Whether the publicAreaCommon field is set.
-   */
-  @java.lang.Override
-  public boolean hasPublicAreaCommon() {
-    return ((bitField0_ & 0x00000004) != 0);
-  }
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-   * @return The publicAreaCommon.
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon getPublicAreaCommon() {
-    return publicAreaCommon_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.getDefaultInstance() : publicAreaCommon_;
-  }
-  /**
-   * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-   */
-  @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOrBuilder getPublicAreaCommonOrBuilder() {
-    return publicAreaCommon_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.getDefaultInstance() : publicAreaCommon_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -213,25 +88,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(1, getCommon());
-    }
-    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(2, getUser());
-    }
-    if (shareType_ != 0L) {
-      output.writeInt64(3, shareType_);
-    }
-    if (action_ != 0L) {
-      output.writeInt64(4, action_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(shareTarget_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 5, shareTarget_);
-    }
-    if (followCount_ != 0L) {
-      output.writeInt64(6, followCount_);
-    }
-    if (((bitField0_ & 0x00000004) != 0)) {
-      output.writeMessage(7, getPublicAreaCommon());
     }
     getUnknownFields().writeTo(output);
   }
@@ -244,30 +101,7 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getCommon());
-    }
-    if (((bitField0_ & 0x00000002) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getUser());
-    }
-    if (shareType_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, shareType_);
-    }
-    if (action_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, action_);
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(shareTarget_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, shareTarget_);
-    }
-    if (followCount_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, followCount_);
-    }
-    if (((bitField0_ & 0x00000004) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getPublicAreaCommon());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -284,28 +118,10 @@ private static final long serialVersionUID = 0L;
     }
     cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.SocialMessage other = (cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.SocialMessage) obj;
 
-    if (hasCommon() != other.hasCommon()) return false;
-    if (hasCommon()) {
-      if (!getCommon()
-          .equals(other.getCommon())) return false;
-    }
     if (hasUser() != other.hasUser()) return false;
     if (hasUser()) {
       if (!getUser()
           .equals(other.getUser())) return false;
-    }
-    if (getShareType()
-        != other.getShareType()) return false;
-    if (getAction()
-        != other.getAction()) return false;
-    if (!getShareTarget()
-        .equals(other.getShareTarget())) return false;
-    if (getFollowCount()
-        != other.getFollowCount()) return false;
-    if (hasPublicAreaCommon() != other.hasPublicAreaCommon()) return false;
-    if (hasPublicAreaCommon()) {
-      if (!getPublicAreaCommon()
-          .equals(other.getPublicAreaCommon())) return false;
     }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
@@ -318,28 +134,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasCommon()) {
-      hash = (37 * hash) + COMMON_FIELD_NUMBER;
-      hash = (53 * hash) + getCommon().hashCode();
-    }
     if (hasUser()) {
       hash = (37 * hash) + USER_FIELD_NUMBER;
       hash = (53 * hash) + getUser().hashCode();
-    }
-    hash = (37 * hash) + SHARETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getShareType());
-    hash = (37 * hash) + ACTION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getAction());
-    hash = (37 * hash) + SHARETARGET_FIELD_NUMBER;
-    hash = (53 * hash) + getShareTarget().hashCode();
-    hash = (37 * hash) + FOLLOWCOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getFollowCount());
-    if (hasPublicAreaCommon()) {
-      hash = (37 * hash) + PUBLICAREACOMMON_FIELD_NUMBER;
-      hash = (53 * hash) + getPublicAreaCommon().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -440,7 +237,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2023-01-09
+   * 更新时间 : 2024-07-03
    * </pre>
    *
    * Protobuf type {@code SocialMessage}
@@ -475,33 +272,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
-        getCommonFieldBuilder();
         getUserFieldBuilder();
-        getPublicAreaCommonFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      common_ = null;
-      if (commonBuilder_ != null) {
-        commonBuilder_.dispose();
-        commonBuilder_ = null;
-      }
       user_ = null;
       if (userBuilder_ != null) {
         userBuilder_.dispose();
         userBuilder_ = null;
-      }
-      shareType_ = 0L;
-      action_ = 0L;
-      shareTarget_ = "";
-      followCount_ = 0L;
-      publicAreaCommon_ = null;
-      if (publicAreaCommonBuilder_ != null) {
-        publicAreaCommonBuilder_.dispose();
-        publicAreaCommonBuilder_ = null;
       }
       return this;
     }
@@ -538,34 +319,10 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.common_ = commonBuilder_ == null
-            ? common_
-            : commonBuilder_.build();
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.user_ = userBuilder_ == null
             ? user_
             : userBuilder_.build();
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.shareType_ = shareType_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.action_ = action_;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.shareTarget_ = shareTarget_;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.followCount_ = followCount_;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.publicAreaCommon_ = publicAreaCommonBuilder_ == null
-            ? publicAreaCommon_
-            : publicAreaCommonBuilder_.build();
-        to_bitField0_ |= 0x00000004;
+        to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -582,28 +339,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.SocialMessage other) {
       if (other == cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.SocialMessage.getDefaultInstance()) return this;
-      if (other.hasCommon()) {
-        mergeCommon(other.getCommon());
-      }
       if (other.hasUser()) {
         mergeUser(other.getUser());
-      }
-      if (other.getShareType() != 0L) {
-        setShareType(other.getShareType());
-      }
-      if (other.getAction() != 0L) {
-        setAction(other.getAction());
-      }
-      if (!other.getShareTarget().isEmpty()) {
-        shareTarget_ = other.shareTarget_;
-        bitField0_ |= 0x00000010;
-        onChanged();
-      }
-      if (other.getFollowCount() != 0L) {
-        setFollowCount(other.getFollowCount());
-      }
-      if (other.hasPublicAreaCommon()) {
-        mergePublicAreaCommon(other.getPublicAreaCommon());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -631,47 +368,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              input.readMessage(
-                  getCommonFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
             case 18: {
               input.readMessage(
                   getUserFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
-            case 24: {
-              shareType_ = input.readInt64();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 24
-            case 32: {
-              action_ = input.readInt64();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 32
-            case 42: {
-              shareTarget_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
-              break;
-            } // case 42
-            case 48: {
-              followCount_ = input.readInt64();
-              bitField0_ |= 0x00000020;
-              break;
-            } // case 48
-            case 58: {
-              input.readMessage(
-                  getPublicAreaCommonFieldBuilder().getBuilder(),
-                  extensionRegistry);
-              bitField0_ |= 0x00000040;
-              break;
-            } // case 58
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -689,127 +392,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common common_;
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder> commonBuilder_;
-    /**
-     * <code>.Common common = 1;</code>
-     * @return Whether the common field is set.
-     */
-    public boolean hasCommon() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     * @return The common.
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common getCommon() {
-      if (commonBuilder_ == null) {
-        return common_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      } else {
-        return commonBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder setCommon(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        common_ = value;
-      } else {
-        commonBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder setCommon(
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.Builder builderForValue) {
-      if (commonBuilder_ == null) {
-        common_ = builderForValue.build();
-      } else {
-        commonBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder mergeCommon(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common value) {
-      if (commonBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-          common_ != null &&
-          common_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance()) {
-          getCommonBuilder().mergeFrom(value);
-        } else {
-          common_ = value;
-        }
-      } else {
-        commonBuilder_.mergeFrom(value);
-      }
-      if (common_ != null) {
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public Builder clearCommon() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      common_ = null;
-      if (commonBuilder_ != null) {
-        commonBuilder_.dispose();
-        commonBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.Builder getCommonBuilder() {
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return getCommonFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder() {
-      if (commonBuilder_ != null) {
-        return commonBuilder_.getMessageOrBuilder();
-      } else {
-        return common_ == null ?
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
-      }
-    }
-    /**
-     * <code>.Common common = 1;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder> 
-        getCommonFieldBuilder() {
-      if (commonBuilder_ == null) {
-        commonBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder>(
-                getCommon(),
-                getParentForChildren(),
-                isClean());
-        common_ = null;
-      }
-      return commonBuilder_;
-    }
-
     private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User user_;
     private com.google.protobuf.SingleFieldBuilder<
         cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.UserOrBuilder> userBuilder_;
@@ -818,7 +400,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the user field is set.
      */
     public boolean hasUser() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.User user = 2;</code>
@@ -843,7 +425,7 @@ private static final long serialVersionUID = 0L;
       } else {
         userBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -857,7 +439,7 @@ private static final long serialVersionUID = 0L;
       } else {
         userBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -866,7 +448,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUser(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User value) {
       if (userBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0) &&
+        if (((bitField0_ & 0x00000001) != 0) &&
           user_ != null &&
           user_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User.getDefaultInstance()) {
           getUserBuilder().mergeFrom(value);
@@ -877,7 +459,7 @@ private static final long serialVersionUID = 0L;
         userBuilder_.mergeFrom(value);
       }
       if (user_ != null) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       return this;
@@ -886,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * <code>.User user = 2;</code>
      */
     public Builder clearUser() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       user_ = null;
       if (userBuilder_ != null) {
         userBuilder_.dispose();
@@ -899,7 +481,7 @@ private static final long serialVersionUID = 0L;
      * <code>.User user = 2;</code>
      */
     public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User.Builder getUserBuilder() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return getUserFieldBuilder().getBuilder();
     }
@@ -929,295 +511,6 @@ private static final long serialVersionUID = 0L;
         user_ = null;
       }
       return userBuilder_;
-    }
-
-    private long shareType_ ;
-    /**
-     * <code>int64 shareType = 3;</code>
-     * @return The shareType.
-     */
-    @java.lang.Override
-    public long getShareType() {
-      return shareType_;
-    }
-    /**
-     * <code>int64 shareType = 3;</code>
-     * @param value The shareType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShareType(long value) {
-
-      shareType_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 shareType = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearShareType() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      shareType_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long action_ ;
-    /**
-     * <code>int64 action = 4;</code>
-     * @return The action.
-     */
-    @java.lang.Override
-    public long getAction() {
-      return action_;
-    }
-    /**
-     * <code>int64 action = 4;</code>
-     * @param value The action to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAction(long value) {
-
-      action_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 action = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAction() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      action_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object shareTarget_ = "";
-    /**
-     * <code>string shareTarget = 5;</code>
-     * @return The shareTarget.
-     */
-    public java.lang.String getShareTarget() {
-      java.lang.Object ref = shareTarget_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        shareTarget_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string shareTarget = 5;</code>
-     * @return The bytes for shareTarget.
-     */
-    public com.google.protobuf.ByteString
-        getShareTargetBytes() {
-      java.lang.Object ref = shareTarget_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        shareTarget_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string shareTarget = 5;</code>
-     * @param value The shareTarget to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShareTarget(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      shareTarget_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string shareTarget = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearShareTarget() {
-      shareTarget_ = getDefaultInstance().getShareTarget();
-      bitField0_ = (bitField0_ & ~0x00000010);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string shareTarget = 5;</code>
-     * @param value The bytes for shareTarget to set.
-     * @return This builder for chaining.
-     */
-    public Builder setShareTargetBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      shareTarget_ = value;
-      bitField0_ |= 0x00000010;
-      onChanged();
-      return this;
-    }
-
-    private long followCount_ ;
-    /**
-     * <code>int64 followCount = 6;</code>
-     * @return The followCount.
-     */
-    @java.lang.Override
-    public long getFollowCount() {
-      return followCount_;
-    }
-    /**
-     * <code>int64 followCount = 6;</code>
-     * @param value The followCount to set.
-     * @return This builder for chaining.
-     */
-    public Builder setFollowCount(long value) {
-
-      followCount_ = value;
-      bitField0_ |= 0x00000020;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 followCount = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearFollowCount() {
-      bitField0_ = (bitField0_ & ~0x00000020);
-      followCount_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon publicAreaCommon_;
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOrBuilder> publicAreaCommonBuilder_;
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     * @return Whether the publicAreaCommon field is set.
-     */
-    public boolean hasPublicAreaCommon() {
-      return ((bitField0_ & 0x00000040) != 0);
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     * @return The publicAreaCommon.
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon getPublicAreaCommon() {
-      if (publicAreaCommonBuilder_ == null) {
-        return publicAreaCommon_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.getDefaultInstance() : publicAreaCommon_;
-      } else {
-        return publicAreaCommonBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public Builder setPublicAreaCommon(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon value) {
-      if (publicAreaCommonBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        publicAreaCommon_ = value;
-      } else {
-        publicAreaCommonBuilder_.setMessage(value);
-      }
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public Builder setPublicAreaCommon(
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.Builder builderForValue) {
-      if (publicAreaCommonBuilder_ == null) {
-        publicAreaCommon_ = builderForValue.build();
-      } else {
-        publicAreaCommonBuilder_.setMessage(builderForValue.build());
-      }
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public Builder mergePublicAreaCommon(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon value) {
-      if (publicAreaCommonBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0) &&
-          publicAreaCommon_ != null &&
-          publicAreaCommon_ != cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.getDefaultInstance()) {
-          getPublicAreaCommonBuilder().mergeFrom(value);
-        } else {
-          publicAreaCommon_ = value;
-        }
-      } else {
-        publicAreaCommonBuilder_.mergeFrom(value);
-      }
-      if (publicAreaCommon_ != null) {
-        bitField0_ |= 0x00000040;
-        onChanged();
-      }
-      return this;
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public Builder clearPublicAreaCommon() {
-      bitField0_ = (bitField0_ & ~0x00000040);
-      publicAreaCommon_ = null;
-      if (publicAreaCommonBuilder_ != null) {
-        publicAreaCommonBuilder_.dispose();
-        publicAreaCommonBuilder_ = null;
-      }
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.Builder getPublicAreaCommonBuilder() {
-      bitField0_ |= 0x00000040;
-      onChanged();
-      return getPublicAreaCommonFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOrBuilder getPublicAreaCommonOrBuilder() {
-      if (publicAreaCommonBuilder_ != null) {
-        return publicAreaCommonBuilder_.getMessageOrBuilder();
-      } else {
-        return publicAreaCommon_ == null ?
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.getDefaultInstance() : publicAreaCommon_;
-      }
-    }
-    /**
-     * <code>.PublicAreaCommon publicAreaCommon = 7;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOrBuilder> 
-        getPublicAreaCommonFieldBuilder() {
-      if (publicAreaCommonBuilder_ == null) {
-        publicAreaCommonBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-            cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommon.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PublicAreaCommonOrBuilder>(
-                getPublicAreaCommon(),
-                getParentForChildren(),
-                isClean());
-        publicAreaCommon_ = null;
-      }
-      return publicAreaCommonBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:SocialMessage)

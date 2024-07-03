@@ -28,13 +28,13 @@ public interface MessageOrBuilder extends
   com.google.protobuf.ByteString getPayload();
 
   /**
-   * <code>int64 msgId = 3;</code>
+   * <code>int64 msg_id = 3;</code>
    * @return The msgId.
    */
   long getMsgId();
 
   /**
-   * <code>int32 msgType = 4;</code>
+   * <code>int32 msg_type = 4;</code>
    * @return The msgType.
    */
   int getMsgType();
@@ -46,60 +46,26 @@ public interface MessageOrBuilder extends
   long getOffset();
 
   /**
-   * <code>bool needWrdsStore = 6;</code>
+   * <code>bool need_wrds_store = 6;</code>
    * @return The needWrdsStore.
    */
   boolean getNeedWrdsStore();
 
   /**
-   * <code>int64 wrdsVersion = 7;</code>
+   * <code>int64 wrds_version = 7;</code>
    * @return The wrdsVersion.
    */
   long getWrdsVersion();
 
   /**
-   * <code>string wrdsSubKey = 8;</code>
+   * <code>string wrds_sub_key = 8;</code>
    * @return The wrdsSubKey.
    */
   java.lang.String getWrdsSubKey();
   /**
-   * <code>string wrdsSubKey = 8;</code>
+   * <code>string wrds_sub_key = 8;</code>
    * @return The bytes for wrdsSubKey.
    */
   com.google.protobuf.ByteString
       getWrdsSubKeyBytes();
-
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  int getMessageExtraMapCount();
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  boolean containsMessageExtraMap(
-      java.lang.String key);
-  /**
-   * Use {@link #getMessageExtraMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  java.util.Map<java.lang.String, java.lang.String>
-  getMessageExtraMap();
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  java.util.Map<java.lang.String, java.lang.String>
-  getMessageExtraMapMap();
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  /* nullable */
-java.lang.String getMessageExtraMapOrDefault(
-      java.lang.String key,
-      /* nullable */
-java.lang.String defaultValue);
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  java.lang.String getMessageExtraMapOrThrow(
-      java.lang.String key);
 }

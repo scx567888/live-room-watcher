@@ -10,29 +10,29 @@ public interface ImageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string urlListList = 1;</code>
-   * @return A list containing the urlListList.
+   * <code>repeated string url_list = 1;</code>
+   * @return A list containing the urlList.
    */
   java.util.List<java.lang.String>
-      getUrlListListList();
+      getUrlListList();
   /**
-   * <code>repeated string urlListList = 1;</code>
-   * @return The count of urlListList.
+   * <code>repeated string url_list = 1;</code>
+   * @return The count of urlList.
    */
-  int getUrlListListCount();
+  int getUrlListCount();
   /**
-   * <code>repeated string urlListList = 1;</code>
+   * <code>repeated string url_list = 1;</code>
    * @param index The index of the element to return.
-   * @return The urlListList at the given index.
+   * @return The urlList at the given index.
    */
-  java.lang.String getUrlListList(int index);
+  java.lang.String getUrlList(int index);
   /**
-   * <code>repeated string urlListList = 1;</code>
+   * <code>repeated string url_list = 1;</code>
    * @param index The index of the value to return.
-   * @return The bytes of the urlListList at the given index.
+   * @return The bytes of the urlList at the given index.
    */
   com.google.protobuf.ByteString
-      getUrlListListBytes(int index);
+      getUrlListBytes(int index);
 
   /**
    * <code>string uri = 2;</code>
@@ -59,30 +59,30 @@ public interface ImageOrBuilder extends
   long getWidth();
 
   /**
-   * <code>string avgColor = 5;</code>
+   * <code>string avg_color = 5;</code>
    * @return The avgColor.
    */
   java.lang.String getAvgColor();
   /**
-   * <code>string avgColor = 5;</code>
+   * <code>string avg_color = 5;</code>
    * @return The bytes for avgColor.
    */
   com.google.protobuf.ByteString
       getAvgColorBytes();
 
   /**
-   * <code>int32 imageType = 6;</code>
+   * <code>int32 image_type = 6;</code>
    * @return The imageType.
    */
   int getImageType();
 
   /**
-   * <code>string openWebUrl = 7;</code>
+   * <code>string open_web_url = 7;</code>
    * @return The openWebUrl.
    */
   java.lang.String getOpenWebUrl();
   /**
-   * <code>string openWebUrl = 7;</code>
+   * <code>string open_web_url = 7;</code>
    * @return The bytes for openWebUrl.
    */
   com.google.protobuf.ByteString
@@ -104,56 +104,56 @@ public interface ImageOrBuilder extends
   cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.ContentOrBuilder getContentOrBuilder();
 
   /**
-   * <code>bool isAnimated = 9;</code>
+   * <code>bool is_animated = 9;</code>
    * @return The isAnimated.
    */
   boolean getIsAnimated();
 
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> 
-      getFlexSettingListListList();
+      getFlexSettingListList();
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingListList(int index);
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingList(int index);
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
-  int getFlexSettingListListCount();
+  int getFlexSettingListCount();
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-      getFlexSettingListListOrBuilderList();
+      getFlexSettingListOrBuilderList();
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListListOrBuilder(
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListOrBuilder(
       int index);
 
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> 
-      getTextSettingListListList();
+      getTextSettingListList();
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingListList(int index);
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingList(int index);
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
-  int getTextSettingListListCount();
+  int getTextSettingListCount();
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-      getTextSettingListListOrBuilderList();
+      getTextSettingListOrBuilderList();
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListListOrBuilder(
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListOrBuilder(
       int index);
 }

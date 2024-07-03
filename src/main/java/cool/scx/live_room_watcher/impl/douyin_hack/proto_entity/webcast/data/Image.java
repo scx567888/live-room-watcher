@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ * 更新时间 : 2024-07-03
  * </pre>
  *
  * Protobuf type {@code Image}
@@ -31,13 +31,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Image() {
-    urlListList_ =
+    urlList_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     uri_ = "";
     avgColor_ = "";
     openWebUrl_ = "";
-    flexSettingListList_ = java.util.Collections.emptyList();
-    textSettingListList_ = java.util.Collections.emptyList();
+    flexSettingList_ = java.util.Collections.emptyList();
+    textSettingList_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -70,12 +70,12 @@ private static final long serialVersionUID = 0L;
         getNameBytes();
 
     /**
-     * <code>string fontColor = 2;</code>
+     * <code>string font_color = 2;</code>
      * @return The fontColor.
      */
     java.lang.String getFontColor();
     /**
-     * <code>string fontColor = 2;</code>
+     * <code>string font_color = 2;</code>
      * @return The bytes for fontColor.
      */
     com.google.protobuf.ByteString
@@ -88,12 +88,12 @@ private static final long serialVersionUID = 0L;
     long getLevel();
 
     /**
-     * <code>string alternativeText = 4;</code>
+     * <code>string alternative_text = 4;</code>
      * @return The alternativeText.
      */
     java.lang.String getAlternativeText();
     /**
-     * <code>string alternativeText = 4;</code>
+     * <code>string alternative_text = 4;</code>
      * @return The bytes for alternativeText.
      */
     com.google.protobuf.ByteString
@@ -178,11 +178,11 @@ private static final long serialVersionUID = 0L;
       }
     }
 
-    public static final int FONTCOLOR_FIELD_NUMBER = 2;
+    public static final int FONT_COLOR_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object fontColor_ = "";
     /**
-     * <code>string fontColor = 2;</code>
+     * <code>string font_color = 2;</code>
      * @return The fontColor.
      */
     @java.lang.Override
@@ -199,7 +199,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string fontColor = 2;</code>
+     * <code>string font_color = 2;</code>
      * @return The bytes for fontColor.
      */
     @java.lang.Override
@@ -228,11 +228,11 @@ private static final long serialVersionUID = 0L;
       return level_;
     }
 
-    public static final int ALTERNATIVETEXT_FIELD_NUMBER = 4;
+    public static final int ALTERNATIVE_TEXT_FIELD_NUMBER = 4;
     @SuppressWarnings("serial")
     private volatile java.lang.Object alternativeText_ = "";
     /**
-     * <code>string alternativeText = 4;</code>
+     * <code>string alternative_text = 4;</code>
      * @return The alternativeText.
      */
     @java.lang.Override
@@ -249,7 +249,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string alternativeText = 4;</code>
+     * <code>string alternative_text = 4;</code>
      * @return The bytes for alternativeText.
      */
     @java.lang.Override
@@ -351,12 +351,12 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + FONTCOLOR_FIELD_NUMBER;
+      hash = (37 * hash) + FONT_COLOR_FIELD_NUMBER;
       hash = (53 * hash) + getFontColor().hashCode();
       hash = (37 * hash) + LEVEL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLevel());
-      hash = (37 * hash) + ALTERNATIVETEXT_FIELD_NUMBER;
+      hash = (37 * hash) + ALTERNATIVE_TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getAlternativeText().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -707,7 +707,7 @@ private static final long serialVersionUID = 0L;
 
       private java.lang.Object fontColor_ = "";
       /**
-       * <code>string fontColor = 2;</code>
+       * <code>string font_color = 2;</code>
        * @return The fontColor.
        */
       public java.lang.String getFontColor() {
@@ -723,7 +723,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>string fontColor = 2;</code>
+       * <code>string font_color = 2;</code>
        * @return The bytes for fontColor.
        */
       public com.google.protobuf.ByteString
@@ -740,7 +740,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>string fontColor = 2;</code>
+       * <code>string font_color = 2;</code>
        * @param value The fontColor to set.
        * @return This builder for chaining.
        */
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>string fontColor = 2;</code>
+       * <code>string font_color = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFontColor() {
@@ -763,7 +763,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>string fontColor = 2;</code>
+       * <code>string font_color = 2;</code>
        * @param value The bytes for fontColor to set.
        * @return This builder for chaining.
        */
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
 
       private java.lang.Object alternativeText_ = "";
       /**
-       * <code>string alternativeText = 4;</code>
+       * <code>string alternative_text = 4;</code>
        * @return The alternativeText.
        */
       public java.lang.String getAlternativeText() {
@@ -827,7 +827,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>string alternativeText = 4;</code>
+       * <code>string alternative_text = 4;</code>
        * @return The bytes for alternativeText.
        */
       public com.google.protobuf.ByteString
@@ -844,7 +844,7 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
-       * <code>string alternativeText = 4;</code>
+       * <code>string alternative_text = 4;</code>
        * @param value The alternativeText to set.
        * @return This builder for chaining.
        */
@@ -857,7 +857,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>string alternativeText = 4;</code>
+       * <code>string alternative_text = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearAlternativeText() {
@@ -867,7 +867,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
-       * <code>string alternativeText = 4;</code>
+       * <code>string alternative_text = 4;</code>
        * @param value The bytes for alternativeText to set.
        * @return This builder for chaining.
        */
@@ -1288,41 +1288,41 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int URLLISTLIST_FIELD_NUMBER = 1;
+  public static final int URL_LIST_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private com.google.protobuf.LazyStringArrayList urlListList_ =
+  private com.google.protobuf.LazyStringArrayList urlList_ =
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated string urlListList = 1;</code>
-   * @return A list containing the urlListList.
+   * <code>repeated string url_list = 1;</code>
+   * @return A list containing the urlList.
    */
   public com.google.protobuf.ProtocolStringList
-      getUrlListListList() {
-    return urlListList_;
+      getUrlListList() {
+    return urlList_;
   }
   /**
-   * <code>repeated string urlListList = 1;</code>
-   * @return The count of urlListList.
+   * <code>repeated string url_list = 1;</code>
+   * @return The count of urlList.
    */
-  public int getUrlListListCount() {
-    return urlListList_.size();
+  public int getUrlListCount() {
+    return urlList_.size();
   }
   /**
-   * <code>repeated string urlListList = 1;</code>
+   * <code>repeated string url_list = 1;</code>
    * @param index The index of the element to return.
-   * @return The urlListList at the given index.
+   * @return The urlList at the given index.
    */
-  public java.lang.String getUrlListList(int index) {
-    return urlListList_.get(index);
+  public java.lang.String getUrlList(int index) {
+    return urlList_.get(index);
   }
   /**
-   * <code>repeated string urlListList = 1;</code>
+   * <code>repeated string url_list = 1;</code>
    * @param index The index of the value to return.
-   * @return The bytes of the urlListList at the given index.
+   * @return The bytes of the urlList at the given index.
    */
   public com.google.protobuf.ByteString
-      getUrlListListBytes(int index) {
-    return urlListList_.getByteString(index);
+      getUrlListBytes(int index) {
+    return urlList_.getByteString(index);
   }
 
   public static final int URI_FIELD_NUMBER = 2;
@@ -1386,11 +1386,11 @@ private static final long serialVersionUID = 0L;
     return width_;
   }
 
-  public static final int AVGCOLOR_FIELD_NUMBER = 5;
+  public static final int AVG_COLOR_FIELD_NUMBER = 5;
   @SuppressWarnings("serial")
   private volatile java.lang.Object avgColor_ = "";
   /**
-   * <code>string avgColor = 5;</code>
+   * <code>string avg_color = 5;</code>
    * @return The avgColor.
    */
   @java.lang.Override
@@ -1407,7 +1407,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string avgColor = 5;</code>
+   * <code>string avg_color = 5;</code>
    * @return The bytes for avgColor.
    */
   @java.lang.Override
@@ -1425,10 +1425,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IMAGETYPE_FIELD_NUMBER = 6;
+  public static final int IMAGE_TYPE_FIELD_NUMBER = 6;
   private int imageType_ = 0;
   /**
-   * <code>int32 imageType = 6;</code>
+   * <code>int32 image_type = 6;</code>
    * @return The imageType.
    */
   @java.lang.Override
@@ -1436,11 +1436,11 @@ private static final long serialVersionUID = 0L;
     return imageType_;
   }
 
-  public static final int OPENWEBURL_FIELD_NUMBER = 7;
+  public static final int OPEN_WEB_URL_FIELD_NUMBER = 7;
   @SuppressWarnings("serial")
   private volatile java.lang.Object openWebUrl_ = "";
   /**
-   * <code>string openWebUrl = 7;</code>
+   * <code>string open_web_url = 7;</code>
    * @return The openWebUrl.
    */
   @java.lang.Override
@@ -1457,7 +1457,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string openWebUrl = 7;</code>
+   * <code>string open_web_url = 7;</code>
    * @return The bytes for openWebUrl.
    */
   @java.lang.Override
@@ -1501,10 +1501,10 @@ private static final long serialVersionUID = 0L;
     return content_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.Content.getDefaultInstance() : content_;
   }
 
-  public static final int ISANIMATED_FIELD_NUMBER = 9;
+  public static final int IS_ANIMATED_FIELD_NUMBER = 9;
   private boolean isAnimated_ = false;
   /**
-   * <code>bool isAnimated = 9;</code>
+   * <code>bool is_animated = 9;</code>
    * @return The isAnimated.
    */
   @java.lang.Override
@@ -1512,86 +1512,86 @@ private static final long serialVersionUID = 0L;
     return isAnimated_;
   }
 
-  public static final int FLEXSETTINGLISTLIST_FIELD_NUMBER = 10;
+  public static final int FLEX_SETTING_LIST_FIELD_NUMBER = 10;
   @SuppressWarnings("serial")
-  private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> flexSettingListList_;
+  private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> flexSettingList_;
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   @java.lang.Override
-  public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getFlexSettingListListList() {
-    return flexSettingListList_;
+  public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getFlexSettingListList() {
+    return flexSettingList_;
   }
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   @java.lang.Override
   public java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-      getFlexSettingListListOrBuilderList() {
-    return flexSettingListList_;
+      getFlexSettingListOrBuilderList() {
+    return flexSettingList_;
   }
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   @java.lang.Override
-  public int getFlexSettingListListCount() {
-    return flexSettingListList_.size();
+  public int getFlexSettingListCount() {
+    return flexSettingList_.size();
   }
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingListList(int index) {
-    return flexSettingListList_.get(index);
+  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingList(int index) {
+    return flexSettingList_.get(index);
   }
   /**
-   * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+   * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListListOrBuilder(
+  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListOrBuilder(
       int index) {
-    return flexSettingListList_.get(index);
+    return flexSettingList_.get(index);
   }
 
-  public static final int TEXTSETTINGLISTLIST_FIELD_NUMBER = 11;
+  public static final int TEXT_SETTING_LIST_FIELD_NUMBER = 11;
   @SuppressWarnings("serial")
-  private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> textSettingListList_;
+  private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> textSettingList_;
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   @java.lang.Override
-  public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getTextSettingListListList() {
-    return textSettingListList_;
+  public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getTextSettingListList() {
+    return textSettingList_;
   }
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   @java.lang.Override
   public java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-      getTextSettingListListOrBuilderList() {
-    return textSettingListList_;
+      getTextSettingListOrBuilderList() {
+    return textSettingList_;
   }
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   @java.lang.Override
-  public int getTextSettingListListCount() {
-    return textSettingListList_.size();
+  public int getTextSettingListCount() {
+    return textSettingList_.size();
   }
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingListList(int index) {
-    return textSettingListList_.get(index);
+  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingList(int index) {
+    return textSettingList_.get(index);
   }
   /**
-   * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+   * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
    */
   @java.lang.Override
-  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListListOrBuilder(
+  public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListOrBuilder(
       int index) {
-    return textSettingListList_.get(index);
+    return textSettingList_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1608,8 +1608,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < urlListList_.size(); i++) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, urlListList_.getRaw(i));
+    for (int i = 0; i < urlList_.size(); i++) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, urlList_.getRaw(i));
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(uri_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 2, uri_);
@@ -1635,11 +1635,11 @@ private static final long serialVersionUID = 0L;
     if (isAnimated_ != false) {
       output.writeBool(9, isAnimated_);
     }
-    for (int i = 0; i < flexSettingListList_.size(); i++) {
-      output.writeMessage(10, flexSettingListList_.get(i));
+    for (int i = 0; i < flexSettingList_.size(); i++) {
+      output.writeMessage(10, flexSettingList_.get(i));
     }
-    for (int i = 0; i < textSettingListList_.size(); i++) {
-      output.writeMessage(11, textSettingListList_.get(i));
+    for (int i = 0; i < textSettingList_.size(); i++) {
+      output.writeMessage(11, textSettingList_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -1652,11 +1652,11 @@ private static final long serialVersionUID = 0L;
     size = 0;
     {
       int dataSize = 0;
-      for (int i = 0; i < urlListList_.size(); i++) {
-        dataSize += computeStringSizeNoTag(urlListList_.getRaw(i));
+      for (int i = 0; i < urlList_.size(); i++) {
+        dataSize += computeStringSizeNoTag(urlList_.getRaw(i));
       }
       size += dataSize;
-      size += 1 * getUrlListListList().size();
+      size += 1 * getUrlListList().size();
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(uri_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(2, uri_);
@@ -1687,13 +1687,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, isAnimated_);
     }
-    for (int i = 0; i < flexSettingListList_.size(); i++) {
+    for (int i = 0; i < flexSettingList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(10, flexSettingListList_.get(i));
+        .computeMessageSize(10, flexSettingList_.get(i));
     }
-    for (int i = 0; i < textSettingListList_.size(); i++) {
+    for (int i = 0; i < textSettingList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(11, textSettingListList_.get(i));
+        .computeMessageSize(11, textSettingList_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1710,8 +1710,8 @@ private static final long serialVersionUID = 0L;
     }
     cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image other = (cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image) obj;
 
-    if (!getUrlListListList()
-        .equals(other.getUrlListListList())) return false;
+    if (!getUrlListList()
+        .equals(other.getUrlListList())) return false;
     if (!getUri()
         .equals(other.getUri())) return false;
     if (getHeight()
@@ -1731,10 +1731,10 @@ private static final long serialVersionUID = 0L;
     }
     if (getIsAnimated()
         != other.getIsAnimated()) return false;
-    if (!getFlexSettingListListList()
-        .equals(other.getFlexSettingListListList())) return false;
-    if (!getTextSettingListListList()
-        .equals(other.getTextSettingListListList())) return false;
+    if (!getFlexSettingListList()
+        .equals(other.getFlexSettingListList())) return false;
+    if (!getTextSettingListList()
+        .equals(other.getTextSettingListList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -1746,9 +1746,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getUrlListListCount() > 0) {
-      hash = (37 * hash) + URLLISTLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getUrlListListList().hashCode();
+    if (getUrlListCount() > 0) {
+      hash = (37 * hash) + URL_LIST_FIELD_NUMBER;
+      hash = (53 * hash) + getUrlListList().hashCode();
     }
     hash = (37 * hash) + URI_FIELD_NUMBER;
     hash = (53 * hash) + getUri().hashCode();
@@ -1758,26 +1758,26 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WIDTH_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getWidth());
-    hash = (37 * hash) + AVGCOLOR_FIELD_NUMBER;
+    hash = (37 * hash) + AVG_COLOR_FIELD_NUMBER;
     hash = (53 * hash) + getAvgColor().hashCode();
-    hash = (37 * hash) + IMAGETYPE_FIELD_NUMBER;
+    hash = (37 * hash) + IMAGE_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getImageType();
-    hash = (37 * hash) + OPENWEBURL_FIELD_NUMBER;
+    hash = (37 * hash) + OPEN_WEB_URL_FIELD_NUMBER;
     hash = (53 * hash) + getOpenWebUrl().hashCode();
     if (hasContent()) {
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
     }
-    hash = (37 * hash) + ISANIMATED_FIELD_NUMBER;
+    hash = (37 * hash) + IS_ANIMATED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsAnimated());
-    if (getFlexSettingListListCount() > 0) {
-      hash = (37 * hash) + FLEXSETTINGLISTLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getFlexSettingListListList().hashCode();
+    if (getFlexSettingListCount() > 0) {
+      hash = (37 * hash) + FLEX_SETTING_LIST_FIELD_NUMBER;
+      hash = (53 * hash) + getFlexSettingListList().hashCode();
     }
-    if (getTextSettingListListCount() > 0) {
-      hash = (37 * hash) + TEXTSETTINGLISTLIST_FIELD_NUMBER;
-      hash = (53 * hash) + getTextSettingListListList().hashCode();
+    if (getTextSettingListCount() > 0) {
+      hash = (37 * hash) + TEXT_SETTING_LIST_FIELD_NUMBER;
+      hash = (53 * hash) + getTextSettingListList().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1878,7 +1878,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2023-01-09
+   * 更新时间 : 2024-07-03
    * </pre>
    *
    * Protobuf type {@code Image}
@@ -1914,15 +1914,15 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         getContentFieldBuilder();
-        getFlexSettingListListFieldBuilder();
-        getTextSettingListListFieldBuilder();
+        getFlexSettingListFieldBuilder();
+        getTextSettingListFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      urlListList_ =
+      urlList_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
       uri_ = "";
       height_ = 0L;
@@ -1936,18 +1936,18 @@ private static final long serialVersionUID = 0L;
         contentBuilder_ = null;
       }
       isAnimated_ = false;
-      if (flexSettingListListBuilder_ == null) {
-        flexSettingListList_ = java.util.Collections.emptyList();
+      if (flexSettingListBuilder_ == null) {
+        flexSettingList_ = java.util.Collections.emptyList();
       } else {
-        flexSettingListList_ = null;
-        flexSettingListListBuilder_.clear();
+        flexSettingList_ = null;
+        flexSettingListBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000200);
-      if (textSettingListListBuilder_ == null) {
-        textSettingListList_ = java.util.Collections.emptyList();
+      if (textSettingListBuilder_ == null) {
+        textSettingList_ = java.util.Collections.emptyList();
       } else {
-        textSettingListList_ = null;
-        textSettingListListBuilder_.clear();
+        textSettingList_ = null;
+        textSettingListBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000400);
       return this;
@@ -1983,31 +1983,31 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image result) {
-      if (flexSettingListListBuilder_ == null) {
+      if (flexSettingListBuilder_ == null) {
         if (((bitField0_ & 0x00000200) != 0)) {
-          flexSettingListList_ = java.util.Collections.unmodifiableList(flexSettingListList_);
+          flexSettingList_ = java.util.Collections.unmodifiableList(flexSettingList_);
           bitField0_ = (bitField0_ & ~0x00000200);
         }
-        result.flexSettingListList_ = flexSettingListList_;
+        result.flexSettingList_ = flexSettingList_;
       } else {
-        result.flexSettingListList_ = flexSettingListListBuilder_.build();
+        result.flexSettingList_ = flexSettingListBuilder_.build();
       }
-      if (textSettingListListBuilder_ == null) {
+      if (textSettingListBuilder_ == null) {
         if (((bitField0_ & 0x00000400) != 0)) {
-          textSettingListList_ = java.util.Collections.unmodifiableList(textSettingListList_);
+          textSettingList_ = java.util.Collections.unmodifiableList(textSettingList_);
           bitField0_ = (bitField0_ & ~0x00000400);
         }
-        result.textSettingListList_ = textSettingListList_;
+        result.textSettingList_ = textSettingList_;
       } else {
-        result.textSettingListList_ = textSettingListListBuilder_.build();
+        result.textSettingList_ = textSettingListBuilder_.build();
       }
     }
 
     private void buildPartial0(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        urlListList_.makeImmutable();
-        result.urlListList_ = urlListList_;
+        urlList_.makeImmutable();
+        result.urlList_ = urlList_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.uri_ = uri_;
@@ -2052,13 +2052,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image other) {
       if (other == cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.getDefaultInstance()) return this;
-      if (!other.urlListList_.isEmpty()) {
-        if (urlListList_.isEmpty()) {
-          urlListList_ = other.urlListList_;
+      if (!other.urlList_.isEmpty()) {
+        if (urlList_.isEmpty()) {
+          urlList_ = other.urlList_;
           bitField0_ |= 0x00000001;
         } else {
-          ensureUrlListListIsMutable();
-          urlListList_.addAll(other.urlListList_);
+          ensureUrlListIsMutable();
+          urlList_.addAll(other.urlList_);
         }
         onChanged();
       }
@@ -2092,55 +2092,55 @@ private static final long serialVersionUID = 0L;
       if (other.getIsAnimated() != false) {
         setIsAnimated(other.getIsAnimated());
       }
-      if (flexSettingListListBuilder_ == null) {
-        if (!other.flexSettingListList_.isEmpty()) {
-          if (flexSettingListList_.isEmpty()) {
-            flexSettingListList_ = other.flexSettingListList_;
+      if (flexSettingListBuilder_ == null) {
+        if (!other.flexSettingList_.isEmpty()) {
+          if (flexSettingList_.isEmpty()) {
+            flexSettingList_ = other.flexSettingList_;
             bitField0_ = (bitField0_ & ~0x00000200);
           } else {
-            ensureFlexSettingListListIsMutable();
-            flexSettingListList_.addAll(other.flexSettingListList_);
+            ensureFlexSettingListIsMutable();
+            flexSettingList_.addAll(other.flexSettingList_);
           }
           onChanged();
         }
       } else {
-        if (!other.flexSettingListList_.isEmpty()) {
-          if (flexSettingListListBuilder_.isEmpty()) {
-            flexSettingListListBuilder_.dispose();
-            flexSettingListListBuilder_ = null;
-            flexSettingListList_ = other.flexSettingListList_;
+        if (!other.flexSettingList_.isEmpty()) {
+          if (flexSettingListBuilder_.isEmpty()) {
+            flexSettingListBuilder_.dispose();
+            flexSettingListBuilder_ = null;
+            flexSettingList_ = other.flexSettingList_;
             bitField0_ = (bitField0_ & ~0x00000200);
-            flexSettingListListBuilder_ = 
+            flexSettingListBuilder_ = 
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                 getFlexSettingListListFieldBuilder() : null;
+                 getFlexSettingListFieldBuilder() : null;
           } else {
-            flexSettingListListBuilder_.addAllMessages(other.flexSettingListList_);
+            flexSettingListBuilder_.addAllMessages(other.flexSettingList_);
           }
         }
       }
-      if (textSettingListListBuilder_ == null) {
-        if (!other.textSettingListList_.isEmpty()) {
-          if (textSettingListList_.isEmpty()) {
-            textSettingListList_ = other.textSettingListList_;
+      if (textSettingListBuilder_ == null) {
+        if (!other.textSettingList_.isEmpty()) {
+          if (textSettingList_.isEmpty()) {
+            textSettingList_ = other.textSettingList_;
             bitField0_ = (bitField0_ & ~0x00000400);
           } else {
-            ensureTextSettingListListIsMutable();
-            textSettingListList_.addAll(other.textSettingListList_);
+            ensureTextSettingListIsMutable();
+            textSettingList_.addAll(other.textSettingList_);
           }
           onChanged();
         }
       } else {
-        if (!other.textSettingListList_.isEmpty()) {
-          if (textSettingListListBuilder_.isEmpty()) {
-            textSettingListListBuilder_.dispose();
-            textSettingListListBuilder_ = null;
-            textSettingListList_ = other.textSettingListList_;
+        if (!other.textSettingList_.isEmpty()) {
+          if (textSettingListBuilder_.isEmpty()) {
+            textSettingListBuilder_.dispose();
+            textSettingListBuilder_ = null;
+            textSettingList_ = other.textSettingList_;
             bitField0_ = (bitField0_ & ~0x00000400);
-            textSettingListListBuilder_ = 
+            textSettingListBuilder_ = 
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                 getTextSettingListListFieldBuilder() : null;
+                 getTextSettingListFieldBuilder() : null;
           } else {
-            textSettingListListBuilder_.addAllMessages(other.textSettingListList_);
+            textSettingListBuilder_.addAllMessages(other.textSettingList_);
           }
         }
       }
@@ -2172,8 +2172,8 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-              ensureUrlListListIsMutable();
-              urlListList_.add(s);
+              ensureUrlListIsMutable();
+              urlList_.add(s);
               break;
             } // case 10
             case 18: {
@@ -2223,11 +2223,11 @@ private static final long serialVersionUID = 0L;
                   input.readMessage(
                       cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.parser(),
                       extensionRegistry);
-              if (flexSettingListListBuilder_ == null) {
-                ensureFlexSettingListListIsMutable();
-                flexSettingListList_.add(m);
+              if (flexSettingListBuilder_ == null) {
+                ensureFlexSettingListIsMutable();
+                flexSettingList_.add(m);
               } else {
-                flexSettingListListBuilder_.addMessage(m);
+                flexSettingListBuilder_.addMessage(m);
               }
               break;
             } // case 82
@@ -2236,11 +2236,11 @@ private static final long serialVersionUID = 0L;
                   input.readMessage(
                       cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.parser(),
                       extensionRegistry);
-              if (textSettingListListBuilder_ == null) {
-                ensureTextSettingListListIsMutable();
-                textSettingListList_.add(m);
+              if (textSettingListBuilder_ == null) {
+                ensureTextSettingListIsMutable();
+                textSettingList_.add(m);
               } else {
-                textSettingListListBuilder_.addMessage(m);
+                textSettingListBuilder_.addMessage(m);
               }
               break;
             } // case 90
@@ -2261,112 +2261,112 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList urlListList_ =
+    private com.google.protobuf.LazyStringArrayList urlList_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
-    private void ensureUrlListListIsMutable() {
-      if (!urlListList_.isModifiable()) {
-        urlListList_ = new com.google.protobuf.LazyStringArrayList(urlListList_);
+    private void ensureUrlListIsMutable() {
+      if (!urlList_.isModifiable()) {
+        urlList_ = new com.google.protobuf.LazyStringArrayList(urlList_);
       }
       bitField0_ |= 0x00000001;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
-     * @return A list containing the urlListList.
+     * <code>repeated string url_list = 1;</code>
+     * @return A list containing the urlList.
      */
     public com.google.protobuf.ProtocolStringList
-        getUrlListListList() {
-      urlListList_.makeImmutable();
-      return urlListList_;
+        getUrlListList() {
+      urlList_.makeImmutable();
+      return urlList_;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
-     * @return The count of urlListList.
+     * <code>repeated string url_list = 1;</code>
+     * @return The count of urlList.
      */
-    public int getUrlListListCount() {
-      return urlListList_.size();
+    public int getUrlListCount() {
+      return urlList_.size();
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
+     * <code>repeated string url_list = 1;</code>
      * @param index The index of the element to return.
-     * @return The urlListList at the given index.
+     * @return The urlList at the given index.
      */
-    public java.lang.String getUrlListList(int index) {
-      return urlListList_.get(index);
+    public java.lang.String getUrlList(int index) {
+      return urlList_.get(index);
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
+     * <code>repeated string url_list = 1;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the urlListList at the given index.
+     * @return The bytes of the urlList at the given index.
      */
     public com.google.protobuf.ByteString
-        getUrlListListBytes(int index) {
-      return urlListList_.getByteString(index);
+        getUrlListBytes(int index) {
+      return urlList_.getByteString(index);
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
+     * <code>repeated string url_list = 1;</code>
      * @param index The index to set the value at.
-     * @param value The urlListList to set.
+     * @param value The urlList to set.
      * @return This builder for chaining.
      */
-    public Builder setUrlListList(
+    public Builder setUrlList(
         int index, java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      ensureUrlListListIsMutable();
-      urlListList_.set(index, value);
+      ensureUrlListIsMutable();
+      urlList_.set(index, value);
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
-     * @param value The urlListList to add.
+     * <code>repeated string url_list = 1;</code>
+     * @param value The urlList to add.
      * @return This builder for chaining.
      */
-    public Builder addUrlListList(
+    public Builder addUrlList(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      ensureUrlListListIsMutable();
-      urlListList_.add(value);
+      ensureUrlListIsMutable();
+      urlList_.add(value);
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
-     * @param values The urlListList to add.
+     * <code>repeated string url_list = 1;</code>
+     * @param values The urlList to add.
      * @return This builder for chaining.
      */
-    public Builder addAllUrlListList(
+    public Builder addAllUrlList(
         java.lang.Iterable<java.lang.String> values) {
-      ensureUrlListListIsMutable();
+      ensureUrlListIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, urlListList_);
+          values, urlList_);
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
+     * <code>repeated string url_list = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUrlListList() {
-      urlListList_ =
+    public Builder clearUrlList() {
+      urlList_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string urlListList = 1;</code>
-     * @param value The bytes of the urlListList to add.
+     * <code>repeated string url_list = 1;</code>
+     * @param value The bytes of the urlList to add.
      * @return This builder for chaining.
      */
-    public Builder addUrlListListBytes(
+    public Builder addUrlListBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      ensureUrlListListIsMutable();
-      urlListList_.add(value);
+      ensureUrlListIsMutable();
+      urlList_.add(value);
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
@@ -2510,7 +2510,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object avgColor_ = "";
     /**
-     * <code>string avgColor = 5;</code>
+     * <code>string avg_color = 5;</code>
      * @return The avgColor.
      */
     public java.lang.String getAvgColor() {
@@ -2526,7 +2526,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avgColor = 5;</code>
+     * <code>string avg_color = 5;</code>
      * @return The bytes for avgColor.
      */
     public com.google.protobuf.ByteString
@@ -2543,7 +2543,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string avgColor = 5;</code>
+     * <code>string avg_color = 5;</code>
      * @param value The avgColor to set.
      * @return This builder for chaining.
      */
@@ -2556,7 +2556,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avgColor = 5;</code>
+     * <code>string avg_color = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearAvgColor() {
@@ -2566,7 +2566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string avgColor = 5;</code>
+     * <code>string avg_color = 5;</code>
      * @param value The bytes for avgColor to set.
      * @return This builder for chaining.
      */
@@ -2582,7 +2582,7 @@ private static final long serialVersionUID = 0L;
 
     private int imageType_ ;
     /**
-     * <code>int32 imageType = 6;</code>
+     * <code>int32 image_type = 6;</code>
      * @return The imageType.
      */
     @java.lang.Override
@@ -2590,7 +2590,7 @@ private static final long serialVersionUID = 0L;
       return imageType_;
     }
     /**
-     * <code>int32 imageType = 6;</code>
+     * <code>int32 image_type = 6;</code>
      * @param value The imageType to set.
      * @return This builder for chaining.
      */
@@ -2602,7 +2602,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 imageType = 6;</code>
+     * <code>int32 image_type = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearImageType() {
@@ -2614,7 +2614,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object openWebUrl_ = "";
     /**
-     * <code>string openWebUrl = 7;</code>
+     * <code>string open_web_url = 7;</code>
      * @return The openWebUrl.
      */
     public java.lang.String getOpenWebUrl() {
@@ -2630,7 +2630,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string openWebUrl = 7;</code>
+     * <code>string open_web_url = 7;</code>
      * @return The bytes for openWebUrl.
      */
     public com.google.protobuf.ByteString
@@ -2647,7 +2647,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string openWebUrl = 7;</code>
+     * <code>string open_web_url = 7;</code>
      * @param value The openWebUrl to set.
      * @return This builder for chaining.
      */
@@ -2660,7 +2660,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string openWebUrl = 7;</code>
+     * <code>string open_web_url = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearOpenWebUrl() {
@@ -2670,7 +2670,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string openWebUrl = 7;</code>
+     * <code>string open_web_url = 7;</code>
      * @param value The bytes for openWebUrl to set.
      * @return This builder for chaining.
      */
@@ -2807,7 +2807,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean isAnimated_ ;
     /**
-     * <code>bool isAnimated = 9;</code>
+     * <code>bool is_animated = 9;</code>
      * @return The isAnimated.
      */
     @java.lang.Override
@@ -2815,7 +2815,7 @@ private static final long serialVersionUID = 0L;
       return isAnimated_;
     }
     /**
-     * <code>bool isAnimated = 9;</code>
+     * <code>bool is_animated = 9;</code>
      * @param value The isAnimated to set.
      * @return This builder for chaining.
      */
@@ -2827,7 +2827,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool isAnimated = 9;</code>
+     * <code>bool is_animated = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearIsAnimated() {
@@ -2837,484 +2837,484 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> flexSettingListList_ =
+    private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> flexSettingList_ =
       java.util.Collections.emptyList();
-    private void ensureFlexSettingListListIsMutable() {
+    private void ensureFlexSettingListIsMutable() {
       if (!((bitField0_ & 0x00000200) != 0)) {
-        flexSettingListList_ = new java.util.ArrayList<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting>(flexSettingListList_);
+        flexSettingList_ = new java.util.ArrayList<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting>(flexSettingList_);
         bitField0_ |= 0x00000200;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> flexSettingListListBuilder_;
+        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> flexSettingListBuilder_;
 
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getFlexSettingListListList() {
-      if (flexSettingListListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(flexSettingListList_);
+    public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getFlexSettingListList() {
+      if (flexSettingListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(flexSettingList_);
       } else {
-        return flexSettingListListBuilder_.getMessageList();
+        return flexSettingListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public int getFlexSettingListListCount() {
-      if (flexSettingListListBuilder_ == null) {
-        return flexSettingListList_.size();
+    public int getFlexSettingListCount() {
+      if (flexSettingListBuilder_ == null) {
+        return flexSettingList_.size();
       } else {
-        return flexSettingListListBuilder_.getCount();
+        return flexSettingListBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingListList(int index) {
-      if (flexSettingListListBuilder_ == null) {
-        return flexSettingListList_.get(index);
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getFlexSettingList(int index) {
+      if (flexSettingListBuilder_ == null) {
+        return flexSettingList_.get(index);
       } else {
-        return flexSettingListListBuilder_.getMessage(index);
+        return flexSettingListBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder setFlexSettingListList(
+    public Builder setFlexSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (flexSettingListListBuilder_ == null) {
+      if (flexSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.set(index, value);
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.set(index, value);
         onChanged();
       } else {
-        flexSettingListListBuilder_.setMessage(index, value);
+        flexSettingListBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder setFlexSettingListList(
+    public Builder setFlexSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (flexSettingListListBuilder_ == null) {
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.set(index, builderForValue.build());
+      if (flexSettingListBuilder_ == null) {
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.set(index, builderForValue.build());
         onChanged();
       } else {
-        flexSettingListListBuilder_.setMessage(index, builderForValue.build());
+        flexSettingListBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder addFlexSettingListList(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (flexSettingListListBuilder_ == null) {
+    public Builder addFlexSettingList(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
+      if (flexSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.add(value);
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.add(value);
         onChanged();
       } else {
-        flexSettingListListBuilder_.addMessage(value);
+        flexSettingListBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder addFlexSettingListList(
+    public Builder addFlexSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (flexSettingListListBuilder_ == null) {
+      if (flexSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.add(index, value);
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.add(index, value);
         onChanged();
       } else {
-        flexSettingListListBuilder_.addMessage(index, value);
+        flexSettingListBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder addFlexSettingListList(
+    public Builder addFlexSettingList(
         cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (flexSettingListListBuilder_ == null) {
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.add(builderForValue.build());
+      if (flexSettingListBuilder_ == null) {
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.add(builderForValue.build());
         onChanged();
       } else {
-        flexSettingListListBuilder_.addMessage(builderForValue.build());
+        flexSettingListBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder addFlexSettingListList(
+    public Builder addFlexSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (flexSettingListListBuilder_ == null) {
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.add(index, builderForValue.build());
+      if (flexSettingListBuilder_ == null) {
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.add(index, builderForValue.build());
         onChanged();
       } else {
-        flexSettingListListBuilder_.addMessage(index, builderForValue.build());
+        flexSettingListBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder addAllFlexSettingListList(
+    public Builder addAllFlexSettingList(
         java.lang.Iterable<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> values) {
-      if (flexSettingListListBuilder_ == null) {
-        ensureFlexSettingListListIsMutable();
+      if (flexSettingListBuilder_ == null) {
+        ensureFlexSettingListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, flexSettingListList_);
+            values, flexSettingList_);
         onChanged();
       } else {
-        flexSettingListListBuilder_.addAllMessages(values);
+        flexSettingListBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder clearFlexSettingListList() {
-      if (flexSettingListListBuilder_ == null) {
-        flexSettingListList_ = java.util.Collections.emptyList();
+    public Builder clearFlexSettingList() {
+      if (flexSettingListBuilder_ == null) {
+        flexSettingList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
-        flexSettingListListBuilder_.clear();
+        flexSettingListBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public Builder removeFlexSettingListList(int index) {
-      if (flexSettingListListBuilder_ == null) {
-        ensureFlexSettingListListIsMutable();
-        flexSettingListList_.remove(index);
+    public Builder removeFlexSettingList(int index) {
+      if (flexSettingListBuilder_ == null) {
+        ensureFlexSettingListIsMutable();
+        flexSettingList_.remove(index);
         onChanged();
       } else {
-        flexSettingListListBuilder_.remove(index);
+        flexSettingListBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder getFlexSettingListListBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder getFlexSettingListBuilder(
         int index) {
-      return getFlexSettingListListFieldBuilder().getBuilder(index);
+      return getFlexSettingListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListListOrBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getFlexSettingListOrBuilder(
         int index) {
-      if (flexSettingListListBuilder_ == null) {
-        return flexSettingListList_.get(index);  } else {
-        return flexSettingListListBuilder_.getMessageOrBuilder(index);
+      if (flexSettingListBuilder_ == null) {
+        return flexSettingList_.get(index);  } else {
+        return flexSettingListBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
     public java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-         getFlexSettingListListOrBuilderList() {
-      if (flexSettingListListBuilder_ != null) {
-        return flexSettingListListBuilder_.getMessageOrBuilderList();
+         getFlexSettingListOrBuilderList() {
+      if (flexSettingListBuilder_ != null) {
+        return flexSettingListBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(flexSettingListList_);
+        return java.util.Collections.unmodifiableList(flexSettingList_);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addFlexSettingListListBuilder() {
-      return getFlexSettingListListFieldBuilder().addBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addFlexSettingListBuilder() {
+      return getFlexSettingListFieldBuilder().addBuilder(
           cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addFlexSettingListListBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addFlexSettingListBuilder(
         int index) {
-      return getFlexSettingListListFieldBuilder().addBuilder(
+      return getFlexSettingListFieldBuilder().addBuilder(
           index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .Image.NinePatchSetting flexSettingListList = 10;</code>
+     * <code>repeated .Image.NinePatchSetting flex_setting_list = 10;</code>
      */
     public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder> 
-         getFlexSettingListListBuilderList() {
-      return getFlexSettingListListFieldBuilder().getBuilderList();
+         getFlexSettingListBuilderList() {
+      return getFlexSettingListFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
         cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-        getFlexSettingListListFieldBuilder() {
-      if (flexSettingListListBuilder_ == null) {
-        flexSettingListListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+        getFlexSettingListFieldBuilder() {
+      if (flexSettingListBuilder_ == null) {
+        flexSettingListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
             cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder>(
-                flexSettingListList_,
+                flexSettingList_,
                 ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
-        flexSettingListList_ = null;
+        flexSettingList_ = null;
       }
-      return flexSettingListListBuilder_;
+      return flexSettingListBuilder_;
     }
 
-    private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> textSettingListList_ =
+    private java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> textSettingList_ =
       java.util.Collections.emptyList();
-    private void ensureTextSettingListListIsMutable() {
+    private void ensureTextSettingListIsMutable() {
       if (!((bitField0_ & 0x00000400) != 0)) {
-        textSettingListList_ = new java.util.ArrayList<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting>(textSettingListList_);
+        textSettingList_ = new java.util.ArrayList<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting>(textSettingList_);
         bitField0_ |= 0x00000400;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilder<
-        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> textSettingListListBuilder_;
+        cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> textSettingListBuilder_;
 
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getTextSettingListListList() {
-      if (textSettingListListBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(textSettingListList_);
+    public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> getTextSettingListList() {
+      if (textSettingListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(textSettingList_);
       } else {
-        return textSettingListListBuilder_.getMessageList();
+        return textSettingListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public int getTextSettingListListCount() {
-      if (textSettingListListBuilder_ == null) {
-        return textSettingListList_.size();
+    public int getTextSettingListCount() {
+      if (textSettingListBuilder_ == null) {
+        return textSettingList_.size();
       } else {
-        return textSettingListListBuilder_.getCount();
+        return textSettingListBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingListList(int index) {
-      if (textSettingListListBuilder_ == null) {
-        return textSettingListList_.get(index);
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting getTextSettingList(int index) {
+      if (textSettingListBuilder_ == null) {
+        return textSettingList_.get(index);
       } else {
-        return textSettingListListBuilder_.getMessage(index);
+        return textSettingListBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder setTextSettingListList(
+    public Builder setTextSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (textSettingListListBuilder_ == null) {
+      if (textSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.set(index, value);
+        ensureTextSettingListIsMutable();
+        textSettingList_.set(index, value);
         onChanged();
       } else {
-        textSettingListListBuilder_.setMessage(index, value);
+        textSettingListBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder setTextSettingListList(
+    public Builder setTextSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (textSettingListListBuilder_ == null) {
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.set(index, builderForValue.build());
+      if (textSettingListBuilder_ == null) {
+        ensureTextSettingListIsMutable();
+        textSettingList_.set(index, builderForValue.build());
         onChanged();
       } else {
-        textSettingListListBuilder_.setMessage(index, builderForValue.build());
+        textSettingListBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder addTextSettingListList(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (textSettingListListBuilder_ == null) {
+    public Builder addTextSettingList(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
+      if (textSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.add(value);
+        ensureTextSettingListIsMutable();
+        textSettingList_.add(value);
         onChanged();
       } else {
-        textSettingListListBuilder_.addMessage(value);
+        textSettingListBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder addTextSettingListList(
+    public Builder addTextSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting value) {
-      if (textSettingListListBuilder_ == null) {
+      if (textSettingListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.add(index, value);
+        ensureTextSettingListIsMutable();
+        textSettingList_.add(index, value);
         onChanged();
       } else {
-        textSettingListListBuilder_.addMessage(index, value);
+        textSettingListBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder addTextSettingListList(
+    public Builder addTextSettingList(
         cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (textSettingListListBuilder_ == null) {
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.add(builderForValue.build());
+      if (textSettingListBuilder_ == null) {
+        ensureTextSettingListIsMutable();
+        textSettingList_.add(builderForValue.build());
         onChanged();
       } else {
-        textSettingListListBuilder_.addMessage(builderForValue.build());
+        textSettingListBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder addTextSettingListList(
+    public Builder addTextSettingList(
         int index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder builderForValue) {
-      if (textSettingListListBuilder_ == null) {
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.add(index, builderForValue.build());
+      if (textSettingListBuilder_ == null) {
+        ensureTextSettingListIsMutable();
+        textSettingList_.add(index, builderForValue.build());
         onChanged();
       } else {
-        textSettingListListBuilder_.addMessage(index, builderForValue.build());
+        textSettingListBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder addAllTextSettingListList(
+    public Builder addAllTextSettingList(
         java.lang.Iterable<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting> values) {
-      if (textSettingListListBuilder_ == null) {
-        ensureTextSettingListListIsMutable();
+      if (textSettingListBuilder_ == null) {
+        ensureTextSettingListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, textSettingListList_);
+            values, textSettingList_);
         onChanged();
       } else {
-        textSettingListListBuilder_.addAllMessages(values);
+        textSettingListBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder clearTextSettingListList() {
-      if (textSettingListListBuilder_ == null) {
-        textSettingListList_ = java.util.Collections.emptyList();
+    public Builder clearTextSettingList() {
+      if (textSettingListBuilder_ == null) {
+        textSettingList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
-        textSettingListListBuilder_.clear();
+        textSettingListBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public Builder removeTextSettingListList(int index) {
-      if (textSettingListListBuilder_ == null) {
-        ensureTextSettingListListIsMutable();
-        textSettingListList_.remove(index);
+    public Builder removeTextSettingList(int index) {
+      if (textSettingListBuilder_ == null) {
+        ensureTextSettingListIsMutable();
+        textSettingList_.remove(index);
         onChanged();
       } else {
-        textSettingListListBuilder_.remove(index);
+        textSettingListBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder getTextSettingListListBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder getTextSettingListBuilder(
         int index) {
-      return getTextSettingListListFieldBuilder().getBuilder(index);
+      return getTextSettingListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListListOrBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder getTextSettingListOrBuilder(
         int index) {
-      if (textSettingListListBuilder_ == null) {
-        return textSettingListList_.get(index);  } else {
-        return textSettingListListBuilder_.getMessageOrBuilder(index);
+      if (textSettingListBuilder_ == null) {
+        return textSettingList_.get(index);  } else {
+        return textSettingListBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
     public java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-         getTextSettingListListOrBuilderList() {
-      if (textSettingListListBuilder_ != null) {
-        return textSettingListListBuilder_.getMessageOrBuilderList();
+         getTextSettingListOrBuilderList() {
+      if (textSettingListBuilder_ != null) {
+        return textSettingListBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(textSettingListList_);
+        return java.util.Collections.unmodifiableList(textSettingList_);
       }
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addTextSettingListListBuilder() {
-      return getTextSettingListListFieldBuilder().addBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addTextSettingListBuilder() {
+      return getTextSettingListFieldBuilder().addBuilder(
           cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addTextSettingListListBuilder(
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder addTextSettingListBuilder(
         int index) {
-      return getTextSettingListListFieldBuilder().addBuilder(
+      return getTextSettingListFieldBuilder().addBuilder(
           index, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .Image.NinePatchSetting textSettingListList = 11;</code>
+     * <code>repeated .Image.NinePatchSetting text_setting_list = 11;</code>
      */
     public java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder> 
-         getTextSettingListListBuilderList() {
-      return getTextSettingListListFieldBuilder().getBuilderList();
+         getTextSettingListBuilderList() {
+      return getTextSettingListFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilder<
         cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder> 
-        getTextSettingListListFieldBuilder() {
-      if (textSettingListListBuilder_ == null) {
-        textSettingListListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+        getTextSettingListFieldBuilder() {
+      if (textSettingListBuilder_ == null) {
+        textSettingListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
             cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSetting.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.Image.NinePatchSettingOrBuilder>(
-                textSettingListList_,
+                textSettingList_,
                 ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
-        textSettingListList_ = null;
+        textSettingList_ = null;
       }
-      return textSettingListListBuilder_;
+      return textSettingListBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:Image)
