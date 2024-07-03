@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-11
+ * 更新时间 : 2024-07-03
  * </pre>
  *
  * Protobuf type {@code RoomStatsMessage}
@@ -76,11 +76,11 @@ private static final long serialVersionUID = 0L;
     return common_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Common.getDefaultInstance() : common_;
   }
 
-  public static final int DISPLAYSHORT_FIELD_NUMBER = 2;
+  public static final int DISPLAY_SHORT_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
   private volatile java.lang.Object displayShort_ = "";
   /**
-   * <code>string displayShort = 2;</code>
+   * <code>string display_short = 2;</code>
    * @return The displayShort.
    */
   @java.lang.Override
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string displayShort = 2;</code>
+   * <code>string display_short = 2;</code>
    * @return The bytes for displayShort.
    */
   @java.lang.Override
@@ -115,11 +115,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DISPLAYMIDDLE_FIELD_NUMBER = 3;
+  public static final int DISPLAY_MIDDLE_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
   private volatile java.lang.Object displayMiddle_ = "";
   /**
-   * <code>string displayMiddle = 3;</code>
+   * <code>string display_middle = 3;</code>
    * @return The displayMiddle.
    */
   @java.lang.Override
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string displayMiddle = 3;</code>
+   * <code>string display_middle = 3;</code>
    * @return The bytes for displayMiddle.
    */
   @java.lang.Override
@@ -154,11 +154,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DISPLAYLONG_FIELD_NUMBER = 4;
+  public static final int DISPLAY_LONG_FIELD_NUMBER = 4;
   @SuppressWarnings("serial")
   private volatile java.lang.Object displayLong_ = "";
   /**
-   * <code>string displayLong = 4;</code>
+   * <code>string display_long = 4;</code>
    * @return The displayLong.
    */
   @java.lang.Override
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string displayLong = 4;</code>
+   * <code>string display_long = 4;</code>
    * @return The bytes for displayLong.
    */
   @java.lang.Override
@@ -193,10 +193,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DISPLAYVALUE_FIELD_NUMBER = 5;
+  public static final int DISPLAY_VALUE_FIELD_NUMBER = 5;
   private long displayValue_ = 0L;
   /**
-   * <code>int64 displayValue = 5;</code>
+   * <code>int64 display_value = 5;</code>
    * @return The displayValue.
    */
   @java.lang.Override
@@ -204,10 +204,10 @@ private static final long serialVersionUID = 0L;
     return displayValue_;
   }
 
-  public static final int DISPLAYVERSION_FIELD_NUMBER = 6;
+  public static final int DISPLAY_VERSION_FIELD_NUMBER = 6;
   private long displayVersion_ = 0L;
   /**
-   * <code>int64 displayVersion = 6;</code>
+   * <code>int64 display_version = 6;</code>
    * @return The displayVersion.
    */
   @java.lang.Override
@@ -226,10 +226,10 @@ private static final long serialVersionUID = 0L;
     return incremental_;
   }
 
-  public static final int ISHIDDEN_FIELD_NUMBER = 8;
+  public static final int IS_HIDDEN_FIELD_NUMBER = 8;
   private boolean isHidden_ = false;
   /**
-   * <code>bool isHidden = 8;</code>
+   * <code>bool is_hidden = 8;</code>
    * @return The isHidden.
    */
   @java.lang.Override
@@ -248,10 +248,10 @@ private static final long serialVersionUID = 0L;
     return total_;
   }
 
-  public static final int DISPLAYTYPE_FIELD_NUMBER = 10;
+  public static final int DISPLAY_TYPE_FIELD_NUMBER = 10;
   private long displayType_ = 0L;
   /**
-   * <code>int64 displayType = 10;</code>
+   * <code>int64 display_type = 10;</code>
    * @return The displayType.
    */
   @java.lang.Override
@@ -402,28 +402,28 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_FIELD_NUMBER;
       hash = (53 * hash) + getCommon().hashCode();
     }
-    hash = (37 * hash) + DISPLAYSHORT_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_SHORT_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayShort().hashCode();
-    hash = (37 * hash) + DISPLAYMIDDLE_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_MIDDLE_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayMiddle().hashCode();
-    hash = (37 * hash) + DISPLAYLONG_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_LONG_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayLong().hashCode();
-    hash = (37 * hash) + DISPLAYVALUE_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_VALUE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getDisplayValue());
-    hash = (37 * hash) + DISPLAYVERSION_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getDisplayVersion());
     hash = (37 * hash) + INCREMENTAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIncremental());
-    hash = (37 * hash) + ISHIDDEN_FIELD_NUMBER;
+    hash = (37 * hash) + IS_HIDDEN_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsHidden());
     hash = (37 * hash) + TOTAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotal());
-    hash = (37 * hash) + DISPLAYTYPE_FIELD_NUMBER;
+    hash = (37 * hash) + DISPLAY_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getDisplayType());
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -525,7 +525,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2023-01-11
+   * 更新时间 : 2024-07-03
    * </pre>
    *
    * Protobuf type {@code RoomStatsMessage}
@@ -917,7 +917,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object displayShort_ = "";
     /**
-     * <code>string displayShort = 2;</code>
+     * <code>string display_short = 2;</code>
      * @return The displayShort.
      */
     public java.lang.String getDisplayShort() {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayShort = 2;</code>
+     * <code>string display_short = 2;</code>
      * @return The bytes for displayShort.
      */
     public com.google.protobuf.ByteString
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayShort = 2;</code>
+     * <code>string display_short = 2;</code>
      * @param value The displayShort to set.
      * @return This builder for chaining.
      */
@@ -963,7 +963,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayShort = 2;</code>
+     * <code>string display_short = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayShort() {
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayShort = 2;</code>
+     * <code>string display_short = 2;</code>
      * @param value The bytes for displayShort to set.
      * @return This builder for chaining.
      */
@@ -989,7 +989,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object displayMiddle_ = "";
     /**
-     * <code>string displayMiddle = 3;</code>
+     * <code>string display_middle = 3;</code>
      * @return The displayMiddle.
      */
     public java.lang.String getDisplayMiddle() {
@@ -1005,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayMiddle = 3;</code>
+     * <code>string display_middle = 3;</code>
      * @return The bytes for displayMiddle.
      */
     public com.google.protobuf.ByteString
@@ -1022,7 +1022,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayMiddle = 3;</code>
+     * <code>string display_middle = 3;</code>
      * @param value The displayMiddle to set.
      * @return This builder for chaining.
      */
@@ -1035,7 +1035,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayMiddle = 3;</code>
+     * <code>string display_middle = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayMiddle() {
@@ -1045,7 +1045,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayMiddle = 3;</code>
+     * <code>string display_middle = 3;</code>
      * @param value The bytes for displayMiddle to set.
      * @return This builder for chaining.
      */
@@ -1061,7 +1061,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object displayLong_ = "";
     /**
-     * <code>string displayLong = 4;</code>
+     * <code>string display_long = 4;</code>
      * @return The displayLong.
      */
     public java.lang.String getDisplayLong() {
@@ -1077,7 +1077,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayLong = 4;</code>
+     * <code>string display_long = 4;</code>
      * @return The bytes for displayLong.
      */
     public com.google.protobuf.ByteString
@@ -1094,7 +1094,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string displayLong = 4;</code>
+     * <code>string display_long = 4;</code>
      * @param value The displayLong to set.
      * @return This builder for chaining.
      */
@@ -1107,7 +1107,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayLong = 4;</code>
+     * <code>string display_long = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayLong() {
@@ -1117,7 +1117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string displayLong = 4;</code>
+     * <code>string display_long = 4;</code>
      * @param value The bytes for displayLong to set.
      * @return This builder for chaining.
      */
@@ -1133,7 +1133,7 @@ private static final long serialVersionUID = 0L;
 
     private long displayValue_ ;
     /**
-     * <code>int64 displayValue = 5;</code>
+     * <code>int64 display_value = 5;</code>
      * @return The displayValue.
      */
     @java.lang.Override
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return displayValue_;
     }
     /**
-     * <code>int64 displayValue = 5;</code>
+     * <code>int64 display_value = 5;</code>
      * @param value The displayValue to set.
      * @return This builder for chaining.
      */
@@ -1153,7 +1153,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 displayValue = 5;</code>
+     * <code>int64 display_value = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayValue() {
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
 
     private long displayVersion_ ;
     /**
-     * <code>int64 displayVersion = 6;</code>
+     * <code>int64 display_version = 6;</code>
      * @return The displayVersion.
      */
     @java.lang.Override
@@ -1173,7 +1173,7 @@ private static final long serialVersionUID = 0L;
       return displayVersion_;
     }
     /**
-     * <code>int64 displayVersion = 6;</code>
+     * <code>int64 display_version = 6;</code>
      * @param value The displayVersion to set.
      * @return This builder for chaining.
      */
@@ -1185,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 displayVersion = 6;</code>
+     * <code>int64 display_version = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayVersion() {
@@ -1229,7 +1229,7 @@ private static final long serialVersionUID = 0L;
 
     private boolean isHidden_ ;
     /**
-     * <code>bool isHidden = 8;</code>
+     * <code>bool is_hidden = 8;</code>
      * @return The isHidden.
      */
     @java.lang.Override
@@ -1237,7 +1237,7 @@ private static final long serialVersionUID = 0L;
       return isHidden_;
     }
     /**
-     * <code>bool isHidden = 8;</code>
+     * <code>bool is_hidden = 8;</code>
      * @param value The isHidden to set.
      * @return This builder for chaining.
      */
@@ -1249,7 +1249,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool isHidden = 8;</code>
+     * <code>bool is_hidden = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearIsHidden() {
@@ -1293,7 +1293,7 @@ private static final long serialVersionUID = 0L;
 
     private long displayType_ ;
     /**
-     * <code>int64 displayType = 10;</code>
+     * <code>int64 display_type = 10;</code>
      * @return The displayType.
      */
     @java.lang.Override
@@ -1301,7 +1301,7 @@ private static final long serialVersionUID = 0L;
       return displayType_;
     }
     /**
-     * <code>int64 displayType = 10;</code>
+     * <code>int64 display_type = 10;</code>
      * @param value The displayType to set.
      * @return This builder for chaining.
      */
@@ -1313,7 +1313,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 displayType = 10;</code>
+     * <code>int64 display_type = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayType() {

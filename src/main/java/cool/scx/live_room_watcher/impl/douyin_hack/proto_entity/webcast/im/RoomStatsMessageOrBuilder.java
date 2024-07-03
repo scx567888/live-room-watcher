@@ -25,49 +25,49 @@ public interface RoomStatsMessageOrBuilder extends
   cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
-   * <code>string displayShort = 2;</code>
+   * <code>string display_short = 2;</code>
    * @return The displayShort.
    */
   java.lang.String getDisplayShort();
   /**
-   * <code>string displayShort = 2;</code>
+   * <code>string display_short = 2;</code>
    * @return The bytes for displayShort.
    */
   com.google.protobuf.ByteString
       getDisplayShortBytes();
 
   /**
-   * <code>string displayMiddle = 3;</code>
+   * <code>string display_middle = 3;</code>
    * @return The displayMiddle.
    */
   java.lang.String getDisplayMiddle();
   /**
-   * <code>string displayMiddle = 3;</code>
+   * <code>string display_middle = 3;</code>
    * @return The bytes for displayMiddle.
    */
   com.google.protobuf.ByteString
       getDisplayMiddleBytes();
 
   /**
-   * <code>string displayLong = 4;</code>
+   * <code>string display_long = 4;</code>
    * @return The displayLong.
    */
   java.lang.String getDisplayLong();
   /**
-   * <code>string displayLong = 4;</code>
+   * <code>string display_long = 4;</code>
    * @return The bytes for displayLong.
    */
   com.google.protobuf.ByteString
       getDisplayLongBytes();
 
   /**
-   * <code>int64 displayValue = 5;</code>
+   * <code>int64 display_value = 5;</code>
    * @return The displayValue.
    */
   long getDisplayValue();
 
   /**
-   * <code>int64 displayVersion = 6;</code>
+   * <code>int64 display_version = 6;</code>
    * @return The displayVersion.
    */
   long getDisplayVersion();
@@ -79,7 +79,7 @@ public interface RoomStatsMessageOrBuilder extends
   boolean getIncremental();
 
   /**
-   * <code>bool isHidden = 8;</code>
+   * <code>bool is_hidden = 8;</code>
    * @return The isHidden.
    */
   boolean getIsHidden();
@@ -91,7 +91,7 @@ public interface RoomStatsMessageOrBuilder extends
   long getTotal();
 
   /**
-   * <code>int64 displayType = 10;</code>
+   * <code>int64 display_type = 10;</code>
    * @return The displayType.
    */
   long getDisplayType();

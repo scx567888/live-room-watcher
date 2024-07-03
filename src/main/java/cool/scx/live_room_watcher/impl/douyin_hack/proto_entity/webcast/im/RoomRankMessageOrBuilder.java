@@ -25,26 +25,26 @@ public interface RoomRankMessageOrBuilder extends
   cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.CommonOrBuilder getCommonOrBuilder();
 
   /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+   * <code>repeated .RoomRankMessage.RoomRank ranks = 2;</code>
    */
   java.util.List<cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRank> 
-      getRanksListList();
+      getRanksList();
   /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+   * <code>repeated .RoomRankMessage.RoomRank ranks = 2;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRank getRanksList(int index);
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRank getRanks(int index);
   /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+   * <code>repeated .RoomRankMessage.RoomRank ranks = 2;</code>
    */
-  int getRanksListCount();
+  int getRanksCount();
   /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+   * <code>repeated .RoomRankMessage.RoomRank ranks = 2;</code>
    */
   java.util.List<? extends cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder> 
-      getRanksListOrBuilderList();
+      getRanksOrBuilderList();
   /**
-   * <code>repeated .RoomRankMessage.RoomRank ranksList = 2;</code>
+   * <code>repeated .RoomRankMessage.RoomRank ranks = 2;</code>
    */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder getRanksListOrBuilder(
+  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.RoomRankMessage.RoomRankOrBuilder getRanksOrBuilder(
       int index);
 }

@@ -5,16 +5,16 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/webcast/im/Common.proto";
 
-//更新时间 : 2023-01-11
-message  RoomStatsMessage{
+// 更新时间 : 2024-07-03
+message RoomStatsMessage {
     Common common = 1;
-    string displayShort = 2;
-    string  displayMiddle = 3;
-    string  displayLong = 4;
-    int64    displayValue = 5;
-    int64  displayVersion = 6;
-    bool  incremental = 7;
-    bool isHidden = 8;
+    string display_short = 2;
+    string display_middle = 3;
+    string display_long = 4;
+    int64  display_value = 5;
+    int64  display_version = 6;
+    bool   incremental = 7;
+    bool   is_hidden = 8;
     int64  total = 9;
-    int64  displayType = 10;
+    int64  display_type = 10;
 }

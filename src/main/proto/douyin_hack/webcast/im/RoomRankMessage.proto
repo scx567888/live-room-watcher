@@ -6,15 +6,15 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
 
-//更新时间 : 2023-01-10
+// 更新时间 : 2024-07-03
 message RoomRankMessage {
     Common common = 1;
-    repeated RoomRank ranksList = 2;
+    repeated RoomRank ranks = 2;
 
-    message RoomRank{
+    message RoomRank {
         User user = 1;
-        string scoreStr = 2;
-        bool profileHidden = 3;
+        string score_str = 2;
+        bool profile_hidden = 3;
     }
 
 }

@@ -9,7 +9,6 @@ import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
@@ -58,38 +57,13 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public Map<String, ScxConsumer<byte[], ?>> initHandlerMap() {
         var map = new HashMap<String, ScxConsumer<byte[], ?>>();
         map.put("WebcastSocialMessage", this::WebcastSocialMessage);
-        map.put("RoomMessage", this::RoomMessageOrWebcastRoomMessage);
-        map.put("WebcastRoomMessage", this::RoomMessageOrWebcastRoomMessage);
         map.put("WebcastChatMessage", this::WebcastChatMessage);
         map.put("WebcastMemberMessage", this::WebcastMemberMessage);
         map.put("WebcastLikeMessage", this::WebcastLikeMessage);
         map.put("WebcastGiftMessage", this::WebcastGiftMessage);
-        map.put("WebcastRoomUserSeqMessage", this::WebcastRoomUserSeqMessage);
-        map.put("WebcastCommonTextMessage", this::WebcastCommonTextMessage);
         map.put("WebcastControlMessage", this::WebcastControlMessage);
-        map.put("WebcastFansclubMessage", this::WebcastFansclubMessage);
-        map.put("WebcastInRoomBannerMessage", this::WebcastInRoomBannerMessage);
         map.put("WebcastRoomRankMessage", this::WebcastRoomRankMessage);
-        map.put("WebcastUpdateFanTicketMessage", this::WebcastUpdateFanTicketMessage);
         map.put("WebcastRoomStatsMessage", this::WebcastRoomStatsMessage);
-        map.put("WebcastCommerceMessage", this::WebcastCommerceMessage);
-        map.put("WebcastAudienceEntranceMessage", this::WebcastAudienceEntranceMessage);
-        map.put("WebcastStampMessage", this::WebcastStampMessage);
-        map.put("WebcastSyncStreamMessage", this::WebcastSyncStreamMessage);
-        map.put("WebcastAudioChatMessage", this::WebcastAudioChatMessage);
-        map.put("WebcastLinkMicArmiesMethod", this::WebcastLinkMicArmiesMethod);
-        map.put("WebcastProfitInteractionScoreMessage", this::WebcastProfitInteractionScoreMessage);
-        map.put("WebcastLinkMicMethod", this::WebcastLinkMicMethod);
-        map.put("LinkMicMethod", this::LinkMicMethod);
-        map.put("WebcastLinkMessage", this::WebcastLinkMessage);
-        map.put("WebcastRoomDataSyncMessage", this::WebcastRoomDataSyncMessage);
-        map.put("WebcastEmojiChatMessage", this::WebcastEmojiChatMessage);
-        map.put("WebcastLinkerContributeMessage", this::WebcastLinkerContributeMessage);
-        map.put("WebcastGameCPUserDownloadMessage", this::WebcastGameCPUserDownloadMessage);
-        map.put("WebcastHotRoomMessage", this::WebcastHotRoomMessage);
-        map.put("WebcastScreenChatMessage", this::WebcastScreenChatMessage);
-        map.put("WebcastLuckyBoxMessage", this::WebcastLuckyBoxMessage);
-        map.put("WebcastHotChatMessage", this::WebcastHotChatMessage);
         return map;
     }
 
@@ -224,10 +198,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this._callOnFollow(douYinFollow);
     }
 
-    public void RoomMessageOrWebcastRoomMessage(byte[] payload) throws InvalidProtocolBufferException {
-        var roomMessage = RoomMessage.parseFrom(payload);
-    }
-
     public void WebcastChatMessage(byte[] payload) throws InvalidProtocolBufferException {
         // 消息
         var chatMessage = ChatMessage.parseFrom(payload);
@@ -282,25 +252,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
         //礼物
         var giftMessage = GiftMessage.parseFrom(payload);
-        long groupCount = giftMessage.getGroupCount();
-        long groupId = giftMessage.getGroupId();
-        long repeatCount = giftMessage.getRepeatCount();
-        long repeatEnd = giftMessage.getRepeatEnd();
-        long totalCount = giftMessage.getTotalCount();
         //todo 哪个是真正的总数 ???
         //todo 人气 Top 是拿不到 name 的
         String name = giftMessage.getGift().getName();
         var douYinGift = new DouYinHackGift(giftMessage);
         this._callOnGift(douYinGift);
-    }
-
-    public void WebcastRoomUserSeqMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //直播间统计
-        var roomUserSeqMessage = RoomUserSeqMessage.parseFrom(payload);
-    }
-
-    public void WebcastCommonTextMessage(byte[] payload) throws InvalidProtocolBufferException {
-        var commonTextMessage = CommonTextMessage.parseFrom(payload);
     }
 
     public void WebcastControlMessage(byte[] payload) throws InvalidProtocolBufferException {
@@ -321,119 +277,22 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public void WebcastFansclubMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //粉丝俱乐部 ???
-        var fansclubMessage = FansclubMessage.parseFrom(payload);
-    }
-
-    public void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //进房间后的 Banner
-        var inRoomBannerMessage = InRoomBannerMessage.parseFrom(payload);
-    }
-
     public void WebcastRoomRankMessage(byte[] payload) throws InvalidProtocolBufferException {
         //房间排行榜
         var roomRankMessage = RoomRankMessage.parseFrom(payload);
         var sb = new StringBuilder("房间排行榜更新 : \n");
         var index = 1;
-        for (var roomRank : roomRankMessage.getRanksListList()) {
+        for (var roomRank : roomRankMessage.getRanksList()) {
             sb.append(index).append(" : ").append(roomRank.getUser().getNickname()).append("\n");
             index += 1;
         }
         System.out.print(sb);
     }
 
-    public void WebcastUpdateFanTicketMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //粉丝票计数 ??? 不玩抖音不太懂
-        var updateFanTicketMessage = UpdateFanTicketMessage.parseFrom(payload);
-    }
-
     public void WebcastRoomStatsMessage(byte[] payload) throws InvalidProtocolBufferException {
         //房间状态
         var roomStats = RoomStatsMessage.parseFrom(payload);
         System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
-    }
-
-    public void WebcastCommerceMessage(byte[] payload) {
-        //todo WebcastCommerceMessage
-    }
-
-    public void WebcastAudienceEntranceMessage(byte[] payload) {
-        //观众入场信息
-        //todo WebcastAudienceEntranceMessage
-    }
-
-    public void WebcastStampMessage(byte[] payload) {
-        //todo WebcastStampMessage
-    }
-
-    public void WebcastSyncStreamMessage(byte[] payload) throws InvalidProtocolBufferException {
-        var syncStreamMessage = SyncStreamMessage.parseFrom(payload);
-    }
-
-    public void WebcastAudioChatMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //音频弹幕 ??? 不玩抖音不太懂
-        var audioChatMessage = AudioChatMessage.parseFrom(payload);
-    }
-
-    public void WebcastLinkMicArmiesMethod(byte[] payload) {
-        //连麦 ??
-        //todo WebcastLinkMicArmiesMethod
-    }
-
-    public void WebcastProfitInteractionScoreMessage(byte[] payload) {
-        //todo WebcastProfitInteractionScoreMessage
-    }
-
-    public void WebcastLinkMicMethod(byte[] payload) {
-        //todo WebcastLinkMicMethod
-    }
-
-    public void LinkMicMethod(byte[] payload) {
-        //todo LinkMicMethod
-    }
-
-    public void WebcastLinkMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //连麦 ???
-        var linkMessage = LinkMessage.parseFrom(payload);
-    }
-
-    public void WebcastRoomDataSyncMessage(byte[] payload) {
-        //todo WebcastRoomDataSyncMessage
-    }
-
-    public void WebcastEmojiChatMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //emoji 类型的消息 ???
-        var emojiChatMessage = EmojiChatMessage.parseFrom(payload);
-    }
-
-    public void WebcastLinkerContributeMessage(byte[] payload) {
-        //todo  WebcastLinkerContributeMessage
-    }
-
-    public void WebcastGameCPUserDownloadMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //不知道是啥
-        var gameCPUserDownloadMessage = GameCPUserDownloadMessage.parseFrom(payload);
-    }
-
-    public void WebcastHotRoomMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //热门直播间 ???
-        var hotRoomMessage = HotRoomMessage.parseFrom(payload);
-    }
-
-    public void WebcastScreenChatMessage(byte[] payload) throws InvalidProtocolBufferException {
-        var screenChatMessage = ScreenChatMessage.parseFrom(payload);
-        System.out.println("全屏消息? : " + screenChatMessage.getUser().getNickname() + " : " + screenChatMessage.getContent());
-    }
-
-    public void WebcastLuckyBoxMessage(byte[] bytes) {
-        //幸运盒 ???
-        //todo  WebcastLuckyBoxMessage
-    }
-
-    public void WebcastHotChatMessage(byte[] payload) throws InvalidProtocolBufferException {
-        var hotChatMessage = HotChatMessage.parseFrom(payload);
-        System.out.println("热门消息 : " + hotChatMessage.getTitle() + " : " + hotChatMessage.getContent());
     }
 
     /**
@@ -472,7 +331,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             var response = getResponse(pushFrame);
             switch (pushFrame.getPayloadType()) {
                 case "msg" -> {
-                    for (var message : response.getMessagesListList()) {
+                    for (var message : response.getMessagesList()) {
                         $.async(() -> callHandler(message));
                     }
                 }

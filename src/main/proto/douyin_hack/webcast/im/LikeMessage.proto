@@ -5,11 +5,8 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
-import "douyin_hack/webcast/im/DoubleLikeDetail.proto";
-import "douyin_hack/webcast/im/DisplayControlInfo.proto";
-import "douyin_hack/webcast/im/PicoDisplayInfo.proto";
 
-//更新时间 : 2023-01-09
+// 更新时间 : 2024-07-03
 message LikeMessage {
     Common common = 1;
     int64 count = 2;
@@ -17,9 +14,4 @@ message LikeMessage {
     int64 color = 4;
     User user = 5;
     string icon = 6;
-    DoubleLikeDetail doubleLikeDetail = 7;
-    DisplayControlInfo displayControlInfo = 8;
-    int64 linkmicGuestUid = 9;
-    string scene = 10;
-    PicoDisplayInfo picoDisplayInfo = 11;
 }

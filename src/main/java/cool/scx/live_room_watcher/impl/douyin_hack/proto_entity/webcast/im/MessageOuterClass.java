@@ -30,11 +30,6 @@ public final class MessageOuterClass {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Message_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Message_MessageExtraMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Message_MessageExtraMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,16 +39,14 @@ public final class MessageOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n$douyin_hack/webcast/im/Message.proto\"\212" +
-      "\002\n\007Message\022\016\n\006method\030\001 \001(\t\022\017\n\007payload\030\002 " +
-      "\001(\014\022\r\n\005msgId\030\003 \001(\003\022\017\n\007msgType\030\004 \001(\005\022\016\n\006o" +
-      "ffset\030\005 \001(\003\022\025\n\rneedWrdsStore\030\006 \001(\010\022\023\n\013wr" +
-      "dsVersion\030\007 \001(\003\022\022\n\nwrdsSubKey\030\010 \001(\t\0226\n\017m" +
-      "essageExtraMap\030\t \003(\0132\035.Message.MessageEx" +
-      "traMapEntry\0326\n\024MessageExtraMapEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001BG\nCcool.scx." +
-      "live_room_watcher.impl.douyin_hack.proto" +
-      "_entity.webcast.imP\001b\006proto3"
+      "\n$douyin_hack/webcast/im/Message.proto\"\241" +
+      "\001\n\007Message\022\016\n\006method\030\001 \001(\t\022\017\n\007payload\030\002 " +
+      "\001(\014\022\016\n\006msg_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\016\n" +
+      "\006offset\030\005 \001(\003\022\027\n\017need_wrds_store\030\006 \001(\010\022\024" +
+      "\n\014wrds_version\030\007 \001(\003\022\024\n\014wrds_sub_key\030\010 \001" +
+      "(\tBG\nCcool.scx.live_room_watcher.impl.do" +
+      "uyin_hack.proto_entity.webcast.imP\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64,13 +57,7 @@ public final class MessageOuterClass {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "Method", "Payload", "MsgId", "MsgType", "Offset", "NeedWrdsStore", "WrdsVersion", "WrdsSubKey", "MessageExtraMap", });
-    internal_static_Message_MessageExtraMapEntry_descriptor =
-      internal_static_Message_descriptor.getNestedTypes().get(0);
-    internal_static_Message_MessageExtraMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Message_MessageExtraMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Method", "Payload", "MsgId", "MsgType", "Offset", "NeedWrdsStore", "WrdsVersion", "WrdsSubKey", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

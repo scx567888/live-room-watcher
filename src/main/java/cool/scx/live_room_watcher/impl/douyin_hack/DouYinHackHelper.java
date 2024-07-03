@@ -7,7 +7,7 @@ import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
 import cool.scx.common.zip.GunzipBuilder;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.pushproto.PushFrame;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
 import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
@@ -107,7 +107,7 @@ public final class DouYinHackHelper {
     public static void sendAck(WebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
                 .setPayloadType("ack")
-                .setLogid(pushFrame.getLogid())
+                .setLogID(pushFrame.getLogID())
                 .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
                 .build().toByteArray();
         webSocket.writeBinaryMessage(Buffer.buffer(ack));
@@ -177,7 +177,7 @@ public final class DouYinHackHelper {
      * @throws java.lang.Exception a
      */
     public static Response getResponse(PushFrame pushFrame) throws Exception {
-        var gzip = pushFrame.getHeadersListList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
+        var gzip = pushFrame.getHeadersList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
         var bytes = gzip ? new GunzipBuilder(pushFrame.getPayload().toByteArray()).toBytes() : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
     }

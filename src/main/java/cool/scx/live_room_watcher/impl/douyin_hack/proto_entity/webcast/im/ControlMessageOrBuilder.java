@@ -41,19 +41,4 @@ public interface ControlMessageOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTipsBytes();
-
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   * @return Whether the extra field is set.
-   */
-  boolean hasExtra();
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   * @return The extra.
-   */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.ControlMessage.Extra getExtra();
-  /**
-   * <code>.ControlMessage.Extra extra = 4;</code>
-   */
-  cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.ControlMessage.ExtraOrBuilder getExtraOrBuilder();
 }

@@ -30,11 +30,6 @@ public final class ResponseOuterClass {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Response_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Response_RouteParamsMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Response_RouteParamsMapEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -45,18 +40,16 @@ public final class ResponseOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n%douyin_hack/webcast/im/Response.proto\032" +
-      "$douyin_hack/webcast/im/Message.proto\"\337\002" +
-      "\n\010Response\022\036\n\014messagesList\030\001 \003(\0132\010.Messa" +
-      "ge\022\016\n\006cursor\030\002 \001(\t\022\025\n\rfetchInterval\030\003 \001(" +
-      "\003\022\013\n\003now\030\004 \001(\003\022\023\n\013internalExt\030\005 \001(\t\022\021\n\tf" +
-      "etchType\030\006 \001(\005\0225\n\016routeParamsMap\030\007 \003(\0132\035" +
-      ".Response.RouteParamsMapEntry\022\031\n\021heartbe" +
-      "atDuration\030\010 \001(\003\022\017\n\007needAck\030\t \001(\010\022\022\n\npus" +
-      "hServer\030\n \001(\t\022\022\n\nliveCursor\030\013 \001(\t\022\025\n\rhis" +
-      "toryNoMore\030\014 \001(\010\0325\n\023RouteParamsMapEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001BG\nCcool." +
-      "scx.live_room_watcher.impl.douyin_hack.p" +
-      "roto_entity.webcast.imP\001b\006proto3"
+      "$douyin_hack/webcast/im/Message.proto\"\214\002" +
+      "\n\010Response\022\032\n\010messages\030\001 \003(\0132\010.Message\022\016" +
+      "\n\006cursor\030\002 \001(\t\022\026\n\016fetch_interval\030\003 \001(\003\022\013" +
+      "\n\003now\030\004 \001(\003\022\024\n\014internal_ext\030\005 \001(\t\022\022\n\nfet" +
+      "ch_type\030\006 \001(\005\022\032\n\022heartbeat_duration\030\010 \001(" +
+      "\003\022\020\n\010need_ack\030\t \001(\010\022\023\n\013push_server\030\n \001(\t" +
+      "\022\023\n\013live_cursor\030\013 \001(\t\022\027\n\017history_no_more" +
+      "\030\014 \001(\010\022\024\n\014proxy_server\030\r \001(\tBG\nCcool.scx" +
+      ".live_room_watcher.impl.douyin_hack.prot" +
+      "o_entity.webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -68,13 +61,7 @@ public final class ResponseOuterClass {
     internal_static_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Response_descriptor,
-        new java.lang.String[] { "MessagesList", "Cursor", "FetchInterval", "Now", "InternalExt", "FetchType", "RouteParamsMap", "HeartbeatDuration", "NeedAck", "PushServer", "LiveCursor", "HistoryNoMore", });
-    internal_static_Response_RouteParamsMapEntry_descriptor =
-      internal_static_Response_descriptor.getNestedTypes().get(0);
-    internal_static_Response_RouteParamsMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Response_RouteParamsMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Messages", "Cursor", "FetchInterval", "Now", "InternalExt", "FetchType", "HeartbeatDuration", "NeedAck", "PushServer", "LiveCursor", "HistoryNoMore", "ProxyServer", });
     descriptor.resolveAllFeaturesImmutable();
     cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOuterClass.getDescriptor();
   }

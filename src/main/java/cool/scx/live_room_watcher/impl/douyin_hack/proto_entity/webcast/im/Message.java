@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2023-01-09
+ * 更新时间 : 2024-07-03
  * </pre>
  *
  * Protobuf type {@code Message}
@@ -41,18 +41,6 @@ private static final long serialVersionUID = 0L;
     return cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOuterClass.internal_static_Message_descriptor;
   }
 
-  @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
-  protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
-      int number) {
-    switch (number) {
-      case 9:
-        return internalGetMessageExtraMap();
-      default:
-        throw new RuntimeException(
-            "Invalid map field number: " + number);
-    }
-  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -111,10 +99,10 @@ private static final long serialVersionUID = 0L;
     return payload_;
   }
 
-  public static final int MSGID_FIELD_NUMBER = 3;
+  public static final int MSG_ID_FIELD_NUMBER = 3;
   private long msgId_ = 0L;
   /**
-   * <code>int64 msgId = 3;</code>
+   * <code>int64 msg_id = 3;</code>
    * @return The msgId.
    */
   @java.lang.Override
@@ -122,10 +110,10 @@ private static final long serialVersionUID = 0L;
     return msgId_;
   }
 
-  public static final int MSGTYPE_FIELD_NUMBER = 4;
+  public static final int MSG_TYPE_FIELD_NUMBER = 4;
   private int msgType_ = 0;
   /**
-   * <code>int32 msgType = 4;</code>
+   * <code>int32 msg_type = 4;</code>
    * @return The msgType.
    */
   @java.lang.Override
@@ -144,10 +132,10 @@ private static final long serialVersionUID = 0L;
     return offset_;
   }
 
-  public static final int NEEDWRDSSTORE_FIELD_NUMBER = 6;
+  public static final int NEED_WRDS_STORE_FIELD_NUMBER = 6;
   private boolean needWrdsStore_ = false;
   /**
-   * <code>bool needWrdsStore = 6;</code>
+   * <code>bool need_wrds_store = 6;</code>
    * @return The needWrdsStore.
    */
   @java.lang.Override
@@ -155,10 +143,10 @@ private static final long serialVersionUID = 0L;
     return needWrdsStore_;
   }
 
-  public static final int WRDSVERSION_FIELD_NUMBER = 7;
+  public static final int WRDS_VERSION_FIELD_NUMBER = 7;
   private long wrdsVersion_ = 0L;
   /**
-   * <code>int64 wrdsVersion = 7;</code>
+   * <code>int64 wrds_version = 7;</code>
    * @return The wrdsVersion.
    */
   @java.lang.Override
@@ -166,11 +154,11 @@ private static final long serialVersionUID = 0L;
     return wrdsVersion_;
   }
 
-  public static final int WRDSSUBKEY_FIELD_NUMBER = 8;
+  public static final int WRDS_SUB_KEY_FIELD_NUMBER = 8;
   @SuppressWarnings("serial")
   private volatile java.lang.Object wrdsSubKey_ = "";
   /**
-   * <code>string wrdsSubKey = 8;</code>
+   * <code>string wrds_sub_key = 8;</code>
    * @return The wrdsSubKey.
    */
   @java.lang.Override
@@ -187,7 +175,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wrdsSubKey = 8;</code>
+   * <code>string wrds_sub_key = 8;</code>
    * @return The bytes for wrdsSubKey.
    */
   @java.lang.Override
@@ -203,85 +191,6 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int MESSAGEEXTRAMAP_FIELD_NUMBER = 9;
-  private static final class MessageExtraMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.String, java.lang.String> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.String, java.lang.String>newDefaultInstance(
-                cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOuterClass.internal_static_Message_MessageExtraMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "",
-                com.google.protobuf.WireFormat.FieldType.STRING,
-                "");
-  }
-  @SuppressWarnings("serial")
-  private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> messageExtraMap_;
-  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-  internalGetMessageExtraMap() {
-    if (messageExtraMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          MessageExtraMapDefaultEntryHolder.defaultEntry);
-    }
-    return messageExtraMap_;
-  }
-  public int getMessageExtraMapCount() {
-    return internalGetMessageExtraMap().getMap().size();
-  }
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  @java.lang.Override
-  public boolean containsMessageExtraMap(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    return internalGetMessageExtraMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getMessageExtraMapMap()} instead.
-   */
-  @java.lang.Override
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getMessageExtraMap() {
-    return getMessageExtraMapMap();
-  }
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  @java.lang.Override
-  public java.util.Map<java.lang.String, java.lang.String> getMessageExtraMapMap() {
-    return internalGetMessageExtraMap().getMap();
-  }
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  @java.lang.Override
-  public /* nullable */
-java.lang.String getMessageExtraMapOrDefault(
-      java.lang.String key,
-      /* nullable */
-java.lang.String defaultValue) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetMessageExtraMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-   */
-  @java.lang.Override
-  public java.lang.String getMessageExtraMapOrThrow(
-      java.lang.String key) {
-    if (key == null) { throw new NullPointerException("map key"); }
-    java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetMessageExtraMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -322,12 +231,6 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(wrdsSubKey_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 8, wrdsSubKey_);
     }
-    com.google.protobuf.GeneratedMessage
-      .serializeStringMapTo(
-        output,
-        internalGetMessageExtraMap(),
-        MessageExtraMapDefaultEntryHolder.defaultEntry,
-        9);
     getUnknownFields().writeTo(output);
   }
 
@@ -367,16 +270,6 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(wrdsSubKey_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(8, wrdsSubKey_);
     }
-    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-         : internalGetMessageExtraMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-      messageExtraMap__ = MessageExtraMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, messageExtraMap__);
-    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -408,8 +301,6 @@ java.lang.String defaultValue) {
         != other.getWrdsVersion()) return false;
     if (!getWrdsSubKey()
         .equals(other.getWrdsSubKey())) return false;
-    if (!internalGetMessageExtraMap().equals(
-        other.internalGetMessageExtraMap())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -425,26 +316,22 @@ java.lang.String defaultValue) {
     hash = (53 * hash) + getMethod().hashCode();
     hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
     hash = (53 * hash) + getPayload().hashCode();
-    hash = (37 * hash) + MSGID_FIELD_NUMBER;
+    hash = (37 * hash) + MSG_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getMsgId());
-    hash = (37 * hash) + MSGTYPE_FIELD_NUMBER;
+    hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getMsgType();
     hash = (37 * hash) + OFFSET_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOffset());
-    hash = (37 * hash) + NEEDWRDSSTORE_FIELD_NUMBER;
+    hash = (37 * hash) + NEED_WRDS_STORE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getNeedWrdsStore());
-    hash = (37 * hash) + WRDSVERSION_FIELD_NUMBER;
+    hash = (37 * hash) + WRDS_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getWrdsVersion());
-    hash = (37 * hash) + WRDSSUBKEY_FIELD_NUMBER;
+    hash = (37 * hash) + WRDS_SUB_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getWrdsSubKey().hashCode();
-    if (!internalGetMessageExtraMap().getMap().isEmpty()) {
-      hash = (37 * hash) + MESSAGEEXTRAMAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetMessageExtraMap().hashCode();
-    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -544,7 +431,7 @@ java.lang.String defaultValue) {
   }
   /**
    * <pre>
-   * 更新时间 : 2023-01-09
+   * 更新时间 : 2024-07-03
    * </pre>
    *
    * Protobuf type {@code Message}
@@ -558,28 +445,6 @@ java.lang.String defaultValue) {
       return cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MessageOuterClass.internal_static_Message_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
-        int number) {
-      switch (number) {
-        case 9:
-          return internalGetMessageExtraMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMutableMapFieldReflection(
-        int number) {
-      switch (number) {
-        case 9:
-          return internalGetMutableMessageExtraMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -610,7 +475,6 @@ java.lang.String defaultValue) {
       needWrdsStore_ = false;
       wrdsVersion_ = 0L;
       wrdsSubKey_ = "";
-      internalGetMutableMessageExtraMap().clear();
       return this;
     }
 
@@ -668,10 +532,6 @@ java.lang.String defaultValue) {
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.wrdsSubKey_ = wrdsSubKey_;
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.messageExtraMap_ = internalGetMessageExtraMap();
-        result.messageExtraMap_.makeImmutable();
-      }
     }
 
     @java.lang.Override
@@ -714,9 +574,6 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000080;
         onChanged();
       }
-      internalGetMutableMessageExtraMap().mergeFrom(
-          other.internalGetMessageExtraMap());
-      bitField0_ |= 0x00000100;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -783,15 +640,6 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000080;
               break;
             } // case 66
-            case 74: {
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              messageExtraMap__ = input.readMessage(
-                  MessageExtraMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              internalGetMutableMessageExtraMap().getMutableMap().put(
-                  messageExtraMap__.getKey(), messageExtraMap__.getValue());
-              bitField0_ |= 0x00000100;
-              break;
-            } // case 74
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -915,7 +763,7 @@ java.lang.String defaultValue) {
 
     private long msgId_ ;
     /**
-     * <code>int64 msgId = 3;</code>
+     * <code>int64 msg_id = 3;</code>
      * @return The msgId.
      */
     @java.lang.Override
@@ -923,7 +771,7 @@ java.lang.String defaultValue) {
       return msgId_;
     }
     /**
-     * <code>int64 msgId = 3;</code>
+     * <code>int64 msg_id = 3;</code>
      * @param value The msgId to set.
      * @return This builder for chaining.
      */
@@ -935,7 +783,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int64 msgId = 3;</code>
+     * <code>int64 msg_id = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearMsgId() {
@@ -947,7 +795,7 @@ java.lang.String defaultValue) {
 
     private int msgType_ ;
     /**
-     * <code>int32 msgType = 4;</code>
+     * <code>int32 msg_type = 4;</code>
      * @return The msgType.
      */
     @java.lang.Override
@@ -955,7 +803,7 @@ java.lang.String defaultValue) {
       return msgType_;
     }
     /**
-     * <code>int32 msgType = 4;</code>
+     * <code>int32 msg_type = 4;</code>
      * @param value The msgType to set.
      * @return This builder for chaining.
      */
@@ -967,7 +815,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int32 msgType = 4;</code>
+     * <code>int32 msg_type = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearMsgType() {
@@ -1011,7 +859,7 @@ java.lang.String defaultValue) {
 
     private boolean needWrdsStore_ ;
     /**
-     * <code>bool needWrdsStore = 6;</code>
+     * <code>bool need_wrds_store = 6;</code>
      * @return The needWrdsStore.
      */
     @java.lang.Override
@@ -1019,7 +867,7 @@ java.lang.String defaultValue) {
       return needWrdsStore_;
     }
     /**
-     * <code>bool needWrdsStore = 6;</code>
+     * <code>bool need_wrds_store = 6;</code>
      * @param value The needWrdsStore to set.
      * @return This builder for chaining.
      */
@@ -1031,7 +879,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>bool needWrdsStore = 6;</code>
+     * <code>bool need_wrds_store = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearNeedWrdsStore() {
@@ -1043,7 +891,7 @@ java.lang.String defaultValue) {
 
     private long wrdsVersion_ ;
     /**
-     * <code>int64 wrdsVersion = 7;</code>
+     * <code>int64 wrds_version = 7;</code>
      * @return The wrdsVersion.
      */
     @java.lang.Override
@@ -1051,7 +899,7 @@ java.lang.String defaultValue) {
       return wrdsVersion_;
     }
     /**
-     * <code>int64 wrdsVersion = 7;</code>
+     * <code>int64 wrds_version = 7;</code>
      * @param value The wrdsVersion to set.
      * @return This builder for chaining.
      */
@@ -1063,7 +911,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int64 wrdsVersion = 7;</code>
+     * <code>int64 wrds_version = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearWrdsVersion() {
@@ -1075,7 +923,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object wrdsSubKey_ = "";
     /**
-     * <code>string wrdsSubKey = 8;</code>
+     * <code>string wrds_sub_key = 8;</code>
      * @return The wrdsSubKey.
      */
     public java.lang.String getWrdsSubKey() {
@@ -1091,7 +939,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string wrdsSubKey = 8;</code>
+     * <code>string wrds_sub_key = 8;</code>
      * @return The bytes for wrdsSubKey.
      */
     public com.google.protobuf.ByteString
@@ -1108,7 +956,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string wrdsSubKey = 8;</code>
+     * <code>string wrds_sub_key = 8;</code>
      * @param value The wrdsSubKey to set.
      * @return This builder for chaining.
      */
@@ -1121,7 +969,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string wrdsSubKey = 8;</code>
+     * <code>string wrds_sub_key = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearWrdsSubKey() {
@@ -1131,7 +979,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string wrdsSubKey = 8;</code>
+     * <code>string wrds_sub_key = 8;</code>
      * @param value The bytes for wrdsSubKey to set.
      * @return This builder for chaining.
      */
@@ -1142,133 +990,6 @@ java.lang.String defaultValue) {
       wrdsSubKey_ = value;
       bitField0_ |= 0x00000080;
       onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> messageExtraMap_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetMessageExtraMap() {
-      if (messageExtraMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            MessageExtraMapDefaultEntryHolder.defaultEntry);
-      }
-      return messageExtraMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetMutableMessageExtraMap() {
-      if (messageExtraMap_ == null) {
-        messageExtraMap_ = com.google.protobuf.MapField.newMapField(
-            MessageExtraMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!messageExtraMap_.isMutable()) {
-        messageExtraMap_ = messageExtraMap_.copy();
-      }
-      bitField0_ |= 0x00000100;
-      onChanged();
-      return messageExtraMap_;
-    }
-    public int getMessageExtraMapCount() {
-      return internalGetMessageExtraMap().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    @java.lang.Override
-    public boolean containsMessageExtraMap(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetMessageExtraMap().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getMessageExtraMapMap()} instead.
-     */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getMessageExtraMap() {
-      return getMessageExtraMapMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    @java.lang.Override
-    public java.util.Map<java.lang.String, java.lang.String> getMessageExtraMapMap() {
-      return internalGetMessageExtraMap().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    @java.lang.Override
-    public /* nullable */
-java.lang.String getMessageExtraMapOrDefault(
-        java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetMessageExtraMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    @java.lang.Override
-    public java.lang.String getMessageExtraMapOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetMessageExtraMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-    public Builder clearMessageExtraMap() {
-      bitField0_ = (bitField0_ & ~0x00000100);
-      internalGetMutableMessageExtraMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    public Builder removeMessageExtraMap(
-        java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      internalGetMutableMessageExtraMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String>
-        getMutableMessageExtraMap() {
-      bitField0_ |= 0x00000100;
-      return internalGetMutableMessageExtraMap().getMutableMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    public Builder putMessageExtraMap(
-        java.lang.String key,
-        java.lang.String value) {
-      if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) { throw new NullPointerException("map value"); }
-      internalGetMutableMessageExtraMap().getMutableMap()
-          .put(key, value);
-      bitField0_ |= 0x00000100;
-      return this;
-    }
-    /**
-     * <code>map&lt;string, string&gt; messageExtraMap = 9;</code>
-     */
-    public Builder putAllMessageExtraMap(
-        java.util.Map<java.lang.String, java.lang.String> values) {
-      internalGetMutableMessageExtraMap().getMutableMap()
-          .putAll(values);
-      bitField0_ |= 0x00000100;
       return this;
     }
 
