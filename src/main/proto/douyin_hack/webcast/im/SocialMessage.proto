@@ -7,13 +7,7 @@ import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
 import "douyin_hack/webcast/im/PublicAreaCommon.proto";
 
-//更新时间 : 2023-01-09
+//更新时间 : 2024-07-03
 message SocialMessage {
-    Common common = 1;
     User user = 2;
-    int64 shareType = 3;
-    int64 action = 4;
-    string shareTarget = 5;
-    int64 followCount = 6;
-    PublicAreaCommon publicAreaCommon = 7;
 }
