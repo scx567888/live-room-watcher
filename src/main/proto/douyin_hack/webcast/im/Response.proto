@@ -5,18 +5,18 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/webcast/im/Message.proto";
 
-//更新时间 : 2023-01-09
+// 更新时间 : 2024-07-03
 message Response{
-    repeated Message messagesList = 1;
+    repeated Message messages = 1;
     string cursor = 2;
-    int64 fetchInterval = 3;
+    int64 fetch_interval = 3;
     int64 now = 4;
-    string internalExt = 5;
-    int32 fetchType = 6;
-    map<string, string> routeParamsMap = 7;
-    int64 heartbeatDuration = 8;
-    bool needAck = 9;
-    string pushServer = 10;
-    string liveCursor = 11;
-    bool historyNoMore = 12;
+    string internal_ext = 5;
+    int32 fetch_type = 6;
+    int64 heartbeat_duration = 8;
+    bool need_ack = 9;
+    string push_server = 10;
+    string live_cursor = 11;
+    bool history_no_more = 12;
+    string proxy_server = 13;
 }
