@@ -188,11 +188,11 @@ public final class DouYinHackHelper {
      * @return d
      */
     public static WebSocketConnectOptions getWebSocketOptions(String path) {
+        var future = new CompletableFuture<WebSocketConnectOptions>();
         try (var playwright = Playwright.create();
              var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
-            var future = new CompletableFuture<WebSocketConnectOptions>();
             page.onWebSocket(c -> {
                 var cookieStr = ClientCookieEncoder.STRICT.encode(context.cookies().stream().map(cookie -> new DefaultCookie(cookie.name, cookie.value)).toList());
                 var uri = URIBuilder.of(c.url()).build().toString();
@@ -205,11 +205,11 @@ public final class DouYinHackHelper {
             page.waitForWebSocket(() -> {
                 //什么也不做
             });
-            try {
-               return future.get();
-            } catch (InterruptedException | ExecutionException e) {
-                throw new RuntimeException(e);
-            }
+        }
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
         }
     }
 
