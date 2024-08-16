@@ -7,7 +7,7 @@
     <parent>
         <groupId>cool.scx</groupId>
         <artifactId>scx-parent</artifactId>
-        <version>24</version>
+        <version>25</version>
         <relativePath/>
     </parent>
 
@@ -156,14 +156,13 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-
-        <scx.version>3.0.0</scx.version>
-        <protobuf.version>4.27.2</protobuf.version>
+        <scx.version>3.0.1</scx.version>
+        <protobuf.version>4.27.3</protobuf.version>
         <jsoup.version>1.18.1</jsoup.version>
         <graalvm-js.version>23.0.4</graalvm-js.version>
-        <slf4j.version>2.0.13</slf4j.version>
+        <slf4j.version>2.0.16</slf4j.version>
         <testng.version>7.10.2</testng.version>
-        <playwright.version>1.45.0</playwright.version>
+        <playwright.version>1.46.0</playwright.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
     </properties>
