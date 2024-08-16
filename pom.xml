@@ -158,7 +158,7 @@
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
 
         <scx.version>3.0.0</scx.version>
-        <protobuf.version>4.27.2</protobuf.version>
+        <protobuf.version>4.27.3</protobuf.version>
         <jsoup.version>1.17.2</jsoup.version>
         <graalvm-js.version>23.0.4</graalvm-js.version>
         <slf4j.version>2.0.16</slf4j.version>
