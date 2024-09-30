@@ -2,9 +2,14 @@ package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
-import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.ScxHttpClientResponse;
 import cool.scx.common.util.$;
+import cool.scx.http.ScxClientWebSocketBuilder;
+import cool.scx.http.ScxHttpClientResponse;
+import cool.scx.http.ScxWebSocket;
+import cool.scx.http.cookie.Cookie;
+import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.uri.ScxURI;
+import cool.scx.http.uri.ScxURIImpl;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
@@ -12,19 +17,14 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
-import io.netty.handler.codec.http.cookie.DefaultCookie;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
 
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.common.standard.HttpMethod.GET;
+import static cool.scx.http.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
-import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
@@ -39,7 +39,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, ScxConsumer<byte[], ?>> handlerMap;
-    private WebSocket webSocket;
+    private ScxWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
     private TikTokHackLiveRoomInfo liveRoomInfo;
@@ -51,7 +51,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public TikTokHackLiveRoomWatcher(String uri) {
         this.liveRoomURI = initLiveRoomURI(uri);
-        this.browser = new Browser(VERTX).addCookie(new DefaultCookie("__ac_nonce", "063b51155007d27728929"));
+        this.browser = new Browser().addCookie( Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
@@ -69,7 +69,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      *
      * @param ws a
      */
-    private void startPing(WebSocket ws) {
+    private void startPing(ScxWebSocket ws) {
         //终止上一次的 ping 线程
         if (ping != null) {
             ping.interrupt();
@@ -79,7 +79,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 var ping = PushFrame.newBuilder()
                         .setPayloadType("hb")
                         .build().toByteArray();
-                ws.writeBinaryMessage(Buffer.buffer(ping));
+                ws.send(ping);
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {
@@ -92,11 +92,12 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
-        return browser.request(new ScxHttpClientRequest()
+        return browser.request()
                 .method(GET)
-                .uri(URI.create(liveRoomURI))
+                .uri(liveRoomURI)
                 .setHeader("User-Agent", navigator().userAgent())
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"));
+                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                .send();
     }
 
     /**
@@ -126,33 +127,37 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
         System.out.println("连接中...");
         var webSocketFuture = browser.webSocket(getWebSocketOptions());
-        webSocketFuture.onSuccess(c -> {
+        webSocketFuture.onConnect(c -> {
             webSocket = c;
             startPing(c);
-            c.binaryMessageHandler(b -> {
-                var v = parseFrame(b.getBytes());
+            c.onBinaryMessage(b -> {
+                var v = parseFrame(b);
                 if (v.response().getNeedAck()) {
                     sendAck(c, v.pushFrame(), v.response());
                 }
             });
-            c.textMessageHandler(System.out::println);
-            c.exceptionHandler(e -> {
+            c.onTextMessage(System.out::println);
+            c.onError(e -> {
                 e.printStackTrace();
                 startWatch();
             });
             System.out.println("连接成功 !!!");
-        }).onFailure(e -> {
+        });
+        try {
+            webSocketFuture.connect();
+        }catch (Exception e){
             //todo 这里有时会 200 待研究
             e.printStackTrace();
             startWatch();
-        });
+        }
+    
     }
 
     public void stopWatch() {
         //尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
             //清空异常处理器 防止重连
-            webSocket.exceptionHandler(e -> {
+            webSocket.onError(e -> {
 
             });
             webSocket.close();
@@ -163,13 +168,10 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public WebSocketConnectOptions getWebSocketOptions() {
+    public ScxClientWebSocketBuilder getWebSocketOptions() {
         var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
-        return new WebSocketConnectOptions()
-                .setURI(uri.toString())
-                .setSsl(true)
-                .setHost("webcast16-ws-alisg.tiktok.com")
-                .setPort(443);
+        uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss://");
+        return ScxHttpClientHelper.webSocket().uri(uri);
     }
 
     private void callHandler(Message message) throws Exception {

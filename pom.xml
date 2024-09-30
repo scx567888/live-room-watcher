@@ -7,12 +7,12 @@
     <parent>
         <groupId>cool.scx</groupId>
         <artifactId>scx-parent</artifactId>
-        <version>25</version>
+        <version>26</version>
         <relativePath/>
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.3.9</version>
+    <version>0.3.10</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -45,7 +45,13 @@
 
         <dependency>
             <groupId>cool.scx</groupId>
-            <artifactId>scx-common</artifactId>
+            <artifactId>scx-http-helidon</artifactId>
+            <version>${scx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cool.scx</groupId>
+            <artifactId>scx-ansi</artifactId>
             <version>${scx.version}</version>
         </dependency>
 
@@ -66,11 +72,18 @@
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>polyglot</artifactId>
+            <version>${graalvm-js.version}</version>
+        </dependency>
         
         <dependency>
-            <groupId>org.graalvm.js</groupId>
+            <groupId>org.graalvm.polyglot</groupId>
             <artifactId>js</artifactId>
             <version>${graalvm-js.version}</version>
+            <type>pom</type>
         </dependency>
 
         <dependency>
@@ -156,10 +169,10 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-        <scx.version>3.0.8</scx.version>
+        <scx.version>3.1.2</scx.version>
         <protobuf.version>4.28.0</protobuf.version>
         <jsoup.version>1.18.1</jsoup.version>
-        <graalvm-js.version>23.0.5</graalvm-js.version>
+        <graalvm-js.version>24.1.0</graalvm-js.version>
         <slf4j.version>2.0.16</slf4j.version>
         <testng.version>7.10.2</testng.version>
         <playwright.version>1.46.0</playwright.version>

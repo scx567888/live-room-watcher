@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.test;
 
-import cool.scx.common.ansi.Ansi;
+import cool.scx.ansi.Ansi;
 import cool.scx.live_room_watcher.impl.kuaishou.KuaiShouLiveRoomWatcher;
 
 import java.io.IOException;

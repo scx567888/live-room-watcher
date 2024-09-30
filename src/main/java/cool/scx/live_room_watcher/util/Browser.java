@@ -1,14 +1,9 @@
 package cool.scx.live_room_watcher.util;
 
-import cool.scx.common.http_client.ScxHttpClientHelper;
-import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.ScxHttpClientResponse;
-import io.netty.handler.codec.http.cookie.ClientCookieDecoder;
-import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
-import io.netty.handler.codec.http.cookie.Cookie;
-import io.vertx.core.Future;
-import io.vertx.core.Vertx;
-import io.vertx.core.http.*;
+
+import cool.scx.http.*;
+import cool.scx.http.cookie.Cookie;
+import cool.scx.http.helidon.ScxHttpClientHelper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,24 +17,25 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
 public class Browser {
 
     private final Map<String, Cookie> cookieMap = new HashMap<>();
-    private final HttpClient httpClient;
-    private final WebSocketClient webSocketClient;
+//    private final ScxHttpClient httpClient;
+//    private final WebSocketClient webSocketClient;
 
-    public Browser(Vertx vertx) {
-        this.httpClient = initHttpClient(vertx);
-        this.webSocketClient = initWebSocketClient(vertx);
+    public Browser() {
+//        this.httpClient = initHttpClient();
+//        this.webSocketClient = initWebSocketClient();
     }
 
-    private WebSocketClient initWebSocketClient(Vertx vertx) {
-        var options = new WebSocketClientOptions();
-        options.setMaxFrameSize(65536 * 10);
-        options.setMaxMessageSize(65536 * 40);
+    private ScxHttpClient initWebSocketClient() {
+//        var options = new WebSocketClientOptions();
+//        options.setMaxFrameSize(65536 * 10);
+//        options.setMaxMessageSize(65536 * 40);
 //        options.setProxyOptions(
 //                        new ProxyOptions()
 //                                .setHost("127.0.0.1")
 //                                .setPort(17890)
 //                );
-        return vertx.createWebSocketClient(options);
+//        return vertx.createWebSocketClient(options);
+        return null;
     }
 
     /**
@@ -47,11 +43,11 @@ public class Browser {
      *
      * @return a {@link io.vertx.core.http.HttpClient} object
      */
-    private static HttpClient initHttpClient(Vertx vertx) {
-        var options = new HttpClientOptions();
+//    private static ScxHttpClient initHttpClient() {
+//        var options = new HttpClientOptions();
         //调大一些
-        options.setMaxWebSocketFrameSize(65536 * 10);
-        options.setMaxWebSocketMessageSize(65536 * 40);
+//        options.setMaxWebSocketFrameSize(65536 * 10);
+//        options.setMaxWebSocketMessageSize(65536 * 40);
 //                .setTrustOptions(new KeyStoreOptions()
 //                        .setPath("keystore.jks")
 //                        .setPassword("123456")
@@ -62,26 +58,26 @@ public class Browser {
 //                                .setHost("127.0.0.1")
 //                                .setPort(17890)
 //                );
-        return vertx.createHttpClient(options);
-    }
+//        return vertx.createHttpClient(options);
+//    }
 
-    public ScxHttpClientResponse request(ScxHttpClientRequest request) throws IOException, InterruptedException {
-        String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
+    public ScxHttpClientRequest request() {
+        var request = ScxHttpClientHelper.request();
+        //
         request.addHeader("User-Agent", navigator().userAgent());
-        request.addHeader("Cookie", cookieStr == null ? "" : cookieStr);
-        var response = ScxHttpClientHelper.request(request);
-        var setCookie = response.headers().allValues("Set-Cookie");
+        request.addCookie(cookieMap.values().toArray(Cookie[]::new));
+        //
+        var setCookie = request.headers().setCookies();
         for (var s : setCookie) {
-            addCookie(ClientCookieDecoder.STRICT.decode(s));
+            addCookie(s);
         }
-        return response;
+        return request;
     }
 
-    public Future<WebSocket> webSocket(WebSocketConnectOptions options) {
-        String cookieStr = ClientCookieEncoder.STRICT.encode(cookieMap.values());
+    public ScxClientWebSocketBuilder webSocket(ScxClientWebSocketBuilder options) {
         options.addHeader("User-Agent", navigator().userAgent());
-        options.addHeader("Cookie", cookieStr);
-        return webSocketClient.connect(options);
+        options.addCookie(cookieMap.values().toArray(Cookie[]::new));
+        return options;
     }
 
     public Cookie getCookie(String cookieName) {

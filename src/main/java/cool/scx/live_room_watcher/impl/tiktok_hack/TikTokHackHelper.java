@@ -1,14 +1,13 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.ByteString;
-import cool.scx.common.util.URIBuilder;
 import cool.scx.common.zip.GunzipBuilder;
+import cool.scx.http.ScxWebSocket;
+import cool.scx.http.uri.ScxURI;
+import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.Response;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.WebSocket;
 
-import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
@@ -23,9 +22,9 @@ public class TikTokHackHelper {
      * @return a {@link java.lang.String} object
      */
     public static String initLiveRoomURI(String uri) {
-        var liveRoomURI = URIBuilder.of(uri).removeAllParams().build();
+        var liveRoomURI = ScxURI.of(uri).clearQuery();
         //检查是否为抖音直播间地址
-        if (!"www.tiktok.com".equals(liveRoomURI.getHost())) {
+        if (!"www.tiktok.com".equals(liveRoomURI.host())) {
             throw new IllegalArgumentException("不是合法 TikTok 直播间 url : " + uri);
         }
         //清理掉所有的多余路径
@@ -39,13 +38,13 @@ public class TikTokHackHelper {
      * @param pushFrame a
      * @param response  a
      */
-    public static void sendAck(WebSocket webSocket, PushFrame pushFrame, Response response) {
+    public static void sendAck(ScxWebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
                 .setPayloadType("ack")
                 .setLogid(pushFrame.getLogid())
                 .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
                 .build().toByteArray();
-        webSocket.writeBinaryMessage(Buffer.buffer(ack));
+        webSocket.send(ack);
     }
 
     /**
@@ -53,7 +52,7 @@ public class TikTokHackHelper {
      *
      * @return a {@link java.net.URI} object
      */
-    public static URI getWebSocketURI(String liveRoomID, boolean useGzip) {
+    public static ScxURIWritable getWebSocketURI(String liveRoomID, boolean useGzip) {
         var internalExtMap = new LinkedHashMap<>();
         internalExtMap.put("fetch_time", System.currentTimeMillis());
         internalExtMap.put("start_time", System.currentTimeMillis()+12091);
@@ -65,38 +64,38 @@ public class TikTokHackHelper {
 
         var internalExt = internalExtMap.entrySet().stream().map(c -> c.getKey() + ":" + c.getValue()).collect(Collectors.joining("|"));
 
-        var builder = URIBuilder.of("/webcast/im/ws_proxy/ws_reuse_supplement/")
-                .addParam("aid", "1988")
-                .addParam("app_language", "zh-Hans")
-                .addParam("app_name", "tiktok_web")
-                .addParam("browser_language", navigator().language())
-                .addParam("browser_name", navigator().appCodeName())
-                .addParam("browser_online", navigator().onLine())
-                .addParam("browser_platform", navigator().appCodeName())
-                .addParam("browser_version", navigator().appVersion())
-                .addParam("cookie_enabled", navigator().cookieEnabled())
-                .addParam("cursor", "1714298809032_7362857315956243108_1_1_1714298808837_0")
-                .addParam("debug", "false")
-                .addParam("device_platform", "web")
-                .addParam("heartbeatDuration", "0")
-                .addParam("host", "https://webcast.tiktok.com")
-                .addParam("identity", "audience")
-                .addParam("imprp", "")
-                .addParam("internal_ext", internalExt)
-                .addParam("live_id", "12")
-                .addParam("room_id", liveRoomID)
-                .addParam("screen_height", 691)
-                .addParam("screen_width", 1228)
-                .addParam("update_version_code", "1.3.0")
-                .addParam("version_code", "270000")
-                .addParam("webcast_sdk_version", "1.3.0")
-                .addParam("tz_name", "Asia/Shanghai")
+        var builder = ScxURI.of("/webcast/im/ws_proxy/ws_reuse_supplement/")
+                .addQuery("aid", "1988")
+                .addQuery("app_language", "zh-Hans")
+                .addQuery("app_name", "tiktok_web")
+                .addQuery("browser_language", navigator().language())
+                .addQuery("browser_name", navigator().appCodeName())
+                .addQuery("browser_online", navigator().onLine())
+                .addQuery("browser_platform", navigator().appCodeName())
+                .addQuery("browser_version", navigator().appVersion())
+                .addQuery("cookie_enabled", navigator().cookieEnabled())
+                .addQuery("cursor", "1714298809032_7362857315956243108_1_1_1714298808837_0")
+                .addQuery("debug", "false")
+                .addQuery("device_platform", "web")
+                .addQuery("heartbeatDuration", "0")
+                .addQuery("host", "https://webcast.tiktok.com")
+                .addQuery("identity", "audience")
+                .addQuery("imprp", "")
+                .addQuery("internal_ext", internalExt)
+                .addQuery("live_id", "12")
+                .addQuery("room_id", liveRoomID)
+                .addQuery("screen_height", 691)
+                .addQuery("screen_width", 1228)
+                .addQuery("update_version_code", "1.3.0")
+                .addQuery("version_code", "270000")
+                .addQuery("webcast_sdk_version", "1.3.0")
+                .addQuery("tz_name", "Asia/Shanghai")
                 //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
-                .addParam("wrss", "00000000");
+                .addQuery("wrss", "00000000");
         if (useGzip) {
-            builder.addParam("compress", "gzip");
+            builder.addQuery("compress", "gzip");
         }
-        return builder.build();
+        return builder;
     }
 
     /**

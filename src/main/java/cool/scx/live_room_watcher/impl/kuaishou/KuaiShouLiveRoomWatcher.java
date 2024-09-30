@@ -2,10 +2,11 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.common.http_client.ScxHttpClientHelper;
-import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
+import cool.scx.http.HttpMethod;
+import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
@@ -14,6 +15,7 @@ import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
 import java.io.IOException;
 import java.util.HashMap;
 
+import static cool.scx.http.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 
 /**
@@ -42,12 +44,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
-        var url = URIBuilder.of(TASK_START_URL)
-                .addParam("app_id", appID)
-                .addParam("access_token", accessTokenManager.getAccessToken())
+        var url = ScxURI.of(TASK_START_URL)
+                .addQuery("app_id", appID)
+                .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var bodyStr = response.body().toString();
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
+        var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
     }
 
@@ -59,12 +61,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
-        var url = URIBuilder.of(TASK_STOP_URL)
-                .addParam("app_id", appID)
-                .addParam("access_token", accessTokenManager.getAccessToken())
+        var url = ScxURI.of(TASK_STOP_URL)
+                .addQuery("app_id", appID)
+                .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var bodyStr = response.body().toString();
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
+        var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
@@ -75,12 +77,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
-        var url = URIBuilder.of(TASK_STATUS_URL)
-                .addParam("app_id", appID)
-                .addParam("access_token", accessTokenManager.getAccessToken())
+        var url = ScxURI.of(TASK_STATUS_URL)
+                .addQuery("app_id", appID)
+                .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var bodyStr = response.body().toString();
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
+        var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
@@ -92,12 +94,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
-        var url = URIBuilder.of(GIFT_TOP_URL)
-                .addParam("app_id", appID)
-                .addParam("access_token", accessTokenManager.getAccessToken())
+        var url = ScxURI.of(GIFT_TOP_URL)
+                .addQuery("app_id", appID)
+                .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        var bodyStr = response.body().toString();
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
+        var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
 
@@ -147,12 +149,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
-        var url = URIBuilder.of(INTERACTIVE_START_URL)
-                .addParam("app_id", appID)
-                .addParam("access_token", accessTokenManager.getAccessToken())
+        var url = ScxURI.of(INTERACTIVE_START_URL)
+                .addQuery("app_id", appID)
+                .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.post(url, new JsonBody(map));
-        return response.body().toString();
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
+        return response.body().asString();
     }
 
 }

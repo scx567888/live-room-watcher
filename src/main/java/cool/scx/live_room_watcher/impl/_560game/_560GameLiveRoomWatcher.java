@@ -2,12 +2,12 @@ package cool.scx.live_room_watcher.impl._560game;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import cool.scx.common.http_client.ScxHttpClientHelper;
-import cool.scx.common.http_client.request_body.JsonBody;
 import cool.scx.common.util.ObjectUtils;
+import cool.scx.http.HttpMethod;
+import cool.scx.http.ScxHttpClient;
+import cool.scx.http.helidon.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl._560game.message.*;
-import io.vertx.core.http.WebSocketClient;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,13 +16,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static cool.scx.common.util.RandomUtils.randomString;
+import static cool.scx.http.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
-import static cool.scx.live_room_watcher.util.Helper.VERTX;
 
 public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
-
-    final WebSocketClient webSocketClient;
+    
     private final String mch_id;
     private final String game_id;
     private final String secret;
@@ -33,7 +32,6 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.mch_id = mch_id;
         this.game_id = game_id;
         this.secret = secret;
-        this.webSocketClient = VERTX.createWebSocketClient();
         this.root_uri = "https://danmu.fa-pay.com";
     }
 
@@ -83,12 +81,11 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.post(root_uri + VALIDATE_USER_URL,
-                new JsonBody(
+        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + VALIDATE_USER_URL).send(
                         map
-                ));
+                );
         var body = post.body();
-        var bodyStr = body.toString();
+        var bodyStr = body.asString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
@@ -123,10 +120,9 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.post(root_uri + CLOSE_GAME_NOTIFY_URL,
-                new JsonBody(
-                        map
-                ));
+        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + CLOSE_GAME_NOTIFY_URL).send(
+                map
+        );
         var body = post.body();
         var bodyStr = body.toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
@@ -155,10 +151,9 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.post(root_uri + REPORT_GAME_NOTIFY_URL,
-                new JsonBody(
-                        map
-                ));
+        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + REPORT_GAME_NOTIFY_URL).send(
+                map
+        );
         var body = post.body();
         var bodyStr = body.toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
@@ -178,10 +173,9 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.post(root_uri + GET_GIFT_LIST_URL,
-                new JsonBody(
-                        map
-                ));
+        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + GET_GIFT_LIST_URL).send(
+                map
+        );
         var body = post.body();
         var bodyStr = body.toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
