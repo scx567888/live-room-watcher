@@ -2,19 +2,18 @@ package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
-import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.ScxHttpClientResponse;
 import cool.scx.common.util.$;
+import cool.scx.http.ScxClientWebSocketBuilder;
+import cool.scx.http.ScxHttpClientResponse;
+import cool.scx.http.ScxServerWebSocket;
+import cool.scx.http.ScxWebSocket;
+import cool.scx.http.cookie.Cookie;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
-import io.netty.handler.codec.http.cookie.DefaultCookie;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
 
 import java.io.IOException;
 import java.net.URI;
@@ -22,9 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.common.standard.HttpMethod.GET;
+import static cool.scx.http.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
-import static cool.scx.live_room_watcher.util.Helper.VERTX;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
 /**
@@ -38,7 +36,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, ScxConsumer<byte[], ?>> handlerMap;
-    private WebSocket webSocket;
+    private ScxWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
@@ -50,7 +48,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public DouYinHackLiveRoomWatcher(String uri) {
         this.liveRoomURI = initLiveRoomURI(uri);
-        this.browser = new Browser(VERTX).addCookie(new DefaultCookie("__ac_nonce", "063b51155007d27728929"));
+        this.browser = new Browser().addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
@@ -72,7 +70,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      *
      * @param ws a
      */
-    private void startPing(WebSocket ws) {
+    private void startPing(ScxWebSocket ws) {
         //终止上一次的 ping 线程
         if (ping != null) {
             ping.interrupt();
@@ -82,7 +80,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 var ping = PushFrame.newBuilder()
                         .setPayloadType("hb")
                         .build().toByteArray();
-                ws.writeBinaryMessage(Buffer.buffer(ping));
+                ws.send(ping);
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {
@@ -95,11 +93,12 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
-        return browser.request(new ScxHttpClientRequest()
+        return browser.request()
                 .method(GET)
-                .uri(URI.create(liveRoomURI))
+                .uri(liveRoomURI)
                 .setHeader("User-Agent", navigator().userAgent())
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"));
+                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+                .send();
     }
 
     /**
@@ -129,33 +128,36 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
         System.out.println("连接中...");
         var webSocketFuture = browser.webSocket(DouYinHackHelper.getWebSocketOptions(this.liveRoomURI));
-        webSocketFuture.onSuccess(c -> {
+        webSocketFuture.onConnect(c -> {
             webSocket = c;
             startPing(c);
-            c.binaryMessageHandler(b -> {
-                var v = parseFrame(b.getBytes());
+            c.onBinaryMessage(b -> {
+                var v = parseFrame(b);
                 if (v.response().getNeedAck()) {
                     sendAck(c, v.pushFrame(), v.response());
                 }
             });
-            c.textMessageHandler(System.out::println);
-            c.exceptionHandler(e -> {
+            c.onTextMessage(System.out::println);
+            c.onError(e -> {
                 e.printStackTrace();
                 startWatch();
             });
             System.out.println("连接成功 !!!");
-        }).onFailure(e -> {
+        });
+        try {
+            webSocketFuture.connect();    
+        }catch (Exception e){
             //todo 这里有时会 200 待研究
             e.printStackTrace();
             startWatch();
-        });
+        }
     }
 
     public void stopWatch() {
         //尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
             //清空异常处理器 防止重连
-            webSocket.exceptionHandler(e -> {
+            webSocket.onError(e -> {
 
             });
             webSocket.close();
@@ -164,21 +166,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (ping != null) {
             ping.interrupt();
         }
-    }
-
-    /**
-     * <p>getWebSocketOptions.</p>
-     *
-     * @return a {@link io.vertx.core.http.WebSocketConnectOptions} object
-     */
-    @Deprecated
-    public WebSocketConnectOptions getWebSocketOptions() {
-        var uri = getWebSocketURI(this.liveRoomInfo.roomID(), useGzip);
-        return new WebSocketConnectOptions()
-                .setURI(uri.toString())
-                .setSsl(true)
-                .setHost("webcast3-ws-web-lf.douyin.com")
-                .setPort(443);
     }
 
     private void callHandler(Message message) throws Exception {

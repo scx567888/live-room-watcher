@@ -6,22 +6,26 @@ import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
 import cool.scx.common.zip.GunzipBuilder;
+import cool.scx.http.ScxClientWebSocketBuilder;
+import cool.scx.http.ScxHttpClient;
+import cool.scx.http.ScxServerWebSocket;
+import cool.scx.http.ScxWebSocket;
+import cool.scx.http.cookie.Cookie;
+import cool.scx.http.cookie.CookieWritable;
+import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.uri.ScxURI;
+import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
-import io.netty.handler.codec.http.cookie.ClientCookieEncoder;
-import io.netty.handler.codec.http.cookie.DefaultCookie;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.net.URI;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -87,9 +91,9 @@ public final class DouYinHackHelper {
      * @return a {@link java.lang.String} object
      */
     public static String initLiveRoomURI(String uri) {
-        var liveRoomURI = URIBuilder.of(uri).removeAllParams().build();
+        var liveRoomURI = ScxURI.of(uri).query("");
         //检查是否为抖音直播间地址
-        if (!"live.douyin.com".equals(liveRoomURI.getHost())) {
+        if (!"live.douyin.com".equals(liveRoomURI.host())) {
             throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
         }
         //清理掉所有的多余路径
@@ -104,13 +108,13 @@ public final class DouYinHackHelper {
      * @param pushFrame a
      * @param response  a
      */
-    public static void sendAck(WebSocket webSocket, PushFrame pushFrame, Response response) {
+    public static void sendAck(ScxWebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
                 .setPayloadType("ack")
                 .setLogID(pushFrame.getLogID())
                 .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
                 .build().toByteArray();
-        webSocket.writeBinaryMessage(Buffer.buffer(ack));
+        webSocket.send(ack);
     }
 
     /**
@@ -119,7 +123,7 @@ public final class DouYinHackHelper {
      * @return a {@link java.net.URI} object
      */
     @Deprecated
-    public static URI getWebSocketURI(String liveRoomID, boolean useGzip) {
+    public static ScxURI getWebSocketURI(String liveRoomID, boolean useGzip) {
         var internalExtMap = new LinkedHashMap<>();
         internalExtMap.put("internal_src", "dim");
         internalExtMap.put("wss_push_room_id", liveRoomID);
@@ -132,40 +136,40 @@ public final class DouYinHackHelper {
 
         var internalExt = internalExtMap.entrySet().stream().map(c -> c.getKey() + ":" + c.getValue()).collect(Collectors.joining("|"));
 
-        var builder = URIBuilder.of("/webcast/im/push/v2/")
-                .addParam("app_name", "douyin_web")
-                .addParam("version_code", "180800")
-                .addParam("webcast_sdk_version", "1.3.0")
-                .addParam("update_version_code", "1.3.0")
-                .addParam("internal_ext", internalExt)
-                .addParam("cursor", "u-1_h-1_t-1672732684536_r-1_d-1")
-                .addParam("host", "https://live.douyin.com")
-                .addParam("aid", "6383")
-                .addParam("live_id", "1")
-                .addParam("did_rule", "3")
-                .addParam("debug", "false")
-                .addParam("endpoint", "live_pc")
-                .addParam("support_wrds", "1")
-                .addParam("im_path", "/webcast/im/fetch/")
-                .addParam("device_platform", "web")
-                .addParam("cookie_enabled", navigator().cookieEnabled())
-                .addParam("screen_width", 1228)
-                .addParam("screen_height", 691)
-                .addParam("browser_language", navigator().language())
-                .addParam("browser_platform", navigator().appCodeName())
-                .addParam("browser_name", navigator().appCodeName())
-                .addParam("browser_version", navigator().appVersion())
-                .addParam("browser_online", navigator().onLine())
-                .addParam("tz_name", "Asia/Shanghai")
-                .addParam("identity", "audience")
-                .addParam("room_id", liveRoomID)
-                .addParam("heartbeatDuration", "0")
+        var builder = ScxURI.of("/webcast/im/push/v2/")
+                .addQuery("app_name", "douyin_web")
+                .addQuery("version_code", "180800")
+                .addQuery("webcast_sdk_version", "1.3.0")
+                .addQuery("update_version_code", "1.3.0")
+                .addQuery("internal_ext", internalExt)
+                .addQuery("cursor", "u-1_h-1_t-1672732684536_r-1_d-1")
+                .addQuery("host", "https://live.douyin.com")
+                .addQuery("aid", "6383")
+                .addQuery("live_id", "1")
+                .addQuery("did_rule", "3")
+                .addQuery("debug", "false")
+                .addQuery("endpoint", "live_pc")
+                .addQuery("support_wrds", "1")
+                .addQuery("im_path", "/webcast/im/fetch/")
+                .addQuery("device_platform", "web")
+                .addQuery("cookie_enabled", navigator().cookieEnabled())
+                .addQuery("screen_width", 1228)
+                .addQuery("screen_height", 691)
+                .addQuery("browser_language", navigator().language())
+                .addQuery("browser_platform", navigator().appCodeName())
+                .addQuery("browser_name", navigator().appCodeName())
+                .addQuery("browser_version", navigator().appVersion())
+                .addQuery("browser_online", navigator().onLine())
+                .addQuery("tz_name", "Asia/Shanghai")
+                .addQuery("identity", "audience")
+                .addQuery("room_id", liveRoomID)
+                .addQuery("heartbeatDuration", "0")
                 //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
-                .addParam("signature", "00000000");
+                .addQuery("signature", "00000000");
         if (useGzip) {
-            builder.addParam("compress", "gzip");
+            builder.addQuery("compress", "gzip");
         }
-        return builder.build();
+        return builder;
     }
 
 
@@ -187,19 +191,18 @@ public final class DouYinHackHelper {
      * @param path d
      * @return d
      */
-    public static WebSocketConnectOptions getWebSocketOptions(String path) {
-        var future = new CompletableFuture<WebSocketConnectOptions>();
+    public static ScxClientWebSocketBuilder getWebSocketOptions(String path) {
+        var future = new CompletableFuture<ScxClientWebSocketBuilder>();
         try (var playwright = Playwright.create();
              var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
             page.onWebSocket(c -> {
-                var cookieStr = ClientCookieEncoder.STRICT.encode(context.cookies().stream().map(cookie -> new DefaultCookie(cookie.name, cookie.value)).toList());
-                var uri = URIBuilder.of(c.url()).build().toString();
-                var options = new WebSocketConnectOptions()
-                        .addHeader("Cookie", cookieStr)
-                        .setAbsoluteURI(uri);
-                future.complete(options);
+                var webSocketBuilder = ScxHttpClientHelper
+                        .webSocket()
+                        .uri(c.url())
+                        .addCookie(context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
+                future.complete(webSocketBuilder);
             });
             page.navigate(path);
             page.waitForWebSocket(() -> {

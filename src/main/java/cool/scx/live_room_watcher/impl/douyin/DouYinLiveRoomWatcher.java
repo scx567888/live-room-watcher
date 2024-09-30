@@ -2,11 +2,11 @@ package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import cool.scx.common.http_client.ScxHttpClientRequest;
-import cool.scx.common.http_client.request_body.JsonBody;
-import cool.scx.common.standard.HttpMethod;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
+import cool.scx.http.HttpMethod;
+import cool.scx.http.content_type.ContentType;
+import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinChat;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
@@ -15,12 +15,15 @@ import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.common.http_client.ScxHttpClientHelper.request;
-import static cool.scx.common.standard.HttpMethod.GET;
-import static cool.scx.common.standard.HttpMethod.POST;
+import static cool.scx.common.util.ObjectUtils.toJson;
+import static cool.scx.http.HttpMethod.GET;
+import static cool.scx.http.HttpMethod.POST;
+import static cool.scx.http.MediaType.APPLICATION_JSON;
+import static cool.scx.http.helidon.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * 官方的获取方式 需要在抖音进行回调时手动调用 call xxx }
@@ -60,13 +63,12 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @see <a href="https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo">https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo</a>
      */
     public DouYinWebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
-        var response = request(
-                new ScxHttpClientRequest()
+        var response = request()
                         .uri(WEBCAST_MATE_INFO_URL)
                         .method(POST)
                         .setHeader("X-Token", accessTokenManager.getAccessToken())
-                        .body(new JsonBody(Map.of("token", token)))
-        );
+                        .contentType(ContentType.of(APPLICATION_JSON).charset(UTF_8))
+                        .send(toJson(Map.of("token", token)));
         var bodyStr = response.body().toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
         var data = jsonNode.get("data");
@@ -81,93 +83,88 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public DouYinResponseBody taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
+        var response = request()
                 .uri(TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
-                .body(new JsonBody(Map.of(
+                .send(Map.of(
                         "roomid", roomID,
                         "appid", appID,
                         "msg_type", msgType.value()
-                ))));
+                ));
         var bodyStr = response.body().toString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
     public DouYinResponseBody taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
+        var response = request()
                 .uri(TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
-                .body(new JsonBody(Map.of(
+                .send(Map.of(
                         "roomid", roomCode,
                         "appid", appID,
                         "msg_type", msgType.value()
-                ))));
-        var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                ));
+        return response.body().asObject(DouYinResponseBody.class);
     }
 
     public DouYinResponseBody taskStatus(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(TASK_STATUS_URL)
-                .addParam("roomid", roomCode)
-                .addParam("appid", appID)
-                .addParam("msg_type", msgType.value())
-                .build();
+        var uri = ScxURI.of(TASK_STATUS_URL)
+                .addQuery("roomid", roomCode)
+                .addQuery("appid", appID)
+                .addQuery("msg_type", msgType.value());
 
-        var response = request(new ScxHttpClientRequest()
+        var response = request()
                 .uri(uri)
-                .method(HttpMethod.GET)
-                .setHeader("access-token", accessTokenManager.getAccessToken()));
-        var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                .method(GET)
+                .setHeader("access-token", accessTokenManager.getAccessToken())
+                .send();
+        return response.body().asObject(DouYinResponseBody.class);
     }
 
     public DouYinResponseBody failDataGet(String roomCode, DouYinMsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(FAIL_DATA_GET_URL)
-                .addParam("roomid", roomCode)
-                .addParam("appid", appID)
-                .addParam("msg_type", msg_type.value())
-                .addParam("page_num", page_num)
-                .addParam("page_size", page_size)
-                .build();
+        var uri = ScxURI.of(FAIL_DATA_GET_URL)
+                .addQuery("roomid", roomCode)
+                .addQuery("appid", appID)
+                .addQuery("msg_type", msg_type.value())
+                .addQuery("page_num", page_num)
+                .addQuery("page_size", page_size);
 
-        var response = request(new ScxHttpClientRequest()
+        var response = request()
                 .uri(uri)
-                .method(HttpMethod.GET)
-                .setHeader("access-token", accessTokenManager.getAccessToken()));
-        var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                .method(GET)
+                .setHeader("access-token", accessTokenManager.getAccessToken())
+                .send();
+        
+        return response.body().asObject(DouYinResponseBody.class);
     }
 
     public DouYinResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
-        var response = request(new ScxHttpClientRequest()
+        var response = request()
                 .uri(TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", accessTokenManager.getAccessToken())
-                .body(new JsonBody(Map.of(
+                .send(Map.of(
                         "room_id", roomCode,
                         "app_id", appID,
                         "sec_gift_id_list", secGiftIDList
-                ))));
-        var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                ));
+        return response.body().asObject(DouYinResponseBody.class);
     }
 
     public DouYinResponseBody fansClubGetInfo(String roomCode, String anchor_openid, String[] user_openids) throws IOException, InterruptedException {
-        var uri = URIBuilder.of(FANS_CLUB_GET_INFO_URL)
-                .addParam("roomid", roomCode)
-                .addParam("anchor_openid", anchor_openid)
-                .addParam("user_openids", String.join(",", user_openids))
-                .build();
-        var response = request(
-                new ScxHttpClientRequest()
+        var uri = ScxURI.of(FANS_CLUB_GET_INFO_URL)
+                .addQuery("roomid", roomCode)
+                .addQuery("anchor_openid", anchor_openid)
+                .addQuery("user_openids", String.join(",", user_openids));
+        
+        var response = request()
                         .uri(uri)
                         .method(GET)
                         .setHeader("access-token", accessTokenManager.getAccessToken())
-        );
-        var bodyStr = response.body().toString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                        .send();
+        return response.body().asObject(DouYinResponseBody.class);
     }
 
     public void taskStartAll(String roomID) throws IOException, InterruptedException {

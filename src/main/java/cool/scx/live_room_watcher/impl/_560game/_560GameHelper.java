@@ -1,8 +1,8 @@
 package cool.scx.live_room_watcher.impl._560game;
 
+import cool.scx.common.util.$;
 import cool.scx.common.util.URIBuilder;
-import io.netty.util.HashedWheelTimer;
-import io.netty.util.Timeout;
+import cool.scx.http.uri.ScxURI;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -15,19 +15,19 @@ import static cool.scx.common.util.ScxDateTimeFormatter.yyyy_MM_dd;
 
 public class _560GameHelper {
 
-    private static final HashedWheelTimer HASHED_WHEEL_TIMER = new HashedWheelTimer(Thread.ofVirtual().factory());
-
-    public static Timeout setTimeout(Runnable task, long delay) {
-        return HASHED_WHEEL_TIMER.newTimeout((v) -> {
-            task.run();
-        }, delay, TimeUnit.MILLISECONDS);
-    }
+//    private static final HashedWheelTimer HASHED_WHEEL_TIMER = new HashedWheelTimer(Thread.ofVirtual().factory());
+//
+//    public static $.Timeout setTimeout(Runnable task, long delay) {
+//        return HASHED_WHEEL_TIMER.newTimeout((v) -> {
+//            task.run();
+//        }, delay, TimeUnit.MILLISECONDS);
+//    }
 
     public static String getWsUrl(String baseUrl, String roomid) {
         var data = yyyy_MM_dd.format(LocalDate.now()) + ":" + roomid;
-        var uriBuilder = URIBuilder.of(baseUrl)
-                .addParam("client_token", sha256Hex(data).toLowerCase())
-                .addParam("roomId", roomid);
+        var uriBuilder = ScxURI.of(baseUrl)
+                .addQuery("client_token", sha256Hex(data).toLowerCase())
+                .addQuery("roomId", roomid);
         return uriBuilder.toString();
     }
 

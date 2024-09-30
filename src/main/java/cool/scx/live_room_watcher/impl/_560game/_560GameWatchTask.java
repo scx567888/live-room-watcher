@@ -2,15 +2,15 @@ package cool.scx.live_room_watcher.impl._560game;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import cool.scx.common.util.$;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.ScxExceptionHelper;
-import cool.scx.common.util.SingleListenerFuture;
-import io.netty.util.Timeout;
-import io.vertx.core.http.WebSocket;
-import io.vertx.core.http.WebSocketConnectOptions;
+import cool.scx.http.ScxClientWebSocketBuilder;
+import cool.scx.http.ScxWebSocket;
+import cool.scx.http.helidon.ScxHttpClientHelper;
 
+import static cool.scx.common.util.$.setTimeout;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;
-import static cool.scx.live_room_watcher.impl._560game._560GameHelper.setTimeout;
 import static java.lang.System.Logger.Level.DEBUG;
 import static java.lang.System.Logger.Level.ERROR;
 
@@ -22,11 +22,11 @@ public class _560GameWatchTask {
     private final String username;
     private final String password;
     private final _560GameLiveRoomWatcher watcher;
-    private SingleListenerFuture<WebSocket> webSocketFuture;
-    private WebSocket webSocket;
+    private ScxClientWebSocketBuilder webSocketFuture;
+    private ScxWebSocket webSocket;
 
-    private Timeout ping;
-    private Timeout pingTimeout;
+    private $.Timeout ping;
+    private $.Timeout pingTimeout;
 
     public _560GameWatchTask(String username, String password, _560GameLiveRoomWatcher watcher) {
         this.username = username;
@@ -45,12 +45,12 @@ public class _560GameWatchTask {
         var s = watcher.validateUser(this.username, this.password);
         var ws_url = getWsUrl(s, username);
         logger.log(DEBUG, "连接开始 地址" + ws_url);
-        this.webSocketFuture = new SingleListenerFuture<>(watcher.webSocketClient.connect(new WebSocketConnectOptions().setAbsoluteURI(ws_url)));
+        this.webSocketFuture = ScxHttpClientHelper.webSocket().uri(ws_url);
 
-        webSocketFuture.onSuccess(ws -> {
+        webSocketFuture.onConnect(ws -> {
             webSocket = ws;
             logger.log(DEBUG, "连接成功 ");
-            ws.textMessageHandler(c -> Thread.ofVirtual().start(() -> {
+            ws.onTextMessage(c -> Thread.ofVirtual().start(() -> {
                 startPing();
                 startPingTimeout();
                 logger.log(DEBUG, "收到消息 {0}", c);
@@ -67,21 +67,24 @@ public class _560GameWatchTask {
                     logger.log(ERROR, "调用 callMessage 发生错误 :", e);
                 }
             }));
-            ws.closeHandler((v) -> {
+            ws.onClose((v,a) -> {
                 logger.log(DEBUG, "连接关闭 ");
                 //重连
                 start();
             });
-            ws.exceptionHandler(e -> {
+            ws.onError(e -> {
                 logger.log(ERROR, "连接异常 :", e);
                 //重连
                 start();
             });
-        }).onFailure(e -> {
+        });
+        try {
+            webSocketFuture.connect();    
+        }catch (Exception e){
             logger.log(ERROR, "连接失败", e);
             //重连
             start();
-        });
+        }
 
         //启动心跳
         this.startPing();
@@ -98,23 +101,12 @@ public class _560GameWatchTask {
     }
 
     public void stopWebSocket() {
-        if (webSocketFuture != null && !webSocketFuture.isComplete()) {
-            webSocketFuture.onSuccess(webSocket -> {
-                webSocket.close();
-            }).onFailure(e -> {
-
-            });
-        }
         if (webSocket != null && !webSocket.isClosed()) {
-            webSocket.closeHandler((c) -> {});
-            webSocket.exceptionHandler((c) -> {});
-            webSocket.close().onSuccess(c -> {
+            webSocket.onClose((c,a) -> {});
+            webSocket.onError((c) -> {});
+            webSocket.close();
                 logger.log(DEBUG, "关闭成功");
                 webSocket = null;
-            }).onFailure(e -> {
-                logger.log(ERROR, "关闭失败", e);
-                webSocket = null;
-            });
         }
     }
 
@@ -132,23 +124,27 @@ public class _560GameWatchTask {
     }
 
     private void sendPing() {
-        var sendPingFuture = this.webSocket.writeTextMessage("ping");
+        try {
+            var sendPingFuture = this.webSocket.send("ping");
 
-        sendPingFuture.onSuccess(v -> {
 
             //LOGGER
             if (logger.isLoggable(DEBUG)) {
                 logger.log(DEBUG, "发送 ping 成功");
             }
-
-        }).onFailure(c -> {
-
+        }catch (Exception e){
             //LOGGER
             if (logger.isLoggable(DEBUG)) {
-                logger.log(DEBUG, "发送 ping 失败", c);
+                logger.log(DEBUG, "发送 ping 失败", e);
             }
+        }
+     
 
-        });
+        
+
+          
+
+        
     }
 
     private void cancelPing() {
