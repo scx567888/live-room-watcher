@@ -48,7 +48,7 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().uri(url).send(map);
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
         var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
     }
@@ -65,7 +65,7 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().uri(url).send(map);
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
         var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
     }
