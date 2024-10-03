@@ -81,12 +81,11 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + VALIDATE_USER_URL).send(
-                        map
-                );
-        var body = post.body();
-        var bodyStr = body.asString();
-        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        var response = ScxHttpClientHelper.request()
+                .method(POST)
+                .uri(root_uri + VALIDATE_USER_URL)
+                .send(map);
+        var jsonNode = response.body().asJsonNode();
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
             throw new RuntimeException("返回数据有误 : " + jsonNode);
@@ -120,12 +119,11 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + CLOSE_GAME_NOTIFY_URL).send(
-                map
-        );
-        var body = post.body();
-        var bodyStr = body.toString();
-        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        var response = ScxHttpClientHelper.request()
+                .method(POST)
+                .uri(root_uri + CLOSE_GAME_NOTIFY_URL)
+                .send(map);
+        var jsonNode = response.body().asJsonNode();
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
             throw new RuntimeException("返回数据有误");
@@ -151,12 +149,11 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + REPORT_GAME_NOTIFY_URL).send(
-                map
-        );
-        var body = post.body();
-        var bodyStr = body.toString();
-        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        var response = ScxHttpClientHelper.request()
+                .method(POST)
+                .uri(root_uri + REPORT_GAME_NOTIFY_URL)
+                .send(map);
+        var jsonNode = response.body().asJsonNode();
         String message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
             throw new RuntimeException("返回数据有误");
@@ -173,12 +170,11 @@ public class _560GameLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var sign = getSign(map, secret);
         map.put("sign", sign);
 
-        var post = ScxHttpClientHelper.request().method(POST).uri(root_uri + GET_GIFT_LIST_URL).send(
-                map
-        );
-        var body = post.body();
-        var bodyStr = body.toString();
-        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
+        var response = ScxHttpClientHelper.request()
+                .method(POST)
+                .uri(root_uri + GET_GIFT_LIST_URL)
+                .send(map);
+        var jsonNode = response.body().asJsonNode();
         var message = jsonNode.get("message").asText();
         if (!"success".equals(message)) {
             throw new RuntimeException("返回数据有误");
