@@ -117,6 +117,12 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * {@inheritDoc}
      */
     public void startWatch() {
+        //todo 防止线程退出
+        new Thread(()->{
+            while (true) {
+                $.sleep(99999);
+            }
+        }).start();
         //终止上一次的监听
         stopWatch();
         try {

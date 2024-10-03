@@ -28,20 +28,19 @@ public class DouYinAccessTokenManager extends AccessTokenManager {
     }
 
     @Override
-    public DouYinAccessToken getAccessToken0() throws IOException, InterruptedException {
+    public DouYinAccessToken getAccessToken0() {
         var response = ScxHttpClientHelper.request()
-                .uri(ACCESS_TOKEN_URL)
                 .method(POST)
+                .uri(ACCESS_TOKEN_URL)
                 .contentType(ContentType.of(APPLICATION_JSON).charset(UTF_8))
-                .send(toJson(Map.of(
+                .send(Map.of(
                         "appid", appID,
                         "secret", appSecret,
                         "grant_type", "client_credential"
-                )));
-        var bodyStr = response.body().asString();
-        var accessTokenResult = ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+                ));
+        var accessTokenResult = response.body().asObject(DouYinResponseBody.class);
         if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(bodyStr);
+            throw new IllegalArgumentException(response.body().asString());
         }
         return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
     }
