@@ -41,7 +41,7 @@ public class Browser {
     /**
      * <p>initHttpClient.</p>
      *
-     * @return a {@link io.vertx.core.http.HttpClient} object
+     * @return a a
      */
 //    private static ScxHttpClient initHttpClient() {
 //        var options = new HttpClientOptions();
