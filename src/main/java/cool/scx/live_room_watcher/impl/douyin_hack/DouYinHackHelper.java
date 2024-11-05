@@ -5,7 +5,7 @@ import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.URIBuilder;
-import cool.scx.common.zip.GunzipBuilder;
+import cool.scx.io.zip.GunzipBuilder;
 import cool.scx.http.ScxClientWebSocketBuilder;
 import cool.scx.http.ScxHttpClient;
 import cool.scx.http.ScxServerWebSocket;
