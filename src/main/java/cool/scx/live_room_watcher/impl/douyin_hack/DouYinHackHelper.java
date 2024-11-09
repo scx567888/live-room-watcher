@@ -24,6 +24,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -182,7 +183,7 @@ public final class DouYinHackHelper {
      */
     public static Response getResponse(PushFrame pushFrame) throws Exception {
         var gzip = pushFrame.getHeadersList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
-        var bytes = gzip ? new GunzipBuilder(pushFrame.getPayload().toByteArray()).toBytes() : pushFrame.getPayload().toByteArray();
+        var bytes = gzip ? new GunzipBuilder(new ByteArrayInputStream(pushFrame.getPayload().toByteArray())).readAllBytes() : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
     }
 
