@@ -8,6 +8,7 @@ import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.Response;
 
+import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
@@ -107,7 +108,7 @@ public class TikTokHackHelper {
      */
     public static Response getResponse(PushFrame pushFrame) throws Exception {
         var gzip = pushFrame.getHeadersListList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
-        var bytes = gzip ? new GunzipBuilder(pushFrame.getPayload().toByteArray()).toBytes() : pushFrame.getPayload().toByteArray();
+        var bytes = gzip ? new GunzipBuilder(new ByteArrayInputStream(pushFrame.getPayload().toByteArray())).readAllBytes() : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
     }
     
