@@ -62,6 +62,12 @@
         </dependency>
 
         <dependency>
+            <groupId>cool.scx</groupId>
+            <artifactId>scx-scheduling</artifactId>
+            <version>${scx.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>${protobuf.version}</version>
