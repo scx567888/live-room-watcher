@@ -2,15 +2,15 @@ package cool.scx.live_room_watcher.impl._560game;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import cool.scx.common.util.$;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.ScxExceptionHelper;
+import cool.scx.scheduling.ScheduleStatus;
 import cool.scx.http.ScxClientWebSocketBuilder;
 import cool.scx.http.ScxWebSocket;
 import cool.scx.http.helidon.ScxHttpClientHelper;
 
-import static cool.scx.common.util.$.setTimeout;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;
+import static cool.scx.scheduling.ScxScheduling.setTimeout;
 import static java.lang.System.Logger.Level.DEBUG;
 import static java.lang.System.Logger.Level.ERROR;
 
@@ -25,8 +25,8 @@ public class _560GameWatchTask {
     private ScxClientWebSocketBuilder webSocketFuture;
     private ScxWebSocket webSocket;
 
-    private $.Timeout ping;
-    private $.Timeout pingTimeout;
+    private ScheduleStatus ping;
+    private ScheduleStatus pingTimeout;
 
     public _560GameWatchTask(String username, String password, _560GameLiveRoomWatcher watcher) {
         this.username = username;

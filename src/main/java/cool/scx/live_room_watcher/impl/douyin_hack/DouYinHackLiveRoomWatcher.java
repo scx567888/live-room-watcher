@@ -325,7 +325,13 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             switch (pushFrame.getPayloadType()) {
                 case "msg" -> {
                     for (var message : response.getMessagesList()) {
-                        $.async(() -> callHandler(message));
+                        Thread.ofVirtual().start(() -> {
+                            try {
+                                callHandler(message);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
                     }
                 }
                 case "close" -> System.out.println("关闭");

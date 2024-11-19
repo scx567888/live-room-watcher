@@ -248,7 +248,13 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             switch (pushFrame.getPayloadType()) {
                 case "msg" -> {
                     for (var message : response.getMessagesListList()) {
-                        $.async(() -> callHandler(message));
+                        Thread.ofVirtual().start(() -> {
+                            try {
+                                callHandler(message);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
                     }
                 }
                 case "close" -> System.out.println("关闭");
