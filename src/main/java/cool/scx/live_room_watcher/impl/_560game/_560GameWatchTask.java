@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.ScxExceptionHelper;
 import cool.scx.scheduling.ScheduleStatus;
-import cool.scx.http.ScxClientWebSocketBuilder;
-import cool.scx.http.ScxWebSocket;
+import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
+import cool.scx.http.web_socket.ScxWebSocket;
 import cool.scx.http.helidon.ScxHttpClientHelper;
 
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;
@@ -67,7 +67,7 @@ public class _560GameWatchTask {
                     logger.log(ERROR, "调用 callMessage 发生错误 :", e);
                 }
             }));
-            ws.onClose((v,a) -> {
+            ws.onClose((v) -> {
                 logger.log(DEBUG, "连接关闭 ");
                 //重连
                 start();
@@ -102,7 +102,7 @@ public class _560GameWatchTask {
 
     public void stopWebSocket() {
         if (webSocket != null && !webSocket.isClosed()) {
-            webSocket.onClose((c,a) -> {});
+            webSocket.onClose((c) -> {});
             webSocket.onError((c) -> {});
             webSocket.close();
                 logger.log(DEBUG, "关闭成功");

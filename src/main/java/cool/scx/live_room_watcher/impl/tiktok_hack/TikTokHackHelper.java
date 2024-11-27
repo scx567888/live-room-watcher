@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.ByteString;
 import cool.scx.io.zip.GunzipBuilder;
-import cool.scx.http.ScxWebSocket;
+import cool.scx.http.web_socket.ScxWebSocket;
 import cool.scx.http.uri.ScxURI;
 import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
