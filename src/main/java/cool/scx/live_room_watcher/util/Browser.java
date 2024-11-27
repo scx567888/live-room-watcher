@@ -2,6 +2,7 @@ package cool.scx.live_room_watcher.util;
 
 
 import cool.scx.http.*;
+import cool.scx.http.web_socket.*;
 import cool.scx.http.cookie.Cookie;
 import cool.scx.http.helidon.ScxHttpClientHelper;
 
