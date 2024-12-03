@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.3.23</version>
+    <version>0.3.24</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -175,7 +175,7 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-        <scx.version>3.2.8</scx.version>
+        <scx.version>3.3.0</scx.version>
         <protobuf.version>4.28.3</protobuf.version>
         <jsoup.version>1.18.3</jsoup.version>
         <graalvm-js.version>24.1.1</graalvm-js.version>

@@ -3,7 +3,6 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.common.util.URIBuilder;
 import cool.scx.http.HttpMethod;
 import cool.scx.http.helidon.ScxHttpClientHelper;
 import cool.scx.http.uri.ScxURI;
