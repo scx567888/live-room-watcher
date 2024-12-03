@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl._560game;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.common.util.ScxExceptionHelper;
+import cool.scx.common.exception.ScxExceptionHelper;
 import cool.scx.scheduling.ScheduleStatus;
 import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
 import cool.scx.http.web_socket.ScxWebSocket;

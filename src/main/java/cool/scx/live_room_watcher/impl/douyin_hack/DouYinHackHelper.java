@@ -4,7 +4,6 @@ import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.common.util.URIBuilder;
 import cool.scx.io.zip.GunzipBuilder;
 import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
 import cool.scx.http.ScxHttpClient;
