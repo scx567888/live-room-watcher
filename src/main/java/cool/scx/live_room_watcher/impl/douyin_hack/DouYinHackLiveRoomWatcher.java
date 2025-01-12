@@ -137,13 +137,13 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         webSocketFuture.onConnect(c -> {
             webSocket = c;
             startPing(c);
-            c.onBinaryMessage(b -> {
+            c.onBinaryMessage((b,_) -> {
                 var v = parseFrame(b);
                 if (v.response().getNeedAck()) {
                     sendAck(c, v.pushFrame(), v.response());
                 }
             });
-            c.onTextMessage(System.out::println);
+            c.onTextMessage((s,_)->System.out.println(s));
             c.onError(e -> {
                 e.printStackTrace();
                 startWatch();
