@@ -50,7 +50,7 @@ public class _560GameWatchTask {
         webSocketFuture.onConnect(ws -> {
             webSocket = ws;
             logger.log(DEBUG, "连接成功 ");
-            ws.onTextMessage(c -> Thread.ofVirtual().start(() -> {
+            ws.onTextMessage((c,_) -> Thread.ofVirtual().start(() -> {
                 startPing();
                 startPingTimeout();
                 logger.log(DEBUG, "收到消息 {0}", c);
@@ -67,7 +67,7 @@ public class _560GameWatchTask {
                     logger.log(ERROR, "调用 callMessage 发生错误 :", e);
                 }
             }));
-            ws.onClose((v) -> {
+            ws.onClose((v,_) -> {
                 logger.log(DEBUG, "连接关闭 ");
                 //重连
                 start();
@@ -102,7 +102,7 @@ public class _560GameWatchTask {
 
     public void stopWebSocket() {
         if (webSocket != null && !webSocket.isClosed()) {
-            webSocket.onClose((c) -> {});
+            webSocket.onClose((c,_) -> {});
             webSocket.onError((c) -> {});
             webSocket.close();
                 logger.log(DEBUG, "关闭成功");
