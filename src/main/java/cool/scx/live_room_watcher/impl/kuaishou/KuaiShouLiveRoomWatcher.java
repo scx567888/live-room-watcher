@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.http.HttpMethod;
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;

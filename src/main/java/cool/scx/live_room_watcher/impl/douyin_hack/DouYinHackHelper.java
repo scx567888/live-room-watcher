@@ -4,14 +4,14 @@ import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
+import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.io.zip.GunzipBuilder;
-import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
 import cool.scx.http.ScxHttpClient;
 import cool.scx.http.web_socket.ScxServerWebSocket;
 import cool.scx.http.web_socket.ScxWebSocket;
 import cool.scx.http.cookie.Cookie;
 import cool.scx.http.cookie.CookieWritable;
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.http.uri.ScxURI;
 import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
@@ -191,17 +191,18 @@ public final class DouYinHackHelper {
      * @param path d
      * @return d
      */
-    public static ScxClientWebSocketBuilder getWebSocketOptions(String path) {
-        var future = new CompletableFuture<ScxClientWebSocketBuilder>();
+    public static ScxClientWebSocketHandshakeRequest getWebSocketOptions(String path) {
+        var future = new CompletableFuture<ScxClientWebSocketHandshakeRequest>();
         try (var playwright = Playwright.create();
              var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
             page.onWebSocket(c -> {
                 var webSocketBuilder = ScxHttpClientHelper
-                        .webSocket()
+                        .webSocketHandshakeRequest()
                         .uri(c.url())
                         .addCookie(context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
+                
                 future.complete(webSocketBuilder);
             });
             page.navigate(path);

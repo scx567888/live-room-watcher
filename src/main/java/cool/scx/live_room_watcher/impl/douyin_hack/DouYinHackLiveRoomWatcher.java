@@ -3,7 +3,6 @@ package cool.scx.live_room_watcher.impl.douyin_hack;
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.common.util.$;
-import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.web_socket.ScxServerWebSocket;
 import cool.scx.http.web_socket.ScxWebSocket;
@@ -134,7 +133,8 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
         System.out.println("连接中...");
         var webSocketFuture = browser.webSocket(DouYinHackHelper.getWebSocketOptions(this.liveRoomURI));
-        webSocketFuture.onConnect(c -> {
+        try {
+        webSocketFuture.onWebSocket(c -> {
             webSocket = c;
             startPing(c);
             c.onBinaryMessage((b,_) -> {
@@ -150,8 +150,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             });
             System.out.println("连接成功 !!!");
         });
-        try {
-            webSocketFuture.connect();    
         }catch (Exception e){
             //todo 这里有时会 200 待研究
             e.printStackTrace();

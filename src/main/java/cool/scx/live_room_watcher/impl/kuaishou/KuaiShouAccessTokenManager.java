@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.http.media.multi_part.MultiPart;
 import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.AccessTokenManager;

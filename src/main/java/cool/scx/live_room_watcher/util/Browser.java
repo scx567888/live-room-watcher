@@ -4,9 +4,8 @@ package cool.scx.live_room_watcher.util;
 import cool.scx.http.*;
 import cool.scx.http.web_socket.*;
 import cool.scx.http.cookie.Cookie;
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,7 +74,7 @@ public class Browser {
         return request;
     }
 
-    public ScxClientWebSocketBuilder webSocket(ScxClientWebSocketBuilder options) {
+    public ScxClientWebSocketHandshakeRequest webSocket(ScxClientWebSocketHandshakeRequest options) {
         options.addHeader("User-Agent", navigator().userAgent());
         options.addCookie(cookieMap.values().toArray(Cookie[]::new));
         return options;

@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.3.28</version>
+    <version>0.3.29</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -45,7 +45,7 @@
 
         <dependency>
             <groupId>cool.scx</groupId>
-            <artifactId>scx-http-helidon</artifactId>
+            <artifactId>scx-http-x</artifactId>
             <version>${scx.version}</version>
         </dependency>
 
@@ -175,7 +175,7 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-        <scx.version>3.3.4</scx.version>
+        <scx.version>3.3.5</scx.version>
         <protobuf.version>4.29.0</protobuf.version>
         <jsoup.version>1.18.3</jsoup.version>
         <graalvm-js.version>24.1.1</graalvm-js.version>
