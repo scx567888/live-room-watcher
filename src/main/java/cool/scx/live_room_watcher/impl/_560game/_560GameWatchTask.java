@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.exception.ScxExceptionHelper;
+import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.scheduling.ScheduleStatus;
-import cool.scx.http.web_socket.ScxClientWebSocketBuilder;
 import cool.scx.http.web_socket.ScxWebSocket;
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;
 import static cool.scx.scheduling.ScxScheduling.setTimeout;
@@ -22,7 +22,7 @@ public class _560GameWatchTask {
     private final String username;
     private final String password;
     private final _560GameLiveRoomWatcher watcher;
-    private ScxClientWebSocketBuilder webSocketFuture;
+    private ScxClientWebSocketHandshakeRequest webSocketFuture;
     private ScxWebSocket webSocket;
 
     private ScheduleStatus ping;
@@ -45,9 +45,9 @@ public class _560GameWatchTask {
         var s = watcher.validateUser(this.username, this.password);
         var ws_url = getWsUrl(s, username);
         logger.log(DEBUG, "连接开始 地址" + ws_url);
-        this.webSocketFuture = ScxHttpClientHelper.webSocket().uri(ws_url);
-
-        webSocketFuture.onConnect(ws -> {
+        this.webSocketFuture = ScxHttpClientHelper.webSocketHandshakeRequest().uri(ws_url);
+        try {
+        webSocketFuture.onWebSocket(ws -> {
             webSocket = ws;
             logger.log(DEBUG, "连接成功 ");
             ws.onTextMessage((c,_) -> Thread.ofVirtual().start(() -> {
@@ -78,8 +78,6 @@ public class _560GameWatchTask {
                 start();
             });
         });
-        try {
-            webSocketFuture.connect();    
         }catch (Exception e){
             logger.log(ERROR, "连接失败", e);
             //重连

@@ -18,7 +18,7 @@ import static cool.scx.common.util.ObjectUtils.toJson;
 import static cool.scx.http.HttpMethod.GET;
 import static cool.scx.http.HttpMethod.POST;
 import static cool.scx.http.MediaType.APPLICATION_JSON;
-import static cool.scx.http.helidon.ScxHttpClientHelper.request;
+import static cool.scx.http.x.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;

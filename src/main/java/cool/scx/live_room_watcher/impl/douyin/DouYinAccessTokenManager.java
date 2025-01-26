@@ -4,7 +4,7 @@ import cool.scx.common.util.ObjectUtils;
 import cool.scx.http.MediaType;
 import cool.scx.http.ScxHttpClientRequest;
 import cool.scx.http.content_type.ContentType;
-import cool.scx.http.helidon.ScxHttpClientHelper;
+import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AccessTokenManager;
 
 import java.io.IOException;
