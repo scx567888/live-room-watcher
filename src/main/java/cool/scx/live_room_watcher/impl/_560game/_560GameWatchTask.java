@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.exception.ScxExceptionHelper;
 import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
-import cool.scx.scheduling.ScheduleStatus;
+import cool.scx.scheduling.ScheduleContext;
 import cool.scx.http.web_socket.ScxWebSocket;
 import cool.scx.http.x.ScxHttpClientHelper;
 
@@ -25,8 +25,8 @@ public class _560GameWatchTask {
     private ScxClientWebSocketHandshakeRequest webSocketFuture;
     private ScxWebSocket webSocket;
 
-    private ScheduleStatus ping;
-    private ScheduleStatus pingTimeout;
+    private ScheduleContext ping;
+    private ScheduleContext pingTimeout;
 
     public _560GameWatchTask(String username, String password, _560GameLiveRoomWatcher watcher) {
         this.username = username;
