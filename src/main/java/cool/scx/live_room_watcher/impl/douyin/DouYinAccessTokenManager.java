@@ -1,9 +1,9 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.MediaType;
+import cool.scx.http.media_type.MediaType;
 import cool.scx.http.ScxHttpClientRequest;
-import cool.scx.http.content_type.ContentType;
+import cool.scx.http.media_type.ScxMediaType;
 import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AccessTokenManager;
 
@@ -12,8 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import static cool.scx.common.util.ObjectUtils.toJson;
-import static cool.scx.http.HttpMethod.POST;
-import static cool.scx.http.MediaType.APPLICATION_JSON;
+import static cool.scx.http.media_type.MediaType.APPLICATION_JSON;
+import static cool.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.ACCESS_TOKEN_URL;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -32,7 +32,7 @@ public class DouYinAccessTokenManager extends AccessTokenManager {
         var response = ScxHttpClientHelper.request()
                 .method(POST)
                 .uri(ACCESS_TOKEN_URL)
-                .contentType(ContentType.of(APPLICATION_JSON).charset(UTF_8))
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send(Map.of(
                         "appid", appID,
                         "secret", appSecret,
@@ -40,7 +40,7 @@ public class DouYinAccessTokenManager extends AccessTokenManager {
                 ));
         var accessTokenResult = response.body().asObject(DouYinResponseBody.class);
         if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(response.body().asString());
+            throw new IllegalArgumentException(ObjectUtils.toJson(accessTokenResult,""));
         }
         return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
     }

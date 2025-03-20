@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl.tiktok_hack;
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.http.ScxHttpClientResponse;
-import cool.scx.http.cookie.Cookie;
+import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.http.web_socket.ScxWebSocket;
 import cool.scx.http.x.ScxHttpClientHelper;
@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.http.HttpMethod.GET;
+import static cool.scx.http.method.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 

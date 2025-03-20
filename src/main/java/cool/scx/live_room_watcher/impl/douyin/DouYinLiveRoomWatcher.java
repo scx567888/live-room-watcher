@@ -3,8 +3,8 @@ package cool.scx.live_room_watcher.impl.douyin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.HttpMethod;
-import cool.scx.http.content_type.ContentType;
+import cool.scx.http.media_type.ScxMediaType;
+import cool.scx.http.method.HttpMethod;
 import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinChat;
@@ -15,9 +15,9 @@ import java.io.IOException;
 import java.util.Map;
 
 import static cool.scx.common.util.ObjectUtils.toJson;
-import static cool.scx.http.HttpMethod.GET;
-import static cool.scx.http.HttpMethod.POST;
-import static cool.scx.http.MediaType.APPLICATION_JSON;
+import static cool.scx.http.method.HttpMethod.GET;
+import static cool.scx.http.method.HttpMethod.POST;
+import static cool.scx.http.media_type.MediaType.APPLICATION_JSON;
 import static cool.scx.http.x.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
@@ -66,7 +66,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         .uri(WEBCAST_MATE_INFO_URL)
                         .method(POST)
                         .setHeader("X-Token", accessTokenManager.getAccessToken())
-                        .contentType(ContentType.of(APPLICATION_JSON).charset(UTF_8))
+                        .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                         .send(toJson(Map.of("token", token)));
         var bodyStr = response.body().toString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
