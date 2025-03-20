@@ -6,7 +6,7 @@ import cool.scx.common.util.$;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.web_socket.ScxServerWebSocket;
 import cool.scx.http.web_socket.ScxWebSocket;
-import cool.scx.http.cookie.Cookie;
+import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.http.HttpMethod.GET;
+import static cool.scx.http.method.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 

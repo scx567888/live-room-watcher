@@ -3,7 +3,7 @@ package cool.scx.live_room_watcher.impl._560game;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.HttpMethod;
+import cool.scx.http.method.HttpMethod;
 import cool.scx.http.ScxHttpClient;
 import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static cool.scx.common.util.RandomUtils.randomString;
-import static cool.scx.http.HttpMethod.POST;
+import static cool.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl._560game._560GameApi.*;
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getSign;
 
