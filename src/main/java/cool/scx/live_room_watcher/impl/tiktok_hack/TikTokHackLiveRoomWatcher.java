@@ -4,8 +4,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
-import cool.scx.http.web_socket.ScxWebSocket;
+import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
+import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
@@ -14,6 +14,7 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.websocket.x.ScxWebSocketClientHelper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -166,7 +167,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public ScxClientWebSocketHandshakeRequest getWebSocketOptions() {
         var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
         uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss://");
-        return ScxHttpClientHelper.webSocketHandshakeRequest().uri(uri);
+        return ScxWebSocketClientHelper.webSocketHandshakeRequest().uri(uri);
     }
 
     private void callHandler(Message message) throws Exception {

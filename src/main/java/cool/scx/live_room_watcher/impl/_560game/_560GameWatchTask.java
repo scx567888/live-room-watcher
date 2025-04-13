@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.exception.ScxExceptionHelper;
-import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
+import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.scheduling.ScheduleContext;
-import cool.scx.http.web_socket.ScxWebSocket;
+import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.x.ScxHttpClientHelper;
+import cool.scx.websocket.ScxWebSocketClient;
+import cool.scx.websocket.x.ScxWebSocketClientHelper;
 
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;
 import static cool.scx.scheduling.ScxScheduling.setTimeout;
@@ -45,7 +47,7 @@ public class _560GameWatchTask {
         var s = watcher.validateUser(this.username, this.password);
         var ws_url = getWsUrl(s, username);
         logger.log(DEBUG, "连接开始 地址" + ws_url);
-        this.webSocketFuture = ScxHttpClientHelper.webSocketHandshakeRequest().uri(ws_url);
+        this.webSocketFuture = ScxWebSocketClientHelper.webSocketHandshakeRequest().uri(ws_url);
         try {
         webSocketFuture.onWebSocket(ws -> {
             webSocket = ws;
