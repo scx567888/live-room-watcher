@@ -4,11 +4,11 @@ import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.web_socket.ScxClientWebSocketHandshakeRequest;
+import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.io.zip.GunzipBuilder;
 import cool.scx.http.ScxHttpClient;
-import cool.scx.http.web_socket.ScxServerWebSocket;
-import cool.scx.http.web_socket.ScxWebSocket;
+import cool.scx.websocket.ScxServerWebSocket;
+import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.headers.cookie.CookieWritable;
 import cool.scx.http.x.ScxHttpClientHelper;
@@ -17,6 +17,7 @@ import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
+import cool.scx.websocket.x.ScxWebSocketClientHelper;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -198,7 +199,7 @@ public final class DouYinHackHelper {
              var context = browser.newContext();
              var page = context.newPage()) {
             page.onWebSocket(c -> {
-                var webSocketBuilder = ScxHttpClientHelper
+                var webSocketBuilder = ScxWebSocketClientHelper
                         .webSocketHandshakeRequest()
                         .uri(c.url())
                         .addCookie(context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
