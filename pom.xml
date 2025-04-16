@@ -184,7 +184,7 @@
         <scx.version>3.5.3</scx.version>
         <protobuf.version>4.29.0</protobuf.version>
         <jsoup.version>1.18.3</jsoup.version>
-        <graalvm-js.version>24.1.1</graalvm-js.version>
+        <graalvm-js.version>24.2.1</graalvm-js.version>
         <slf4j.version>2.0.16</slf4j.version>
         <testng.version>7.10.2</testng.version>
         <playwright.version>1.49.0</playwright.version>
