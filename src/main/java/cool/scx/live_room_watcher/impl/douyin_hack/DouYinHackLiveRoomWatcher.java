@@ -4,8 +4,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.common.util.$;
 import cool.scx.http.ScxHttpClientResponse;
-import cool.scx.websocket.ScxServerWebSocket;
-import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
@@ -13,9 +11,10 @@ import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageActi
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.websocket.ScxWebSocket;
+import cool.scx.websocket.handler.ScxEventWebSocket;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +34,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, ScxConsumer<byte[], ?>> handlerMap;
-    private ScxWebSocket webSocket;
+    private ScxEventWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
@@ -117,7 +116,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public void startWatch() {
         //todo 防止线程退出
-        new Thread(()->{
+        new Thread(() -> {
             while (true) {
                 $.sleep(99999);
             }
@@ -132,25 +131,25 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         System.out.println("连接中...");
-        var webSocketFuture = browser.webSocket(DouYinHackHelper.getWebSocketOptions(this.liveRoomURI));
+        var webSocketFuture = browser.webSocket(DouYinHackHelper.getWebSocketOptions(this.liveRoomURI)).webSocket();
         try {
-        webSocketFuture.onWebSocket(c -> {
+            var c = ScxEventWebSocket.of(webSocketFuture);
             webSocket = c;
             startPing(c);
-            c.onBinaryMessage((b,_) -> {
+            c.onBinaryMessage((b, _) -> {
                 var v = parseFrame(b);
                 if (v.response().getNeedAck()) {
                     sendAck(c, v.pushFrame(), v.response());
                 }
             });
-            c.onTextMessage((s,_)->System.out.println(s));
+            c.onTextMessage((s, _) -> System.out.println(s));
             c.onError(e -> {
                 e.printStackTrace();
                 startWatch();
             });
             System.out.println("连接成功 !!!");
-        });
-        }catch (Exception e){
+            c.start();
+        } catch (Exception e) {
             //todo 这里有时会 200 待研究
             e.printStackTrace();
             startWatch();
