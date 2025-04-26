@@ -4,9 +4,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
-import cool.scx.websocket.ScxWebSocket;
-import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
@@ -14,6 +11,9 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
+import cool.scx.websocket.ScxWebSocket;
+import cool.scx.websocket.handler.ScxEventWebSocket;
 import cool.scx.websocket.x.ScxWebSocketClientHelper;
 
 import java.io.IOException;
@@ -36,7 +36,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, ScxConsumer<byte[], ?>> handlerMap;
-    private ScxWebSocket webSocket;
+    private ScxEventWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
     private TikTokHackLiveRoomInfo liveRoomInfo;
@@ -123,24 +123,24 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         System.out.println("连接中...");
-        var webSocketFuture = browser.webSocket(getWebSocketOptions());
+        var ws = browser.webSocket(getWebSocketOptions()).webSocket();
+        var c = ScxEventWebSocket.of(ws);
         try {
-            webSocketFuture.onWebSocket(c -> {
-                webSocket = c;
-                startPing(c);
-                c.onBinaryMessage((b, _) -> {
-                    var v = parseFrame(b);
-                    if (v.response().getNeedAck()) {
-                        sendAck(c, v.pushFrame(), v.response());
-                    }
-                });
-                c.onTextMessage((s, _) -> System.out.println(s));
-                c.onError(e -> {
-                    e.printStackTrace();
-                    startWatch();
-                });
-                System.out.println("连接成功 !!!");
+            webSocket = c;
+            startPing(c);
+            c.onBinaryMessage((b, _) -> {
+                var v = parseFrame(b);
+                if (v.response().getNeedAck()) {
+                    sendAck(c, v.pushFrame(), v.response());
+                }
             });
+            c.onTextMessage((s, _) -> System.out.println(s));
+            c.onError(e -> {
+                e.printStackTrace();
+                startWatch();
+            });
+            System.out.println("连接成功 !!!");
+            webSocket.start();
         } catch (Exception e) {
             //todo 这里有时会 200 待研究
             e.printStackTrace();

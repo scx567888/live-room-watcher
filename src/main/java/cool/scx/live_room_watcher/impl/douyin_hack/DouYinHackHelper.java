@@ -7,7 +7,6 @@ import cool.scx.common.util.ObjectUtils;
 import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.io.zip.GunzipBuilder;
 import cool.scx.http.ScxHttpClient;
-import cool.scx.websocket.ScxServerWebSocket;
 import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.headers.cookie.CookieWritable;
