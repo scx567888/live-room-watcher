@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import cool.scx.common.exception.ScxExceptionHelper;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.scheduling.ScheduleContext;
-import cool.scx.websocket.handler.ScxEventWebSocket;
+import cool.scx.websocket.event.ScxEventWebSocket;
 import cool.scx.websocket.x.ScxWebSocketClientHelper;
 
 import static cool.scx.live_room_watcher.impl._560game._560GameHelper.getWsUrl;

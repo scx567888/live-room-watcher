@@ -13,7 +13,7 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.websocket.ScxWebSocket;
-import cool.scx.websocket.handler.ScxEventWebSocket;
+import cool.scx.websocket.event.ScxEventWebSocket;
 import cool.scx.websocket.x.ScxWebSocketClientHelper;
 
 import java.io.IOException;

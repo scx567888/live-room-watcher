@@ -12,7 +12,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import cool.scx.websocket.ScxWebSocket;
-import cool.scx.websocket.handler.ScxEventWebSocket;
+import cool.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -108,7 +108,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public DouYinHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
-        return new DouYinHackLiveRoomInfo(indexHtml.body().toString());
+        return new DouYinHackLiveRoomInfo(indexHtml.body().asString());
     }
 
     /**
