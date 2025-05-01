@@ -1,10 +1,14 @@
 package cool.scx.live_room_watcher.util;
 
 
-import cool.scx.http.*;
-import cool.scx.websocket.*;
+import cool.scx.http.ScxHttpClientRequest;
 import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.x.ScxHttpClientHelper;
+import cool.scx.http.x.HttpClient;
+import cool.scx.http.x.HttpClientOptions;
+import cool.scx.http.x.proxy.Proxy;
+import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
+import cool.scx.websocket.x.WebSocketClient;
+import cool.scx.websocket.x.WebSocketOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,56 +21,24 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
 public class Browser {
 
     private final Map<String, Cookie> cookieMap = new HashMap<>();
-//    private final ScxHttpClient httpClient;
-//    private final WebSocketClient webSocketClient;
+    private final HttpClient httpClient;
+    private final WebSocketClient webSocketClient;
+
+    public Browser(Proxy proxy) {
+        this.httpClient = new HttpClient(new HttpClientOptions().proxy(proxy));
+        this.webSocketClient = new WebSocketClient(this.httpClient, new WebSocketOptions().maxWebSocketFrameSize(65536 * 10).maxWebSocketMessageSize(65536 * 40));
+    }
 
     public Browser() {
-//        this.httpClient = initHttpClient();
-//        this.webSocketClient = initWebSocketClient();
+        this(null);
     }
-
-    private ScxHttpClient initWebSocketClient() {
-//        var options = new WebSocketClientOptions();
-//        options.setMaxFrameSize(65536 * 10);
-//        options.setMaxMessageSize(65536 * 40);
-//        options.setProxyOptions(
-//                        new ProxyOptions()
-//                                .setHost("127.0.0.1")
-//                                .setPort(17890)
-//                );
-//        return vertx.createWebSocketClient(options);
-        return null;
-    }
-
-    /**
-     * <p>initHttpClient.</p>
-     *
-     * @return a a
-     */
-//    private static ScxHttpClient initHttpClient() {
-//        var options = new HttpClientOptions();
-        //调大一些
-//        options.setMaxWebSocketFrameSize(65536 * 10);
-//        options.setMaxWebSocketMessageSize(65536 * 40);
-//                .setTrustOptions(new KeyStoreOptions()
-//                        .setPath("keystore.jks")
-//                        .setPassword("123456")
-//                        .setType("jks")
-//                )
-//        options.setProxyOptions(
-//                        new ProxyOptions()
-//                                .setHost("127.0.0.1")
-//                                .setPort(17890)
-//                );
-//        return vertx.createHttpClient(options);
-//    }
 
     public ScxHttpClientRequest request() {
-        var request = ScxHttpClientHelper.request();
-        //
+        var request = httpClient.request();
+
         request.addHeader("User-Agent", navigator().userAgent());
         request.addCookie(cookieMap.values().toArray(Cookie[]::new));
-        //
+
         var setCookie = request.headers().setCookies();
         for (var s : setCookie) {
             addCookie(s);
@@ -74,10 +46,13 @@ public class Browser {
         return request;
     }
 
-    public ScxClientWebSocketHandshakeRequest webSocket(ScxClientWebSocketHandshakeRequest options) {
-        options.addHeader("User-Agent", navigator().userAgent());
-        options.addCookie(cookieMap.values().toArray(Cookie[]::new));
-        return options;
+    public ScxClientWebSocketHandshakeRequest webSocketHandshakeRequest() {
+        var webSocketHandshakeRequest = webSocketClient.webSocketHandshakeRequest();
+        
+        webSocketHandshakeRequest.addHeader("User-Agent", navigator().userAgent());
+        webSocketHandshakeRequest.addCookie(cookieMap.values().toArray(Cookie[]::new));
+        
+        return webSocketHandshakeRequest;
     }
 
     public Cookie getCookie(String cookieName) {

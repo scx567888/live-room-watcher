@@ -68,7 +68,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         .setHeader("X-Token", accessTokenManager.getAccessToken())
                         .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                         .send(toJson(Map.of("token", token)));
-        var bodyStr = response.body().toString();
+        var bodyStr = response.body().asString();
         var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
         var data = jsonNode.get("data");
         if (data == null) {
@@ -91,7 +91,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         "appid", appID,
                         "msg_type", msgType.value()
                 ));
-        var bodyStr = response.body().toString();
+        var bodyStr = response.body().asString();
         return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
     }
 
