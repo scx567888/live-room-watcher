@@ -187,7 +187,7 @@ public final class DouYinHackHelper {
     public static WebSocketOptions getWebSocketOptions(String path) {
         var future = new CompletableFuture<WebSocketOptions>();
         try (var playwright = Playwright.create();
-             var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
+             var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
             page.onWebSocket(c -> {

@@ -4,6 +4,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
+import cool.scx.http.headers.cookie.Cookies;
 import cool.scx.http.x.proxy.Proxy;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
@@ -21,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cool.scx.http.method.HttpMethod.GET;
-import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.getWebSocketOptions;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
 
@@ -106,6 +106,8 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public TikTokHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
+        Cookies cookies = indexHtml.headers().setCookies();
+        browser.addCookies(cookies);
         return new TikTokHackLiveRoomInfo(indexHtml.body().asString());
     }
 
@@ -123,8 +125,8 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         System.out.println("连接中...");
-        var webSocketOptions = getWebSocketOptions(this.liveRoomURI);
-        var ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).webSocket();
+        var webSocketOptions = getWebSocketOptions();
+        var ws = webSocketOptions.webSocket();
         var c = ScxEventWebSocket.of(ws);
         try {
             webSocket = c;
@@ -253,6 +255,12 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ScxClientWebSocketHandshakeRequest getWebSocketOptions() {
+        var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
+        uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss");
+        return browser.webSocketHandshakeRequest().uri(uri);
     }
 
 }
