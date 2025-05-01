@@ -40,7 +40,7 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
 
     @Override
     public String roomID() {
-        return LiveRoom.liveRoomUserInfo.liveRoom.roomID;
+        return LiveRoom.liveRoomUserInfo.user.roomId;
     }
 
     @Override
