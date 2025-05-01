@@ -27,7 +27,7 @@ public class DouYinHackLiveRoomWatcherTest {
 
     //    @Test
     public static void tes1() {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/140197733485").useGzip(true);
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/208823316033").useGzip(true);
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickname() + " : ").brightWhite(chat.content()).println();
