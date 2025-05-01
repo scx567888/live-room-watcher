@@ -4,6 +4,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.functional.ScxConsumer;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
+import cool.scx.http.headers.cookie.Cookies;
+import cool.scx.http.x.proxy.Proxy;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
@@ -13,8 +15,7 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
 import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.websocket.ScxWebSocket;
-import cool.scx.websocket.handler.ScxEventWebSocket;
-import cool.scx.websocket.x.ScxWebSocketClientHelper;
+import cool.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,14 +42,13 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private Thread ping;
     private TikTokHackLiveRoomInfo liveRoomInfo;
 
-    /**
-     * <p>Constructor for DouYinLiveRoomWatcher.</p>
-     *
-     * @param uri a {@link java.lang.String} object
-     */
     public TikTokHackLiveRoomWatcher(String uri) {
+        this(uri, null);
+    }
+
+    public TikTokHackLiveRoomWatcher(String uri, Proxy proxy) {
         this.liveRoomURI = initLiveRoomURI(uri);
-        this.browser = new Browser().addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
+        this.browser = new Browser(proxy).addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
@@ -106,7 +106,9 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public TikTokHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
-        return new TikTokHackLiveRoomInfo(indexHtml.body().toString());
+        Cookies cookies = indexHtml.headers().setCookies();
+        browser.addCookies(cookies);
+        return new TikTokHackLiveRoomInfo(indexHtml.body().asString());
     }
 
     /**
@@ -123,7 +125,8 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
         System.out.println("连接中...");
-        var ws = browser.webSocket(getWebSocketOptions()).webSocket();
+        var webSocketOptions = getWebSocketOptions();
+        var ws = webSocketOptions.webSocket();
         var c = ScxEventWebSocket.of(ws);
         try {
             webSocket = c;
@@ -146,7 +149,6 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             e.printStackTrace();
             startWatch();
         }
-
     }
 
     public void stopWatch() {
@@ -162,12 +164,6 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (ping != null) {
             ping.interrupt();
         }
-    }
-
-    public ScxClientWebSocketHandshakeRequest getWebSocketOptions() {
-        var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
-        uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss://");
-        return ScxWebSocketClientHelper.webSocketHandshakeRequest().uri(uri);
     }
 
     private void callHandler(Message message) throws Exception {
@@ -259,6 +255,12 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ScxClientWebSocketHandshakeRequest getWebSocketOptions() {
+        var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
+        uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss");
+        return browser.webSocketHandshakeRequest().uri(uri);
     }
 
 }

@@ -4,19 +4,13 @@ import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
-import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
 import cool.scx.io.zip.GunzipBuilder;
-import cool.scx.http.ScxHttpClient;
 import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.headers.cookie.CookieWritable;
-import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.http.uri.ScxURI;
-import cool.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
-import cool.scx.websocket.x.ScxWebSocketClientHelper;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,7 +19,6 @@ import org.jsoup.select.Elements;
 
 import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
@@ -191,19 +184,16 @@ public final class DouYinHackHelper {
      * @param path d
      * @return d
      */
-    public static ScxClientWebSocketHandshakeRequest getWebSocketOptions(String path) {
-        var future = new CompletableFuture<ScxClientWebSocketHandshakeRequest>();
+    public static WebSocketOptions getWebSocketOptions(String path) {
+        var future = new CompletableFuture<WebSocketOptions>();
         try (var playwright = Playwright.create();
-             var browser = playwright.firefox().launch(new LaunchOptions().setHeadless(false));
+             var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
              var context = browser.newContext();
              var page = context.newPage()) {
             page.onWebSocket(c -> {
-                var webSocketBuilder = ScxWebSocketClientHelper
-                        .webSocketHandshakeRequest()
-                        .uri(c.url())
-                        .addCookie(context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
-                
-                future.complete(webSocketBuilder);
+
+                var webSocketOptions = new WebSocketOptions(c.url(), context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
+                future.complete(webSocketOptions);
             });
             page.navigate(path);
             page.waitForWebSocket(() -> {
@@ -217,4 +207,8 @@ public final class DouYinHackHelper {
         }
     }
 
+    public record WebSocketOptions(String uri,Cookie... cookie) {
+        
+    }
+    
 }
