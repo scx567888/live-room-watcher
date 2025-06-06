@@ -172,7 +172,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    private void callHandler(Message message) throws Exception {
+    private void callHandler(Message message) throws Throwable {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
         var handler = this.handlerMap.getOrDefault(method, this::DefaultHandler);
@@ -326,7 +326,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         Thread.ofVirtual().start(() -> {
                             try {
                                 callHandler(message);
-                            } catch (Exception e) {
+                            } catch (Throwable e) {
                                 throw new RuntimeException(e);
                             }
                         });
