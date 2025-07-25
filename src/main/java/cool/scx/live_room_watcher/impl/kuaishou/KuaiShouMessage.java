@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import cool.scx.object.node.Node;
 
 public class KuaiShouMessage {
 
@@ -16,7 +16,7 @@ public class KuaiShouMessage {
         public String author_open_id;
         public String live_timestamp;
         public String room_code;
-        public JsonNode payload;
+        public Node payload;
     }
 
 }

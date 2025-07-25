@@ -5,6 +5,7 @@ import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.http.media.multi_part.MultiPart;
 import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.AccessTokenManager;
+import cool.scx.object.ScxObject;
 
 import static cool.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.ACCESS_TOKEN_URL;
@@ -31,7 +32,7 @@ class KuaiShouAccessTokenManager extends AccessTokenManager {
                 );
         var accessTokenResult = response.body().asObject(KuaiShouAccessToken.class);
         if (accessTokenResult.result != 1) {
-            throw new IllegalArgumentException(ObjectUtils.toJson(accessTokenResult,""));
+            throw new IllegalArgumentException(ScxObject.toJson(accessTokenResult));
         }
         return accessTokenResult;
     }

@@ -1,11 +1,11 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
 import java.security.InvalidParameterException;
+import java.util.Base64;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static cool.scx.common.util.Base64Utils.encodeToString;
 import static cool.scx.common.util.HashUtils.md5;
 
 class DouYinHelper {
@@ -51,7 +51,7 @@ class DouYinHelper {
 
         var rawData = urlParams + bodyStr + secret;
         var md5Bytes = md5(rawData.getBytes());
-        return encodeToString(md5Bytes);
+        return Base64.getEncoder().encodeToString(md5Bytes);
     }
 
 }

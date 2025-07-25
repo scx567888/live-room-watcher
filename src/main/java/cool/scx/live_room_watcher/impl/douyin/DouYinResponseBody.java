@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import cool.scx.object.node.Node;
 
 /**
  * 抖音官方的通用响应体结构
@@ -13,6 +13,6 @@ public record DouYinResponseBody(Integer errcode,
                                  Integer err_no,
                                  String logid,
                                  String message,
-                                 JsonNode data) {
+                                 Node data) {
 
 }

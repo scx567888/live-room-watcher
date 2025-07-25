@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.http.method.HttpMethod;
 import cool.scx.http.x.ScxHttpClientHelper;
@@ -10,6 +9,8 @@ import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
+import cool.scx.object.ScxObject;
+import cool.scx.reflect.TypeReference;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -49,7 +50,7 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
         var bodyStr = response.body().asString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouTaskStartResult.class);
+        return ScxObject.fromJson(bodyStr, KuaiShouTaskStartResult.class);
     }
 
     public KuaiShouResponseBody taskStop(String roomID, String roundId) throws IOException, InterruptedException {
@@ -66,7 +67,7 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
         var bodyStr = response.body().asString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
+        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
     }
 
     public KuaiShouResponseBody taskStatus(String roomID) throws IOException, InterruptedException {
@@ -82,7 +83,7 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
         var bodyStr = response.body().asString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
+        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
     }
 
     public KuaiShouResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
@@ -99,12 +100,12 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .toString();
         var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
         var bodyStr = response.body().asString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouResponseBody.class);
+        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
     }
 
     public void callGift(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
-        var gifts = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
+        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
+        var gifts = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
         for (var gift : gifts) {
             gift.message_id = ksMessage.message_id;
             gift.timestamp = ksMessage.timestamp;
@@ -115,8 +116,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void callChat(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
-        var comments = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouChat[]>() {});
+        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
+        var comments = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouChat[]>() {});
         for (var comment : comments) {
             comment.message_id = ksMessage.message_id;
             comment.timestamp = ksMessage.timestamp;
@@ -127,8 +128,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void callLike(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ObjectUtils.jsonMapper().readValue(bodyStr, KuaiShouMessage.class);
-        var likes = ObjectUtils.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
+        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
+        var likes = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
         for (var like : likes) {
             like.message_id = ksMessage.message_id;
             like.timestamp = ksMessage.timestamp;

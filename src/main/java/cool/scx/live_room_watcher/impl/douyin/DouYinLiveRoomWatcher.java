@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.http.media_type.ScxMediaType;
 import cool.scx.http.method.HttpMethod;
@@ -10,11 +9,13 @@ import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinChat;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
+import cool.scx.object.ScxObject;
+import cool.scx.object.node.ObjectNode;
+import cool.scx.reflect.TypeReference;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.common.util.ObjectUtils.toJson;
 import static cool.scx.http.method.HttpMethod.GET;
 import static cool.scx.http.method.HttpMethod.POST;
 import static cool.scx.http.media_type.MediaType.APPLICATION_JSON;
@@ -22,6 +23,7 @@ import static cool.scx.http.x.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;
+import static cool.scx.object.ScxObject.toJson;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
@@ -69,8 +71,8 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                         .send(toJson(Map.of("token", token)));
         var bodyStr = response.body().asString();
-        var jsonNode = ObjectUtils.jsonMapper().readTree(bodyStr);
-        var data = jsonNode.get("data");
+        var jsonNode =(ObjectNode) ScxObject.fromJson(bodyStr);
+        var data =(ObjectNode) jsonNode.get("data");
         if (data == null) {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
@@ -78,7 +80,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (info == null) {
             throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
         }
-        return ObjectUtils.jsonMapper().convertValue(info, DouYinWebcastMateInfo.class);
+        return ScxObject.convertValue(info, DouYinWebcastMateInfo.class);
     }
 
     public DouYinResponseBody taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
@@ -92,7 +94,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                         "msg_type", msgType.value()
                 ));
         var bodyStr = response.body().asString();
-        return ObjectUtils.jsonMapper().readValue(bodyStr, DouYinResponseBody.class);
+        return ScxObject.fromJson(bodyStr, DouYinResponseBody.class);
     }
 
     public DouYinResponseBody taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
@@ -189,7 +191,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public void callChat(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, commentDataSecret);
-        var commentList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinChat[]>() {});
+        var commentList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinChat[]>() {});
         for (var comment : commentList) {
             comment.roomID = roomID;
             this._callOnChat(comment);
@@ -205,7 +207,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public void callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, likeDataSecret);
-        var likeList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinLike[]>() {});
+        var likeList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinLike[]>() {});
         for (var like : likeList) {
             like.roomID = roomID;
             this._callOnLike(like);
@@ -221,7 +223,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public void callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, giftDataSecret);
-        var giftList = ObjectUtils.jsonMapper().readValue(bodyStr, new TypeReference<DouYinGift[]>() {});
+        var giftList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinGift[]>() {});
         for (var gift : giftList) {
             gift.gift_name = giftNameMap.get(gift.sec_gift_id);
             gift.roomID = roomID;

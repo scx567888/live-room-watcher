@@ -3,6 +3,7 @@ package cool.scx.live_room_watcher.impl.kuaishou;
 import cool.scx.common.util.HashUtils;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.common.util.StringUtils;
+import cool.scx.object.ScxObject;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -43,11 +44,11 @@ public class KuaiShouHelper {
     }
 
     public static String ok() {
-        return ObjectUtils.toJson(Map.of("result", 1), "");
+        return ScxObject.toJson(Map.of("result", 1));
     }
 
     public static String fail(String errorMsg) {
-        return ObjectUtils.toJson(Map.of("result", 0, "errorMsg", errorMsg), "");
+        return ScxObject.toJson(Map.of("result", 0, "errorMsg", errorMsg));
     }
 
 }

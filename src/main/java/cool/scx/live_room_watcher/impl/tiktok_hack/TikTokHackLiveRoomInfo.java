@@ -1,10 +1,12 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
+import cool.scx.object.ScxObject;
+import cool.scx.object.node.Node;
+import cool.scx.object.node.ObjectNode;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,9 +23,9 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
             Document parse = Jsoup.parse(htmlStr);
             var element = parse.selectFirst("#SIGI_STATE");
             var html = element.html();
-            var root = ObjectUtils.jsonMapper().readTree(html);
-            this.LiveRoom = ObjectUtils.jsonMapper().convertValue(root.get("LiveRoom"), TikTokHackLiveRoom.class);
-        } catch (JsonProcessingException e) {
+            var root =(ObjectNode) ScxObject.fromJson(html);
+            this.LiveRoom = ScxObject.convertValue(root.get("LiveRoom"), TikTokHackLiveRoom.class);
+        } catch (Exception e) {
             throw new RuntimeException("解析直播间错误 !!!", e);
         }
     }
@@ -74,7 +76,7 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
 
     static class TikTokHackLiveRoomUserInfoLiveRoom {
         public String title;
-        public JsonNode streamData;
+        public Node streamData;
         public String roomID;
     }
 
