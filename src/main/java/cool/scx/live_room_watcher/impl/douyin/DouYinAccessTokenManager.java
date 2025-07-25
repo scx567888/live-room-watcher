@@ -6,12 +6,12 @@ import cool.scx.http.ScxHttpClientRequest;
 import cool.scx.http.media_type.ScxMediaType;
 import cool.scx.http.x.ScxHttpClientHelper;
 import cool.scx.live_room_watcher.AccessTokenManager;
+import cool.scx.object.ScxObject;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-import static cool.scx.common.util.ObjectUtils.toJson;
 import static cool.scx.http.media_type.MediaType.APPLICATION_JSON;
 import static cool.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.ACCESS_TOKEN_URL;
@@ -40,9 +40,9 @@ public class DouYinAccessTokenManager extends AccessTokenManager {
                 ));
         var accessTokenResult = response.body().asObject(DouYinResponseBody.class);
         if (accessTokenResult.err_no() != 0) {
-            throw new IllegalArgumentException(ObjectUtils.toJson(accessTokenResult,""));
+            throw new IllegalArgumentException(ScxObject.toJson(accessTokenResult));
         }
-        return ObjectUtils.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
+        return ScxObject.convertValue(accessTokenResult.data(), DouYinAccessToken.class);
     }
 
 }

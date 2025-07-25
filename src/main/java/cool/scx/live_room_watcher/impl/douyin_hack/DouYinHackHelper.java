@@ -5,6 +5,7 @@ import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.common.util.ObjectUtils;
 import cool.scx.io.zip.GunzipBuilder;
+import cool.scx.object.ScxObject;
 import cool.scx.websocket.ScxWebSocket;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.uri.ScxURI;
@@ -71,7 +72,7 @@ public final class DouYinHackHelper {
                     let arr = JSON.parse(str.slice(index + 1));
                     JSON.stringify(arr[arr.length - 1])
                     """);
-            return ObjectUtils.jsonMapper().readValue(value.asString(), DouYinAPP.class);
+            return ScxObject.fromJson(value.asString(), DouYinAPP.class);
         } catch (Exception e) {
             throw new IllegalArgumentException("解析直播间错误", e);
         }

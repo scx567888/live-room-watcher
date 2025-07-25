@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>live-room-watcher</artifactId>
-    <version>0.4.19</version>
+    <version>0.4.20</version>
 
     <name>Live Room Watcher</name>
     <url>https://github.com/scx567888/live-room-watcher</url>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>cool.scx</groupId>
             <artifactId>scx-ansi</artifactId>
-            <version>${scx.version}</version>
+            <version>${scx-ansi.version}</version>
         </dependency>
 
         <dependency>
@@ -181,7 +181,8 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-        <scx.version>3.8.6</scx.version>
+        <scx.version>3.8.8</scx.version>
+        <scx-ansi.version>4.1.0</scx-ansi.version>
         <scx-logging.version>4.0.0</scx-logging.version>
         <protobuf.version>4.29.0</protobuf.version>
         <jsoup.version>1.20.1</jsoup.version>

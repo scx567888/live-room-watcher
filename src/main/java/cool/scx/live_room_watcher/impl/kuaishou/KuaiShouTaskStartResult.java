@@ -1,9 +1,9 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import cool.scx.object.node.Node;
 
 public class KuaiShouTaskStartResult extends KuaiShouResponseBody {
 
-    public JsonNode userInfo;
+    public Node userInfo;
 
 }
