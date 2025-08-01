@@ -2,7 +2,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.common.util.$;
-import cool.scx.functional.ScxConsumer;
+import cool.scx.function.ConsumerX;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.x.proxy.Proxy;
@@ -34,7 +34,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String liveRoomURI;
     private final Browser browser;
-    private final Map<String, ScxConsumer<byte[], ?>> handlerMap;
+    private final Map<String, ConsumerX<byte[], ?>> handlerMap;
     private ScxEventWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
@@ -50,8 +50,8 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.handlerMap = initHandlerMap();
     }
 
-    public Map<String, ScxConsumer<byte[], ?>> initHandlerMap() {
-        var map = new HashMap<String, ScxConsumer<byte[], ?>>();
+    public Map<String, ConsumerX<byte[], ?>> initHandlerMap() {
+        var map = new HashMap<String, ConsumerX<byte[], ?>>();
         map.put("WebcastSocialMessage", this::WebcastSocialMessage);
         map.put("WebcastChatMessage", this::WebcastChatMessage);
         map.put("WebcastMemberMessage", this::WebcastMemberMessage);
