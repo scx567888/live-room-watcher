@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import cool.scx.function.ConsumerX;
+import cool.scx.function.Function1Void;
 import cool.scx.http.ScxHttpClientResponse;
 import cool.scx.http.headers.cookie.Cookie;
 import cool.scx.http.headers.cookie.Cookies;
@@ -36,7 +36,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String liveRoomURI;
     private final Browser browser;
-    private final Map<String, ConsumerX<byte[], ?>> handlerMap;
+    private final Map<String, Function1Void<byte[], ?>> handlerMap;
     private ScxEventWebSocket webSocket;
     private boolean useGzip;
     private Thread ping;
@@ -52,8 +52,8 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.handlerMap = initHandlerMap();
     }
 
-    public Map<String, ConsumerX<byte[], ?>> initHandlerMap() {
-        var map = new HashMap<String, ConsumerX<byte[], ?>>();
+    public Map<String, Function1Void<byte[], ?>> initHandlerMap() {
+        var map = new HashMap<String, Function1Void<byte[], ?>>();
         map.put("WebcastChatMessage", this::WebcastChatMessage);
         map.put("WebcastMemberMessage", this::WebcastMemberMessage);
         map.put("WebcastLikeMessage", this::WebcastLikeMessage);
@@ -170,7 +170,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
         var handler = this.handlerMap.getOrDefault(method, this::DefaultHandler);
-        handler.accept(payload);
+        handler.apply(payload);
     }
 
     private void DefaultHandler(byte[] bytes) {
