@@ -5,13 +5,13 @@ param($JAVA_HOME, $MAVEN_HOME)
 
 #---------------------------------------------- 全局变量 ------------------------------------------------
 # 当前脚本的版本号
-$SCRIPT_VERSION = '6'
+$SCRIPT_VERSION = '1'
 #项目名称
 $PROJECT_NAME = '-'
 #项目版本
 $PROJECT_VERSION = '-'
-#构建成品输出位置 默认为当前目录下的 built 文件夹
-$OUTPUT_URL = Join-Path (Get-Location) 'built'
+#构建成品输出位置 默认为当前目录下的 build 文件夹
+$OUTPUT_URL = Join-Path (Get-Location) 'build'
 
 #设置标题
 function SetTitle($title)
@@ -23,7 +23,7 @@ function SetOutputUrl()
 {
     while ($true)
     {
-        $tempOutputUrl = Read-Host '请输入打包文件的输出目录 留空为当前目录下的 built'
+        $tempOutputUrl = Read-Host '请输入打包文件的输出目录 留空为当前目录下的 build'
         if ($tempOutputUrl -ne '')
         {
             $script:OUTPUT_URL = $tempOutputUrl
@@ -102,7 +102,6 @@ function SetTempEnvironmentVariables()
         $PathVariables = $PathVariables + $MAVEN_HOME + ';'
     }
     $env:Path = $env:Path + $PathVariables
-    $env:JAVA_TOOL_OPTIONS = '-Dfile.encoding=UTF-8 -Duser.language=zh'
 }
 
 function ToZip($from, $to)
@@ -125,7 +124,7 @@ function ShowSuccess()
     mvn clean
     Write-Host '打包成功'  -ForegroundColor Green
     Write-Host "后台项目是$OUTPUT_URL\$PROJECT_NAME-$PROJECT_VERSION.jar" -ForegroundColor Green
-    Write-Host "启动脚本是$OUTPUT_URL\startup-$PROJECT_VERSION.bat" -ForegroundColor Green
+    Write-Host "启动脚本是$OUTPUT_URL\startup-$PROJECT_NAME-$PROJECT_VERSION.bat" -ForegroundColor Green
     pause
     explorer $OUTPUT_URL
 }
@@ -172,11 +171,10 @@ function CreateWindowsStartupScript()
     "@echo off
 CHCP 65001
 TITLE $PROJECT_NAME-$PROJECT_VERSION
-SET JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 -Duser.language=zh
 java -jar $PROJECT_NAME-$PROJECT_VERSION.jar"
     # 将内容写入文件
     $UTF8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
-    [System.IO.File]::WriteAllText("$OUTPUT_URL\startup-$PROJECT_VERSION.bat", $ScriptContent, $UTF8NoBomEncoding)
+    [System.IO.File]::WriteAllText("$OUTPUT_URL\startup-$PROJECT_NAME-$PROJECT_VERSION.bat", $ScriptContent, $UTF8NoBomEncoding)
 }
 
 function BuildProject()
