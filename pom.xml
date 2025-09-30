@@ -13,12 +13,20 @@
 
     <artifactId>live-room-watcher</artifactId>
     <version>0.4.21</version>
+    <packaging>jar</packaging>
 
     <name>Live Room Watcher</name>
-    <url>https://github.com/scx567888/live-room-watcher</url>
     <description>
         Live Room Watcher
     </description>
+    <url>https://github.com/scx567888/live-room-watcher</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/scx567888/live-room-watcher/blob/master/LICENSE</url>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
@@ -27,13 +35,6 @@
             <email>scx567888@outlook.com</email>
         </developer>
     </developers>
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>https://github.com/scx567888/live-room-watcher/blob/master/LICENSE</url>
-        </license>
-    </licenses>
 
     <scm>
         <connection>scm:git:https://github.com/scx567888/live-room-watcher.git</connection>
@@ -90,7 +91,7 @@
             <artifactId>polyglot</artifactId>
             <version>${graalvm-js.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.graalvm.polyglot</groupId>
             <artifactId>js</artifactId>
@@ -103,7 +104,7 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -181,9 +182,9 @@
 
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
-        <scx.version>3.8.9</scx.version>
-        <scx-ansi.version>4.1.1</scx-ansi.version>
-        <scx-logging.version>4.0.0</scx-logging.version>
+        <scx.version>3.8.10</scx.version>
+        <scx-ansi.version>4.2.0</scx-ansi.version>
+        <scx-logging.version>4.1.0</scx-logging.version>
         <protobuf.version>4.29.0</protobuf.version>
         <jsoup.version>1.20.1</jsoup.version>
         <graalvm-js.version>24.1.1</graalvm-js.version>
