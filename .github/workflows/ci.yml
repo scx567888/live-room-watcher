@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 配置 Java
         uses: actions/setup-java@v5
@@ -22,7 +22,7 @@ jobs:
         run: mvn package
 
       - name: 上传构建产物
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: live-room-watcher-artifact
           path: ./target/
