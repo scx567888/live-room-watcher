@@ -7,6 +7,7 @@ import dev.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.Response;
 import dev.scx.io.ScxIO;
+import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
@@ -39,7 +40,7 @@ public class TikTokHackHelper {
      * @param pushFrame a
      * @param response  a
      */
-    public static void sendAck(ScxWebSocket webSocket, PushFrame pushFrame, Response response) {
+    public static void sendAck(ScxEventWebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
                 .setPayloadType("ack")
                 .setLogid(pushFrame.getLogid())

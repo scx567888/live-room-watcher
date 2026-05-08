@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class State {
 
-    public boolean isLiveModal;
+    public Boolean isLiveModal;
     public Map<String, Object> appStore;
     public Map<String, Object> userStore;
     public Map<String, Object> homeStore;
