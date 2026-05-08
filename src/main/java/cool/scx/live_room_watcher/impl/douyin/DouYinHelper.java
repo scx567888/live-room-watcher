@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static cool.scx.common.util.HashUtils.md5;
+import static dev.scx.digest.ScxDigest.md5;
 
 class DouYinHelper {
 

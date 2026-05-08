@@ -3,15 +3,14 @@ package cool.scx.live_room_watcher.impl.douyin_hack;
 import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
-import cool.scx.common.util.ObjectUtils;
-import cool.scx.io.zip.GunzipBuilder;
-import cool.scx.object.ScxObject;
-import cool.scx.websocket.ScxWebSocket;
-import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
+import dev.scx.http.headers.cookie.Cookie;
+import dev.scx.http.uri.ScxURI;
+import dev.scx.io.ScxIO;
+import dev.scx.websocket.ScxWebSocket;
+import dev.scx.websocket.event.ScxEventWebSocket;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,6 +26,7 @@ import java.util.stream.Collectors;
 import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
 import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
 
@@ -67,12 +67,12 @@ public final class DouYinHackHelper {
                        }
                     }
                     self.__pace_f.forEach(m);
-                    let str = r[r.length - 1];    
+                    let str = r[r.length - 1];
                     let index = str.indexOf(":");
                     let arr = JSON.parse(str.slice(index + 1));
                     JSON.stringify(arr[arr.length - 1])
                     """);
-            return ScxObject.fromJson(value.asString(), DouYinAPP.class);
+            return fromJson(value.asString(), DouYinAPP.class);
         } catch (Exception e) {
             throw new IllegalArgumentException("解析直播间错误", e);
         }
@@ -85,7 +85,7 @@ public final class DouYinHackHelper {
      * @return a {@link java.lang.String} object
      */
     public static String initLiveRoomURI(String uri) {
-        var liveRoomURI = ScxURI.of(uri).query("");
+        var liveRoomURI = ScxURI.of(uri).clearQuery();
         //检查是否为抖音直播间地址
         if (!"live.douyin.com".equals(liveRoomURI.host())) {
             throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
@@ -102,7 +102,7 @@ public final class DouYinHackHelper {
      * @param pushFrame a
      * @param response  a
      */
-    public static void sendAck(ScxWebSocket webSocket, PushFrame pushFrame, Response response) {
+    public static void sendAck(ScxEventWebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
                 .setPayloadType("ack")
                 .setLogID(pushFrame.getLogID())
@@ -176,7 +176,7 @@ public final class DouYinHackHelper {
      */
     public static Response getResponse(PushFrame pushFrame) throws Exception {
         var gzip = pushFrame.getHeadersList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
-        var bytes = gzip ? new GunzipBuilder(new ByteArrayInputStream(pushFrame.getPayload().toByteArray())).readAllBytes() : pushFrame.getPayload().toByteArray();
+        var bytes = gzip ? ScxIO.ungzip(pushFrame.getPayload().toByteArray()) : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
     }
 
@@ -209,7 +209,7 @@ public final class DouYinHackHelper {
     }
 
     public record WebSocketOptions(String uri,Cookie... cookie) {
-        
+
     }
-    
+
 }

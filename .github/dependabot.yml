@@ -4,16 +4,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    groups:
-      maven-all:
-        patterns:
-          - "*"
+    open-pull-requests-limit: 99
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-    groups:
-      github-actions-all:
-        patterns:
-          - "*"
+    open-pull-requests-limit: 99

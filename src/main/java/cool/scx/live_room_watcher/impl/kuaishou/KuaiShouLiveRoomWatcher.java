@@ -1,22 +1,20 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.method.HttpMethod;
-import cool.scx.http.x.ScxHttpClientHelper;
-import cool.scx.http.uri.ScxURI;
+import cool.scx.live_room_watcher.util.ScxHttpClientHelper;
+import dev.scx.format.FormatToNodeException;
+import dev.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
-import cool.scx.object.ScxObject;
-import cool.scx.reflect.TypeReference;
+import dev.scx.object.NodeToObjectException;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-import static cool.scx.http.method.HttpMethod.POST;
+import static dev.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
+import static dev.scx.serialize.ScxSerialize.*;
 
 /**
  * 快手官方
@@ -48,9 +46,10 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
-        var bodyStr = response.body().asString();
-        return ScxObject.fromJson(bodyStr, KuaiShouTaskStartResult.class);
+        var reqBody=toJson(map);
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(reqBody);
+        var resBody = response.asString();
+        return fromJson(resBody, KuaiShouTaskStartResult.class);
     }
 
     public KuaiShouResponseBody taskStop(String roomID, String roundId) throws IOException, InterruptedException {
@@ -65,9 +64,10 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(map);
-        var bodyStr = response.body().asString();
-        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
+        var reqBody=toJson(map);
+        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(reqBody);
+        var resBody = response.asString();
+        return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
     public KuaiShouResponseBody taskStatus(String roomID) throws IOException, InterruptedException {
@@ -81,9 +81,10 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
-        var bodyStr = response.body().asString();
-        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
+        var reqBody=toJson(map);
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+        var resBody = response.asString();
+        return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
     public KuaiShouResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
@@ -98,14 +99,15 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
-        var bodyStr = response.body().asString();
-        return ScxObject.fromJson(bodyStr, KuaiShouResponseBody.class);
+        var reqBody=toJson(map);
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+        var resBody = response.asString();
+        return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
-    public void callGift(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
-        var gifts = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouGift[]>() {});
+    public void callGift(String bodyStr) throws FormatToNodeException, NodeToObjectException {
+        var ksMessage = fromJson(bodyStr, KuaiShouMessage.class);
+        var gifts = convertObject(ksMessage.data.payload, KuaiShouGift[].class);
         for (var gift : gifts) {
             gift.message_id = ksMessage.message_id;
             gift.timestamp = ksMessage.timestamp;
@@ -115,9 +117,9 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public void callChat(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
-        var comments = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouChat[]>() {});
+    public void callChat(String bodyStr) throws FormatToNodeException, NodeToObjectException {
+        var ksMessage = fromJson(bodyStr, KuaiShouMessage.class);
+        var comments = convertObject(ksMessage.data.payload, KuaiShouChat[].class);
         for (var comment : comments) {
             comment.message_id = ksMessage.message_id;
             comment.timestamp = ksMessage.timestamp;
@@ -127,9 +129,9 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public void callLike(String bodyStr) throws JsonProcessingException {
-        var ksMessage = ScxObject.fromJson(bodyStr, KuaiShouMessage.class);
-        var likes = ScxObject.convertValue(ksMessage.data.payload, new TypeReference<KuaiShouLike[]>() {});
+    public void callLike(String bodyStr) throws FormatToNodeException, NodeToObjectException {
+        var ksMessage = fromJson(bodyStr, KuaiShouMessage.class);
+        var likes = convertObject(ksMessage.data.payload, KuaiShouLike[].class);
         for (var like : likes) {
             like.message_id = ksMessage.message_id;
             like.timestamp = ksMessage.timestamp;
@@ -153,8 +155,9 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(map);
-        return response.body().asString();
+        var reqBody=toJson(map);
+        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+        return response.asString();
     }
 
 }

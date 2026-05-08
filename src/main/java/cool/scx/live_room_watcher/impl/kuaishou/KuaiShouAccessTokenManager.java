@@ -1,14 +1,13 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.x.ScxHttpClientHelper;
-import cool.scx.http.media.multi_part.MultiPart;
+import cool.scx.live_room_watcher.util.ScxHttpClientHelper;
+import dev.scx.http.media.multi_part.MultiPart;
 import cool.scx.live_room_watcher.AccessToken;
 import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.object.ScxObject;
 
-import static cool.scx.http.method.HttpMethod.POST;
+import static dev.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.ACCESS_TOKEN_URL;
+import static dev.scx.serialize.ScxSerialize.fromJson;
 
 class KuaiShouAccessTokenManager extends AccessTokenManager {
 
@@ -30,9 +29,10 @@ class KuaiShouAccessTokenManager extends AccessTokenManager {
                         .add("app_secret", appSecret)
                         .add("grant_type", "client_credentials")
                 );
-        var accessTokenResult = response.body().asObject(KuaiShouAccessToken.class);
+        var resBody= response.asString();
+        var accessTokenResult = fromJson(resBody,KuaiShouAccessToken.class);
         if (accessTokenResult.result != 1) {
-            throw new IllegalArgumentException(ScxObject.toJson(accessTokenResult));
+            throw new IllegalArgumentException(resBody);
         }
         return accessTokenResult;
     }

@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import cool.scx.live_room_watcher.LiveRoomAnchor;
 import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
@@ -14,7 +13,7 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     private final DouYinAPP douYinApp;
 
-    public DouYinHackLiveRoomInfo(String indexHtmlStr) throws JsonProcessingException {
+    public DouYinHackLiveRoomInfo(String indexHtmlStr)  {
         this.douYinApp = parseBody(indexHtmlStr);
     }
 

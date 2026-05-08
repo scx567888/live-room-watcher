@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.object.node.Node;
+import dev.scx.node.Node;
 
 /**
  * 抖音官方的通用响应体结构
