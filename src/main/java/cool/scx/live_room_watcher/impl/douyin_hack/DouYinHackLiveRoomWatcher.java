@@ -1,28 +1,27 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import cool.scx.common.util.$;
-import cool.scx.function.Function1Void;
-import cool.scx.http.ScxHttpClientResponse;
-import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.x.proxy.Proxy;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;
-import cool.scx.websocket.ScxWebSocket;
-import cool.scx.websocket.event.ScxEventWebSocket;
+import dev.scx.function.Function1Void;
+import dev.scx.http.ScxHttpClientResponse;
+import dev.scx.http.headers.cookie.Cookie;
+import dev.scx.http.x.proxy.Proxy;
+import dev.scx.websocket.ScxWebSocket;
+import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.http.method.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
 import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static dev.scx.http.method.HttpMethod.GET;
 
 /**
  * 利用模拟网页 websocket 的方式获取直播间信息
@@ -68,7 +67,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      *
      * @param ws a
      */
-    private void startPing(ScxWebSocket ws) {
+    private void startPing(ScxEventWebSocket ws) {
         //终止上一次的 ping 线程
         if (ping != null) {
             ping.interrupt();
@@ -108,7 +107,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      */
     public DouYinHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
-        return new DouYinHackLiveRoomInfo(indexHtml.body().asString());
+        return new DouYinHackLiveRoomInfo(indexHtml.asString());
     }
 
     /**
@@ -118,7 +117,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         //todo 防止线程退出
         new Thread(() -> {
             while (true) {
-                $.sleep(99999);
+                try {
+                    Thread.sleep(99999);
+                } catch (InterruptedException _) {
+
+                }
             }
         }).start();
         //终止上一次的监听
@@ -132,18 +135,18 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
         System.out.println("连接中...");
         var webSocketOptions = getWebSocketOptions(this.liveRoomURI);
-        var ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).webSocket();
+        var ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).upgrade();
         var c = ScxEventWebSocket.of(ws);
         try {
             webSocket = c;
             startPing(c);
-            c.onBinaryMessage((b, _) -> {
+            c.onBinary(b -> {
                 var v = parseFrame(b);
                 if (v.response().getNeedAck()) {
                     sendAck(c, v.pushFrame(), v.response());
                 }
             });
-            c.onTextMessage((s, _) -> System.out.println(s));
+            c.onText(s -> System.out.println(s));
             c.onError(e -> {
                 e.printStackTrace();
                 startWatch();
