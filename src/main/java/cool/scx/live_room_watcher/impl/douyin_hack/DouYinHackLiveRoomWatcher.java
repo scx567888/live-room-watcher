@@ -11,7 +11,6 @@ import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.x.proxy.Proxy;
-import dev.scx.websocket.ScxWebSocket;
 import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
@@ -178,12 +177,16 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private void callHandler(Message message) throws Throwable {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
-        var handler = this.handlerMap.getOrDefault(method, this::DefaultHandler);
-        handler.apply(payload);
+        var handler = this.handlerMap.get(method);
+        if (handler!=null){
+            handler.apply(payload);
+        }else{
+          this.DefaultHandler(method,payload);
+        }
     }
 
-    private void DefaultHandler(byte[] bytes) {
-        // System.err.println("DouYin -> 未处理 Message :" + message);
+    private void DefaultHandler(String method, byte[] bytes) {
+         System.err.println("DouYin -> 未处理 Message :" + method);
     }
 
     public void WebcastSocialMessage(byte[] payload) throws InvalidProtocolBufferException {
