@@ -1,15 +1,15 @@
 package cool.scx.live_room_watcher.util;
 
 
-import cool.scx.http.ScxHttpClientRequest;
-import cool.scx.http.headers.cookie.Cookie;
-import cool.scx.http.headers.cookie.Cookies;
-import cool.scx.http.x.HttpClient;
-import cool.scx.http.x.HttpClientOptions;
-import cool.scx.http.x.proxy.Proxy;
-import cool.scx.websocket.ScxClientWebSocketHandshakeRequest;
-import cool.scx.websocket.x.WebSocketClient;
-import cool.scx.websocket.x.WebSocketOptions;
+import dev.scx.http.ScxHttpClientRequest;
+import dev.scx.http.headers.cookie.Cookie;
+import dev.scx.http.headers.cookie.Cookies;
+import dev.scx.http.x.HttpClient;
+import dev.scx.http.x.HttpClientOptions;
+import dev.scx.http.x.proxy.Proxy;
+import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
+import dev.scx.websocket.x.WebSocketClient;
+import dev.scx.websocket.x.WebSocketOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class Browser {
 
     public Browser(Proxy proxy) {
         this.httpClient = new HttpClient(new HttpClientOptions().proxy(proxy));
-        this.webSocketClient = new WebSocketClient(this.httpClient, new WebSocketOptions().maxWebSocketFrameSize(65536 * 10).maxWebSocketMessageSize(65536 * 40));
+        this.webSocketClient = new WebSocketClient(this.httpClient, new WebSocketOptions().maxFrameSize(65536 * 10).maxMessageSize(65536 * 40));
     }
 
     public Browser() {
