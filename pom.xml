@@ -57,7 +57,7 @@
         </dependency>
 
         <dependency>
-            <groupId>cool.scx</groupId>
+            <groupId>dev.scx</groupId>
             <artifactId>scx-ansi</artifactId>
             <version>${scx-ansi.version}</version>
         </dependency>
@@ -183,7 +183,7 @@
     <properties>
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
         <scx.version>3.8.10</scx.version>
-        <scx-ansi.version>4.2.0</scx-ansi.version>
+        <scx-ansi.version>0.0.1</scx-ansi.version>
         <scx-logging.version>4.1.0</scx-logging.version>
         <protobuf.version>4.32.1</protobuf.version>
         <jsoup.version>1.21.2</jsoup.version>

@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
 
-import cool.scx.ansi.Ansi;
+import dev.scx.ansi.Ansi;
 import cool.scx.http.x.proxy.Proxy;
 import cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackLiveRoomWatcher;
 
