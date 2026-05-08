@@ -11,6 +11,7 @@
         <relativePath/>
     </parent>
 
+    <groupId>cool.scx</groupId>
     <artifactId>live-room-watcher</artifactId>
     <version>0.5.0</version>
     <packaging>jar</packaging>
