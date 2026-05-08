@@ -1,29 +1,26 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import cool.scx.common.util.ObjectUtils;
-import cool.scx.http.media_type.ScxMediaType;
-import cool.scx.http.method.HttpMethod;
-import cool.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinChat;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinGift;
 import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
-import cool.scx.object.ScxObject;
-import cool.scx.object.node.ObjectNode;
-import cool.scx.reflect.TypeReference;
+import dev.scx.format.FormatToNodeException;
+import dev.scx.http.media_type.ScxMediaType;
+import dev.scx.http.uri.ScxURI;
+import dev.scx.node.ObjectNode;
+import dev.scx.object.NodeToObjectException;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static cool.scx.http.method.HttpMethod.GET;
-import static cool.scx.http.method.HttpMethod.POST;
-import static cool.scx.http.media_type.MediaType.APPLICATION_JSON;
-import static cool.scx.http.x.ScxHttpClientHelper.request;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;
-import static cool.scx.object.ScxObject.toJson;
+import static cool.scx.live_room_watcher.util.ScxHttpClientHelper.request;
+import static dev.scx.http.media_type.MediaType.APPLICATION_JSON;
+import static dev.scx.http.method.HttpMethod.GET;
+import static dev.scx.http.method.HttpMethod.POST;
+import static dev.scx.serialize.ScxSerialize.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
@@ -64,50 +61,68 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @see <a href="https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo">https://developer.open-douyin.com/docs/resource/zh-CN/interaction/develop/server/live/webcastinfo</a>
      */
     public DouYinWebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
+        String reqBody = toJson(Map.of("token", token));
+
         var response = request()
                         .uri(WEBCAST_MATE_INFO_URL)
                         .method(POST)
                         .setHeader("X-Token", accessTokenManager.getAccessToken())
                         .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
-                        .send(toJson(Map.of("token", token)));
-        var bodyStr = response.body().asString();
-        var jsonNode =(ObjectNode) ScxObject.fromJson(bodyStr);
+                        .send(reqBody);
+
+        var resBody = response.asString();
+
+        var jsonNode =(ObjectNode) fromJson(resBody);
         var data =(ObjectNode) jsonNode.get("data");
+
         if (data == null) {
-            throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
+            throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + resBody);
         }
         var info = data.get("info");
         if (info == null) {
-            throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + bodyStr);
+            throw new RuntimeException("webcastMateInfo 读取数据有误, 错误的 返回值 : " + resBody);
         }
-        return ScxObject.convertValue(info, DouYinWebcastMateInfo.class);
+        return convertObject(info, DouYinWebcastMateInfo.class);
     }
 
     public DouYinResponseBody taskStart(String roomID, DouYinMsgType msgType) throws IOException, InterruptedException {
+
+        var reqBody=toJson(
+            Map.of(
+            "roomid", roomID,
+            "appid", appID,
+            "msg_type", msgType.value()
+            )
+        );
+
         var response = request()
                 .uri(TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
-                .send(Map.of(
-                        "roomid", roomID,
-                        "appid", appID,
-                        "msg_type", msgType.value()
-                ));
-        var bodyStr = response.body().asString();
-        return ScxObject.fromJson(bodyStr, DouYinResponseBody.class);
+                .send(reqBody);
+
+        var resBody = response.asString();
+
+        return fromJson(resBody, DouYinResponseBody.class);
     }
 
     public DouYinResponseBody taskStop(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
+      var reqBody= toJson(
+          Map.of(
+            "roomid", roomCode,
+            "appid", appID,
+            "msg_type", msgType.value()
+        )
+      );
         var response = request()
                 .uri(TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
-                .send(Map.of(
-                        "roomid", roomCode,
-                        "appid", appID,
-                        "msg_type", msgType.value()
-                ));
-        return response.body().asObject(DouYinResponseBody.class);
+                .send(reqBody);
+
+        var resBody= response.asString();
+
+        return fromJson(resBody,DouYinResponseBody.class);
     }
 
     public DouYinResponseBody taskStatus(String roomCode, DouYinMsgType msgType) throws IOException, InterruptedException {
@@ -121,7 +136,9 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .method(GET)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
                 .send();
-        return response.body().asObject(DouYinResponseBody.class);
+        var resBody= response.asString();
+
+        return fromJson(resBody,DouYinResponseBody.class);
     }
 
     public DouYinResponseBody failDataGet(String roomCode, DouYinMsgType msg_type, Integer page_num, Integer page_size) throws IOException, InterruptedException {
@@ -137,21 +154,30 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .method(GET)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
                 .send();
-        
-        return response.body().asObject(DouYinResponseBody.class);
+
+        var resBody= response.asString();
+
+        return fromJson(resBody,DouYinResponseBody.class);
     }
 
     public DouYinResponseBody topGift(String roomCode, String[] secGiftIDList) throws IOException, InterruptedException {
+
+     var reqBody=toJson(Map.of(
+            "room_id", roomCode,
+            "app_id", appID,
+            "sec_gift_id_list", secGiftIDList
+        )
+     );
+
         var response = request()
                 .uri(TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", accessTokenManager.getAccessToken())
-                .send(Map.of(
-                        "room_id", roomCode,
-                        "app_id", appID,
-                        "sec_gift_id_list", secGiftIDList
-                ));
-        return response.body().asObject(DouYinResponseBody.class);
+                .send(reqBody);
+
+        var resBody= response.asString();
+
+        return fromJson(resBody,DouYinResponseBody.class);
     }
 
     public DouYinResponseBody fansClubGetInfo(String roomCode, String anchor_openid, String[] user_openids) throws IOException, InterruptedException {
@@ -159,13 +185,14 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("roomid", roomCode)
                 .addQuery("anchor_openid", anchor_openid)
                 .addQuery("user_openids", String.join(",", user_openids));
-        
+
         var response = request()
                         .uri(uri)
                         .method(GET)
                         .setHeader("access-token", accessTokenManager.getAccessToken())
                         .send();
-        return response.body().asObject(DouYinResponseBody.class);
+        var resBody= response.asString();
+        return fromJson(resBody,DouYinResponseBody.class);
     }
 
     public void taskStartAll(String roomID) throws IOException, InterruptedException {
@@ -188,10 +215,10 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @param bodyStr body
      * @param header  请求头
      */
-    public void callChat(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    public void callChat(String bodyStr, Map<String, String> header) throws FormatToNodeException, NodeToObjectException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, commentDataSecret);
-        var commentList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinChat[]>() {});
+        var commentList = fromJson(bodyStr, DouYinChat[].class);
         for (var comment : commentList) {
             comment.roomID = roomID;
             this._callOnChat(comment);
@@ -204,10 +231,10 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @param bodyStr body
      * @param header  请求头
      */
-    public void callLike(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    public void callLike(String bodyStr, Map<String, String> header) throws FormatToNodeException, NodeToObjectException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, likeDataSecret);
-        var likeList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinLike[]>() {});
+        var likeList = fromJson(bodyStr, DouYinLike[].class);
         for (var like : likeList) {
             like.roomID = roomID;
             this._callOnLike(like);
@@ -220,10 +247,10 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * @param bodyStr body
      * @param header  请求头
      */
-    public void callGift(String bodyStr, Map<String, String> header) throws JsonProcessingException {
+    public void callGift(String bodyStr, Map<String, String> header) throws FormatToNodeException, NodeToObjectException {
         var roomID = header.get("x-roomid");
         checkDouYinData(bodyStr, header, giftDataSecret);
-        var giftList = ScxObject.fromJson(bodyStr, new TypeReference<DouYinGift[]>() {});
+        var giftList = fromJson(bodyStr, DouYinGift[].class);
         for (var gift : giftList) {
             gift.gift_name = giftNameMap.get(gift.sec_gift_id);
             gift.roomID = roomID;
