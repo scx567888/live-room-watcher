@@ -184,7 +184,7 @@
         <scx.mainClass>cool.scx.live_room_watcher.Main</scx.mainClass>
         <scx-websocket-x.version>0.3.0</scx-websocket-x.version>
         <scx-serialize.version>0.2.0</scx-serialize.version>
-        <scx-ansi.version>0.1.0</scx-ansi.version>
+        <scx-ansi.version>0.2.0</scx-ansi.version>
         <scx-logging.version>0.0.1</scx-logging.version>
         <scx-scheduling.version>0.0.1</scx-scheduling.version>
         <protobuf.version>4.32.1</protobuf.version>
