@@ -1,13 +1,11 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.common.util.HashUtils;
-import cool.scx.common.util.ObjectUtils;
-import cool.scx.common.util.StringUtils;
-import cool.scx.object.ScxObject;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static dev.scx.digest.ScxDigest.md5Hex;
+import static dev.scx.serialize.ScxSerialize.toJson;
 
 public class KuaiShouHelper {
 
@@ -21,7 +19,10 @@ public class KuaiShouHelper {
         // 去掉 value 为空的
         Map<String, Object> trimmedParamMap = signParamsMap.entrySet()
                 .stream()
-                .filter(item -> !StringUtils.isEmpty(item.getValue().toString()))
+                .filter(item -> {
+                    var v=item.getValue().toString();
+                    return v!=null&&!v.isEmpty();
+                })
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         trimmedParamMap.put("app_id", app_ID);
@@ -40,15 +41,15 @@ public class KuaiShouHelper {
         String signStr = paramStr + APP_SECRET;
 
         // 生成签名返回 注意快手要求 md5 必须小写
-        return HashUtils.md5Hex(signStr).toLowerCase();
+        return md5Hex(signStr).toLowerCase();
     }
 
     public static String ok() {
-        return ScxObject.toJson(Map.of("result", 1));
+        return toJson(Map.of("result", 1));
     }
 
     public static String fail(String errorMsg) {
-        return ScxObject.toJson(Map.of("result", 0, "errorMsg", errorMsg));
+        return toJson(Map.of("result", 0, "errorMsg", errorMsg));
     }
 
 }
