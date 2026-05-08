@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.object.node.Node;
+import dev.scx.node.Node;
 
 public class KuaiShouMessage {
 

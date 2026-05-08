@@ -1,12 +1,12 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.ByteString;
-import cool.scx.io.zip.GunzipBuilder;
-import cool.scx.websocket.ScxWebSocket;
-import cool.scx.http.uri.ScxURI;
-import cool.scx.http.uri.ScxURIWritable;
+import dev.scx.websocket.ScxWebSocket;
+import dev.scx.http.uri.ScxURI;
+import dev.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.Response;
+import dev.scx.io.ScxIO;
 
 import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
@@ -108,8 +108,8 @@ public class TikTokHackHelper {
      */
     public static Response getResponse(PushFrame pushFrame) throws Exception {
         var gzip = pushFrame.getHeadersListList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
-        var bytes = gzip ? new GunzipBuilder(new ByteArrayInputStream(pushFrame.getPayload().toByteArray())).readAllBytes() : pushFrame.getPayload().toByteArray();
+        var bytes = gzip ? ScxIO.ungzip(pushFrame.getPayload().toByteArray()) : pushFrame.getPayload().toByteArray();
         return Response.parseFrom(bytes);
     }
-    
+
 }
