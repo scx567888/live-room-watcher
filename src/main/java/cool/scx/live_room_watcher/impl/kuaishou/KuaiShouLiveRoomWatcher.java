@@ -26,8 +26,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     protected final String appID;
     protected final String appSecret;
-    protected final KuaiShouAccessTokenManager accessTokenManager;
     protected final HttpClient httpClient;
+    protected final KuaiShouAccessTokenManager accessTokenManager;
 
     public KuaiShouLiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
@@ -35,8 +35,9 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (appID == null || appSecret == null) {
             throw new NullPointerException();
         }
-        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret);
         this.httpClient=new HttpClient();
+        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret,httpClient);
+
     }
 
     public KuaiShouTaskStartResult taskStart(String roomID, String roundId) throws IOException, InterruptedException {
