@@ -7,6 +7,7 @@ import cool.scx.live_room_watcher.impl.douyin.message.DouYinLike;
 import dev.scx.format.FormatToNodeException;
 import dev.scx.http.media_type.ScxMediaType;
 import dev.scx.http.uri.ScxURI;
+import dev.scx.http.x.HttpClient;
 import dev.scx.node.ObjectNode;
 import dev.scx.object.NodeToObjectException;
 
@@ -16,7 +17,6 @@ import java.util.Map;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.*;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinHelper.checkDouYinData;
 import static cool.scx.live_room_watcher.impl.douyin.DouYinMsgType.*;
-import static cool.scx.live_room_watcher.util.ScxHttpClientHelper.request;
 import static dev.scx.http.media_type.MediaType.APPLICATION_JSON;
 import static dev.scx.http.method.HttpMethod.GET;
 import static dev.scx.http.method.HttpMethod.POST;
@@ -32,12 +32,13 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     public final Map<String, String> giftNameMap;
-    private final String appID;
-    private final String appSecret;
-    private final String commentDataSecret;
-    private final String giftDataSecret;
-    private final String likeDataSecret;
-    private final DouYinAccessTokenManager accessTokenManager;
+    protected final String appID;
+    protected final String appSecret;
+    protected final String commentDataSecret;
+    protected final String giftDataSecret;
+    protected final String likeDataSecret;
+    protected final HttpClient httpClient;
+    protected final DouYinAccessTokenManager accessTokenManager;
 
     public DouYinLiveRoomWatcher(String appID, String appSecret, String commentDataSecret, String giftDataSecret, String likeDataSecret, Map<String, String> giftNameMap) {
         this.appID = appID;
@@ -49,7 +50,8 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (appID == null || appSecret == null || commentDataSecret == null || giftDataSecret == null || likeDataSecret == null || giftNameMap == null) {
             throw new RuntimeException();
         }
-        this.accessTokenManager = new DouYinAccessTokenManager(appID, appSecret);
+        this.httpClient=new HttpClient();
+        this.accessTokenManager = new DouYinAccessTokenManager(appID, appSecret,httpClient);
     }
 
     /**
@@ -63,7 +65,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
     public DouYinWebcastMateInfo liveInfo(String token) throws IOException, InterruptedException {
         String reqBody = toJson(Map.of("token", token));
 
-        var response = request()
+        var response = httpClient.request()
                         .uri(WEBCAST_MATE_INFO_URL)
                         .method(POST)
                         .setHeader("X-Token", accessTokenManager.getAccessToken())
@@ -95,10 +97,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             )
         );
 
-        var response = request()
+        var response = httpClient.request()
                 .uri(TASK_START_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send(reqBody);
 
         var resBody = response.asString();
@@ -114,10 +117,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             "msg_type", msgType.value()
         )
       );
-        var response = request()
+        var response = httpClient.request()
                 .uri(TASK_STOP_URL)
                 .method(POST)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send(reqBody);
 
         var resBody= response.asString();
@@ -131,10 +135,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("appid", appID)
                 .addQuery("msg_type", msgType.value());
 
-        var response = request()
+        var response = httpClient.request()
                 .uri(uri)
                 .method(GET)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send();
         var resBody= response.asString();
 
@@ -149,10 +154,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("page_num", page_num)
                 .addQuery("page_size", page_size);
 
-        var response = request()
+        var response = httpClient.request()
                 .uri(uri)
                 .method(GET)
                 .setHeader("access-token", accessTokenManager.getAccessToken())
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send();
 
         var resBody= response.asString();
@@ -169,10 +175,11 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
         )
      );
 
-        var response = request()
+        var response = httpClient.request()
                 .uri(TOP_GIFT_URL)
                 .method(POST)
                 .setHeader("x-token", accessTokenManager.getAccessToken())
+                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                 .send(reqBody);
 
         var resBody= response.asString();
@@ -186,12 +193,15 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 .addQuery("anchor_openid", anchor_openid)
                 .addQuery("user_openids", String.join(",", user_openids));
 
-        var response = request()
+        var response = httpClient.request()
                         .uri(uri)
                         .method(GET)
                         .setHeader("access-token", accessTokenManager.getAccessToken())
+                        .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
                         .send();
+
         var resBody= response.asString();
+
         return fromJson(resBody,DouYinResponseBody.class);
     }
 

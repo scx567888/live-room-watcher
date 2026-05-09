@@ -18,8 +18,8 @@
     </a>
 </p>
 <p align="center">
-    <a target="_blank" href="https://github.com/scx567888/scx">
-        <img src="https://img.shields.io/badge/SCX Common-f44336" alt="SCX Common"/>
+    <a target="_blank" href="https://github.com/scx-projects">
+        <img src="https://img.shields.io/badge/SCX Projects-f44336" alt="SCX Common"/>
     </a>
     <a target="_blank" href="https://github.com/protocolbuffers/protobuf">
         <img src="https://img.shields.io/badge/Protocol Buffers-ff8000" alt="Protocol Buffers"/>

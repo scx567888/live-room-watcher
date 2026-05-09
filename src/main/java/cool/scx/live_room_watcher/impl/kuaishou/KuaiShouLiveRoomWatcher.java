@@ -1,29 +1,33 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.live_room_watcher.util.ScxHttpClientHelper;
 import dev.scx.format.FormatToNodeException;
+import dev.scx.http.media_type.ScxMediaType;
 import dev.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
+import dev.scx.http.x.HttpClient;
 import dev.scx.object.NodeToObjectException;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import static dev.scx.http.media_type.MediaType.APPLICATION_JSON;
 import static dev.scx.http.method.HttpMethod.POST;
 import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static dev.scx.serialize.ScxSerialize.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * 快手官方
  */
 public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
-    private final String appID;
-    private final String appSecret;
-    private final KuaiShouAccessTokenManager accessTokenManager;
+    protected final String appID;
+    protected final String appSecret;
+    protected final HttpClient httpClient;
+    protected final KuaiShouAccessTokenManager accessTokenManager;
 
     public KuaiShouLiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
@@ -31,7 +35,9 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (appID == null || appSecret == null) {
             throw new NullPointerException();
         }
-        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret);
+        this.httpClient=new HttpClient();
+        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret,httpClient);
+
     }
 
     public KuaiShouTaskStartResult taskStart(String roomID, String roundId) throws IOException, InterruptedException {
@@ -42,13 +48,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(TASK_START_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(reqBody);
+
+        var response = httpClient.request()
+            .method(POST)
+            .uri(url)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouTaskStartResult.class);
     }
 
@@ -60,13 +75,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(TASK_STOP_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().method(POST).uri(url).send(reqBody);
+
+        var response = httpClient.request()
+            .method(POST)
+            .uri(url)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
@@ -77,13 +101,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(TASK_STATUS_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
@@ -95,13 +128,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(GIFT_TOP_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
@@ -151,12 +193,20 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(INTERACTIVE_START_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         return response.asString();
     }
 
