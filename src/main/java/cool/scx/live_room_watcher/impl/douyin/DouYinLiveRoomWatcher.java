@@ -51,7 +51,7 @@ public class DouYinLiveRoomWatcher extends AbstractLiveRoomWatcher {
             throw new RuntimeException();
         }
         this.httpClient=new HttpClient();
-        this.accessTokenManager = new DouYinAccessTokenManager(appID, appSecret);
+        this.accessTokenManager = new DouYinAccessTokenManager(appID, appSecret,httpClient);
     }
 
     /**

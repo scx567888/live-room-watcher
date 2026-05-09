@@ -2,11 +2,9 @@ package cool.scx.live_room_watcher.impl.douyin;
 
 
 import cool.scx.live_room_watcher.AccessTokenManager;
-import cool.scx.live_room_watcher.util.ScxHttpClientHelper;
 import dev.scx.http.media_type.ScxMediaType;
+import dev.scx.http.x.HttpClient;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.ACCESS_TOKEN_URL;
@@ -17,12 +15,14 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class DouYinAccessTokenManager extends AccessTokenManager {
 
-    private final String appID;
-    private final String appSecret;
+    protected final String appID;
+    protected final String appSecret;
+    protected final HttpClient httpClient;
 
-    public DouYinAccessTokenManager(String appID, String appSecret) {
+    public DouYinAccessTokenManager(String appID, String appSecret, HttpClient httpClient) {
         this.appID = appID;
         this.appSecret = appSecret;
+        this.httpClient = httpClient;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class DouYinAccessTokenManager extends AccessTokenManager {
            )
        );
 
-        var response = ScxHttpClientHelper.request()
+        var response = httpClient.request()
                 .method(POST)
                 .uri(ACCESS_TOKEN_URL)
                 .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
