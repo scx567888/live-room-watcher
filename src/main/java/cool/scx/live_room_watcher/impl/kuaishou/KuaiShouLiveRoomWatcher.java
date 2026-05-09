@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.live_room_watcher.util.ScxHttpClientHelper;
 import dev.scx.format.FormatToNodeException;
 import dev.scx.http.media_type.ScxMediaType;
 import dev.scx.http.uri.ScxURI;
@@ -101,13 +100,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(TASK_STATUS_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
@@ -119,13 +127,22 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(GIFT_TOP_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         var resBody = response.asString();
+
         return fromJson(resBody, KuaiShouResponseBody.class);
     }
 
@@ -175,12 +192,20 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         String sign = KuaiShouHelper.calcSign(map, appID, appSecret);
         map.put("callBackUrl", "");
         map.put("sign", sign);
+
         var url = ScxURI.of(INTERACTIVE_START_URL)
                 .addQuery("app_id", appID)
                 .addQuery("access_token", accessTokenManager.getAccessToken())
                 .toString();
+
         var reqBody=toJson(map);
-        var response = ScxHttpClientHelper.request().uri(url).method(POST).send(reqBody);
+
+        var response = httpClient.request()
+            .uri(url)
+            .method(POST)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
+
         return response.asString();
     }
 
