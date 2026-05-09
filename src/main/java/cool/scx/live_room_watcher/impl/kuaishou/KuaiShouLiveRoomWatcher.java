@@ -24,10 +24,10 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  */
 public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
-    private final String appID;
-    private final String appSecret;
-    private final KuaiShouAccessTokenManager accessTokenManager;
-    private final HttpClient httpClient;
+    protected final String appID;
+    protected final String appSecret;
+    protected final KuaiShouAccessTokenManager accessTokenManager;
+    protected final HttpClient httpClient;
 
     public KuaiShouLiveRoomWatcher(String appID, String appSecret) {
         this.appID = appID;
