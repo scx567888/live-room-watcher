@@ -5,7 +5,7 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 
 import "douyin_hack/webcast/im/Message.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message Response{
     repeated Message messages = 1;
     string cursor = 2;
@@ -19,4 +19,5 @@ message Response{
     string live_cursor = 11;
     bool history_no_more = 12;
     string proxy_server = 13;
+    string push_server_v2 = 14;
 }
