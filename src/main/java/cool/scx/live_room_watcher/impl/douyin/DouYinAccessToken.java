@@ -1,15 +1,21 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.live_room_watcher.AccessToken;
+public record DouYinAccessToken(String access_token, Long expires_in) {
 
-public record DouYinAccessToken(String access_token, Long expires_in) implements AccessToken {
-
-    @Override
+    /**
+     * 认证 Token
+     *
+     * @return 认证 Token
+     */
     public String accessToken() {
         return access_token;
     }
 
-    @Override
+    /**
+     * 过期时间
+     *
+     * @return 过期时间
+     */
     public Long expiresIn() {
         return expires_in;
     }

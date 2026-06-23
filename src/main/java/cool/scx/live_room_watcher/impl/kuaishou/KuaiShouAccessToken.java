@@ -1,19 +1,25 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import cool.scx.live_room_watcher.AccessToken;
-
-class KuaiShouAccessToken extends KuaiShouResponseBody implements AccessToken {
+public class KuaiShouAccessToken extends KuaiShouResponseBody  {
 
     public String access_token;
     public Long expires_in;
     public String token_type;
 
-    @Override
+    /**
+     * 认证 Token
+     *
+     * @return 认证 Token
+     */
     public String accessToken() {
         return access_token;
     }
 
-    @Override
+    /**
+     * 过期时间
+     *
+     * @return 过期时间
+     */
     public Long expiresIn() {
         return expires_in;
     }
