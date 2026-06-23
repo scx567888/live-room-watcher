@@ -3,13 +3,10 @@ package cool.scx.live_room_watcher.impl.douyin_hack.message;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.MemberMessage;
 import cool.scx.live_room_watcher.message.User;
 
-
-/**
- * 直播间用户
- *
- * @author scx567888
- * @version 0.0.1
- */
+/// 直播间用户
+///
+/// @author scx567888
+/// @version 0.0.1
 public class DouYinHackUser implements User {
 
     private final MemberMessage memberMessage;
@@ -20,23 +17,16 @@ public class DouYinHackUser implements User {
         this.user = memberMessage.getUser();
     }
 
-
     public DouYinHackUser(cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.User user) {
         this.memberMessage = null;
         this.user = user;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String nickname() {
         return user.getNickname();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String avatar() {
         return user.getAvatarThumb().getUrlList(0);

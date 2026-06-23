@@ -4,12 +4,10 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.SocialMessag
 import cool.scx.live_room_watcher.message.Follow;
 import cool.scx.live_room_watcher.message.User;
 
-/**
- * <p>DouYinFollow class.</p>
- *
- * @author scx567888
- * @version 0.0.1
- */
+/// DouYinFollow class.
+///
+/// @author scx567888
+/// @version 0.0.1
 public class DouYinHackFollow implements Follow {
     private final DouYinHackUser user;
     SocialMessage socialMessage;

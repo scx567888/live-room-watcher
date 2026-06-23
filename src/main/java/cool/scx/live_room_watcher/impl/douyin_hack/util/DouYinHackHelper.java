@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.impl.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack.util;
 
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
