@@ -31,15 +31,6 @@ import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
 
-    static void main() {
-        try {
-            DouYinAPP douYinAPP = parseBody(Files.readString(Path.of("C:\\Users\\scx\\Projects\\live-room-watcher\\src\\test\\java\\a.html")));
-            System.out.println();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     /**
      * 从 body 中解析出 liveRoomInfo
      *
