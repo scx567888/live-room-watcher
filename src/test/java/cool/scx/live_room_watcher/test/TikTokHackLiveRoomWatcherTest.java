@@ -10,11 +10,11 @@ import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowT
 public class TikTokHackLiveRoomWatcherTest {
 
     public static void main(String[] args) {
-        tes1();
+        test1();
     }
 
     //    @Test
-    public static void tes1() {
+    public static void test1() {
         var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@74azp/live",Proxy.of("127.0.0.1",17890));
 
         liveRoomWatcher.onChat(chat -> {
