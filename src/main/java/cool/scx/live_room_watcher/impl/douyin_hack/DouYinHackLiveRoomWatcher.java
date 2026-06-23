@@ -65,25 +65,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return map;
     }
 
-    /// 启用 发送心跳包 调度
-    private void startPing(ScxEventWebSocket ws) {
-        // 终止上一次的 调度
-        if (ping != null) {
-            ping.cancel();
-        }
-
-        // 构建 ping 响应体
-        var pingBytes = PushFrame.newBuilder()
-            .setPayloadType("hb")
-            .build().toByteArray();
-
-        // 10 秒发送一次
-        this.ping = ScxScheduling.fixedDelay()
-            .interval(Duration.ofSeconds(10))
-            .start((c) -> {
-                ws.send(pingBytes);
-            });
-    }
 
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
@@ -96,16 +77,12 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     /// 根据直播间 uri 解析 直播间的信息
-    ///
-    /// @return a
-    /// @throws java.io.IOException            if any.
-    /// @throws java.lang.InterruptedException if any.
     public DouYinHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
         var indexHtml = getIndexHtml(this.liveRoomURI);
         return new DouYinHackLiveRoomInfo(indexHtml.asString());
     }
 
-    /// {@inheritDoc}
+    /// 开始监听, 会阻塞当前线程
     public void startWatch() {
         // 终止上一次的监听
         stopWatch();
@@ -161,16 +138,14 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.webSocket.onClose(e -> {
             System.out.println("websocket onClose");
         });
+        // 开启 websocket 处理
         webSocket.start();
     }
 
+    /// 终止监听
     public void stopWatch() {
         // 尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
-            //清空异常处理器 防止重连
-            webSocket.onError(e -> {
-
-            });
             webSocket.close();
             webSocket = null;
         }
@@ -180,6 +155,25 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
+    /// 启用 发送心跳包 调度
+    private void startPing(ScxEventWebSocket ws) {
+        // 终止上一次的 调度
+        if (ping != null) {
+            ping.cancel();
+        }
+
+        // 构建 ping 响应体
+        var pingBytes = PushFrame.newBuilder()
+            .setPayloadType("hb")
+            .build().toByteArray();
+
+        // 10 秒发送一次
+        this.ping = ScxScheduling.fixedDelay()
+            .interval(Duration.ofSeconds(10))
+            .start((c) -> {
+                ws.send(pingBytes);
+            });
+    }
 
     /// 解析帧
     private void handleFrame(byte[] bytes) throws InvalidProtocolBufferException {
@@ -217,6 +211,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
+    /// 调用 handler
     private void callHandler(Message message) throws Throwable {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
