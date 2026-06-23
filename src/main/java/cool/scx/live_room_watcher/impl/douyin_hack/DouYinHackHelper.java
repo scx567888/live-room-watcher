@@ -1,30 +1,20 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.PushFrame;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.Response;
 import dev.scx.http.headers.cookie.Cookie;
-import dev.scx.http.uri.ScxURI;
-import dev.scx.io.ScxIO;
-import dev.scx.websocket.event.ScxEventWebSocket;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.ENGINE;
 import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.HOST_ACCESS;
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
@@ -75,63 +65,6 @@ public final class DouYinHackHelper {
         } catch (Exception e) {
             throw new IllegalArgumentException("解析直播间错误", e);
         }
-    }
-
-
-
-    /**
-     * <p>getWebSocketURI.</p>
-     *
-     * @return a {@link java.net.URI} object
-     */
-    @Deprecated
-    public static ScxURI getWebSocketURI(String liveRoomID, boolean useGzip) {
-        var internalExtMap = new LinkedHashMap<>();
-        internalExtMap.put("internal_src", "dim");
-        internalExtMap.put("wss_push_room_id", liveRoomID);
-        internalExtMap.put("wss_push_did", "7184667748424615439");
-        internalExtMap.put("dim_log_id", "2023011316221327ACACF0E44A2C0E8200");
-        internalExtMap.put("fetch_time", "1673598133900");
-        internalExtMap.put("seq", "1");
-        internalExtMap.put("wss_info", "0-1673598133900-0-0");
-        internalExtMap.put("wrds_kvs", "WebcastRoomRankMessage-1673597852921055645_WebcastRoomStatsMessage-1673598128993068211");
-
-        var internalExt = internalExtMap.entrySet().stream().map(c -> c.getKey() + ":" + c.getValue()).collect(Collectors.joining("|"));
-
-        var builder = ScxURI.of("/webcast/im/push/v2/")
-            .addQuery("app_name", "douyin_web")
-            .addQuery("version_code", "180800")
-            .addQuery("webcast_sdk_version", "1.3.0")
-            .addQuery("update_version_code", "1.3.0")
-            .addQuery("internal_ext", internalExt)
-            .addQuery("cursor", "u-1_h-1_t-1672732684536_r-1_d-1")
-            .addQuery("host", "https://live.douyin.com")
-            .addQuery("aid", "6383")
-            .addQuery("live_id", "1")
-            .addQuery("did_rule", "3")
-            .addQuery("debug", "false")
-            .addQuery("endpoint", "live_pc")
-            .addQuery("support_wrds", "1")
-            .addQuery("im_path", "/webcast/im/fetch/")
-            .addQuery("device_platform", "web")
-            .addQuery("cookie_enabled", navigator().cookieEnabled())
-            .addQuery("screen_width", 1228)
-            .addQuery("screen_height", 691)
-            .addQuery("browser_language", navigator().language())
-            .addQuery("browser_platform", navigator().appCodeName())
-            .addQuery("browser_name", navigator().appCodeName())
-            .addQuery("browser_version", navigator().appVersion())
-            .addQuery("browser_online", navigator().onLine())
-            .addQuery("tz_name", "Asia/Shanghai")
-            .addQuery("identity", "audience")
-            .addQuery("room_id", liveRoomID)
-            .addQuery("heartbeatDuration", "0")
-            //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
-            .addQuery("signature", "00000000");
-        if (useGzip) {
-            builder.addQuery("compress", "gzip");
-        }
-        return builder;
     }
 
     /**

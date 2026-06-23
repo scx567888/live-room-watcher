@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 import static dev.scx.http.method.HttpMethod.GET;
 
 /// 利用模拟网页 websocket 的方式获取直播间信息
@@ -71,8 +70,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return browser.request()
             .method(GET)
             .uri(liveRoomURI)
-            .setHeader("User-Agent", navigator().userAgent())
-            .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
             .send();
     }
 

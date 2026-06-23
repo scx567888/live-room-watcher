@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.tiktok_hack.util.Navigator.navigator;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
 import static dev.scx.http.method.HttpMethod.GET;
 
