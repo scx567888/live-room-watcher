@@ -5,6 +5,7 @@ import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.parseBody;
 
@@ -17,10 +18,10 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
     }
 
     @Override
-    public String[] webStreamURLs() {
+    public List<String> webStreamURLs() {
         var webStreamUrl = this.douYinApp.state.roomStore.roomInfo.web_stream_url;
         if (webStreamUrl == null) {
-            return new String[]{};
+            return List.of();
         }
         var list = new ArrayList<String>();
         list.add(webStreamUrl.hls_pull_url_map.FULL_HD1);
@@ -29,7 +30,7 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
         list.add(webStreamUrl.flv_pull_url.FULL_HD1);
         list.add(webStreamUrl.flv_pull_url.SD1);
         list.add(webStreamUrl.flv_pull_url.SD2);
-        return list.toArray(String[]::new);
+        return list;
     }
 
     @Override
