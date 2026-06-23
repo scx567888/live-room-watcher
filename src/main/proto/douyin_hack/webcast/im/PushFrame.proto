@@ -13,7 +13,7 @@ message PushFrame {
     uint64 LogID = 2;
     int32 service = 3;
     int32 method = 4;
-    repeated PushHeader headers = 5;
+    repeated webcast.im.PushHeader headers = 5;
     string payload_encoding = 6;
     string payload_type = 7;
     bytes payload = 8;
