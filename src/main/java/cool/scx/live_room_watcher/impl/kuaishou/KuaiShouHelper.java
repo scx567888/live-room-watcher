@@ -18,23 +18,23 @@ public class KuaiShouHelper {
     public static String calcSign(Map<String, Object> signParamsMap, String app_ID, String APP_SECRET) {
         // 去掉 value 为空的
         Map<String, Object> trimmedParamMap = signParamsMap.entrySet()
-                .stream()
-                .filter(item -> {
-                    var v=item.getValue().toString();
-                    return v!=null&&!v.isEmpty();
-                })
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            .stream()
+            .filter(item -> {
+                var v = item.getValue().toString();
+                return v != null && !v.isEmpty();
+            })
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         trimmedParamMap.put("app_id", app_ID);
 
         // 按照字母排序
         Map<String, Object> sortedParamMap = trimmedParamMap.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+            .stream()
+            .sorted(Map.Entry.comparingByKey())
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
         // 组装成待签名字符串
         String paramStr = sortedParamMap.entrySet().stream().map(e -> e.getKey() + "=" + e.getValue()).collect(Collectors.joining("&"));

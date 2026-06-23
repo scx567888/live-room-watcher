@@ -1,21 +1,21 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-import dev.scx.format.FormatToNodeException;
-import dev.scx.http.media_type.ScxMediaType;
-import dev.scx.http.uri.ScxURI;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouChat;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouGift;
 import cool.scx.live_room_watcher.impl.kuaishou.message.KuaiShouLike;
+import dev.scx.format.FormatToNodeException;
+import dev.scx.http.media_type.ScxMediaType;
+import dev.scx.http.uri.ScxURI;
 import dev.scx.http.x.HttpClient;
 import dev.scx.object.NodeToObjectException;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static dev.scx.http.media_type.MediaType.APPLICATION_JSON;
 import static dev.scx.http.method.HttpMethod.POST;
-import static cool.scx.live_room_watcher.impl.kuaishou.KuaiShouApi.*;
 import static dev.scx.serialize.ScxSerialize.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -35,8 +35,8 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (appID == null || appSecret == null) {
             throw new NullPointerException();
         }
-        this.httpClient=new HttpClient();
-        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret,httpClient);
+        this.httpClient = new HttpClient();
+        this.accessTokenManager = new KuaiShouAccessTokenManager(appID, appSecret, httpClient);
 
     }
 
@@ -50,11 +50,11 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("sign", sign);
 
         var url = ScxURI.of(TASK_START_URL)
-                .addQuery("app_id", appID)
-                .addQuery("access_token", accessTokenManager.getAccessToken())
-                .toString();
+            .addQuery("app_id", appID)
+            .addQuery("access_token", accessTokenManager.getAccessToken())
+            .toString();
 
-        var reqBody=toJson(map);
+        var reqBody = toJson(map);
 
         var response = httpClient.request()
             .method(POST)
@@ -77,11 +77,11 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("sign", sign);
 
         var url = ScxURI.of(TASK_STOP_URL)
-                .addQuery("app_id", appID)
-                .addQuery("access_token", accessTokenManager.getAccessToken())
-                .toString();
+            .addQuery("app_id", appID)
+            .addQuery("access_token", accessTokenManager.getAccessToken())
+            .toString();
 
-        var reqBody=toJson(map);
+        var reqBody = toJson(map);
 
         var response = httpClient.request()
             .method(POST)
@@ -103,11 +103,11 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("sign", sign);
 
         var url = ScxURI.of(TASK_STATUS_URL)
-                .addQuery("app_id", appID)
-                .addQuery("access_token", accessTokenManager.getAccessToken())
-                .toString();
+            .addQuery("app_id", appID)
+            .addQuery("access_token", accessTokenManager.getAccessToken())
+            .toString();
 
-        var reqBody=toJson(map);
+        var reqBody = toJson(map);
 
         var response = httpClient.request()
             .uri(url)
@@ -130,11 +130,11 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("sign", sign);
 
         var url = ScxURI.of(GIFT_TOP_URL)
-                .addQuery("app_id", appID)
-                .addQuery("access_token", accessTokenManager.getAccessToken())
-                .toString();
+            .addQuery("app_id", appID)
+            .addQuery("access_token", accessTokenManager.getAccessToken())
+            .toString();
 
-        var reqBody=toJson(map);
+        var reqBody = toJson(map);
 
         var response = httpClient.request()
             .uri(url)
@@ -195,11 +195,11 @@ public class KuaiShouLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("sign", sign);
 
         var url = ScxURI.of(INTERACTIVE_START_URL)
-                .addQuery("app_id", appID)
-                .addQuery("access_token", accessTokenManager.getAccessToken())
-                .toString();
+            .addQuery("app_id", appID)
+            .addQuery("access_token", accessTokenManager.getAccessToken())
+            .toString();
 
-        var reqBody=toJson(map);
+        var reqBody = toJson(map);
 
         var response = httpClient.request()
             .uri(url)

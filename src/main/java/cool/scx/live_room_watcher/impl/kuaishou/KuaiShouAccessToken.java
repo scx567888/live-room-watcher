@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.kuaishou;
 
-public class KuaiShouAccessToken extends KuaiShouResponseBody  {
+public class KuaiShouAccessToken extends KuaiShouResponseBody {
 
     public String access_token;
     public Long expires_in;

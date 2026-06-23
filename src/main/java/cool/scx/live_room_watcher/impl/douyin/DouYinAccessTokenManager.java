@@ -25,6 +25,7 @@ public class DouYinAccessTokenManager {
     protected final String appSecret;
     protected final HttpClient httpClient;
     private final ScxTimer timer;
+    protected String accessToken;
 
     public DouYinAccessTokenManager(String appID, String appSecret, HttpClient httpClient) {
         this.appID = appID;
@@ -34,31 +35,29 @@ public class DouYinAccessTokenManager {
     }
 
     public DouYinAccessToken getAccessToken0() {
-       var reqBody= toJson(
-           Map.of(
-               "appid", appID,
-               "secret", appSecret,
-               "grant_type", "client_credential"
-           )
-       );
+        var reqBody = toJson(
+            Map.of(
+                "appid", appID,
+                "secret", appSecret,
+                "grant_type", "client_credential"
+            )
+        );
 
         var response = httpClient.request()
-                .method(POST)
-                .uri(ACCESS_TOKEN_URL)
-                .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
-                .send(reqBody);
+            .method(POST)
+            .uri(ACCESS_TOKEN_URL)
+            .contentType(ScxMediaType.of(APPLICATION_JSON).charset(UTF_8))
+            .send(reqBody);
 
         var resBody = response.asString();
 
-        var accessTokenResult = fromJson(resBody,DouYinResponseBody.class);
+        var accessTokenResult = fromJson(resBody, DouYinResponseBody.class);
 
         if (accessTokenResult.err_no() != 0) {
             throw new IllegalArgumentException(resBody);
         }
         return convertObject(accessTokenResult.data(), DouYinAccessToken.class);
     }
-
-    protected String accessToken;
 
     /// 获取 accessToken
     public synchronized String getAccessToken() {
@@ -73,7 +72,7 @@ public class DouYinAccessTokenManager {
     public synchronized void refreshAccessToken() {
         try {
             var accessToken0 = getAccessToken0();
-            logger.log(DEBUG,"获取 accessToken 成功 : {}", accessToken0);
+            logger.log(DEBUG, "获取 accessToken 成功 : {}", accessToken0);
             this.accessToken = accessToken0.accessToken();
             timer.runAfter(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {
