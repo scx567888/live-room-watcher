@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.impl.douyin_hack.util;
+package cool.scx.live_room_watcher.impl.tiktok_hack.util;
 
 /**
  * <p>Navigator class.</p>
@@ -41,7 +41,7 @@ public final class Navigator {
     /**
      * <p>userAgent.</p>
      *
-     * @return a {@link java.lang.String} object
+     * @return a {@link String} object
      */
     public String userAgent() {
         return appCodeName() + "/" + appVersion();
@@ -50,7 +50,7 @@ public final class Navigator {
     /**
      * <p>appCodeName.</p>
      *
-     * @return a {@link java.lang.String} object
+     * @return a {@link String} object
      */
     public String appCodeName() {
         return "Mozilla";
@@ -59,7 +59,7 @@ public final class Navigator {
     /**
      * <p>language.</p>
      *
-     * @return a {@link java.lang.String} object
+     * @return a {@link String} object
      */
     public String language() {
         return "zh-CN";
@@ -68,7 +68,7 @@ public final class Navigator {
     /**
      * <p>platform.</p>
      *
-     * @return a {@link java.lang.String} object
+     * @return a {@link String} object
      */
     public String platform() {
         return "Win32";
@@ -77,7 +77,7 @@ public final class Navigator {
     /**
      * <p>appVersion.</p>
      *
-     * @return a {@link java.lang.String} object
+     * @return a {@link String} object
      */
     public String appVersion() {
         return "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.49";

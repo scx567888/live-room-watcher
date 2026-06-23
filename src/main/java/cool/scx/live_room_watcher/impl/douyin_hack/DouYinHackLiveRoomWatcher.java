@@ -1,55 +1,55 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
+import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.ControlMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.MemberMessageAction;
-import cool.scx.live_room_watcher.impl.douyin_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.function.Function1Void;
-import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.x.proxy.Proxy;
+import dev.scx.io.ScxIO;
+import dev.scx.scheduling.ScheduleHandle;
+import dev.scx.scheduling.ScxScheduling;
+import dev.scx.websocket.ScxWebSocket;
 import dev.scx.websocket.event.ScxEventWebSocket;
 
-import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.*;
 import static dev.scx.http.method.HttpMethod.GET;
 
-/**
- * 利用模拟网页 websocket 的方式获取直播间信息
- *
- * @author scx567888
- * @version 0.0.1
- */
+/// 利用模拟网页 websocket 的方式获取直播间信息
+///
+/// @author scx567888
+/// @version 0.0.1
 public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, Function1Void<byte[], ?>> handlerMap;
+
     private ScxEventWebSocket webSocket;
-    private boolean useGzip;
-    private Thread ping;
+    private ScheduleHandle ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
 
-    public DouYinHackLiveRoomWatcher(String uri) {
-        this(uri, null);
+    public DouYinHackLiveRoomWatcher(String liveRoomURI) {
+        this(liveRoomURI, null);
     }
 
-    public DouYinHackLiveRoomWatcher(String uri, Proxy proxy) {
-        this.liveRoomURI = initLiveRoomURI(uri);
+    public DouYinHackLiveRoomWatcher(String liveRoomURI, Proxy proxy) {
+        this.liveRoomURI = liveRoomURI;
         this.browser = new Browser(proxy).addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
-    public Map<String, Function1Void<byte[], ?>> initHandlerMap() {
+    private Map<String, Function1Void<byte[], ?>> initHandlerMap() {
         var map = new HashMap<String, Function1Void<byte[], ?>>();
         map.put("WebcastSocialMessage", this::WebcastSocialMessage);
         map.put("WebcastChatMessage", this::WebcastChatMessage);
@@ -63,148 +63,183 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return map;
     }
 
-    /**
-     * 发送心跳包
-     *
-     * @param ws a
-     */
-    private void startPing(ScxEventWebSocket ws) {
-        //终止上一次的 ping 线程
-        if (ping != null) {
-            ping.interrupt();
-        }
-        ping = new Thread(() -> {
-            while (true) {
-                var ping = PushFrame.newBuilder()
-                    .setPayloadType("hb")
-                    .build().toByteArray();
-                ws.send(ping);
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    break;
-                }
-            }
-        });
-        ping.start();
-    }
-
-    private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
-        //模拟浏览器发送请求
-        return browser.request()
-            .method(GET)
-            .uri(liveRoomURI)
-            .setHeader("User-Agent", navigator().userAgent())
-            .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-            .send();
-    }
-
-    /**
-     * 根据直播间 uri 解析 直播间的信息
-     *
-     * @return a
-     * @throws java.io.IOException            if any.
-     * @throws java.lang.InterruptedException if any.
-     */
-    public DouYinHackLiveRoomInfo getLiveRoomInfo() throws IOException, InterruptedException {
-        var indexHtml = getIndexHtml(this.liveRoomURI);
-        return new DouYinHackLiveRoomInfo(indexHtml.asString());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
+    /// 开始监听, 会阻塞当前线程
     public void startWatch() {
-        //todo 防止线程退出
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(99999);
-                } catch (InterruptedException _) {
-
-                }
-            }
-        }).start();
-        //终止上一次的监听
+        // 终止上一次的监听
         stopWatch();
+
+        // 解析直播间信息
         try {
-            System.out.println("解析中...");
-            this.liveRoomInfo = getLiveRoomInfo();
-            System.out.println("解析完成 -> " + this.liveRoomInfo.title() + " (ID : " + this.liveRoomInfo.roomID() + ")");
+            System.out.println("解析 直播间 中...");
+            this.liveRoomInfo = initLiveRoomInfo();
+            System.out.println("解析 直播间 完成 -> " + this.liveRoomInfo.title() + " (ID : " + this.liveRoomInfo.roomID() + ")");
         } catch (Exception e) {
             throw new RuntimeException("解析 直播间错误 !!!", e);
         }
-        System.out.println("连接中...");
-        var webSocketOptions = getWebSocketOptions(this.liveRoomURI);
-        var ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).upgrade();
-        var c = ScxEventWebSocket.of(ws);
+
+        // 解析 websocket
+        WebSocketOptions webSocketOptions;
         try {
-            webSocket = c;
-            startPing(c);
-            c.onBinary(b -> {
-                var v = parseFrame(b);
-                if (v.response().getNeedAck()) {
-                    sendAck(c, v.pushFrame(), v.response());
-                }
-            });
-            c.onText(s -> System.out.println(s));
-            c.onError(e -> {
-                e.printStackTrace();
-                startWatch();
-            });
-            System.out.println("连接成功 !!!");
-            webSocket.start();
+            System.out.println("解析 websocket 地址中...");
+            webSocketOptions = getWebSocketOptions(this.liveRoomURI);
+            System.out.println("解析 websocket 成功 : " + webSocketOptions);
         } catch (Exception e) {
-            //todo 这里有时会 200 待研究
-            e.printStackTrace();
-            startWatch();
+            throw new RuntimeException("解析 websocket 地址错误 !!!", e);
         }
+
+        // 连接 websocket
+        ScxWebSocket ws;
+        try {
+            System.out.println("连接 websocket 中...");
+            ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).upgrade();
+            System.out.println("连接 websocket 成功 !!!");
+        } catch (Exception e) {
+            throw new RuntimeException("连接 websocket 错误 !!!", e);
+        }
+
+        // 赋值 webSocket
+        this.webSocket = ScxEventWebSocket.of(ws);
+
+        // 启动 ping 调度
+        startPing(this.webSocket);
+        // 设置 Binary 回调
+        this.webSocket.onBinary(b -> {
+            try {
+                handleFrame(b);
+            } catch (InvalidProtocolBufferException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        // 正常不会触发
+        this.webSocket.onText(System.out::println);
+        // 发生错误回调
+        this.webSocket.onError(e -> {
+            System.out.println("websocket onError");
+        });
+        this.webSocket.onClose(e -> {
+            System.out.println("websocket onClose");
+        });
+        // 开启 websocket 处理
+        webSocket.start();
     }
 
+    /// 终止监听
     public void stopWatch() {
-        //尝试关闭上一次的 webSocket 连接
+        // 尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
-            //清空异常处理器 防止重连
-            webSocket.onError(e -> {
-
-            });
             webSocket.close();
             webSocket = null;
         }
+        // 终止 ping 调度
         if (ping != null) {
-            ping.interrupt();
+            ping.cancel();
         }
     }
 
-    private void callHandler(Message message) throws Throwable {
+    /// 根据直播间 uri 解析 直播间的信息
+    private DouYinHackLiveRoomInfo initLiveRoomInfo() {
+        // 模拟浏览器发送请求
+        var response = browser.request()
+            .method(GET)
+            .uri(liveRoomURI)
+            .send();
+        // 获取页面
+        var indexHtmlStr = response.asString();
+        // 从中解析出 douYinAPP
+        var douYinAPP = parseDouYinAPPByHtml(indexHtmlStr);
+        // 创建 DouYinHackLiveRoomInfo
+        return new DouYinHackLiveRoomInfo(douYinAPP);
+    }
+
+    /// 启用 发送心跳包 调度
+    private void startPing(ScxEventWebSocket ws) {
+        // 终止上一次的 调度
+        if (ping != null) {
+            ping.cancel();
+        }
+
+        // 10 秒发送一次
+        this.ping = ScxScheduling.fixedDelay()
+            .interval(Duration.ofSeconds(10))
+            .start((c) -> {
+                // 构建 ping 响应体
+                var pingBytes = PushFrame.newBuilder()
+                    .setPayloadType("hb")
+                    .build().toByteArray();
+                // 这里 ws 底层 因为会 直接修改 pingBytes 这里每次都重新创建 一个 pingBytes
+                ws.send(pingBytes);
+            });
+    }
+
+    /// 解析帧
+    private void handleFrame(byte[] bytes) throws InvalidProtocolBufferException {
+        var pushFrame = PushFrame.parseFrom(bytes);
+
+        // 判断是否用了 gzip
+        var gzip = pushFrame.getHeadersList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
+        var responseBytes = gzip ? ScxIO.ungzip(pushFrame.getPayload().toByteArray()) : pushFrame.getPayload().toByteArray();
+        var response = Response.parseFrom(responseBytes);
+
+        // 如果需要回 ack 先回 ack
+        if (response.getNeedAck()) {
+            var ack = PushFrame.newBuilder()
+                .setPayloadType("ack")
+                .setLogID(pushFrame.getLogID())
+                .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
+                .build().toByteArray();
+            this.webSocket.send(ack);
+        }
+
+        switch (pushFrame.getPayloadType()) {
+            case "msg" -> {
+                for (var message : response.getMessagesList()) {
+                    callHandler(message);
+                }
+            }
+            case "close" -> System.out.println("PushFrame 关闭");
+        }
+    }
+
+    /// 调用 handler
+    private void callHandler(Message message) {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
         var handler = this.handlerMap.get(method);
         if (handler != null) {
-            handler.apply(payload);
+            // 防止 handler 相互阻塞 我们用 调度器
+            Thread.ofVirtual().start(() -> {
+                try {
+                    handler.apply(payload);
+                } catch (Throwable e) {
+                    throw new RuntimeException(e);
+                }
+            });
         } else {
             this.DefaultHandler(method, payload);
         }
     }
 
+    /// 默认 handler
     private void DefaultHandler(String method, byte[] bytes) {
-        System.err.println("DouYin -> 未处理 Message :" + method);
+        System.err.println("DouYinHack -> 未处理 Message : " + method);
     }
 
-    public void WebcastSocialMessage(byte[] payload) throws InvalidProtocolBufferException {
+    //***************************** 具体 Handler **********************************
+
+    private void WebcastSocialMessage(byte[] payload) throws InvalidProtocolBufferException {
         var socialMessage = SocialMessage.parseFrom(payload);
         var douYinFollow = new DouYinHackFollow(socialMessage);
         this._callOnFollow(douYinFollow);
     }
 
-    public void WebcastChatMessage(byte[] payload) throws InvalidProtocolBufferException {
+    private void WebcastChatMessage(byte[] payload) throws InvalidProtocolBufferException {
         // 消息
         var chatMessage = ChatMessage.parseFrom(payload);
         var douYinChat = new DouYinHackChat(chatMessage);
         this._callOnChat(douYinChat);
     }
 
-    public void WebcastMemberMessage(byte[] payload) throws InvalidProtocolBufferException {
+    private void WebcastMemberMessage(byte[] payload) throws InvalidProtocolBufferException {
         // 来了
         var memberMessage = MemberMessage.parseFrom(payload);
         long actionCode = memberMessage.getAction();
@@ -223,43 +258,47 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 System.out.println("KICK_OUT");
             }
             case ENTER -> {
-//                        System.out.println("ENTER");
+//                System.out.println("ENTER");
             }
             case LEAVE -> {
                 System.out.println("LEAVE");
             }
             case SET_ADMIN -> {
+                System.out.println("SET_ADMIN");
             }
             case CANCEL_ADMIN -> {
+                System.out.println("CANCEL_ADMIN");
             }
             case SHARE -> {
+                System.out.println("SHARE");
             }
             case FOLLOW -> {
+                System.out.println("FOLLOW");
             }
         }
         var douYinUser = new DouYinHackUser(memberMessage);
         this._callOnUser(douYinUser);
     }
 
-    public void WebcastLikeMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //点赞
+    private void WebcastLikeMessage(byte[] payload) throws InvalidProtocolBufferException {
+        // 点赞
         var likeMessage = LikeMessage.parseFrom(payload);
         var douYinLike = new DouYinHackLike(likeMessage);
         this._callOnLike(douYinLike);
     }
 
-    public void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //礼物
+    private void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
+        // 礼物
         var giftMessage = GiftMessage.parseFrom(payload);
-        //todo 哪个是真正的总数 ???
-        //todo 人气 Top 是拿不到 name 的
-        String name = giftMessage.getGift().getName();
+        // todo 哪个是真正的总数 ???
+        // todo 人气 Top 是拿不到 name 的
+        var name = giftMessage.getGift().getName();
         var douYinGift = new DouYinHackGift(giftMessage);
         this._callOnGift(douYinGift);
     }
 
-    public void WebcastControlMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //直播间状态变更 比如直播关闭
+    private void WebcastControlMessage(byte[] payload) throws InvalidProtocolBufferException {
+        // 直播间状态变更 比如直播关闭
         var controlMessage = ControlMessage.parseFrom(payload);
         var actionCode = controlMessage.getAction();
         var action = ControlMessageAction.of(actionCode);
@@ -276,40 +315,29 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public void WebcastRoomRankMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间排行榜
+    private void WebcastRoomRankMessage(byte[] payload) throws InvalidProtocolBufferException {
+        // 房间排行榜
         var roomRankMessage = RoomRankMessage.parseFrom(payload);
         var sb = new StringBuilder("房间排行榜更新 : \n");
         var index = 1;
         for (var roomRank : roomRankMessage.getRanksList()) {
             sb.append(index).append(" : ").append(roomRank.getUser().getNickname()).append("\n");
-            index += 1;
+            index = index + 1;
         }
         System.out.print(sb);
     }
 
-    public void WebcastRoomStatsMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间状态
+    private void WebcastRoomStatsMessage(byte[] payload) throws InvalidProtocolBufferException {
+        // 房间状态
         var roomStats = RoomStatsMessage.parseFrom(payload);
         System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
     }
 
-    public void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间状态
-        var roomStats = RoomStatsMessage.parseFrom(payload);
-        System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
+    private void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
+        System.err.println("WebcastInRoomBannerMessage");
     }
 
-    /**
-     * 连接 抖音 弹幕服务时是否传递 gip 压缩参数
-     *
-     * @param useGzip a boolean
-     * @return a
-     */
-    public DouYinHackLiveRoomWatcher useGzip(boolean useGzip) {
-        this.useGzip = useGzip;
-        return this;
-    }
+    //***************************** 其余方法 **********************************
 
     public String ttwid() {
         var ttwid = browser.getCookie("ttwid");
@@ -321,37 +349,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public List<String> liveRoomWebStreamURLs() {
-        return List.of(liveRoomInfo.webStreamURLs());
-    }
-
-    /**
-     * 解析帧
-     *
-     * @param bytes a
-     * @return needAck
-     */
-    private PushFrameAndResponse parseFrame(byte[] bytes) {
-        try {
-            var pushFrame = PushFrame.parseFrom(bytes);
-            var response = getResponse(pushFrame);
-            switch (pushFrame.getPayloadType()) {
-                case "msg" -> {
-                    for (var message : response.getMessagesList()) {
-                        Thread.ofVirtual().start(() -> {
-                            try {
-                                callHandler(message);
-                            } catch (Throwable e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                    }
-                }
-                case "close" -> System.out.println("关闭");
-            }
-            return new PushFrameAndResponse(pushFrame, response);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return liveRoomInfo.webStreamURLs();
     }
 
 }

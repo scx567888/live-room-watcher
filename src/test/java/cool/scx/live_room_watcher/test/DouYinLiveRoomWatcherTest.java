@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.test;
 
-import dev.scx.ansi.Ansi;
 import cool.scx.live_room_watcher.impl.douyin.DouYinLiveRoomWatcher;
+import dev.scx.ansi.Ansi;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,11 +12,11 @@ import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowT
 public class DouYinLiveRoomWatcherTest {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        tes1();
+        test1();
     }
 
     //    @Test
-    public static void tes1() throws IOException, InterruptedException {
+    public static void test1() throws IOException, InterruptedException {
         var liveRoomWatcher = new DouYinLiveRoomWatcher("appID", "appSecret", "123", "123", "123", new HashMap<>());
 
         liveRoomWatcher.onChat(chat -> {

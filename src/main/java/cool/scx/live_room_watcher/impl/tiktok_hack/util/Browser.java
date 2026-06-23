@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.impl.douyin_hack.util;
+package cool.scx.live_room_watcher.impl.tiktok_hack.util;
 
 
 import dev.scx.http.ScxHttpClientRequest;
@@ -14,27 +14,25 @@ import dev.scx.websocket.x.WebSocketOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-/// 模拟浏览器的 HttpClient 和 WebSocketClient
+import static cool.scx.live_room_watcher.impl.tiktok_hack.util.Navigator.navigator;
+
+/// 模拟浏览器的 HttpClient
 public final class Browser {
 
+    private final Map<String, Cookie> cookieMap = new HashMap<>();
     private final HttpClient httpClient;
     private final WebSocketClient webSocketClient;
-    private final Map<String, Cookie> cookieMap;
-    private final Navigator navigator;
 
     /// proxy 可为 null
     public Browser(Proxy proxy) {
         this.httpClient = new HttpClient(new HttpClientOptions().proxy(proxy));
         this.webSocketClient = new WebSocketClient(this.httpClient, new WebSocketOptions().maxFrameSize(65536 * 10).maxMessageSize(65536 * 40));
-        this.cookieMap = new HashMap<>();
-        this.navigator = new Navigator();
     }
 
     public ScxHttpClientRequest request() {
         var request = httpClient.request();
 
-        request.addHeader("User-Agent", navigator.userAgent());
-        request.addHeader("Accept", acceptValue());
+        request.addHeader("User-Agent", navigator().userAgent());
         request.addCookie(cookieMap.values().toArray(Cookie[]::new));
 
         var setCookies = request.headers().setCookies();
@@ -48,8 +46,7 @@ public final class Browser {
     public ScxClientWebSocketHandshakeRequest webSocketHandshakeRequest() {
         var webSocketHandshakeRequest = webSocketClient.webSocketHandshakeRequest();
 
-        webSocketHandshakeRequest.addHeader("User-Agent", navigator.userAgent());
-        webSocketHandshakeRequest.addHeader("Accept", acceptValue());
+        webSocketHandshakeRequest.addHeader("User-Agent", navigator().userAgent());
         webSocketHandshakeRequest.addCookie(cookieMap.values().toArray(Cookie[]::new));
 
         return webSocketHandshakeRequest;
@@ -72,42 +69,6 @@ public final class Browser {
             cookieMap.put(cookie.name(), cookie);
         }
         return this;
-    }
-
-    public String acceptValue() {
-        return "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7";
-    }
-
-    public static final class Navigator {
-
-        public boolean cookieEnabled() {
-            return true;
-        }
-
-        public String userAgent() {
-            return appCodeName() + "/" + appVersion();
-        }
-
-        public String appCodeName() {
-            return "Mozilla";
-        }
-
-        public String language() {
-            return "zh-CN";
-        }
-
-        public String platform() {
-            return "Win32";
-        }
-
-        public String appVersion() {
-            return "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.49";
-        }
-
-        public boolean onLine() {
-            return true;
-        }
-
     }
 
 }

@@ -7,6 +7,8 @@ import dev.scx.node.ObjectNode;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.util.List;
+
 import static dev.scx.serialize.ScxSerialize.convertObject;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
@@ -28,8 +30,8 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
     }
 
     @Override
-    public String[] webStreamURLs() {
-        return new String[]{};
+    public List<String> webStreamURLs() {
+        return null;
     }
 
     @Override
