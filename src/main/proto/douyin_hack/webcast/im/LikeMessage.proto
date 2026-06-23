@@ -8,10 +8,16 @@ import "douyin_hack/webcast/data/User.proto";
 
 // 更新时间 : 2024-07-03
 message LikeMessage {
-    Common common = 1;
+    webcast.im.Common common = 1;
     int64 count = 2;
     int64 total = 3;
     int64 color = 4;
-    User user = 5;
+    webcast.data.User user = 5;
     string icon = 6;
+    bytes double_like_detail = 7;
+    bytes display_control_info = 8;
+    int64 linkmic_guest_uid = 9;
+    string scene = 10;
+    bytes pico_display_info = 11;
+    bytes public_area_common = 12;
 }
