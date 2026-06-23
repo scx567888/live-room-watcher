@@ -58,6 +58,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("WebcastControlMessage", this::WebcastControlMessage);
         map.put("WebcastRoomRankMessage", this::WebcastRoomRankMessage);
         map.put("WebcastRoomStatsMessage", this::WebcastRoomStatsMessage);
+        map.put("WebcastInRoomBannerMessage", this::WebcastInRoomBannerMessage);
         return map;
     }
 
@@ -287,6 +288,12 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void WebcastRoomStatsMessage(byte[] payload) throws InvalidProtocolBufferException {
+        //房间状态
+        var roomStats = RoomStatsMessage.parseFrom(payload);
+        System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
+    }
+
+    public void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
         //房间状态
         var roomStats = RoomStatsMessage.parseFrom(payload);
         System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");

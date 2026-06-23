@@ -18,6 +18,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -29,6 +32,15 @@ import static cool.scx.live_room_watcher.util.Navigator.navigator;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
+
+    static void main() {
+        try {
+            DouYinAPP douYinAPP = parseBody(Files.readString(Path.of("C:\\Users\\scx\\Projects\\live-room-watcher\\src\\test\\java\\a.html")));
+            System.out.println();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /**
      * 从 body 中解析出 liveRoomInfo
@@ -87,9 +99,9 @@ public final class DouYinHackHelper {
     public static String initLiveRoomURI(String uri) {
         var liveRoomURI = ScxURI.of(uri).clearQuery();
         //检查是否为抖音直播间地址
-        if (!"live.douyin.com".equals(liveRoomURI.host())) {
-            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
-        }
+//        if (!"live.douyin.com".equals(liveRoomURI.host())) {
+//            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
+//        }
         //清理掉所有的多余路径
         return liveRoomURI.toString();
     }
