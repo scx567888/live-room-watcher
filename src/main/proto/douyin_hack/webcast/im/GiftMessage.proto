@@ -19,7 +19,7 @@ message GiftMessage {
     int64 combo_count = 6;
     webcast.data.User user = 7;
     webcast.data.User to_user = 8;
-    GiftStruct gift = 15;
+    webcast.data.GiftStruct gift = 15;
     int64 total_count = 29;
     int64 count = 44;
 }
