@@ -1,11 +1,11 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack.message;
 
-import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.GiftMessage;
+import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.im.GiftMessage;
 import cool.scx.live_room_watcher.message.Gift;
 import cool.scx.live_room_watcher.message.User;
 
 public class TikTokHackGift implements Gift {
-    
+
     public final GiftMessage giftMessage;
     private final TikTokHackUser user;
 
@@ -33,5 +33,5 @@ public class TikTokHackGift implements Gift {
     public String roomID() {
         return "";
     }
-    
+
 }
