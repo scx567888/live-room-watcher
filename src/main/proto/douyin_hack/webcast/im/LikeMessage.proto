@@ -3,10 +3,12 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
 
+package webcast.im;
+
 import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message LikeMessage {
     webcast.im.Common common = 1;
     int64 count = 2;
