@@ -9,7 +9,7 @@ import "douyin_hack/webcast/im/Message.proto";
 
 // 更新时间 : 2026-06-23
 message Response{
-    repeated Message messages = 1;
+    repeated webcast.im.Message messages = 1;
     string cursor = 2;
     int64 fetch_interval = 3;
     int64 now = 4;
