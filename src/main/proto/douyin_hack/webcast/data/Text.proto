@@ -6,4 +6,5 @@ option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.
 // 更新时间 : 2026-06-23
 message Text {
     string key = 1;
+    string default_pattern = 2;
 }
