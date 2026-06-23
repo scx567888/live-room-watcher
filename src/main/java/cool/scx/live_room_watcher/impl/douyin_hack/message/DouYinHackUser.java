@@ -44,7 +44,7 @@ public class DouYinHackUser implements User {
 
     @Override
     public String userID() {
-        return user.getId()+"";
+        return user.getId() + "";
     }
 
     public MemberMessage _memberMessage() {

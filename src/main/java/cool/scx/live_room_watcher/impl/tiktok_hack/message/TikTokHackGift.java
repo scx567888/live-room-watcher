@@ -10,8 +10,8 @@ public class TikTokHackGift implements Gift {
     private final TikTokHackUser user;
 
     public TikTokHackGift(GiftMessage giftMessage) {
-        this.giftMessage=giftMessage;
-        this.user=new TikTokHackUser(giftMessage.getUser());
+        this.giftMessage = giftMessage;
+        this.user = new TikTokHackUser(giftMessage.getUser());
     }
 
     @Override

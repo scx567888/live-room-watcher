@@ -12,7 +12,7 @@ public class TikTokHackUser implements cool.scx.live_room_watcher.message.User {
     }
 
     public TikTokHackUser(MemberMessage memberMessage) {
-        this.user=memberMessage.getUser();
+        this.user = memberMessage.getUser();
     }
 
     @Override

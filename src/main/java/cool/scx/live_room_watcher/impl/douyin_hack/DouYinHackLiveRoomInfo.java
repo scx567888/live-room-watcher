@@ -12,7 +12,7 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     private final DouYinAPP douYinApp;
 
-    public DouYinHackLiveRoomInfo(String indexHtmlStr)  {
+    public DouYinHackLiveRoomInfo(String indexHtmlStr) {
         this.douYinApp = parseBody(indexHtmlStr);
     }
 

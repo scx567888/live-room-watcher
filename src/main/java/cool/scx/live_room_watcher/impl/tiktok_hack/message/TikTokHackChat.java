@@ -1,6 +1,5 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack.message;
 
-import cool.scx.live_room_watcher.impl.douyin_hack.message.DouYinHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.im.ChatMessage;
 import cool.scx.live_room_watcher.message.Chat;
 import cool.scx.live_room_watcher.message.User;

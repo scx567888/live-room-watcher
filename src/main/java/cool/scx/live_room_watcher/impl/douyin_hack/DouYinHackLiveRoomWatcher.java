@@ -7,7 +7,6 @@ import cool.scx.live_room_watcher.impl.douyin_hack.entity.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.*;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
@@ -77,8 +76,8 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         ping = new Thread(() -> {
             while (true) {
                 var ping = PushFrame.newBuilder()
-                        .setPayloadType("hb")
-                        .build().toByteArray();
+                    .setPayloadType("hb")
+                    .build().toByteArray();
                 ws.send(ping);
                 try {
                     Thread.sleep(10000);
@@ -93,11 +92,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
         return browser.request()
-                .method(GET)
-                .uri(liveRoomURI)
-                .setHeader("User-Agent", navigator().userAgent())
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-                .send();
+            .method(GET)
+            .uri(liveRoomURI)
+            .setHeader("User-Agent", navigator().userAgent())
+            .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+            .send();
     }
 
     /**
@@ -181,15 +180,15 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         var payload = message.getPayload().toByteArray();
         var method = message.getMethod();
         var handler = this.handlerMap.get(method);
-        if (handler!=null){
+        if (handler != null) {
             handler.apply(payload);
-        }else{
-          this.DefaultHandler(method,payload);
+        } else {
+            this.DefaultHandler(method, payload);
         }
     }
 
     private void DefaultHandler(String method, byte[] bytes) {
-         System.err.println("DouYin -> 未处理 Message :" + method);
+        System.err.println("DouYin -> 未处理 Message :" + method);
     }
 
     public void WebcastSocialMessage(byte[] payload) throws InvalidProtocolBufferException {
