@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.ByteString;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
@@ -90,21 +91,6 @@ public final class DouYinHackHelper {
     }
 
 
-    /**
-     * 发送 ack
-     *
-     * @param webSocket a
-     * @param pushFrame a
-     * @param response  a
-     */
-    public static void sendAck(ScxEventWebSocket webSocket, PushFrame pushFrame, Response response) {
-        var ack = PushFrame.newBuilder()
-            .setPayloadType("ack")
-            .setLogID(pushFrame.getLogID())
-            .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
-            .build().toByteArray();
-        webSocket.send(ack);
-    }
 
     /**
      * <p>getWebSocketURI.</p>
@@ -159,20 +145,6 @@ public final class DouYinHackHelper {
             builder.addQuery("compress", "gzip");
         }
         return builder;
-    }
-
-
-    /**
-     * 处理 PushFrame 中的 gzip 压缩
-     *
-     * @param pushFrame a
-     * @return a
-     * @throws java.lang.Exception a
-     */
-    public static Response getResponse(PushFrame pushFrame) throws Exception {
-        var gzip = pushFrame.getHeadersList().stream().anyMatch(pushHeader -> "compress_type".equals(pushHeader.getKey()) && "gzip".equals(pushHeader.getValue()));
-        var bytes = gzip ? ScxIO.ungzip(pushFrame.getPayload().toByteArray()) : pushFrame.getPayload().toByteArray();
-        return Response.parseFrom(bytes);
     }
 
     /**
