@@ -35,7 +35,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final Browser browser;
     private final Map<String, Function1Void<byte[], ?>> handlerMap;
     private ScxEventWebSocket webSocket;
-    private boolean useGzip;
     private Thread ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
 
@@ -115,16 +114,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
      * {@inheritDoc}
      */
     public void startWatch() {
-        //todo 防止线程退出
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(99999);
-                } catch (InterruptedException _) {
-
-                }
-            }
-        }).start();
         //终止上一次的监听
         stopWatch();
         try {
@@ -298,17 +287,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         //房间状态
         var roomStats = RoomStatsMessage.parseFrom(payload);
         System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
-    }
-
-    /**
-     * 连接 抖音 弹幕服务时是否传递 gip 压缩参数
-     *
-     * @param useGzip a boolean
-     * @return a
-     */
-    public DouYinHackLiveRoomWatcher useGzip(boolean useGzip) {
-        this.useGzip = useGzip;
-        return this;
     }
 
     public String ttwid() {

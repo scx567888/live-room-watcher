@@ -85,9 +85,6 @@ public final class DouYinHackHelper {
     public static String initLiveRoomURI(String uri) {
         var liveRoomURI = ScxURI.of(uri).clearQuery();
         //检查是否为抖音直播间地址
-//        if (!"live.douyin.com".equals(liveRoomURI.host())) {
-//            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
-//        }
         //清理掉所有的多余路径
         return liveRoomURI.toString();
     }

@@ -13,21 +13,17 @@ public class DouYinHackLiveRoomWatcherTest {
     public static final DateTimeFormatter DEFAULT_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
-        tes1();
+        test1();
     }
 
-    /**
-     * <p>nowTimeStr.</p>
-     *
-     * @return a {@link java.lang.String} object
-     */
+    /// nowTimeStr.
     public static String nowTimeStr() {
         return DEFAULT_DATETIME_FORMATTER.format(LocalDateTime.now()) + " : ";
     }
 
-    //    @Test
-    public static void tes1() {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/118929041692").useGzip(true);
+    // @Test
+    public static void test1() {
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/976473294104");
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickname() + " : ").brightWhite(chat.content()).println();
