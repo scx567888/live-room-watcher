@@ -1,12 +1,10 @@
 package cool.scx.live_room_watcher.test;
 
-
-import dev.scx.ansi.Ansi;
 import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
+import dev.scx.ansi.Ansi;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 public class DouYinHackLiveRoomWatcherTest {
 

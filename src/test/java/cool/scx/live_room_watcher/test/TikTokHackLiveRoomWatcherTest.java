@@ -1,9 +1,9 @@
 package cool.scx.live_room_watcher.test;
 
 
+import cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackLiveRoomWatcher;
 import dev.scx.ansi.Ansi;
 import dev.scx.http.x.proxy.Proxy;
-import cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackLiveRoomWatcher;
 
 import static cool.scx.live_room_watcher.test.DouYinHackLiveRoomWatcherTest.nowTimeStr;
 
@@ -15,7 +15,7 @@ public class TikTokHackLiveRoomWatcherTest {
 
     //    @Test
     public static void test1() {
-        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@74azp/live",Proxy.of("127.0.0.1",17890));
+        var liveRoomWatcher = new TikTokHackLiveRoomWatcher("https://www.tiktok.com/@74azp/live", Proxy.of("127.0.0.1", 17890));
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickname() + " : ").brightWhite(chat.content()).println();
