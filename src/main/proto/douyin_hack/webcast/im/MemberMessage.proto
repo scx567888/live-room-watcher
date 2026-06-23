@@ -3,15 +3,17 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
 
+package webcast.im;
+
 import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
 
-// 更新时间 : 2024-07-03
-message MemberMessage{
-    Common common = 1;
-    User user = 2;
+// 更新时间 : 2026-06-23
+message MemberMessage {
+    webcast.im.Common common = 1;
+    webcast.data.User user = 2;
     int64 member_count = 3;
-    User operator = 4;
+    webcast.data.User operator = 4;
     bool is_set_to_admin = 5;
     bool is_top_user = 6;
     int64 rank_score = 7;
