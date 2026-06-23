@@ -7,8 +7,6 @@ import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import java.util.ArrayList;
 import java.util.List;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.parseDouYinAPPByHtml;
-
 public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     private final DouYinAPP douYinApp;
