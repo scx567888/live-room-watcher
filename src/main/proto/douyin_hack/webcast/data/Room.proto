@@ -28,9 +28,9 @@ message Room {
     int64 client_version = 17;
     bool with_linkmic = 18;
     bool enable_room_perspective = 19;
-    Image cover = 20;
-    Image dynamic_cover = 21;
-    Image dynamic_cover_low = 22;
+    webcast.data.Image cover = 20;
+    webcast.data.Image dynamic_cover = 21;
+    webcast.data.Image dynamic_cover_low = 22;
     string share_url = 23;
     string anchor_share_text = 24;
     string user_share_text = 25;
@@ -50,11 +50,11 @@ message Room {
     string distance_city = 39;
     string location = 40;
     string real_distance = 41;
-    Image feed_room_label = 42;
+    webcast.data.Image feed_room_label = 42;
     string common_label_list = 43;
     bytes living_room_attrs = 44;
     repeated int64 admin_user_ids = 45;
-    User owner = 46;
+    webcast.data.User owner = 46;
     string private_info = 47;
     bool has_commerce_goods = 48;
     bool live_type_normal = 49;
@@ -86,11 +86,11 @@ message Room {
     int64 group_source = 79;
     int64 lottery_finish_time = 80;
     bytes activity_tag = 81;
-    Image portrait_cover = 82;
-    Image background = 83;
+    webcast.data.Image portrait_cover = 82;
+    webcast.data.Image background = 83;
     int64 layout = 84;
     string wait_copy = 85;
-    Image guide_button = 86;
+    webcast.data.Image guide_button = 86;
     string preview_copy = 87;
     bool is_show_inquiry_ball = 88;
     bytes match_info = 89;
@@ -122,8 +122,8 @@ message Room {
     int64 replay_location = 115;
     int64 stream_close_time = 116;
     string content_tag = 117;
-    Image content_label = 118;
-    Image operation_label = 119;
+    webcast.data.Image content_label = 118;
+    webcast.data.Image operation_label = 119;
     int32 anchor_tab_type = 120;
     bytes game_extra = 121;
     bytes official_channel = 122;
@@ -147,14 +147,14 @@ message Room {
     int64 pre_enter_time = 141;
     int64 ranklist_audience_type = 142;
     int64 preview_flow_tag = 143;
-    Image preview_tag_url = 144;
+    webcast.data.Image preview_tag_url = 144;
     bytes quiz_extra = 145;
     bytes linker_users = 147;
     int64 linkmic_display_type = 148;
     bytes AudioRoomBGImage = 149;
     bytes city_top_linker_users = 150;
     bytes border_info = 151;
-    Image city_top_background = 152;
+    webcast.data.Image city_top_background = 152;
     string city_top_distance = 153;
     int64 live_room_mode = 154;
     bytes bonus = 155;
@@ -197,7 +197,7 @@ message Room {
     bytes avatar_live_info = 192;
     bytes circle_info = 193;
     int64 has_promotion_games = 194;
-    Image screenshot_sover = 195;
+    webcast.data.Image screenshot_sover = 195;
     bytes appearance = 196;
     bytes ecom_data = 197;
     bytes industry_service_info = 198;
@@ -255,5 +255,5 @@ message Room {
     repeated string admin_user_open_ids = 5001;
     repeated string fans_group_admin_user_open_ids = 5002;
     string official_channel_open_id = 5003;
-    Image cover_gauss = 5004;
+    webcast.data.Image cover_gauss = 5004;
 }
