@@ -258,7 +258,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 System.out.println("KICK_OUT");
             }
             case ENTER -> {
-                System.out.println("ENTER");
+//                System.out.println("ENTER");
             }
             case LEAVE -> {
                 System.out.println("LEAVE");
