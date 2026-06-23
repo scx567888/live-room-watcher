@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.douyin_hack.message;
 
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.MemberMessage;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.MemberMessage;
 import cool.scx.live_room_watcher.message.User;
 
 
@@ -13,7 +13,7 @@ import cool.scx.live_room_watcher.message.User;
 public class DouYinHackUser implements User {
 
     private final MemberMessage memberMessage;
-    private final cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User user;
+    private final cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.User user;
 
     public DouYinHackUser(MemberMessage memberMessage) {
         this.memberMessage = memberMessage;
@@ -21,7 +21,7 @@ public class DouYinHackUser implements User {
     }
 
 
-    public DouYinHackUser(cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User user) {
+    public DouYinHackUser(cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.User user) {
         this.memberMessage = null;
         this.user = user;
     }
@@ -44,14 +44,14 @@ public class DouYinHackUser implements User {
 
     @Override
     public String userID() {
-        return user.getId()+"";
+        return user.getId() + "";
     }
 
     public MemberMessage _memberMessage() {
         return memberMessage;
     }
 
-    public cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data.User _user() {
+    public cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.User _user() {
         return user;
     }
 

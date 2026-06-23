@@ -4,9 +4,10 @@ import cool.scx.live_room_watcher.message.*;
 
 import java.util.function.Consumer;
 
-/**
- * AbstractLiveRoomWatcher
- */
+/// AbstractLiveRoomWatcher
+///
+/// @author scx567888
+/// @version 0.0.1
 public abstract class AbstractLiveRoomWatcher implements LiveRoomWatcher {
 
     protected Consumer<Chat> onChat;

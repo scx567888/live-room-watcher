@@ -1,6 +1,6 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack.message;
 
-import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.LikeMessage;
+import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.im.LikeMessage;
 import cool.scx.live_room_watcher.message.Like;
 import cool.scx.live_room_watcher.message.User;
 

@@ -23,10 +23,10 @@ class DouYinHelper {
             throw new InvalidParameterException("参数验证错误！！！");
         }
         var s = Map.of(
-                "x-nonce-str", x_nonce_str,
-                "x-timestamp", x_timestamp,
-                "x-roomid", x_roomid,
-                "x-msg-type", x_msg_type
+            "x-nonce-str", x_nonce_str,
+            "x-timestamp", x_timestamp,
+            "x-roomid", x_roomid,
+            "x-msg-type", x_msg_type
         );
 
         var s1 = signature(s, bodyStr, dataSecret);
@@ -45,9 +45,9 @@ class DouYinHelper {
      */
     private static String signature(Map<String, String> header, String bodyStr, String secret) {
         var urlParams = header.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .map(k -> k.getKey() + "=" + k.getValue())
-                .collect(Collectors.joining("&"));
+            .sorted(Map.Entry.comparingByKey())
+            .map(k -> k.getKey() + "=" + k.getValue())
+            .collect(Collectors.joining("&"));
 
         var rawData = urlParams + bodyStr + secret;
         var md5Bytes = md5(rawData.getBytes());

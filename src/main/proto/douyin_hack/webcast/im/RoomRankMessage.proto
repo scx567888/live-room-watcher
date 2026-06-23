@@ -1,18 +1,20 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
+
+package webcast.im;
 
 import "douyin_hack/webcast/im/Common.proto";
 import "douyin_hack/webcast/data/User.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message RoomRankMessage {
-    Common common = 1;
+    webcast.im.Common common = 1;
     repeated RoomRank ranks = 2;
 
     message RoomRank {
-        User user = 1;
+        webcast.data.User user = 1;
         string score_str = 2;
         bool profile_hidden = 3;
     }

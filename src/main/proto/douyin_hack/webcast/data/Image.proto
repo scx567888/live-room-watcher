@@ -1,9 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data";
 
-// 更新时间 : 2024-07-03
+package webcast.data;
+
+// 更新时间 : 2026-06-23
 message Image {
     repeated string url_list = 1;
     string uri = 2;
@@ -24,7 +26,7 @@ message Image {
         string alternative_text = 4;
     }
 
-    message NinePatchSetting{
+    message NinePatchSetting {
 
     }
 

@@ -4,12 +4,11 @@ import com.google.protobuf.ByteString;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
 import com.microsoft.playwright.Playwright;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
-import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.PushFrame;
+import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.Response;
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.uri.ScxURI;
 import dev.scx.io.ScxIO;
-import dev.scx.websocket.ScxWebSocket;
 import dev.scx.websocket.event.ScxEventWebSocket;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
@@ -17,15 +16,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
-import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.ENGINE;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.HOST_ACCESS;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
@@ -42,13 +40,13 @@ public final class DouYinHackHelper {
             Document parse = Jsoup.parse(htmlStr);
             Elements scripts = parse.select("script");
             context.eval("js", """
-                    var window= {};
-                    var self= window;
-                    var document={
-                            scripts:[{
-                                parentNode:{removeChild(e){}}
-                            }]};
-                    """);
+                var window= {};
+                var self= window;
+                var document={
+                        scripts:[{
+                            parentNode:{removeChild(e){}}
+                        }]};
+                """);
             for (Element script : scripts) {
                 String html = script.html();
                 if (html.startsWith("self.__pace_f") || html.startsWith("(self.__pace_f")) {
@@ -56,22 +54,22 @@ public final class DouYinHackHelper {
                 }
             }
             var value = context.eval("js", """
-                    var r;
-                    function m(e) {
-                       if (0 === e[0])
-                           r = [];
-                       else {
-                           if (r){
-                               r.push(e[1]);
-                           }
+                var r;
+                function m(e) {
+                   if (0 === e[0])
+                       r = [];
+                   else {
+                       if (r){
+                           r.push(e[1]);
                        }
-                    }
-                    self.__pace_f.forEach(m);
-                    let str = r[r.length - 1];
-                    let index = str.indexOf(":");
-                    let arr = JSON.parse(str.slice(index + 1));
-                    JSON.stringify(arr[arr.length - 1])
-                    """);
+                   }
+                }
+                self.__pace_f.forEach(m);
+                let str = r[r.length - 1];
+                let index = str.indexOf(":");
+                let arr = JSON.parse(str.slice(index + 1));
+                JSON.stringify(arr[arr.length - 1])
+                """);
             return fromJson(value.asString(), DouYinAPP.class);
         } catch (Exception e) {
             throw new IllegalArgumentException("解析直播间错误", e);
@@ -87,9 +85,9 @@ public final class DouYinHackHelper {
     public static String initLiveRoomURI(String uri) {
         var liveRoomURI = ScxURI.of(uri).clearQuery();
         //检查是否为抖音直播间地址
-        if (!"live.douyin.com".equals(liveRoomURI.host())) {
-            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
-        }
+//        if (!"live.douyin.com".equals(liveRoomURI.host())) {
+//            throw new IllegalArgumentException("不是合法抖音直播间 url : " + uri);
+//        }
         //清理掉所有的多余路径
         return liveRoomURI.toString();
     }
@@ -104,10 +102,10 @@ public final class DouYinHackHelper {
      */
     public static void sendAck(ScxEventWebSocket webSocket, PushFrame pushFrame, Response response) {
         var ack = PushFrame.newBuilder()
-                .setPayloadType("ack")
-                .setLogID(pushFrame.getLogID())
-                .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
-                .build().toByteArray();
+            .setPayloadType("ack")
+            .setLogID(pushFrame.getLogID())
+            .setPayload(ByteString.copyFromUtf8(response.getInternalExt()))
+            .build().toByteArray();
         webSocket.send(ack);
     }
 
@@ -131,35 +129,35 @@ public final class DouYinHackHelper {
         var internalExt = internalExtMap.entrySet().stream().map(c -> c.getKey() + ":" + c.getValue()).collect(Collectors.joining("|"));
 
         var builder = ScxURI.of("/webcast/im/push/v2/")
-                .addQuery("app_name", "douyin_web")
-                .addQuery("version_code", "180800")
-                .addQuery("webcast_sdk_version", "1.3.0")
-                .addQuery("update_version_code", "1.3.0")
-                .addQuery("internal_ext", internalExt)
-                .addQuery("cursor", "u-1_h-1_t-1672732684536_r-1_d-1")
-                .addQuery("host", "https://live.douyin.com")
-                .addQuery("aid", "6383")
-                .addQuery("live_id", "1")
-                .addQuery("did_rule", "3")
-                .addQuery("debug", "false")
-                .addQuery("endpoint", "live_pc")
-                .addQuery("support_wrds", "1")
-                .addQuery("im_path", "/webcast/im/fetch/")
-                .addQuery("device_platform", "web")
-                .addQuery("cookie_enabled", navigator().cookieEnabled())
-                .addQuery("screen_width", 1228)
-                .addQuery("screen_height", 691)
-                .addQuery("browser_language", navigator().language())
-                .addQuery("browser_platform", navigator().appCodeName())
-                .addQuery("browser_name", navigator().appCodeName())
-                .addQuery("browser_version", navigator().appVersion())
-                .addQuery("browser_online", navigator().onLine())
-                .addQuery("tz_name", "Asia/Shanghai")
-                .addQuery("identity", "audience")
-                .addQuery("room_id", liveRoomID)
-                .addQuery("heartbeatDuration", "0")
-                //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
-                .addQuery("signature", "00000000");
+            .addQuery("app_name", "douyin_web")
+            .addQuery("version_code", "180800")
+            .addQuery("webcast_sdk_version", "1.3.0")
+            .addQuery("update_version_code", "1.3.0")
+            .addQuery("internal_ext", internalExt)
+            .addQuery("cursor", "u-1_h-1_t-1672732684536_r-1_d-1")
+            .addQuery("host", "https://live.douyin.com")
+            .addQuery("aid", "6383")
+            .addQuery("live_id", "1")
+            .addQuery("did_rule", "3")
+            .addQuery("debug", "false")
+            .addQuery("endpoint", "live_pc")
+            .addQuery("support_wrds", "1")
+            .addQuery("im_path", "/webcast/im/fetch/")
+            .addQuery("device_platform", "web")
+            .addQuery("cookie_enabled", navigator().cookieEnabled())
+            .addQuery("screen_width", 1228)
+            .addQuery("screen_height", 691)
+            .addQuery("browser_language", navigator().language())
+            .addQuery("browser_platform", navigator().appCodeName())
+            .addQuery("browser_name", navigator().appCodeName())
+            .addQuery("browser_version", navigator().appVersion())
+            .addQuery("browser_online", navigator().onLine())
+            .addQuery("tz_name", "Asia/Shanghai")
+            .addQuery("identity", "audience")
+            .addQuery("room_id", liveRoomID)
+            .addQuery("heartbeatDuration", "0")
+            //todo 这里抖音目前只校验是否为空 后期可能会校验具体值 届时需要逆向抖音加密规则
+            .addQuery("signature", "00000000");
         if (useGzip) {
             builder.addQuery("compress", "gzip");
         }
@@ -182,6 +180,7 @@ public final class DouYinHackHelper {
 
     /**
      * 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
+     *
      * @param path d
      * @return d
      */
@@ -208,7 +207,7 @@ public final class DouYinHackHelper {
         }
     }
 
-    public record WebSocketOptions(String uri,Cookie... cookie) {
+    public record WebSocketOptions(String uri, Cookie... cookie) {
 
     }
 

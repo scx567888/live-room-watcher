@@ -1,20 +1,22 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
+
+package webcast.im;
 
 import "douyin_hack/webcast/im/Common.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message RoomStatsMessage {
-    Common common = 1;
+    webcast.im.Common common = 1;
     string display_short = 2;
     string display_middle = 3;
     string display_long = 4;
-    int64  display_value = 5;
-    int64  display_version = 6;
-    bool   incremental = 7;
-    bool   is_hidden = 8;
-    int64  total = 9;
-    int64  display_type = 10;
+    int64 display_value = 5;
+    int64 display_version = 6;
+    bool incremental = 7;
+    bool is_hidden = 8;
+    int64 total = 9;
+    int64 display_type = 10;
 }

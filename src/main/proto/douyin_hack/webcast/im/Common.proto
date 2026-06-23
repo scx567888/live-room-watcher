@@ -1,17 +1,39 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
+
+package webcast.im;
 
 import "douyin_hack/webcast/data/User.proto";
 import "douyin_hack/webcast/data/Room.proto";
+import "douyin_hack/webcast/data/Text.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message Common {
     string method = 1;
     int64 msg_id = 2;
     int64 room_id = 3;
     int64 create_time = 4;
-    User user = 15;
-    Room room = 16;
+    int32 monitor = 5;
+    bool is_show_msg = 6;
+    string describe = 7;
+    webcast.data.Text display_text = 8;
+    int64 fold_type = 9;
+    int64 anchor_fold_type = 10;
+    int64 priority_score = 11;
+    string log_id = 12;
+    string msg_process_filter_k = 13;
+    string msg_process_filter_v = 14;
+    webcast.data.User user = 15;
+    webcast.data.Room room = 16;
+    int64 anchor_fold_type_v2 = 17;
+    int64 process_at_sei_time_ms = 18;
+    int64 random_dispatch_ms = 19;
+    bool is_dispatch = 20;
+    int64 channel_id = 21;
+    int64 diff_sei2abs_second = 22;
+    int64 anchor_fold_duration = 23;
+    int64 app_id = 24;
+    string room_id_str = 27;
 }

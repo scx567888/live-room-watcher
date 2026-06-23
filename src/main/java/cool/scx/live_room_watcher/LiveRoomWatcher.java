@@ -4,49 +4,25 @@ import cool.scx.live_room_watcher.message.*;
 
 import java.util.function.Consumer;
 
-/**
- * LiveRoomWatcher
- */
+/// LiveRoomWatcher
+///
+/// @author scx567888
+/// @version 0.0.1
 public interface LiveRoomWatcher {
 
-    /**
-     * 当获取到新弹幕时
-     *
-     * @param onChat onChat
-     * @return this
-     */
+    /// 当获取到新弹幕时
     LiveRoomWatcher onChat(Consumer<Chat> onChat);
 
-    /**
-     * 当获取到点赞时
-     *
-     * @param onLike onLike
-     * @return this
-     */
+    /// 当获取到点赞时
     LiveRoomWatcher onLike(Consumer<Like> onLike);
 
-    /**
-     * 当收到礼物时
-     *
-     * @param onGift onGift
-     * @return this
-     */
+    /// 当收到礼物时
     LiveRoomWatcher onGift(Consumer<Gift> onGift);
 
-    /**
-     * 当用户关注的时候
-     *
-     * @param onFollow onFollow
-     * @return this
-     */
+    /// 当用户关注的时候
     LiveRoomWatcher onFollow(Consumer<Follow> onFollow);
 
-    /**
-     * 当新用户进入直播间时
-     *
-     * @param onUser onUser
-     * @return this
-     */
+    /// 当新用户进入直播间时
     LiveRoomWatcher onUser(Consumer<User> onUser);
 
 }

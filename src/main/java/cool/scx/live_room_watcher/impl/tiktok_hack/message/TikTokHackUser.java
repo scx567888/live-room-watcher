@@ -1,7 +1,7 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack.message;
 
-import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.data.User;
-import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.MemberMessage;
+import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.data.User;
+import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.im.MemberMessage;
 
 public class TikTokHackUser implements cool.scx.live_room_watcher.message.User {
 
@@ -12,7 +12,7 @@ public class TikTokHackUser implements cool.scx.live_room_watcher.message.User {
     }
 
     public TikTokHackUser(MemberMessage memberMessage) {
-        this.user=memberMessage.getUser();
+        this.user = memberMessage.getUser();
     }
 
     @Override
@@ -34,5 +34,5 @@ public class TikTokHackUser implements cool.scx.live_room_watcher.message.User {
     public String roomID() {
         return null;
     }
-    
+
 }

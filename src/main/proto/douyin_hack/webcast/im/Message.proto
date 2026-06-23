@@ -1,9 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im";
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
 
-// 更新时间 : 2024-07-03
+package webcast.im;
+
+// 更新时间 : 2026-06-23
 message Message {
     string method = 1;
     bytes payload = 2;
@@ -13,4 +15,5 @@ message Message {
     bool need_wrds_store = 6;
     int64 wrds_version = 7;
     string wrds_sub_key = 8;
+    string tenant_id = 10;
 }
