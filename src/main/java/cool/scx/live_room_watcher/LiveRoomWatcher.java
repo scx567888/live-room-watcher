@@ -5,6 +5,9 @@ import cool.scx.live_room_watcher.message.*;
 import java.util.function.Consumer;
 
 /// LiveRoomWatcher
+///
+/// @author scx567888
+/// @version 0.0.1
 public interface LiveRoomWatcher {
 
     /// 当获取到新弹幕时
