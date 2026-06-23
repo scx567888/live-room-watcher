@@ -7,7 +7,7 @@ package webcast.im;
 
 import "douyin_hack/webcast/im/Common.proto";
 
-// 更新时间 : 2024-07-03
+// 更新时间 : 2026-06-23
 message RoomStatsMessage {
     webcast.im.Common common = 1;
     string display_short = 2;
