@@ -3,6 +3,8 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.data";
 
+package webcast.data;
+
 // 更新时间 : 2026-06-23
 message Image {
     repeated string url_list = 1;
