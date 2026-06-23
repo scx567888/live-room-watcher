@@ -6,14 +6,11 @@ import dev.scx.node.Node;
 import dev.scx.node.ObjectNode;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.util.List;
 
 import static dev.scx.serialize.ScxSerialize.convertObject;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
+// todo 暂已失效
 public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
 
     public final TikTokHackLiveRoom LiveRoom;
@@ -23,7 +20,7 @@ public class TikTokHackLiveRoomInfo implements LiveRoomInfo {
             Document parse = Jsoup.parse(htmlStr);
             var element = parse.selectFirst("#SIGI_STATE");
             var html = element.html();
-            var root =(ObjectNode) fromJson(html);
+            var root = (ObjectNode) fromJson(html);
             this.LiveRoom = convertObject(root.get("LiveRoom"), TikTokHackLiveRoom.class);
         } catch (Exception e) {
             throw new RuntimeException("解析直播间错误 !!!", e);

@@ -1,31 +1,32 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import cool.scx.live_room_watcher.impl.tiktok_hack.entity.PushFrameAndResponse;
-import dev.scx.function.Function1Void;
-import dev.scx.http.ScxHttpClientResponse;
-import dev.scx.http.headers.cookie.Cookie;
-import dev.scx.http.headers.cookie.Cookies;
-import dev.scx.http.x.proxy.Proxy;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
+import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
+import cool.scx.live_room_watcher.impl.tiktok_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
-import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
-import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
+import dev.scx.function.Function1Void;
+import dev.scx.http.ScxHttpClientResponse;
+import dev.scx.http.headers.cookie.Cookie;
+import dev.scx.http.headers.cookie.Cookies;
+import dev.scx.http.x.proxy.Proxy;
 import dev.scx.websocket.event.ScxEventWebSocket;
+import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static dev.scx.http.method.HttpMethod.GET;
-import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
 import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
+import static dev.scx.http.method.HttpMethod.GET;
 
 // todo 暂已失效
+
 /**
  * 利用模拟网页 websocket 的方式获取直播间信息
  *
@@ -33,7 +34,6 @@ import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigat
  * @version 0.0.1
  */
 public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
-
 
     private final String liveRoomURI;
     private final Browser browser;
@@ -75,8 +75,8 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         ping = new Thread(() -> {
             while (true) {
                 var ping = PushFrame.newBuilder()
-                        .setPayloadType("hb")
-                        .build().toByteArray();
+                    .setPayloadType("hb")
+                    .build().toByteArray();
                 ws.send(ping);
                 try {
                     Thread.sleep(10000);
@@ -91,11 +91,11 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求
         return browser.request()
-                .method(GET)
-                .uri(liveRoomURI)
-                .setHeader("User-Agent", navigator().userAgent())
-                .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-                .send();
+            .method(GET)
+            .uri(liveRoomURI)
+            .setHeader("User-Agent", navigator().userAgent())
+            .setHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+            .send();
     }
 
     /**

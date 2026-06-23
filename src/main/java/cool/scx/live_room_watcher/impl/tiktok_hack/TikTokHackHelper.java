@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 
+// todo 暂已失效
 public class TikTokHackHelper {
 
     /**
