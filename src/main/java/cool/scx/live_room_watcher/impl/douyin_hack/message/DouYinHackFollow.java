@@ -14,15 +14,11 @@ public class DouYinHackFollow implements Follow {
     private final DouYinHackUser user;
     SocialMessage socialMessage;
 
-
     public DouYinHackFollow(SocialMessage socialMessage) {
         this.socialMessage = socialMessage;
         this.user = new DouYinHackUser(this.socialMessage.getUser());
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public User user() {
         return user;

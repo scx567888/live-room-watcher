@@ -254,18 +254,22 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
                 System.out.println("KICK_OUT");
             }
             case ENTER -> {
-//                        System.out.println("ENTER");
+                System.out.println("ENTER");
             }
             case LEAVE -> {
                 System.out.println("LEAVE");
             }
             case SET_ADMIN -> {
+                System.out.println("SET_ADMIN");
             }
             case CANCEL_ADMIN -> {
+                System.out.println("CANCEL_ADMIN");
             }
             case SHARE -> {
+                System.out.println("SHARE");
             }
             case FOLLOW -> {
+                System.out.println("FOLLOW");
             }
         }
         var douYinUser = new DouYinHackUser(memberMessage);
@@ -273,24 +277,24 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void WebcastLikeMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //点赞
+        // 点赞
         var likeMessage = LikeMessage.parseFrom(payload);
         var douYinLike = new DouYinHackLike(likeMessage);
         this._callOnLike(douYinLike);
     }
 
     public void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //礼物
+        // 礼物
         var giftMessage = GiftMessage.parseFrom(payload);
-        //todo 哪个是真正的总数 ???
-        //todo 人气 Top 是拿不到 name 的
-        String name = giftMessage.getGift().getName();
+        // todo 哪个是真正的总数 ???
+        // todo 人气 Top 是拿不到 name 的
+        var name = giftMessage.getGift().getName();
         var douYinGift = new DouYinHackGift(giftMessage);
         this._callOnGift(douYinGift);
     }
 
     public void WebcastControlMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //直播间状态变更 比如直播关闭
+        // 直播间状态变更 比如直播关闭
         var controlMessage = ControlMessage.parseFrom(payload);
         var actionCode = controlMessage.getAction();
         var action = ControlMessageAction.of(actionCode);
@@ -308,27 +312,25 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void WebcastRoomRankMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间排行榜
+        // 房间排行榜
         var roomRankMessage = RoomRankMessage.parseFrom(payload);
         var sb = new StringBuilder("房间排行榜更新 : \n");
         var index = 1;
         for (var roomRank : roomRankMessage.getRanksList()) {
             sb.append(index).append(" : ").append(roomRank.getUser().getNickname()).append("\n");
-            index += 1;
+            index = index + 1;
         }
         System.out.print(sb);
     }
 
     public void WebcastRoomStatsMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间状态
+        // 房间状态
         var roomStats = RoomStatsMessage.parseFrom(payload);
         System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
     }
 
     public void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
-        //房间状态
-        var roomStats = RoomStatsMessage.parseFrom(payload);
-        System.out.println("房间状态更新 : " + roomStats.getDisplayLong() + " (" + roomStats.getDisplayValue() + ")");
+        System.err.println("WebcastInRoomBannerMessage");
     }
 
     //***************************** 其余方法 **********************************
