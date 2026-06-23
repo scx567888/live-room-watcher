@@ -2,8 +2,9 @@ package cool.scx.live_room_watcher.impl.douyin_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.ControlMessageAction;
-import cool.scx.live_room_watcher.impl.douyin_hack.enumeration.MemberMessageAction;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.ControlMessageAction;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.MemberMessageAction;
+import cool.scx.live_room_watcher.impl.douyin_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
 import cool.scx.live_room_watcher.util.Browser;

@@ -1,8 +1,8 @@
-package cool.scx.live_room_watcher.impl.douyin_hack;
+package cool.scx.live_room_watcher.impl.douyin_hack.entity;
 
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.PushFrame;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Response;
 
-record PushFrameAndResponse(PushFrame pushFrame, Response response) {
+public record PushFrameAndResponse(PushFrame pushFrame, Response response) {
 
 }

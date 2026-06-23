@@ -9,7 +9,6 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.Respo
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.uri.ScxURI;
 import dev.scx.io.ScxIO;
-import dev.scx.websocket.ScxWebSocket;
 import dev.scx.websocket.event.ScxEventWebSocket;
 import org.graalvm.polyglot.Context;
 import org.jsoup.Jsoup;
@@ -17,7 +16,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

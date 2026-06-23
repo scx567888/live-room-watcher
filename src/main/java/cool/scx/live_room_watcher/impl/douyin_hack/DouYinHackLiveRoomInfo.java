@@ -5,7 +5,6 @@ import cool.scx.live_room_watcher.LiveRoomInfo;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.parseBody;
 
