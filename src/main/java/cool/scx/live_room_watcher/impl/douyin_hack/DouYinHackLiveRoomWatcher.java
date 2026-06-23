@@ -7,7 +7,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.entity.MemberMessageAction;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.douyin_hack.message.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.proto_entity.webcast.im.*;
-import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackHelper.*;
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 import static dev.scx.http.method.HttpMethod.GET;
 
 /**

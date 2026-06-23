@@ -1,11 +1,13 @@
 package cool.scx.live_room_watcher.impl.douyin;
 
-import cool.scx.live_room_watcher.util.Helper;
 import dev.scx.http.media_type.ScxMediaType;
 import dev.scx.http.x.HttpClient;
+import dev.scx.timer.ScheduledExecutorTimer;
+import dev.scx.timer.ScxTimer;
 
 import java.lang.System.Logger;
 import java.util.Map;
+import java.util.concurrent.Executors;
 
 import static cool.scx.live_room_watcher.impl.douyin.DouYinApi.ACCESS_TOKEN_URL;
 import static dev.scx.http.media_type.MediaType.APPLICATION_JSON;
@@ -22,11 +24,13 @@ public class DouYinAccessTokenManager {
     protected final String appID;
     protected final String appSecret;
     protected final HttpClient httpClient;
+    private final ScxTimer timer;
 
     public DouYinAccessTokenManager(String appID, String appSecret, HttpClient httpClient) {
         this.appID = appID;
         this.appSecret = appSecret;
         this.httpClient = httpClient;
+        this.timer = new ScheduledExecutorTimer(Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors() * 2));
     }
 
     public DouYinAccessToken getAccessToken0() {
@@ -71,13 +75,13 @@ public class DouYinAccessTokenManager {
             var accessToken0 = getAccessToken0();
             logger.log(DEBUG,"获取 accessToken 成功 : {}", accessToken0);
             this.accessToken = accessToken0.accessToken();
-            Helper.SCHEDULER.schedule(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
+            timer.runAfter(this::refreshAccessToken, accessToken0.expiresIn() / 2, SECONDS);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            //发生错误的话 2秒后重试
-            Helper.SCHEDULER.schedule(this::refreshAccessToken, 2000, SECONDS);
+            // 发生错误的话 2秒后重试
+            timer.runAfter(this::refreshAccessToken, 2000, SECONDS);
         }
     }
 

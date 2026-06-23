@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.util;
+package cool.scx.live_room_watcher.impl.douyin_hack.util;
 
 /**
  * <p>Navigator class.</p>

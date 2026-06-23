@@ -1,6 +1,7 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import cool.scx.live_room_watcher.impl.tiktok_hack.entity.PushFrameAndResponse;
 import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;
@@ -12,9 +13,8 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.*;
-import cool.scx.live_room_watcher.util.Browser;
+import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
-import dev.scx.websocket.ScxWebSocket;
 import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
@@ -23,8 +23,9 @@ import java.util.Map;
 
 import static dev.scx.http.method.HttpMethod.GET;
 import static cool.scx.live_room_watcher.impl.tiktok_hack.TikTokHackHelper.*;
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 
+// todo 暂已失效
 /**
  * 利用模拟网页 websocket 的方式获取直播间信息
  *

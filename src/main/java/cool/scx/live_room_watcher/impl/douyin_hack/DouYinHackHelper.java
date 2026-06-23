@@ -24,9 +24,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-import static cool.scx.live_room_watcher.util.GraalvmJSHelper.ENGINE;
-import static cool.scx.live_room_watcher.util.GraalvmJSHelper.HOST_ACCESS;
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.ENGINE;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.HOST_ACCESS;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {

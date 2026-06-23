@@ -1,7 +1,6 @@
 package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.ByteString;
-import dev.scx.websocket.ScxWebSocket;
 import dev.scx.http.uri.ScxURI;
 import dev.scx.http.uri.ScxURIWritable;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.PushFrame;
@@ -9,11 +8,10 @@ import cool.scx.live_room_watcher.impl.tiktok_hack.proto_entity.webcast.im.Respo
 import dev.scx.io.ScxIO;
 import dev.scx.websocket.event.ScxEventWebSocket;
 
-import java.io.ByteArrayInputStream;
 import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
-import static cool.scx.live_room_watcher.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
 
 public class TikTokHackHelper {
 
