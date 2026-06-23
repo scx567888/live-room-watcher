@@ -9,7 +9,7 @@ import "douyin_hack/webcast/im/Common.proto";
 
 // 更新时间 : 2026-06-23
 message ControlMessage {
-    Common common = 1;
+    webcast.im.Common common = 1;
     int64 action = 2;
     string tips = 3;
 }

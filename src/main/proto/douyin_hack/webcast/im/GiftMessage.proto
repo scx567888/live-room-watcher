@@ -11,7 +11,7 @@ import "douyin_hack/webcast/im/Common.proto";
 
 // 更新时间 : 2026-06-23
 message GiftMessage {
-    Common common = 1;
+    webcast.im.Common common = 1;
     int64 gift_id = 2;
     int64 fan_ticket_count = 3;
     int64 group_count = 4;
