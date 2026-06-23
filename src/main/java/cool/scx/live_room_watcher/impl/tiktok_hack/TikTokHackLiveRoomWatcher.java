@@ -2,13 +2,13 @@ package cool.scx.live_room_watcher.impl.tiktok_hack;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import cool.scx.live_room_watcher.AbstractLiveRoomWatcher;
-import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.entity.PushFrameAndResponse;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackChat;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackGift;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackLike;
 import cool.scx.live_room_watcher.impl.tiktok_hack.message.TikTokHackUser;
 import cool.scx.live_room_watcher.impl.tiktok_hack.proto.webcast.im.*;
+import cool.scx.live_room_watcher.impl.tiktok_hack.util.Browser;
 import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;

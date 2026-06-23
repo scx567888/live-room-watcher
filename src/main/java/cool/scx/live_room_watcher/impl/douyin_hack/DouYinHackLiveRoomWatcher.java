@@ -37,21 +37,22 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final String liveRoomURI;
     private final Browser browser;
     private final Map<String, Function1Void<byte[], ?>> handlerMap;
+
     private ScxEventWebSocket webSocket;
     private ScheduleHandle ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
 
-    public DouYinHackLiveRoomWatcher(String uri) {
-        this(uri, null);
+    public DouYinHackLiveRoomWatcher(String liveRoomURI) {
+        this(liveRoomURI, null);
     }
 
-    public DouYinHackLiveRoomWatcher(String uri, Proxy proxy) {
-        this.liveRoomURI = initLiveRoomURI(uri);
+    public DouYinHackLiveRoomWatcher(String liveRoomURI, Proxy proxy) {
+        this.liveRoomURI = liveRoomURI;
         this.browser = new Browser(proxy).addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
     }
 
-    public Map<String, Function1Void<byte[], ?>> initHandlerMap() {
+    private Map<String, Function1Void<byte[], ?>> initHandlerMap() {
         var map = new HashMap<String, Function1Void<byte[], ?>>();
         map.put("WebcastSocialMessage", this::WebcastSocialMessage);
         map.put("WebcastChatMessage", this::WebcastChatMessage);
@@ -64,7 +65,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("WebcastInRoomBannerMessage", this::WebcastInRoomBannerMessage);
         return map;
     }
-
 
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
         //模拟浏览器发送请求

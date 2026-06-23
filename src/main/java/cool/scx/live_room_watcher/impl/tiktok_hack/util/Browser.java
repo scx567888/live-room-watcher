@@ -1,4 +1,4 @@
-package cool.scx.live_room_watcher.impl.douyin_hack.util;
+package cool.scx.live_room_watcher.impl.tiktok_hack.util;
 
 
 import dev.scx.http.ScxHttpClientRequest;
@@ -14,9 +14,9 @@ import dev.scx.websocket.x.WebSocketOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.Navigator.navigator;
+import static cool.scx.live_room_watcher.impl.tiktok_hack.util.Navigator.navigator;
 
-/// 模拟浏览器的 HttpClient 和 WebSocketClient
+/// 模拟浏览器的 HttpClient
 public final class Browser {
 
     private final Map<String, Cookie> cookieMap = new HashMap<>();

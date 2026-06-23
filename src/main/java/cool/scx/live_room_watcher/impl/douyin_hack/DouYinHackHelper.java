@@ -77,19 +77,6 @@ public final class DouYinHackHelper {
         }
     }
 
-    /**
-     * 标准化 直播间 URI
-     *
-     * @param uri a {@link java.lang.String} object
-     * @return a {@link java.lang.String} object
-     */
-    public static String initLiveRoomURI(String uri) {
-        var liveRoomURI = ScxURI.of(uri).clearQuery();
-        //检查是否为抖音直播间地址
-        //清理掉所有的多余路径
-        return liveRoomURI.toString();
-    }
-
 
 
     /**
