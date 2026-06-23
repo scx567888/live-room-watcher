@@ -7,14 +7,14 @@ import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import java.util.ArrayList;
 import java.util.List;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.parseBody;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.parseDouYinAPPByHtml;
 
 public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
 
     private final DouYinAPP douYinApp;
 
-    public DouYinHackLiveRoomInfo(String indexHtmlStr) {
-        this.douYinApp = parseBody(indexHtmlStr);
+    public DouYinHackLiveRoomInfo(DouYinAPP douYinApp) {
+        this.douYinApp = douYinApp;
     }
 
     @Override
@@ -47,7 +47,6 @@ public class DouYinHackLiveRoomInfo implements LiveRoomInfo, LiveRoomAnchor {
     public LiveRoomAnchor anchor() {
         return this;
     }
-
 
     @Override
     public String nickname() {

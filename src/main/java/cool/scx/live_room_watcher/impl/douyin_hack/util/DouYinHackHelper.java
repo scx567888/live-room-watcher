@@ -5,6 +5,8 @@ import com.microsoft.playwright.Playwright;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
 import dev.scx.http.headers.cookie.Cookie;
 import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Engine;
+import org.graalvm.polyglot.HostAccess;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,19 +15,15 @@ import org.jsoup.select.Elements;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.ENGINE;
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.GraalvmJSHelper.HOST_ACCESS;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 
 public final class DouYinHackHelper {
 
-    /**
-     * 从 body 中解析出 liveRoomInfo
-     *
-     * @param htmlStr a
-     * @return a
-     */
-    public static DouYinAPP parseBody(String htmlStr) {
+    public static final Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
+    public static final HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+
+    /// 从 body 中解析出 DouYinAPP
+    public static DouYinAPP parseDouYinAPPByHtml(String htmlStr) {
         Context context = Context.newBuilder().allowHostAccess(HOST_ACCESS).engine(ENGINE).build();
         try (context) {
             Document parse = Jsoup.parse(htmlStr);
@@ -67,12 +65,7 @@ public final class DouYinHackHelper {
         }
     }
 
-    /**
-     * 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
-     *
-     * @param path d
-     * @return d
-     */
+    /// 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
     public static WebSocketOptions getWebSocketOptions(String path) {
         var future = new CompletableFuture<WebSocketOptions>();
         try (var playwright = Playwright.create();

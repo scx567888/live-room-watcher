@@ -22,8 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.WebSocketOptions;
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.getWebSocketOptions;
+import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.*;
 import static dev.scx.http.method.HttpMethod.GET;
 
 /// 利用模拟网页 websocket 的方式获取直播间信息
@@ -144,7 +143,12 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             .method(GET)
             .uri(liveRoomURI)
             .send();
-        return new DouYinHackLiveRoomInfo(response.asString());
+        // 获取页面
+        var indexHtmlStr = response.asString();
+        // 从中解析出 douYinAPP
+        var douYinAPP = parseDouYinAPPByHtml(indexHtmlStr);
+        // 创建 DouYinHackLiveRoomInfo
+        return new DouYinHackLiveRoomInfo(douYinAPP);
     }
 
     /// 启用 发送心跳包 调度
