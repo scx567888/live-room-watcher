@@ -12,9 +12,12 @@ import dev.scx.function.Function1Void;
 import dev.scx.http.ScxHttpClientResponse;
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.x.proxy.Proxy;
+import dev.scx.scheduling.ScheduleHandle;
+import dev.scx.scheduling.ScxScheduling;
 import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +38,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private final Browser browser;
     private final Map<String, Function1Void<byte[], ?>> handlerMap;
     private ScxEventWebSocket webSocket;
-    private Thread ping;
+    private ScheduleHandle ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
 
     public DouYinHackLiveRoomWatcher(String uri) {
@@ -62,30 +65,24 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         return map;
     }
 
-    /**
-     * 发送心跳包
-     *
-     * @param ws a
-     */
+    /// 启用 发送心跳包 调度
     private void startPing(ScxEventWebSocket ws) {
-        //终止上一次的 ping 线程
+        // 终止上一次的 调度
         if (ping != null) {
-            ping.interrupt();
+            ping.cancel();
         }
-        ping = new Thread(() -> {
-            while (true) {
-                var ping = PushFrame.newBuilder()
-                    .setPayloadType("hb")
-                    .build().toByteArray();
-                ws.send(ping);
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    break;
-                }
-            }
-        });
-        ping.start();
+
+        // 构建 ping 响应体
+        var pingBytes = PushFrame.newBuilder()
+            .setPayloadType("hb")
+            .build().toByteArray();
+
+        // 10 秒发送一次
+        this.ping = ScxScheduling.fixedDelay()
+            .interval(Duration.ofSeconds(10))
+            .start((c) -> {
+                ws.send(pingBytes);
+            });
     }
 
     private ScxHttpClientResponse getIndexHtml(String liveRoomURI) throws IOException, InterruptedException {
@@ -151,7 +148,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     public void stopWatch() {
-        //尝试关闭上一次的 webSocket 连接
+        // 尝试关闭上一次的 webSocket 连接
         if (webSocket != null) {
             //清空异常处理器 防止重连
             webSocket.onError(e -> {
@@ -161,7 +158,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             webSocket = null;
         }
         if (ping != null) {
-            ping.interrupt();
+            ping.cancel();
         }
     }
 
