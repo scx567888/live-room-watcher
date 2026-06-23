@@ -10,7 +10,7 @@ import "douyin_hack/webcast/data/Text.proto";
 
 // 更新时间 : 2026-06-23
 message GiftStruct {
-    Image image = 1;
+    webcast.data.Image image = 1;
     string describe = 2;
     bool notify = 3;
     int64 duration = 4;
@@ -24,13 +24,13 @@ message GiftStruct {
     int32 diamond_count = 12;
     bool is_displayed_on_panel = 13;
     int64 primary_effect_id = 14;
-    Image gift_label_icon = 15;
+    webcast.data.Image gift_label_icon = 15;
     string name = 16;
     string region = 17;
     string manual = 18;
     bool for_custom = 19;
     map<string, int64> special_effects = 20;
-    Image icon = 21;
+    webcast.data.Image icon = 21;
     int32 action_type = 22;
     int32 watermelon_seeds = 23;
     string gold_effect = 24;
@@ -56,11 +56,11 @@ message GiftStruct {
     repeated string trigger_words = 44;
     repeated bytes gift_buff_infos = 45;
     bool for_first_recharge = 46;
-    Image dynamic_img_for_selected = 47;
+    webcast.data.Image dynamic_img_for_selected = 47;
     int32 after_send_action = 48;
     int64 gift_offline_time = 49;
     string top_bar_text = 50;
-    Image top_right_avatar = 51;
+    webcast.data.Image top_right_avatar = 51;
     string banner_scheme_url = 52;
     bool is_locked = 53;
     int64 req_extra_type = 54;
@@ -69,7 +69,7 @@ message GiftStruct {
     bytes gift_tip = 57;
     int32 need_sweep_light_count = 58;
     repeated bytes group_info = 59;
-    Text bottom_text = 60;
+    webcast.data.Text bottom_text = 60;
     int32 mystery_shop_status = 61;
     repeated int64 optional_asset_ids = 62;
     bool disable_wish_list = 63;
@@ -83,10 +83,10 @@ message GiftStruct {
     bytes gift_confirm_info = 71;
     int32 biz_type = 72;
     bytes biz_item = 73;
-    Image webp_image = 74;
+    webcast.data.Image webp_image = 74;
     int32 gift_source = 75;
     repeated int64 required_assets = 76;
-    Image selected_label = 77;
+    webcast.data.Image selected_label = 77;
     int64 sort_score = 78;
     int64 topic_id = 79;
     string sort_extra = 80;
