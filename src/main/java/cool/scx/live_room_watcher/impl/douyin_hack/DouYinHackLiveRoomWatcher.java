@@ -10,6 +10,7 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.function.Function1Void;
 import dev.scx.http.headers.cookie.Cookie;
+import dev.scx.http.headers.cookie.Cookies;
 import dev.scx.http.x.proxy.Proxy;
 import dev.scx.io.ScxIO;
 import dev.scx.scheduling.ScheduleHandle;
@@ -38,6 +39,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private ScxEventWebSocket webSocket;
     private ScheduleHandle ping;
     private DouYinHackLiveRoomInfo liveRoomInfo;
+    private Cookies cookies;
 
     public DouYinHackLiveRoomWatcher(String liveRoomURI) {
         this(liveRoomURI, null);
@@ -47,6 +49,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         this.liveRoomURI = liveRoomURI;
         this.browser = new Browser(proxy).addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
+        this.cookies = Cookies.of();
     }
 
     private Map<String, Function1Void<byte[], ?>> initHandlerMap() {
@@ -91,7 +94,10 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         ScxWebSocket ws;
         try {
             System.out.println("连接 websocket 中...");
-            ws = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri()).addCookie(webSocketOptions.cookie()).upgrade();
+            var handshakeRequest = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri());
+            // 这里设置 cookie 否则拿不到 礼物消息
+            handshakeRequest.cookies(cookies);
+            ws = handshakeRequest.upgrade();
             System.out.println("连接 websocket 成功 !!!");
         } catch (Exception e) {
             throw new RuntimeException("连接 websocket 错误 !!!", e);
@@ -121,6 +127,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         });
         // 开启 websocket 处理
         webSocket.start();
+    }
+
+    public DouYinHackLiveRoomWatcher webSocketCookies(String cookieStr) {
+        cookies = Cookies.parse(cookieStr);
+        return this;
     }
 
     /// 终止监听
@@ -158,15 +169,15 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             ping.cancel();
         }
 
+        // 构建 ping 响应体
+        var pingBytes = PushFrame.newBuilder()
+            .setPayloadType("hb")
+            .build().toByteArray();
+
         // 10 秒发送一次
         this.ping = ScxScheduling.fixedDelay()
             .interval(Duration.ofSeconds(10))
             .start((c) -> {
-                // 构建 ping 响应体
-                var pingBytes = PushFrame.newBuilder()
-                    .setPayloadType("hb")
-                    .build().toByteArray();
-                // 这里 ws 底层 因为会 直接修改 pingBytes 这里每次都重新创建 一个 pingBytes
                 ws.send(pingBytes);
             });
     }
