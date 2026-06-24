@@ -182,7 +182,7 @@
     </build>
 
     <properties>
-        <scx-websocket-x.version>0.3.0</scx-websocket-x.version>
+        <scx-websocket-x.version>0.4.0</scx-websocket-x.version>
         <scx-serialize.version>0.4.0</scx-serialize.version>
         <scx-ansi.version>0.3.0</scx-ansi.version>
         <scx-logging.version>0.0.1</scx-logging.version>
