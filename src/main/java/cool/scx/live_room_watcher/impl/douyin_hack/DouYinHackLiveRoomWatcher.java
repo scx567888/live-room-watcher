@@ -158,15 +158,15 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             ping.cancel();
         }
 
+        // 构建 ping 响应体
+        var pingBytes = PushFrame.newBuilder()
+            .setPayloadType("hb")
+            .build().toByteArray();
+
         // 10 秒发送一次
         this.ping = ScxScheduling.fixedDelay()
             .interval(Duration.ofSeconds(10))
             .start((c) -> {
-                // 构建 ping 响应体
-                var pingBytes = PushFrame.newBuilder()
-                    .setPayloadType("hb")
-                    .build().toByteArray();
-                // 这里 ws 底层 因为会 直接修改 pingBytes 这里每次都重新创建 一个 pingBytes
                 ws.send(pingBytes);
             });
     }
