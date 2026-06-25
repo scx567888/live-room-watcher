@@ -6,9 +6,6 @@ import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.headers.cookie.Cookies;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
 public final class PlaywrightDouYinHackWebSocketOptionsProvider implements DouYinHackWebSocketOptionsProvider {
 
     private final String liveRoomURI;
@@ -26,30 +23,19 @@ public final class PlaywrightDouYinHackWebSocketOptionsProvider implements DouYi
 
     /// 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
     public static DouYinHackWebSocketOptions getWebSocketOptions(String path) {
-        var future = new CompletableFuture<DouYinHackWebSocketOptions>();
-        try (var playwright = Playwright.create();
-             var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
-             var context = browser.newContext();
-             var page = context.newPage()) {
-            page.onWebSocket(c -> {
-                var url = c.url();
-                var cookies = Cookies.of();
-                for (var cookie : context.cookies()) {
-                    cookies.add(Cookie.of(cookie.name, cookie.value));
-                }
-                var webSocketOptions = new DouYinHackWebSocketOptions(url, cookies);
-                future.complete(webSocketOptions);
-
-            });
-            page.navigate(path);
-            page.waitForWebSocket(() -> {
-                // 什么也不做
-            });
-        }
-        try {
-            return future.get();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
+        try (
+            var playwright = Playwright.create();
+            var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
+            var context = browser.newContext();
+            var page = context.newPage()
+        ) {
+            var webSocket = page.waitForWebSocket(() -> page.navigate(path));
+            var url = webSocket.url();
+            var cookies = Cookies.of();
+            for (var cookie : context.cookies()) {
+                cookies.add(Cookie.of(cookie.name, cookie.value));
+            }
+            return new DouYinHackWebSocketOptions(url, cookies);
         }
     }
 
