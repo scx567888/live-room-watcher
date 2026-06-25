@@ -58,6 +58,14 @@ async function getCurrentWebSockets(tabId) {
             }
         );
 
+        if (prototypeResponse.exceptionDetails) {
+            throw new Error(
+                prototypeResponse.exceptionDetails.exception?.description ||
+                prototypeResponse.exceptionDetails.text ||
+                "无法获取 WebSocket.prototype"
+            );
+        }
+
         const prototypeObjectId = prototypeResponse.result?.objectId;
 
         if (!prototypeObjectId) {
@@ -98,6 +106,14 @@ async function getCurrentWebSockets(tabId) {
                 silent: true
             }
         );
+
+        if (resultResponse.exceptionDetails) {
+            throw new Error(
+                resultResponse.exceptionDetails.exception?.description ||
+                resultResponse.exceptionDetails.text ||
+                "读取 WebSocket 信息失败"
+            );
+        }
 
         const value = resultResponse.result?.value;
 
