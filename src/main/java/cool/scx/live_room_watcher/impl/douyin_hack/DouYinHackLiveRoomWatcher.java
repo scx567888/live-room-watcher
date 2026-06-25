@@ -10,7 +10,6 @@ import cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im.*;
 import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.function.Function1Void;
 import dev.scx.http.headers.cookie.Cookie;
-import dev.scx.http.headers.cookie.Cookies;
 import dev.scx.http.x.proxy.Proxy;
 import dev.scx.io.ScxIO;
 import dev.scx.scheduling.ScheduleHandle;
@@ -20,11 +19,7 @@ import dev.scx.websocket.event.ScxEventWebSocket;
 
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static cool.scx.live_room_watcher.impl.douyin_hack.util.DouYinHackHelper.*;
-import static dev.scx.http.method.HttpMethod.GET;
 
 /// 利用模拟网页 websocket 的方式获取直播间信息
 ///
@@ -32,24 +27,21 @@ import static dev.scx.http.method.HttpMethod.GET;
 /// @version 0.0.1
 public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
-    private final String liveRoomURI;
+    private final DouYinHackWebSocketOptionsProvider webSocketOptionsProvider;
     private final Browser browser;
     private final Map<String, Function1Void<byte[], ?>> handlerMap;
 
     private ScxEventWebSocket webSocket;
     private ScheduleHandle ping;
-    private DouYinHackLiveRoomInfo liveRoomInfo;
-    private Cookies cookies;
 
-    public DouYinHackLiveRoomWatcher(String liveRoomURI) {
-        this(liveRoomURI, null);
+    public DouYinHackLiveRoomWatcher(DouYinHackWebSocketOptionsProvider webSocketOptionsProvider) {
+        this(webSocketOptionsProvider, null);
     }
 
-    public DouYinHackLiveRoomWatcher(String liveRoomURI, Proxy proxy) {
-        this.liveRoomURI = liveRoomURI;
+    public DouYinHackLiveRoomWatcher(DouYinHackWebSocketOptionsProvider webSocketOptionsProvider, Proxy proxy) {
+        this.webSocketOptionsProvider = webSocketOptionsProvider;
         this.browser = new Browser(proxy).addCookie(Cookie.of("__ac_nonce", "063b51155007d27728929"));
         this.handlerMap = initHandlerMap();
-        this.cookies = Cookies.of();
     }
 
     private Map<String, Function1Void<byte[], ?>> initHandlerMap() {
@@ -71,20 +63,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         // 终止上一次的监听
         stopWatch();
 
-        // 解析直播间信息
-        try {
-            System.out.println("解析 直播间 中...");
-            this.liveRoomInfo = initLiveRoomInfo();
-            System.out.println("解析 直播间 完成 -> " + this.liveRoomInfo.title() + " (ID : " + this.liveRoomInfo.roomID() + ")");
-        } catch (Exception e) {
-            throw new RuntimeException("解析 直播间错误 !!!", e);
-        }
-
         // 解析 websocket
-        WebSocketOptions webSocketOptions;
+        DouYinHackWebSocketOptions webSocketOptions;
         try {
             System.out.println("解析 websocket 地址中...");
-            webSocketOptions = getWebSocketOptions(this.liveRoomURI);
+            webSocketOptions = webSocketOptionsProvider.apply(this.browser);
             System.out.println("解析 websocket 成功 : " + webSocketOptions);
         } catch (Exception e) {
             throw new RuntimeException("解析 websocket 地址错误 !!!", e);
@@ -96,7 +79,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
             System.out.println("连接 websocket 中...");
             var handshakeRequest = browser.webSocketHandshakeRequest().uri(webSocketOptions.uri());
             // 这里设置 cookie 否则拿不到 礼物消息
-            handshakeRequest.cookies(cookies);
+            handshakeRequest.cookies(webSocketOptions.cookies());
             ws = handshakeRequest.upgrade();
             System.out.println("连接 websocket 成功 !!!");
         } catch (Exception e) {
@@ -129,11 +112,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         webSocket.start();
     }
 
-    public DouYinHackLiveRoomWatcher webSocketCookies(String cookieStr) {
-        cookies = Cookies.parse(cookieStr);
-        return this;
-    }
-
     /// 终止监听
     public void stopWatch() {
         // 尝试关闭上一次的 webSocket 连接
@@ -145,21 +123,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         if (ping != null) {
             ping.cancel();
         }
-    }
-
-    /// 根据直播间 uri 解析 直播间的信息
-    private DouYinHackLiveRoomInfo initLiveRoomInfo() {
-        // 模拟浏览器发送请求
-        var response = browser.request()
-            .method(GET)
-            .uri(liveRoomURI)
-            .send();
-        // 获取页面
-        var indexHtmlStr = response.asString();
-        // 从中解析出 douYinAPP
-        var douYinAPP = parseDouYinAPPByHtml(indexHtmlStr);
-        // 创建 DouYinHackLiveRoomInfo
-        return new DouYinHackLiveRoomInfo(douYinAPP);
     }
 
     /// 启用 发送心跳包 调度
@@ -346,21 +309,6 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
 
     private void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
         System.err.println("WebcastInRoomBannerMessage");
-    }
-
-    //***************************** 其余方法 **********************************
-
-    public String ttwid() {
-        var ttwid = browser.getCookie("ttwid");
-        return ttwid != null ? ttwid.value() : null;
-    }
-
-    public DouYinHackLiveRoomInfo liveRoomInfo() {
-        return liveRoomInfo;
-    }
-
-    public List<String> liveRoomWebStreamURLs() {
-        return liveRoomInfo.webStreamURLs();
     }
 
 }

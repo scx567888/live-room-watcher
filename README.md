@@ -53,10 +53,20 @@
 ``` java
 import cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomWatcher;
 
+import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackLiveRoomInfoResolver.resolveLiveRoomInfo;
+import static cool.scx.live_room_watcher.impl.douyin_hack.DouYinHackWebSocketOptionsProvider.ofPlaywright;
+
 public class Main {
 
     public static void main(String[] args) {
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher("https://live.douyin.com/357626301151");
+        var liveRoomURL = "https://live.douyin.com/510200350291";
+        var cookiesStr = "xxxxxx";
+
+        var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL, cookiesStr);
+
+        System.out.println("[直播流地址] " + liveRoomInfo.webStreamURLs());
+
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher(ofPlaywright(liveRoomURL));
 
         liveRoomWatcher.onChat(chat -> {
             System.out.println("[消息] " + chat.user().nickname() + " : " + chat.content());
@@ -71,8 +81,6 @@ public class Main {
         });
 
         liveRoomWatcher.startWatch();
-
-        System.out.println("[直播流地址] " + liveRoomWatcher.liveRoomWebStreamURLs());
     }
 
 }

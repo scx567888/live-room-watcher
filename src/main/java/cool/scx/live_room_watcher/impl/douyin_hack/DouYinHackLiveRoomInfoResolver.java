@@ -1,9 +1,7 @@
-package cool.scx.live_room_watcher.impl.douyin_hack.util;
+package cool.scx.live_room_watcher.impl.douyin_hack;
 
-import com.microsoft.playwright.BrowserType.LaunchOptions;
-import com.microsoft.playwright.Playwright;
 import cool.scx.live_room_watcher.impl.douyin_hack.entity.DouYinAPP;
-import dev.scx.http.headers.cookie.Cookie;
+import cool.scx.live_room_watcher.impl.douyin_hack.util.Browser;
 import dev.scx.node.ArrayNode;
 import dev.scx.node.StringNode;
 import org.graalvm.polyglot.Context;
@@ -11,20 +9,18 @@ import org.graalvm.polyglot.Engine;
 import org.graalvm.polyglot.HostAccess;
 import org.jsoup.Jsoup;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
+import static dev.scx.http.method.HttpMethod.GET;
 import static dev.scx.serialize.ScxSerialize.fromJson;
 import static dev.scx.serialize.ScxSerialize.nodeToObject;
 
-public final class DouYinHackHelper {
+public final class DouYinHackLiveRoomInfoResolver {
 
-    public static final Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
-    public static final HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+    private static final Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
+    private static final HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+    private static final Browser DEFAULT_BROWSER = new Browser(null);
 
     /// 从 body 中解析出 DouYinAPP
-    public static DouYinAPP parseDouYinAPPByHtml(String htmlStr) {
-        System.out.println();
+    private static DouYinAPP parseDouYinAPPByHtml(String htmlStr) {
         var context = Context.newBuilder().allowHostAccess(HOST_ACCESS).engine(ENGINE).build();
         try (context) {
             var parse = Jsoup.parse(htmlStr);
@@ -61,33 +57,23 @@ public final class DouYinHackHelper {
         }
     }
 
-    /// 这里用 Playwright 来处理 获取 websocket 的问题 (todo 有点重)
-    public static WebSocketOptions getWebSocketOptions(String path) {
-        var future = new CompletableFuture<WebSocketOptions>();
-        try (var playwright = Playwright.create();
-             var browser = playwright.chromium().launch(new LaunchOptions().setHeadless(false));
-             var context = browser.newContext();
-             var page = context.newPage()) {
-            page.onWebSocket(c -> {
-
-                var webSocketOptions = new WebSocketOptions(c.url(), context.cookies().stream().map(cookie -> Cookie.of(cookie.name, cookie.value)).toArray(Cookie[]::new));
-                future.complete(webSocketOptions);
-
-            });
-            page.navigate(path);
-            page.waitForWebSocket(() -> {
-                // 什么也不做
-            });
-        }
-        try {
-            return future.get();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
-        }
+    /// 根据直播间 uri 解析 直播间的信息
+    public static DouYinHackLiveRoomInfo resolveLiveRoomInfo(String liveRoomURI, Browser browser) {
+        // 模拟浏览器发送请求
+        var response = browser.request()
+            .method(GET)
+            .uri(liveRoomURI)
+            .send();
+        // 获取页面
+        var indexHtmlStr = response.asString();
+        // 从中解析出 douYinAPP
+        var douYinAPP = parseDouYinAPPByHtml(indexHtmlStr);
+        // 创建 DouYinHackLiveRoomInfo
+        return new DouYinHackLiveRoomInfo(douYinAPP);
     }
 
-    public record WebSocketOptions(String uri, Cookie... cookie) {
-
+    public static DouYinHackLiveRoomInfo resolveLiveRoomInfo(String liveRoomURI) {
+        return resolveLiveRoomInfo(liveRoomURI, DEFAULT_BROWSER);
     }
 
 }
