@@ -90,4 +90,8 @@ public class Main {
 }
 ```
 
+## 关于 Cookies 和 WebSocket 地址的获取
+
+> 这里提供一个小 Chrome 插件 "chrome-extension"
+
 ### 由于第三方的系统总是在不断的更新升级 如果功能失效请提 issues 并详细说明情况 .
