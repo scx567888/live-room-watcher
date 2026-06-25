@@ -60,8 +60,9 @@ public class Main {
 
     public static void main(String[] args) {
         var liveRoomURL = "https://live.douyin.com/510200350291";
+        var cookiesStr = "xxxxxx";
 
-        var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL);
+        var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL, cookiesStr);
 
         System.out.println("[直播流地址] " + liveRoomInfo.webStreamURLs());
 
