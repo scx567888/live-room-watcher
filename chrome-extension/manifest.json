@@ -1,18 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "live-room-watcher-extension",
-    "version": "0.0.1",
-    "description": "live-room-watcher-extension",
-    "permissions": [
-        "cookies",
-        "debugger",
-        "activeTab"
-    ],
-    "host_permissions": [
-        "*://*.douyin.com/*"
-    ],
-    "action": {
-        "default_title": "查看 Cookie 和 WebSocket",
-        "default_popup": "popup.html"
-    }
+  "manifest_version": 3,
+  "name": "live-room-watcher-extension",
+  "version": "0.0.1",
+  "description": "live-room-watcher-extension",
+  "permissions": [
+    "cookies",
+    "debugger",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.douyin.com/*"
+  ],
+  "action": {
+    "default_title": "查看 Cookie 和 WebSocket",
+    "default_popup": "popup.html"
+  }
 }
