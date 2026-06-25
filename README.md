@@ -62,11 +62,11 @@ public class Main {
         var liveRoomURL = "https://live.douyin.com/510200350291";
         var cookiesStr = "xxxxxx";
 
-        var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL, cookiesStr);
+        var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL);
 
         System.out.println("[直播流地址] " + liveRoomInfo.webStreamURLs());
 
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher(ofPlaywright(liveRoomURL));
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher(ofPlaywright(liveRoomURL, cookiesStr));
 
         liveRoomWatcher.onChat(chat -> {
             System.out.println("[消息] " + chat.user().nickname() + " : " + chat.content());
