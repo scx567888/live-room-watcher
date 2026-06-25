@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>live-room-watcher-extension</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 620px;
+            min-height: 300px;
+            margin: 0;
+            padding: 16px;
+            font-size: 14px;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: 18px;
+        }
+
+        section {
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-weight: 600;
+        }
+
+        button {
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+
+        pre {
+            min-height: 36px;
+            max-height: 220px;
+            margin: 0;
+            padding: 10px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #f7f7f7;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            word-break: break-all;
+            font-family: Consolas, monospace;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        #status {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .error {
+            color: #b00020 !important;
+        }
+
+        .success {
+            color: #137333 !important;
+        }
+    </style>
+</head>
+
+<body>
+<h1>DouYin 页面信息</h1>
+
+<div id="status">正在读取……</div>
+
+<section>
+    <div class="section-header">
+        <span class="section-title">当前页面地址</span>
+    </div>
+
+    <pre id="page-url">读取中……</pre>
+</section>
+
+<section>
+    <div class="section-header">
+        <span class="section-title" id="cookie-title">Cookie</span>
+        <button id="copy-cookie" type="button">复制 Cookie</button>
+    </div>
+
+    <pre id="cookie-output">读取中……</pre>
+</section>
+
+<section>
+    <div class="section-header">
+        <span class="section-title" id="ws-title">WebSocket</span>
+        <button id="copy-websockets" type="button">复制 WebSocket 地址</button>
+    </div>
+
+    <pre id="ws-output">读取中……</pre>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

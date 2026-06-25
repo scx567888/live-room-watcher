@@ -62,7 +62,11 @@ public class Main {
         var liveRoomURL = "https://live.douyin.com/510200350291";
         var cookiesStr = "xxxxxx";
 
+        System.out.println("解析 直播间 中...");
+
         var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL);
+
+        System.out.println("解析 直播间 完成 -> " + liveRoomInfo.title() + " (ID : " + liveRoomInfo.roomID() + ")");
 
         System.out.println("[直播流地址] " + liveRoomInfo.webStreamURLs());
 
@@ -84,6 +88,23 @@ public class Main {
     }
 
 }
+```
+
+## 关于 Cookies 和 WebSocket 地址的获取
+
+> 这里提供一个小 Chrome 插件 "chrome-extension"
+
+### chrome-extension 使用方法
+
+```
+1, 安装到 Chrome 浏览器中 (相同内核都可以)
+2, 打开一个抖音 直播间
+3, 打开插件 复制 Cookie 字符串 和 WebSocket (最长的那个)
+4, 使用 DouYinHackLiveRoomWatcher 监听 这里有两种方式
+4.1, 如果使用 ofPlaywright(), 只需要 直播间页面地址 + cookie 就可以
+4.2, 如果使用 ofWebSocketURL(), 需要 刚刚复制的 WebSocket 地址 + cookie
+
+如果连接失败, 建议重试几次 
 ```
 
 ### 由于第三方的系统总是在不断的更新升级 如果功能失效请提 issues 并详细说明情况 .
