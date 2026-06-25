@@ -25,12 +25,13 @@ public class DouYinHackLiveRoomWatcherTest {
     // @Test
     public static void test1() {
         var liveRoomURL = "https://live.douyin.com/510200350291";
+        var cookiesStr = "xxxxxxxx";
 
         var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL);
 
         Ansi.ansi().green("[直播流地址] ").defaultColor(liveRoomInfo.webStreamURLs()).println();
 
-        var liveRoomWatcher = new DouYinHackLiveRoomWatcher(ofPlaywright(liveRoomURL));
+        var liveRoomWatcher = new DouYinHackLiveRoomWatcher(ofPlaywright(liveRoomURL, cookiesStr));
 
         liveRoomWatcher.onChat(chat -> {
             Ansi.ansi().brightGreen(nowTimeStr() + "[消息] ").defaultColor(chat.user().nickname() + " : ").brightWhite(chat.content()).println();
