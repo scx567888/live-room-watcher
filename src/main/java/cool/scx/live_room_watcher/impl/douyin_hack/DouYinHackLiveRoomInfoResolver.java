@@ -15,11 +15,12 @@ import static dev.scx.serialize.ScxSerialize.nodeToObject;
 
 public final class DouYinHackLiveRoomInfoResolver {
 
-    public static final Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
-    public static final HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+    private static final Engine ENGINE = Engine.newBuilder().option("engine.WarnInterpreterOnly", "false").build();
+    private static final HostAccess HOST_ACCESS = HostAccess.newBuilder(HostAccess.EXPLICIT).allowListAccess(true).build();
+    private static final Browser DEFAULT_BROWSER = new Browser(null);
 
     /// 从 body 中解析出 DouYinAPP
-    public static DouYinAPP parseDouYinAPPByHtml(String htmlStr) {
+    private static DouYinAPP parseDouYinAPPByHtml(String htmlStr) {
         var context = Context.newBuilder().allowHostAccess(HOST_ACCESS).engine(ENGINE).build();
         try (context) {
             var parse = Jsoup.parse(htmlStr);
@@ -57,7 +58,7 @@ public final class DouYinHackLiveRoomInfoResolver {
     }
 
     /// 根据直播间 uri 解析 直播间的信息
-    private static DouYinHackLiveRoomInfo resolveLiveRoomInfo(String liveRoomURI, Browser browser) {
+    public static DouYinHackLiveRoomInfo resolveLiveRoomInfo(String liveRoomURI, Browser browser) {
         // 模拟浏览器发送请求
         var response = browser.request()
             .method(GET)
@@ -69,6 +70,10 @@ public final class DouYinHackLiveRoomInfoResolver {
         var douYinAPP = parseDouYinAPPByHtml(indexHtmlStr);
         // 创建 DouYinHackLiveRoomInfo
         return new DouYinHackLiveRoomInfo(douYinAPP);
+    }
+
+    public static DouYinHackLiveRoomInfo resolveLiveRoomInfo(String liveRoomURI) {
+        return resolveLiveRoomInfo(liveRoomURI, DEFAULT_BROWSER);
     }
 
 }
