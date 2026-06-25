@@ -61,8 +61,12 @@ public class Main {
     public static void main(String[] args) {
         var liveRoomURL = "https://live.douyin.com/510200350291";
         var cookiesStr = "xxxxxx";
+        
+        System.out.println("解析 直播间 中...");
 
         var liveRoomInfo = resolveLiveRoomInfo(liveRoomURL);
+        
+        System.out.println("解析 直播间 完成 -> " + liveRoomInfo.title() + " (ID : " + liveRoomInfo.roomID() + ")");
 
         System.out.println("[直播流地址] " + liveRoomInfo.webStreamURLs());
 
