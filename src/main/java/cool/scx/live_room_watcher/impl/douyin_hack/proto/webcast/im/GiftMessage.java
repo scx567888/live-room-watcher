@@ -7,7 +7,7 @@ package cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im;
 
 /**
  * <pre>
- * 更新时间 : 2026-06-23
+ * 更新时间 : 2026-06-29
  * </pre>
  *
  * Protobuf type {@code webcast.im.GiftMessage}
@@ -32,6 +32,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GiftMessage() {
+    logId_ = "";
+    traceId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -181,6 +183,28 @@ private static final long serialVersionUID = 0L;
     return toUser_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.User.getDefaultInstance() : toUser_;
   }
 
+  public static final int REPEAT_END_FIELD_NUMBER = 9;
+  private int repeatEnd_ = 0;
+  /**
+   * <code>int32 repeat_end = 9;</code>
+   * @return The repeatEnd.
+   */
+  @java.lang.Override
+  public int getRepeatEnd() {
+    return repeatEnd_;
+  }
+
+  public static final int GROUP_ID_FIELD_NUMBER = 11;
+  private long groupId_ = 0L;
+  /**
+   * <code>int64 group_id = 11;</code>
+   * @return The groupId.
+   */
+  @java.lang.Override
+  public long getGroupId() {
+    return groupId_;
+  }
+
   public static final int GIFT_FIELD_NUMBER = 15;
   private cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct gift_;
   /**
@@ -207,6 +231,56 @@ private static final long serialVersionUID = 0L;
     return gift_ == null ? cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct.getDefaultInstance() : gift_;
   }
 
+  public static final int LOG_ID_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object logId_ = "";
+  /**
+   * <code>string log_id = 16;</code>
+   * @return The logId.
+   */
+  @java.lang.Override
+  public java.lang.String getLogId() {
+    java.lang.Object ref = logId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      logId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string log_id = 16;</code>
+   * @return The bytes for logId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLogIdBytes() {
+    java.lang.Object ref = logId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      logId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SEND_TYPE_FIELD_NUMBER = 17;
+  private long sendType_ = 0L;
+  /**
+   * <code>int64 send_type = 17;</code>
+   * @return The sendType.
+   */
+  @java.lang.Override
+  public long getSendType() {
+    return sendType_;
+  }
+
   public static final int TOTAL_COUNT_FIELD_NUMBER = 29;
   private long totalCount_ = 0L;
   /**
@@ -216,6 +290,56 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getTotalCount() {
     return totalCount_;
+  }
+
+  public static final int SEND_TIME_FIELD_NUMBER = 33;
+  private long sendTime_ = 0L;
+  /**
+   * <code>int64 send_time = 33;</code>
+   * @return The sendTime.
+   */
+  @java.lang.Override
+  public long getSendTime() {
+    return sendTime_;
+  }
+
+  public static final int TRACE_ID_FIELD_NUMBER = 35;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object traceId_ = "";
+  /**
+   * <code>string trace_id = 35;</code>
+   * @return The traceId.
+   */
+  @java.lang.Override
+  public java.lang.String getTraceId() {
+    java.lang.Object ref = traceId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      traceId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string trace_id = 35;</code>
+   * @return The bytes for traceId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTraceIdBytes() {
+    java.lang.Object ref = traceId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      traceId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int COUNT_FIELD_NUMBER = 44;
@@ -267,11 +391,29 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(8, getToUser());
     }
+    if (repeatEnd_ != 0) {
+      output.writeInt32(9, repeatEnd_);
+    }
+    if (groupId_ != 0L) {
+      output.writeInt64(11, groupId_);
+    }
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeMessage(15, getGift());
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(logId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 16, logId_);
+    }
+    if (sendType_ != 0L) {
+      output.writeInt64(17, sendType_);
+    }
     if (totalCount_ != 0L) {
       output.writeInt64(29, totalCount_);
+    }
+    if (sendTime_ != 0L) {
+      output.writeInt64(33, sendTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(traceId_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 35, traceId_);
     }
     if (count_ != 0L) {
       output.writeInt64(44, count_);
@@ -317,13 +459,35 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getToUser());
     }
+    if (repeatEnd_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(9, repeatEnd_);
+    }
+    if (groupId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(11, groupId_);
+    }
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getGift());
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(logId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(16, logId_);
+    }
+    if (sendType_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(17, sendType_);
+    }
     if (totalCount_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(29, totalCount_);
+    }
+    if (sendTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(33, sendTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(traceId_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(35, traceId_);
     }
     if (count_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -369,13 +533,25 @@ private static final long serialVersionUID = 0L;
       if (!getToUser()
           .equals(other.getToUser())) return false;
     }
+    if (getRepeatEnd()
+        != other.getRepeatEnd()) return false;
+    if (getGroupId()
+        != other.getGroupId()) return false;
     if (hasGift() != other.hasGift()) return false;
     if (hasGift()) {
       if (!getGift()
           .equals(other.getGift())) return false;
     }
+    if (!getLogId()
+        .equals(other.getLogId())) return false;
+    if (getSendType()
+        != other.getSendType()) return false;
     if (getTotalCount()
         != other.getTotalCount()) return false;
+    if (getSendTime()
+        != other.getSendTime()) return false;
+    if (!getTraceId()
+        .equals(other.getTraceId())) return false;
     if (getCount()
         != other.getCount()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -416,13 +592,28 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TO_USER_FIELD_NUMBER;
       hash = (53 * hash) + getToUser().hashCode();
     }
+    hash = (37 * hash) + REPEAT_END_FIELD_NUMBER;
+    hash = (53 * hash) + getRepeatEnd();
+    hash = (37 * hash) + GROUP_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getGroupId());
     if (hasGift()) {
       hash = (37 * hash) + GIFT_FIELD_NUMBER;
       hash = (53 * hash) + getGift().hashCode();
     }
+    hash = (37 * hash) + LOG_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getLogId().hashCode();
+    hash = (37 * hash) + SEND_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getSendType());
     hash = (37 * hash) + TOTAL_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotalCount());
+    hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getSendTime());
+    hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getTraceId().hashCode();
     hash = (37 * hash) + COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getCount());
@@ -525,7 +716,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 更新时间 : 2026-06-23
+   * 更新时间 : 2026-06-29
    * </pre>
    *
    * Protobuf type {@code webcast.im.GiftMessage}
@@ -590,12 +781,18 @@ private static final long serialVersionUID = 0L;
         toUserBuilder_.dispose();
         toUserBuilder_ = null;
       }
+      repeatEnd_ = 0;
+      groupId_ = 0L;
       gift_ = null;
       if (giftBuilder_ != null) {
         giftBuilder_.dispose();
         giftBuilder_ = null;
       }
+      logId_ = "";
+      sendType_ = 0L;
       totalCount_ = 0L;
+      sendTime_ = 0L;
+      traceId_ = "";
       count_ = 0L;
       return this;
     }
@@ -665,15 +862,33 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.repeatEnd_ = repeatEnd_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.groupId_ = groupId_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
         result.gift_ = giftBuilder_ == null
             ? gift_
             : giftBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.logId_ = logId_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.sendType_ = sendType_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
         result.totalCount_ = totalCount_;
       }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.sendTime_ = sendTime_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.traceId_ = traceId_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
         result.count_ = count_;
       }
       result.bitField0_ |= to_bitField0_;
@@ -715,11 +930,33 @@ private static final long serialVersionUID = 0L;
       if (other.hasToUser()) {
         mergeToUser(other.getToUser());
       }
+      if (other.getRepeatEnd() != 0) {
+        setRepeatEnd(other.getRepeatEnd());
+      }
+      if (other.getGroupId() != 0L) {
+        setGroupId(other.getGroupId());
+      }
       if (other.hasGift()) {
         mergeGift(other.getGift());
       }
+      if (!other.getLogId().isEmpty()) {
+        logId_ = other.logId_;
+        bitField0_ |= 0x00000800;
+        onChanged();
+      }
+      if (other.getSendType() != 0L) {
+        setSendType(other.getSendType());
+      }
       if (other.getTotalCount() != 0L) {
         setTotalCount(other.getTotalCount());
+      }
+      if (other.getSendTime() != 0L) {
+        setSendTime(other.getSendTime());
+      }
+      if (!other.getTraceId().isEmpty()) {
+        traceId_ = other.traceId_;
+        bitField0_ |= 0x00008000;
+        onChanged();
       }
       if (other.getCount() != 0L) {
         setCount(other.getCount());
@@ -796,21 +1033,51 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000080;
               break;
             } // case 66
+            case 72: {
+              repeatEnd_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 88: {
+              groupId_ = input.readInt64();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
             case 122: {
               input.readMessage(
                   internalGetGiftFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000400;
               break;
             } // case 122
+            case 130: {
+              logId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 130
+            case 136: {
+              sendType_ = input.readInt64();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 136
             case 232: {
               totalCount_ = input.readInt64();
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00002000;
               break;
             } // case 232
+            case 264: {
+              sendTime_ = input.readInt64();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 264
+            case 282: {
+              traceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 282
             case 352: {
               count_ = input.readInt64();
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00010000;
               break;
             } // case 352
             default: {
@@ -1353,6 +1620,70 @@ private static final long serialVersionUID = 0L;
       return toUserBuilder_;
     }
 
+    private int repeatEnd_ ;
+    /**
+     * <code>int32 repeat_end = 9;</code>
+     * @return The repeatEnd.
+     */
+    @java.lang.Override
+    public int getRepeatEnd() {
+      return repeatEnd_;
+    }
+    /**
+     * <code>int32 repeat_end = 9;</code>
+     * @param value The repeatEnd to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRepeatEnd(int value) {
+
+      repeatEnd_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 repeat_end = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRepeatEnd() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      repeatEnd_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private long groupId_ ;
+    /**
+     * <code>int64 group_id = 11;</code>
+     * @return The groupId.
+     */
+    @java.lang.Override
+    public long getGroupId() {
+      return groupId_;
+    }
+    /**
+     * <code>int64 group_id = 11;</code>
+     * @param value The groupId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGroupId(long value) {
+
+      groupId_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 group_id = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGroupId() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      groupId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct gift_;
     private com.google.protobuf.SingleFieldBuilder<
         cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct, cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct.Builder, cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStructOrBuilder> giftBuilder_;
@@ -1361,7 +1692,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gift field is set.
      */
     public boolean hasGift() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <code>.webcast.data.GiftStruct gift = 15;</code>
@@ -1386,7 +1717,7 @@ private static final long serialVersionUID = 0L;
       } else {
         giftBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1400,7 +1731,7 @@ private static final long serialVersionUID = 0L;
       } else {
         giftBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1409,7 +1740,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGift(cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct value) {
       if (giftBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
+        if (((bitField0_ & 0x00000400) != 0) &&
           gift_ != null &&
           gift_ != cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct.getDefaultInstance()) {
           getGiftBuilder().mergeFrom(value);
@@ -1420,7 +1751,7 @@ private static final long serialVersionUID = 0L;
         giftBuilder_.mergeFrom(value);
       }
       if (gift_ != null) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       return this;
@@ -1429,7 +1760,7 @@ private static final long serialVersionUID = 0L;
      * <code>.webcast.data.GiftStruct gift = 15;</code>
      */
     public Builder clearGift() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000400);
       gift_ = null;
       if (giftBuilder_ != null) {
         giftBuilder_.dispose();
@@ -1442,7 +1773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.webcast.data.GiftStruct gift = 15;</code>
      */
     public cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStruct.Builder getGiftBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       onChanged();
       return internalGetGiftFieldBuilder().getBuilder();
     }
@@ -1474,6 +1805,110 @@ private static final long serialVersionUID = 0L;
       return giftBuilder_;
     }
 
+    private java.lang.Object logId_ = "";
+    /**
+     * <code>string log_id = 16;</code>
+     * @return The logId.
+     */
+    public java.lang.String getLogId() {
+      java.lang.Object ref = logId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        logId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string log_id = 16;</code>
+     * @return The bytes for logId.
+     */
+    public com.google.protobuf.ByteString
+        getLogIdBytes() {
+      java.lang.Object ref = logId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        logId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string log_id = 16;</code>
+     * @param value The logId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLogId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      logId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string log_id = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLogId() {
+      logId_ = getDefaultInstance().getLogId();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string log_id = 16;</code>
+     * @param value The bytes for logId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLogIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      logId_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private long sendType_ ;
+    /**
+     * <code>int64 send_type = 17;</code>
+     * @return The sendType.
+     */
+    @java.lang.Override
+    public long getSendType() {
+      return sendType_;
+    }
+    /**
+     * <code>int64 send_type = 17;</code>
+     * @param value The sendType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSendType(long value) {
+
+      sendType_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 send_type = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSendType() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      sendType_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long totalCount_ ;
     /**
      * <code>int64 total_count = 29;</code>
@@ -1491,7 +1926,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalCount(long value) {
 
       totalCount_ = value;
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -1500,8 +1935,112 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalCount() {
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00002000);
       totalCount_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long sendTime_ ;
+    /**
+     * <code>int64 send_time = 33;</code>
+     * @return The sendTime.
+     */
+    @java.lang.Override
+    public long getSendTime() {
+      return sendTime_;
+    }
+    /**
+     * <code>int64 send_time = 33;</code>
+     * @param value The sendTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSendTime(long value) {
+
+      sendTime_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 send_time = 33;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSendTime() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      sendTime_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object traceId_ = "";
+    /**
+     * <code>string trace_id = 35;</code>
+     * @return The traceId.
+     */
+    public java.lang.String getTraceId() {
+      java.lang.Object ref = traceId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        traceId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string trace_id = 35;</code>
+     * @return The bytes for traceId.
+     */
+    public com.google.protobuf.ByteString
+        getTraceIdBytes() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        traceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string trace_id = 35;</code>
+     * @param value The traceId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTraceId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      traceId_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string trace_id = 35;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTraceId() {
+      traceId_ = getDefaultInstance().getTraceId();
+      bitField0_ = (bitField0_ & ~0x00008000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string trace_id = 35;</code>
+     * @param value The bytes for traceId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTraceIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      traceId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -1523,7 +2062,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCount(long value) {
 
       count_ = value;
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -1532,7 +2071,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCount() {
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00010000);
       count_ = 0L;
       onChanged();
       return this;

@@ -86,6 +86,18 @@ public interface GiftMessageOrBuilder extends
   cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.UserOrBuilder getToUserOrBuilder();
 
   /**
+   * <code>int32 repeat_end = 9;</code>
+   * @return The repeatEnd.
+   */
+  int getRepeatEnd();
+
+  /**
+   * <code>int64 group_id = 11;</code>
+   * @return The groupId.
+   */
+  long getGroupId();
+
+  /**
    * <code>.webcast.data.GiftStruct gift = 15;</code>
    * @return Whether the gift field is set.
    */
@@ -101,10 +113,46 @@ public interface GiftMessageOrBuilder extends
   cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStructOrBuilder getGiftOrBuilder();
 
   /**
+   * <code>string log_id = 16;</code>
+   * @return The logId.
+   */
+  java.lang.String getLogId();
+  /**
+   * <code>string log_id = 16;</code>
+   * @return The bytes for logId.
+   */
+  com.google.protobuf.ByteString
+      getLogIdBytes();
+
+  /**
+   * <code>int64 send_type = 17;</code>
+   * @return The sendType.
+   */
+  long getSendType();
+
+  /**
    * <code>int64 total_count = 29;</code>
    * @return The totalCount.
    */
   long getTotalCount();
+
+  /**
+   * <code>int64 send_time = 33;</code>
+   * @return The sendTime.
+   */
+  long getSendTime();
+
+  /**
+   * <code>string trace_id = 35;</code>
+   * @return The traceId.
+   */
+  java.lang.String getTraceId();
+  /**
+   * <code>string trace_id = 35;</code>
+   * @return The bytes for traceId.
+   */
+  com.google.protobuf.ByteString
+      getTraceIdBytes();
 
   /**
    * <code>int64 count = 44;</code>

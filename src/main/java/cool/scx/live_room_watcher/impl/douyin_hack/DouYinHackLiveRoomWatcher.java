@@ -264,6 +264,10 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private void WebcastGiftMessage(byte[] payload) throws InvalidProtocolBufferException {
         // 礼物
         var giftMessage = GiftMessage.parseFrom(payload);
+        // todo 需要这个判断吗 ? 重复礼物 ?
+//        if (giftMessage.getRepeatEnd()==1){
+//
+//        }
         // todo 哪个是真正的总数 ???
         // todo 人气 Top 是拿不到 name 的
         var name = giftMessage.getGift().getName();
