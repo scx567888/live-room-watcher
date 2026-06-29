@@ -198,11 +198,17 @@ async function main() {
         try {
             const sockets = await getCurrentWebSockets(tab.id);
 
-            currentWebSocketAddresses = sockets.map(socket => socket.url).join("\n");
+            const result = sockets.find(s => s.url.includes("webcast/im/push"));
 
-            wsTitleElement.textContent = `WebSocket：${sockets.length} 条`;
+            if (result == null) {
+                throw new Error("没找到符合的 WebSocket");
+            }
 
-            wsOutputElement.textContent = sockets.map(socket => socket.url).join("\n\n");
+            currentWebSocketAddresses = result.url;
+
+            wsTitleElement.textContent = `WebSocket：获取成功`;
+
+            wsOutputElement.textContent = result.url;
         } catch (error) {
             wsTitleElement.textContent = "WebSocket：读取失败";
             wsOutputElement.className = "error";
