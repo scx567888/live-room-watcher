@@ -44,16 +44,19 @@ public final class GiftMessageOuterClass extends com.google.protobuf.GeneratedFi
       "to\022\nwebcast.im\032#douyin_hack/webcast/data" +
       "/User.proto\032)douyin_hack/webcast/data/Gi" +
       "ftStruct.proto\032#douyin_hack/webcast/im/C" +
-      "ommon.proto\"\257\002\n\013GiftMessage\022\"\n\006common\030\001 " +
+      "ommon.proto\"\235\003\n\013GiftMessage\022\"\n\006common\030\001 " +
       "\001(\0132\022.webcast.im.Common\022\017\n\007gift_id\030\002 \001(\003" +
       "\022\030\n\020fan_ticket_count\030\003 \001(\003\022\023\n\013group_coun" +
       "t\030\004 \001(\003\022\024\n\014repeat_count\030\005 \001(\003\022\023\n\013combo_c" +
       "ount\030\006 \001(\003\022 \n\004user\030\007 \001(\0132\022.webcast.data." +
       "User\022#\n\007to_user\030\010 \001(\0132\022.webcast.data.Use" +
-      "r\022&\n\004gift\030\017 \001(\0132\030.webcast.data.GiftStruc" +
-      "t\022\023\n\013total_count\030\035 \001(\003\022\r\n\005count\030, \001(\003B@\n" +
-      "<cool.scx.live_room_watcher.impl.douyin_" +
-      "hack.proto.webcast.imP\001b\006proto3"
+      "r\022\022\n\nrepeat_end\030\t \001(\005\022\020\n\010group_id\030\013 \001(\003\022" +
+      "&\n\004gift\030\017 \001(\0132\030.webcast.data.GiftStruct\022" +
+      "\016\n\006log_id\030\020 \001(\t\022\021\n\tsend_type\030\021 \001(\003\022\023\n\013to" +
+      "tal_count\030\035 \001(\003\022\021\n\tsend_time\030! \001(\003\022\020\n\010tr" +
+      "ace_id\030# \001(\t\022\r\n\005count\030, \001(\003B@\n<cool.scx." +
+      "live_room_watcher.impl.douyin_hack.proto" +
+      ".webcast.imP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -67,7 +70,7 @@ public final class GiftMessageOuterClass extends com.google.protobuf.GeneratedFi
     internal_static_webcast_im_GiftMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_webcast_im_GiftMessage_descriptor,
-        new java.lang.String[] { "Common", "GiftId", "FanTicketCount", "GroupCount", "RepeatCount", "ComboCount", "User", "ToUser", "Gift", "TotalCount", "Count", });
+        new java.lang.String[] { "Common", "GiftId", "FanTicketCount", "GroupCount", "RepeatCount", "ComboCount", "User", "ToUser", "RepeatEnd", "GroupId", "Gift", "LogId", "SendType", "TotalCount", "SendTime", "TraceId", "Count", });
     descriptor.resolveAllFeaturesImmutable();
     cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.UserOuterClass.getDescriptor();
     cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.data.GiftStructOuterClass.getDescriptor();
