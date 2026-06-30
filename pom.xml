@@ -192,7 +192,7 @@
         <graalvm-js.version>25.0.0</graalvm-js.version>
         <slf4j.version>2.0.17</slf4j.version>
         <testng.version>7.11.0</testng.version>
-        <playwright.version>1.55.0</playwright.version>
+        <playwright.version>1.61.0</playwright.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
         <os-maven-plugin.version>1.7.1</os-maven-plugin.version>
     </properties>
