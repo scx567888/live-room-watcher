@@ -186,7 +186,7 @@
         <scx-serialize.version>0.4.1</scx-serialize.version>
         <scx-ansi.version>0.3.0</scx-ansi.version>
         <scx-logging.version>0.0.1</scx-logging.version>
-        <scx-scheduling.version>0.2.0</scx-scheduling.version>
+        <scx-scheduling.version>0.2.1</scx-scheduling.version>
         <protobuf.version>4.32.1</protobuf.version>
         <jsoup.version>1.21.2</jsoup.version>
         <graalvm-js.version>25.0.0</graalvm-js.version>
