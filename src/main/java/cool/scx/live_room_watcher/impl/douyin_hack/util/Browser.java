@@ -7,7 +7,7 @@ import dev.scx.http.headers.cookie.Cookies;
 import dev.scx.http.x.HttpClient;
 import dev.scx.http.x.HttpClientOptions;
 import dev.scx.http.x.proxy.Proxy;
-import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
+import dev.scx.websocket.x.ScxWebSocketClientHandshakeRequest;
 import dev.scx.websocket.x.WebSocketClient;
 import dev.scx.websocket.x.WebSocketOptions;
 
@@ -45,8 +45,8 @@ public final class Browser {
         return request;
     }
 
-    public ScxClientWebSocketHandshakeRequest webSocketHandshakeRequest() {
-        var webSocketHandshakeRequest = webSocketClient.webSocketHandshakeRequest();
+    public ScxWebSocketClientHandshakeRequest webSocketHandshakeRequest() {
+        var webSocketHandshakeRequest = webSocketClient.handshakeRequest();
 
         webSocketHandshakeRequest.addHeader("User-Agent", navigator.userAgent());
         webSocketHandshakeRequest.addHeader("Accept", acceptValue());

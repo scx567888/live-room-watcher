@@ -15,7 +15,7 @@ import dev.scx.http.headers.cookie.Cookie;
 import dev.scx.http.headers.cookie.Cookies;
 import dev.scx.http.x.proxy.Proxy;
 import dev.scx.websocket.event.ScxEventWebSocket;
-import dev.scx.websocket.x.ScxClientWebSocketHandshakeRequest;
+import dev.scx.websocket.x.ScxWebSocketClientHandshakeRequest;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -258,7 +258,7 @@ public class TikTokHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         }
     }
 
-    public ScxClientWebSocketHandshakeRequest getWebSocketOptions() {
+    public ScxWebSocketClientHandshakeRequest getWebSocketOptions() {
         var uri = getWebSocketURI(liveRoomInfo.roomID(), useGzip);
         uri.host("webcast16-ws-alisg.tiktok.com").scheme("wss");
         return browser.webSocketHandshakeRequest().uri(uri);
