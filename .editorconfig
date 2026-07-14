@@ -4,7 +4,7 @@ root = true
 [*]
 # 字符集
 charset = utf-8
-# 行分割符
+# 行分隔符
 end_of_line = lf
 # 缩进样式
 indent_style = space
@@ -38,7 +38,7 @@ ij_java_while_brace_force = always
 ij_java_do_while_brace_force = always
 
 [*.js]
-# 使用使用 双引号
+# 使用 双引号
 ij_javascript_use_double_quotes = true
 # 强制 引号样式
 ij_javascript_force_quote_style = true
@@ -72,7 +72,7 @@ ij_css_enforce_quotes_on_format = true
 indent_size = 2
 
 [*.md]
-# 去除行尾空白字符 (MarkDown 行尾空白有特殊含义)
+# 去除行尾空白字符 (Markdown 行尾空白有特殊含义)
 trim_trailing_whitespace = false
 
 [*.{yaml,yml}]
