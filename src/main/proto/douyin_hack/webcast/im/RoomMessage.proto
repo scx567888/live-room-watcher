@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
+
+package webcast.im;
+
+import "douyin_hack/webcast/im/Common.proto";
+import "douyin_hack/webcast/im/PublicAreaCommon.proto";
+import "douyin_hack/webcast/im/RoomMsgExtra.proto";
+
+// 更新时间 : 2026-07-16
+message RoomMessage {
+    webcast.im.Common common = 1;
+    string content = 2;
+    bool supprot_landscape = 3;
+    int32 roomMessageType = 4;
+    bool system_top_msg = 5;
+    bool forced_guarantee = 6;
+    webcast.im.PublicAreaCommon public_area_common = 7;
+    string biz_scene = 20;
+    webcast.im.RoomMsgExtra extra = 40;
+}
