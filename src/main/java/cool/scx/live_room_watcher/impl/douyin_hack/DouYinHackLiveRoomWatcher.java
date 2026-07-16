@@ -57,6 +57,7 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
         map.put("WebcastInRoomBannerMessage", this::WebcastInRoomBannerMessage);
         map.put("WebcastRoomUserSeqMessage", this::WebcastRoomUserSeqMessage);
         map.put("WebcastRoomStreamAdaptationMessage", this::WebcastRoomStreamAdaptationMessage);
+        map.put("WebcastRoomMessage", this::WebcastRoomMessage);
         return map;
     }
 
@@ -326,6 +327,11 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     private void WebcastRoomStreamAdaptationMessage(byte[] payload) throws InvalidProtocolBufferException {
         var roomStreamAdaptationMessage = RoomStreamAdaptationMessage.parseFrom(payload);
         System.out.println("WebcastRoomStreamAdaptationMessage");
+    }
+
+    private void WebcastRoomMessage(byte[] payload) throws InvalidProtocolBufferException {
+        var roomMessage = RoomMessage.parseFrom(payload);
+        System.out.println("WebcastRoomMessage");
     }
 
 }
