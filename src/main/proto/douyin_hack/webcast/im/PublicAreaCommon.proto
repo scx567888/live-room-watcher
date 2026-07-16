@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cool.scx.live_room_watcher.impl.douyin_hack.proto.webcast.im";
+
+package webcast.im;
+
+import "douyin_hack/webcast/im/Common.proto";
+import "douyin_hack/webcast/data/Image.proto";
+
+// 更新时间 : 2026-07-16
+message PublicAreaCommon {
+    webcast.data.Image user_label = 1;
+    int64 user_consume_in_room = 2;
+    int64 user_send_gift_cnt_in_room = 3;
+    int64 individual_priority = 4;
+    int64 support_pin = 6;
+    int32 im_action = 8;
+    bool forbidden_profile = 9;
+    int64 is_featured = 12;
+    bool need_filter_display = 13;
+}
