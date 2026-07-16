@@ -314,7 +314,8 @@ public class DouYinHackLiveRoomWatcher extends AbstractLiveRoomWatcher {
     }
 
     private void WebcastInRoomBannerMessage(byte[] payload) throws InvalidProtocolBufferException {
-        System.err.println("WebcastInRoomBannerMessage");
+        var inRoomBannerMessage = InRoomBannerMessage.parseFrom(payload);
+        System.out.println("WebcastInRoomBannerMessage");
     }
 
     private void WebcastRoomUserSeqMessage(byte[] payload) throws InvalidProtocolBufferException {
